@@ -4,18 +4,15 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function slugcreate() {
+	public function __slugcreate() {
 		die();
-
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
 				'Product.slug' => ''
 			),
-			'limit' => 100
+			'limit' => 10000
 		));
-
-		print_r($products);
 
 		foreach($products as $product) {
 			$data['Product']['id'] = $product['Product']['id'];
@@ -23,7 +20,6 @@ class ProductsController extends AppController {
 			$this->Product->save($data, false);
 		}
 		die();
-
 	}
 
 ////////////////////////////////////////////////////////////
@@ -55,9 +51,19 @@ class ProductsController extends AppController {
 		}
 
 		$this->paginate = array(
+			'contain' => array('User'),
 			'recursive' => -1,
+			'fields' => array(
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'User.short_name'
+			),
 			'limit' => 30,
-			'order' => 'RAND()',
+			'order' => array(
+				'Product.name' => 'ASC'
+			),
 			'paramType' => 'querystring',
 			'conditions' => $conditions
 		);
