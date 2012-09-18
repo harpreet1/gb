@@ -31,6 +31,23 @@
 
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
+
+	Router::connect(
+		'/blog/:year/:month/:day/:slug',
+		array(
+			'controller' => 'blogs',
+			'action' => 'view'
+		),
+		array(
+			'pass' => array(
+	//			'year',
+	//			'month',
+	//			'day',
+				'slug',
+			)
+		)
+	);
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

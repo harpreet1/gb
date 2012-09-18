@@ -35,6 +35,10 @@ class ProductsController extends AppController {
 
 			$user = $this->User->find('first', array(
 				'recursive' => -1,
+				'fields' => array(
+					'User.id',
+					'User.short_name'
+				),
 				'conditions' => array(
 					'User.short_name' => $subDomain
 				)
@@ -60,7 +64,7 @@ class ProductsController extends AppController {
 				'Product.price',
 				'User.short_name'
 			),
-			'limit' => 30,
+			'limit' => 40,
 			'order' => array(
 				'Product.name' => 'ASC'
 			),
@@ -103,6 +107,15 @@ class ProductsController extends AppController {
 				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
 			}
 			$products = $this->Product->find('all', array(
+				'contain' => array('User'),
+				'fields' => array(
+					'Product.id',
+					'Product.name',
+					'Product.slug',
+					'Product.image',
+					'Product.price',
+					'User.short_name'
+				),
 				'conditions' => $conditions,
 				'limit' => 200,
 				'recursive' => -1

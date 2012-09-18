@@ -2,51 +2,45 @@
 
 <div class="row">
 
-<div class="span3">
-LEFT SIDE
-</div>
+	<div class="span4">
+		LEFT SIDE
+	</div>
 
-<div class="span9">
+	<div class="span8">
 
-<div class="row">
+		<div class="row">
 
-<?php
-$i = 0;
-foreach ($products as $product):
-$i++;
-if (($i % 3) == 0) { echo "\n<div class=\"row\">\n\n";}
-?>
-<div class="span3">
-<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'width' => 180, 'height' => 180, 'class' => 'image')); ?>
-<br />
-<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug'])); ?>
-<br />
-$<?php echo $product['Product']['price']; ?>
-<br />
-<br />
-<br />
-</div>
-<?php
-if (($i % 3) == 0) { echo "\n</div>\n\n";}
-endforeach;
-?>
+			<?php
+			$i = 0;
+			foreach ($products as $product):
+			$i++;
+			if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+			?>
+			<div class="span2">
+				<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+				<br />
+				<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug'])); ?>
+				<br />
+				$<?php echo $product['Product']['price']; ?>
+				<br />
+				<br />
+				<br />
+			</div>
+			<?php
+			if (($i % 4) == 0) { echo "\n</div>\n\n";}
+			endforeach;
+			?>
 
-</div>
+		</div>
 
-<p><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}'))); ?></p>
+		<?php echo $this->element('pagination-counter'); ?>
 
-<div class="paging">
- <?php echo $this->Paginator->first('<< first', array(), null, array('class' => 'first disabled')); ?>
- <?php echo $this->Paginator->prev('< previous', array(), null, array('class' => 'prev disabled')); ?>
- <?php echo $this->Paginator->numbers(array('separator' => ' ')); ?>
- <?php echo $this->Paginator->next('next >', array(), null, array('class' => 'next disabled')); ?>
- <?php echo $this->Paginator->last('last >>', array(), null, array('class' => 'last disabled')); ?>
-</div>
+		<?php echo $this->element('pagination'); ?>
 
-<br />
-<br />
+		<br />
+		<br />
 
-</div>
+	</div>
 
 </div>
 
