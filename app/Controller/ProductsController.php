@@ -78,6 +78,7 @@ class ProductsController extends AppController {
 	public function view($id = null) {
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
+			'contain' => array('Tag'),
 			'conditions' => array('Product.slug' => $id)
 		));
 		if (empty($product)) {

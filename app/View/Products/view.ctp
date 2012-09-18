@@ -1,4 +1,3 @@
-<div class="products view">
 <h2><?php  echo __('Product'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -397,22 +396,11 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
+<br />
+<br />
+<br />
+
 <div class="related">
 	<h3><?php echo __('Related Nutritions'); ?></h3>
 	<?php if (!empty($product['Nutrition'])): ?>
@@ -465,21 +453,16 @@
 			<td><?php echo $nutrition['iron']; ?></td>
 			<td><?php echo $nutrition['daily_value']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'nutritions', 'action' => 'view', $nutrition['nutrition_id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'nutritions', 'action' => 'edit', $nutrition['nutrition_id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'nutritions', 'action' => 'delete', $nutrition['nutrition_id']), null, __('Are you sure you want to delete # %s?', $nutrition['nutrition_id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
+
+<br />
+<br />
+
 <div class="related">
 	<h3><?php echo __('Related Tags'); ?></h3>
 	<?php if (!empty($product['Tag'])): ?>
@@ -500,18 +483,9 @@
 			<td><?php echo $tag['created']; ?></td>
 			<td><?php echo $tag['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'tags', 'action' => 'view', $tag['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'tags', 'action' => 'edit', $tag['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'tags', 'action' => 'delete', $tag['id']), null, __('Are you sure you want to delete # %s?', $tag['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
