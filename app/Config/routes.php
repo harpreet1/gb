@@ -31,6 +31,16 @@
 
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
+	Router::connect(
+		'/recipe/:short_name/:slug',
+		array(
+			'controller' => 'recipes',
+			'action' => 'view'
+		),
+		array(
+			'pass' => array('slug')
+		)
+	);
 
 	Router::connect(
 		'/blog/:year/:month/:day/:slug',

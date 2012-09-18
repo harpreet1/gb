@@ -154,12 +154,17 @@ class RecipesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function view($id = null) {
-		$this->Recipe->id = $id;
-		if (!$this->Recipe->exists()) {
-			throw new NotFoundException(__('Invalid recipe'));
+	public function view($slug = null) {
+		$recipe = $this->Recipe->find('first', array(
+			'conditions' => array(
+				'Recipe.slug' => $slug
+			)
+		));
+		if (empty($recipe)) {
+			$this->Session->setFlash('Invalid recipe');
+			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('recipe', $this->Recipe->read(null, $id));
+		$this->set(compact('recipe'));
 	}
 
 ////////////////////////////////////////////////////////////
