@@ -26,6 +26,11 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'sites', 'action' => 'index'));
+
+	Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));
+
+	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

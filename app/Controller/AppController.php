@@ -35,4 +35,10 @@ class AppController extends Controller {
 
 	}
 
+	public function _getSubDomain() {
+		$url = explode('.', $_SERVER['HTTP_HOST']);
+		return $url[0];
+	}
+
+
 }

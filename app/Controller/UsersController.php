@@ -2,10 +2,31 @@
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
+////////////////////////////////////////////////////////////
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('login');
 	}
+
+////////////////////////////////////////////////////////////
+
+	public function vendors() {
+		$users = $this->User->find('all', array(
+			'fields' => array(
+				'User.short_name'
+			),
+			'conditions' => array(
+				'User.short_name !=' => ''
+			),
+			'order' => array(
+				'User.short_name' => 'ASC'
+			),
+		));
+		$this->set(compact('users'));
+	}
+
+////////////////////////////////////////////////////////////
 
 	public function login() {
 		if ($this->request->is('post')) {
@@ -17,15 +38,21 @@ class UsersController extends AppController {
 		}
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function logout() {
 		$this->Session->setFlash('Good-Bye');
 		$this->redirect($this->Auth->logout());
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
+
+////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
 		$this->User->id = $id;
@@ -34,6 +61,8 @@ class UsersController extends AppController {
 		}
 		$this->set('user', $this->User->read(null, $id));
 	}
+
+////////////////////////////////////////////////////////////
 
 	public function admin_add() {
 		if ($this->request->is('post')) {
@@ -46,6 +75,8 @@ class UsersController extends AppController {
 			}
 		}
 	}
+
+////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
 		$this->User->id = $id;
@@ -64,6 +95,8 @@ class UsersController extends AppController {
 		}
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
@@ -79,5 +112,7 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+////////////////////////////////////////////////////////////
 
 }

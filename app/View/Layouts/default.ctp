@@ -23,11 +23,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="#">SHOP</a>
+				<a class="brand" href="#">GB</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><?php echo $this->Html->link('Home', array('controller' => 'products', 'action' => 'view')); ?></li>
-						<li><?php echo $this->Html->link('Shopping Cart', array('controller' => 'shop', 'action' => 'cart')); ?></li>
+						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Vendors', array('controller' => 'users', 'action' => 'vendors')); ?></li>
 					</ul>
 				</div>
 
@@ -40,7 +41,7 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container content">
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 		<br />
@@ -53,10 +54,11 @@
 			<?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
 		</div>
 
-		<?php echo $this->element('sql_dump'); ?>
-
 	</div>
 
+	<br />
+	<br />
+	<?php echo $this->element('sql_dump'); ?>
 	<br />
 	<br />
 

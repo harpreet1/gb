@@ -11,7 +11,7 @@ App::uses('AppModel', 'Model');
 class Product extends AppModel {
 
 
-	public $primaryKey = 'product_id';
+	public $primaryKey = 'id';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
