@@ -7,6 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class ProductsController extends AppController {
 
-	public $scaffold;
+	public $scaffold = 'admin';
 
 }
