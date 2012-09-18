@@ -17,7 +17,7 @@ $i++;
 if (($i % 3) == 0) { echo "\n<div class=\"row\">\n\n";}
 ?>
 <div class="span3">
-<?php echo $this->Html->image('img/products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'width' => 180, 'height' => 180, 'class' => 'image')); ?>
+<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'width' => 180, 'height' => 180, 'class' => 'image')); ?>
 <br />
 <?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug'])); ?>
 <br />
