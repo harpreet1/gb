@@ -4,12 +4,13 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function aaa() {
+	public function slugcreate() {
+		die();
 
 		$products = $this->Product->find('all', array(
-//			'recursive' => -1,
+			'recursive' => -1,
 			'conditions' => array(
-//				'Product.slug' => ''
+				'Product.slug' => ''
 			),
 			'limit' => 100
 		));
@@ -19,11 +20,13 @@ class ProductsController extends AppController {
 		foreach($products as $product) {
 			$data['Product']['id'] = $product['Product']['id'];
 			$data['Product']['slug'] = Inflector::slug(strtolower($product['Product']['name']), '-');
-//			$this->Product->save($data, false);
+			$this->Product->save($data, false);
 		}
 		die();
 
 	}
+
+////////////////////////////////////////////////////////////
 
 	public function index() {
 
@@ -45,14 +48,11 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('user'));
 
-//		debug($user);
-
 		if(!empty($user)) {
 			$conditions	= array(
 				'Product.user_id' => $user['User']['id']
 			);
 		}
-
 
 		$this->paginate = array(
 			'recursive' => -1,
