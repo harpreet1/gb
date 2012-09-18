@@ -1,3 +1,3 @@
 <?php
 
-define('DOMAIN', 'http://www.yourdomain.com');
+define('DOMAIN', 'yourdomain.com');
