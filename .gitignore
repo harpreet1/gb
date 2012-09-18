@@ -1,5 +1,6 @@
 .DS_Store
 app/Config/database.php
+app/Config/settings.php
 app/tmp/logs/error.log
 app/tmp/logs/debug.log
 app/tmp/cache/models/*
