@@ -14,7 +14,9 @@ class UsersController extends AppController {
 	public function vendors() {
 		$users = $this->User->find('all', array(
 			'fields' => array(
-				'User.short_name'
+				'User.short_name',
+				'User.shop_name',
+				'User.logo',
 			),
 			'conditions' => array(
 				'User.short_name !=' => ''
