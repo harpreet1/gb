@@ -24,6 +24,25 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function __trimname() {
+		$products = $this->Product->find('all', array(
+			'recursive' => -1,
+			'conditions' => array(
+//				'Product.slug' => ''
+			),
+			'limit' => 10000
+		));
+
+		foreach($products as $product) {
+			$data['Product']['id'] = $product['Product']['id'];
+			$data['Product']['name'] = trim($product['Product']['name']);
+			$this->Product->save($data, false);
+		}
+//		die('vege');
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function index() {
 
 		$conditions = array();
@@ -166,7 +185,7 @@ class ProductsController extends AppController {
 				'recursive' => -1
 			));
 			if(count($products) == 1) {
-				$this->redirect(array('controller' => 'products', 'action' => 'view', 'slug' =>  $products[0]['Product']['id'] . '-' . $products[0]['Product']['slug']));
+				$this->redirect(array('controller' => 'products', 'action' => 'view', 'id' =>  $products[0]['Product']['id'], 'slug' => $products[0]['Product']['slug']));
 			}
 			$terms1 = array_diff($terms1, array(''));
 			$this->set(compact('products', 'terms1'));
@@ -221,6 +240,7 @@ class ProductsController extends AppController {
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'fields' => array(
+				'Product.id',
 				'Product.slug'
 			),
 			'order' => array(
