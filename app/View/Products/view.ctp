@@ -78,9 +78,10 @@
 }(document, 'script', 'facebook-jssdk'));
 </script>
 
-	<div class="fb-comment">
-		<div class="fb-comments" data-href="http://gourmet-basket.com" data-num-posts="3" data-width="440"></div>
-	</div>
+<div class="fb-comment">
+	<div class="fb-comments" data-href="http://gourmet-basket.com" data-num-posts="3" data-width="440"></div>
+</div>
+<!--Facebook -->
 
 <br />
 <br />
