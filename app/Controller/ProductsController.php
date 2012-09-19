@@ -84,6 +84,9 @@ class ProductsController extends AppController {
 
 		$this->set(compact('products'));
 
+		$title_for_layout = $user['User']['shop_name'] . ' :: GB';
+		$this->set(compact('title_for_layout'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -127,6 +130,10 @@ class ProductsController extends AppController {
 			$this->redirect(array('action' => 'index'), 301);
 		}
 		$this->set(compact('product'));
+
+		$title_for_layout = $product['Product']['name'] . ' :: GB';
+		$this->set(compact('title_for_layout'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -212,9 +219,13 @@ class ProductsController extends AppController {
 
 	public function sitemap() {
 		$products = $this->Product->find('all', array(
-			'fields' => array('Product.slug'),
 			'recursive' => -1,
-			'order' => array('Product.created' => 'DESC'),
+			'fields' => array(
+				'Product.slug'
+			),
+			'order' => array(
+				'Product.created' => 'DESC'
+			),
 		));
 		$this->set(compact('products'));
 		$this->layout = 'xml';

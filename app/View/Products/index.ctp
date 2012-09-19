@@ -1,4 +1,5 @@
-<h2>Products</h2>
+<br />
+<br />
 
 <div class="row">
 
