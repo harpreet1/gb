@@ -14,13 +14,13 @@
 	<?php
 	foreach ($blogs as $blog): ?>
 	<tr>
-		<td><?php echo h($blog['Blog']['id']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['name']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['slug']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['body']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['active']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['created']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['modified']); ?>&nbsp;</td>
+		<td><?php echo h($blog['Blog']['id']); ?></td>
+		<td><?php echo h($blog['Blog']['name']); ?></td>
+		<td><?php echo h($blog['Blog']['slug']); ?></td>
+		<td><?php echo $blog['Blog']['body']; ?></td>
+		<td><?php echo h($blog['Blog']['active']); ?></td>
+		<td><?php echo h($blog['Blog']['created']); ?></td>
+		<td><?php echo h($blog['Blog']['modified']); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $blog['Blog']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $blog['Blog']['id'])); ?>
