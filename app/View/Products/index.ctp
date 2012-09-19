@@ -3,36 +3,71 @@
 <div class="row">
 
 	<div class="span4">
-		LEFT SIDE
+		<?php if(!empty($user)) : ?>
+		<h5><?php echo $user['User']['shop_name']; ?></h5>
+
+		<br />
+
+		<?php echo $this->Html->image('logos/' . $user['User']['logo'], array('class' => 'img-polaroid')); ?>
+
+		<br />
+		<br />
+
+		<p><?php echo $user['User']['shop_quote']; ?></p>
+
+		<br />
+		<br />
+
+		<?php echo $this->Html->image('logos/' . $user['User']['image1'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image2'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image3'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image4'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image5'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+
+		<?php endif; ?>
 	</div>
 
 	<div class="span8">
 
-<div class="row">
+		<div class="row">
 
-<?php
-$i = 0;
-foreach ($products as $product):
-$i++;
-if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-?>
-<div class="span2">
-<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['id'] . '-' . $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-<br />
-<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['id'] . '-' . $product['Product']['slug'])); ?>
-<br />
-$<?php echo $product['Product']['price']; ?>
-<br />
-<br />
-<br />
-</div>
-<?php
-if (($i % 4) == 0) { echo "\n</div>\n\n";}
-endforeach;
-?>
+		<?php
+		$i = 0;
+		foreach ($products as $product):
+		$i++;
+		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+		?>
 
-</div>
+			<div class="span2">
+				<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
 
+				<br />
+				<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+
+				<br />
+				$<?php echo $product['Product']['price']; ?>
+
+				<br />
+				<br />
+				<br />
+			</div>
+
+		<?php
+		if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
+		endforeach;
+		?>
+
+		</div>
 
 		<?php echo $this->element('pagination-counter'); ?>
 
@@ -44,4 +79,42 @@ endforeach;
 	</div>
 
 </div>
+
+<?php if(!empty($user)) : ?>
+<div class="row">
+
+	<div class="span12">
+
+		<h3><?php echo $user['User']['shop_name']; ?></h3>
+
+		<h5><?php echo $user['User']['shop_quote']; ?></h5>
+
+		<?php echo $this->Html->image('logos/' . $user['User']['logo'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image1'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image2'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image3'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image4'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+		<?php echo $this->Html->image('logos/' . $user['User']['image5'], array('class' => 'img-polaroid')); ?>
+		<br />
+		<br />
+
+		<?php echo $user['User']['shop_description']; ?>
+		<br />
+		<br />
+
+		<?php //print_r($user); ?>
+	</div>
+
+</div>
+<?php endif; ?>
 

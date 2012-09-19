@@ -31,13 +31,21 @@ class ProductsController extends AppController {
 		$subDomain = $this->_getSubDomain();
 
 		if($subDomain != 'www') {
-			$this->loadModel('User');
-
-			$user = $this->User->find('first', array(
+//			$this->loadModel('User');
+			$user = $this->Product->User->find('first', array(
 				'recursive' => -1,
 				'fields' => array(
 					'User.id',
-					'User.short_name'
+					'User.short_name',
+					'User.shop_name',
+					'User.shop_quote',
+					'User.shop_description',
+					'User.logo',
+					'User.image1',
+					'User.image2',
+					'User.image3',
+					'User.image4',
+					'User.image5',
 				),
 				'conditions' => array(
 					'User.short_name' => $subDomain
@@ -82,11 +90,37 @@ class ProductsController extends AppController {
 
 	public function view($id = null) {
 
-		$id = substr($id.'-', 0, strpos($id, '-'));
+		$subDomain = $this->_getSubDomain();
+
+		if($subDomain != 'www') {
+//			$this->loadModel('User');
+			$user = $this->Product->User->find('first', array(
+				'recursive' => -1,
+				'fields' => array(
+					'User.id',
+					'User.short_name',
+					'User.shop_name',
+					'User.shop_quote',
+					'User.shop_description',
+					'User.logo',
+					'User.image1',
+					'User.image2',
+					'User.image3',
+					'User.image4',
+					'User.image5',
+				),
+				'conditions' => array(
+					'User.short_name' => $subDomain
+				)
+			));
+		} else{
+			$user = array();
+		}
+		$this->set(compact('user'));
 
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
-			'contain' => array('Tag'),
+//			'contain' => array('Tag'),
 			'conditions' => array('Product.id' => $id)
 		));
 		if (empty($product)) {
