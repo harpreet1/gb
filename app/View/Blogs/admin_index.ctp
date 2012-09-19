@@ -1,6 +1,6 @@
 <div class="blogs index">
 	<h2><?php echo __('Blogs'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
