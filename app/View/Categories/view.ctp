@@ -33,12 +33,12 @@
 		</dd>
 		<dt><?php echo __('Article'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['article']); ?>
+			<?php echo $category['Category']['article']; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Summary'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['summary']); ?>
+			<?php echo $category['Category']['summary']; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Image 1'); ?></dt>
