@@ -27,6 +27,7 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Vendors', array('controller' => 'users', 'action' => 'vendors')); ?></li>
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>

@@ -58,6 +58,7 @@ class ProductsController extends AppController {
 			'contain' => array('User'),
 			'recursive' => -1,
 			'fields' => array(
+				'Product.id',
 				'Product.name',
 				'Product.slug',
 				'Product.image',
@@ -80,10 +81,13 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function view($id = null) {
+
+		$id = substr($id.'-', 0, strpos($id, '-'));
+
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
 			'contain' => array('Tag'),
-			'conditions' => array('Product.slug' => $id)
+			'conditions' => array('Product.id' => $id)
 		));
 		if (empty($product)) {
 			$this->redirect(array('action' => 'index'), 301);
@@ -121,7 +125,7 @@ class ProductsController extends AppController {
 				'recursive' => -1
 			));
 			if(count($products) == 1) {
-				$this->redirect(array('controller' => 'products', 'action' => 'view', 'slug' => $products[0]['Product']['slug']));
+				$this->redirect(array('controller' => 'products', 'action' => 'view', 'slug' =>  $products[0]['Product']['id'] . '-' . $products[0]['Product']['slug']));
 			}
 			$terms1 = array_diff($terms1, array(''));
 			$this->set(compact('products', 'terms1'));

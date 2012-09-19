@@ -33,9 +33,9 @@ $i++;
 if (($i % 6) == 0) { echo "\n<div class=\"row\">\n\n";}
 ?>
 <div class="span2">
-<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'width' => 150, 'height' => 150, 'class' => 'img-polaroid img180')); ?>
+<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['id'] . '-' . $product['Product']['slug']), 'alt' => $product['Product']['name'], 'width' => 150, 'height' => 150, 'class' => 'img-polaroid img180')); ?>
 <br />
-<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['slug'])); ?>
+<?php echo $this->Html->link($product['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' =>  $product['Product']['id'] . '-' . $product['Product']['slug'])); ?>
 <br />
 $<?php echo $product['Product']['price']; ?>
 <br />
