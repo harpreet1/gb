@@ -14,6 +14,7 @@ class UsersController extends AppController {
 	public function vendors() {
 		$users = $this->User->find('all', array(
 			'fields' => array(
+				'User.id',
 				'User.short_name',
 				'User.shop_name',
 				'User.logo',
@@ -25,6 +26,18 @@ class UsersController extends AppController {
 				'User.short_name' => 'ASC'
 			),
 		));
+
+//		foreach($users as $user) {
+//			if(strstr($user['User']['logo'], '.jpg')) {
+//				rename(IMAGES . 'logos/' . $user['User']['logo'], IMAGES . 'logo/' . $user['User']['short_name'] . '.jpg');
+
+//				$data['User']['id'] = $user['User']['id'];
+//				$data['User']['logo'] = $user['User']['short_name'] . '.jpg';
+//				print_r($data);
+//				$this->User->save($data, false);
+//			}
+//		}
+
 		$this->set(compact('users'));
 	}
 
