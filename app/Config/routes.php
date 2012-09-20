@@ -1,5 +1,7 @@
 <?php
 
+	App::uses('SubdomainRoute', 'Route');
+
 	function getSubDomain() {
 		$url = explode('.', env('HTTP_HOST'));
 		return $url;
@@ -12,7 +14,7 @@
 		Router::connect('/', array('controller' => 'sites', 'action' => 'index'));
 	}
 
-	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+'));
+	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
 
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
