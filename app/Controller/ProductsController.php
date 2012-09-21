@@ -124,6 +124,7 @@ class ProductsController extends AppController {
 		$usersubcategories =  $this->Product->find('all', array(
 			'contain' => array('Category', 'Subcategory'),
 			'fields' => array(
+				'Subcategory.id',
 				'Subcategory.name',
 				'Subcategory.slug'
 			),
@@ -139,8 +140,65 @@ class ProductsController extends AppController {
 			),
 		));
 
-		$products =  $this->Product->find('all', array(
+		$this->paginate = array(
 			'contain' => array('User', 'Category', 'Subcategory'),
+			'recursive' => -1,
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'User.short_name'
+			),
+			'limit' => 40,
+			'conditions' => array(
+				'Product.user_id' => $user['User']['id'],
+				'Category.slug' => $slug,
+			),
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			),
+			'paramType' => 'querystring',
+		);
+		$products = $this->paginate('Product');
+
+
+		$this->set(compact('user', 'usersubcategories', 'products'));
+
+		$this->render('index');
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function subsubcategory($slug) {
+
+		$subDomain = $this->_getSubDomain();
+
+		if($subDomain != 'www') {
+			$user = $this->Product->User->getBySubdomain($subDomain);
+		}
+
+		$usersubsubcategories =  $this->Product->find('all', array(
+			'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
+			'fields' => array(
+				'Subsubcategory.name',
+				'Subsubcategory.slug'
+			),
+			'conditions' => array(
+				'Product.user_id' => $user['User']['id'],
+				'Subsubcategory.slug' => $slug,
+			),
+			'group' => array(
+				'Product.subsubcategory_id'
+			),
+			'order' => array(
+				'Subsubcategory.name' => 'ASC'
+			),
+		));
+
+		$this->paginate = array(
+			'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
 			'fields' => array(
 				'Product.id',
 				'Product.name',
@@ -151,14 +209,16 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Category.slug' => $slug,
+				'Product.subsubcategory_id' => $slug,
 			),
 			'order' => array(
-				'Subcategory.name' => 'ASC'
+				'Subsubcategory.name' => 'ASC'
 			),
-		));
+			'paramType' => 'querystring',
+		);
+		$products = $this->paginate('Product');
 
-		$this->set(compact('user', 'usersubcategories', 'products'));
+		$this->set(compact('user', 'usersubsubcategories', 'products'));
 
 		$this->render('index');
 	}

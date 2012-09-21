@@ -26,6 +26,13 @@ class Product extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Subsubcategory' => array(
+			'className' => 'Subsubcategory',
+			'foreignKey' => 'subsubcategory_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 	);
 
 ////////////////////////////////////////////////////////////

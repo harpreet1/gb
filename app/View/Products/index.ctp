@@ -36,13 +36,29 @@
 		<h6>Our Subcategories</h6>
 
 		<?php foreach ($usersubcategories as $usersubcategory): ?>
-			<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubcategory['Subcategory']['slug'])); ?>
+			<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
 
 			<br />
 		<?php endforeach; ?>
 		<br />
 		<br />
 		<?php endif; ?>
+
+		<?php if(!empty($usersubsubcategories)) : ?>
+
+		<br />
+		<br />
+		<h6>Our Subcategories</h6>
+
+		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
+			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['slug'])); ?>
+
+			<br />
+		<?php endforeach; ?>
+		<br />
+		<br />
+		<?php endif; ?>
+
 
 		<p><?php echo $user['User']['shop_quote']; ?></p>
 
