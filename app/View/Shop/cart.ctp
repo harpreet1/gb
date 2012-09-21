@@ -16,8 +16,9 @@ Shopping Cart is empty
 <hr>
 
 <div class="row">
-	<div class="span1">#</div>
-	<div class="span7">ITEM</div>
+	<div class="span2">VENDOR</div>
+	<div class="span1">IMAGE</div>
+	<div class="span5">ITEM</div>
 	<div class="span1">PRICE</div>
 	<div class="span1">QUANTITY</div>
 	<div class="span1">SUBTOTAL</div>
@@ -26,8 +27,9 @@ Shopping Cart is empty
 
 <?php foreach ($items as $item): ?>
 	<div class="row">
+		<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-		<div class="span7"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
+		<div class="span5"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
 		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
 		<div class="span1"><?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>

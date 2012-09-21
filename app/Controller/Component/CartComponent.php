@@ -37,6 +37,12 @@ class CartComponent extends Component {
 
 		$product = $this->controller->Product->find('first', array(
 			'recursive' => -1,
+			'contain' => array('User'),
+			'fields' => array(
+				'Product.*',
+				'User.shop_name',
+				'User.zip',
+			),
 			'conditions' => array(
 				'Product.id' => $id
 			)
@@ -49,6 +55,7 @@ class CartComponent extends Component {
 		$data['totalweight'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
 
 		$data['Product'] = $product['Product'];
+		$data['User'] = $product['User'];
 		$this->Session->write('Shop.Cart.Items.' . $id, $data);
 
 		$this->cart();
