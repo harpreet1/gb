@@ -6,6 +6,7 @@ class ShopController extends AppController {
 
 	public $components = array(
 		'Cart',
+		'Ups'
 		//'Paypal'
 	);
 
@@ -78,6 +79,22 @@ class ShopController extends AppController {
 		$cart = $this->Session->read('Shop.Cart');
 		$this->set('items', $cart['Items']);
 		$this->set('cartTotal', $cart['Property']['cartTotal']);
+	}
+
+//////////////////////////////////////////////////
+
+	public function ups() {
+
+		$shipping = $this->Ups->getRate(array(
+			'ShipFromZip' => 91367,
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => 91367,
+			'ShipToCountry' => 'US',
+			'Weight' => 1,
+			'Service' => '03'
+		));
+		print_r($shipping);
+		die;
 	}
 
 //////////////////////////////////////////////////
