@@ -16,6 +16,8 @@
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
 
+	Router::connect('/subcategory/:slug', array('controller' => 'products', 'action' => 'subcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
 	Router::connect(

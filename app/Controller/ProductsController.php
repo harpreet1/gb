@@ -56,7 +56,6 @@ class ProductsController extends AppController {
 			$usercategories =  $this->Product->find('all', array(
 				'contain' => array('Category'),
 				'fields' => array(
-//					'DISTINCT Product.category_id',
 					'Category.name',
 					'Category.slug'
 				),
@@ -105,11 +104,63 @@ class ProductsController extends AppController {
 
 		$this->set(compact('products'));
 
-		$tt = empty($user) ? 'All Products' : $user['User']['shop_name'];
+		$title = empty($user) ? 'All Products' : $user['User']['shop_name'];
 
-		$title_for_layout = $tt . ' :: GB';
+		$title_for_layout = $title . ' :: GB';
 		$this->set(compact('title_for_layout'));
 
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function subcategory($slug) {
+
+		$subDomain = $this->_getSubDomain();
+
+		if($subDomain != 'www') {
+			$user = $this->Product->User->getBySubdomain($subDomain);
+		}
+
+		$usersubcategories =  $this->Product->find('all', array(
+			'contain' => array('Category', 'Subcategory'),
+			'fields' => array(
+				'Subcategory.name',
+				'Subcategory.slug'
+			),
+			'conditions' => array(
+				'Product.user_id' => $user['User']['id'],
+				'Category.slug' => $slug,
+			),
+			'group' => array(
+				'Product.subcategory_id'
+			),
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			),
+		));
+
+		$products =  $this->Product->find('all', array(
+			'contain' => array('User', 'Category', 'Subcategory'),
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'User.short_name'
+			),
+			'conditions' => array(
+				'Product.user_id' => $user['User']['id'],
+				'Category.slug' => $slug,
+			),
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			),
+		));
+
+		$this->set(compact('user', 'usersubcategories', 'products'));
+
+		$this->render('index');
 	}
 
 ////////////////////////////////////////////////////////////
@@ -127,7 +178,7 @@ class ProductsController extends AppController {
 
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
-//			'contain' => array('Tag'),
+			// 'contain' => array('Tag'),
 			'conditions' => array('Product.id' => $id)
 		));
 		if (empty($product)) {
@@ -137,65 +188,6 @@ class ProductsController extends AppController {
 
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));
-
-	}
-
-////////////////////////////////////////////////////////////
-
-	public function subcategory() {
-
-		$subDomain = $this->_getSubDomain();
-
-		if($subDomain != 'www') {
-			$user = $this->Product->User->getBySubdomain($subDomain);
-		}
-
-		$slug = $this->request->params['named']['slug'];
-
-		$usersubcategories =  $this->Product->find('all', array(
-			'contain' => array('Category', 'Subcategory'),
-			'fields' => array(
-//					'DISTINCT Product.category_id',
-				'Subcategory.name',
-				'Subcategory.slug'
-			),
-			'conditions' => array(
-				'Product.user_id' => $user['User']['id'],
-				'Category.slug' => $slug,
-			),
-			'group' => array(
-				'Product.subcategory_id'
-			),
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			),
-		));
-
-		echo '<pre>';
-		print_r($usersubcategories);
-//		die('end');
-
-		$products =  $this->Product->find('all', array(
-			'contain' => array('Category', 'Subcategory'),
-			'fields' => array(
-				'Product.id',
-				'Product.name',
-				'Product.slug',
-				'Product.image',
-			),
-			'conditions' => array(
-				'Product.user_id' => $user['User']['id'],
-				'Category.slug' => $slug,
-			),
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			),
-		));
-
-		echo '<pre>';
-		print_r($products);
-
-		die('end');
 
 	}
 
