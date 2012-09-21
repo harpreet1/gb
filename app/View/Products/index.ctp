@@ -5,14 +5,29 @@
 
 	<div class="span4">
 		<?php if(!empty($user)) : ?>
+
 		<h5><?php echo $user['User']['shop_name']; ?></h5>
 
 		<br />
 
 		<?php echo $this->Html->image('logos/' . $user['User']['logo'], array('class' => 'img-polaroid')); ?>
 
+
+		<?php if(!empty($usercategories)) : ?>
+
 		<br />
 		<br />
+		<h6>Our Categories</h6>
+
+		<?php foreach ($usercategories as $usercategory): ?>
+			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usercategory['Category']['slug'])); ?>
+
+			<br />
+		<?php endforeach; ?>
+		<br />
+		<br />
+		<?php endif; ?>
+
 
 		<p><?php echo $user['User']['shop_quote']; ?></p>
 

@@ -18,4 +18,30 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public function getBySubdomain($subDomain) {
+
+		$user = $this->find('first', array(
+			'recursive' => -1,
+			'fields' => array(
+				'User.id',
+				'User.short_name',
+				'User.shop_name',
+				'User.shop_quote',
+				'User.shop_description',
+				'User.logo',
+				'User.image1',
+				'User.image2',
+				'User.image3',
+				'User.image4',
+				'User.image5',
+			),
+			'conditions' => array(
+				'User.short_name' => $subDomain
+			)
+		));
+		return $user;
+	}
+
+////////////////////////////////////////////////////////////
+
 }
