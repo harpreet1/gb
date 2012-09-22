@@ -85,7 +85,7 @@ class ShopController extends AppController {
 
 	public function ups() {
 
-		$shipping = $this->Ups->getRate(array(
+		$ups = $this->Ups->getRate(array(
 			'ShipFromZip' => 91367,
 			'ShipFromCountry' => 'US',
 			'ShipToZip' => 91367,
@@ -93,8 +93,7 @@ class ShopController extends AppController {
 			'Weight' => 1,
 			'Service' => '03'
 		));
-		print_r($shipping);
-		die;
+		$this->set(compact('ups'));
 	}
 
 //////////////////////////////////////////////////
