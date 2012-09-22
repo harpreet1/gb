@@ -21,32 +21,31 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 
 //////////////////////////////////////////////////
 
-//	public $url       = 'https://www.ups.com/ups.app/xml/Rate';
-	public $url       = 'https://wwwcie.ups.com/ups.app/xml/Rate';
-	public $handlingFee  = 0;
+	//public $url = 'https://www.ups.com/ups.app/xml/Rate';
+	public $url = 'https://wwwcie.ups.com/ups.app/xml/Rate';
 
 	public $defaults     = array(
-		'ShipperZip'	    => '94901',
-		'ShipperCountry'    => 'US',
-		'ShipFromZip'	    => '94901',
-		'ShipFromCountry'   => 'US',
-		'ShipToZip'         => '76086',
-		'ShipToCountry'     => 'US',
+		'ShipperZip' => '94901',
+		'ShipperCountry' => 'US',
+		'ShipFromZip' => '94901',
+		'ShipFromCountry' => 'US',
+		'ShipToZip' => '76086',
+		'ShipToCountry' => 'US',
 
-		'ShipperNumber'		=> '01',
-		'PickupType'		=> '01',
-		'PackagingType'		=> '02',
+		'ShipperNumber' => '01',
+		'PickupType' => '01',
+		'PackagingType' => '02',
 
-		'DimensionsUnit'	=> 'IN',
+		'DimensionsUnit' => 'IN',
 
-		'DimensionsLength'	=> '8',
-		'DimensionsHeight'	=> '8',
-		'DimensionsWidth'	=> '8',
+		'DimensionsLength' => '8',
+		'DimensionsHeight' => '8',
+		'DimensionsWidth' => '8',
 
-		'WeightUnit'		=> 'LBS',
-		'Weight'			=> '1',
+		'WeightUnit' => 'LBS',
+		'Weight' => '1',
 
-		'Service'			=> '03'
+		'Service' => '03'
 	);
 
 //////////////////////////////////////////////////
@@ -71,10 +70,9 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 
 //////////////////////////////////////////////////
 
-	public function request($data = null) {
+	protected function request($data = null) {
 		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
-		//print_r($xml);
 		$ch = curl_init($this->url);
 		curl_setopt($ch, CURLOPT_HEADER, 1);
 		curl_setopt($ch, CURLOPT_POST, 1);
@@ -84,15 +82,14 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
 		$res = curl_exec($ch);
-		$res = strstr($res, '<?'); // REMOVES HEADERS
+		$res = strstr($res, '<?');
 		$response = Xml::toArray(Xml::build($res));
-		//print_r($response);
 		return $response;
 	}
 
 //////////////////////////////////////////////////
 
-	public function buildRequest($data=array()) {
+	protected function buildRequest($data=array()) {
 
 		$this->defaults = array_merge((array)$this->defaults, (array)$data);
 

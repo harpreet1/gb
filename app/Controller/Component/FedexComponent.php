@@ -37,33 +37,33 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 	public $fedex_dropoff_type = '';
 	public $fedex_packaging_type = '';
 
-//	public $url       = 'https://gateway.fedex.com/web-services/';
-	public $url       = 'https://gatewaybeta.fedex.com/web-services/';
+	//public $url = 'https://gateway.fedex.com/web-services/';
+	public $url = 'https://gatewaybeta.fedex.com/web-services/';
 
 	public $handlingFee  = 0;
 
 	public $defaults     = array(
-		'ShipperZip'	    => '94901',
-		'ShipperCountry'    => 'US',
-		'ShipFromZip'	    => '94901',
-		'ShipFromCountry'   => 'US',
-		'ShipToZip'         => '76086',
-		'ShipToCountry'     => 'US',
+		'ShipperZip' => '94901',
+		'ShipperCountry' => 'US',
+		'ShipFromZip' => '94901',
+		'ShipFromCountry' => 'US',
+		'ShipToZip' => '76086',
+		'ShipToCountry' => 'US',
 
-		'ShipperNumber'		=> '01',
-		'PickupType'		=> '01',
-		'PackagingType'		=> '02',
+		'ShipperNumber' => '01',
+		'PickupType' => '01',
+		'PackagingType' => '02',
 
-		'DimensionsUnit'	=> 'IN',
+		'DimensionsUnit' => 'IN',
 
-		'DimensionsLength'	=> '8',
-		'DimensionsHeight'	=> '8',
-		'DimensionsWidth'	=> '8',
+		'DimensionsLength' => '8',
+		'DimensionsHeight' => '8',
+		'DimensionsWidth' => '8',
 
-		'WeightUnit'		=> 'LBS',
-		'Weight'			=> '1',
+		'WeightUnit' => 'LBS',
+		'Weight' => '1',
 
-		'Service'			=> '03'
+		'Service' => '03'
 	);
 
 	public function startup(&$controller, $options=array()) {
@@ -86,7 +86,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 //////////////////////////////////////////////////
 
-	public function request($data = null) {
+	protected function request($data = null) {
 		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
 		//print_r($xml);
@@ -99,7 +99,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
 		$res = curl_exec($ch);
-		$res = strstr($res, '<?'); // REMOVES HEADERS
+		$res = strstr($res, '<?');
 		$response = Xml::toArray(Xml::build($res));
 		//print_r($response);
 		return $response;
@@ -107,7 +107,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 //////////////////////////////////////////////////
 
-	public function buildRequest($data=array()) {
+	protected function buildRequest($data=array()) {
 
 		$this->defaults = array_merge((array)$this->defaults, (array)$data);
 
@@ -219,7 +219,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 //////////////////////////////////////////////////
 
-	function getQuote($address) {
+	protected function getQuote($address) {
 		$this->load->language('shipping/fedex');
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . (int)$this->config->get('fedex_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . "' AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')");
