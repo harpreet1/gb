@@ -105,7 +105,7 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 		if ($this->defaults['DimensionsHeight'] < .1) { $this->defaults['DimensionsHeight'] = 1; }
 		if ($this->defaults['DimensionsWidth'] < .1) { $this->defaults['DimensionsWidth'] = 1; }
 
-		return '<?xml version="1.0"?>
+		$xml = '<?xml version="1.0"?>
 		<AccessRequest xml:lang="en-US">
 			<AccessLicenseNumber>' . $this->accessKey . '</AccessLicenseNumber>
 			<UserId>' . $this->userId . '</UserId>
@@ -166,6 +166,8 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 				</Package>
 			</Shipment>
 		</RatingServiceSelectionRequest>';
+
+		return $xml;
 	}
 
 //////////////////////////////////////////////////

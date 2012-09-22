@@ -6,7 +6,8 @@ class ShopController extends AppController {
 
 	public $components = array(
 		'Cart',
-		'Ups'
+		'Ups',
+		'Fedex',
 		//'Paypal'
 	);
 
@@ -97,6 +98,22 @@ class ShopController extends AppController {
 	}
 
 //////////////////////////////////////////////////
+
+	public function fedex() {
+
+		$fedex = $this->Fedex->getRate(array(
+			'ShipFromZip' => 91367,
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => 91367,
+			'ShipToCountry' => 'US',
+			'Weight' => 1,
+			'Service' => '03'
+		));
+		$this->set(compact('fedex'));
+	}
+
+//////////////////////////////////////////////////
+
 
 	public function address() {
 
