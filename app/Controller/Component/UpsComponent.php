@@ -5,8 +5,6 @@ class UpsComponent extends Component {
 
 /*
 
-to do:
-
 $_['text_us_origin_01']    = 'UPS Next Day Air';
 $_['text_us_origin_02']    = 'UPS 2nd Day Air';
 $_['text_us_origin_03']    = 'UPS Ground';
@@ -23,11 +21,8 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 
 //////////////////////////////////////////////////
 
-	public $accessKey    = '2C8C98E873ABA238';
-	public $userId       = 'jorgersw';
-	public $password     = 'Silver888light';
-//	public $upsUrl       = 'https://www.ups.com/ups.app/xml/Rate';
-	public $upsUrl       = 'https://wwwcie.ups.com/ups.app/xml/Rate';
+//	public $url       = 'https://www.ups.com/ups.app/xml/Rate';
+	public $url       = 'https://wwwcie.ups.com/ups.app/xml/Rate';
 	public $handlingFee  = 0;
 
 	public $defaults     = array(
@@ -80,7 +75,7 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
 		//print_r($xml);
-		$ch = curl_init($this->upsUrl);
+		$ch = curl_init($this->url);
 		curl_setopt($ch, CURLOPT_HEADER, 1);
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
@@ -107,9 +102,9 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 
 		$xml = '<?xml version="1.0"?>
 		<AccessRequest xml:lang="en-US">
-			<AccessLicenseNumber>' . $this->accessKey . '</AccessLicenseNumber>
-			<UserId>' . $this->userId . '</UserId>
-			<Password>' . $this->password . '</Password>
+			<AccessLicenseNumber>' . UPS_ACCESSKEY . '</AccessLicenseNumber>
+			<UserId>' . UPS_USERID . '</UserId>
+			<Password>' . UPS_PASSWORD . '</Password>
 		</AccessRequest>
 		<?xml version="1.0"?>
 		<RatingServiceSelectionRequest xml:lang="en-US">

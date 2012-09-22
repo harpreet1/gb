@@ -34,11 +34,12 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 //////////////////////////////////////////////////
 
-	public $accessKey    = '2C8C98E873ABA238';
-	public $userId       = 'jorgersw';
-	public $password     = 'Silver888light';
-//	public $upsUrl       = 'https://www.ups.com/ups.app/xml/Rate';
-	public $upsUrl       = 'https://wwwcie.ups.com/ups.app/xml/Rate';
+	public $fedex_dropoff_type = '';
+	public $fedex_packaging_type = '';
+
+//	public $url       = 'https://gateway.fedex.com/web-services/';
+	public $url       = 'https://gatewaybeta.fedex.com/web-services/';
+
 	public $handlingFee  = 0;
 
 	public $defaults     = array(
@@ -89,7 +90,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
 		//print_r($xml);
-		$ch = curl_init($this->upsUrl);
+		$ch = curl_init($this->url);
 		curl_setopt($ch, CURLOPT_HEADER, 1);
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
@@ -110,71 +111,108 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 		$this->defaults = array_merge((array)$this->defaults, (array)$data);
 
-		if ($this->defaults['DimensionsLength'] < .1) { $this->defaults['DimensionsLength'] = 1; }
-		if ($this->defaults['DimensionsHeight'] < .1) { $this->defaults['DimensionsHeight'] = 1; }
-		if ($this->defaults['DimensionsWidth'] < .1) { $this->defaults['DimensionsWidth'] = 1; }
+		$date = time();
 
-		$xml = '<?xml version="1.0"?>
-		<AccessRequest xml:lang="en-US">
-			<AccessLicenseNumber>' . $this->accessKey . '</AccessLicenseNumber>
-			<UserId>' . $this->userId . '</UserId>
-			<Password>' . $this->password . '</Password>
-		</AccessRequest>
-		<?xml version="1.0"?>
-		<RatingServiceSelectionRequest xml:lang="en-US">
-			<Request>
-				<TransactionReference>
-					<CustomerContext>Bare Bones Rate Request</CustomerContext>
-					<XpciVersion>1.0001</XpciVersion>
-				</TransactionReference>
-				<RequestAction>Rate</RequestAction>
-				<RequestOption>shop</RequestOption>
-			</Request>
-			<PickupType>
-				<Code>' . $this->defaults['PickupType'] . '</Code>
-			</PickupType>
-			<Shipment>
-				<Shipper>
-					<Address>
-						<PostalCode>' . $this->defaults['ShipperZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipperCountry'] . '</CountryCode>
-					</Address>
-					<ShipperNumber>' . $this->defaults['ShipperNumber'] . '</ShipperNumber>
-				</Shipper>
-				<ShipTo>
-					<Address>
-						<PostalCode>' . $this->defaults['ShipToZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipToCountry'] . '</CountryCode>
-						<ResidentialAddressIndicator/>
-					</Address>
-				</ShipTo>
-				<ShipFrom>
-					<Address>
-						<PostalCode>' . $this->defaults['ShipFromZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipFromCountry'] . '</CountryCode>
-					</Address>
-				</ShipFrom>
-				<Package>
-					<PackagingType>
-						<Code>' . $this->defaults['PackagingType'] . '</Code>
-					</PackagingType>
-					<Dimensions>
-						<UnitOfMeasurement>
-							<Code>' . $this->defaults['DimensionsUnit'] . '</Code>
-						</UnitOfMeasurement>
-						<Length>' . $this->defaults['DimensionsLength'] . '</Length>
-						<Width>' . $this->defaults['DimensionsWidth'] . '</Width>
-						<Height>' . $this->defaults['DimensionsHeight'] . '</Height>
-					</Dimensions>
-					<PackageWeight>
-						<UnitOfMeasurement>
-							<Code>' . $this->defaults['WeightUnit'] . '</Code>
-						</UnitOfMeasurement>
-						<Weight>' . number_format($this->defaults['Weight'], 2, '.', '') . '</Weight>
-					</PackageWeight>
-				</Package>
-			</Shipment>
-		</RatingServiceSelectionRequest>';
+		$day = date('l', $date);
+
+		if ($day == 'Saturday') {
+			$date += 172800;
+		} elseif ($day == 'Sunday') {
+			$date += 86400;
+		}
+
+		$xml  = '<?xml version="1.0"?>';
+		$xml .= '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://fedex.com/ws/rate/v10">';
+		$xml .= '	<SOAP-ENV:Body>';
+		$xml .= '		<ns1:RateRequest>';
+		$xml .= '			<ns1:WebAuthenticationDetail>';
+		$xml .= '				<ns1:UserCredential>';
+		$xml .= '					<ns1:Key>' . FEDEX_KEY . '</ns1:Key>';
+		$xml .= '					<ns1:Password>' . FEDEX_PASSWORD . '</ns1:Password>';
+		$xml .= '				</ns1:UserCredential>';
+		$xml .= '			</ns1:WebAuthenticationDetail>';
+		$xml .= '			<ns1:ClientDetail>';
+		$xml .= '				<ns1:AccountNumber>' . FEDEX_ACCOUNT . '</ns1:AccountNumber>';
+		$xml .= '				<ns1:MeterNumber>' . FEDEX_METER . '</ns1:MeterNumber>';
+		$xml .= '			</ns1:ClientDetail>';
+		$xml .= '			<ns1:Version>';
+		$xml .= '				<ns1:ServiceId>crs</ns1:ServiceId>';
+		$xml .= '				<ns1:Major>10</ns1:Major>';
+		$xml .= '				<ns1:Intermediate>0</ns1:Intermediate>';
+		$xml .= '				<ns1:Minor>0</ns1:Minor>';
+		$xml .= '			</ns1:Version>';
+		$xml .= '			<ns1:ReturnTransitAndCommit>true</ns1:ReturnTransitAndCommit>';
+		$xml .= '			<ns1:RequestedShipment>';
+		$xml .= '				<ns1:ShipTimestamp>' . date('c', $date) . '</ns1:ShipTimestamp>';
+		$xml .= '				<ns1:DropoffType>' . $this->fedex_dropoff_type . '</ns1:DropoffType>';
+		$xml .= '				<ns1:PackagingType>' . $this->fedex_packaging_type . '</ns1:PackagingType>';
+		$xml .= '				<ns1:Shipper>';
+		$xml .= '					<ns1:Contact>';
+		$xml .= '						<ns1:PersonName>' . $this->config->get('config_owner') . '</ns1:PersonName>';
+		$xml .= '						<ns1:CompanyName>' . $this->config->get('config_name') . '</ns1:CompanyName>';
+		$xml .= '						<ns1:PhoneNumber>' . $this->config->get('config_telephone') . '</ns1:PhoneNumber>';
+		$xml .= '					</ns1:Contact>';
+		$xml .= '					<ns1:Address>';
+
+		if ($country_info['iso_code_2'] == 'US') {
+			$xml .= '						<ns1:StateOrProvinceCode>' . ($zone_info ? $zone_info['code'] : '') . '</ns1:StateOrProvinceCode>';
+		} else {
+			$xml .= '						<ns1:StateOrProvinceCode>' . ($zone_info ? $zone_info['name'] : '') . '</ns1:StateOrProvinceCode>';
+		}
+
+		$xml .= '						<ns1:PostalCode>' . $this->config->get('fedex_postcode') . '</ns1:PostalCode>';
+		$xml .= '						<ns1:CountryCode>' . $country_info['iso_code_2'] . '</ns1:CountryCode>';
+		$xml .= '					</ns1:Address>';
+		$xml .= '				</ns1:Shipper>';
+
+		$xml .= '				<ns1:Recipient>';
+		$xml .= '					<ns1:Contact>';
+		$xml .= '						<ns1:PersonName>' . $address['firstname'] . ' ' . $address['lastname'] . '</ns1:PersonName>';
+		$xml .= '						<ns1:CompanyName>' . $address['company'] . '</ns1:CompanyName>';
+		$xml .= '						<ns1:PhoneNumber>' . $this->customer->getTelephone() . '</ns1:PhoneNumber>';
+		$xml .= '					</ns1:Contact>';
+		$xml .= '					<ns1:Address>';
+		$xml .= '						<ns1:StreetLines>' . $address['address_1'] . '</ns1:StreetLines>';
+		$xml .= '						<ns1:City>' . $address['city'] . '</ns1:City>';
+
+		if ($address['iso_code_2'] == 'US') {
+			$xml .= '						<ns1:StateOrProvinceCode>' . $address['zone_code'] . '</ns1:StateOrProvinceCode>';
+		} else {
+			$xml .= '						<ns1:StateOrProvinceCode>' . $address['zone'] . '</ns1:StateOrProvinceCode>';
+		}
+
+		$xml .= '						<ns1:PostalCode>' . $address['postcode'] . '</ns1:PostalCode>';
+		$xml .= '						<ns1:CountryCode>' . $address['iso_code_2'] . '</ns1:CountryCode>';
+		$xml .= '						<ns1:Residential>' . ($address['company'] ? 'true' : 'false') . '</ns1:Residential>';
+		$xml .= '					</ns1:Address>';
+		$xml .= '				</ns1:Recipient>';
+		$xml .= '				<ns1:ShippingChargesPayment>';
+		$xml .= '					<ns1:PaymentType>SENDER</ns1:PaymentType>';
+		$xml .= '					<ns1:Payor>';
+		$xml .= '						<ns1:AccountNumber>' . $this->fedex_account . '</ns1:AccountNumber>';
+		$xml .= '						<ns1:CountryCode>' . $country_info['iso_code_2'] . '</ns1:CountryCode>';
+		$xml .= '					</ns1:Payor>';
+		$xml .= '				</ns1:ShippingChargesPayment>';
+		$xml .= '				<ns1:RateRequestTypes>' . $this->config->get('fedex_rate_type') . '</ns1:RateRequestTypes>';
+		$xml .= '				<ns1:PackageCount>1</ns1:PackageCount>';
+		$xml .= '				<ns1:RequestedPackageLineItems>';
+		$xml .= '					<ns1:SequenceNumber>1</ns1:SequenceNumber>';
+		$xml .= '					<ns1:GroupPackageCount>1</ns1:GroupPackageCount>';
+		$xml .= '					<ns1:Weight>';
+		$xml .= '						<ns1:Units>' . $weight_code . '</ns1:Units>';
+		$xml .= '						<ns1:Value>' . $weight . '</ns1:Value>';
+		$xml .= '					</ns1:Weight>';
+		$xml .= '					<ns1:Dimensions>';
+		$xml .= '						<ns1:Length>20</ns1:Length>';
+		$xml .= '						<ns1:Width>20</ns1:Width>';
+		$xml .= '						<ns1:Height>10</ns1:Height>';
+		$xml .= '						<ns1:Units>IN</ns1:Units>';
+		$xml .= '					</ns1:Dimensions>';
+		$xml .= '				</ns1:RequestedPackageLineItems>';
+		$xml .= '			</ns1:RequestedShipment>';
+		$xml .= '		</ns1:RateRequest>';
+		$xml .= '	</SOAP-ENV:Body>';
+		$xml .= '</SOAP-ENV:Envelope>';
 
 		return $xml;
 	}
