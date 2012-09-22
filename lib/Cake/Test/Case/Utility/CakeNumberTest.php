@@ -70,6 +70,56 @@ class CakeNumberTest extends CakeTestCase {
 		$result = $this->Number->format($value, '-');
 		$expected = '100-100-100';
 		$this->assertEquals($expected, $result);
+
+		$value = 0.00001;
+		$result = $this->Number->format($value, array('places' => 1));
+		$expected = '$0.0';
+		$this->assertEquals($expected, $result);
+
+		$value = -0.00001;
+		$result = $this->Number->format($value, array('places' => 1));
+		$expected = '$0.0';
+		$this->assertEquals($expected, $result);
+	}
+
+/**
+ * testFormatDelta method
+ *
+ * @return void
+ */
+	public function testFormatDelta() {
+		$value = '100100100';
+
+		$result = $this->Number->formatDelta($value);
+		$expected = '+100,100,100.00';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Number->formatDelta($value, array('before' => '', 'after' => ''));
+		$expected = '+100,100,100.00';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Number->formatDelta($value, array('before' => '[', 'after' => ']'));
+		$expected = '[+100,100,100.00]';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Number->formatDelta(-$value, array('before' => '[', 'after' => ']'));
+		$expected = '[-100,100,100.00]';
+		$this->assertEquals($expected, $result);
+
+		$value = 0;
+		$result = $this->Number->formatDelta($value, array('places' => 1, 'before' => '[', 'after' => ']'));
+		$expected = '[0.0]';
+		$this->assertEquals($expected, $result);
+
+		$value = 0.0001;
+		$result = $this->Number->formatDelta($value, array('places' => 1, 'before' => '[', 'after' => ']'));
+		$expected = '[0.0]';
+		$this->assertEquals($expected, $result);
+
+		$value = 9876.1234;
+		$result = $this->Number->formatDelta($value, array('places' => 1, 'decimals' => ',', 'thousands' => '.'));
+		$expected = '+9.876,1';
+		$this->assertEquals($expected, $result);
 	}
 
 /**
@@ -555,6 +605,7 @@ class CakeNumberTest extends CakeTestCase {
 			array(array('size' => '1KB', 'default' => false), 1024),
 			array(array('size' => '1.5KB', 'default' => false), 1536),
 			array(array('size' => '1MB', 'default' => false), 1048576),
+			array(array('size' => '1mb', 'default' => false), 1048576),
 			array(array('size' => '1.5MB', 'default' => false), 1572864),
 			array(array('size' => '1GB', 'default' => false), 1073741824),
 			array(array('size' => '1.5GB', 'default' => false), 1610612736),
