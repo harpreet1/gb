@@ -3,6 +3,26 @@ class UpsComponent extends Component {
 
 //////////////////////////////////////////////////
 
+/*
+
+to do:
+
+$_['text_us_origin_01']    = 'UPS Next Day Air';
+$_['text_us_origin_02']    = 'UPS 2nd Day Air';
+$_['text_us_origin_03']    = 'UPS Ground';
+$_['text_us_origin_07']    = 'UPS Worldwide Express';
+$_['text_us_origin_08']    = 'UPS Worldwide Expedited';
+$_['text_us_origin_11']    = 'UPS Standard';
+$_['text_us_origin_12']    = 'UPS 3 Day Select';
+$_['text_us_origin_13']    = 'UPS Next Day Air Saver';
+$_['text_us_origin_14']    = 'UPS Next Day Air Early A.M.';
+$_['text_us_origin_54']    = 'UPS Worldwide Express Plus';
+$_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
+
+*/
+
+//////////////////////////////////////////////////
+
 	public $accessKey    = '2C8C98E873ABA238';
 	public $userId       = 'jorgersw';
 	public $password     = 'Silver888light';
