@@ -3,24 +3,6 @@ class UpsComponent extends Component {
 
 //////////////////////////////////////////////////
 
-/*
-
-$_['text_us_origin_01']    = 'UPS Next Day Air';
-$_['text_us_origin_02']    = 'UPS 2nd Day Air';
-$_['text_us_origin_03']    = 'UPS Ground';
-$_['text_us_origin_07']    = 'UPS Worldwide Express';
-$_['text_us_origin_08']    = 'UPS Worldwide Expedited';
-$_['text_us_origin_11']    = 'UPS Standard';
-$_['text_us_origin_12']    = 'UPS 3 Day Select';
-$_['text_us_origin_13']    = 'UPS Next Day Air Saver';
-$_['text_us_origin_14']    = 'UPS Next Day Air Early A.M.';
-$_['text_us_origin_54']    = 'UPS Worldwide Express Plus';
-$_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
-
-*/
-
-//////////////////////////////////////////////////
-
 	//public $url = 'https://www.ups.com/ups.app/xml/Rate';
 	public $url = 'https://wwwcie.ups.com/ups.app/xml/Rate';
 
@@ -84,7 +66,45 @@ $_['text_us_origin_59']    = 'UPS 2nd Day Air A.M.';
 		$res = curl_exec($ch);
 		$res = strstr($res, '<?');
 		$response = Xml::toArray(Xml::build($res));
-		return $response;
+		$data = $this->formatResponse($response);
+		return $data;
+	}
+
+//////////////////////////////////////////////////
+
+	protected function formatresponse($response) {
+
+		$service_code = array(
+			'US' => array(
+				'01' => 'UPS Next Day Air',
+				'02' => 'UPS 2nd Day Air',
+				'03' => 'UPS Ground',
+				'07' => 'UPS Worldwide Express',
+				'08' => 'UPS Worldwide Expedited',
+				'11' => 'UPS Standard',
+				'12' => 'UPS 3 Day Select',
+				'13' => 'UPS Next Day Air Saver',
+				'14' => 'UPS Next Day Air Early A.M.',
+				'54' => 'UPS Worldwide Express Plus',
+				'59' => 'UPS 2nd Day Air A.M.',
+			)
+		);
+
+		$data = array();
+		$i = 0;
+
+		foreach($response['RatingServiceSelectionResponse']['RatedShipment'] as $result) {
+
+			$code = $result['Service']['Code'];
+			$data[$i]['ServiceCode'] = $code;
+			$data[$i]['ServiceName'] = $service_code['US'][$code];
+			$data[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
+			$i++;
+
+		}
+
+		return $data;
+
 	}
 
 //////////////////////////////////////////////////
