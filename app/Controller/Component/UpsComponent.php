@@ -3,8 +3,10 @@ class UpsComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	//public $url = 'https://www.ups.com/ups.app/xml/Rate';
-	public $url = 'https://wwwcie.ups.com/ups.app/xml/Rate';
+	const LIVE_URL = 'https://www.ups.com/ups.app/xml/Rate';
+	const TEST_URL = 'https://wwwcie.ups.com/ups.app/xml/Rate';
+
+	private $url;
 
 	public $defaults     = array(
 		'ShipperZip' => '94901',
@@ -33,6 +35,14 @@ class UpsComponent extends Component {
 //////////////////////////////////////////////////
 
 	public function startup(&$controller, $options=array()) {
+
+		if(UPS_MODE == 'test') {
+			$this->url = self::TEST_URL;
+		}
+		else if (UPS_MODE == 'live') {
+			$this->url = self::LIVE_URL;
+		}
+
 		$this->defaults = array_merge((array)$this->defaults, (array)$options);
 	}
 
@@ -92,13 +102,11 @@ class UpsComponent extends Component {
 		$i = 0;
 
 		foreach($response['RatingServiceSelectionResponse']['RatedShipment'] as $result) {
-
 			$code = $result['Service']['Code'];
 			$results[$i]['ServiceCode'] = $code;
 			$results[$i]['ServiceName'] = $service_code[$code];
 			$results[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
 			$i++;
-
 		}
 
 		$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
