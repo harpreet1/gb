@@ -70,6 +70,22 @@ Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
 
 <?php echo $this->Form->create('Order'); ?>
 
+<?php echo $this->Form->input('creditcard_type', array(
+	'class' => 'span2',
+	'options' => array(
+		'Visa' => 'Visa',
+		'MasterCard' => 'MasterCard',
+		'American Express' => 'American Express',
+		'Discover' => 'Discover'
+	)
+)); ?>
+
+<?php echo $this->Form->input('creditcard_number', array('class' => 'span2', 'maxLength' => 16)); ?>
+
+<?php echo $this->Form->input('creditcard_csc', array('class' => 'span1', 'maxLength' => 4)); ?>
+
+<br />
+
 <?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Submit Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
 
 <?php echo $this->Form->end(); ?>

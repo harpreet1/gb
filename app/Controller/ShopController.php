@@ -189,48 +189,54 @@ class ShopController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->loadModel('Order');
+			$this->Order->set($this->request->data);
+			if($this->Order->validates()) {
 
-			$i = 0;
-			foreach($shop['Cart']['Items'] as $c) {
-				$o['OrderItem'][$i]['name'] = $c['Product']['name'];
-				$o['OrderItem'][$i]['quantity'] = $c['quantity'];
-				$o['OrderItem'][$i]['price'] = $c['subtotal'];
-				$o['OrderItem'][$i]['weight'] = $c['totalweight'];
-				$i++;
-			}
-
-			$o['Order'] = $shop['Data'];
-			$o['Order']['subtotal'] = $shop['Cart']['Property']['cartTotal'];
-			$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'];
-			$o['Order']['weight'] = $shop['Cart']['Property']['cartWeight'];
-
-			$o['Order']['status'] = 1;
-
-			if($shop['Data']['order_type'] == 'paypal') {
-				$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);
-				// debug($resArray);
-				$ack = strtoupper($resArray["ACK"]);
-				if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
-					$o['Order']['status'] = 2;
-
+				$i = 0;
+				foreach($shop['Cart']['Items'] as $c) {
+					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
+					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
+					$o['OrderItem'][$i]['price'] = $c['subtotal'];
+					$o['OrderItem'][$i]['weight'] = $c['totalweight'];
+					$i++;
 				}
-			}
-			$save = $this->Order->saveAll($o, array('validate' => 'first'));
-			if($save) {
 
-				$this->set(compact('shop'));
+				$o['Order'] = $shop['Data'];
+				$o['Order']['subtotal'] = $shop['Cart']['Property']['cartTotal'];
+				$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'];
+				$o['Order']['weight'] = $shop['Cart']['Property']['cartWeight'];
 
-				App::uses('CakeEmail', 'Network/Email');
-				$email = new CakeEmail();
-				$email->from(ADMIN_EMAIL)
-						->cc(ADMIN_EMAIL)
-						->to($shop['Data']['email'])
-						->subject('Shop Order')
-						->template('order')
-						->emailFormat('text')
-						->viewVars(array('shop' => $shop))
-						->send();
-				$this->redirect(array('action' => 'success'));
+				$o['Order']['status'] = 1;
+
+				if($shop['Data']['order_type'] == 'paypal') {
+					$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);
+					// debug($resArray);
+					$ack = strtoupper($resArray["ACK"]);
+					if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
+						$o['Order']['status'] = 2;
+
+					}
+				}
+				$save = $this->Order->saveAll($o, array('validate' => 'first'));
+				if($save) {
+
+					$this->set(compact('shop'));
+
+					App::uses('CakeEmail', 'Network/Email');
+					$email = new CakeEmail();
+					$email->from(ADMIN_EMAIL)
+							->cc(ADMIN_EMAIL)
+							->to($shop['Data']['email'])
+							->subject('Shop Order')
+							->template('order')
+							->emailFormat('text')
+							->viewVars(array('shop' => $shop))
+							->send();
+					$this->redirect(array('action' => 'success'));
+				}
+
+			} else {
+				$this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
 			}
 		}
 

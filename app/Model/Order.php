@@ -7,10 +7,10 @@ class Order extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Name is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -20,7 +20,7 @@ class Order extends AppModel {
 				'rule' => array('email'),
 				'message' => 'Email is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -29,73 +29,93 @@ class Order extends AppModel {
 			'notempty' => array(
 				'rule' => array('phone'),
 				'message' => 'Phone is invalid',
-				'allowEmpty' => true,
-				'required' => true,
+//				'allowEmpty' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'billing_address' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Billing Address is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'billing_city' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Billing City is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'billing_state' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Billing State is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'shipping_address' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Shipping Address is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'shipping_city' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Shipping City is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'shipping_state' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notEmpty'),
 				'message' => 'Shipping State is invalid',
 				//'allowEmpty' => false,
-				'required' => true,
+//				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 
+		'creditcard_number' => array(
+			'notempty' => array(
+				'rule' => array('cc'),
+				'message' => 'Credit Card Number is invalid',
+				//'allowEmpty' => false,
+//				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'creditcard_csc' => array(
+			'notempty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Credit Card Code is invalid',
+				//'allowEmpty' => false,
+//				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 
 	);
 
