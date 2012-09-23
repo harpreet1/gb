@@ -126,7 +126,6 @@ class ShopController extends AppController {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
-				echo 'valid';
 				$order = $this->request->data['Order'];
 				$order['order_type'] = 'creditcard';
 				$this->Session->write('Shop.Order', $order);
