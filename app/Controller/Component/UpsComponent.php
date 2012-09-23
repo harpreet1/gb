@@ -101,7 +101,7 @@ class UpsComponent extends Component {
 
 		}
 
-		$results = Set::sort($results, '{n}.TotalCharges', 'ASC');
+		$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
 
 		return $results;
 
