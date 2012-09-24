@@ -17,7 +17,7 @@ class CartComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public $maxQuantity = 20;
+	public $maxQuantity = 100;
 
 //////////////////////////////////////////////////
 
@@ -39,7 +39,16 @@ class CartComponent extends Component {
 			'recursive' => -1,
 			'contain' => array('User'),
 			'fields' => array(
-				'Product.*',
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'Product.weight_unit',
+				'Product.weight',
+				'Product.height',
+				'Product.length',
+				'Product.width',
 				'User.id',
 				'User.shop_name',
 				'User.zip',
@@ -85,11 +94,16 @@ class CartComponent extends Component {
 		$cartQuantity = 0;
 		$cartWeight = 0;
 
+		$this->Session->delete('Shop.Cart.Shipping');
+
 		if (count($cart['Items']) > 0) {
 			foreach ($cart['Items'] as $item) {
 				$cartTotal += $item['subtotal'];
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['totalweight'];
+
+				$this->Session->write('Shop.Cart.Shipping.' . $item['User']['id'] . '.Zip', $item['User']['zip']);
+				$this->Session->write('Shop.Cart.Shipping.' . $item['User']['id'] . '.State', $item['User']['state']);
 			}
 			$d['cartTotal'] = sprintf('%01.2f', $cartTotal);
 			$d['cartQuantity'] = $cartQuantity;
@@ -98,6 +112,7 @@ class CartComponent extends Component {
 			return true;
 		}
 		else {
+			$this->Session->delete('Shop.Cart');
 			return false;
 		}
 	}
