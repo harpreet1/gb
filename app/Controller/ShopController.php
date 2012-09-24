@@ -8,7 +8,7 @@ class ShopController extends AppController {
 		'Cart',
 		'Ups',
 		'Fedex',
-		//'Paypal'
+		'PaypalPro'
 	);
 
 //////////////////////////////////////////////////
@@ -191,6 +191,33 @@ class ShopController extends AppController {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
+
+				try {
+					$this->PaypalPro->amount = 19.95;
+					$this->PaypalPro->creditCardNumber = '6221197159205602';
+					$this->PaypalPro->creditCardCvv = '123';
+					$this->PaypalPro->creditCardExpires = '082014';
+					$this->PaypalPro->creditCardType = 'Discover';
+
+					$this->PaypalPro->customerFirstName = 'Steve';
+					$this->PaypalPro->customerLastName = 'Smith';
+					$this->PaypalPro->customerEmail = 'andras_1348474134_per@kende.com';
+
+					$this->PaypalPro->billingAddress1 = '301 Lake Village Dr';
+					$this->PaypalPro->billingAddress2 = '';
+					$this->PaypalPro->billingCity = 'McKinney';
+					$this->PaypalPro->billingState = 'TX';
+					$this->PaypalPro->billingZip = '75071';
+					$this->PaypalPro->billingCountryCode = 'US';
+
+
+					$result = $this->PaypalPro->doDirectPayment();
+					debug($result);
+				} catch(Exception $e) {
+					$this->Session->setFlash($e->getMessage());
+					$this->redirect(array('action' => 'review'));
+				}
+				die('vege');
 
 				$i = 0;
 				foreach($shop['Cart']['Items'] as $c) {

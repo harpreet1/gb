@@ -14,3 +14,7 @@ define('FEDEX_METER ', '');
 define('FEDEX_KEY ', '');
 define('FEDEX_PASSWORD ', '');
 
+define('PAYPAL_MODE', 'test'); // 'test' or 'live' //
+define('PAYPAL_USERNAME', '');
+define('PAYPAL_PASSWORD', '');
+define('PAYPAL_SIGNATURE', '');
