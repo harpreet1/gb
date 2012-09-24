@@ -40,8 +40,10 @@ class CartComponent extends Component {
 			'contain' => array('User'),
 			'fields' => array(
 				'Product.*',
+				'User.id',
 				'User.shop_name',
 				'User.zip',
+				'User.state',
 			),
 			'conditions' => array(
 				'Product.id' => $id
