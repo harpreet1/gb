@@ -80,9 +80,47 @@ Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
 	)
 )); ?>
 
-<?php echo $this->Form->input('creditcard_number', array('class' => 'span2', 'maxLength' => 16)); ?>
+<?php echo $this->Form->input('creditcard_number', array('class' => 'span2', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
 
-<?php echo $this->Form->input('creditcard_csc', array('class' => 'span1', 'maxLength' => 4)); ?>
+
+<?php echo $this->Form->input('creditcard_month', array(
+	'label' => 'Expiration Month',
+	'class' => 'span2',
+	'options' => array(
+		'01' => '01 - January',
+		'02' => '02 - February',
+		'03' => '03 - March',
+		'04' => '04 - April',
+		'05' => '05 - May',
+		'06' => '06 - June',
+		'07' => '07 - July',
+		'08' => '08 - August',
+		'09' => '09 - September',
+		'10' => '10 - October',
+		'11' => '11 - November',
+		'12' => '12 - December'
+	)
+)); ?>
+
+<?php echo $this->Form->input('creditcard_year', array(
+	'label' => 'Expiration Year',
+	'class' => 'span2',
+	'options' => array(
+		'2012' => '2012',
+		'2013' => '2013',
+		'2014' => '2014',
+		'2015' => '2015',
+		'2016' => '2016',
+		'2017' => '2017',
+		'2018' => '2018',
+		'2019' => '2019',
+		'2020' => '2020',
+		'2021' => '2021',
+		'2022' => '2022',
+	)
+));?>
+
+<?php echo $this->Form->input('creditcard_csc', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
 
 <br />
 
