@@ -21,10 +21,10 @@ class PaypalProComponent extends Component {
 
 	public $ipAddress = '';
 
+	public $creditCardType = '';
 	public $creditCardNumber = '';
 	public $creditCardExpires = '';
 	public $creditCardCvv = '';
-	public $creditCardType = '';
 
 	public $customerFirstName = '';
 	public $customerLastName = '';
@@ -59,7 +59,7 @@ class PaypalProComponent extends Component {
 
 		$doDirectPaymentNvp = array(
 			'METHOD' => 'DoDirectPayment',
-			'VERSION' => '51.0',
+			'VERSION' => '53.0',
 			'PAYMENTACTION' => 'Sale',
 			'IPADDRESS' => $this->ipAddress,
 			'RETURNFMFDETAILS' => 1,

@@ -194,14 +194,14 @@ class ShopController extends AppController {
 
 				try {
 					$this->PaypalPro->amount = 19.95;
-					$this->PaypalPro->creditCardNumber = '6221197159205602';
-					$this->PaypalPro->creditCardCvv = '123';
-					$this->PaypalPro->creditCardExpires = '082014';
+					$this->PaypalPro->creditCardNumber = '6221197157705652';
+					$this->PaypalPro->creditCardCvv = '111';
+					$this->PaypalPro->creditCardExpires = '022014';
 					$this->PaypalPro->creditCardType = 'Discover';
 
-					$this->PaypalPro->customerFirstName = 'Steve';
-					$this->PaypalPro->customerLastName = 'Smith';
-					$this->PaypalPro->customerEmail = 'andras_1348474134_per@kende.com';
+					$this->PaypalPro->customerFirstName = 'Andras';
+					$this->PaypalPro->customerLastName = 'Kende';
+					$this->PaypalPro->customerEmail = 'store_1348477764_per@kende.com';
 
 					$this->PaypalPro->billingAddress1 = '301 Lake Village Dr';
 					$this->PaypalPro->billingAddress2 = '';
@@ -235,15 +235,14 @@ class ShopController extends AppController {
 
 				$o['Order']['status'] = 1;
 
-				if($shop['Data']['order_type'] == 'paypal') {
-					$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);
-					// debug($resArray);
-					$ack = strtoupper($resArray["ACK"]);
-					if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
-						$o['Order']['status'] = 2;
-
-					}
-				}
+				//if($shop['Data']['order_type'] == 'paypal') {
+				//	$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);
+				//	// debug($resArray);
+				//	$ack = strtoupper($resArray["ACK"]);
+				//	if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
+				//		$o['Order']['status'] = 2;
+				//	}
+				//}
 				$save = $this->Order->saveAll($o, array('validate' => 'first'));
 				if($save) {
 
