@@ -61,7 +61,7 @@ class ShopsController extends AppController {
 
 	public function cartupdate() {
 		if ($this->request->is('post')) {
-			foreach($this->request->data['Product'] as $key => $value) {
+			foreach($this->request->data['Shop'] as $key => $value) {
 				$p = explode('-', $key);
 				$this->Cart->add($p[1], $value);
 			}
