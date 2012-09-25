@@ -188,13 +188,13 @@ class ShopsController extends AppController {
 					$this->PaypalPro->billingCountryCode = 'US';
 
 
-					$result = $this->PaypalPro->doDirectPayment();
-					debug($result);
+					$paypal = $this->PaypalPro->doDirectPayment();
+//					debug($result);
 				} catch(Exception $e) {
 					$this->Session->setFlash($e->getMessage());
 					$this->redirect(array('action' => 'review'));
 				}
-				die('vege');
+//				die('vege');
 
 				$i = 0;
 				foreach($shop['Cart']['Items'] as $c) {
@@ -233,7 +233,7 @@ class ShopsController extends AppController {
 							->subject('Shop Order')
 							->template('order')
 							->emailFormat('text')
-							->viewVars(array('shop' => $shop))
+							->viewVars(array('shop' => $shop, 'paypal' => $paypal))
 							->send();
 					$this->redirect(array('action' => 'success'));
 				}

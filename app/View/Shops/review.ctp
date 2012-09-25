@@ -20,6 +20,7 @@ Billing Address: <?php echo $shop['Data']['billing_address'];?><br />
 Billing Address 2: <?php echo $shop['Data']['billing_address2'];?><br />
 Billing City: <?php echo $shop['Data']['billing_city'];?><br />
 Billing State: <?php echo $shop['Data']['billing_state'];?><br />
+Billing Zip: <?php echo $shop['Data']['billing_zip'];?><br />
 
 <br />
 
@@ -30,6 +31,7 @@ Shipping Address: <?php echo $shop['Data']['shipping_address'];?><br />
 Shipping Address 2: <?php echo $shop['Data']['shipping_address2'];?><br />
 Shipping City: <?php echo $shop['Data']['shipping_city'];?><br />
 Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
+Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 
 <br />
 
@@ -39,8 +41,9 @@ Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
 <hr>
 
 <div class="row">
+<div class="span2">VENDOR</div>
 <div class="span1">#</div>
-<div class="span8">ITEM</div>
+<div class="span6">ITEM</div>
 <div class="span1">PRICE</div>
 <div class="span1">QUANTITY</div>
 <div class="span1">SUBTOTAL</div>
@@ -51,8 +54,9 @@ Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
 
 <?php foreach ($shop['Cart']['Items'] as $item): ?>
 <div class="row">
+<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 <div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('height' => 60, 'class' => 'px60')); ?></div>
-<div class="span8"><?php echo $item['Product']['name']; ?></div>
+<div class="span6"><?php echo $item['Product']['name']; ?></div>
 <div class="span1">$<?php echo $item['Product']['price']; ?></div>
 <div class="span1"><?php echo $item['quantity']; ?></div>
 <div class="span1">$<?php echo $item['subtotal']; ?></div>

@@ -92,22 +92,22 @@ class PaypalProComponent extends Component {
 
 //		$this->log($doDirectPaymentNvp);
 
-		print_r($doDirectPaymentNvp);
+//		print_r($doDirectPaymentNvp);
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
-		print_r($this->config['endpoint']);
+//		print_r($this->config['endpoint']);
 
 		$response = $httpSocket->post($this->config['endpoint'], $doDirectPaymentNvp);
 
-		print_r($response);
+//		print_r($response);
 
 		parse_str($response , $parsed);
 
-		print_r($parsed);
+//		print_r($parsed);
 
-		die('dodirect array');
+//		die('dodirect array');
 
 		if(array_key_exists('ACK', $parsed) && $parsed['ACK'] == 'Success') {
 			return $parsed;

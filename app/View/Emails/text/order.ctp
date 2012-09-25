@@ -15,6 +15,8 @@ Billing City: <?php echo $shop['Data']['billing_city'];?>
 
 Billing State: <?php echo $shop['Data']['billing_state'];?>
 
+Billing Zip: <?php echo $shop['Data']['billing_zip'];?>
+
 
 Shipping Address: <?php echo $shop['Data']['shipping_address'];?>
 
@@ -23,6 +25,8 @@ Shipping Address 2: <?php echo $shop['Data']['shipping_address2'];?>
 Shipping City: <?php echo $shop['Data']['shipping_city'];?>
 
 Shipping State: <?php echo $shop['Data']['shipping_state'];?>
+
+Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?>
 
 
 
@@ -40,6 +44,10 @@ Total:	$<?php echo $shop['Cart']['Property']['cartTotal'];?>
 ////////////////////////////////////////////////////////////
 
 <?php print_r($shop); ?>
+
+////////////////////////////////////////////////////////////
+
+<?php print_r($paypal); ?>
 
 ////////////////////////////////////////////////////////////
 
