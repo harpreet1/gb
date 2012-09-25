@@ -41,32 +41,36 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 <hr>
 
 <div class="row">
-<div class="span2">VENDOR</div>
-<div class="span1">#</div>
-<div class="span6">ITEM</div>
-<div class="span1">PRICE</div>
-<div class="span1">QUANTITY</div>
-<div class="span1">SUBTOTAL</div>
+	<div class="span2">VENDOR</div>
+	<div class="span1">IMAGE</div>
+	<div class="span4">ITEM</div>
+	<div class="span1">WEIGHT</div>
+	<div class="span1">TOTAL WEIGHT</div>
+	<div class="span1">PRICE</div>
+	<div class="span1">QUANTITY</div>
+	<div class="span1">SUBTOTAL</div>
 </div>
-
-<br />
-<br />
 
 <?php foreach ($shop['Cart']['Items'] as $item): ?>
-<div class="row">
-<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
-<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('height' => 60, 'class' => 'px60')); ?></div>
-<div class="span6"><?php echo $item['Product']['name']; ?></div>
-<div class="span1">$<?php echo $item['Product']['price']; ?></div>
-<div class="span1"><?php echo $item['quantity']; ?></div>
-<div class="span1">$<?php echo $item['subtotal']; ?></div>
-</div>
+	<div class="row">
+		<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
+		<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
+		<div class="span4"><strong><?php echo $item['Product']['name']; ?></strong></div>
+		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
+		<div class="span1"><?php echo $item['totalweight']; ?></div>
+		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
+		<div class="span1"><?php echo $item['quantity']; ?></div>
+		<div class="span1">$<?php echo $item['subtotal']; ?></div>
+	</div>
 <?php endforeach; ?>
+
 
 <hr>
 
 <div class="row">
-	<div class="span2 offset8">Items: <?php echo $shop['Cart']['Property']['cartQuantity']; ?></div>
+	<div class="span2 offset4">Items: <?php echo $shop['Cart']['Property']['cartQuantity']; ?></div>
+	<div class="span2">Weight: <?php echo $shop['Cart']['Property']['cartWeight']; ?></div>
+	<div class="span2">Cart Total: $<?php echo $shop['Cart']['Property']['cartTotal']; ?></div>
 	<div class="span2">Order Total: <span class="bold red">$<?php echo $shop['Cart']['Property']['cartTotal']; ?></span></div>
 </div>
 
