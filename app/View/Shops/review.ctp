@@ -80,20 +80,21 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 <div class="span3">ServiceName</div>
 <div class="span2">TotalCharges</div>
 </div>
-
-<?php foreach ($shop['Ship']['0'] as $ship): ?>
+<hr>
+<?php foreach ($shop['Shipping'] as $key => $value): ?>
+<h6><?php echo $shop['Cart']['Users'][$key]['name']; ?></h6>
+<?php foreach ($value as $ship): ?>
 <div class="row">
 <div class="span1"><?php echo $ship['ServiceCode']; ?></div>
 <div class="span3"><?php echo $ship['ServiceName']; ?></div>
 <div class="span2">$<?php echo $ship['TotalCharges']; ?></div>
 </div>
 <?php endforeach; ?>
-
 <hr>
+<?php endforeach; ?>
 
 <br />
 <br />
-
 
 <?php echo $this->Form->create('Order'); ?>
 

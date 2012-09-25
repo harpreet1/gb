@@ -97,16 +97,24 @@ class ShopsController extends AppController {
 				$order['order_type'] = 'creditcard';
 
 				$i = 0;
-				foreach($shop['Cart']['Shipping'] as $d) {
+				foreach($shop['Cart']['Users'] as $d) {
 					$data['ShipFromZip'] = $d['zip'];
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $d['totalweight'];
-					$shipping[$i] = $this->ups($data);
+					$shipping[$d['id']] = $this->_ups($data);
+					$shippingchecks['User'][$d['id']]['id'] = $d['id'];
+					$shippingchecks['User'][$d['id']]['name'] = $d['name'];
+					$shippingchecks['User'][$d['id']]['totalprice'] = $d['totalprice'];
+					$shippingchecks['User'][$d['id']]['totalquantity'] = $d['totalquantity'];
+					$shippingchecks['User'][$d['id']]['totalweight'] = $d['totalweight'];
+					$shippingchecks['User'][$d['id']]['ShipFromZip'] = $d['zip'];
+					$shippingchecks['User'][$d['id']]['ShipToZip'] = $order['shipping_zip'];
+					$shippingchecks['User'][$d['id']]['Weight'] = $d['totalweight'];
 					$i++;
 				}
 
-				$this->Session->write('Shop.Ship', $shipping);
-
+				$this->Session->write('Shop.Shipping', $shipping);
+				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
 				$this->Session->write('Shop.Order', $order);
 				$this->Session->write('Shop.Data', $order);
 				$this->redirect(array('action' => 'review'));
@@ -125,23 +133,20 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	public function ups($data) {
-
+	protected function _ups($data) {
 		$ups = $this->Ups->getRate(array(
 			'ShipFromZip' => $data['ShipFromZip'],
 			'ShipFromCountry' => 'US',
 			'ShipToZip' => $data['ShipToZip'],
 			'ShipToCountry' => 'US',
 			'Weight' => $data['Weight'],
-			'Service' => '03'
 		));
 		return $ups;
-//		$this->set(compact('ups'));
 	}
 
 //////////////////////////////////////////////////
 
-	public function fedex() {
+	protected function _fedex() {
 
 		$fedex = $this->Fedex->getRate(array(
 			'ShipFromZip' => 91367,
@@ -149,9 +154,8 @@ class ShopsController extends AppController {
 			'ShipToZip' => 91367,
 			'ShipToCountry' => 'US',
 			'Weight' => 1,
-			'Service' => '03'
 		));
-		$this->set(compact('fedex'));
+		return $fedex;
 	}
 
 //////////////////////////////////////////////////

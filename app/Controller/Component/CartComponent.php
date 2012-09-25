@@ -99,8 +99,7 @@ class CartComponent extends Component {
 		$this->Session->delete('Shop.Cart.Shipping');
 
 		$property = array();
-		$shipping = array();
-
+		$users = array();
 
 		if (count($cart['Items']) > 0) {
 			foreach ($cart['Items'] as $item) {
@@ -108,21 +107,21 @@ class CartComponent extends Component {
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['totalweight'];
 
-				$shipping[$item['User']['id']]['id'] = $item['User']['id'];
-				$shipping[$item['User']['id']]['name'] = $item['User']['shop_name'];
-				$shipping[$item['User']['id']]['email'] = $item['User']['email'];
-				$shipping[$item['User']['id']]['zip'] = $item['User']['zip'];
-				$shipping[$item['User']['id']]['state'] = $item['User']['state'];
-				$shipping[$item['User']['id']]['totalprice'] = 0;
-				$shipping[$item['User']['id']]['totalquantity'] = 0;
-				$shipping[$item['User']['id']]['totalweight'] = 0;
+				$users[$item['User']['id']]['id'] = $item['User']['id'];
+				$users[$item['User']['id']]['name'] = $item['User']['shop_name'];
+				$users[$item['User']['id']]['email'] = $item['User']['email'];
+				$users[$item['User']['id']]['zip'] = $item['User']['zip'];
+				$users[$item['User']['id']]['state'] = $item['User']['state'];
+				$users[$item['User']['id']]['totalprice'] = 0;
+				$users[$item['User']['id']]['totalquantity'] = 0;
+				$users[$item['User']['id']]['totalweight'] = 0;
 			}
 			foreach ($cart['Items'] as $item) {
-				$shipping[$item['User']['id']]['totalprice'] += $item['subtotal'];
-				$shipping[$item['User']['id']]['totalquantity'] += $item['quantity'];
-				$shipping[$item['User']['id']]['totalweight'] += $item['totalweight'];
+				$users[$item['User']['id']]['totalprice'] += $item['subtotal'];
+				$users[$item['User']['id']]['totalquantity'] += $item['quantity'];
+				$users[$item['User']['id']]['totalweight'] += $item['totalweight'];
 			}
-			foreach ($shipping as & $ship) {
+			foreach ($users as & $ship) {
 				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
 			}
 
@@ -131,7 +130,7 @@ class CartComponent extends Component {
 			$property['cartWeight'] = $cartWeight;
 			$this->Session->write('Shop.Cart.Property', $property);
 
-			$this->Session->write('Shop.Cart.Shipping', $shipping);
+			$this->Session->write('Shop.Cart.Users', $users);
 
 			return true;
 		}

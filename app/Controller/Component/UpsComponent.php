@@ -98,15 +98,24 @@ class UpsComponent extends Component {
 			'59' => 'UPS 2nd Day Air A.M.',
 		);
 
+		$service_enabled = array(
+			'01',
+			'02',
+			'12',
+			'03',
+		);
+
 		$results = array();
 		$i = 0;
 
 		foreach($response['RatingServiceSelectionResponse']['RatedShipment'] as $result) {
 			$code = $result['Service']['Code'];
-			$results[$i]['ServiceCode'] = $code;
-			$results[$i]['ServiceName'] = $service_code[$code];
-			$results[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
-			$i++;
+			if(in_array($code, $service_enabled)) {
+				$results[$i]['ServiceCode'] = $code;
+				$results[$i]['ServiceName'] = $service_code[$code];
+				$results[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
+				$i++;
+			}
 		}
 
 		$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');

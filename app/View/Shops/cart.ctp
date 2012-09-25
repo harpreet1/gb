@@ -76,16 +76,16 @@ Shopping Cart is empty
 			<div class="span9"><hr></div>
 		</div>
 
-		<?php foreach ($cart['Shipping'] as $ship): ?>
+		<?php foreach ($cart['Users'] as $user): ?>
 
 		<div class="row">
-			<div class="span2"><?php echo $ship['name']; ?></div>
-			<div class="span2"><?php echo $ship['email']; ?></div>
-			<div class="span1"><?php echo $ship['state']; ?></div>
-			<div class="span1"><?php echo $ship['zip']; ?></div>
-			<div class="span1"><?php echo $ship['totalquantity']; ?></div>
-			<div class="span1"><?php echo $ship['totalweight']; ?></div>
-			<div class="span1">$<?php echo $ship['totalprice']; ?></div>
+			<div class="span2"><?php echo $user['name']; ?></div>
+			<div class="span2"><?php echo $user['email']; ?></div>
+			<div class="span1"><?php echo $user['state']; ?></div>
+			<div class="span1"><?php echo $user['zip']; ?></div>
+			<div class="span1"><?php echo $user['totalquantity']; ?></div>
+			<div class="span1"><?php echo $user['totalweight']; ?></div>
+			<div class="span1">$<?php echo $user['totalprice']; ?></div>
 		</div>
 
 		<?php endforeach; ?>
