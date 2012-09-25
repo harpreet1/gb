@@ -35,7 +35,7 @@ class CartComponent extends Component {
 			return;
 		}
 
-		$product = $this->controller->Product->find('first', array(
+		$product = ClassRegistry::init('Product')->find('first', array(
 			'recursive' => -1,
 			'contain' => array('User'),
 			'fields' => array(

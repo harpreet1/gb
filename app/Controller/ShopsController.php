@@ -1,6 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
-class ShopController extends AppController {
+class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
@@ -10,10 +10,6 @@ class ShopController extends AppController {
 		'Fedex',
 		'PaypalPro'
 	);
-
-//////////////////////////////////////////////////
-
-	public $uses = 'Product';
 
 //////////////////////////////////////////////////
 
@@ -139,6 +135,9 @@ class ShopController extends AppController {
 		if(!empty($shop['Order'])) {
 			$this->request->data['Order'] = $shop['Order'];
 		}
+
+		$states = $this->Shop->states();
+		$this->set(compact('states'));
 
 	}
 

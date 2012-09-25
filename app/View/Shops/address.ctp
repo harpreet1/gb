@@ -27,7 +27,7 @@
 
 <?php echo $this->Form->input('billing_city', array('class' => 'span3')); ?>
 
-<?php echo $this->Form->input('billing_state', array('class' => 'span3')); ?>
+<?php echo $this->Form->input('billing_state', array('options' => $states, 'empty' => '', 'class' => 'span3')); ?>
 
 <br />
 
@@ -40,7 +40,7 @@
 
 <?php echo $this->Form->input('shipping_city', array('class' => 'span3')); ?>
 
-<?php echo $this->Form->input('shipping_state', array('class' => 'span3')); ?>
+<?php echo $this->Form->input('shipping_state', array('options' => $states, 'empty' => '', 'class' => 'span3')); ?>
 
 <br />
 
