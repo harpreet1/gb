@@ -66,7 +66,30 @@ Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
 	<div class="span2">Order Total: <span class="bold red">$<?php echo $shop['Cart']['Property']['cartTotal']; ?></span></div>
 </div>
 
+<br />
+<br />
+
 <hr>
+
+<div class="row">
+<div class="span1">ServiceCode</div>
+<div class="span3">ServiceName</div>
+<div class="span2">TotalCharges</div>
+</div>
+
+<?php foreach ($shop['Ship']['0'] as $ship): ?>
+<div class="row">
+<div class="span1"><?php echo $ship['ServiceCode']; ?></div>
+<div class="span3"><?php echo $ship['ServiceName']; ?></div>
+<div class="span2">$<?php echo $ship['TotalCharges']; ?></div>
+</div>
+<?php endforeach; ?>
+
+<hr>
+
+<br />
+<br />
+
 
 <?php echo $this->Form->create('Order'); ?>
 
