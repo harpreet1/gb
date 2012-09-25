@@ -81,36 +81,6 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	public function ups() {
-
-		$ups = $this->Ups->getRate(array(
-			'ShipFromZip' => 91367,
-			'ShipFromCountry' => 'US',
-			'ShipToZip' => 91367,
-			'ShipToCountry' => 'US',
-			'Weight' => 1,
-			'Service' => '03'
-		));
-		$this->set(compact('ups'));
-	}
-
-//////////////////////////////////////////////////
-
-	public function fedex() {
-
-		$fedex = $this->Fedex->getRate(array(
-			'ShipFromZip' => 91367,
-			'ShipFromCountry' => 'US',
-			'ShipToZip' => 91367,
-			'ShipToCountry' => 'US',
-			'Weight' => 1,
-			'Service' => '03'
-		));
-		$this->set(compact('fedex'));
-	}
-
-//////////////////////////////////////////////////
-
 
 	public function address() {
 
@@ -125,6 +95,18 @@ class ShopsController extends AppController {
 			if($this->Order->validates()) {
 				$order = $this->request->data['Order'];
 				$order['order_type'] = 'creditcard';
+
+				$i = 0;
+				foreach($shop['Cart']['Shipping'] as $d) {
+					$data['ShipFromZip'] = $d['zip'];
+					$data['ShipToZip'] = $order['shipping_zip'];
+					$data['Weight'] = $d['totalweight'];
+					$shipping[$i] = $this->ups($data);
+					$i++;
+				}
+
+				$this->Session->write('Shop.Ship', $shipping);
+
 				$this->Session->write('Shop.Order', $order);
 				$this->Session->write('Shop.Data', $order);
 				$this->redirect(array('action' => 'review'));
@@ -143,38 +125,33 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	public function step1() {
-		$paymentAmount = $this->Session->read('Shop.Cart.Property.cartTotal');
-		if(!$paymentAmount) {
-			$this->redirect('/');
-		}
-		$this->Paypal->step1($paymentAmount);
+	public function ups($data) {
+
+		$ups = $this->Ups->getRate(array(
+			'ShipFromZip' => $data['ShipFromZip'],
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => $data['ShipToZip'],
+			'ShipToCountry' => 'US',
+			'Weight' => $data['Weight'],
+			'Service' => '03'
+		));
+		return $ups;
+//		$this->set(compact('ups'));
 	}
 
 //////////////////////////////////////////////////
 
-	public function step2() {
+	public function fedex() {
 
-		$token = $this->request->query['token'];
-		$paypal = $this->Paypal->GetShippingDetails($token);
-
-		$ack = strtoupper($paypal["ACK"]);
-		if($ack == "SUCCESS" || $ack == "SUCESSWITHWARNING") {
-			$this->Session->write('Shop.Paypal.Details', $paypal);
-			$this->redirect(array('action' => 'review'));
-		} else {
-			$ErrorCode = urldecode($paypal["L_ERRORCODE0"]);
-			$ErrorShortMsg = urldecode($paypal["L_SHORTMESSAGE0"]);
-			$ErrorLongMsg = urldecode($paypal["L_LONGMESSAGE0"]);
-			$ErrorSeverityCode = urldecode($paypal["L_SEVERITYCODE0"]);
-			echo "GetExpressCheckoutDetails API call failed. ";
-			echo "Detailed Error Message: " . $ErrorLongMsg;
-			echo "Short Error Message: " . $ErrorShortMsg;
-			echo "Error Code: " . $ErrorCode;
-			echo "Error Severity Code: " . $ErrorSeverityCode;
-			die();
-		}
-
+		$fedex = $this->Fedex->getRate(array(
+			'ShipFromZip' => 91367,
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => 91367,
+			'ShipToCountry' => 'US',
+			'Weight' => 1,
+			'Service' => '03'
+		));
+		$this->set(compact('fedex'));
 	}
 
 //////////////////////////////////////////////////

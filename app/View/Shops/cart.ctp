@@ -18,8 +18,9 @@ Shopping Cart is empty
 <div class="row">
 	<div class="span2">VENDOR</div>
 	<div class="span1">IMAGE</div>
-	<div class="span4">ITEM</div>
+	<div class="span3">ITEM</div>
 	<div class="span1">WEIGHT</div>
+	<div class="span1">TOTAL WEIGHT</div>
 	<div class="span1">PRICE</div>
 	<div class="span1">QUANTITY</div>
 	<div class="span1">SUBTOTAL</div>
@@ -30,8 +31,9 @@ Shopping Cart is empty
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-		<div class="span4"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
+		<div class="span3"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
+		<div class="span1"><?php echo $item['totalweight']; ?></div>
 		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
 		<div class="span1"><?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>
@@ -62,6 +64,7 @@ Shopping Cart is empty
 
 		<div class="row">
 			<div class="span2">Name</div>
+			<div class="span2">Email</div>
 			<div class="span1">State</div>
 			<div class="span1">Zip</div>
 			<div class="span1">Quantity</div>
@@ -70,13 +73,14 @@ Shopping Cart is empty
 		</div>
 
 		<div class="row">
-			<div class="span7"><hr></div>
+			<div class="span9"><hr></div>
 		</div>
 
 		<?php foreach ($cart['Shipping'] as $ship): ?>
 
 		<div class="row">
 			<div class="span2"><?php echo $ship['name']; ?></div>
+			<div class="span2"><?php echo $ship['email']; ?></div>
 			<div class="span1"><?php echo $ship['state']; ?></div>
 			<div class="span1"><?php echo $ship['zip']; ?></div>
 			<div class="span1"><?php echo $ship['totalquantity']; ?></div>
@@ -87,18 +91,18 @@ Shopping Cart is empty
 		<?php endforeach; ?>
 
 		<div class="row">
-			<div class="span7"><hr></div>
+			<div class="span9"><hr></div>
 		</div>
 
 		<div class="row">
-			<div class="span4">Totals: </div>
+			<div class="span6">Totals: </div>
 			<div class="span1"><?php echo $cart['Property']['cartQuantity']; ?></div>
 			<div class="span1"><?php echo $cart['Property']['cartWeight']; ?></div>
 			<div class="span1">$<?php echo $cart['Property']['cartTotal']; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="span7"><hr></div>
+			<div class="span9"><hr></div>
 		</div>
 
 

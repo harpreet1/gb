@@ -29,6 +29,8 @@
 
 <?php echo $this->Form->input('billing_state', array('options' => $states, 'empty' => '', 'class' => 'span3')); ?>
 
+<?php echo $this->Form->input('billing_zip', array('class' => 'span3')); ?>
+
 <br />
 
 </div>
@@ -41,6 +43,8 @@
 <?php echo $this->Form->input('shipping_city', array('class' => 'span3')); ?>
 
 <?php echo $this->Form->input('shipping_state', array('options' => $states, 'empty' => '', 'class' => 'span3')); ?>
+
+<?php echo $this->Form->input('shipping_zip', array('class' => 'span3')); ?>
 
 <br />
 

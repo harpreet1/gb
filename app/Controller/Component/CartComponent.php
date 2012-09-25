@@ -51,6 +51,7 @@ class CartComponent extends Component {
 				'Product.width',
 				'User.id',
 				'User.shop_name',
+				'User.email',
 				'User.zip',
 				'User.state',
 			),
@@ -107,7 +108,9 @@ class CartComponent extends Component {
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['totalweight'];
 
+				$shipping[$item['User']['id']]['id'] = $item['User']['id'];
 				$shipping[$item['User']['id']]['name'] = $item['User']['shop_name'];
+				$shipping[$item['User']['id']]['email'] = $item['User']['email'];
 				$shipping[$item['User']['id']]['zip'] = $item['User']['zip'];
 				$shipping[$item['User']['id']]['state'] = $item['User']['state'];
 				$shipping[$item['User']['id']]['totalprice'] = 0;
