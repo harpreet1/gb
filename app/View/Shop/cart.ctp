@@ -18,7 +18,8 @@ Shopping Cart is empty
 <div class="row">
 	<div class="span2">VENDOR</div>
 	<div class="span1">IMAGE</div>
-	<div class="span5">ITEM</div>
+	<div class="span4">ITEM</div>
+	<div class="span1">WEIGHT</div>
 	<div class="span1">PRICE</div>
 	<div class="span1">QUANTITY</div>
 	<div class="span1">SUBTOTAL</div>
@@ -29,7 +30,8 @@ Shopping Cart is empty
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['shop_name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-		<div class="span5"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
+		<div class="span4"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'slug' => $item['Product']['slug'])); ?></strong></div>
+		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
 		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
 		<div class="span1"><?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>
@@ -52,7 +54,44 @@ Shopping Cart is empty
 <hr>
 
 <div class="row">
-	<div class="span2 offset10">
+
+	<div class="span10">
+
+			<br />
+			<br />
+
+			<div class="row">
+				<div class="span2">Name</div>
+				<div class="span1">State</div>
+				<div class="span1">Zip</div>
+				<div class="span1">Quantity</div>
+				<div class="span1">Weight</div>
+				<div class="span1">Price</div>
+			</div>
+
+			<div class="row">
+				<div class="span7"><hr></div>
+			</div>
+
+		<?php foreach ($cart['Shipping'] as $ship): ?>
+
+			<div class="row">
+				<div class="span2"><?php echo $ship['name']; ?></div>
+				<div class="span1"><?php echo $ship['state']; ?></div>
+				<div class="span1"><?php echo $ship['zip']; ?></div>
+				<div class="span1"><?php echo $ship['totalquantity']; ?></div>
+				<div class="span1"><?php echo $ship['totalweight']; ?></div>
+				<div class="span1"><?php echo $ship['totalprice']; ?></div>
+			</div>
+
+		<?php endforeach; ?>
+
+		<br />
+
+	</div>
+
+
+	<div class="span2">
 		Subtotal: <span class="normal">$<?php echo $cartTotal; ?></span>
 		<br />
 		<br />

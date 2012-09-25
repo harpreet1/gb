@@ -78,6 +78,7 @@ class ShopController extends AppController {
 
 	public function cart() {
 		$cart = $this->Session->read('Shop.Cart');
+		$this->set(compact('cart'));
 		$this->set('items', $cart['Items']);
 		$this->set('cartTotal', $cart['Property']['cartTotal']);
 	}

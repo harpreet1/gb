@@ -94,7 +94,12 @@ class CartComponent extends Component {
 		$cartQuantity = 0;
 		$cartWeight = 0;
 
+		$this->Session->delete('Shop.Cart.Property');
 		$this->Session->delete('Shop.Cart.Shipping');
+
+		$property = array();
+		$shipping = array();
+
 
 		if (count($cart['Items']) > 0) {
 			foreach ($cart['Items'] as $item) {
@@ -102,13 +107,29 @@ class CartComponent extends Component {
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['totalweight'];
 
-				$this->Session->write('Shop.Cart.Shipping.' . $item['User']['id'] . '.Zip', $item['User']['zip']);
-				$this->Session->write('Shop.Cart.Shipping.' . $item['User']['id'] . '.State', $item['User']['state']);
+				$shipping[$item['User']['id']]['name'] = $item['User']['shop_name'];
+				$shipping[$item['User']['id']]['zip'] = $item['User']['zip'];
+				$shipping[$item['User']['id']]['state'] = $item['User']['state'];
+				$shipping[$item['User']['id']]['totalprice'] = 0;
+				$shipping[$item['User']['id']]['totalquantity'] = 0;
+				$shipping[$item['User']['id']]['totalweight'] = 0;
 			}
-			$d['cartTotal'] = sprintf('%01.2f', $cartTotal);
-			$d['cartQuantity'] = $cartQuantity;
-			$d['cartWeight'] = $cartWeight;
-			$this->Session->write('Shop.Cart.Property', $d);
+			foreach ($cart['Items'] as $item) {
+				$shipping[$item['User']['id']]['totalprice'] += $item['subtotal'];
+				$shipping[$item['User']['id']]['totalquantity'] += $item['quantity'];
+				$shipping[$item['User']['id']]['totalweight'] += $item['totalweight'];
+			}
+			foreach ($shipping as & $ship) {
+				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
+			}
+
+			$property['cartTotal'] = sprintf('%.2f', $cartTotal);
+			$property['cartQuantity'] = $cartQuantity;
+			$property['cartWeight'] = $cartWeight;
+			$this->Session->write('Shop.Cart.Property', $property);
+
+			$this->Session->write('Shop.Cart.Shipping', $shipping);
+
 			return true;
 		}
 		else {
