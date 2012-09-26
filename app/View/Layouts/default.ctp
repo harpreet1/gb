@@ -30,6 +30,9 @@
 						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Vendors', array('controller' => 'users', 'action' => 'vendors')); ?></li>
+						<li><?php echo $this->Html->link('US Markets', array('controller' => 'culinaryusregions', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'culinaryregions', 'action' => 'index')); ?></li>
+
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Articles', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
