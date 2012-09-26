@@ -106,6 +106,23 @@ Weight: <?php echo $shop['Cart']['Users'][$key]['totalweight']; ?> LBS<br />
 <br />
 <br />
 
+<strong>Shipping Totals:</strong>
+<br />
+
+<?php foreach ($shop['Shippingtotal'] as $shiptotal): ?>
+
+<div class="row">
+<div class="span1"><?php echo $shiptotal['ServiceCode']; ?></div>
+<div class="span3"><?php echo $shiptotal['ServiceName']; ?></div>
+<div class="span2">$<?php echo $shiptotal['TotalCharges']; ?></div>
+</div>
+
+<?php endforeach; ?>
+
+<br />
+<hr>
+<br />
+
 <?php echo $this->Form->create('Order'); ?>
 
 <?php echo $this->Form->input('creditcard_type', array(

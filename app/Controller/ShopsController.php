@@ -113,7 +113,26 @@ class ShopsController extends AppController {
 					$i++;
 				}
 
+				$i = 0;
+				foreach ($shipping as $ship) {
+					foreach ($ship as $k) {
+						$total[$k['ServiceCode']]['ServiceCode'] = $k['ServiceCode'];
+						$total[$k['ServiceCode']]['ServiceName'] = $k['ServiceName'];
+						$total[$k['ServiceCode']]['TotalCharges'] = 0;
+						$i++;
+					}
+				}
+
+				$i = 0;
+				foreach ($shipping as $ship) {
+					foreach ($ship as $k) {
+						$total[$k['ServiceCode']]['TotalCharges'] = $k['TotalCharges'] + $total[$k['ServiceCode']]['TotalCharges'];
+						$i++;
+					}
+				}
+
 				$this->Session->write('Shop.Shipping', $shipping);
+				$this->Session->write('Shop.Shippingtotal', $total);
 				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
 				$this->Session->write('Shop.Order', $order);
 				$this->Session->write('Shop.Data', $order);
@@ -163,6 +182,8 @@ class ShopsController extends AppController {
 	public function review() {
 
 		$shop = $this->Session->read('Shop');
+		$total = array();
+		$i = 0;
 
 		if(empty($shop)) {
 			$this->redirect('/');
