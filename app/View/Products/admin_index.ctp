@@ -9,7 +9,7 @@
 			<th><?php echo $this->Paginator->sort('category'); ?></th>
 			<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('subcategory'); ?></th>
-			<th><?php echo $this->Paginator->sort('sub_subcat_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
 			<th><?php echo $this->Paginator->sort('aux_category_1'); ?></th>
 			<th><?php echo $this->Paginator->sort('aux_category_2'); ?></th>
@@ -19,7 +19,7 @@
 			<th><?php echo $this->Paginator->sort('brand'); ?></th>
 			<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('in_stock'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('long_description'); ?></th>
@@ -95,7 +95,7 @@
 		<td><?php echo h($product['Product']['category']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['subcategory_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['subcategory']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['sub_subcat_id']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['subsubcategory_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['subsubcategory']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['aux_category_1']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['aux_category_2']); ?>&nbsp;</td>
@@ -105,7 +105,7 @@
 		<td><?php echo h($product['Product']['brand']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['brand_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['in_stock']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['description']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['long_description']); ?>&nbsp;</td>

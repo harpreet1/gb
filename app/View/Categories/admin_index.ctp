@@ -8,8 +8,6 @@
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
 			<th><?php echo $this->Paginator->sort('other'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('article'); ?></th>
-			<th><?php echo $this->Paginator->sort('summary'); ?></th>
 			<th><?php echo $this->Paginator->sort('image_1'); ?></th>
 			<th><?php echo $this->Paginator->sort('image_2'); ?></th>
 			<th><?php echo $this->Paginator->sort('image_3'); ?></th>
@@ -31,8 +29,6 @@
 		<td>
 			<?php echo $this->Html->link($category['User']['id'], array('controller' => 'users', 'action' => 'view', $category['User']['id'])); ?>
 		</td>
-		<td><?php echo h($category['Category']['article']); ?>&nbsp;</td>
-		<td><?php echo h($category['Category']['summary']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['image_1']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['image_2']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['image_3']); ?>&nbsp;</td>
