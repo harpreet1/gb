@@ -15,7 +15,7 @@ class ImportcsvShell extends Shell {
 
 		$slugtype = '-';
 
-		$filename = TMP . 'p.csv';
+		$filename = TMP . 'kitchentlc.csv';
 
 		ini_set('auto_detect_line_endings', true);
 
@@ -38,7 +38,7 @@ class ImportcsvShell extends Shell {
 		echo $filename;
 
 //		$this->Product->query("TRUNCATE products");
-		$this->Product->query("DELETE from products where user_id = 11");
+		$this->Product->query("DELETE from products where user_id = 111");
 
 
 //		die('end here');
@@ -83,13 +83,13 @@ class ImportcsvShell extends Shell {
 
 //			$data['Product']['local_image'] = $data['Product']['name_slug'] . '.jpg';
 
-			$data['Product']['product_name'] = $data['Product']['name'];
+//			$data['Product']['name'] = $data['Product']['name'];
 
 			$data['Product']['price'] = preg_replace('/[^0-9\.]/', '', $data['Product']['price']);
 
 			$data['Product']['image'] = $data['Product']['slug'] . '.jpg';
 
-			$data['Product']['user_id'] = 11;
+			$data['Product']['user_id'] = 111;
 
 //			$data['Product']['title'] = preg_replace('/[()\-\"\']/', '', $data['Product']['name']);
 
