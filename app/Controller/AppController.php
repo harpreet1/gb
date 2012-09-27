@@ -32,6 +32,21 @@ class AppController extends Controller {
 			$this->layout = 'admin';
 		} else {
 			$this->Auth->allow();
+
+			$menuvendors = ClassRegistry::init('User')->find('all', array(
+				'fields' => array(
+					'User.id',
+					'User.short_name',
+					'User.shop_name',
+				),
+				'conditions' => array(
+					'User.level' => 'vendor'
+				),
+				'order' => array(
+					'User.shop_name' => 'ASC'
+				),
+			));
+			$this->set(compact('menuvendors'));
 		}
 
 	}

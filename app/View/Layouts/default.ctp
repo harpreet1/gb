@@ -29,7 +29,15 @@
 						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Vendors', array('controller' => 'users', 'action' => 'vendors')); ?></li>
+						<li class="dropdown">
+							<a href="/users/vendors" class="dropdown-toggle" data-toggle="dropdown">Vendors<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<?php foreach($menuvendors as $menuvendor) : ?>
+								<li><?php echo $this->Html->link($menuvendor['User']['shop_name'], 'http://' . $menuvendor['User']['short_name'] . '.' . DOMAIN . '/'); ?></li>
+
+								<?php endforeach; ?>
+							</ul>
+						</li>
 						<li><?php echo $this->Html->link('US Markets', array('controller' => 'culinaryusregions', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'culinaryregions', 'action' => 'index')); ?></li>
 
