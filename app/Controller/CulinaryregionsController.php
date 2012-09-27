@@ -9,12 +9,68 @@ class CulinaryregionsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function view($id = null) {
-		$this->Culinaryregion->id = $id;
-		if (!$this->Culinaryregion->exists()) {
-			throw new NotFoundException(__('Invalid culinaryregion'));
+	public function view($slug = null) {
+
+		$culinaryregion = $this->Culinaryregion->find('first', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'Culinaryregion.slug' => $slug
+			)
+		));
+		if(empty($culinaryregion)) {
+			die('invalid region');
 		}
-		$this->set('culinaryregion', $this->Culinaryregion->read(null, $id));
+		$this->set(compact('culinaryregion'));
+
+		$regionid = $culinaryregion['Culinaryregion']['id'];
+
+		$this->loadModel('Product');
+
+		$this->paginate = array(
+			'joins' => array(
+				array(
+					'table' => 'users',
+					'type' => 'RIGHT',
+					'alias' => 'User',
+					'conditions' => array('User.id = Product.user_id AND User.level = "vendor"')
+				),
+				array(
+					'table' => 'categories',
+					'type' => 'RIGHT',
+					'alias' => 'categories',
+					'conditions' => array('categories.id = Product.category_id')
+				),
+				array(
+					'table' => 'subcategories',
+					'type' => 'RIGHT',
+					'alias' => 'subcategories',
+					'conditions' => array('subcategories.id = Product.subcategory_id')
+				)
+			),
+			'fields' => array(
+				'Product.id',
+				'Product.category_id',
+				'Product.name',
+				'Product.slug',
+				'Product.description',
+				'Product.price',
+				'Product.image',
+				'Product.image_1',
+				'Product.image_2',
+				'Product.image_3',
+				'Product.image_4',
+				'Product.image_5',
+				'User.id',
+				'User.short_name',
+			),
+			'conditions' => array("FIND_IN_SET('$regionid', tradition_ids)"),
+			'limit' => 30,
+			'order' => array('Product.id' => 'DESC')
+		);
+
+		$products = $this->paginate('Product');
+		$this->set(compact('products'));
+
 	}
 
 ////////////////////////////////////////////////////////////

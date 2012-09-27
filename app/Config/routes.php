@@ -20,6 +20,8 @@
 
 	Router::connect('/subsubcategory/:slug', array('controller' => 'products', 'action' => 'subsubcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
+	Router::connect('/international/:slug', array('controller' => 'culinaryregions', 'action' => 'view'), array('pass' => array('slug')));
+
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
 	Router::connect(
