@@ -17,7 +17,7 @@ class CulinaryusregionsController extends AppController {
 		$culinaryusregion = $this->Culinaryusregion->find('first', array(
 			'recursive' => -1,
 			'conditions' => array(
-				'CulinaryUsRegion.slug' => $slug
+				'Culinaryusregion.slug' => $slug
 			)
 		));
 		if(empty($culinaryusregion)) {
