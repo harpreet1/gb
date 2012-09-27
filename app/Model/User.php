@@ -44,4 +44,25 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public function getVendors() {
+
+		$menuvendors = $this->find('all', array(
+			'fields' => array(
+				'User.id',
+				'User.short_name',
+				'User.shop_name',
+			),
+			'conditions' => array(
+				'User.level' => 'vendor'
+			),
+			'order' => array(
+				'User.shop_name' => 'ASC'
+			),
+		));
+
+		return $menuvendors;
+	}
+
+////////////////////////////////////////////////////////////
+
 }

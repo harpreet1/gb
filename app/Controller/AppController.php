@@ -6,7 +6,7 @@ class AppController extends Controller {
 		'Session',
 		'Auth',
 		'RequestHandler',
-		'DebugKit.Toolbar'
+		'DebugKit.Toolbar',
 	);
 
 	public function beforeFilter() {
@@ -23,7 +23,7 @@ class AppController extends Controller {
 					'password' => 'password'
 				),
 				'scope' => array(
-//					'User.is_active' => 1
+				// 'User.is_active' => 1
 				)
 			), 'Form'
 		);
@@ -33,19 +33,12 @@ class AppController extends Controller {
 		} else {
 			$this->Auth->allow();
 
-			$menuvendors = ClassRegistry::init('User')->find('all', array(
-				'fields' => array(
-					'User.id',
-					'User.short_name',
-					'User.shop_name',
-				),
-				'conditions' => array(
-					'User.level' => 'vendor'
-				),
-				'order' => array(
-					'User.shop_name' => 'ASC'
-				),
-			));
+			$menuvendors = Cache::read('menuvendors');
+			if (!$menuvendors) {
+				$menuvendors = ClassRegistry::init('User')->getVendors();
+				Cache::set(array('duration' => '+10 minutes'));
+				Cache::write('menuvendors', $menuvendors);
+			}
 			$this->set(compact('menuvendors'));
 		}
 
