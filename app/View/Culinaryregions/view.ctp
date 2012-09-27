@@ -5,8 +5,8 @@
 
 	<div class="span4">
 
-		<?php foreach ($culinaryregions as $culinaryregion): ?>
-		<?php echo $this->Html->link($culinaryregion['Culinaryregion']['name'], array('controller' => 'culinaryregions', 'action' => 'view', 'slug' => $culinaryregion['Culinaryregion']['slug'])); ?><br />
+		<?php foreach ($culinaryregions as $culinary): ?>
+		<?php echo $this->Html->link($culinary['Culinaryregion']['name'], array('controller' => 'culinaryregions', 'action' => 'view', 'slug' => $culinary['Culinaryregion']['slug'])); ?><br />
 		<?php endforeach; ?>
 
 	</div>
