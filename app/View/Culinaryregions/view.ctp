@@ -87,31 +87,31 @@
 	</dd>
 	<dt><?php echo __('Image'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image']); ?>
 	</dd>
 	<dt><?php echo __('Image 1'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_1']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_1']); ?>
 	</dd>
 	<dt><?php echo __('Image 2'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_2']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_2']); ?>
 	</dd>
 	<dt><?php echo __('Image 3'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_3']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_3']); ?>
 	</dd>
 	<dt><?php echo __('Image 4'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_4']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_4']); ?>
 	</dd>
 	<dt><?php echo __('Image 5'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_5']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_5']); ?>
 	</dd>
 	<dt><?php echo __('Image 6'); ?></dt>
 	<dd>
-		<?php echo h($culinaryregion['Culinaryregion']['image_6']); ?>
+		<?php echo $this->Html->image('culinaryregions/' . $culinaryregion['Culinaryregion']['image_6']); ?>
 	</dd>
 	<dt><?php echo __('Created'); ?></dt>
 	<dd>
