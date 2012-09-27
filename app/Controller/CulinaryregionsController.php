@@ -24,6 +24,15 @@ class CulinaryregionsController extends AppController {
 
 		$regionid = $culinaryregion['Culinaryregion']['id'];
 
+		$culinaryregions = $this->Culinaryregion->find('all', array(
+			'recursive' => -1,
+			'conditions' => array(),
+			'order' => array(
+				'Culinaryregion.name' => 'ASC'
+			)
+		));
+		$this->set(compact('culinaryregions'));
+
 		$this->loadModel('Product');
 
 		$this->paginate = array(

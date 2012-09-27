@@ -3,7 +3,15 @@
 
 <div class="row">
 
-	<div class="span8 offset4">
+	<div class="span4">
+
+		<?php foreach ($culinaryregions as $culinaryregion): ?>
+		<?php echo $this->Html->link($culinaryregion['Culinaryregion']['name'], array('controller' => 'culinaryregions', 'action' => 'view', 'slug' => $culinaryregion['Culinaryregion']['slug'])); ?><br />
+		<?php endforeach; ?>
+
+	</div>
+
+	<div class="span8">
 
 		<div class="row">
 
@@ -44,6 +52,13 @@
 
 	</div>
 </div>
+
+<br />
+<hr>
+<br />
+
+
+
 
 <dl>
 	<dt><?php echo __('Id'); ?></dt>
