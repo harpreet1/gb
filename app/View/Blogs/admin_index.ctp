@@ -1,3 +1,5 @@
+<?php echo $this->Html->script(array('switch.js'), array('inline' => false)); ?>
+
 <div class="blogs index">
 	<h2><?php echo __('Blogs'); ?></h2>
 	<table class="table table-striped table-bordered table-condensed table-hover">
@@ -18,7 +20,7 @@
 		<td><?php echo h($blog['Blog']['name']); ?></td>
 		<td><?php echo h($blog['Blog']['slug']); ?></td>
 		<td><?php echo $blog['Blog']['body']; ?></td>
-		<td><?php echo h($blog['Blog']['active']); ?></td>
+		<td><a href="/admin/blogs/switch/active/<?php echo $blog['Blog']['id']; ?>" class="status"><img src="/img/icon_<?php echo $blog['Blog']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($blog['Blog']['created']); ?></td>
 		<td><?php echo h($blog['Blog']['modified']); ?></td>
 		<td class="actions">

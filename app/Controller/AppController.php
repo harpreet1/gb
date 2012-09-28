@@ -2,12 +2,16 @@
 App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
+////////////////////////////////////////////////////////////
+
 	public $components = array(
 		'Session',
 		'Auth',
 		'RequestHandler',
 		'DebugKit.Toolbar',
 	);
+
+////////////////////////////////////////////////////////////
 
 	public function beforeFilter() {
 
@@ -44,10 +48,33 @@ class AppController extends Controller {
 
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function _getSubDomain() {
 		$url = explode('.', $_SERVER['HTTP_HOST']);
 		return $url[0];
 	}
 
+////////////////////////////////////////////////////////////
+
+	public function admin_switch($field = null, $id = null) {
+		$model = $this->modelClass;
+
+		$this->$model->recursive = -1;
+
+		$data = $this->$model->findById($id);
+		$value = 0;
+		if($data[$model][$field] == 0) {
+			$value = 1;
+		}
+		$this->$model->id = $id;
+		$this->$model->saveField($field, $value);
+		if(!$this->RequestHandler->isAjax()) {
+			$this->redirect($this->referer());
+		}
+		$this->autoRender = false;
+	}
+
+////////////////////////////////////////////////////////////
 
 }
