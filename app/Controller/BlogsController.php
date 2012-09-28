@@ -5,8 +5,19 @@ class BlogsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function index() {
-		$this->Blog->recursive = 0;
-		$this->set('blogs', $this->paginate());
+		$this->paginate = array(
+			'recursive' => -1,
+			'limit' => 40,
+			'conditions' => array(
+				'Blog.active' => 1
+			),
+			'order' => array(
+				'Blog.created' => 'DESC'
+			),
+			'paramType' => 'querystring',
+		);
+		$blogs = $this->paginate('Blog');
+		$this->set(compact('blogs'));
 	}
 
 ////////////////////////////////////////////////////////////
