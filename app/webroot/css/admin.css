@@ -1,6 +1,17 @@
-.blogbody {
-//	font-size: 7px;
-//	color: red;
-	max-height: 20px;
-	overflow: scroll-y;
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
+
+.content {
+	font-size: 80%;
+}
+
+.error-message {
+	color: #CC0000;
+}
+
+.error {
+	color: #CC0000;
+}
+

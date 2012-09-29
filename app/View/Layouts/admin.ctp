@@ -5,17 +5,6 @@
 <title><?php echo $title_for_layout; ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php echo $this->Html->css(array('bootstrap.css')); ?>
-<style type="text/css">
-	body {
-		padding-top: 40px;
-		padding-bottom: 40px;
-	}
-
-	.content {
-		font-size: 80%;
-	}
-
-</style>
 <?php //echo $this->Html->css(array('bootstrap-responsive.css')); ?>
 <?php echo $this->Html->css(array('admin.css')); ?>
 
