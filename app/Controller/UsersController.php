@@ -75,19 +75,20 @@ class UsersController extends AppController {
 
 	public function admin_view($id = null) {
 
-
 		if ($this->request->is('post')) {
 			$slug = $this->request->data['User']['slug'];
 			$image = $this->request->data['User']['slug'] . '.jpg';
 
-			$targetdir = IMAGES . 'cars/' . $slug . '/original/';
+			$targetdir = IMAGES . 'user_image/';
 
 			$upload = $this->Image->upload($this->request->data['User']['image']['tmp_name'], $targetdir, $image);
 
 			if($upload == 'Success') {
-				$uploadedfile = $targetdir . '/' . $image;
-				$this->Image->resample($uploadedfile, IMAGES . '/userimages/' . $slug . '/', $image, 900, 600, 1, 0);
-				$this->Image->resample($uploadedfile, IMAGES . '/userimages/' . $slug . '/thumb/', $image, 180, 120, 1, 0);
+				$this->User->id = $this->request->data['User']['id'];
+				$this->User->saveField('image', $image);
+				//$uploadedfile = $targetdir . '/' . $image;
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/thumb/', $image, 180, 120, 1, 0);
 			}
 
 			$this->Session->setFlash($upload);

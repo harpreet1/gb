@@ -9,7 +9,7 @@
 
 		<br />
 
-		<?php echo $this->Html->image('logos/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('user_image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
 		<br />
 		<br />
