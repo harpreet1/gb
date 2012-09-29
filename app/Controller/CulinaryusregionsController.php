@@ -68,7 +68,7 @@ class CulinaryusregionsController extends AppController {
 				'Product.image',
 				'Product.category_id',
 				'User.id',
-				'User.short_name',
+				'User.slug',
 			),
 			'conditions' => array('FIND_IN_SET("'.$regionid.'", dom_tradition_ids)'),
 			'limit' => 30,

@@ -32,8 +32,8 @@ $(document).ready(function() {
 	</tr>
 <?php foreach ($recipes as $recipe): ?>
 	<tr>
-		<td><?php echo $this->Html->link($recipe['Recipe']['name'], array('action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug'])); ?></td>
-		<td><?php echo $recipe['User']['business_name']; ?></td>
+		<td><?php echo $this->Html->link($recipe['Recipe']['name'], array('action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug'])); ?></td>
+		<td><?php echo $recipe['User']['shop_name']; ?></td>
 		<td><?php echo $recipe['Category']['name']; ?></td>
 	</tr>
 <?php endforeach; ?>
@@ -76,16 +76,16 @@ $(document).ready(function() {
 	<div class="span3">
 		<?php echo $recipe['Category']['name']; ?>
 		<br />
-		<?php echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
+		<?php echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 
 <!--		<?php //echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 
 -->
 		<br />
-		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
+		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />
 		<br />
-		<?php echo $recipe['User']['business_name']; ?>
+		<?php echo $recipe['User']['shop_name']; ?>
 		<br />
 		<br />
 

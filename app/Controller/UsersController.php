@@ -4,6 +4,10 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public $components = array('Image');
+
+////////////////////////////////////////////////////////////
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('login');
@@ -15,15 +19,15 @@ class UsersController extends AppController {
 		$users = $this->User->find('all', array(
 			'fields' => array(
 				'User.id',
-				'User.short_name',
+				'User.slug',
 				'User.shop_name',
-				'User.logo',
+				'User.image',
 			),
 			'conditions' => array(
-				'User.short_name !=' => ''
+				'User.slug !=' => ''
 			),
 			'order' => array(
-				'User.short_name' => 'ASC'
+				'User.slug' => 'ASC'
 			),
 		));
 
@@ -70,6 +74,26 @@ class UsersController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
+
+
+		if ($this->request->is('post')) {
+			$slug = $this->request->data['User']['slug'];
+			$image = $this->request->data['User']['slug'] . '.jpg';
+
+			$targetdir = IMAGES . 'cars/' . $slug . '/original/';
+
+			$upload = $this->Image->upload($this->request->data['User']['image']['tmp_name'], $targetdir, $image);
+
+			if($upload == 'Success') {
+				$uploadedfile = $targetdir . '/' . $image;
+				$this->Image->resample($uploadedfile, IMAGES . '/userimages/' . $slug . '/', $image, 900, 600, 1, 0);
+				$this->Image->resample($uploadedfile, IMAGES . '/userimages/' . $slug . '/thumb/', $image, 180, 120, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));

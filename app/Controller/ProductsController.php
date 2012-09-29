@@ -91,7 +91,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'User.short_name'
+				'User.slug'
 			),
 			'limit' => 40,
 			'order' => array(
@@ -149,7 +149,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'User.short_name'
+				'User.slug'
 			),
 			'limit' => 40,
 			'conditions' => array(
@@ -205,7 +205,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'User.short_name'
+				'User.slug'
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
@@ -274,7 +274,7 @@ class ProductsController extends AppController {
 					'Product.slug',
 					'Product.image',
 					'Product.price',
-					'User.short_name'
+					'User.slug'
 				),
 				'conditions' => $conditions,
 				'limit' => 200,
@@ -335,9 +335,11 @@ class ProductsController extends AppController {
 	public function sitemap() {
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
+			'contain' => array('User'),
 			'fields' => array(
 				'Product.id',
-				'Product.slug'
+				'Product.slug',
+				'User.slug'
 			),
 			'order' => array(
 				'Product.created' => 'DESC'

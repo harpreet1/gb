@@ -9,7 +9,7 @@ class RecipesController extends AppController {
 		$subDomain = $this->_getSubDomain();
 		if($subDomain != 'www') {
 			$conditions = array(
-				'User.short_name' => $subDomain
+				'User.slug' => $subDomain
 			);
 		}
 
@@ -17,7 +17,7 @@ class RecipesController extends AppController {
 		$user = $this->User->find('first', array(
 			'recursive' => -1,
 			'conditions' => array(
-				'User.short_name' => $subDomain,
+				'User.slug' => $subDomain,
 			)
 		));
 		if(empty($user)) {
@@ -33,8 +33,8 @@ class RecipesController extends AppController {
 				'Recipe.image_1',
 				'Recipe.image_caption_1',
 				'Recipe.created',
-				'User.short_name',
-				'User.business_name',
+				'User.shop_name',
+				'User.slug',
 				'Category.name',
 			),
 			'conditions' => array(
@@ -76,18 +76,18 @@ class RecipesController extends AppController {
 		$vendors = $this->Recipe->find('list', array(
 			'recursive' => 1,
 			'fields' => array(
-				'User.short_name',
+				'User.slug',
 				'User.shop_name'
 			),
 			'conditions' => array(
 				'Recipe.active' => 1,
-				'User.short_name >' => ''
+				'User.slug >' => ''
 			),
 			'group' => array(
 				'User.id'
 			),
 			'order' => array(
-				'User.short_name'
+				'User.slug' => 'ASC'
 			)
 		));
 
@@ -118,7 +118,7 @@ class RecipesController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			}
 
-			$conditions[] = array('User.short_name' => $this->params['named']['vendor']);
+			$conditions[] = array('User.slug' => $this->params['named']['vendor']);
 
 			$vendor_selected = $this->params['named']['vendor'];
 		} else {
@@ -134,8 +134,8 @@ class RecipesController extends AppController {
 				'Recipe.image_1',
 				'Recipe.image_caption_1',
 				'Recipe.created',
-				'User.short_name',
-				'User.business_name',
+				'User.shop_name',
+				'User.slug',
 				'Category.name',
 			),
 			'conditions' => array(

@@ -10,7 +10,7 @@
 
 		<br />
 
-		<?php echo $this->Html->image('logos/' . $user['User']['logo'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('logos/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
 
 		<?php if(!empty($usercategories)) : ?>
@@ -99,7 +99,7 @@
 				<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
 
 				<br />
-				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['short_name'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
 
 				<br />
 				$<?php echo $product['Product']['price']; ?>
@@ -136,7 +136,7 @@
 
 		<h5><?php echo $user['User']['shop_quote']; ?></h5>
 
-		<?php echo $this->Html->image('logos/' . $user['User']['logo'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('logos/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
 		<?php echo $this->Html->image('logos/' . $user['User']['image1'], array('class' => 'img-polaroid')); ?>

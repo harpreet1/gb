@@ -70,7 +70,7 @@ class CulinaryregionsController extends AppController {
 				'Product.image_4',
 				'Product.image_5',
 				'User.id',
-				'User.short_name',
+				'User.slug',
 			),
 			'conditions' => array("FIND_IN_SET('$regionid', tradition_ids)"),
 			'limit' => 30,

@@ -16,7 +16,6 @@ class ShopsController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->disableCache();
-		//$this->Security->validatePost = false;
 	}
 
 //////////////////////////////////////////////////

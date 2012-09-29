@@ -24,11 +24,11 @@ class User extends AppModel {
 			'recursive' => -1,
 			'fields' => array(
 				'User.id',
-				'User.short_name',
+				'User.slug',
 				'User.shop_name',
 				'User.shop_quote',
 				'User.shop_description',
-				'User.logo',
+				'User.image',
 				'User.image1',
 				'User.image2',
 				'User.image3',
@@ -36,7 +36,7 @@ class User extends AppModel {
 				'User.image5',
 			),
 			'conditions' => array(
-				'User.short_name' => $subDomain
+				'User.slug' => $subDomain
 			)
 		));
 		return $user;
@@ -49,7 +49,7 @@ class User extends AppModel {
 		$menuvendors = $this->find('all', array(
 			'fields' => array(
 				'User.id',
-				'User.short_name',
+				'User.slug',
 				'User.shop_name',
 			),
 			'conditions' => array(
