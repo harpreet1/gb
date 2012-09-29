@@ -4,14 +4,14 @@
 	<h2><?php echo __('Blogs'); ?></h2>
 	<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th><?php echo $this->Paginator->sort('body'); ?></th>
-			<th><?php echo $this->Paginator->sort('active'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<th><?php echo $this->Paginator->sort('name'); ?></th>
+		<th><?php echo $this->Paginator->sort('slug'); ?></th>
+		<th><?php echo $this->Paginator->sort('body'); ?></th>
+		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('created'); ?></th>
+		<th><?php echo $this->Paginator->sort('modified'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 	foreach ($blogs as $blog): ?>
@@ -19,7 +19,7 @@
 		<td><?php echo h($blog['Blog']['id']); ?></td>
 		<td><?php echo h($blog['Blog']['name']); ?></td>
 		<td><?php echo h($blog['Blog']['slug']); ?></td>
-		<td><?php echo $blog['Blog']['body']; ?></td>
+		<td class="blogbody"><?php echo $blog['Blog']['body']; ?></td>
 		<td><a href="/admin/blogs/switch/active/<?php echo $blog['Blog']['id']; ?>" class="status"><img src="/img/icon_<?php echo $blog['Blog']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($blog['Blog']['created']); ?></td>
 		<td><?php echo h($blog['Blog']['modified']); ?></td>

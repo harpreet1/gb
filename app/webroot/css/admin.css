@@ -1,0 +1,6 @@
+.blogbody {
+//	font-size: 7px;
+//	color: red;
+	max-height: 20px;
+	overflow: scroll-y;
+}
