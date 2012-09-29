@@ -8,7 +8,7 @@ class Note extends AppModel {
 		'name' => array(
 			'between' => array(
 				'rule' => array('between', 3, 50),
-				'message' => 'Invalid Title',
+				'message' => 'Invalid Name',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
