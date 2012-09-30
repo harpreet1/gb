@@ -77,4 +77,21 @@ class AppController extends Controller {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_editable() {
+
+		$model = $this->modelClass;
+
+		$id = $this->request->data['pk'];
+		$field = $this->request->data['name'];
+		$value = $this->request->data['value'];
+
+		$this->$model->id = $id;
+		$this->$model->saveField($field, $value);
+
+		$this->autoRender = false;
+
+	}
+
+////////////////////////////////////////////////////////////
+
 }

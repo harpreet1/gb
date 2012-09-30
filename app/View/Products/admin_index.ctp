@@ -1,3 +1,30 @@
+<?php echo $this->Html->css(array('bootstrap-editable.css'), 'stylesheet', array('inline' => false)); ?>
+
+<?php echo $this->Html->script(array('switch.js', 'bootstrap-editable.js'), array('inline' => false)); ?>
+
+<script>
+$(document).ready(function() {
+
+	$('.long_description').editable({
+		type: 'textarea',
+		name: 'long_description',
+		url: '/admin/products/editable',
+		title: 'Long Description',
+		placement: 'right',
+	});
+
+
+	$('.price').editable({
+		type: 'text',
+		name: 'price',
+		url: '/admin/products/editable',
+		title: 'Price',
+		placement: 'right',
+	});
+
+});
+</script>
+
 <div class="products index">
 	<h2><?php echo __('Products'); ?></h2>
 	<table class="table table-striped table-bordered table-condensed table-hover">
@@ -83,12 +110,11 @@
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php
-	foreach ($products as $product): ?>
+	<?php foreach ($products as $product): ?>
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['upc']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['user_id']); ?>&nbsp;</td>
+		<td><?php echo h($product['User']['shop_name']); ?></td>
 		<td>
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 		</td>
@@ -108,7 +134,7 @@
 		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['description']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['long_description']); ?>&nbsp;</td>
+		<td><span class="long_description" data-value="<?php echo $product['Product']['long_description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['long_description']; ?></span></td>
 		<td><?php echo h($product['Product']['tags']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image_original']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image']); ?>&nbsp;</td>
@@ -122,7 +148,7 @@
 		<td><?php echo h($product['Product']['cost']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['list_price']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['selling_price']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['price']); ?>&nbsp;</td>
+		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><?php echo h($product['Product']['taxable']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['stock']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['ratings']); ?>&nbsp;</td>

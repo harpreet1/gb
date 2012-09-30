@@ -73,21 +73,6 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function admin_editable() {
-
-		$id = $this->request->data['pk'];
-		$field = $this->request->data['name'];
-		$value = $this->request->data['value'];
-
-		$this->User->id = $id;
-		$this->User->saveField($field, $value);
-
-		$this->autoRender = false;
-
-	}
-
-////////////////////////////////////////////////////////////
-
 	public function admin_view($id = null) {
 
 		if ($this->request->is('post')) {
@@ -101,9 +86,9 @@ class UsersController extends AppController {
 			if($upload == 'Success') {
 				$this->User->id = $this->request->data['User']['id'];
 				$this->User->saveField('image', $image);
-				//$uploadedfile = $targetdir . '/' . $image;
+				$uploadedfile = $targetdir . '/' . $image;
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
-				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/thumb/', $image, 180, 120, 1, 0);
+				$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
 			}
 
 			$this->Session->setFlash($upload);
