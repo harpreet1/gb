@@ -7,11 +7,24 @@ $(document).ready(function() {
 
 	$('.level').editable({
 		type:  'select',
-		source: "{'admin': 'admin', 'vendor': 'vendor', 'inactive': 'inactive'}",
+		source: {"admin": "admin", "vendor": "vendor", "inactive": "inactive"},
 		name:  'level',
 		url:   '/admin/users/editable',
 		title: 'Level',
 		placement: 'right',
+	});
+
+	$('.business_established').editable({
+		type:  'text',
+		name: 'business_established',
+		url:   '/admin/users/editable',
+		title: 'Business Established',
+		placement: 'right',
+		validate: function(value) {
+			if($.trim(value) < 1900 || $.trim(value) > 2013) {
+				return 'Invalid Data';
+			}
+		}
 	});
 
 });
@@ -45,7 +58,7 @@ $(document).ready(function() {
 		<td><?php echo h($user['User']['shop_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['business_name']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['business_established']); ?>&nbsp;</td>
+		<td><span class="business_established" data-value="<?php echo $user['User']['business_established']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo h($user['User']['business_established']); ?></span></td>
 		<td><?php echo $this->Html->image('user_image/' . $user['User']['image']); ?></td>
 		<td><?php echo h($user['User']['street_address']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['street_address2']); ?>&nbsp;</td>
