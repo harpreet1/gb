@@ -52,7 +52,6 @@
 			<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-			<li><a href="https://www.google.com/a/cpanel/exotiquerental.com/Dashboard?" target="_blank"><i class="icon-cog"></i> Email Managament</a></li>
 			<li><a href="/mail" target="_blank"><i class="icon-envelope"></i> Email</a></li>
 			<li><a href="http://www.google.com/analytics/" target="_blank"><i class="icon-align-left"></i> Analytics</a></li>
 			<li class="divider"></li>
