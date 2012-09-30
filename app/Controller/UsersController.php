@@ -73,6 +73,21 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_editable() {
+
+		$id = $this->request->data['pk'];
+		$field = $this->request->data['name'];
+		$value = $this->request->data['value'];
+
+		$this->User->id = $id;
+		$this->User->saveField($field, $value);
+
+		$this->autoRender = false;
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_view($id = null) {
 
 		if ($this->request->is('post')) {

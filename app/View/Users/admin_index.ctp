@@ -1,30 +1,46 @@
-<?php echo $this->Html->script(array('switch.js'), array('inline' => false)); ?>
+<?php echo $this->Html->css(array('bootstrap-editable.css'), 'stylesheet', array('inline' => false)); ?>
 
-<div class="users index">
-	<h2><?php echo __('Users'); ?></h2>
-	<table class="table table-striped table-bordered table-condensed table-hover">
-		<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('level'); ?></th>
-			<th><?php echo $this->Paginator->sort('username'); ?></th>
-			<th><?php echo $this->Paginator->sort('shop_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th><?php echo $this->Paginator->sort('business_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('business_established'); ?></th>
-			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('street_address'); ?></th>
-			<th><?php echo $this->Paginator->sort('street_address2'); ?></th>
-			<th><?php echo $this->Paginator->sort('city'); ?></th>
-			<th><?php echo $this->Paginator->sort('state'); ?></th>
-			<th><?php echo $this->Paginator->sort('zip'); ?></th>
-			<th><?php echo $this->Paginator->sort('active'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php
-	foreach ($users as $user): ?>
+<?php echo $this->Html->script(array('switch.js', 'bootstrap-editable.js'), array('inline' => false)); ?>
+
+<script>
+$(document).ready(function() {
+
+	$('.level').editable({
+		type:  'select',
+		source: "{'admin': 'admin', 'vendor': 'vendor', 'inactive': 'inactive'}",
+		name:  'level',
+		url:   '/admin/users/editable',
+		title: 'Level',
+		placement: 'right',
+	});
+
+});
+</script>
+
+<h2>Users</h2>
+
+<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
-		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['level']); ?>&nbsp;</td>
+		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<th><?php echo $this->Paginator->sort('level'); ?></th>
+		<th><?php echo $this->Paginator->sort('username'); ?></th>
+		<th><?php echo $this->Paginator->sort('shop_name'); ?></th>
+		<th><?php echo $this->Paginator->sort('slug'); ?></th>
+		<th><?php echo $this->Paginator->sort('business_name'); ?></th>
+		<th><?php echo $this->Paginator->sort('business_established'); ?></th>
+		<th><?php echo $this->Paginator->sort('image'); ?></th>
+		<th><?php echo $this->Paginator->sort('street_address'); ?></th>
+		<th><?php echo $this->Paginator->sort('street_address2'); ?></th>
+		<th><?php echo $this->Paginator->sort('city'); ?></th>
+		<th><?php echo $this->Paginator->sort('state'); ?></th>
+		<th><?php echo $this->Paginator->sort('zip'); ?></th>
+		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php foreach ($users as $user): ?>
+	<tr>
+		<td><?php echo $user['User']['id']; ?></td>
+		<td class="level" data-pk="<?php echo $user['User']['id']; ?>"><?php echo h($user['User']['level']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['shop_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['slug']); ?>&nbsp;</td>
@@ -43,23 +59,16 @@
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
 		</td>
 	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
+	<?php endforeach; ?>
+</table>
 
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
+<?php echo $this->element('pagination-counter'); ?>
+
+<?php echo $this->element('pagination'); ?>
+
+<br />
+<br />
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
