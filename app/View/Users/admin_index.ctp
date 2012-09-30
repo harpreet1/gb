@@ -40,7 +40,7 @@ $(document).ready(function() {
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo $user['User']['id']; ?></td>
-		<td class="level" data-pk="<?php echo $user['User']['id']; ?>"><?php echo h($user['User']['level']); ?>&nbsp;</td>
+		<td><span class="level" data-value="<?php echo $user['User']['level']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['level']; ?></span></td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['shop_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['slug']); ?>&nbsp;</td>
