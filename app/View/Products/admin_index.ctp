@@ -134,7 +134,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['description']); ?>&nbsp;</td>
-		<td><span class="long_description" data-value="<?php echo $product['Product']['long_description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['long_description']; ?></span></td>
+		<td><div style="height:100px;overflow-y:scroll" class="long_description" data-value="<?php echo $product['Product']['long_description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['long_description']; ?></div></td>
 		<td><?php echo h($product['Product']['tags']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image_original']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image']); ?>&nbsp;</td>
