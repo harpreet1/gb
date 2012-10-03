@@ -25,12 +25,11 @@ $(document).ready(function() {
 });
 </script>
 
-<div class="products index">
+
 	<h2><?php echo __('Products'); ?></h2>
 	<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('upc'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('category'); ?></th>
@@ -38,6 +37,7 @@ $(document).ready(function() {
 			<th><?php echo $this->Paginator->sort('subcategory'); ?></th>
 			<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
+			<th><?php echo $this->Paginator->sort('upc'); ?></th>
 			<th><?php echo $this->Paginator->sort('aux_category_1'); ?></th>
 			<th><?php echo $this->Paginator->sort('aux_category_2'); ?></th>
 			<th><?php echo $this->Paginator->sort('aux_category_3'); ?></th>
@@ -88,7 +88,7 @@ $(document).ready(function() {
 			<th><?php echo $this->Paginator->sort('checked'); ?></th>
 			<th><?php echo $this->Paginator->sort('allergen_free'); ?></th>
 			<th><?php echo $this->Paginator->sort('gluten_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('vegan'); ?></th>
+			<th><?php echo $this->Paginator->sort('vegetarian'); ?></th>
 			<th><?php echo $this->Paginator->sort('fat_free'); ?></th>
 			<th><?php echo $this->Paginator->sort('sugar_free'); ?></th>
 			<th><?php echo $this->Paginator->sort('no_msg'); ?></th>
@@ -105,7 +105,9 @@ $(document).ready(function() {
 			<th><?php echo $this->Paginator->sort('creation_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('heat_sensitivity'); ?></th>
 			<th><?php echo $this->Paginator->sort('all_natural'); ?></th>
+			<th><?php echo $this->Paginator->sort('award_winning'); ?></th>
 			<th><?php echo $this->Paginator->sort('related_products'); ?></th>
+			<th><?php echo $this->Paginator->sort('active'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -113,16 +115,22 @@ $(document).ready(function() {
 	<?php foreach ($products as $product): ?>
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['upc']); ?>&nbsp;</td>
-		<td><?php echo h($product['User']['shop_name']); ?></td>
+		<td>
+			<?php echo $this->Html->link($product['User']['id'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
+		</td>
 		<td>
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 		</td>
 		<td><?php echo h($product['Product']['category']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['subcategory_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
+		</td>
 		<td><?php echo h($product['Product']['subcategory']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['subsubcategory_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
+		</td>
 		<td><?php echo h($product['Product']['subsubcategory']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['upc']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['aux_category_1']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['aux_category_2']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['aux_category_3']); ?>&nbsp;</td>
@@ -149,6 +157,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['list_price']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['selling_price']); ?>&nbsp;</td>
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
+
 		<td><?php echo h($product['Product']['taxable']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['stock']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['ratings']); ?>&nbsp;</td>
@@ -173,7 +182,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['checked']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['allergen_free']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['gluten_free']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['vegan']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['vegetarian']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['fat_free']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['sugar_free']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['no_msg']); ?>&nbsp;</td>
@@ -190,7 +199,9 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['creation_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['heat_sensitivity']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['all_natural']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['award_winning']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['related_products']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['active']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 		<td class="actions">
@@ -207,7 +218,6 @@ $(document).ready(function() {
 	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
 	?>	</p>
-
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
@@ -215,13 +225,22 @@ $(document).ready(function() {
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
+
+<br />
+<br />
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>

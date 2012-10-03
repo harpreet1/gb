@@ -6,14 +6,9 @@
 			<?php echo h($product['Product']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Upc'); ?></dt>
+		<dt><?php echo __('User'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['upc']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User Id'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['user_id']); ?>
+			<?php echo $this->Html->link($product['User']['id'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Category'); ?></dt>
@@ -26,9 +21,9 @@
 			<?php echo h($product['Product']['category']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Subcategory Id'); ?></dt>
+		<dt><?php echo __('Subcategory'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['subcategory_id']); ?>
+			<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Subcategory'); ?></dt>
@@ -36,14 +31,19 @@
 			<?php echo h($product['Product']['subcategory']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Sub Subcat Id'); ?></dt>
+		<dt><?php echo __('Subsubcategory'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['sub_subcat_id']); ?>
+			<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Subsubcategory'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['subsubcategory']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Upc'); ?></dt>
+		<dd>
+			<?php echo h($product['Product']['upc']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Aux Category 1'); ?></dt>
@@ -86,9 +86,9 @@
 			<?php echo h($product['Product']['in_stock']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Product Name'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['product_name']); ?>
+			<?php echo h($product['Product']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Slug'); ?></dt>
@@ -296,9 +296,9 @@
 			<?php echo h($product['Product']['gluten_free']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Vegan'); ?></dt>
+		<dt><?php echo __('Vegetarian'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['vegan']); ?>
+			<?php echo h($product['Product']['vegetarian']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Fat Free'); ?></dt>
@@ -381,9 +381,19 @@
 			<?php echo h($product['Product']['all_natural']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Award Winning'); ?></dt>
+		<dd>
+			<?php echo h($product['Product']['award_winning']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Related Products'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['related_products']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Active'); ?></dt>
+		<dd>
+			<?php echo h($product['Product']['active']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
@@ -405,8 +415,14 @@
 		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>
@@ -418,7 +434,7 @@
 	<?php if (!empty($product['Nutrition'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Nutrition Id'); ?></th>
+		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Product Id'); ?></th>
 		<th><?php echo __('Serv Size'); ?></th>
 		<th><?php echo __('Serv Per Cont'); ?></th>
@@ -438,13 +454,15 @@
 		<th><?php echo __('Calcium'); ?></th>
 		<th><?php echo __('Iron'); ?></th>
 		<th><?php echo __('Daily Value'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
 		foreach ($product['Nutrition'] as $nutrition): ?>
 		<tr>
-			<td><?php echo $nutrition['nutrition_id']; ?></td>
+			<td><?php echo $nutrition['id']; ?></td>
 			<td><?php echo $nutrition['product_id']; ?></td>
 			<td><?php echo $nutrition['serv_size']; ?></td>
 			<td><?php echo $nutrition['serv_per_cont']; ?></td>
@@ -464,10 +482,12 @@
 			<td><?php echo $nutrition['calcium']; ?></td>
 			<td><?php echo $nutrition['iron']; ?></td>
 			<td><?php echo $nutrition['daily_value']; ?></td>
+			<td><?php echo $nutrition['created']; ?></td>
+			<td><?php echo $nutrition['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'nutritions', 'action' => 'view', $nutrition['nutrition_id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'nutritions', 'action' => 'edit', $nutrition['nutrition_id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'nutritions', 'action' => 'delete', $nutrition['nutrition_id']), null, __('Are you sure you want to delete # %s?', $nutrition['nutrition_id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'nutritions', 'action' => 'view', $nutrition['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'nutritions', 'action' => 'edit', $nutrition['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'nutritions', 'action' => 'delete', $nutrition['id']), null, __('Are you sure you want to delete # %s?', $nutrition['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

@@ -3,14 +3,14 @@
 	<fieldset>
 		<legend><?php echo __('Admin Add Product'); ?></legend>
 	<?php
-		echo $this->Form->input('upc');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('category_id');
 		echo $this->Form->input('category');
 		echo $this->Form->input('subcategory_id');
 		echo $this->Form->input('subcategory');
-		echo $this->Form->input('sub_subcat_id');
+		echo $this->Form->input('subsubcategory_id');
 		echo $this->Form->input('subsubcategory');
+		echo $this->Form->input('upc');
 		echo $this->Form->input('aux_category_1');
 		echo $this->Form->input('aux_category_2');
 		echo $this->Form->input('aux_category_3');
@@ -19,7 +19,7 @@
 		echo $this->Form->input('brand');
 		echo $this->Form->input('brand_id');
 		echo $this->Form->input('in_stock');
-		echo $this->Form->input('product_name');
+		echo $this->Form->input('name');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('description');
 		echo $this->Form->input('long_description');
@@ -61,7 +61,7 @@
 		echo $this->Form->input('checked');
 		echo $this->Form->input('allergen_free');
 		echo $this->Form->input('gluten_free');
-		echo $this->Form->input('vegan');
+		echo $this->Form->input('vegetarian');
 		echo $this->Form->input('fat_free');
 		echo $this->Form->input('sugar_free');
 		echo $this->Form->input('no_msg');
@@ -78,7 +78,9 @@
 		echo $this->Form->input('creation_id');
 		echo $this->Form->input('heat_sensitivity');
 		echo $this->Form->input('all_natural');
+		echo $this->Form->input('award_winning');
 		echo $this->Form->input('related_products');
+		echo $this->Form->input('active');
 		echo $this->Form->input('Tag');
 	?>
 	</fieldset>
@@ -89,8 +91,14 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>
