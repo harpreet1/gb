@@ -184,7 +184,7 @@ Configure::write('Routing.prefixes', array('admin'));
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'DYhG93b0qyJfIxfs21uVoUubWwvniR2G0FgaC9mi');
+	Configure::write('Security.salt', 'gourmetbasketgourmetbasketgourmetbasket');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
