@@ -4,8 +4,10 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function __slugcreate() {
-		die();
+	public function slug() {
+
+		die('slug');
+
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
@@ -16,10 +18,10 @@ class ProductsController extends AppController {
 
 		foreach($products as $product) {
 			$data['Product']['id'] = $product['Product']['id'];
-			$data['Product']['slug'] = Inflector::slug(strtolower($product['Product']['name']), '-');
+			$data['Product']['slug'] = strtolower(Inflector::slug($product['Product']['name'], '-'));
 			$this->Product->save($data, false);
 		}
-		die();
+		die('end');
 	}
 
 ////////////////////////////////////////////////////////////
