@@ -19,15 +19,15 @@ class UsersController extends AppController {
 		$users = $this->User->find('all', array(
 			'fields' => array(
 				'User.id',
+				'User.name',
 				'User.slug',
-				'User.shop_name',
 				'User.image',
 			),
 			'conditions' => array(
 				'User.slug !=' => ''
 			),
 			'order' => array(
-				'User.slug' => 'ASC'
+				'User.name' => 'ASC'
 			),
 		));
 
