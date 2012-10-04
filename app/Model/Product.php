@@ -7,7 +7,7 @@ class Product extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule1' => array(
-				'rule' => array('between', 3, 50),
+				'rule' => array('between', 3, 100),
 				'message' => 'invalid name',
 				'allowEmpty' => false,
 				'required' => true,
@@ -21,7 +21,7 @@ class Product extends AppModel {
 		),
 		'slug' => array(
 			'rule1' => array(
-				'rule' => array('between', 3, 50),
+				'rule' => array('between', 3, 100),
 				'message' => 'invalid slug',
 				'allowEmpty' => false,
 				'required' => true,

@@ -5,14 +5,13 @@
 <script>
 $(document).ready(function() {
 
-	$('.long_description').editable({
-		type: 'textarea',
-		name: 'long_description',
-		url: '/admin/products/editable',
-		title: 'Long Description',
-		placement: 'right',
-	});
-
+//	$('.long_description').editable({
+//		type: 'textarea',
+//		name: 'long_description',
+//		url: '/admin/products/editable',
+//		title: 'Long Description',
+//		placement: 'right',
+//	});
 
 	$('.price').editable({
 		type: 'text',
@@ -27,90 +26,90 @@ $(document).ready(function() {
 
 
 	<h2><?php echo __('Products'); ?></h2>
-	<table class="table table-striped table-bordered table-condensed table-hover">
+
+<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('category'); ?></th>
-			<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('subcategory'); ?></th>
-			<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
-			<th><?php echo $this->Paginator->sort('upc'); ?></th>
-			<th><?php echo $this->Paginator->sort('aux_category_1'); ?></th>
-			<th><?php echo $this->Paginator->sort('aux_category_2'); ?></th>
-			<th><?php echo $this->Paginator->sort('aux_category_3'); ?></th>
-			<th><?php echo $this->Paginator->sort('item'); ?></th>
-			<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
-			<th><?php echo $this->Paginator->sort('brand'); ?></th>
-			<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('in_stock'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th><?php echo $this->Paginator->sort('description'); ?></th>
-			<th><?php echo $this->Paginator->sort('long_description'); ?></th>
-			<th><?php echo $this->Paginator->sort('tags'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_original'); ?></th>
-			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_1'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_2'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_3'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_4'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_5'); ?></th>
-			<th><?php echo $this->Paginator->sort('featured_product'); ?></th>
-			<th><?php echo $this->Paginator->sort('gift_product'); ?></th>
-			<th><?php echo $this->Paginator->sort('cost'); ?></th>
-			<th><?php echo $this->Paginator->sort('list_price'); ?></th>
-			<th><?php echo $this->Paginator->sort('selling_price'); ?></th>
-			<th><?php echo $this->Paginator->sort('price'); ?></th>
-			<th><?php echo $this->Paginator->sort('taxable'); ?></th>
-			<th><?php echo $this->Paginator->sort('stock'); ?></th>
-			<th><?php echo $this->Paginator->sort('ratings'); ?></th>
-			<th><?php echo $this->Paginator->sort('tradition_ids'); ?></th>
-			<th><?php echo $this->Paginator->sort('dom_tradition_ids'); ?></th>
-			<th><?php echo $this->Paginator->sort('measurement'); ?></th>
-			<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
-			<th><?php echo $this->Paginator->sort('weight'); ?></th>
-			<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
-			<th><?php echo $this->Paginator->sort('volume'); ?></th>
-			<th><?php echo $this->Paginator->sort('volume_unit'); ?></th>
-			<th><?php echo $this->Paginator->sort('dimension_unit'); ?></th>
-			<th><?php echo $this->Paginator->sort('height'); ?></th>
-			<th><?php echo $this->Paginator->sort('length'); ?></th>
-			<th><?php echo $this->Paginator->sort('width'); ?></th>
-			<th><?php echo $this->Paginator->sort('ingredients'); ?></th>
-			<th><?php echo $this->Paginator->sort('nutrition'); ?></th>
-			<th><?php echo $this->Paginator->sort('recipes'); ?></th>
-			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('culinary_country_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('ethnicity_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('checked'); ?></th>
-			<th><?php echo $this->Paginator->sort('allergen_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('gluten_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('vegetarian'); ?></th>
-			<th><?php echo $this->Paginator->sort('fat_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('sugar_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('no_msg'); ?></th>
-			<th><?php echo $this->Paginator->sort('lactose_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('low_carb'); ?></th>
-			<th><?php echo $this->Paginator->sort('nut_free'); ?></th>
-			<th><?php echo $this->Paginator->sort('heart_smart'); ?></th>
-			<th><?php echo $this->Paginator->sort('no_preservatives'); ?></th>
-			<th><?php echo $this->Paginator->sort('organic'); ?></th>
-			<th><?php echo $this->Paginator->sort('kosher'); ?></th>
-			<th><?php echo $this->Paginator->sort('halal'); ?></th>
-			<th><?php echo $this->Paginator->sort('fair_traded'); ?></th>
-			<th><?php echo $this->Paginator->sort('give_back'); ?></th>
-			<th><?php echo $this->Paginator->sort('creation_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('heat_sensitivity'); ?></th>
-			<th><?php echo $this->Paginator->sort('all_natural'); ?></th>
-			<th><?php echo $this->Paginator->sort('award_winning'); ?></th>
-			<th><?php echo $this->Paginator->sort('related_products'); ?></th>
-			<th><?php echo $this->Paginator->sort('active'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('category'); ?></th>
+		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('subcategory'); ?></th>
+		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
+		<th><?php echo $this->Paginator->sort('upc'); ?></th>
+		<th><?php echo $this->Paginator->sort('aux_category_1'); ?></th>
+		<th><?php echo $this->Paginator->sort('aux_category_2'); ?></th>
+		<th><?php echo $this->Paginator->sort('aux_category_3'); ?></th>
+		<th><?php echo $this->Paginator->sort('item'); ?></th>
+		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
+		<th><?php echo $this->Paginator->sort('brand'); ?></th>
+		<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('in_stock'); ?></th>
+		<th><?php echo $this->Paginator->sort('name'); ?></th>
+		<th><?php echo $this->Paginator->sort('slug'); ?></th>
+		<th><?php echo $this->Paginator->sort('description'); ?></th>
+		<th><?php echo $this->Paginator->sort('tags'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_original'); ?></th>
+		<th><?php echo $this->Paginator->sort('image'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_1'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_2'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_3'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_4'); ?></th>
+		<th><?php echo $this->Paginator->sort('image_5'); ?></th>
+		<th><?php echo $this->Paginator->sort('featured_product'); ?></th>
+		<th><?php echo $this->Paginator->sort('gift_product'); ?></th>
+		<th><?php echo $this->Paginator->sort('cost'); ?></th>
+		<th><?php echo $this->Paginator->sort('list_price'); ?></th>
+		<th><?php echo $this->Paginator->sort('selling_price'); ?></th>
+		<th><?php echo $this->Paginator->sort('price'); ?></th>
+		<th><?php echo $this->Paginator->sort('taxable'); ?></th>
+		<th><?php echo $this->Paginator->sort('stock'); ?></th>
+		<th><?php echo $this->Paginator->sort('ratings'); ?></th>
+		<th><?php echo $this->Paginator->sort('tradition_ids'); ?></th>
+		<th><?php echo $this->Paginator->sort('dom_tradition_ids'); ?></th>
+		<th><?php echo $this->Paginator->sort('measurement'); ?></th>
+		<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
+		<th><?php echo $this->Paginator->sort('weight'); ?></th>
+		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
+		<th><?php echo $this->Paginator->sort('volume'); ?></th>
+		<th><?php echo $this->Paginator->sort('volume_unit'); ?></th>
+		<th><?php echo $this->Paginator->sort('dimension_unit'); ?></th>
+		<th><?php echo $this->Paginator->sort('height'); ?></th>
+		<th><?php echo $this->Paginator->sort('length'); ?></th>
+		<th><?php echo $this->Paginator->sort('width'); ?></th>
+		<th><?php echo $this->Paginator->sort('ingredients'); ?></th>
+		<th><?php echo $this->Paginator->sort('nutrition'); ?></th>
+		<th><?php echo $this->Paginator->sort('recipes'); ?></th>
+		<th><?php echo $this->Paginator->sort('country_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('culinary_country_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('ethnicity_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('checked'); ?></th>
+		<th><?php echo $this->Paginator->sort('allergen_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('gluten_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('vegetarian'); ?></th>
+		<th><?php echo $this->Paginator->sort('fat_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('sugar_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('no_msg'); ?></th>
+		<th><?php echo $this->Paginator->sort('lactose_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('low_carb'); ?></th>
+		<th><?php echo $this->Paginator->sort('nut_free'); ?></th>
+		<th><?php echo $this->Paginator->sort('heart_smart'); ?></th>
+		<th><?php echo $this->Paginator->sort('no_preservatives'); ?></th>
+		<th><?php echo $this->Paginator->sort('organic'); ?></th>
+		<th><?php echo $this->Paginator->sort('kosher'); ?></th>
+		<th><?php echo $this->Paginator->sort('halal'); ?></th>
+		<th><?php echo $this->Paginator->sort('fair_traded'); ?></th>
+		<th><?php echo $this->Paginator->sort('give_back'); ?></th>
+		<th><?php echo $this->Paginator->sort('creation_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('heat_sensitivity'); ?></th>
+		<th><?php echo $this->Paginator->sort('all_natural'); ?></th>
+		<th><?php echo $this->Paginator->sort('award_winning'); ?></th>
+		<th><?php echo $this->Paginator->sort('related_products'); ?></th>
+		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('created'); ?></th>
+		<th><?php echo $this->Paginator->sort('modified'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($products as $product): ?>
 	<tr>
@@ -142,7 +141,6 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['description']); ?>&nbsp;</td>
-		<td><div style="height:100px;overflow-y:scroll" class="long_description" data-value="<?php echo $product['Product']['long_description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['long_description']; ?></div></td>
 		<td><?php echo h($product['Product']['tags']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image_original']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['image']); ?>&nbsp;</td>
@@ -210,40 +208,14 @@ $(document).ready(function() {
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>
 	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
+	<?php endforeach; ?>
+</table>
+
+
+<?php echo $this->element('pagination-counter'); ?>
+
+<?php echo $this->element('pagination'); ?>
 
 <br />
 <br />
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

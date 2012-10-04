@@ -381,9 +381,11 @@ class ProductsController extends AppController {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}
 		}
+
+		$users = $this->Product->User->find('list');
 		$categories = $this->Product->Category->find('list');
 		$tags = $this->Product->Tag->find('list');
-		$this->set(compact('categories', 'tags'));
+		$this->set(compact('users', 'categories', 'tags'));
 	}
 
 ////////////////////////////////////////////////////////////

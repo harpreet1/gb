@@ -31,9 +31,26 @@
 
 		<div class="nav-collapse">
 			<ul class="nav">
-				<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index', 'admin' => true)); ?></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add User', array('controller' => 'users', 'action' => 'add', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
 				<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index', 'admin' => true)); ?></li>
-				<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'admin' => true)); ?></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Product', array('controller' => 'products', 'action' => 'add', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
+
 				<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index', 'admin' => true)); ?></li>
 				<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index', 'admin' => true)); ?></li>
 				<li><?php echo $this->Html->link('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => true)); ?></li>
