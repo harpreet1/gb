@@ -25,7 +25,48 @@ $(document).ready(function() {
 </script>
 
 
-	<h2><?php echo __('Products'); ?></h2>
+<h2>Products</h2>
+
+<br />
+
+<div class="row">
+
+<?php echo $this->Form->create('Product'); ?>
+<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
+
+<div class="span3">
+<?php echo $this->Form->input('filter', array(
+	'label' => false,
+	'options' => array(
+		'name' => 'Name',
+		'price' => 'Price',
+		'item' => 'Item',
+	),
+	'selected' => $all['filter']
+)); ?>
+</div>
+
+<div class="span3">
+	<?php echo $this->Form->input('name', array('label' => '', 'id' => false, 'class' => false, 'value' => $all['name'])); ?>
+</div>
+
+<div class="span4">
+	<?php echo $this->Form->button('Search', array('class' => 'btn')); ?>
+
+	&nbsp; &nbsp;
+
+	<?php echo $this->Html->link('Reset Search', array('controller' => 'products', 'action' => 'reset', 'admin' => true), array('class' => 'btn')); ?>
+
+	<?php echo $this->Form->end(); ?>
+
+</div>
+
+</div>
+
+<br />
+<br />
+
+
 
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>

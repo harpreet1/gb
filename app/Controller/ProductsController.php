@@ -355,8 +355,41 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Product->recursive = 0;
-		$this->set('products', $this->paginate());
+
+		if(isset($this->request->data['Product']['name'])) {
+			$filter = $this->request->data['Product']['filter'];
+			$this->Session->write('Product.filter', $filter);
+			$name = $this->request->data['Product']['name'];
+			$this->Session->write('Product.name', $name);
+			$conditions = array(
+				'Product.' . $filter . ' LIKE' => '%' . $name . '%'
+			);
+			$this->Session->write('Product.conditions', $conditions);
+		};
+		$all = array(
+			'name' => '',
+			'filter' => '',
+			'conditions' => ''
+		);
+		if($this->Session->check('Product.conditions')) {
+			$all = $this->Session->read('Product');
+		}
+		$this->set(compact('all'));
+
+		$this->paginate = array(
+			'Product' => array(
+				'recursive' => 0,
+				'limit' => 10,
+				'conditions' => $all['conditions'],
+//				'order' => array(
+					// 'Member.name' => 'ASC'
+//				)
+			)
+		);
+
+		$products = $this->paginate('Product');
+
+		$this->set(compact('products'));
 	}
 
 ////////////////////////////////////////////////////////////
