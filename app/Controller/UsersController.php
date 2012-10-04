@@ -24,7 +24,8 @@ class UsersController extends AppController {
 				'User.image',
 			),
 			'conditions' => array(
-				'User.slug !=' => ''
+				'User.active' => 1,
+				'User.level' => 'vendor'
 			),
 			'order' => array(
 				'User.name' => 'ASC'
@@ -32,11 +33,10 @@ class UsersController extends AppController {
 		));
 
 //		foreach($users as $user) {
-//			if(strstr($user['User']['logo'], '.jpg')) {
+//			if(strstr($user['User']['image'], '.jpg')) {
 //				rename(IMAGES . 'logos/' . $user['User']['logo'], IMAGES . 'logo/' . $user['User']['short_name'] . '.jpg');
-
 //				$data['User']['id'] = $user['User']['id'];
-//				$data['User']['logo'] = $user['User']['short_name'] . '.jpg';
+//				$data['User']['image'] = $user['User']['slug'] . '.jpg';
 //				print_r($data);
 //				$this->User->save($data, false);
 //			}
