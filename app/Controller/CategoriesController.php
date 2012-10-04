@@ -5,8 +5,19 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function index() {
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
+		$categories = $this->Category->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Category.id',
+				'Category.name',
+				'Category.slug',
+				'Category.image',
+			),
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+		$this->set(compact('categories'));
 	}
 
 ////////////////////////////////////////////////////////////

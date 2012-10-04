@@ -106,7 +106,7 @@ class ProductsController extends AppController {
 
 		$this->set(compact('products'));
 
-		$title = empty($user) ? 'All Products' : $user['User']['shop_name'];
+		$title = empty($user) ? 'All Products' : $user['User']['name'];
 
 		$title_for_layout = $title . ' :: GB';
 		$this->set(compact('title_for_layout'));
