@@ -27,7 +27,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</a>
-		<a class="brand" href="/admin/">GB</a>
+		<a class="brand" href="/admin/">GB ADMIN</a>
 
 		<div class="nav-collapse">
 			<ul class="nav">
