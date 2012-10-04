@@ -51,7 +51,15 @@
 				</li>
 
 
-				<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index', 'admin' => true)); ?></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recipes<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Recipe', array('controller' => 'recipes', 'action' => 'add', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
 				<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index', 'admin' => true)); ?></li>
 				<li><?php echo $this->Html->link('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => true)); ?></li>
 				<li class="dropdown">
