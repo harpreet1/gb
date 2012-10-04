@@ -34,7 +34,7 @@
 							<a href="/users/vendors" class="dropdown-toggle" data-toggle="dropdown">Vendors<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach($menuvendors as $menuvendor) : ?>
-								<li><?php echo $this->Html->link($menuvendor['User']['shop_name'], 'http://' . $menuvendor['User']['slug'] . '.' . DOMAIN . '/'); ?></li>
+								<li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . DOMAIN . '/'); ?></li>
 
 								<?php endforeach; ?>
 							</ul>

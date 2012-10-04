@@ -6,7 +6,7 @@
 	<div class="span4">
 		<?php if(!empty($user)) : ?>
 
-		<h5><?php echo $user['User']['shop_name']; ?></h5>
+		<h5><?php echo $user['User']['name']; ?></h5>
 
 		<br />
 
