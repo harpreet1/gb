@@ -401,7 +401,12 @@ class ProductsController extends AppController {
 				'Subcategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'categories', 'subcategories'));
+		$subsubcategories = $this->Product->Subsubcategory->find('list', array(
+			'order' => array(
+				'Subsubcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories'));
 
 	}
 
@@ -442,7 +447,12 @@ class ProductsController extends AppController {
 				'Subcategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'categories', 'subcategories'));
+		$subsubcategories = $this->Product->Subsubcategory->find('list', array(
+			'order' => array(
+				'Subsubcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories'));
 
 	}
 

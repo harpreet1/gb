@@ -1,4 +1,8 @@
-<h2><?php  echo __('User'); ?></h2>
+<h2>View User</h2>
+
+<br />
+<br />
+
 <dl>
 	<dt><?php echo __('Id'); ?></dt>
 	<dd>
@@ -422,6 +426,14 @@
 
 <div class="row">
 <div class="span5">
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size &nbsp;
+</span>
+
+<br />
+<br />
+
 <?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
 <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
@@ -433,7 +445,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn btn-small btn-primary'));?></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
 		</tr>
 	</tbody>
 </table>
@@ -441,27 +453,15 @@
 </div>
 </div>
 
-<a href="/admin/users/crop?id=<?php echo $user['User']['id']; ?>&slug=<?php echo $user['User']['slug']; ?>&width=900&height=600" class="btn btn-small btn-primary">crop 900x600 image</a>
+<a href="/admin/users/crop?id=<?php echo $user['User']['id']; ?>&slug=<?php echo $user['User']['slug']; ?>&width=900&height=600" class="btn">crop 900x600 image</a>
 
 <br />
 <br />
 
-<?php echo $this->Html->image('users/' . $user['User']['slug']. '/thumb/'. $user['User']['slug'] . '.jpg', array('class' => 'gb')); ?>
+<?php echo $this->Html->image('user_image/'. $user['User']['image'], array('class' => 'gb')); ?>
 
 <br />
 <br />
-
-<?php echo $this->Html->image('users/' . $user['User']['slug']. '/'. $user['User']['slug'] . '.jpg', array('class' => 'gb')); ?>
-
-<br />
-<br />
-
-<br />
-<br />
-
-<span class="label label-warning">
- &nbsp; Galleries : actual pictures, no watermark, 1920 x 1080 px image size &nbsp;
-</span>
 
 <br />
 <br />
@@ -471,10 +471,6 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 

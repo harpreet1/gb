@@ -199,13 +199,13 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['all_natural']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['award_winning']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['related_products']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['active']); ?>&nbsp;</td>
+		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), array('class' => 'btn btn-mini') , __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>

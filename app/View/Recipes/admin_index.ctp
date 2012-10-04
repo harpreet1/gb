@@ -53,9 +53,9 @@
 		<td><?php echo h($recipe['Recipe']['created']); ?>&nbsp;</td>
 		<td><?php echo h($recipe['Recipe']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $recipe['Recipe']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $recipe['Recipe']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $recipe['Recipe']['id']), null, __('Are you sure you want to delete # %s?', $recipe['Recipe']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $recipe['Recipe']['id']), array('class' => 'btn btn-mini') , __('Are you sure you want to delete # %s?', $recipe['Recipe']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>

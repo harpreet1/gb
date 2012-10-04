@@ -21,9 +21,9 @@
 <td><?php echo h($note['Note']['created']); ?></td>
 <td><?php echo h($note['Note']['modified']); ?></td>
 <td class="actions">
-<?php echo $this->Html->link('View', array('action' => 'view', $note['Note']['id'])); ?>&nbsp;
-<?php echo $this->Html->link('Edit', array('action' => 'edit', $note['Note']['id'])); ?>&nbsp;
-<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $note['Note']['id']), null, __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
+<?php echo $this->Html->link('View', array('action' => 'view', $note['Note']['id']), array('class' => 'btn btn-mini')); ?>&nbsp;
+<?php echo $this->Html->link('Edit', array('action' => 'edit', $note['Note']['id']), array('class' => 'btn btn-mini')); ?>&nbsp;
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $note['Note']['id']), array('class' => 'btn btn-mini') , __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
 </td>
 </tr>
 <?php endforeach; ?>

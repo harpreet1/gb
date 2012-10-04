@@ -13,6 +13,10 @@ class AppController extends Controller {
 
 ////////////////////////////////////////////////////////////
 
+	public $paginate = array('limit' => 100);
+
+////////////////////////////////////////////////////////////
+
 	public function beforeFilter() {
 
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login', 'admin' => false);
@@ -59,21 +63,20 @@ class AppController extends Controller {
 ////////////////////////////////////////////////////////////
 
 	public function admin_switch($field = null, $id = null) {
+
+		$this->autoRender = false;
+
 		$model = $this->modelClass;
 
-		$this->$model->recursive = -1;
-
-		$data = $this->$model->findById($id);
-		$value = 0;
-		if($data[$model][$field] == 0) {
-			$value = 1;
+		if ($this->$model && $field && $id) {
+			$field = $this->$model->escapeField($field);
+			return $this->$model->updateAll(array($field => '1 -' . $field), array($this->$model->escapeField() => $id));
 		}
-		$this->$model->id = $id;
-		$this->$model->saveField($field, $value);
+
 		if(!$this->RequestHandler->isAjax()) {
 			$this->redirect($this->referer());
 		}
-		$this->autoRender = false;
+
 	}
 
 ////////////////////////////////////////////////////////////

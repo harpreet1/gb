@@ -5,12 +5,13 @@
 <br />
 <?php echo $this->Form->input('password'); ?>
 <br />
-<?php echo $this->Form->end('Login'); ?>
+<?php echo $this->Form->button('Login', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 <br />
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#UserUsername").focus();
+	$("#UserUsername").focus();
 });
 </script>
 

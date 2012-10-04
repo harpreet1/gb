@@ -38,9 +38,9 @@
 		<td><?php echo h($category['Category']['created']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $category['Category']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $category['Category']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $category['Category']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $category['Category']['id']), array('class' => 'btn btn-mini'), __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
