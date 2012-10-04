@@ -1,3 +1,17 @@
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		skin: "thebigreason",
+        plugins : "inlinepopups",
+		// Theme options
+        theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,cleanup,removeformat,code",
+        theme_advanced_resizing : true,
+	});
+</script>
+
 <h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
@@ -10,18 +24,14 @@ echo $this->Form->input('subcategory');
 echo $this->Form->input('subsubcategory_id');
 echo $this->Form->input('subsubcategory');
 echo $this->Form->input('upc');
-echo $this->Form->input('aux_category_1');
-echo $this->Form->input('aux_category_2');
-echo $this->Form->input('aux_category_3');
 echo $this->Form->input('item');
 echo $this->Form->input('vendor_sku');
 echo $this->Form->input('brand');
 echo $this->Form->input('brand_id');
-echo $this->Form->input('in_stock');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
 echo $this->Form->input('description');
-echo $this->Form->input('long_description');
+echo $this->Form->input('long_description', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('tags');
 echo $this->Form->input('image_original');
 echo $this->Form->input('image');
@@ -79,9 +89,12 @@ echo $this->Form->input('heat_sensitivity');
 echo $this->Form->input('all_natural');
 echo $this->Form->input('award_winning');
 echo $this->Form->input('related_products');
-echo $this->Form->input('active');
 echo $this->Form->input('Tag');
 ?>
 <br />
-<?php echo $this->Form->end(__('Submit')); ?>
-
+Active <?php echo $this->Form->checkbox('active'); ?>
+<br />
+<br />
+<br />
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>

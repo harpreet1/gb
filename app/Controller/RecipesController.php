@@ -235,10 +235,26 @@ class RecipesController extends AppController {
 		} else {
 			$this->request->data = $this->Recipe->read(null, $id);
 		}
-		$users = $this->Recipe->User->find('list');
-		$subCategories = $this->Recipe->SubCategory->find('list');
-		$categories = $this->Recipe->Category->find('list');
-		$this->set(compact('users', 'subCategories', 'categories'));
+		$users = $this->Recipe->User->find('list', array(
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			)
+		));
+		$categories = $this->Recipe->Category->find('list', array(
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+		$subcategories = $this->Recipe->Subcategory->find('list', array(
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('users', 'categories', 'subcategories'));
 	}
 
 ////////////////////////////////////////////////////////////

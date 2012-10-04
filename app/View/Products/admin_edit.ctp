@@ -1,3 +1,17 @@
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		skin: "thebigreason",
+		plugins : "inlinepopups",
+		// Theme options
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
+	});
+</script>
+
 <h2>Admin Edit Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
@@ -11,18 +25,14 @@ echo $this->Form->input('subcategory');
 echo $this->Form->input('subsubcategory_id');
 echo $this->Form->input('subsubcategory');
 echo $this->Form->input('upc');
-echo $this->Form->input('aux_category_1');
-echo $this->Form->input('aux_category_2');
-echo $this->Form->input('aux_category_3');
 echo $this->Form->input('item');
 echo $this->Form->input('vendor_sku');
 echo $this->Form->input('brand');
 echo $this->Form->input('brand_id');
-echo $this->Form->input('in_stock');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
 echo $this->Form->input('description');
-echo $this->Form->input('long_description');
+echo $this->Form->input('long_description', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('tags');
 echo $this->Form->input('image_original');
 echo $this->Form->input('image');
@@ -31,8 +41,13 @@ echo $this->Form->input('image_2');
 echo $this->Form->input('image_3');
 echo $this->Form->input('image_4');
 echo $this->Form->input('image_5');
-echo $this->Form->input('featured_product');
-echo $this->Form->input('gift_product');
+?>
+<br />
+Featured Product <?php echo $this->Form->checkbox('featured_product'); ?>
+<br />
+Gift Product <?php echo $this->Form->checkbox('gift_product'); ?>
+<br />
+<?php
 echo $this->Form->input('cost');
 echo $this->Form->input('list_price');
 echo $this->Form->input('selling_price');
@@ -80,16 +95,17 @@ echo $this->Form->input('heat_sensitivity');
 echo $this->Form->input('all_natural');
 echo $this->Form->input('award_winning');
 echo $this->Form->input('related_products');
-echo $this->Form->input('active');
 echo $this->Form->input('Tag');
 ?>
 <br />
-<?php echo $this->Form->end(__('Submit')); ?>
+Active <?php echo $this->Form->checkbox('active'); ?>
+<br />
 
+<br />
+<br />
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?></li>
-	</ul>
-</div>
+<h3>Actions</h3>
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')),  array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
+
