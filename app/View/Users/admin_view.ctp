@@ -107,12 +107,12 @@
 	</dd>
 	<dt><?php echo __('Street Address'); ?></dt>
 	<dd>
-		<?php echo h($user['User']['street_address']); ?>
+		<?php echo h($user['User']['address']); ?>
 		&nbsp;
 	</dd>
 	<dt><?php echo __('Street Address2'); ?></dt>
 	<dd>
-		<?php echo h($user['User']['street_address2']); ?>
+		<?php echo h($user['User']['address2']); ?>
 		&nbsp;
 	</dd>
 	<dt><?php echo __('City'); ?></dt>
