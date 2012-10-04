@@ -50,8 +50,6 @@
 					</ul>
 				</li>
 
-
-
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recipes<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -60,8 +58,22 @@
 					</ul>
 				</li>
 
-				<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index', 'admin' => true)); ?></li>
-				<li><?php echo $this->Html->link('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => true)); ?></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Article', array('controller' => 'articles', 'action' => 'add', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Note', array('controller' => 'notes', 'action' => 'add', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Visitors<b class="caret"></b></a>
 					<ul class="dropdown-menu">

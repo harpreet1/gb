@@ -382,10 +382,27 @@ class ProductsController extends AppController {
 			}
 		}
 
-		$users = $this->Product->User->find('list');
-		$categories = $this->Product->Category->find('list');
-		$tags = $this->Product->Tag->find('list');
-		$this->set(compact('users', 'categories', 'tags'));
+		$users = $this->Recipe->User->find('list', array(
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			)
+		));
+		$categories = $this->Recipe->Category->find('list', array(
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+		$subcategories = $this->Recipe->Subcategory->find('list', array(
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('users', 'categories', 'subcategories'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -406,11 +423,27 @@ class ProductsController extends AppController {
 			$this->request->data = $this->Product->read(null, $id);
 		}
 
-		$users = $this->Product->User->find('list');
-		$categories = $this->Product->Category->find('list');
-		$tags = $this->Product->Tag->find('list');
+		$users = $this->Recipe->User->find('list', array(
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			)
+		));
+		$categories = $this->Recipe->Category->find('list', array(
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+		$subcategories = $this->Recipe->Subcategory->find('list', array(
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('users', 'categories', 'subcategories'));
 
-		$this->set(compact('users', 'categories', 'tags'));
 	}
 
 ////////////////////////////////////////////////////////////

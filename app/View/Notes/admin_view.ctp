@@ -46,8 +46,6 @@
 
 <?php echo $this->Html->link(__('Edit Note'), array('action' => 'edit', $note['Note']['id'])); ?><br />
 <?php echo $this->Form->postLink(__('Delete Note'), array('action' => 'delete', $note['Note']['id']), null, __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?><br />
-<?php echo $this->Html->link(__('List Notes'), array('action' => 'index')); ?><br />
-<?php echo $this->Html->link(__('New Note'), array('action' => 'add')); ?><br />
 
 <br />
 <br />

@@ -12,8 +12,7 @@
 <th><?php echo $this->Paginator->sort('modified');?></th>
 <th class="actions"><?php echo __('Actions');?></th>
 </tr>
-<?php
-foreach ($notes as $note): ?>
+<?php foreach ($notes as $note): ?>
 <tr>
 <td><?php echo h($note['Note']['id']); ?></td>
 <td><?php echo h($note['Note']['name']); ?></td>
@@ -24,7 +23,7 @@ foreach ($notes as $note): ?>
 <td class="actions">
 <?php echo $this->Html->link('View', array('action' => 'view', $note['Note']['id'])); ?>&nbsp;
 <?php echo $this->Html->link('Edit', array('action' => 'edit', $note['Note']['id'])); ?>&nbsp;
-<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $note['Note']['id']), null, __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $note['Note']['id']), null, __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
 </td>
 </tr>
 <?php endforeach; ?>
@@ -33,22 +32,7 @@ foreach ($notes as $note): ?>
 <br />
 <br />
 
-<p><?php echo $this->Paginator->counter(array('format' => 'Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')); ?></p>
+<?php echo $this->element('pagination-counter'); ?>
 
-<br />
-<br />
-
- <?php echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')); ?>
- <?php echo $this->Paginator->numbers(array('separator' => '')); ?>
- <?php echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')); ?>
-
-<br />
-<br />
-
-<h3>Actions</h3>
-
-<?php echo $this->Html->link(__('New Note'), array('action' => 'add')); ?><br />
-
-<br />
-<br />
+<?php echo $this->element('pagination'); ?>
 

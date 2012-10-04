@@ -31,7 +31,6 @@
 	<?php endforeach; ?>
 </table>
 
-
 <?php echo $this->element('pagination-counter'); ?>
 
 <?php echo $this->element('pagination'); ?>
@@ -39,9 +38,3 @@
 <br />
 <br />
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
-	</ul>
-</div>
