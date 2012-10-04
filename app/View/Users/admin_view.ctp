@@ -25,9 +25,9 @@
 		<?php echo h($user['User']['password_clear']); ?>
 		&nbsp;
 	</dd>
-	<dt><?php echo __('Shop Name'); ?></dt>
+	<dt><?php echo __('Name'); ?></dt>
 	<dd>
-		<?php echo h($user['User']['shop_name']); ?>
+		<?php echo h($user['User']['name']); ?>
 		&nbsp;
 	</dd>
 	<dt><?php echo __('Slug'); ?></dt>

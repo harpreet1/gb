@@ -403,9 +403,12 @@ class ProductsController extends AppController {
 		} else {
 			$this->request->data = $this->Product->read(null, $id);
 		}
+
+		$users = $this->Product->User->find('list');
 		$categories = $this->Product->Category->find('list');
 		$tags = $this->Product->Tag->find('list');
-		$this->set(compact('categories', 'tags'));
+
+		$this->set(compact('users', 'categories', 'tags'));
 	}
 
 ////////////////////////////////////////////////////////////

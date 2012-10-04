@@ -37,13 +37,13 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('level'); ?></th>
 		<th><?php echo $this->Paginator->sort('username'); ?></th>
-		<th><?php echo $this->Paginator->sort('shop_name'); ?></th>
+		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('business_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('business_established'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
-		<th><?php echo $this->Paginator->sort('street_address'); ?></th>
-		<th><?php echo $this->Paginator->sort('street_address2'); ?></th>
+		<th><?php echo $this->Paginator->sort('address'); ?></th>
+		<th><?php echo $this->Paginator->sort('address2'); ?></th>
 		<th><?php echo $this->Paginator->sort('city'); ?></th>
 		<th><?php echo $this->Paginator->sort('state'); ?></th>
 		<th><?php echo $this->Paginator->sort('zip'); ?></th>
@@ -55,13 +55,13 @@ $(document).ready(function() {
 		<td><?php echo $user['User']['id']; ?></td>
 		<td><span class="level" data-value="<?php echo $user['User']['level']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['level']; ?></span></td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['shop_name']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['business_name']); ?>&nbsp;</td>
 		<td><span class="business_established" data-value="<?php echo $user['User']['business_established']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo h($user['User']['business_established']); ?></span></td>
 		<td><?php echo $this->Html->image('user_image/' . $user['User']['image']); ?></td>
-		<td><?php echo h($user['User']['street_address']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['street_address2']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['address']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['address2']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['city']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['state']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['zip']); ?>&nbsp;</td>

@@ -7,7 +7,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('password_clear');
-		echo $this->Form->input('shop_name');
+		echo $this->Form->input('name');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('business_name');
 		echo $this->Form->input('business_ownership');
@@ -23,8 +23,8 @@
 		echo $this->Form->input('shop_description');
 		echo $this->Form->input('shop_quote');
 		echo $this->Form->input('shop_signature');
-		echo $this->Form->input('street_address');
-		echo $this->Form->input('street_address2');
+		echo $this->Form->input('address');
+		echo $this->Form->input('address2');
 		echo $this->Form->input('city');
 		echo $this->Form->input('state');
 		echo $this->Form->input('zip');

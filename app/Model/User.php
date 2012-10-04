@@ -61,8 +61,8 @@ class User extends AppModel {
 			'recursive' => -1,
 			'fields' => array(
 				'User.id',
+				'User.name',
 				'User.slug',
-				'User.shop_name',
 				'User.shop_quote',
 				'User.shop_description',
 				'User.image',
@@ -86,14 +86,14 @@ class User extends AppModel {
 		$menuvendors = $this->find('all', array(
 			'fields' => array(
 				'User.id',
+				'User.name',
 				'User.slug',
-				'User.shop_name',
 			),
 			'conditions' => array(
 				'User.level' => 'vendor'
 			),
 			'order' => array(
-				'User.shop_name' => 'ASC'
+				'User.name' => 'ASC'
 			),
 		));
 

@@ -38,9 +38,9 @@
 	);
 
 	Router::connect(
-		'/blog/:year/:month/:day/:slug',
+		'/article/:year/:month/:day/:slug',
 		array(
-			'controller' => 'blogs',
+			'controller' => 'articles',
 			'action' => 'view'
 		),
 		array(

@@ -43,7 +43,7 @@
 						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'culinaryregions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Articles', array('controller' => 'blogs', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
 					</ul>
 				</div>

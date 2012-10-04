@@ -116,7 +116,7 @@ $(document).ready(function() {
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($product['User']['id'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
+			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
