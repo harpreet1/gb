@@ -1,5 +1,5 @@
 <?php
-class ImagerenamelugShell extends Shell {
+class ImagerenameShell extends Shell {
 
 	public $uses = array('Product');
 
