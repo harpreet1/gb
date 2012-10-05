@@ -11,6 +11,11 @@ class ImagerenameShell extends Shell {
 				'Product.id',
 				'Product.name',
 				'Product.image',
+				'Product.image_1',
+				'Product.image_2',
+				'Product.image_3',
+				'Product.image_4',
+				'Product.image_5',
 			),
 			'limit' => 10000
 		));
@@ -20,6 +25,13 @@ class ImagerenameShell extends Shell {
 			$newname = $product['Product']['id'] . '.jpg';
 
 			copy(IMAGES . 'products/' . $product['Product']['image'], IMAGES . '/productsnew/' . $newname);
+
+			copy(IMAGES . 'products/' . $product['Product']['image_1'], IMAGES . '/productsnew1/' . $newname);
+			copy(IMAGES . 'products/' . $product['Product']['image_2'], IMAGES . '/productsnew2/' . $newname);
+			copy(IMAGES . 'products/' . $product['Product']['image_3'], IMAGES . '/productsnew3/' . $newname);
+			copy(IMAGES . 'products/' . $product['Product']['image_4'], IMAGES . '/productsnew4/' . $newname);
+			copy(IMAGES . 'products/' . $product['Product']['image_5'], IMAGES . '/productsnew5/' . $newname);
+
 
 			$data['Product']['id'] = $product['Product']['id'];
 			$data['Product']['image'] = $newname;
