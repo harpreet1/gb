@@ -47,7 +47,7 @@ class ProductsController extends AppController {
 
 	public function index() {
 
-		$conditions = array();
+		$conditions = array('User.level' => 'vendor');
 
 		$subDomain = $this->_getSubDomain();
 
@@ -79,7 +79,7 @@ class ProductsController extends AppController {
 		$this->set(compact('user', 'usercategories'));
 
 		if(!empty($user)) {
-			$conditions	= array(
+			$conditions[]	= array(
 				'Product.user_id' => $user['User']['id']
 			);
 		}
@@ -411,12 +411,15 @@ class ProductsController extends AppController {
 				'Product.*',
 				'User.id',
 				'User.name',
+				'User.level',
 				'Category.id',
 				'Category.name',
 				'Subcategory.id',
 				'Subcategory.name',
 				'Subsubcategory.id',
 				'Subsubcategory.name',
+				'Ustradition.id',
+				'Ustradition.name',
 			),
 			'limit' => 50,
 		);
@@ -432,8 +435,8 @@ class ProductsController extends AppController {
 				'User.name',
 			),
 			'conditions' => array(
-				'User.active' => 1,
-				'User.level' => 'vendor',
+				//'User.active' => 1,
+				//'User.level' => 'vendor',
 			),
 			'order' => array(
 				'User.name' => 'ASC'
@@ -461,15 +464,15 @@ class ProductsController extends AppController {
 			)
 		));
 
-		$domestic_traditions = ClassRegistry::init('Culinaryusregion')->find('list', array(
+		$ustraditions = $this->Product->Ustradition->find('list', array(
 			'order' => array(
-				'Culinaryusregion.name' => 'ASC'
+				'Ustradition.name' => 'ASC'
 			)
 		));
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'domestic_traditions', 'countries'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
 
 	}
 
@@ -520,7 +523,16 @@ class ProductsController extends AppController {
 				'Subsubcategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories'));
+
+		$ustraditions = $this->Product->Ustradition->find('list', array(
+			'order' => array(
+				'Ustradition.name' => 'ASC'
+			)
+		));
+
+		$countries = $this->Product->countries();
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
 
 	}
 
@@ -567,9 +579,15 @@ class ProductsController extends AppController {
 			)
 		));
 
+		$ustraditions = $this->Product->Ustradition->find('list', array(
+			'order' => array(
+				'Ustradition.name' => 'ASC'
+			)
+		));
+
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'countries'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
 
 	}
 

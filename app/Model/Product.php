@@ -72,6 +72,13 @@ class Product extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Ustradition' => array(
+			'className' => 'Ustradition',
+			'foreignKey' => 'ustradition_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 	);
 
 ////////////////////////////////////////////////////////////

@@ -8,7 +8,7 @@ class AppController extends Controller {
 		'Session',
 		'Auth',
 		'RequestHandler',
-		'DebugKit.Toolbar',
+//		'DebugKit.Toolbar',
 	);
 
 ////////////////////////////////////////////////////////////

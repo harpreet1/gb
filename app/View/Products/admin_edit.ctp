@@ -51,7 +51,7 @@ echo $this->Form->input('taxable');
 echo $this->Form->input('stock');
 echo $this->Form->input('ratings');
 echo $this->Form->input('traditions');
-echo $this->Form->input('domestic_traditions');
+echo $this->Form->input('ustradition_id');
 echo $this->Form->input('measurement');
 echo $this->Form->input('weight_unit');
 echo $this->Form->input('weight');
@@ -98,5 +98,5 @@ echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active
 <?php echo $this->Form->end(); ?>
 
 <h3>Actions</h3>
-<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')),  array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
 

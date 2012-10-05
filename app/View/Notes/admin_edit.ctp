@@ -5,10 +5,12 @@
 echo $this->Form->input('id');
 echo $this->Form->input('name');
 echo $this->Form->input('note');
-echo $this->Form->checkbox('active');
+echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
+
 <br />
-<?php echo $this->Form->end('Submit');?>
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
 <br />
 <br />
@@ -17,7 +19,7 @@ echo $this->Form->checkbox('active');
 
 <br />
 
-<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Note.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Note.id'))); ?><br />
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Note.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Note.id'))); ?><br />
 
 <br />
 <br />

@@ -4,10 +4,12 @@
 <?php
 echo $this->Form->input('name');
 echo $this->Form->input('note');
-echo $this->Form->checkbox('active');
+echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
+
 <br />
-<?php echo $this->Form->end('Submit');?>
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
 <br />
 <br />

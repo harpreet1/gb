@@ -50,7 +50,7 @@ echo $this->Form->input('taxable');
 echo $this->Form->input('stock');
 echo $this->Form->input('ratings');
 echo $this->Form->input('traditions');
-echo $this->Form->input('domestic_traditions');
+echo $this->Form->input('ustradition_id');
 echo $this->Form->input('measurement');
 echo $this->Form->input('weight_unit');
 echo $this->Form->input('weight');

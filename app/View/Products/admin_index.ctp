@@ -21,13 +21,13 @@ $(document).ready(function() {
 		placement: 'right',
 	});
 
-	$('.domestic_traditions').editable({
+	$('.ustradition').editable({
 		type: 'select',
-		name: 'domestic_traditions',
+		name: 'ustradition_id',
 		url: '/admin/products/editable',
-		title: 'Domestic Traditions',
-		source: <?php echo json_encode($domestic_traditions); ?>,
-		placement: 'right',
+		title: 'Domestic Tradition',
+		source: <?php echo json_encode($ustraditions); ?>,
+		placement: 'left',
 	});
 
 	$('.country').editable({
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		url: '/admin/products/editable',
 		title: 'Country',
 		source: <?php echo json_encode($countries); ?>,
-		placement: 'right',
+		placement: 'left',
 	});
 
 });
@@ -134,6 +134,8 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
+			<br />
+			<?php echo $product['User']['level']; ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
@@ -162,7 +164,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['stock']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['ratings']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['traditions']); ?>&nbsp;</td>
-		<td><span class="domestic_traditions" data-value="<?php echo $product['Product']['domestic_traditions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['domestic_traditions']); ?></span></td>
+		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
 		<td><?php echo h($product['Product']['weight_unit']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['weight']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['shipping_weight']); ?>&nbsp;</td>
