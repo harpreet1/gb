@@ -354,6 +354,14 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_reset() {
+		$this->Session->delete('Product');
+
+		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 
 		if ($this->request->is('post')) {
@@ -384,6 +392,7 @@ class ProductsController extends AppController {
 		}
 
 		$all = array(
+			'user_id' => '',
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''
