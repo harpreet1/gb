@@ -102,11 +102,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('country_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('culinary_country_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('checked'); ?></th>
-		<th><?php echo $this->Paginator->sort('related_products'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
-		<th><?php echo $this->Paginator->sort('created'); ?></th>
-		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 	</tr>
 	<?php foreach ($products as $product): ?>
 	<tr>
@@ -141,7 +137,9 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
 		<td><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></td>
 		<td><?php echo h($product['Product']['tags']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['image']); ?>&nbsp;</td>
+
+		<td><?php echo $this->Html->image('http://www.gourmetdev.com/img/products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
+
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><?php echo h($product['Product']['stock']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['ratings']); ?>&nbsp;</td>
@@ -152,11 +150,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['shipping_weight']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['country_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['culinary_country_id']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['checked']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['related_products']); ?>&nbsp;</td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
-		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 	</tr>
 	<?php endforeach; ?>
 </table>
