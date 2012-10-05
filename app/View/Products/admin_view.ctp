@@ -388,98 +388,15 @@
 		</dd>
 	</dl>
 </div>
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Nutritions'), array('controller' => 'nutritions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Nutritions'); ?></h3>
-	<?php if (!empty($product['Nutrition'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Product Id'); ?></th>
-		<th><?php echo __('Serv Size'); ?></th>
-		<th><?php echo __('Serv Per Cont'); ?></th>
-		<th><?php echo __('Cal'); ?></th>
-		<th><?php echo __('Cal Fat'); ?></th>
-		<th><?php echo __('Total Fat'); ?></th>
-		<th><?php echo __('Sat Fat'); ?></th>
-		<th><?php echo __('Trans Fat'); ?></th>
-		<th><?php echo __('Chol'); ?></th>
-		<th><?php echo __('Sodium'); ?></th>
-		<th><?php echo __('Carbo'); ?></th>
-		<th><?php echo __('Fiber'); ?></th>
-		<th><?php echo __('Sugar'); ?></th>
-		<th><?php echo __('Protein'); ?></th>
-		<th><?php echo __('Vit A'); ?></th>
-		<th><?php echo __('Vit C'); ?></th>
-		<th><?php echo __('Calcium'); ?></th>
-		<th><?php echo __('Iron'); ?></th>
-		<th><?php echo __('Daily Value'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($product['Nutrition'] as $nutrition): ?>
-		<tr>
-			<td><?php echo $nutrition['id']; ?></td>
-			<td><?php echo $nutrition['product_id']; ?></td>
-			<td><?php echo $nutrition['serv_size']; ?></td>
-			<td><?php echo $nutrition['serv_per_cont']; ?></td>
-			<td><?php echo $nutrition['cal']; ?></td>
-			<td><?php echo $nutrition['cal_fat']; ?></td>
-			<td><?php echo $nutrition['total_fat']; ?></td>
-			<td><?php echo $nutrition['sat_fat']; ?></td>
-			<td><?php echo $nutrition['trans_fat']; ?></td>
-			<td><?php echo $nutrition['chol']; ?></td>
-			<td><?php echo $nutrition['sodium']; ?></td>
-			<td><?php echo $nutrition['carbo']; ?></td>
-			<td><?php echo $nutrition['fiber']; ?></td>
-			<td><?php echo $nutrition['sugar']; ?></td>
-			<td><?php echo $nutrition['protein']; ?></td>
-			<td><?php echo $nutrition['vit_A']; ?></td>
-			<td><?php echo $nutrition['vit_C']; ?></td>
-			<td><?php echo $nutrition['calcium']; ?></td>
-			<td><?php echo $nutrition['iron']; ?></td>
-			<td><?php echo $nutrition['daily_value']; ?></td>
-			<td><?php echo $nutrition['created']; ?></td>
-			<td><?php echo $nutrition['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'nutritions', 'action' => 'view', $nutrition['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'nutritions', 'action' => 'edit', $nutrition['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'nutritions', 'action' => 'delete', $nutrition['id']), null, __('Are you sure you want to delete # %s?', $nutrition['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Nutrition'), array('controller' => 'nutritions', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Tags'); ?></h3>
 	<?php if (!empty($product['Tag'])): ?>
@@ -514,4 +431,41 @@
 			<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
+</div>
+
+
+<br />
+<br />
+
+<?php echo $this->Html->image('products/' . $product['Product']['image']); ?>
+
+<br />
+<br />
+
+<div class="row">
+<div class="span5">
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size &nbsp;
+</span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $product['Product']['id'])); ?>
+<table class="table table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+</div>
 </div>
