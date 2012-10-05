@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('User'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($product['User']['id'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
+			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Category'); ?></dt>
@@ -46,21 +46,6 @@
 			<?php echo h($product['Product']['upc']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Aux Category 1'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['aux_category_1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Aux Category 2'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['aux_category_2']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Aux Category 3'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['aux_category_3']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Item'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['item']); ?>
@@ -79,11 +64,6 @@
 		<dt><?php echo __('Brand Id'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['brand_id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('In Stock'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['in_stock']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
@@ -191,14 +171,14 @@
 			<?php echo h($product['Product']['ratings']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Tradition Ids'); ?></dt>
+		<dt><?php echo __('Traditions'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['tradition_ids']); ?>
+			<?php echo h($product['Product']['traditions']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Dom Tradition Ids'); ?></dt>
+		<dt><?php echo __('Domestic Traditions'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['dom_tradition_ids']); ?>
+			<?php echo h($product['Product']['domestic_traditions']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Measurement'); ?></dt>
@@ -266,9 +246,9 @@
 			<?php echo h($product['Product']['recipes']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Country Id'); ?></dt>
+		<dt><?php echo __('Country'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['country_id']); ?>
+			<?php echo h($product['Product']['country']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Culinary Country Id'); ?></dt>

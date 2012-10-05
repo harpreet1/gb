@@ -100,7 +100,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
-		<th><?php echo $this->Paginator->sort('country_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('country'); ?></th>
 		<th><?php echo $this->Paginator->sort('culinary_country_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
 	</tr>
@@ -148,7 +148,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['weight_unit']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['weight']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['shipping_weight']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['country_id']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['country']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['culinary_country_id']); ?>&nbsp;</td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 	</tr>

@@ -72,7 +72,7 @@ class CulinaryregionsController extends AppController {
 				'User.id',
 				'User.slug',
 			),
-			'conditions' => array("FIND_IN_SET('$regionid', tradition_ids)"),
+			'conditions' => array("FIND_IN_SET('$regionid', traditions)"),
 			'limit' => 30,
 			'order' => array('Product.id' => 'DESC')
 		);

@@ -41,13 +41,8 @@ echo $this->Form->input('image_2');
 echo $this->Form->input('image_3');
 echo $this->Form->input('image_4');
 echo $this->Form->input('image_5');
-?>
-<br />
-Featured Product <?php echo $this->Form->checkbox('featured_product'); ?>
-<br />
-Gift Product <?php echo $this->Form->checkbox('gift_product'); ?>
-<br />
-<?php
+echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));
+echo $this->Form->input('gift_product', array('type' => 'checkbox', 'label' => 'Gift Product'));
 echo $this->Form->input('cost');
 echo $this->Form->input('list_price');
 echo $this->Form->input('selling_price');
@@ -55,8 +50,8 @@ echo $this->Form->input('price');
 echo $this->Form->input('taxable');
 echo $this->Form->input('stock');
 echo $this->Form->input('ratings');
-echo $this->Form->input('tradition_ids');
-echo $this->Form->input('dom_tradition_ids');
+echo $this->Form->input('traditions');
+echo $this->Form->input('domestic_traditions');
 echo $this->Form->input('measurement');
 echo $this->Form->input('weight_unit');
 echo $this->Form->input('weight');
@@ -70,7 +65,7 @@ echo $this->Form->input('width');
 echo $this->Form->input('ingredients');
 echo $this->Form->input('nutrition');
 echo $this->Form->input('recipes');
-echo $this->Form->input('country_id');
+echo $this->Form->input('country');
 echo $this->Form->input('culinary_country_id');
 echo $this->Form->input('ethnicity_id');
 echo $this->Form->input('checked');
@@ -95,13 +90,9 @@ echo $this->Form->input('heat_sensitivity');
 echo $this->Form->input('all_natural');
 echo $this->Form->input('award_winning');
 echo $this->Form->input('related_products');
-echo $this->Form->input('Tag');
+echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
-<br />
-Active <?php echo $this->Form->checkbox('active'); ?>
-<br />
 
-<br />
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>
