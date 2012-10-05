@@ -415,7 +415,16 @@ class ProductsController extends AppController {
 				'Subsubcategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories'));
+
+		$domestic_traditions = ClassRegistry::init('Culinaryusregion')->find('list', array(
+			'order' => array(
+				'Culinaryusregion.name' => 'ASC'
+			)
+		));
+
+		$countries = $this->Product->countries();
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'domestic_traditions', 'countries'));
 
 	}
 
@@ -512,7 +521,10 @@ class ProductsController extends AppController {
 				'Subsubcategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories'));
+
+		$countries = $this->Product->countries();
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'countries'));
 
 	}
 

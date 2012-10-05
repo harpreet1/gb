@@ -21,6 +21,24 @@ $(document).ready(function() {
 		placement: 'right',
 	});
 
+	$('.domestic_traditions').editable({
+		type: 'select',
+		name: 'domestic_traditions',
+		url: '/admin/products/editable',
+		title: 'Domestic Traditions',
+		source: <?php echo json_encode($domestic_traditions); ?>,
+		placement: 'right',
+	});
+
+	$('.country').editable({
+		type: 'select',
+		name: 'country',
+		url: '/admin/products/editable',
+		title: 'Country',
+		source: <?php echo json_encode($countries); ?>,
+		placement: 'right',
+	});
+
 });
 </script>
 
@@ -95,8 +113,8 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
 		<th><?php echo $this->Paginator->sort('stock'); ?></th>
 		<th><?php echo $this->Paginator->sort('ratings'); ?></th>
-		<th><?php echo $this->Paginator->sort('tradition_ids'); ?></th>
-		<th><?php echo $this->Paginator->sort('dom_tradition_ids'); ?></th>
+		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
+		<th><?php echo $this->Paginator->sort('domestic_traditions'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
@@ -143,12 +161,12 @@ $(document).ready(function() {
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><?php echo h($product['Product']['stock']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['ratings']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['tradition_ids']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['dom_tradition_ids']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['traditions']); ?>&nbsp;</td>
+		<td><span class="domestic_traditions" data-value="<?php echo $product['Product']['domestic_traditions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['domestic_traditions']); ?></span></td>
 		<td><?php echo h($product['Product']['weight_unit']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['weight']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['shipping_weight']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['country']); ?>&nbsp;</td>
+		<td><span class="country" data-value="<?php echo $product['Product']['country']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['country']); ?></span></td>
 		<td><?php echo h($product['Product']['culinary_country_id']); ?>&nbsp;</td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 	</tr>
