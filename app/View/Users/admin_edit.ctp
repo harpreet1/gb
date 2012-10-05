@@ -85,7 +85,7 @@ echo $this->Form->input('bd_category3');
 echo $this->Form->input('bd_category4');
 echo $this->Form->input('bd_category5');
 echo $this->Form->input('bd_category6');
-echo $this->Form->input('active');
+echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
 <br />
 <br />
