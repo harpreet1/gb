@@ -356,35 +356,60 @@ class ProductsController extends AppController {
 
 	public function admin_index() {
 
-		if(isset($this->request->data['Product']['name'])) {
-			$filter = $this->request->data['Product']['filter'];
-			$this->Session->write('Product.filter', $filter);
-			$name = $this->request->data['Product']['name'];
-			$this->Session->write('Product.name', $name);
-			$conditions = array(
-				'Product.' . $filter . ' LIKE' => '%' . $name . '%'
-			);
-			$this->Session->write('Product.conditions', $conditions);
-		};
+		if ($this->request->is('post')) {
+			if(!empty($this->request->data['Product']['user_id'])) {
+				$conditions = array(
+					'Product.user_id' => $this->request->data['Product']['user_id']
+				);
+				$this->Session->write('Product.conditions', $conditions);
+				$this->Session->write('Product.user_id', $this->request->data['Product']['user_id']);
+				$this->Session->write('Product.filter', '');
+				$this->Session->write('Product.name', '');
+
+			}
+			if(!empty($this->request->data['Product']['name'])) {
+				$this->Session->write('Product.user_id', '');
+				$filter = $this->request->data['Product']['filter'];
+				$this->Session->write('Product.filter', $filter);
+				$name = $this->request->data['Product']['name'];
+				$this->Session->write('Product.name', $name);
+				$conditions = array(
+					'Product.' . $filter . ' LIKE' => '%' . $name . '%'
+				);
+				$this->Session->write('Product.conditions', $conditions);
+			}
+
+			$this->redirect(array('action' => 'index'));
+
+		}
+
 		$all = array(
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''
 		);
+
 		if($this->Session->check('Product.conditions')) {
 			$all = $this->Session->read('Product');
 		}
+
 		$this->set(compact('all'));
 
 		$this->paginate = array(
-			'Product' => array(
-				'recursive' => 0,
-				'limit' => 10,
-				'conditions' => $all['conditions'],
-//				'order' => array(
-					// 'Member.name' => 'ASC'
-//				)
-			)
+			'recursive' => 0,
+			'conditions' => $all['conditions'],
+			'fields' => array(
+				'Product.*',
+				'User.id',
+				'User.name',
+				'Category.id',
+				'Category.name',
+				'Subcategory.id',
+				'Subcategory.name',
+				'Subsubcategory.id',
+				'Subsubcategory.name',
+			),
+			'limit' => 50,
 		);
 
 		$products = $this->paginate('Product');
