@@ -40,8 +40,13 @@ echo $this->Form->input('image_2');
 echo $this->Form->input('image_3');
 echo $this->Form->input('image_4');
 echo $this->Form->input('image_5');
-echo $this->Form->input('featured_product');
-echo $this->Form->input('gift_product');
+?>
+<br />
+Featured Product <?php echo $this->Form->checkbox('featured_product'); ?>
+<br />
+Gift Product <?php echo $this->Form->checkbox('gift_product'); ?>
+<br />
+<?php
 echo $this->Form->input('cost');
 echo $this->Form->input('list_price');
 echo $this->Form->input('selling_price');
