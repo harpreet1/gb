@@ -19,7 +19,7 @@ class ImagerenameShell extends Shell {
 
 			$newname = $product['Product']['id'] . '.jpg';
 
-			copy(IMAGES . 'products/' . $product['Product']['image'], IMAGES . '/productsnew/' . $product['Product']['image']);
+			copy(IMAGES . 'products/' . $product['Product']['image'], IMAGES . '/productsnew/' . $newname);
 
 			$data['Product']['id'] = $product['Product']['id'];
 			$data['Product']['image'] = $newname;
