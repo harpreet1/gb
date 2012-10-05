@@ -425,25 +425,36 @@ class ProductsController extends AppController {
 
 		$this->set(compact('products'));
 
-		$users = $this->Product->User->find('list', array(
+		$users = $this->Product->find('list', array(
+			'contain' => array('User'),
+			'fields' => array(
+				'User.id',
+				'User.name',
+			),
 			'conditions' => array(
 				'User.active' => 1,
 				'User.level' => 'vendor',
 			),
 			'order' => array(
 				'User.name' => 'ASC'
-			)
+			),
+			'group' => array(
+				'Product.user_id'
+			),
 		));
+
 		$categories = $this->Product->Category->find('list', array(
 			'order' => array(
 				'Category.name' => 'ASC'
 			)
 		));
+
 		$subcategories = $this->Product->Subcategory->find('list', array(
 			'order' => array(
 				'Subcategory.name' => 'ASC'
 			)
 		));
+
 		$subsubcategories = $this->Product->Subsubcategory->find('list', array(
 			'order' => array(
 				'Subsubcategory.name' => 'ASC'

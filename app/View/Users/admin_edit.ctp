@@ -89,16 +89,12 @@ echo $this->Form->input('active');
 ?>
 <br />
 <br />
-<?php echo $this->Form->button('Login', array('class' => 'btn')); ?>
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>
 
 <br />
 <br />
 
+<h3>Actions</h3>
+<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-	</ul>
-</div>
