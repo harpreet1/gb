@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Category'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['category']); ?>
+			<?php echo h($product['Product']['category_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Subcategory'); ?></dt>
@@ -28,7 +28,7 @@
 		</dd>
 		<dt><?php echo __('Subcategory'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['subcategory']); ?>
+			<?php echo h($product['Product']['subcategory_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Subsubcategory'); ?></dt>
@@ -38,17 +38,12 @@
 		</dd>
 		<dt><?php echo __('Subsubcategory'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['subsubcategory']); ?>
+			<?php echo h($product['Product']['subsubcategory_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Upc'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['upc']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Item'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['item']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Vendor Sku'); ?></dt>
@@ -161,16 +156,6 @@
 			<?php echo h($product['Product']['taxable']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Stock'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['stock']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ratings'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['ratings']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Traditions'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['traditions']); ?>
@@ -178,7 +163,7 @@
 		</dd>
 		<dt><?php echo __('Domestic Traditions'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['domestic_traditions']); ?>
+			<?php echo h($product['Product']['ustradition_id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Measurement'); ?></dt>

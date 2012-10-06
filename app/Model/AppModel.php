@@ -10,6 +10,22 @@ class AppModel extends Model {
 
 ////////////////////////////////////////////////////////////
 
+	public function creations($id = null) {
+		$creations = array(
+			'Artisinal Domestic' => 'Artisinal Domestic',
+			'Artisinal Imported' => 'Artisinal Imported',
+			'Packaged Domestic' => 'Packaged Domestic',
+			'Packaged Imported' => 'Packaged Imported',
+			'Farm Grown Domestic' => 'Farm Grown Domestic',
+			'Farm Grown Imported' => 'Farm Grown Imported',
+			'Packaged Gourmet Domestic' => 'Packaged Gourmet Domestic',
+			'Packaged Gourmet Imported' => 'Packaged Gourmet Imported',
+		);
+		return $creations;
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function states($id = null) {
 		$states = array(
 			'AL' => 'Alabama',

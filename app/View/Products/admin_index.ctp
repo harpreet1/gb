@@ -62,6 +62,7 @@ $(document).ready(function() {
 			'label' => false,
 			'options' => array(
 				'name' => 'Name',
+				'id' => 'ID',
 				'price' => 'Price',
 				'item' => 'Item',
 			),
@@ -100,26 +101,23 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('category'); ?></th>
+		<th><?php echo $this->Paginator->sort('category_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('subcategory'); ?></th>
+		<th><?php echo $this->Paginator->sort('subcategory_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
-		<th><?php echo $this->Paginator->sort('item'); ?></th>
+		<th><?php echo $this->Paginator->sort('subsubcategory_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
-		<th><?php echo $this->Paginator->sort('stock'); ?></th>
 		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
 		<th><?php echo $this->Paginator->sort('ustradition_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('country'); ?></th>
-		<th><?php echo $this->Paginator->sort('culinary_country_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
 	</tr>
 	<?php foreach ($products as $product): ?>
@@ -139,26 +137,23 @@ $(document).ready(function() {
 			<?php echo $product['User']['level']; ?>
 		</td>
 		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
-		<td><?php echo h($product['Product']['category']); ?></td>
+		<td><?php echo h($product['Product']['category_name']); ?></td>
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
-		<td><?php echo h($product['Product']['subcategory']); ?></td>
+		<td><?php echo h($product['Product']['subcategory_name']); ?></td>
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
-		<td><?php echo h($product['Product']['subsubcategory']); ?></td>
-		<td><?php echo h($product['Product']['item']); ?></td>
+		<td><?php echo h($product['Product']['subsubcategory_name']); ?></td>
 		<td><?php echo h($product['Product']['vendor_sku']); ?></td>
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
-		<td><?php echo $this->Html->image('http://www.gourmetdev.com/img/products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
+		<td><?php echo $this->Html->image('products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></td>
-		<td><?php echo h($product['Product']['stock']); ?></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
 		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
 		<td><?php echo h($product['Product']['weight_unit']); ?></td>
 		<td><?php echo h($product['Product']['weight']); ?></td>
 		<td><?php echo h($product['Product']['shipping_weight']); ?></td>
 		<td><span class="country" data-value="<?php echo $product['Product']['country']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['country']); ?></span></td>
-		<td><?php echo h($product['Product']['culinary_country_id']); ?></td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 	</tr>
 	<?php endforeach; ?>

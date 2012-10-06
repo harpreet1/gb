@@ -369,28 +369,30 @@ class ProductsController extends AppController {
 	public function admin_index() {
 
 		if ($this->request->is('post')) {
+
 			if(!empty($this->request->data['Product']['user_id'])) {
-				$conditions = array(
+				$conditions[] = array(
 					'Product.user_id' => $this->request->data['Product']['user_id']
 				);
-				$this->Session->write('Product.conditions', $conditions);
 				$this->Session->write('Product.user_id', $this->request->data['Product']['user_id']);
-				$this->Session->write('Product.filter', '');
-				$this->Session->write('Product.name', '');
-
-			}
-			if(!empty($this->request->data['Product']['name'])) {
+			} else {
 				$this->Session->write('Product.user_id', '');
+			}
+
+			if(!empty($this->request->data['Product']['name'])) {
 				$filter = $this->request->data['Product']['filter'];
 				$this->Session->write('Product.filter', $filter);
 				$name = $this->request->data['Product']['name'];
 				$this->Session->write('Product.name', $name);
-				$conditions = array(
+				$conditions[] = array(
 					'Product.' . $filter . ' LIKE' => '%' . $name . '%'
 				);
-				$this->Session->write('Product.conditions', $conditions);
+			} else {
+				$this->Session->write('Product.filter', '');
+				$this->Session->write('Product.name', '');
 			}
 
+			$this->Session->write('Product.conditions', $conditions);
 			$this->redirect(array('action' => 'index'));
 
 		}
@@ -402,7 +404,7 @@ class ProductsController extends AppController {
 			'conditions' => ''
 		);
 
-		if($this->Session->check('Product.conditions')) {
+		if($this->Session->check('Product')) {
 			$all = $this->Session->read('Product');
 		}
 
@@ -440,8 +442,6 @@ class ProductsController extends AppController {
 				'User.level',
 			),
 			'conditions' => array(
-				//'User.active' => 1,
-				//'User.level' => 'vendor',
 			),
 			'order' => array(
 				'User.level' => 'DESC',
@@ -561,7 +561,9 @@ class ProductsController extends AppController {
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
+		$creations = $this->Product->creations();
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries', 'creations'));
 
 	}
 
@@ -616,7 +618,9 @@ class ProductsController extends AppController {
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
+		$creations = $this->Product->creations();
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries', 'creations'));
 
 	}
 
