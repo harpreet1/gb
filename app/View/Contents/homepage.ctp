@@ -10,12 +10,12 @@
 			<!-- <marquee loop="3" behavior="slide" direction="left" width="1400"><h2>START Lorem ipsum dolor sit amet END</h2></marquee> -->
 			
 			<ul id="ticker01">
-				<li><img src="img/international.png" width="1366" height="52" alt=""/></li>
-				<li><img src="img/regional.png"  width="1543" height="52" alt=""/></li>
-				<li><img src="img/chefs-tips.png"  width="1021" height="52" alt=""/></li>
-				<li><img src="img/recipes.png"  width="909" height="52" alt=""/></li>
-				<li><img src="img/articles.png"  width="1021" height="52" alt=""/></li>
-				<li><img src="img/pairings.png"  width="975" height="52" alt=""/></li>
+				<li><img src="img/ticker/international.png" width="1366" height="52" alt=""/></li>
+				<li><img src="img/ticker/regional.png"  width="1543" height="52" alt=""/></li>
+				<li><img src="img/ticker/chefs-tips.png"  width="1021" height="52" alt=""/></li>
+				<li><img src="img/ticker/recipes.png"  width="909" height="52" alt=""/></li>
+				<li><img src="img/ticker/articles.png"  width="1021" height="52" alt=""/></li>
+				<li><img src="img/ticker/pairings.png"  width="975" height="52" alt=""/></li>
 			</ul>
 		</div>
 		<div id="upper-wrapper">

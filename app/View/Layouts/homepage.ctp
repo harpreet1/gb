@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js', 'js.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js', 'js.js','jquery.li-scroller.1.0.js')); ?>
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
@@ -24,5 +24,12 @@
 
 </div>
 
+<script>
+
+	// Ticker
+
+	$("ul#ticker01").liScroll({travelocity: 0.15});
+		
+</script>			
 </body>
 </html>
