@@ -14,10 +14,11 @@ class ProductTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.product',
-		'app.category',
 		'app.user',
+		'app.category',
 		'app.subcategory',
-		'app.brand',
+		'app.subsubcategory',
+		'app.ustradition',
 		'app.nutrition',
 		'app.tag',
 		'app.products_tag'

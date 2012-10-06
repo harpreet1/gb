@@ -501,18 +501,26 @@ class ProductsController extends AppController {
 				$this->Product->saveField('image', $image);
 				$uploadedfile = $targetdir . '/' . $image;
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
-//				$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
 			}
 
 			$this->Session->setFlash($upload);
 			$this->redirect($this->referer());
 		}
 
-		$this->Product->id = $id;
-		if (!$this->Product->exists()) {
+		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
-		$this->set('product', $this->Product->read(null, $id));
+
+		$product = $this->Product->find('first', array(
+			'recursive' => 0,
+			'conditions' => array(
+				'Product.' . $this->Product->primaryKey => $id
+			)
+		));
+
+		$this->set(compact('product'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -582,7 +590,11 @@ class ProductsController extends AppController {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}
 		} else {
-			$this->request->data = $this->Product->read(null, $id);
+			$options = array(
+				'recursive' => 0,
+				'conditions' => array('Product.' . $this->Product->primaryKey => $id)
+			);
+			$this->request->data = $this->Product->find('first', $options);
 		}
 
 		$users = $this->Product->User->find('list', array(

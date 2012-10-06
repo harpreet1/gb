@@ -13,8 +13,24 @@ class ProductsControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.product'
+		'app.product',
+		'app.user',
+		'app.category',
+		'app.subcategory',
+		'app.subsubcategory',
+		'app.ustradition',
+		'app.nutrition',
+		'app.tag',
+		'app.products_tag'
 	);
+
+/**
+ * testSlug method
+ *
+ * @return void
+ */
+	public function testSlug() {
+	}
 
 /**
  * testIndex method
@@ -22,6 +38,22 @@ class ProductsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testIndex() {
+	}
+
+/**
+ * testSubcategory method
+ *
+ * @return void
+ */
+	public function testSubcategory() {
+	}
+
+/**
+ * testSubsubcategory method
+ *
+ * @return void
+ */
+	public function testSubsubcategory() {
 	}
 
 /**
@@ -33,27 +65,35 @@ class ProductsControllerTest extends ControllerTestCase {
 	}
 
 /**
- * testAdd method
+ * testSearch method
  *
  * @return void
  */
-	public function testAdd() {
+	public function testSearch() {
 	}
 
 /**
- * testEdit method
+ * testSearchjson method
  *
  * @return void
  */
-	public function testEdit() {
+	public function testSearchjson() {
 	}
 
 /**
- * testDelete method
+ * testSitemap method
  *
  * @return void
  */
-	public function testDelete() {
+	public function testSitemap() {
+	}
+
+/**
+ * testAdminReset method
+ *
+ * @return void
+ */
+	public function testAdminReset() {
 	}
 
 /**

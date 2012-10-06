@@ -1,7 +1,7 @@
 <div class="products view">
 <h2><?php  echo __('Product'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+			<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['id']); ?>
 			&nbsp;
@@ -16,7 +16,7 @@
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Category'); ?></dt>
+		<dt><?php echo __('Category Name'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['category_name']); ?>
 			&nbsp;
@@ -26,7 +26,7 @@
 			<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Subcategory'); ?></dt>
+		<dt><?php echo __('Subcategory Name'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['subcategory_name']); ?>
 			&nbsp;
@@ -36,7 +36,7 @@
 			<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Subsubcategory'); ?></dt>
+		<dt><?php echo __('Subsubcategory Name'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['subsubcategory_name']); ?>
 			&nbsp;
@@ -54,11 +54,6 @@
 		<dt><?php echo __('Brand'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['brand']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Brand Id'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['brand_id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
@@ -94,6 +89,11 @@
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['image']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Imageold'); ?></dt>
+		<dd>
+			<?php echo h($product['Product']['imageold']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Image 1'); ?></dt>
@@ -161,9 +161,9 @@
 			<?php echo h($product['Product']['traditions']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Domestic Traditions'); ?></dt>
+		<dt><?php echo __('Ustradition'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['ustradition_id']); ?>
+			<?php echo $this->Html->link($product['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', $product['Ustradition']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Measurement'); ?></dt>
@@ -236,19 +236,9 @@
 			<?php echo h($product['Product']['country']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Culinary Country Id'); ?></dt>
+		<dt><?php echo __('Creation'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['culinary_country_id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ethnicity Id'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['ethnicity_id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Checked'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['checked']); ?>
+			<?php echo h($product['Product']['creation']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Allergen Free'); ?></dt>
@@ -331,11 +321,6 @@
 			<?php echo h($product['Product']['give_back']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Creation Id'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['creation_id']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Heat Sensitivity'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['heat_sensitivity']); ?>
@@ -374,13 +359,18 @@
 	</dl>
 </div>
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-	</ul>
-</div>
+<br />
+<br />
+
+<h3><?php echo __('Actions'); ?></h3>
+<?php echo $this->Html->link('Edit Product', array('action' => 'edit', $product['Product']['id']), array('class' => 'btn')); ?>
+<br />
+<br />
+<?php echo $this->Form->postLink('Delete Product', array('action' => 'delete', $product['Product']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
+<br />
+
+<br />
+<br />
 
 <div class="related">
 	<h3><?php echo __('Related Tags'); ?></h3>
