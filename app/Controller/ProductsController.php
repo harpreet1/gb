@@ -432,11 +432,12 @@ class ProductsController extends AppController {
 
 		$this->set(compact('products'));
 
-		$users = $this->Product->find('list', array(
+		$users = $this->Product->find('all', array(
 			'contain' => array('User'),
 			'fields' => array(
 				'User.id',
 				'User.name',
+				'User.level',
 			),
 			'conditions' => array(
 				//'User.active' => 1,
@@ -449,6 +450,7 @@ class ProductsController extends AppController {
 				'Product.user_id'
 			),
 		));
+		$users = Set::combine($users, array('{0}', '{n}.User.id'), array('{0} - {1}', '{n}.User.name', '{n}.User.level'));
 
 		$categories = $this->Product->Category->find('list', array(
 			'order' => array(

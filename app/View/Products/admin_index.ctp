@@ -92,7 +92,6 @@ $(document).ready(function() {
 
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
-		<th class="actions">Actions</th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
@@ -103,13 +102,11 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('subsubcategory'); ?></th>
 		<th><?php echo $this->Paginator->sort('item'); ?></th>
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
-		<th><?php echo $this->Paginator->sort('brand'); ?></th>
-		<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
-		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
+		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('stock'); ?></th>
 		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
 		<th><?php echo $this->Paginator->sort('ustradition_id'); ?></th>
@@ -122,42 +119,33 @@ $(document).ready(function() {
 	</tr>
 	<?php foreach ($products as $product): ?>
 	<tr>
-
 		<td class="actions">
+			<?php echo h($product['Product']['id']); ?>
+			<br />
 			<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
+			<br />
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
+			<br />
 			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $product['Product']['id']), array('class' => 'btn btn-danger btn-mini') , __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>
-
-		<td><?php echo h($product['Product']['id']); ?></td>
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			<br />
 			<?php echo $product['User']['level']; ?>
 		</td>
-		<td>
-			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-		</td>
+		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
 		<td><?php echo h($product['Product']['category']); ?></td>
-		<td>
-			<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
-		</td>
+		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
 		<td><?php echo h($product['Product']['subcategory']); ?></td>
-		<td>
-			<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
-		</td>
+		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo h($product['Product']['subsubcategory']); ?></td>
 		<td><?php echo h($product['Product']['item']); ?></td>
 		<td><?php echo h($product['Product']['vendor_sku']); ?></td>
-		<td><?php echo h($product['Product']['brand']); ?></td>
-		<td><?php echo h($product['Product']['brand_id']); ?></td>
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
-		<td><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></td>
-
 		<td><?php echo $this->Html->image('http://www.gourmetdev.com/img/products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
-
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
+		<td><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></td>
 		<td><?php echo h($product['Product']['stock']); ?></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
 		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
