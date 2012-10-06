@@ -63,6 +63,7 @@ $(document).ready(function() {
 			'options' => array(
 				'name' => 'Name',
 				'id' => 'ID',
+				'brand' => 'Brand',
 				'price' => 'Price',
 				'item' => 'Item',
 			),
@@ -107,6 +108,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subsubcategory_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
+		<th><?php echo $this->Paginator->sort('brand'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
@@ -143,6 +145,7 @@ $(document).ready(function() {
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo h($product['Product']['subsubcategory_name']); ?></td>
 		<td><?php echo h($product['Product']['vendor_sku']); ?></td>
+		<td><?php echo h($product['Product']['brand']); ?></td>
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
