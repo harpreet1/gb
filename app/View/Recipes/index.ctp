@@ -20,7 +20,7 @@
 </style>
 
 <div id="tea_shoppe">
-    <div id="shop-info"><?php echo $user['User']['shop_name'] . (isset($name) ? ": ".$name : '') ?></div>
+    <div id="shop-info"><?php echo $user['User']['name'] . (isset($name) ? ": ".$name : '') ?></div>
 </div>
 
 <br />
