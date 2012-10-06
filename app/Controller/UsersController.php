@@ -66,6 +66,11 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_dashboard() {
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());

@@ -52,6 +52,8 @@
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
+
 	CakePlugin::routes();
 
 	require CAKE . 'Config' . DS . 'routes.php';

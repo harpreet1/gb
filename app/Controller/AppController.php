@@ -8,7 +8,7 @@ class AppController extends Controller {
 		'Session',
 		'Auth',
 		'RequestHandler',
-//		'DebugKit.Toolbar',
+		'DebugKit.Toolbar',
 	);
 
 ////////////////////////////////////////////////////////////
@@ -49,6 +49,10 @@ class AppController extends Controller {
 				Cache::write('menuvendors', $menuvendors);
 			}
 			$this->set(compact('menuvendors'));
+		}
+
+		if ($this->RequestHandler->isAjax()) {
+			$this->layout = 'ajax';
 		}
 
 	}
