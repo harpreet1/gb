@@ -50,7 +50,7 @@ class CartComponent extends Component {
 				'Product.length',
 				'Product.width',
 				'User.id',
-				'User.shop_name',
+				'User.name',
 				'User.email',
 				'User.zip',
 				'User.state',
@@ -108,7 +108,7 @@ class CartComponent extends Component {
 				$cartWeight += $item['totalweight'];
 
 				$users[$item['User']['id']]['id'] = $item['User']['id'];
-				$users[$item['User']['id']]['name'] = $item['User']['shop_name'];
+				$users[$item['User']['id']]['name'] = $item['User']['name'];
 				$users[$item['User']['id']]['email'] = $item['User']['email'];
 				$users[$item['User']['id']]['zip'] = $item['User']['zip'];
 				$users[$item['User']['id']]['state'] = $item['User']['state'];
