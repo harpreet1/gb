@@ -87,31 +87,31 @@
 	</dd>
 	<dt><?php echo __('Image'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image']); ?>
 	</dd>
 	<dt><?php echo __('Image 1'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_1']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1']); ?>
 	</dd>
 	<dt><?php echo __('Image 2'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_2']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2']); ?>
 	</dd>
 	<dt><?php echo __('Image 3'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_3']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3']); ?>
 	</dd>
 	<dt><?php echo __('Image 4'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_4']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4']); ?>
 	</dd>
 	<dt><?php echo __('Image 5'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_5']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5']); ?>
 	</dd>
 	<dt><?php echo __('Image 6'); ?></dt>
 	<dd>
-		<?php echo $this->Html->image('culinaryregions/' . $tradition['Tradition']['image_6']); ?>
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6']); ?>
 	</dd>
 	<dt><?php echo __('Created'); ?></dt>
 	<dd>
