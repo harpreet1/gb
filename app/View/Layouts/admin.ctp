@@ -80,6 +80,14 @@
 				</li>
 
 				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Contents', array('controller' => 'contents', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Visitors<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><?php echo $this->Html->link('Visitors', array('controller' => 'visitors', 'action' => 'index')); ?></li>

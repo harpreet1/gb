@@ -11,7 +11,7 @@
 	if($subDomain[0] != 'www' && isset($subDomain[2])) {
 		Router::connect('/', array('controller' => 'products', 'action' => 'index'));
 	} else {
-		Router::connect('/', array('controller' => 'sites', 'action' => 'index'));
+		Router::connect('/', array('controller' => 'contents', 'action' => 'homepage'));
 	}
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
