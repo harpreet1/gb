@@ -5,6 +5,184 @@ body {
 	padding-top: 40px;
 }
 
+#gb-title {
+	width:1000px;
+	margin:auto;
+	margin-top: 10px;	
+}
+#gb-title img {
+	text-align:center;
+}
+
+#account {
+	position: absolute;
+	top: 70px;
+	right: 170px;	
+}
+
+#nav ul.gb-horiz li.gb a{
+ 	text-decoration: none;
+	color:#FFF;	
+}
+
+ul.gb-horiz {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:80%;
+	margin-left: 20px;
+}
+
+li.gb {
+	display: inline;
+	list-style-image: none;
+	font-weight: bold;
+	font-size:125%;
+	color: #FFF;
+	padding-left: 15px;
+}
+
+ul.gb-horiz-account {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:70%;
+	
+}
+
+li.gb-account {
+	display: inline;
+	list-style-image: none;
+	padding-left: 15px;
+}
+li.gb-account a{
+	font-weight: bold;
+	color: #d64c32;
+    /*text-decoration: none;*/
+}
+
+
+
+#upper {
+	height:800px;
+	background-image: url(../img/global/infinite-header.png);
+	background-repeat: repeat-x;
+	margin: 0px;
+	padding: 0px;	
+}
+
+#lower {
+	background-image: url(../img/global/bottom-aqua.jpg);
+	position: relative;
+	background-color:#c5f1fc;
+	background-repeat: no-repeat;
+}
+
+#star-band {
+	background-image: url(../img/global/star-band.jpg);
+	background-repeat: repeat-x;
+	height: 23px;
+}
+
+#wrapper {
+	width: 1000px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-left: auto;
+	min-height: 800px;
+	position: relative;
+}
+
+#upper-wrapper {
+	width: 1000px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	position: relative;	
+	padding-top: 0px;
+	height: auto;
+	z-index: 10;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#lower-wrapper {
+	width: 1000px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	
+}
+
+#big-white {
+	color: #FFF;
+	height: 100px;
+	width: 100%;
+	position: absolute;
+	top: 15px;
+	right: 0px;
+	background-image: url(../img/global/white-sliver.jpg);
+	background-repeat: repeat-x;
+}
+
+
+#header-magazine, #header {
+	background-repeat: no-repeat;
+	height: 185px;
+	width: 1000px;
+}
+
+#header {
+	
+	background-image: url(../img/global/GB-header4.png);
+	
+}
+
+#header-magazine {
+	background-image: url(../img/global/GB-header-clean.png);
+}
+
+#left-header, #right-header {
+	
+	width: 600px;
+	height: 100px;
+	position: absolute;
+}
+
+#left-header {
+	top: 0px;
+	left: -600px;
+	background-image: url(../img/global/bubbles-left.png);
+	background-repeat: repeat-x;
+}
+
+#right-header {
+	top: 0px;
+	right: -600px;	
+	background-image: url(../img/global/bubbles-right.png);
+	background-repeat: repeat-x;
+
+}
+
+
+#logo {
+	background-image: url(../img/global/gb-logo-156.png);
+	background-repeat: no-repeat;
+	height: 156px;
+	width: 156px;
+	position: fixed;
+	z-index: 200;
+	top: 65px;
+	left: 140px;
+}
+
+
+
+
+
+
+
+
+
 
 /** TICKER **/
 
@@ -47,4 +225,92 @@ ul.newsticker a {
 }
 ul.newsticker span {
 	margin: 0 10px 0 0;
+}
+
+/** Headlines **/
+
+#headlines {
+	margin-top: 55px;
+	position: relative;
+}
+
+.headline-1, .headline-2, .headline-3, .headline-4 {
+	font-size:150%;
+	color:#FFF;
+	position:absolute;
+	height:150px;
+	width:450px;
+	margin-bottom:75px;
+	background-color: transparent;	
+}
+
+
+.headline-1 a, .headline-2 a, .headline-3 a, .headline-4 a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.headline-1 {
+	left: 0px;
+	top: 0px;	
+}
+
+.headline-2 {
+	left: 800px;
+	top: 0px;	
+}
+
+.headline-3 {
+	left: 0px;
+	top: 220px;	
+}
+
+.headline-4 {
+	left: 800px;
+	top: 220px;	
+}
+
+.headline-4 a {
+	font-style: italic;
+	color: #D9553E;
+	
+}
+
+.front-page-pic-link {
+	float: left;
+	height: 23px;
+	background-color: #312b2d;
+	position: absolute;
+	left: 0px;
+	top: 320px;
+	/*font-weight: bold;*/
+	color: #FFF;
+}
+
+div.pic-link-title a{
+	color: #FFF;
+	font-size: 90%;
+	text-decoration: none;
+}
+
+div.pic-link-title {
+	padding-top: 5px;
+	float: left;
+}
+
+.shop-now {
+	background-color: #DD5944;
+	position: relative;
+	margin-top:-4px;
+	z-index: 1000;
+	border: 1px solid #bbb;
+}
+
+.shop-now a {
+	/* [disabled]font-weight: bold; */
+	font-size:90%;
+	text-decoration:none;
+	color:#fff;
+	width: 100px;
+	padding:5px 5px;
 }

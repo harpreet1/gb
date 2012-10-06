@@ -1,8 +1,3 @@
-<h1>GB Homepage</h1>
-
-<br />
-<br />
-
 	<div id="upper">
 		<div class="ticker-wrap"> 
 			
@@ -17,6 +12,7 @@
 				<li><img src="img/homepage/ticker/pairings.png"  width="975" height="52" alt=""/></li>
 			</ul>
 		</div>
+		
 		<div id="upper-wrapper">
 			<div id="header-magazine"></div>
 			<div id="left-header">&nbsp;</div>
@@ -29,11 +25,57 @@
 				</ul>
 			</div>
 			
+			<div id="gb-title"> <img src="img/global/gb-title.png" width="1000" height="160" alt="gourmet-basket" />
+				<div>A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
+			</div>
+	
 		</div>
 				
+	
+	
+
+		<div id="upper-content">upper content
+			<div id="headlines">
+				<div class="headline-1">
+					<div> <a href=""> Gift Assortments & Baskets </a>
+						</h2>
+					</div>
+				</div>
+				
+				<div class="headline-2">
+					<div>
+						<h2> <a href="http://gourmetdev.com/blog/2012/07/11/beverage-trends-2012"> News on Trends! </a> </h2>
+					</div>
+					<div></div>
+				</div>
+				
+				<div class="headline-3">
+					<div>
+						<h2> <a href=""> Tips from Chefs! </a> </h2>
+					</div>
+				</div>
+				
+				<div class="headline-4">
+					<div>
+						<h2> <a href=""> Pairing Ideas! </a> </h2>
+					</div>
+				</div>
+				
+				<div class="front-page-pic-link"> <img src="img/homepage/lil-star.png" width="36" height= "23" style="float:left" />
+					<div class="pic-link-title"><a href="">Sriracha Flying Rooster Chocolate Truffles - $9.85-$24.95</a></div>
+					<img src="img/lil-star.png" width="36" height="23" style="float:left" />
+					<div class="shop-now submit_button" ><a href="">SHOP NOW</a></div>
+				</div>
+				
+			</div>
+		</div>
+
+
 	</div>
-	
-	
+
+
+
+
 
 
 
