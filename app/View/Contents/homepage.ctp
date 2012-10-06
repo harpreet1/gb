@@ -10,11 +10,11 @@
 			
 			<ul id="ticker01">
 				<li><img src="img/homepage/ticker/international.png" width="1366" height="52" alt=""/></li>
-				<li><img src="img/ticker/regional.png"  width="1543" height="52" alt=""/></li>
-				<li><img src="img/ticker/chefs-tips.png"  width="1021" height="52" alt=""/></li>
-				<li><img src="img/ticker/recipes.png"  width="909" height="52" alt=""/></li>
-				<li><img src="img/ticker/articles.png"  width="1021" height="52" alt=""/></li>
-				<li><img src="img/ticker/pairings.png"  width="975" height="52" alt=""/></li>
+				<li><img src="img/homepage/ticker/regional.png"  width="1543" height="52" alt=""/></li>
+				<li><img src="img/homepage/chefs-tips.png"  width="1021" height="52" alt=""/></li>
+				<li><img src="img/homepage/recipes.png"  width="909" height="52" alt=""/></li>
+				<li><img src="img/homepage/articles.png"  width="1021" height="52" alt=""/></li>
+				<li><img src="img/homepage/pairings.png"  width="975" height="52" alt=""/></li>
 			</ul>
 		</div>
 		<div id="upper-wrapper">
