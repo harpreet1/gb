@@ -1,11 +1,11 @@
 <?php
-App::uses('Culinaryregion', 'Model');
+App::uses('Tradition', 'Model');
 
 /**
- * Culinaryregion Test Case
+ * Tradition Test Case
  *
  */
-class CulinaryregionTest extends CakeTestCase {
+class TraditionTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,7 +13,7 @@ class CulinaryregionTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.culinaryregion'
+		'app.tradition'
 	);
 
 /**
@@ -23,7 +23,7 @@ class CulinaryregionTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Culinaryregion = ClassRegistry::init('Culinaryregion');
+		$this->Tradition = ClassRegistry::init('Tradition');
 	}
 
 /**
@@ -32,7 +32,7 @@ class CulinaryregionTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Culinaryregion);
+		unset($this->Tradition);
 
 		parent::tearDown();
 	}

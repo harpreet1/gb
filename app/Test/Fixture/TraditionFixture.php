@@ -1,9 +1,9 @@
 <?php
 /**
- * CulinaryregionFixture
+ * TraditionFixture
  *
  */
-class CulinaryregionFixture extends CakeTestFixture {
+class TraditionFixture extends CakeTestFixture {
 
 /**
  * Fields
@@ -52,8 +52,8 @@ class CulinaryregionFixture extends CakeTestFixture {
 			'image_4' => 'Lorem ipsum dolor sit amet',
 			'image_5' => 'Lorem ipsum dolor sit amet',
 			'image_6' => 'Lorem ipsum dolor sit amet',
-			'created' => '2012-09-26 15:10:19',
-			'modified' => '2012-09-26 15:10:19'
+			'created' => '2012-10-05 21:23:15',
+			'modified' => '2012-10-05 21:23:15'
 		),
 	);
 

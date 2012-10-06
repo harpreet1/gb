@@ -22,7 +22,7 @@
 
 	Router::connect('/us/:slug', array('controller' => 'ustraditions', 'action' => 'view'), array('pass' => array('slug')));
 
-	Router::connect('/international/:slug', array('controller' => 'culinaryregions', 'action' => 'view'), array('pass' => array('slug')));
+	Router::connect('/international/:slug', array('controller' => 'traditions', 'action' => 'view'), array('pass' => array('slug')));
 
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 

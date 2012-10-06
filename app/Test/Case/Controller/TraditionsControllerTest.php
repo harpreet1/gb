@@ -1,11 +1,11 @@
 <?php
-App::uses('CulinaryusregionsController', 'Controller');
+App::uses('TraditionsController', 'Controller');
 
 /**
- * CulinaryusregionsController Test Case
+ * TraditionsController Test Case
  *
  */
-class CulinaryusregionsControllerTest extends ControllerTestCase {
+class TraditionsControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,7 +13,7 @@ class CulinaryusregionsControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.culinaryusregion'
+		'app.tradition'
 	);
 
 /**
