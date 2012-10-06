@@ -3,7 +3,6 @@
 <br />
 <br />
 
-
 	<div id="upper">
 		<div class="ticker-wrap"> 
 			
