@@ -33,7 +33,7 @@ class RecipesController extends AppController {
 				'Recipe.image_1',
 				'Recipe.image_caption_1',
 				'Recipe.created',
-				'User.shop_name',
+				'User.name',
 				'User.slug',
 				'Category.name',
 			),
@@ -77,7 +77,7 @@ class RecipesController extends AppController {
 			'recursive' => 1,
 			'fields' => array(
 				'User.slug',
-				'User.shop_name'
+				'User.name'
 			),
 			'conditions' => array(
 				'Recipe.active' => 1,
@@ -134,7 +134,7 @@ class RecipesController extends AppController {
 				'Recipe.image_1',
 				'Recipe.image_caption_1',
 				'Recipe.created',
-				'User.shop_name',
+				'User.name',
 				'User.slug',
 				'Category.name',
 			),

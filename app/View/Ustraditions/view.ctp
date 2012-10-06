@@ -5,8 +5,8 @@
 
 	<div class="span4">
 
-		<?php foreach ($culinaryusregions as $culinary): ?>
-		<?php echo $this->Html->link($culinary['Culinaryusregion']['name'], array('controller' => 'culinaryusregions', 'action' => 'view', 'slug' => $culinary['Culinaryusregion']['slug'])); ?><br />
+		<?php foreach ($ustraditions as $tradition): ?>
+		<?php echo $this->Html->link($tradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', 'slug' => $tradition['Ustradition']['slug'])); ?><br />
 		<?php endforeach; ?>
 
 	</div>
@@ -63,63 +63,63 @@
 <dl>
 	<dt><?php echo __('Id'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['id']); ?>
+		<?php echo h($ustradition['Ustradition']['id']); ?>
 	</dd>
 	<dt><?php echo __('Name'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['name']); ?>
+		<?php echo h($ustradition['Ustradition']['name']); ?>
 	</dd>
 	<dt><?php echo __('Slug'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['slug']); ?>
+		<?php echo h($ustradition['Ustradition']['slug']); ?>
 	</dd>
 	<dt><?php echo __('States'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['states']); ?>
+		<?php echo h($ustradition['Ustradition']['states']); ?>
 	</dd>
 	<dt><?php echo __('Summary'); ?></dt>
 	<dd>
-		<?php echo $culinaryusregion['Culinaryusregion']['summary']; ?>
+		<?php echo $ustradition['Ustradition']['summary']; ?>
 	</dd>
 	<dt><?php echo __('Article'); ?></dt>
 	<dd>
-		<?php echo $culinaryusregion['Culinaryusregion']['article']; ?>
+		<?php echo $ustradition['Ustradition']['article']; ?>
 	</dd>
 	<dt><?php echo __('Main Image'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['main_image']); ?>
+		<?php echo h($ustradition['Ustradition']['main_image']); ?>
 	</dd>
 	<dt><?php echo __('Image 1'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_1']); ?>
+		<?php echo h($ustradition['Ustradition']['image_1']); ?>
 	</dd>
 	<dt><?php echo __('Image 2'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_2']); ?>
+		<?php echo h($ustradition['Ustradition']['image_2']); ?>
 	</dd>
 	<dt><?php echo __('Image 3'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_3']); ?>
+		<?php echo h($ustradition['Ustradition']['image_3']); ?>
 	</dd>
 	<dt><?php echo __('Image 4'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_4']); ?>
+		<?php echo h($ustradition['Ustradition']['image_4']); ?>
 	</dd>
 	<dt><?php echo __('Image 5'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_5']); ?>
+		<?php echo h($ustradition['Ustradition']['image_5']); ?>
 	</dd>
 	<dt><?php echo __('Image 6'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['image_6']); ?>
+		<?php echo h($ustradition['Ustradition']['image_6']); ?>
 	</dd>
 	<dt><?php echo __('Created'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['created']); ?>
+		<?php echo h($ustradition['Ustradition']['created']); ?>
 	</dd>
 	<dt><?php echo __('Modified'); ?></dt>
 	<dd>
-		<?php echo h($culinaryusregion['Culinaryusregion']['modified']); ?>
+		<?php echo h($ustradition['Ustradition']['modified']); ?>
 	</dd>
 </dl>
 

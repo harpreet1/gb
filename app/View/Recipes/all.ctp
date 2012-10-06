@@ -33,7 +33,7 @@ $(document).ready(function() {
 <?php foreach ($recipes as $recipe): ?>
 	<tr>
 		<td><?php echo $this->Html->link($recipe['Recipe']['name'], array('action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug'])); ?></td>
-		<td><?php echo $recipe['User']['shop_name']; ?></td>
+		<td><?php echo $recipe['User']['name']; ?></td>
 		<td><?php echo $recipe['Category']['name']; ?></td>
 	</tr>
 <?php endforeach; ?>
@@ -85,7 +85,7 @@ $(document).ready(function() {
 		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />
 		<br />
-		<?php echo $recipe['User']['shop_name']; ?>
+		<?php echo $recipe['User']['name']; ?>
 		<br />
 		<br />
 

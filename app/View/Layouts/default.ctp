@@ -39,7 +39,7 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li><?php echo $this->Html->link('US Markets', array('controller' => 'culinaryusregions', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'culinaryregions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>

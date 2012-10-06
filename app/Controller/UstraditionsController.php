@@ -1,40 +1,39 @@
 <?php
 App::uses('AppController', 'Controller');
-
-class CulinaryusregionsController extends AppController {
+class UstraditionsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
 	public function index() {
-		$this->Culinaryusregion->recursive = 0;
-		$this->set('culinaryusregions', $this->paginate());
+		$this->Ustradition->recursive = 0;
+		$this->set('ustraditions', $this->paginate());
 	}
 
 ////////////////////////////////////////////////////////////
 
 	public function view($slug = null) {
 
-		$culinaryusregion = $this->Culinaryusregion->find('first', array(
+		$ustradition = $this->Ustradition->find('first', array(
 			'recursive' => -1,
 			'conditions' => array(
-				'Culinaryusregion.slug' => $slug
+				'Ustradition.slug' => $slug
 			)
 		));
-		if(empty($culinaryusregion)) {
+		if(empty($ustradition)) {
 			die('invalid region');
 		}
-		$this->set(compact('culinaryusregion'));
+		$this->set(compact('ustradition'));
 
-		$culinaryusregions = $this->Culinaryusregion->find('all', array(
+		$ustraditions = $this->Ustradition->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(),
 			'order' => array(
-				'Culinaryusregion.name' => 'ASC'
+				'Ustradition.name' => 'ASC'
 			)
 		));
-		$this->set(compact('culinaryusregions'));
+		$this->set(compact('ustraditions'));
 
-		$regionid = $culinaryusregion['Culinaryusregion']['id'];
+		$regionid = $ustradition['Ustradition']['id'];
 
 		$this->loadModel('Product');
 
@@ -70,7 +69,9 @@ class CulinaryusregionsController extends AppController {
 				'User.id',
 				'User.slug',
 			),
-			'conditions' => array('FIND_IN_SET("'.$regionid.'", domestic_traditions)'),
+			'conditions' => array(
+				'FIND_IN_SET("'.$regionid.'", ustradition_id)'
+			),
 			'limit' => 30,
 			'order' => array('
 				Product.id' => 'DESC'
@@ -84,30 +85,30 @@ class CulinaryusregionsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Culinaryusregion->recursive = 0;
-		$this->set('culinaryusregions', $this->paginate());
+		$this->Ustradition->recursive = 0;
+		$this->set('ustraditions', $this->paginate());
 	}
 
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
-		$this->Culinaryusregion->id = $id;
-		if (!$this->Culinaryusregion->exists()) {
-			throw new NotFoundException(__('Invalid culinaryusregion'));
+		if (!$this->Ustradition->exists($id)) {
+			throw new NotFoundException(__('Invalid ustradition'));
 		}
-		$this->set('culinaryusregion', $this->Culinaryusregion->read(null, $id));
+		$options = array('conditions' => array('Ustradition.' . $this->Ustradition->primaryKey => $id));
+		$this->set('ustradition', $this->Ustradition->find('first', $options));
 	}
 
 ////////////////////////////////////////////////////////////
 
 	public function admin_add() {
 		if ($this->request->is('post')) {
-			$this->Culinaryusregion->create();
-			if ($this->Culinaryusregion->save($this->request->data)) {
-				$this->Session->setFlash(__('The culinaryusregion has been saved'));
+			$this->Ustradition->create();
+			if ($this->Ustradition->save($this->request->data)) {
+				$this->Session->setFlash(__('The ustradition has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The culinaryusregion could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The ustradition could not be saved. Please, try again.'));
 			}
 		}
 	}
@@ -115,35 +116,35 @@ class CulinaryusregionsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
-		$this->Culinaryusregion->id = $id;
-		if (!$this->Culinaryusregion->exists()) {
-			throw new NotFoundException(__('Invalid culinaryusregion'));
+		if (!$this->Ustradition->exists($id)) {
+			throw new NotFoundException(__('Invalid ustradition'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Culinaryusregion->save($this->request->data)) {
-				$this->Session->setFlash(__('The culinaryusregion has been saved'));
+			if ($this->Ustradition->save($this->request->data)) {
+				$this->Session->setFlash(__('The ustradition has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The culinaryusregion could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The ustradition could not be saved. Please, try again.'));
 			}
 		} else {
-			$this->request->data = $this->Culinaryusregion->read(null, $id);
+			$options = array('conditions' => array('Ustradition.' . $this->Ustradition->primaryKey => $id));
+			$this->request->data = $this->Ustradition->find('first', $options);
 		}
 	}
 
 ////////////////////////////////////////////////////////////
 
 	public function admin_delete($id = null) {
-		$this->Culinaryusregion->id = $id;
-		if (!$this->Culinaryusregion->exists()) {
-			throw new NotFoundException(__('Invalid culinaryusregion'));
+		$this->Ustradition->id = $id;
+		if (!$this->Ustradition->exists()) {
+			throw new NotFoundException(__('Invalid ustradition'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Culinaryusregion->delete()) {
-			$this->Session->setFlash(__('Culinaryusregion deleted'));
+		if ($this->Ustradition->delete()) {
+			$this->Session->setFlash(__('Ustradition deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Culinaryusregion was not deleted'));
+		$this->Session->setFlash(__('Ustradition was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
 

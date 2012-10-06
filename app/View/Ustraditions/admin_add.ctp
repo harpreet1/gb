@@ -1,7 +1,7 @@
-<div class="culinaryusregions form">
-<?php echo $this->Form->create('Culinaryusregion'); ?>
+<div class="ustraditions form">
+<?php echo $this->Form->create('Ustradition'); ?>
 	<fieldset>
-		<legend><?php echo __('Admin Add Culinaryusregion'); ?></legend>
+		<legend><?php echo __('Admin Add Ustradition'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('slug');
@@ -23,6 +23,8 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Culinaryusregions'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Ustraditions'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
