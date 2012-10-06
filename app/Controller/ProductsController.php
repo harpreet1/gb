@@ -444,13 +444,14 @@ class ProductsController extends AppController {
 				//'User.level' => 'vendor',
 			),
 			'order' => array(
+				'User.level' => 'DESC',
 				'User.name' => 'ASC'
 			),
 			'group' => array(
 				'Product.user_id'
 			),
 		));
-		$users = Set::combine($users, array('{0}', '{n}.User.id'), array('{0} - {1}', '{n}.User.name', '{n}.User.level'));
+		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.level'));
 
 		$categories = $this->Product->Category->find('list', array(
 			'order' => array(

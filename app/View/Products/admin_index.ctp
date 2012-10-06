@@ -49,11 +49,12 @@ $(document).ready(function() {
 
 <div class="row">
 
-	<?php echo $this->Form->create('Product'); ?>
+	<?php echo $this->Form->create('Product', array()); ?>
 	<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
 
 	<div class="span3">
 		<?php echo $this->Form->input('user_id', array('label' => false, 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
+
 	</div>
 
 	<div class="span3">
@@ -66,18 +67,22 @@ $(document).ready(function() {
 			),
 			'selected' => $all['filter']
 		)); ?>
+
 	</div>
 
 	<div class="span3">
 		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => false, 'value' => $all['name'])); ?>
+
 	</div>
 
 	<div class="span4">
 		<?php echo $this->Form->button('Search', array('class' => 'btn')); ?>
-
+		&nbsp; &nbsp;
 		<?php echo $this->Html->link('Reset Search', array('controller' => 'products', 'action' => 'reset', 'admin' => true), array('class' => 'btn')); ?>
-		<?php echo $this->Form->end(); ?>
+
 	</div>
+
+	<?php echo $this->Form->end(); ?>
 
 </div>
 
