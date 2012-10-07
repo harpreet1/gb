@@ -19,3 +19,7 @@ body {
 	min-width: 100px !important;
 	max-width: 100px !important;
 }
+
+.4span {
+	width:500px;
+}

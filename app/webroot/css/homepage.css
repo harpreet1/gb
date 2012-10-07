@@ -5,6 +5,22 @@ body {
 	padding-top: 40px;
 }
 
+.span4 {
+	background-color:#FFF;
+	height:390px;
+	margin-bottom:30px;
+}
+
+.row-fluid .span4 img {
+	
+	
+}
+
+.row-fluid .span4 .img-box {
+	padding-left:36px;
+}
+
+
 #gb-title {
 	width:1000px;
 	margin:auto;
@@ -57,6 +73,9 @@ li.gb-account a{
     /*text-decoration: none;*/
 }
 
+.span4 {
+	border:#F33 thin solid;
+}
 
 
 #upper {
@@ -68,11 +87,20 @@ li.gb-account a{
 }
 
 #lower {
-	background-image: url(../img/global/bottom-aqua.jpg);
 	position: relative;
-	background-color:#c5f1fc;
-	background-repeat: no-repeat;
+	background:url(../img/global/fff-50.png) repeat;
+	
 }
+.carousel-inner  {
+	
+}
+
+.carousel-inner .item  {
+	width:960px;
+	left:9.2%;
+	position:relative;
+}
+
 
 #star-band {
 	background-image: url(../img/global/star-band.jpg);
@@ -189,7 +217,7 @@ li.gb-account a{
 .ticker-wrap {
 	height: 80px;
 	position: absolute;
-	top: 495px;
+	top: 598px;
 }
 /* liScroll styles */
 
