@@ -231,6 +231,11 @@
 			<?php echo h($product['Product']['recipes']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Serving Suggestions'); ?></dt>
+		<dd>
+			<?php echo h($product['Product']['serving_suggestions']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Country'); ?></dt>
 		<dd>
 			<?php echo h($product['Product']['country']); ?>

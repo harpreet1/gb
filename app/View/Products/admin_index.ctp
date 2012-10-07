@@ -13,6 +13,14 @@ $(document).ready(function() {
 		placement: 'right',
 	});
 
+	$('.serving_suggestions').editable({
+		type: 'textarea',
+		name: 'serving_suggestions',
+		url: '/admin/products/editable',
+		title: 'Serving Suggestions',
+		placement: 'left',
+	});
+
 	$('.price').editable({
 		type: 'text',
 		name: 'price',
@@ -114,6 +122,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
+		<th><?php echo $this->Paginator->sort('serving_suggestions'); ?></th>
 		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
 		<th><?php echo $this->Paginator->sort('ustradition_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('weight_unit'); ?></th>
@@ -151,6 +160,7 @@ $(document).ready(function() {
 		<td><?php echo $this->Html->image('products/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></td>
+		<td><span class="serving_suggestions" data-value="<?php echo $product['Product']['serving_suggestions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['serving_suggestions']); ?></span></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
 		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
 		<td><?php echo h($product['Product']['weight_unit']); ?></td>

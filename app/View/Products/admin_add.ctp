@@ -53,6 +53,7 @@ echo $this->Form->input('width');
 echo $this->Form->input('ingredients');
 echo $this->Form->input('nutrition');
 echo $this->Form->input('recipes');
+echo $this->Form->input('serving_suggestions', array('rows' => 20, 'class' => 'input-xlarge'));
 echo $this->Form->input('country');
 echo $this->Form->input('creation');
 ?>
