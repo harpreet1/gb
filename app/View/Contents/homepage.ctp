@@ -71,48 +71,48 @@
 
 <div id="lower">
 	<div id="star-band"></div>
-					
+
 	<div id="myCarousel" class="carousel slide">
-	
+
 		<div class="carousel-inner">
 		<?php $active = 'active'; ?>
 		<?php foreach($contents as $content) : ?>
-	
+
 			<div class="item <?php echo $active; ?>">
-	
+
 				<?php echo $this->Html->image('homepage/' . $content['Content']['image']); ?>
-	
+
 				<div class="carousel-caption">
 					<h1><?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?></h1>
-					<?php echo $content['Content']['feature_slide_description']; ?>
+					<?php echo $content['Content']['body']; ?>
 					<br />
-					
+
 				</div>
 			</div>
 		<?php $active = ''; ?>
 		<?php endforeach; ?>
-	
+
 		</div>
-	
+
 		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
-	
+
 	<br /><br />
-	
+
 	<?php //debug($blocks); ?>
-	
+
 	<div class="row-fluid">
-	
+
 		<?php
 		$i = 0;
 		foreach($blocks as $block) :
 		$i++;
 		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 		?>
-	
+
 		<div class="span4">
-	
+
 			<br />
 			<br />
 			<div class="img-box">
@@ -122,14 +122,14 @@
 				<br />
 				<?php echo $block['Block']['subtitle']; ?>
 			</div>
-	
-	
+
+
 		</div>
-	
+
 		<?php if (($i % 3) == 0) { echo "</div>\n\n\t\t<div class=\"row-fluid\">\n\n";} ?>
-	
+
 		<?php endforeach; ?>
-	
+
 	</div>
 
 </div>
