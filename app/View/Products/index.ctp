@@ -51,7 +51,7 @@
 		<h6>Our Sub SUB categories</h6>
 
 		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
-			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['slug'])); ?>
+			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
 
 			<br />
 		<?php endforeach; ?>

@@ -231,6 +231,42 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function subsubcategory($slug) {
+
+		$subDomain = $this->_getSubDomain();
+
+		if($subDomain != 'www') {
+			$user = $this->Product->User->getBySubdomain($subDomain);
+		}
+
+		$this->paginate = array(
+			'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'User.slug'
+			),
+			'conditions' => array(
+				'Product.user_id' => $user['User']['id'],
+				'Product.subsubcategory_id' => $slug,
+			),
+			'order' => array(
+				'Subsubcategory.name' => 'ASC'
+			),
+			'paramType' => 'querystring',
+		);
+		$products = $this->paginate('Product');
+
+		$this->set(compact('user', 'products'));
+
+		$this->render('index');
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function view($id = null) {
 
 		$subDomain = $this->_getSubDomain();
