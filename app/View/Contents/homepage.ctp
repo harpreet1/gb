@@ -26,12 +26,12 @@
 		</div>
 
 		<div id="gb-title"> <img src="img/global/gb-title.png" width="1000" height="160" alt="gourmet-basket" />
-			<div>A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
+			<div class="title-description">A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
 		</div>
 
 	</div>
 
-	<div id="upper-content">upper content
+	<div id="upper-content">
 		<div id="headlines">
 			<div class="headline-1">
 				<div> <a href=""> Gift Assortments & Baskets </a>
@@ -82,14 +82,11 @@
 	
 				<?php echo $this->Html->image('homepage/' . $content['Content']['image']); ?>
 	
-				<div class="carousel-capti1on">
-					<h1>
-					<?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?><br />
-					</h1>
+				<div class="carousel-caption">
+					<h1><?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?></h1>
+					<?php echo $content['Content']['feature_slide_description']; ?>
 					<br />
-					<?php echo $content['Content']['name']; ?>
-					<br />
-					&nbsp;
+					
 				</div>
 			</div>
 		<?php $active = ''; ?>
