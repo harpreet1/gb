@@ -7,7 +7,7 @@
 		skin: "thebigreason",
 		plugins : "inlinepopups",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|bullist,|,,cleanup,removeformat,code",
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,cleanup,removeformat,code",
 		theme_advanced_resizing : true,
 	});
 </script>
