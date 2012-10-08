@@ -5,10 +5,12 @@
 		mode : "textareas",
 		theme : "advanced",
 		skin: "thebigreason",
-        plugins : "inlinepopups",
+		plugins : "inlinepopups",
+		plugins : "paste",
 		// Theme options
-        theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,cleanup,removeformat,code",
-        theme_advanced_resizing : true,
+			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+			theme_advanced_resizing : true,
+
 	});
 </script>
 
