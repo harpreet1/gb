@@ -127,8 +127,14 @@ class ProductsController extends AppController {
 			$user = $this->Product->User->getBySubdomain($subDomain);
 		}
 
+		$category = $this->Product->Category->find('first', array(
+			'conditions' => array(
+				'Category.slug' => $slug
+			)
+		));
+
 		$usersubcategories =  $this->Product->find('all', array(
-			'contain' => array('Category', 'Subcategory'),
+			'contain' => array('Subcategory'),
 			'fields' => array(
 				'Subcategory.id',
 				'Subcategory.name',
@@ -136,7 +142,7 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Category.slug' => $slug,
+				'Product.category_id' => $category['Category']['id'],
 			),
 			'group' => array(
 				'Product.subcategory_id'
@@ -147,7 +153,7 @@ class ProductsController extends AppController {
 		));
 
 		$this->paginate = array(
-			'contain' => array('User', 'Category', 'Subcategory'),
+			'contain' => array('User'),
 			'recursive' => -1,
 			'fields' => array(
 				'Product.id',
@@ -160,10 +166,10 @@ class ProductsController extends AppController {
 			'limit' => 40,
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Category.slug' => $slug,
+				'Product.category_id' => $category['Category']['id'],
 			),
 			'order' => array(
-				'Subcategory.name' => 'ASC'
+				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
 		);
@@ -177,13 +183,19 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function subcategory($slug) {
+	public function subcategory($id) {
 
 		$subDomain = $this->_getSubDomain();
 
 		if($subDomain != 'www') {
 			$user = $this->Product->User->getBySubdomain($subDomain);
 		}
+
+		$subcategory = $this->Product->Subcategory->find('first', array(
+			'conditions' => array(
+				'Subcategory.id' => $id
+			)
+		));
 
 		$usersubsubcategories =  $this->Product->find('all', array(
 			'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
@@ -193,7 +205,7 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Product.subcategory_id' => $slug,
+				'Product.subcategory_id' => $id,
 			),
 			'group' => array(
 				'Product.subsubcategory_id'
@@ -215,7 +227,7 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Product.subcategory_id' => $slug,
+				'Product.subcategory_id' => $id,
 			),
 			'order' => array(
 				'Subsubcategory.name' => 'ASC'
