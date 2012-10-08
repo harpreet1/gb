@@ -73,10 +73,15 @@ class User extends AppModel {
 				'User.image5',
 			),
 			'conditions' => array(
-				'User.slug' => $subDomain
+				'User.level' => 'vendor',
+				'User.active' => 1,
+				'User.slug' => $subDomain,
 			)
 		));
-		return $user;
+		if(!empty($user)) {
+			return $user;
+		}
+		return false;
 	}
 
 ////////////////////////////////////////////////////////////

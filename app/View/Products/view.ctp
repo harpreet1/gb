@@ -41,6 +41,26 @@
 	<div class="span8">
 
 		<div class="row">
+			<div class="span8">
+				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
+
+				->
+
+				<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $product['Subcategory']['id'])); ?>
+
+				->
+
+				<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?>
+
+				->
+
+				<?php echo $product['Product']['name']; ?>
+				<br />
+				<br />
+			</div>
+		</div>
+
+		<div class="row">
 			<div class="span5">
 				<?php echo $this->Html->image('products/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 			</div>

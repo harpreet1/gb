@@ -48,6 +48,8 @@
 
 		<br />
 		<br />
+		<strong><?php echo $subcategory['Subcategory']['name']; ?></strong>
+		<br />
 		<h6>Our Sub SUB categories</h6>
 
 		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>

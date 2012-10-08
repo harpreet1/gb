@@ -58,6 +58,9 @@ class ProductsController extends AppController {
 		if($subDomain != 'www') {
 
 			$user = $this->Product->User->getBySubdomain($subDomain);
+			if(!$user) {
+				die('error');
+			}
 
 			$usercategories =  $this->Product->find('all', array(
 				'contain' => array('Category'),
@@ -236,7 +239,7 @@ class ProductsController extends AppController {
 		);
 		$products = $this->paginate('Product');
 
-		$this->set(compact('user', 'usersubsubcategories', 'products'));
+		$this->set(compact('user', 'subcategory', 'usersubsubcategories', 'products'));
 
 		$this->render('index');
 	}
@@ -292,7 +295,7 @@ class ProductsController extends AppController {
 
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
-			// 'contain' => array('Tag'),
+			'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
 			'conditions' => array('Product.id' => $id)
 		));
 		if (empty($product)) {
