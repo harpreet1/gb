@@ -20,7 +20,7 @@
 		<h6>Our Categories</h6>
 
 		<?php foreach ($usercategories as $usercategory): ?>
-			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usercategory['Category']['slug'])); ?>
+			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
 
 			<br />
 		<?php endforeach; ?>
@@ -36,7 +36,7 @@
 		<h6>Our Subcategories</h6>
 
 		<?php foreach ($usersubcategories as $usersubcategory): ?>
-			<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
+			<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
 
 			<br />
 		<?php endforeach; ?>
@@ -48,7 +48,7 @@
 
 		<br />
 		<br />
-		<h6>Our Subcategories</h6>
+		<h6>Our Sub SUB categories</h6>
 
 		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
 			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['slug'])); ?>
@@ -132,7 +132,7 @@
 
 	<div class="span12">
 
-		<h3><?php echo $user['User']['shop_name']; ?></h3>
+		<h3><?php echo $user['User']['name']; ?></h3>
 
 		<h5><?php echo $user['User']['shop_quote']; ?></h5>
 

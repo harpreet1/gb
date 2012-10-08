@@ -119,7 +119,7 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function subcategory($slug) {
+	public function category($slug) {
 
 		$subDomain = $this->_getSubDomain();
 
@@ -177,7 +177,7 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function subsubcategory($slug) {
+	public function subcategory($slug) {
 
 		$subDomain = $this->_getSubDomain();
 
@@ -193,7 +193,7 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Subsubcategory.slug' => $slug,
+				'Product.subcategory_id' => $slug,
 			),
 			'group' => array(
 				'Product.subsubcategory_id'
@@ -202,6 +202,8 @@ class ProductsController extends AppController {
 				'Subsubcategory.name' => 'ASC'
 			),
 		));
+
+		debug($usersubsubcategories);
 
 		$this->paginate = array(
 			'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
@@ -215,7 +217,7 @@ class ProductsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.user_id' => $user['User']['id'],
-				'Product.subsubcategory_id' => $slug,
+				'Product.subcategory_id' => $slug,
 			),
 			'order' => array(
 				'Subsubcategory.name' => 'ASC'
