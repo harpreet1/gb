@@ -203,8 +203,6 @@ class ProductsController extends AppController {
 			),
 		));
 
-		debug($usersubsubcategories);
-
 		$this->paginate = array(
 			'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
 			'fields' => array(
