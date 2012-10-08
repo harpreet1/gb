@@ -6,9 +6,18 @@
 		theme : "advanced",
 		skin: "thebigreason",
 		plugins : "inlinepopups",
+		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,cleanup,removeformat,code",
-		theme_advanced_resizing : true,
+			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+			theme_advanced_resizing : true,
+
+		//	theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
+//			paste_auto_cleanup_on_paste : true,
+//			paste_preprocess : function(pl, o) {
+//			// Content string containing the HTML from the clipboard
+//			alert(o.content);
+//			o.content = "-: CLEANED :-\n" + o.content;
+//		}
 	});
 </script>
 
