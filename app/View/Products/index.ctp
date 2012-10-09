@@ -1,6 +1,26 @@
 <br />
 <br />
 
+	<ul class="breadcrumb">
+
+		<?php if(!empty($category)) : ?>
+			<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
+			<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
+		<?php endif; ?>
+
+		<?php if(!empty($subcategory)) : ?>
+		<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
+		<?php endif; ?>
+
+		<?php if(!empty($subsubcategory)) : ?>
+		<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
+		<?php endif; ?>
+
+		<li class="active"><?php //echo $product['Product']['name']; ?></li>
+
+	</ul>
+
+
 <div class="row">
 
 	<div class="span4">
