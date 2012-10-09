@@ -96,6 +96,8 @@ class AppModel extends Model {
 
 	public function countries($id = null) {
 		$countries = array(
+			'US' => 'United States',
+			'CA' => 'Canada',
 			'AF' => 'Afghanistan',
 			'AX' => 'Åland Islands',
 			'AL' => 'Albania',
@@ -134,7 +136,6 @@ class AppModel extends Model {
 			'BI' => 'Burundi',
 			'KH' => 'Cambodia',
 			'CM' => 'Cameroon',
-			'CA' => 'Canada',
 			'CV' => 'Cape Verde',
 			'KY' => 'Cayman Islands',
 			'CF' => 'Central African Republic',
@@ -326,7 +327,6 @@ class AppModel extends Model {
 			'UA' => 'Ukraine',
 			'AE' => 'United Arab Emirates',
 			'GB' => 'United Kingdom',
-			'US' => 'United States',
 			'UM' => 'United States Minor Outlying Islands',
 			'UY' => 'Uruguay',
 			'UZ' => 'Uzbekistan',

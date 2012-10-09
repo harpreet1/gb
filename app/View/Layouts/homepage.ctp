@@ -8,11 +8,24 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js', 'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js', 'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js','jquery.columnizer.min.js')); ?>
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
+
+	<script>
+		jQuery(function(){
+			jQuery('.jquery-column').columnize({
+				columns : 3,
+				accuracy : 1,
+				buildOnce : true
+			})
+		});
+	</script>
+
+
+
 </head>
 
 <body>

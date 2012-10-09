@@ -10,9 +10,9 @@
 		// Theme options
 			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
 			theme_advanced_resizing : true,
-
 	});
 </script>
+
 
 <div class="categories form">
 <?php echo $this->Form->create('Category'); ?>
