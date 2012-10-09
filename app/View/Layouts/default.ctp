@@ -5,6 +5,7 @@
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array('bootstrap.min.css', 'css.css', 'bootstrap-responsive.css')); ?>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <?php echo $this->Html->script(array('bootstrap.min.js', 'js.js')); ?>

@@ -3,7 +3,7 @@
 
 <div class="row">
 
-	<div class="span4">
+	<div class="span3">
 		<?php if(!empty($user)) : ?>
 		<h5><?php echo $user['User']['name']; ?></h5>
 
@@ -19,29 +19,29 @@
 		<br />
 		<br />
 
-		<?php echo $this->Html->image('logos/' . $user['User']['image1'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('shop_images/' . $user['User']['image1'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('logos/' . $user['User']['image2'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('shop_images/' . $user['User']['image2'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('logos/' . $user['User']['image3'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('shop_images/' . $user['User']['image3'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('logos/' . $user['User']['image4'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('shop_images/' . $user['User']['image4'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('logos/' . $user['User']['image5'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('shop_images/' . $user['User']['image5'], array('class' => 'img-polaroid')); ?>
 		<br />
 		<br />
 
 		<?php endif; ?>
 	</div>
 
-	<div class="span8">
+	<div class="span9">
 
 		<div class="row">
-			<div class="span8">
+			<div class="span9">
 
 				<ul class="breadcrumb">
 					<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
@@ -57,10 +57,23 @@
 		</div>
 
 		<div class="row">
-			<div class="span5">
+			<div class="span4">
 				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+				
+				<br />
+				<br />
+				<h3>Serving Suggestions:</h3>
+				
+				<p><?php echo $product['Product']['serving_suggestions']; ?></p>
+				
+				<br />
+				<br />
+				<h3>Here's a recipe:</h3>
+				<p><?php echo $product['Product']['recipes']; ?></p>
+				
 			</div>
-			<div class="span3">
+			
+			<div class="span4">
 
 				<h3><?php echo $product['Product']['name']; ?></h3>
 
@@ -79,7 +92,7 @@
 				<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 				<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
 				<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-primary', 'escape' => false));?>
-				<?php echo $this->Form->end(); ?>
+				<?php echo $this->Form->end(); ?>				
 
 			</div>
 		</div>
