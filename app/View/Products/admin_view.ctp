@@ -417,7 +417,7 @@
 <br />
 <br />
 
-<?php echo $this->Html->image('products/' . $product['Product']['image']); ?>
+<?php echo $this->Html->image('products/image/' . $product['Product']['image']); ?>
 
 <br />
 <br />
@@ -439,6 +439,21 @@
 		<tr>
 			<td>Upload Image</td>
 			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Rtpe</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'Main',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+			))); ?>
+
+			</td>
 		</tr>
 		<tr>
 			<td></td>

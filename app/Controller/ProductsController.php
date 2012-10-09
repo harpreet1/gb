@@ -567,13 +567,15 @@ class ProductsController extends AppController {
 
 			$image = $this->request->data['Product']['id'] . '.jpg';
 
-			$targetdir = IMAGES . 'products';
+			$type = $this->request->data['Product']['image_type'];
+
+			$targetdir = IMAGES . 'products/' . $type;
 
 			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
 
 			if($upload == 'Success') {
 				$this->Product->id = $this->request->data['Product']['id'];
-				$this->Product->saveField('image', $image);
+				$this->Product->saveField($type, $image);
 				$uploadedfile = $targetdir . '/' . $image;
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
