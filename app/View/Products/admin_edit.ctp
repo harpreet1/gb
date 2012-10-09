@@ -150,69 +150,6 @@
 </div>	
 	
 <br />
-
-
-
-
-
-<br />
-<br />
-
-<?php echo $this->Html->image('products/image/' . $product['Product']['image']); ?>
-
-<br />
-<br />
-
-<div class="row">PICTURE UPLOADS:
-<div class="span5">
-
-<span class="label label-warning">
- &nbsp; Image : no watermark, square image size &nbsp;
-</span>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'view', 'admin' => true)));?>
-<?php echo $this->Form->hidden('id', array('value' => $product['Product']['id'])); ?>
-<table class="table table-striped table-bordered table-condensed">
-	<tbody>
-		<tr>
-			<td>Upload Image</td>
-			<td><?php echo $this->Form->file('image'); ?></td>
-		</tr>
-		<tr>
-			<td>Image Rtpe</td>
-			<td>
-
-			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image' => 'Main',
-				'image_1' => 'image 1',
-				'image_2' => 'image 2',
-				'image_3' => 'image 3',
-				'image_4' => 'image 4',
-				'image_5' => 'image 5',
-			))); ?>
-
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
-		</tr>
-	</tbody>
-</table>
-<?php echo $this->Form->end(); ?>
-</div>
-</div>
-
-
-
-
-
-
-
-
 <?php
 echo $this->Form->input('related_products');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
