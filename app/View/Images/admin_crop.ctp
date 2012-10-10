@@ -56,7 +56,7 @@ function showPreview(c){
 <br />
 <br />
 
-<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'cars', 'action' => 'cropprocess', 'admin' => true))); ?>
+<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'images', 'action' => 'cropprocess', 'admin' => true))); ?>
 <input type="hidden" name="data[Picture][id]" value="<?php echo $id; ?>" />
 <input type="hidden" name="data[Picture][slug]" value="<?php echo $slug; ?>" />
 <input type="hidden" name="data[Picture][sourcefile]" value="<?php echo $sourcefile; ?>" />

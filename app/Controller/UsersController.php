@@ -93,7 +93,7 @@ class UsersController extends AppController {
 				$this->User->saveField('image', $image);
 				$uploadedfile = $targetdir . '/' . $image;
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
-				$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
 			}
 
 			$this->Session->setFlash($upload);
