@@ -5,16 +5,16 @@ class PaypalProComponent extends Component {
 
 	public $config = array(
 		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'email' => PAYPAL_USERNAME,
-		'password' => PAYPAL_PASSWORD,
-		'signature' => PAYPAL_SIGNATURE
+		'email' => Configure::read('Settings.PAYPAL_USERNAME'),
+		'password' => Configure::read('Settings.PAYPAL_PASSWORD'),
+		'signature' => Configure::read('Settings.PAYPAL_SIGNATURE')
 	);
 
 	public $sandboxConfig = array(
 		'endpoint' => 'https://api-3t.sandbox.paypal.com/nvp',
-		'email' => PAYPAL_USERNAME,
-		'password' => PAYPAL_PASSWORD,
-		'signature' => PAYPAL_SIGNATURE
+		'email' => Configure::read('Settings.PAYPAL_USERNAME'),
+		'password' => Configure::read('Settings.PAYPAL_PASSWORD'),
+		'signature' => Configure::read('Settings.PAYPAL_SIGNATURE')
 	);
 
 	public $amount = null;
@@ -47,7 +47,7 @@ class PaypalProComponent extends Component {
 
 		$this->ipAddress = $_SERVER['REMOTE_ADDR'];
 
-		if(PAYPAL_MODE == 'test') {
+		if(Configure::read('Settings.PAYPAL_MODE') == 'test') {
 			$this->config = $this->sandboxConfig;
 		}
 	}

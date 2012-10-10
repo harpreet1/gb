@@ -1,20 +1,21 @@
 <?php
 
-define('DOMAIN', 'yourdomain.com');
+Configure::write(
+	'Settings', array(
+		'DOMAIN' => 'gourmetdev.com',
+		'ADMIN_EMAIL' => '',
+		'UPS_MODE' => 'test',
+		'UPS_ACCESSKEY' => '',
+		'UPS_USERID' => '',
+		'UPS_PASSWORD' => '',
+		'FEDEX_ACCOUNT' => '',
+		'FEDEX_METER' => '',
+		'FEDEX_KEY' => '',
+		'FEDEX_PASSWORD' => '',
+		'PAYPAL_MODE' => '',
+		'PAYPAL_USERNAME' => '',
+		'PAYPAL_PASSWORD' => '',
+		'PAYPAL_SIGNATURE' => '',
+	)
+);
 
-define('ADMIN_EMAIL', '');
-
-define('UPS_MODE', 'test'); // 'test' or 'live' //
-define('UPS_ACCESSKEY', '');
-define('UPS_USERID', '');
-define('UPS_PASSWORD', '');
-
-define('FEDEX_ACCOUNT ', '');
-define('FEDEX_METER ', '');
-define('FEDEX_KEY ', '');
-define('FEDEX_PASSWORD ', '');
-
-define('PAYPAL_MODE', 'test'); // 'test' or 'live' //
-define('PAYPAL_USERNAME', '');
-define('PAYPAL_PASSWORD', '');
-define('PAYPAL_SIGNATURE', '');

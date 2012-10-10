@@ -36,10 +36,10 @@ class UpsComponent extends Component {
 
 	public function startup(&$controller, $options=array()) {
 
-		if(UPS_MODE == 'test') {
+		if(Configure::read('Settings.UPS_MODE') == 'test') {
 			$this->url = self::TEST_URL;
 		}
-		else if (UPS_MODE == 'live') {
+		else if (Configure::read('Settings.UPS_MODE') == 'live') {
 			$this->url = self::LIVE_URL;
 		}
 
@@ -136,9 +136,9 @@ class UpsComponent extends Component {
 
 		$xml = '<?xml version="1.0"?>
 		<AccessRequest xml:lang="en-US">
-			<AccessLicenseNumber>' . UPS_ACCESSKEY . '</AccessLicenseNumber>
-			<UserId>' . UPS_USERID . '</UserId>
-			<Password>' . UPS_PASSWORD . '</Password>
+			<AccessLicenseNumber>' . Configure::read('Settings.UPS_ACCESSKEY') . '</AccessLicenseNumber>
+			<UserId>' . Configure::read('Settings.UPS_USERID') . '</UserId>
+			<Password>' . Configure::read('Settings.UPS_PASSWORD') . '</Password>
 		</AccessRequest>
 		<?xml version="1.0"?>
 		<RatingServiceSelectionRequest xml:lang="en-US">
