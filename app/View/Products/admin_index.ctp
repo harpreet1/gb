@@ -60,14 +60,15 @@ $(document).ready(function() {
 	<?php echo $this->Form->create('Product', array()); ?>
 	<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
 
-	<div class="span3">
-		<?php echo $this->Form->input('user_id', array('label' => false, 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
+	<div class="span2">
+		<?php echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
 
 	</div>
 
-	<div class="span3">
+	<div class="span2">
 		<?php echo $this->Form->input('filter', array(
 			'label' => false,
+			'class' => 'span2',
 			'options' => array(
 				'name' => 'Name',
 				'id' => 'ID',
@@ -80,8 +81,8 @@ $(document).ready(function() {
 
 	</div>
 
-	<div class="span3">
-		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => false, 'value' => $all['name'])); ?>
+	<div class="span2">
+		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'span2', 'value' => $all['name'])); ?>
 
 	</div>
 
