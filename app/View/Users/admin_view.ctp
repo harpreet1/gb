@@ -369,7 +369,7 @@
 </div>
 </div>
 
-<a href="/admin/images/crop?src_dir=user_image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=user_image&dst_file=<?php echo $user['User']['image']; ?>&width=200&height=200&return=/admin/users/view/5" class="btn">crop 900x600 image</a>
+<a href="/admin/images/crop?src_dir=user_image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=user_image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133&return=/admin/" class="btn">crop 400 x 133 image</a>
 
 <br />
 <br />
@@ -383,7 +383,7 @@
 <br />
 
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3>Actions</h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>

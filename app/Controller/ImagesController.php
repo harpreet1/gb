@@ -65,7 +65,7 @@ class ImagesController extends AppController {
 
 //		$this->Image->resample(IMAGES . $slug . '/' . $slug . '.jpg', IMAGES . 'cars/' . $slug . '/', $slug . '.jpg', 900, 600, 1, 0);
 
-		$this->redirect(array('controller' => 'users', 'action' => 'index'));
+		$this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
 	}
 
 ////////////////////////////////////////////////////////////
