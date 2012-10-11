@@ -10,7 +10,30 @@ class ImagesController extends AppController {
 
 	public function admin_crop() {
 
-//		$id = $this->params['url']['id'];
+		if ($this->request->is('post')) {
+
+			$x = $this->request->data['Picture']['x'];
+			$y = $this->request->data['Picture']['y'];
+			$w = $this->request->data['Picture']['w'];
+			$h = $this->request->data['Picture']['h'];
+
+			$width = $this->request->data['Picture']['width'];
+
+			$src_filename = $this->request->data['Picture']['src_filename'];
+			$dst_filename = $this->request->data['Picture']['dst_filename'];
+
+			$referer = $this->request->data['Picture']['referer'];
+
+			$scale = $width / $w;
+
+			$this->Image->cropimage($src_filename, $dst_filename, $w, $h, $x, $y, $scale);
+
+			$this->redirect($referer);
+
+		}
+
+		$referer = $this->referer();
+
 		$src_dir = $this->params['url']['src_dir'];
 		$dst_dir = $this->params['url']['dst_dir'];
 		$src_file = $this->params['url']['src_file'];
@@ -19,22 +42,21 @@ class ImagesController extends AppController {
 		$width = $this->params['url']['width'];
 		$height = $this->params['url']['height'];
 
-		$sourcefile = IMAGES . $src_dir . '/' . $src_file;
+		$src_filename = IMAGES . $src_dir . '/' . $src_file;
 
-		if(!is_file($sourcefile)) {
-			die('Unable to read source image: ' . $sourcefile);
+		if(!is_file($src_filename)) {
+			die('Unable to read source image: ' . $src_filename);
 		}
 
-		$destinationfile = IMAGES . $dst_dir . '/' . $dst_file;
+		$sizes = getimagesize($src_filename);
+		$src_width = $sizes[0];
+		$src_height = $sizes[1];
 
-		$sourcefileweb = '/img/' . $src_dir . '/' . $src_file;
+		$dst_filename = IMAGES . $dst_dir . '/' . $dst_file;
 
-		$sizes = getimagesize($sourcefile);
-		$srcfilewidth = $sizes[0];
-		$srcfileheight = $sizes[1];
-		$this->set(compact('srcfilewidth', 'srcfileheight'));
+		$src_fileweb = '/img/' . $src_dir . '/' . $src_file;
 
-		$this->set(compact('sourcefile', 'destinationfile', 'width', 'height', 'sourcefileweb'));
+		$this->set(compact('src_width', 'src_height', 'src_filename', 'dst_filename', 'width', 'height', 'src_fileweb', 'referer'));
 
 		$this->layout = 'crop';
 
@@ -43,31 +65,5 @@ class ImagesController extends AppController {
 	}
 
 /////////////////////////////////////////////////////////////
-
-	public function admin_cropprocess() {
-
-		$id = $this->data['Picture']['id'];
-		$slug = $this->data['Picture']['slug'];
-
-		$x = $this->data['Picture']['x'];
-		$y = $this->data['Picture']['y'];
-		$w = $this->data['Picture']['w'];
-		$h = $this->data['Picture']['h'];
-
-		$width = $this->data['Picture']['width'];
-
-		$src = $this->data['Picture']['sourcefile'];
-		$dst = $this->data['Picture']['destinationfile'];
-
-		$scale = $width / $w;
-
-		$this->Image->cropimage($src, $dst, $w, $h, $x, $y, $scale);
-
-//		$this->Image->resample(IMAGES . $slug . '/' . $slug . '.jpg', IMAGES . 'cars/' . $slug . '/', $slug . '.jpg', 900, 600, 1, 0);
-
-		$this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
-	}
-
-////////////////////////////////////////////////////////////
 
 }
