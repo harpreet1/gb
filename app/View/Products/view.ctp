@@ -71,6 +71,9 @@
 				<h3>Here's a recipe:</h3>
 				<p><?php echo $product['Product']['recipes']; ?></p>
 				
+				<h4>Sources:</h4>
+				<p><?php echo $product['Product']['attribution']; ?></p>
+				
 			</div>
 			
 			<div class="span4">
