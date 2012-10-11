@@ -562,16 +562,18 @@ class ProductsController extends AppController {
 
 	public function admin_view($id = null) {
 
-
 		if ($this->request->is('post')) {
 
 			$image = $this->request->data['Product']['id'] . '.jpg';
 
 			$type = $this->request->data['Product']['image_type'];
 
-			$targetdir = IMAGES . 'products/' . $type;
+			$targetdir = IMAGES . 'products/' . $type . '/';
 
 			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
+
+			print_r($upload);
+			die('vege');
 
 			if($upload == 'Success') {
 				$this->Product->id = $this->request->data['Product']['id'];
@@ -592,10 +594,9 @@ class ProductsController extends AppController {
 		$product = $this->Product->find('first', array(
 			'recursive' => 0,
 			'conditions' => array(
-				'Product.' . $this->Product->primaryKey => $id
+				'Product.id' => $id
 			)
 		));
-
 		$this->set(compact('product'));
 
 	}
@@ -669,9 +670,17 @@ class ProductsController extends AppController {
 		} else {
 			$options = array(
 				'recursive' => 0,
-				'conditions' => array('Product.' . $this->Product->primaryKey => $id)
+				'conditions' => array('Product.id' => $id)
 			);
 			$this->request->data = $this->Product->find('first', $options);
+
+			$product = $this->Product->find('first', array(
+				'recursive' => 0,
+				'conditions' => array(
+					'Product.id' => $id
+				)
+			));
+			$this->set(compact('product'));
 		}
 
 		$users = $this->Product->User->find('list', array(

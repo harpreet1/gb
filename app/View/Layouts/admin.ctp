@@ -112,6 +112,11 @@
 
 	<?php echo $this->Session->flash(); ?>
 	<?php echo $this->fetch('content'); ?>
+
+	<br />
+	<hr>
+	<br />
+
 	<?php echo $this->element('sql_dump'); ?>
 
 	<br />

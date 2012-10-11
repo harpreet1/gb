@@ -8,9 +8,8 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-			theme_advanced_resizing : true,
-
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
 	});
 </script>
 
@@ -18,7 +17,7 @@
 
 <?php echo $this->Form->create('User'); ?>
 
-<div class="row-fluid">	
+<div class="row-fluid">
 	<h3><?php echo $this->Form->input('name'); ?></h3>
 
 	<div class="span12">
@@ -58,7 +57,7 @@
 			<div class="span4">
 				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span')); ?><br />
 			</div>
-			
+
 		</div>
 		<div class="span2">
 			<?php echo $this->Form->input('business_ownership'); ?>
@@ -125,7 +124,7 @@
 		<div class="span4">
 			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 
-			
+
 			<br />
 			<br />
 			<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
@@ -136,3 +135,54 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+<br />
+<br />
+
+<hr>
+
+<br />
+<br />
+
+
+<div class="row">
+<div class="span5">
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size </span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
+<?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
+<table class="table table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+</div>
+</div>
+
+<a href="/admin/images/crop?src_dir=user_image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=user_image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133" class="btn">crop 400 x 133 image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('user_image/'. $user['User']['image'], array('class' => 'gb')); ?>
+
+<br />
+<br />
+

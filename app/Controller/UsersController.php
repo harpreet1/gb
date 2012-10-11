@@ -137,6 +137,7 @@ class UsersController extends AppController {
 			}
 		} else {
 			$this->request->data = $this->User->read(null, $id);
+			$this->set('user', $this->User->read(null, $id));
 		}
 	}
 

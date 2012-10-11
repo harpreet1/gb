@@ -341,6 +341,11 @@
 <br />
 <br />
 
+<hr>
+
+<br />
+<br />
+
 <div class="row">
 <div class="span5">
 
@@ -378,6 +383,8 @@
 
 <br />
 <br />
+
+<hr>
 
 <br />
 <br />
