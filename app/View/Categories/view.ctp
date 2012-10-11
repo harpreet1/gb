@@ -1,4 +1,4 @@
-<h2><?php  echo __('Category'); ?></h2>
+<h2><?php echo h($category['Category']['name']); ?><?php // echo __('Category'); ?></h2>
 <dl>
 	<dt><?php echo __('Id'); ?></dt>
 	<dd>
@@ -7,7 +7,7 @@
 	</dd>
 	<dt><?php echo __('Name'); ?></dt>
 	<dd>
-		<?php echo h($category['Category']['name']); ?>
+		
 		&nbsp;
 	</dd>
 	<dt><?php echo __('Slug'); ?></dt>
