@@ -656,6 +656,32 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
+
+		if ($this->request->is('post')) {
+
+			$image = $this->request->data['Product']['id'] . '.jpg';
+
+			$type = $this->request->data['Product']['image_type'];
+
+			$targetdir = IMAGES . 'products/' . $type . '/';
+
+			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
+
+			print_r($upload);
+			die('vege');
+
+			if($upload == 'Success') {
+				$this->Product->id = $this->request->data['Product']['id'];
+				$this->Product->saveField($type, $image);
+				$uploadedfile = $targetdir . '/' . $image;
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+
 		$this->Product->id = $id;
 		if (!$this->Product->exists()) {
 			throw new NotFoundException(__('Invalid product'));

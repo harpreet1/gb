@@ -187,7 +187,7 @@
 <br />
 <br />
 
-<?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'edit', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $product['Product']['id'])); ?>
 <table class="table table-striped table-bordered table-condensed">
 	<tbody>

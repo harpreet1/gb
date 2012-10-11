@@ -157,7 +157,7 @@
 <br />
 <br />
 
-<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'edit', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
 <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
 <table class="table table-striped table-bordered table-condensed">
