@@ -379,7 +379,7 @@
 <br />
 <br />
 
-<?php echo $this->Html->image('user_image/'. $user['User']['image'], array('class' => 'gb')); ?>
+<?php echo $this->Html->image('user_image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
 
 <br />
 <br />

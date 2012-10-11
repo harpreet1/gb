@@ -167,7 +167,7 @@
 <br />
 <br />
 
-<?php echo $this->Html->image('products/image/' . $product['Product']['image']); ?>
+<?php echo $this->Html->image('products/image/' . $product['Product']['image'] . '?date=' . time()); ?>
 
 <br />
 <br />

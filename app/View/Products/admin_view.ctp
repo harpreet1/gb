@@ -343,11 +343,15 @@
 	</div>
 </div>
 
+<br />
+<br />
+
+<hr>
 
 <br />
 <br />
 
-<?php echo $this->Html->image('products/image/' . $product['Product']['image']); ?>
+<?php echo $this->Html->image('products/image/' . $product['Product']['image'] . '?date=' . time()); ?>
 
 <br />
 <br />
@@ -399,3 +403,7 @@
 <?php echo $this->Form->end(); ?>
 </div>
 </div>
+
+<br />
+<br />
+
