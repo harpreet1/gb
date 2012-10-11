@@ -125,7 +125,8 @@ class UsersController extends AppController {
 
 	public function admin_edit($id = null) {
 
-		if ($this->request->is('post')) {
+		if (isset($this->request->data['User']['image_type'])) {
+
 			$slug = $this->request->data['User']['slug'];
 			$image = $this->request->data['User']['slug'] . '.jpg';
 

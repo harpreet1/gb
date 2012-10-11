@@ -654,7 +654,7 @@ class ProductsController extends AppController {
 
 	public function admin_edit($id = null) {
 
-		if (!empty($this->request->data['Product']['image_type'])) {
+		if (isset($this->request->data['Product']['image_type'])) {
 
 			$image = $this->request->data['Product']['id'] . '.jpg';
 
