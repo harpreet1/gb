@@ -365,6 +365,21 @@
 			<td><?php echo $this->Form->file('image'); ?></td>
 		</tr>
 		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'Main',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+			))); ?>
+
+			</td>
+		</tr>
+		<tr>
 			<td></td>
 			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
 		</tr>

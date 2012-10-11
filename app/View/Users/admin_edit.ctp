@@ -159,12 +159,28 @@
 
 <?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'edit', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
+<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
 <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
 <table class="table table-striped table-bordered table-condensed">
 	<tbody>
 		<tr>
 			<td>Upload Image</td>
 			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'Main',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+			))); ?>
+
+			</td>
 		</tr>
 		<tr>
 			<td></td>

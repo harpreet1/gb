@@ -572,9 +572,6 @@ class ProductsController extends AppController {
 
 			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
 
-			print_r($upload);
-			die('vege');
-
 			if($upload == 'Success') {
 				$this->Product->id = $this->request->data['Product']['id'];
 				$this->Product->saveField($type, $image);
@@ -657,7 +654,7 @@ class ProductsController extends AppController {
 
 	public function admin_edit($id = null) {
 
-		if ($this->request->is('post')) {
+		if (!empty($this->request->data['Product']['image_type'])) {
 
 			$image = $this->request->data['Product']['id'] . '.jpg';
 
@@ -666,9 +663,6 @@ class ProductsController extends AppController {
 			$targetdir = IMAGES . 'products/' . $type . '/';
 
 			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
-
-			print_r($upload);
-			die('vege');
 
 			if($upload == 'Success') {
 				$this->Product->id = $this->request->data['Product']['id'];

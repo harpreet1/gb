@@ -380,7 +380,7 @@
 			<td><?php echo $this->Form->file('image'); ?></td>
 		</tr>
 		<tr>
-			<td>Image Rtpe</td>
+			<td>Image Type</td>
 			<td>
 
 			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
