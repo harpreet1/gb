@@ -30,7 +30,7 @@
 
 		<br />
 
-		<?php echo $this->Html->image('user_image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
 
 		<?php if(!empty($usercategories)) : ?>

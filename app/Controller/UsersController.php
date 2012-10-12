@@ -84,7 +84,7 @@ class UsersController extends AppController {
 			$slug = $this->request->data['User']['slug'];
 			$image = $this->request->data['User']['slug'] . '.jpg';
 
-			$targetdir = IMAGES . 'user_image/';
+			$targetdir = IMAGES . 'users/image/';
 
 			$upload = $this->Image->upload($this->request->data['User']['image']['tmp_name'], $targetdir, $image);
 
@@ -130,7 +130,7 @@ class UsersController extends AppController {
 			$slug = $this->request->data['User']['slug'];
 			$image = $this->request->data['User']['slug'] . '.jpg';
 
-			$targetdir = IMAGES . 'user_image/';
+			$targetdir = IMAGES . 'users/image/';
 
 			$upload = $this->Image->upload($this->request->data['User']['image']['tmp_name'], $targetdir, $image);
 

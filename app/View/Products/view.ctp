@@ -9,7 +9,7 @@
 
 		<br />
 
-		<?php echo $this->Html->image('user_image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
 		<br />
 		<br />
@@ -59,23 +59,23 @@
 		<div class="row">
 			<div class="span4">
 				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
-				
+
 				<br />
 				<br />
 				<h3>Serving Suggestions:</h3>
-				
+
 				<p><?php echo $product['Product']['serving_suggestions']; ?></p>
-				
+
 				<br />
 				<br />
 				<h3>Here's a recipe:</h3>
 				<p><?php echo $product['Product']['recipes']; ?></p>
-				
+
 				<h4>Sources:</h4>
 				<p><?php echo $product['Product']['attribution']; ?></p>
-				
+
 			</div>
-			
+
 			<div class="span4">
 
 				<h3><?php echo $product['Product']['name']; ?></h3>
@@ -95,7 +95,7 @@
 				<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 				<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
 				<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-primary', 'escape' => false));?>
-				<?php echo $this->Form->end(); ?>				
+				<?php echo $this->Form->end(); ?>
 
 			</div>
 		</div>

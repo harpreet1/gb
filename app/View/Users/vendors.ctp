@@ -3,7 +3,7 @@
 <br />
 
 <?php foreach($users as $user) : ?>
-<?php echo $this->Html->image('user_image/' . $user['User']['image'], array('alt' => $user['User']['name'])); ?>
+<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('alt' => $user['User']['name'])); ?>
 
 <br />
 <br />

@@ -389,12 +389,12 @@
 </div>
 </div>
 
-<a href="/admin/images/crop?src_dir=user_image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=user_image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133" class="btn">crop 400 x 133 image</a>
+<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133" class="btn">crop 400 x 133 image</a>
 
 <br />
 <br />
 
-<?php echo $this->Html->image('user_image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
+<?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
 
 <br />
 <br />
