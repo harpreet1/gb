@@ -36,8 +36,8 @@ function showPreview(c){
 }
 </script>
 
-<br />
-<br />
+<div style="margin-top:200px;">
+
 
 <table>
 	<tr>
@@ -70,3 +70,5 @@ function showPreview(c){
 
 <br />
 <br />
+
+</div>

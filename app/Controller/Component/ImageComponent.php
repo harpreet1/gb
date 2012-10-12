@@ -30,8 +30,8 @@ class ImageComponent extends Component {
 			return 'invalid picture size';
 		}
 
-		if ($srcWidth < 900 || $srcHeight < 600) {
-			return 'picture size must be between 900x600';
+		if ($srcWidth < 200 || $srcHeight < 200) {
+			return 'picture size must be at least 200x200';
 		}
 
 		$this->mkdir($targetdir);
