@@ -30,7 +30,17 @@
 
 <body>
 
-	<div class="navbar navbar-fixed-top">
+<div id="infinite-background">
+
+
+
+<div class="container">
+	<div id="header-magazine"></div>
+	<div id="left-header">&nbsp;</div>
+	<!--<div id="right-header">&nbsp;</div>-->
+	
+	
+	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -70,16 +80,37 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
 
+	<div id="account">
+		<ul class="gb-horiz-account">
+			<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>
+			<li class="gb-account"><a href="/members/login">LOG IN</a></li>
+		</ul>
+	</div>
 
+	<div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" />
+		<div class="title-description">A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
+	</div>
 
-
+</div>
 
 
 
 <div class="container">
 
 	<?php echo $this->fetch('content'); ?>
+
+</div>
+
+<div id="footer">
+
+</div>
 
 </div>
 

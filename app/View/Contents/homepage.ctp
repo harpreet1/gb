@@ -13,24 +13,6 @@
 		</ul>
 	</div>
 
-	<div id="upper-wrapper">
-		<div id="header-magazine"></div>
-		<div id="left-header">&nbsp;</div>
-		<!--<div id="right-header">&nbsp;</div>-->
-
-		<div id="account">
-			<ul class="gb-horiz-account">
-				<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>
-				<li class="gb-account"><a href="/members/login">LOG IN</a></li>
-			</ul>
-		</div>
-
-		<div id="gb-title"> <img src="img/global/gb-title.png" width="1000" height="160" alt="gourmet-basket" />
-			<div class="title-description">A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
-		</div>
-
-	</div>
-
 	<div id="upper-content">
 		<div id="headlines">
 			<div class="headline-1">
