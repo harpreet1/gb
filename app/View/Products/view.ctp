@@ -17,6 +17,21 @@
 		<p><?php echo $user['User']['shop_quote']; ?></p>
 
 		<br />
+
+		<?php if(!empty($usercategories)) : ?>
+
+		<br />
+		<h6>Our Categories</h6>
+
+		<?php foreach ($usercategories as $usercategory): ?>
+			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+
+			<br />
+		<?php endforeach; ?>
+		<br />
+		<br />
+		<?php endif; ?>
+
 		<br />
 
 		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
