@@ -29,9 +29,8 @@ $(document).ready(function(){
 	}).data("autocomplete")._renderItem = function (ul, item) {
 		return $("<li />")
 			.data("item.autocomplete", item)
-			.append("<a><img width='25' src='" + Shop.basePath + "img/products/" + item.image + "' /> " + item.name + "</a>")
+			.append("<a><img width='25' src='" + Shop.basePath + "img/products/image/" + item.image + "' /> " + item.name + "</a>")
 			.appendTo(ul);
 	};
-
 
 });
