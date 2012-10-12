@@ -5,7 +5,7 @@
 <script language="Javascript">
 $(function(){
 	$('#cropbox').Jcrop({
-		trueSize: [<?php echo $src_width ;?>, <?php echo $src_height ;?>],
+		trueSize: [<?php echo $src_width; ?>, <?php echo $src_height; ?>],
 		aspectRatio: <?php echo $width; ?> / <?php echo $height; ?>,
 		minSize: [<?php echo $width; ?>,<?php echo $height; ?>],
 		onSelect: showPreview,
@@ -36,8 +36,19 @@ function showPreview(c){
 }
 </script>
 
-<div style="margin-top:200px;">
-
+Source Filename: <?php echo $src_filename; ?>
+<br />
+Width: <?php echo $src_width; ?>
+<br />
+Height: <?php echo $src_height; ?>
+<br />
+Destination Filename: <?php echo $dst_filename; ?>
+<br />
+Width: <?php echo $width; ?>
+<br />
+Height: <?php echo $height; ?>
+<br />
+<br />
 
 <table>
 	<tr>
@@ -57,18 +68,16 @@ function showPreview(c){
 <br />
 
 <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'images', 'action' => 'crop', 'admin' => true))); ?>
-<input type="hidden" name="data[Picture][referer]" value="<?php echo $referer; ?>" />
-<input type="hidden" name="data[Picture][src_filename]" value="<?php echo $src_filename; ?>" />
-<input type="hidden" name="data[Picture][dst_filename]" value="<?php echo $dst_filename; ?>" />
-<input type="hidden" name="data[Picture][width]" value="<?php echo $width; ?>" />
-<input type="hidden" name="data[Picture][x]" value="" id="x" />
-<input type="hidden" name="data[Picture][y]" value="" id="y" />
-<input type="hidden" name="data[Picture][w]" value="" id="w" />
-<input type="hidden" name="data[Picture][h]" value="" id="h" />
-<input type="submit" name="upload_thumbnail" value="Submit" id="process" />
+<input type="hidden" name="data[Image][referer]" value="<?php echo $referer; ?>" />
+<input type="hidden" name="data[Image][src_filename]" value="<?php echo $src_filename; ?>" />
+<input type="hidden" name="data[Image][dst_filename]" value="<?php echo $dst_filename; ?>" />
+<input type="hidden" name="data[Image][width]" value="<?php echo $width; ?>" />
+<input type="hidden" name="data[Image][x]" value="" id="x" />
+<input type="hidden" name="data[Image][y]" value="" id="y" />
+<input type="hidden" name="data[Image][w]" value="" id="w" />
+<input type="hidden" name="data[Image][h]" value="" id="h" />
+<input type="submit" name="upload_thumbnail" value="Crop Image" id="process" class="btn" />
 </form>
 
 <br />
 <br />
-
-</div>

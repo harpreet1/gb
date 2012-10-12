@@ -70,7 +70,7 @@
 
 <?php echo $this->Html->image('products/image/'. $product['Product']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image&src_file=<?php echo $product['Product']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $product['Product']['image']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image&src_file=<?php echo $product['Product']['image']; ?>&dst_dir=products/image&dst_file=<?php echo $product['Product']['image']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />
@@ -79,35 +79,35 @@
 
 <?php echo $this->Html->image('products/image_1/'. $product['Product']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $product['Product']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $product['Product']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $product['Product']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $product['Product']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />
 
 <?php echo $this->Html->image('products/image_2/'. $product['Product']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_2&src_file=<?php echo $product['Product']['image_2']; ?>&dst_dir=users/image_2&dst_file=<?php echo $product['Product']['image_2']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image_2&src_file=<?php echo $product['Product']['image_2']; ?>&dst_dir=products/image_2&dst_file=<?php echo $product['Product']['image_2']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />
 
 <?php echo $this->Html->image('products/image_3/'. $product['Product']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_3&src_file=<?php echo $product['Product']['image_3']; ?>&dst_dir=users/image_3&dst_file=<?php echo $product['Product']['image_3']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image_3&src_file=<?php echo $product['Product']['image_3']; ?>&dst_dir=products/image_3&dst_file=<?php echo $product['Product']['image_3']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />
 
 <?php echo $this->Html->image('products/image_4/'. $product['Product']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_4&src_file=<?php echo $product['Product']['image_4']; ?>&dst_dir=users/image_4&dst_file=<?php echo $product['Product']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image_4&src_file=<?php echo $product['Product']['image_4']; ?>&dst_dir=products/image_4&dst_file=<?php echo $product['Product']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />
 
 <?php echo $this->Html->image('products/image_5/'. $product['Product']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_5&src_file=<?php echo $product['User']['image_5']; ?>&dst_dir=users/image_5&dst_file=<?php echo $product['Product']['image_5']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<a href="/admin/images/crop?src_dir=products/image_5&src_file=<?php echo $product['Product']['image_5']; ?>&dst_dir=products/image_5&dst_file=<?php echo $product['Product']['image_5']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
 
 <br />
 <br />

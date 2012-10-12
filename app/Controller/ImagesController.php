@@ -12,19 +12,25 @@ class ImagesController extends AppController {
 
 		if ($this->request->is('post')) {
 
-			$x = $this->request->data['Picture']['x'];
-			$y = $this->request->data['Picture']['y'];
-			$w = $this->request->data['Picture']['w'];
-			$h = $this->request->data['Picture']['h'];
+			$x = $this->request->data['Image']['x'];
+			$y = $this->request->data['Image']['y'];
+			$w = $this->request->data['Image']['w'];
+			$h = $this->request->data['Image']['h'];
 
-			$width = $this->request->data['Picture']['width'];
+			$width = $this->request->data['Image']['width'];
 
-			$src_filename = $this->request->data['Picture']['src_filename'];
-			$dst_filename = $this->request->data['Picture']['dst_filename'];
+			$src_filename = $this->request->data['Image']['src_filename'];
+			$dst_filename = $this->request->data['Image']['dst_filename'];
 
-			$referer = $this->request->data['Picture']['referer'];
+			$referer = $this->request->data['Image']['referer'];
 
 			$scale = $width / $w;
+
+			@chmod($src_filename, 0777);
+
+			if (!is_writable($src_filename)) {
+				die('The file is not writable');
+			}
 
 			$this->Image->cropimage($src_filename, $dst_filename, $w, $h, $x, $y, $scale);
 
