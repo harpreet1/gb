@@ -32,3 +32,18 @@ body {
 	/*width: 500px;*/
 }
 
+
+td div {
+	max-height:130px;
+	overflow-y: scroll;
+}
+
+td.constrain img{
+	max-height:90px;
+	width:auto;
+	
+}
+
+td.art-constrain div {
+	max-height:70px;
+}

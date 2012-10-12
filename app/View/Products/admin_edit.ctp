@@ -65,7 +65,7 @@
 
 	<div class="span12">
 		<div class="span4">
-			<?php echo $this->Form->input('description', array('rows' => 10, 'cols' => 10)); ?>
+			<div><?php echo $this->Form->input('description', array('rows' => 10, 'cols' => 10)); ?></div>
 		</div>
 		<div class="span4">
 			<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
@@ -79,7 +79,7 @@
 
 	<div class="span12">
 		<div class="span4">
-			<?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?>
+			<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
 		</div>
 
 		<div class="span2">
@@ -121,7 +121,7 @@
 			<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span')); ?>
 			<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span')); ?>
 			<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span')); ?>
-			<?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span')); ?>
+			<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span')); ?></div>
 			<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span')); ?>
 		</div>
 

@@ -59,7 +59,7 @@ $(document).ready(function() {
 		<td><?php echo h($user['User']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['business_name']); ?>&nbsp;</td>
 		<td><span class="business_established" data-value="<?php echo $user['User']['business_established']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo h($user['User']['business_established']); ?></span></td>
-		<td><?php echo $this->Html->image('users/image/' . $user['User']['image']); ?></td>
+		<td class="constrain"><?php echo $this->Html->image('users/image/' . $user['User']['image']); ?></td>
 		<td><?php echo h($user['User']['address']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['address2']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['city']); ?>&nbsp;</td>

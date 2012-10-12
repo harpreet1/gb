@@ -38,11 +38,11 @@
 		</td>
 		<td><?php echo h($recipe['Recipe']['name']); ?>&nbsp;</td>
 		<td><?php echo h($recipe['Recipe']['slug']); ?>&nbsp;</td>
-		<td><?php echo h($recipe['Recipe']['description']); ?>&nbsp;</td>
+		<td><div><?php echo h($recipe['Recipe']['description']); ?></div></td>
 		<td><?php echo h($recipe['Recipe']['tags']); ?>&nbsp;</td>
-		<td><?php echo h($recipe['Recipe']['ingredients']); ?>&nbsp;</td>
-		<td><?php echo h($recipe['Recipe']['preparation']); ?>&nbsp;</td>
-		<td><?php echo h($recipe['Recipe']['comment']); ?>&nbsp;</td>
+		<td><div><?php echo h($recipe['Recipe']['ingredients']); ?></div></td>
+		<td><div><?php echo h($recipe['Recipe']['preparation']); ?></div></td>
+		<td><div><?php echo h($recipe['Recipe']['comment']); ?></div></td>
 		<td><?php echo h($recipe['Recipe']['image_1']); ?>&nbsp;</td>
 		<td><?php echo h($recipe['Recipe']['image_2']); ?>&nbsp;</td>
 		<td><?php echo h($recipe['Recipe']['image_3']); ?>&nbsp;</td>

@@ -15,10 +15,10 @@
 	</tr>
 	<?php foreach ($articles as $article): ?>
 	<tr>
-		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
+		<td class="art-constrain"><div><?php echo h($article['Article']['id']); ?></div></td>
 		<td><?php echo h($article['Article']['name']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['slug']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['body']); ?>&nbsp;</td>
+		<td class="art-constrain"><div><?php echo ($article['Article']['body']); ?></div></td>
 		<td><a href="/admin/articles/switch/active/<?php echo $article['Article']['id']; ?>" class="status"><img src="/img/icon_<?php echo $article['Article']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
