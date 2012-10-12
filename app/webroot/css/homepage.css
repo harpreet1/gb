@@ -218,7 +218,7 @@ body {
 .ticker-wrap {
 	height: 80px;
 	position: absolute;
-	top: 598px;
+	top: 515px;
 }
 /* liScroll styles */
 
@@ -265,11 +265,10 @@ ul.newsticker span {
 .headline-1, .headline-2, .headline-3, .headline-4 {
 	font-size:150%;
 	color:#FFF;
-	position:absolute;
 	height:150px;
-	width:450px;
 	margin-bottom:75px;
 	background-color: transparent;	
+	
 }
 
 
@@ -277,25 +276,8 @@ ul.newsticker span {
 	color: #FFF;
 	text-decoration: none;
 }
-
-.headline-1 {
-	left: 0px;
-	top: 0px;	
-}
-
-.headline-2 {
-	left: 800px;
-	top: 0px;	
-}
-
-.headline-3 {
-	left: 0px;
-	top: 220px;	
-}
-
-.headline-4 {
-	left: 800px;
-	top: 220px;	
+.headline-2.span6 h2 a, .headline-4.span6 h2 a {
+	float:right;
 }
 
 .headline-4 a {

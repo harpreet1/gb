@@ -14,27 +14,27 @@
 	</div>
 
 	<div id="upper-content">
-		<div id="headlines">
-			<div class="headline-1">
+		<div id="headlines" class="row">
+			<div class="headline-1 span6">
 				<div> <a href=""> Gift Assortments & Baskets </a>
 					</h2>
 				</div>
 			</div>
 
-			<div class="headline-2">
+			<div class="headline-2 span6">
 				<div>
 					<h2> <a href="http://gourmetdev.com/blog/2012/07/11/beverage-trends-2012"> News on Trends! </a> </h2>
 				</div>
 				<div></div>
 			</div>
 
-			<div class="headline-3">
+			<div class="headline-3 span6">
 				<div>
 					<h2> <a href=""> Tips from Chefs! </a> </h2>
 				</div>
 			</div>
 
-			<div class="headline-4">
+			<div class="headline-4 span6">
 				<div>
 					<h2> <a href=""> Pairing Ideas! </a> </h2>
 				</div>
