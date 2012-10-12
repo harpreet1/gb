@@ -104,21 +104,23 @@
 			<?php echo $this->Form->input('image6'); ?>
 
 		</div>
-		<div class="span2">
-			<?php echo $this->Form->input('bd_image1'); ?>
-			<?php echo $this->Form->input('bd_image2'); ?>
-			<?php echo $this->Form->input('bd_image3'); ?>
-			<?php echo $this->Form->input('bd_image4'); ?>
-			<?php echo $this->Form->input('bd_image5'); ?>
-			<?php echo $this->Form->input('bd_image6'); ?>
-			<?php echo $this->Form->input('bd_category1'); ?>
-			<?php echo $this->Form->input('bd_category2'); ?>
-			<?php echo $this->Form->input('bd_category3'); ?>
-			<?php echo $this->Form->input('bd_category4'); ?>
-			<?php echo $this->Form->input('bd_category5'); ?>
-			<?php echo $this->Form->input('bd_category6'); ?>
-		</div>
+		<!--<div class="span2">
+			<?php //echo $this->Form->input('bd_image1'); ?>
+			<?php //echo $this->Form->input('bd_image2'); ?>
+			<?php //echo $this->Form->input('bd_image3'); ?>
+			<?php //echo $this->Form->input('bd_image4'); ?>
+			<?php //echo $this->Form->input('bd_image5'); ?>
+			<?php //echo $this->Form->input('bd_image6'); ?>
+			<?php //echo $this->Form->input('bd_category1'); ?>
+			<?php //echo $this->Form->input('bd_category2'); ?>
+			<?php //echo $this->Form->input('bd_category3'); ?>
+			<?php //echo $this->Form->input('bd_category4'); ?>
+			<?php //echo $this->Form->input('bd_category5'); ?>
+			<?php //echo $this->Form->input('bd_category6'); ?>
+		</div>-->
 	</div>
+</div>
+<div class="row">
 	<div class="span12">
 
 		<div class="span4">
