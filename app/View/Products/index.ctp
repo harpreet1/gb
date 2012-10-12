@@ -153,6 +153,16 @@
 </div>
 
 <?php if(!empty($user)) : ?>
+
+<br />
+<br />
+<br />
+
+<hr>
+
+<br />
+<br />
+
 <div class="row">
 
 	<div class="span12">
@@ -169,6 +179,8 @@
 	</div>
 
 </div>
+
+
 
 <div class="row">
 
@@ -194,7 +206,7 @@
 </div>
 
 <div class="row">
-	<div class="span2">
+	<div class="span12">
 		<?php echo $user['User']['shop_description']; ?>
 	</div>
 </div>
