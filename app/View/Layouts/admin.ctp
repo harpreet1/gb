@@ -12,7 +12,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-<?php echo $this->Html->script(array('bootstrap.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js')); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
 </head>

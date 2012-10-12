@@ -133,6 +133,9 @@
 			<?php echo $this->Form->end(); ?>
 
 			<h3>Actions</h3>
+			<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
+			<br />
+			<br />
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
 		</div>
 	</div>

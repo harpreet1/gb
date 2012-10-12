@@ -111,364 +111,377 @@
 <br />
 <br />
 
-
 <hr>
 
 <br />
 <br />
 
-<dl>
-<dt><?php echo __('Id'); ?></dt>
-<dd>
-<?php echo h($user['User']['id']); ?>
-</dd>
-<dt><?php echo __('Level'); ?></dt>
-<dd>
-<?php echo h($user['User']['level']); ?>
-</dd>
-<dt><?php echo __('Username'); ?></dt>
-<dd>
-<?php echo h($user['User']['username']); ?>
-</dd>
-<dt><?php echo __('Password'); ?></dt>
-<dd>
-<?php echo h($user['User']['password']); ?>
-</dd>
-<dt><?php echo __('Password Clear'); ?></dt>
-<dd>
-<?php echo h($user['User']['password_clear']); ?>
-</dd>
-<dt><?php echo __('Name'); ?></dt>
-<dd>
-<?php echo h($user['User']['name']); ?>
-</dd>
-<dt><?php echo __('Slug'); ?></dt>
-<dd>
-<?php echo h($user['User']['slug']); ?>
-</dd>
-<dt><?php echo __('Business Name'); ?></dt>
-<dd>
-<?php echo h($user['User']['business_name']); ?>
-</dd>
-<dt><?php echo __('Business Ownership'); ?></dt>
-<dd>
-<?php echo h($user['User']['business_ownership']); ?>
-</dd>
-<dt><?php echo __('Business Established'); ?></dt>
-<dd>
-<?php echo h($user['User']['business_established']); ?>
-</dd>
-<dt><?php echo __('Image'); ?></dt>
-<dd>
-<?php echo h($user['User']['image']); ?>
-</dd>
-<dt><?php echo __('Image1'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_1']); ?>
-</dd>
-<dt><?php echo __('Image2'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_2']); ?>
-</dd>
-<dt><?php echo __('Image3'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_3']); ?>
-</dd>
-<dt><?php echo __('Image4'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_4']); ?>
-</dd>
-<dt><?php echo __('Image5'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_5']); ?>
-</dd>
-<dt><?php echo __('Image6'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_6']); ?>
-</dd>
-<dt><?php echo __('Image Featured'); ?></dt>
-<dd>
-<?php echo h($user['User']['image_featured']); ?>
-</dd>
-<dt><?php echo __('Shop Description'); ?></dt>
-<dd>
-<?php echo h($user['User']['shop_description']); ?>
-</dd>
-<dt><?php echo __('Shop Quote'); ?></dt>
-<dd>
-<?php echo h($user['User']['shop_quote']); ?>
-</dd>
-<dt><?php echo __('Shop Signature'); ?></dt>
-<dd>
-<?php echo h($user['User']['shop_signature']); ?>
-</dd>
-<dt><?php echo __('Street Address'); ?></dt>
-<dd>
-<?php echo h($user['User']['address']); ?>
-</dd>
-<dt><?php echo __('Street Address2'); ?></dt>
-<dd>
+<div class="row">
+<div class="span8">
+<table class="table table-striped table-bordered table-condensed table-hover">
+<tr>
+<td>Id</td>
+<td><?php echo h($user['User']['id']); ?></td>
+</tr>
+<tr>
+<td>Level</td>
+<td><?php echo h($user['User']['level']); ?></td>
+</tr>
+<tr>
+<td>Username</td>
+<td><?php echo h($user['User']['username']); ?></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><?php echo h($user['User']['password']); ?></td>
+</tr>
+<tr>
+<td>Password Clear</td>
+<td><?php echo h($user['User']['password_clear']); ?></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><?php echo h($user['User']['name']); ?></td>
+</tr>
+<tr>
+<td>Slug</td>
+<td><?php echo h($user['User']['slug']); ?></td>
+</tr>
+<tr>
+<td>Business Name</td>
+<td><?php echo h($user['User']['business_name']); ?></td>
+</tr>
+<tr>
+<td>Business Ownership</td>
+<td><?php echo h($user['User']['business_ownership']); ?></td>
+</tr>
+<tr>
+<td>Business Established</td>
+<td><?php echo h($user['User']['business_established']); ?></td>
+</tr>
+<tr>
+<td>Image</td>
+<td><?php echo h($user['User']['image']); ?></td>
+</tr>
+<tr>
+<td>Image1</td>
+<td><?php echo h($user['User']['image_1']); ?></td>
+</tr>
+<tr>
+<td>Image2</td>
+<td><?php echo h($user['User']['image_2']); ?></td>
+</tr>
+<tr>
+<td>Image3</td>
+<td><?php echo h($user['User']['image_3']); ?></td>
+</tr>
+<tr>
+<td>Image4</td>
+<td><?php echo h($user['User']['image_4']); ?></td>
+</tr>
+<tr>
+<td>Image5</td>
+<td><?php echo h($user['User']['image_5']); ?></td>
+</tr>
+<tr>
+<td>Image6</td>
+<td><?php echo h($user['User']['image_6']); ?></td>
+</tr>
+<tr>
+<td>Image Featured</td>
+<td><?php echo h($user['User']['image_featured']); ?></td>
+</tr>
+<tr>
+<td>Shop Description</td>
+<td><?php echo $user['User']['shop_description']; ?></td>
+</tr>
+<tr>
+<td>Shop Quote</td>
+<td><?php echo h($user['User']['shop_quote']); ?></td>
+</tr>
+<tr>
+<td>Shop Signature</td>
+<td><?php echo h($user['User']['shop_signature']); ?></td>
+</tr>
+<tr>
+<td>Street Address</td>
+<td><?php echo h($user['User']['address']); ?></td>
+</tr>
+<tr>
+<td>Street Address2</td>
+<td>
 <?php echo h($user['User']['address2']); ?>
-</dd>
-<dt><?php echo __('City'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>City</td>
+<td>
 <?php echo h($user['User']['city']); ?>
-</dd>
-<dt><?php echo __('State'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>State</td>
+<td>
 <?php echo h($user['User']['state']); ?>
-</dd>
-<dt><?php echo __('Zip'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Zip</td>
+<td>
 <?php echo h($user['User']['zip']); ?>
-</dd>
-<dt><?php echo __('Country'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Country</td>
+<td>
 <?php echo h($user['User']['country']); ?>
-</dd>
-<dt><?php echo __('Country Id'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Country Id</td>
+<td>
 <?php echo h($user['User']['country_id']); ?>
-</dd>
-<dt><?php echo __('Zone Id'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Zone Id</td>
+<td>
 <?php echo h($user['User']['zone_id']); ?>
-</dd>
-<dt><?php echo __('Phone'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Phone</td>
+<td>
 <?php echo h($user['User']['phone']); ?>
-</dd>
-<dt><?php echo __('Fax'); ?></dt>
-<dd>
-<?php echo h($user['User']['fax']); ?>
-</dd>
-<dt><?php echo __('Email'); ?></dt>
-<dd>
-<?php echo h($user['User']['email']); ?>
-</dd>
-<dt><?php echo __('Website'); ?></dt>
-<dd>
-<?php echo h($user['User']['website']); ?>
-</dd>
-<dt><?php echo __('Flat Shipping'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr>
+<td>Fax</td>
+<td><?php echo h($user['User']['fax']); ?></td>
+</tr>
+<tr>
+<td>Email</td>
+<td><?php echo h($user['User']['email']); ?></td>
+</tr>
+<tr><td>Website</td>
+<td><?php echo h($user['User']['website']); ?></td>
+</tr>
+<tr>
+<td>Flat Shipping</td>
+<td>
 <?php echo h($user['User']['flat_shipping']); ?>
-</dd>
-<dt><?php echo __('Flat Price'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr>
+<td>Flat Price</td>
+<td>
 <?php echo h($user['User']['flat_price']); ?>
-</dd>
-<dt><?php echo __('Contact First Name'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Contact First Name</td>
+<td>
 <?php echo h($user['User']['contact_first_name']); ?>
-</dd>
-<dt><?php echo __('Contact Last Name'); ?></dt>
-<dd>
+</td>
+</tr>
+<tr><td>Contact Last Name</td>
+<td>
 <?php echo h($user['User']['contact_last_name']); ?>
-</dd>
-<dt><?php echo __('Contact Title'); ?></dt>
-<dd>
-<?php echo h($user['User']['contact_title']); ?>
-</dd>
-<dt><?php echo __('Contact Phone'); ?></dt>
-<dd>
-<?php echo h($user['User']['contact_phone']); ?>
-</dd>
-<dt><?php echo __('Contact Email'); ?></dt>
-<dd>
-<?php echo h($user['User']['contact_email']); ?>
-</dd>
-<dt><?php echo __('Contact Alt First Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Title</td>
+<td><?php echo h($user['User']['contact_title']); ?></td>
+</tr>
+<tr>
+<td>Contact Phone</td>
+<td><?php echo h($user['User']['contact_phone']); ?></td>
+</tr>
+<tr><td>Contact Email</td>
+<td>
+<?php echo h($user['User']['contact_email']); ?></td>
+</tr>
+<tr><td>Contact Alt First Name</td>
+<td>
 <?php echo h($user['User']['contact_alt_first_name']); ?>
-</dd>
-<dt><?php echo __('Contact Alt Last Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Alt Last Name</td>
+<td>
 <?php echo h($user['User']['contact_alt_last_name']); ?>
-</dd>
-<dt><?php echo __('Contact Alt Title'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Alt Title</td>
+<td>
 <?php echo h($user['User']['contact_alt_title']); ?>
-</dd>
-<dt><?php echo __('Contact Alt Phone'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Alt Phone</td>
+<td>
 <?php echo h($user['User']['contact_alt_phone']); ?>
-</dd>
-<dt><?php echo __('Contact Alt Email'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Alt Email</td>
+<td>
 <?php echo h($user['User']['contact_alt_email']); ?>
-</dd>
-<dt><?php echo __('Customer Service Contact'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Customer Service Contact</td>
+<td>
 <?php echo h($user['User']['customer_service_contact']); ?>
-</dd>
-<dt><?php echo __('Customer Service Phone'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Customer Service Phone</td>
+<td>
 <?php echo h($user['User']['customer_service_phone']); ?>
-</dd>
-<dt><?php echo __('Customer Service Phone Ext'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Customer Service Phone Ext</td>
+<td>
 <?php echo h($user['User']['customer_service_phone_ext']); ?>
-</dd>
-<dt><?php echo __('Customer Service Email'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Customer Service Email</td>
+<td>
 <?php echo h($user['User']['customer_service_email']); ?>
-</dd>
-<dt><?php echo __('Contact Fin First Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Fin First Name</td>
+<td>
 <?php echo h($user['User']['contact_fin_first_name']); ?>
-</dd>
-<dt><?php echo __('Contact Fin Last Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Fin Last Name</td>
+<td>
 <?php echo h($user['User']['contact_fin_last_name']); ?>
-</dd>
-<dt><?php echo __('Contact Fin Title'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Fin Title</td>
+<td>
 <?php echo h($user['User']['contact_fin_title']); ?>
-</dd>
-<dt><?php echo __('Contact Fin Phone'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Fin Phone</td>
+<td>
 <?php echo h($user['User']['contact_fin_phone']); ?>
-</dd>
-<dt><?php echo __('Contact Fin Email'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Contact Fin Email</td>
+<td>
 <?php echo h($user['User']['contact_fin_email']); ?>
-</dd>
-<dt><?php echo __('Ins Carrier'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Carrier</td>
+<td>
 <?php echo h($user['User']['ins_carrier']); ?>
-</dd>
-<dt><?php echo __('Ins Carrier Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Carrier Name</td>
+<td>
 <?php echo h($user['User']['ins_carrier_name']); ?>
-</dd>
-<dt><?php echo __('Ins Carrier Phone'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Carrier Phone</td>
+<td>
 <?php echo h($user['User']['ins_carrier_phone']); ?>
-</dd>
-<dt><?php echo __('Ins Policy Num'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Policy Num</td>
+<td>
 <?php echo h($user['User']['ins_policy_num']); ?>
-</dd>
-<dt><?php echo __('Ins Policy Exp'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Policy Exp</td>
+<td>
 <?php echo h($user['User']['ins_policy_exp']); ?>
-</dd>
-<dt><?php echo __('Ins Policy Coverage'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Ins Policy Coverage</td>
+<td>
 <?php echo h($user['User']['ins_policy_coverage']); ?>
-</dd>
-<dt><?php echo __('Shipping Policy'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Shipping Policy</td>
+<td>
 <?php echo h($user['User']['shipping_policy']); ?>
-</dd>
-<dt><?php echo __('Payment Biz Name'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Payment Biz Name</td>
+<td>
 <?php echo h($user['User']['payment_biz_name']); ?>
-</dd>
-<dt><?php echo __('Payment Street Address'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Payment Street Address</td>
+<td>
 <?php echo h($user['User']['payment_street_address']); ?>
-</dd>
-<dt><?php echo __('Payment City'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Payment City</td>
+<td>
 <?php echo h($user['User']['payment_city']); ?>
-</dd>
-<dt><?php echo __('Payment Zone Id'); ?></dt>
-<dd>
+</td></tr>
+<tr><td>Payment Zone Id</td>
+<td>
 <?php echo h($user['User']['payment_zone_id']); ?>
-</dd>
-<dt><?php echo __('Payment Zip'); ?></dt>
-<dd>
-<?php echo h($user['User']['payment_zip']); ?>
-</dd>
-<dt><?php echo __('Vendor Type'); ?></dt>
-<dd>
-<?php echo h($user['User']['vendor_type']); ?>
-</dd>
-<dt><?php echo __('Mycategories'); ?></dt>
-<dd>
-<?php echo h($user['User']['mycategories']); ?>
-</dd>
-<dt><?php echo __('Bd Image1'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image1']); ?>
-</dd>
-<dt><?php echo __('Bd Image2'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image2']); ?>
-</dd>
-<dt><?php echo __('Bd Image3'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image3']); ?>
-</dd>
-<dt><?php echo __('Bd Image4'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image4']); ?>
-</dd>
-<dt><?php echo __('Bd Image5'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image5']); ?>
-</dd>
-<dt><?php echo __('Bd Image6'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_image6']); ?>
-</dd>
-<dt><?php echo __('Bd Category1'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category1']); ?>
-</dd>
-<dt><?php echo __('Bd Category2'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category2']); ?>
-</dd>
-<dt><?php echo __('Bd Category3'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category3']); ?>
-</dd>
-<dt><?php echo __('Bd Category4'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category4']); ?>
-</dd>
-<dt><?php echo __('Bd Category5'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category5']); ?>
-</dd>
-<dt><?php echo __('Bd Category6'); ?></dt>
-<dd>
-<?php echo h($user['User']['bd_category6']); ?>
-</dd>
-<dt><?php echo __('Active'); ?></dt>
-<dd>
-<?php echo h($user['User']['active']); ?>
-</dd>
-<dt><?php echo __('Created'); ?></dt>
-<dd>
-<?php echo h($user['User']['created']); ?>
-</dd>
-<dt><?php echo __('Modified'); ?></dt>
-<dd>
-<?php echo h($user['User']['modified']); ?>
-</dd>
-</dl>
-
-
-
-
-
-
-
-
-
-
-<div class="actions">
-	<h3>Actions</h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-	</ul>
+</td></tr>
+<tr><td>Payment Zip</td>
+<td>
+<?php echo h($user['User']['payment_zip']); ?></td>
+</tr>
+<tr><td>Vendor Type</td>
+<td><?php echo h($user['User']['vendor_type']); ?></td>
+</tr>
+<tr>
+<td>Mycategories</td>
+<td><?php echo h($user['User']['mycategories']); ?></td>
+</tr>
+<tr>
+<td>Bd Image1</td>
+<td><?php echo h($user['User']['bd_image1']); ?></td>
+</tr>
+<tr>
+<td>Bd Image2</td>
+<td><?php echo h($user['User']['bd_image2']); ?></td>
+</tr>
+<tr>
+<td>Bd Image3</td>
+<td><?php echo h($user['User']['bd_image3']); ?></td>
+</tr>
+<tr>
+<td>Bd Image4</td>
+<td><?php echo h($user['User']['bd_image4']); ?></td>
+</tr>
+<tr>
+<td>Bd Image5</td>
+<td><?php echo h($user['User']['bd_image5']); ?></td>
+</tr>
+<tr>
+<td>Bd Image6</td>
+<td><?php echo h($user['User']['bd_image6']); ?></td>
+</tr>
+<tr>
+<td>Bd Category1</td>
+<td><?php echo h($user['User']['bd_category1']); ?></td>
+</tr>
+<tr>
+<td>Bd Category2</td>
+<td><?php echo h($user['User']['bd_category2']); ?></td>
+</tr>
+<tr>
+<td>Bd Category3</td>
+<td><?php echo h($user['User']['bd_category3']); ?></td>
+</tr>
+<tr>
+<td>Bd Category4</td>
+<td><?php echo h($user['User']['bd_category4']); ?></td>
+</tr>
+<tr>
+<td>Bd Category5</td>
+<td><?php echo h($user['User']['bd_category5']); ?></td>
+</tr>
+<tr>
+<td>Bd Category6</td>
+<td><?php echo h($user['User']['bd_category6']); ?></td>
+</tr>
+<tr>
+<td>Active</td>
+<td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
+</tr>
+<tr>
+<td>Created</td>
+<td><?php echo h($user['User']['created']); ?></td>
+</tr>
+<tr>
+<td>Modified</td>
+<td><?php echo h($user['User']['modified']); ?></td>
+</tr>
+</table>
+</div>
 </div>
 
+<br />
+<br />
+
+<h3>Actions</h3>
+
+<br />
+
+<?php echo $this->Html->link('Edit User', array('action' => 'edit', $user['User']['id']), array('class' => 'btn')); ?>
+
+<br />
+<br />
+
+<?php echo $this->Form->postLink('Delete User', array('action' => 'delete', $user['User']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
+
+<br />
+<br />
 <br />
 <br />
 
