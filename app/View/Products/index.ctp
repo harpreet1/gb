@@ -157,39 +157,48 @@
 
 	<div class="span12">
 
+		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
+
+		<br />
+		<br />
+
 		<h3><?php echo $user['User']['name']; ?></h3>
 
 		<h5><?php echo $user['User']['shop_quote']; ?></h5>
 
-		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-
-
-		<?php echo $user['User']['shop_description']; ?>
-		<br />
-		<br />
-
-		<?php //print_r($user); ?>
 	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="span2">
+		<?php echo $user['User']['shop_description']; ?>
+	</div>
+</div>
+
 
 </div>
 <?php endif; ?>
