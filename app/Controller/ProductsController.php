@@ -339,12 +339,12 @@ class ProductsController extends AppController {
 		$search = null;
 		if(!empty($this->request->query['search']) || !empty($this->request->data['name'])) {
 			$search = empty($this->request->query['search']) ? $this->request->data['name'] : $this->request->query['search'] ;
-			$search = preg_replace('/[^a-zA-Z0-9 ]/', '', $search);
+			//$search = preg_replace('/[^a-zA-Z0-9 ]/', '', $search);
 			$terms = explode(' ', trim($search));
 			$terms = array_diff($terms, array(''));
 			$conditions = array();
 			foreach($terms as $term) {
-				$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
+				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
 				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
 			}
 			$products = $this->Product->find('all', array(
@@ -395,7 +395,15 @@ class ProductsController extends AppController {
 			$terms = array_diff($terms, array(''));
 			$conditions = array();
 			foreach($terms as $term) {
-				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
+				//$conditions[] = array(
+				//'Product.name LIKE' => '%' . $term . '%'
+				//);
+				$conditions[] = array(
+					'OR' => array(
+						array('Product.name LIKE' => '%' . $term . '%'),
+						array('Product.brand LIKE' => '%' . $term . '%'),
+					)
+				);
 			}
 			$products = $this->Product->find('all', array(
 				'fields' => array(
