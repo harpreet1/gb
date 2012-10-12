@@ -31,8 +31,8 @@ class AppController extends Controller {
 					'password' => 'password'
 				),
 				'scope' => array(
-//					'User.active' => 1,
-	//				'User.level' => 'admin'
+					'User.active' => 1,
+					'User.level' => 'admin'
 				)
 			), 'Form'
 		);
