@@ -8,7 +8,7 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
 			theme_advanced_resizing : true,
 	});
 </script>
