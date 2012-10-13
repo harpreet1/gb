@@ -75,7 +75,6 @@ class PaypalProComponent extends Component {
 			'CVV2' => $this->creditCardCvv,
 			'CREDITCARDTYPE' => $this->creditCardType,
 
-
 			'FIRSTNAME' => $this->customerFirstName,
 			'LASTNAME' => $this->customerLastName,
 			'EMAIL' => $this->customerEmail,

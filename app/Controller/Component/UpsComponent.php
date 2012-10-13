@@ -8,7 +8,7 @@ class UpsComponent extends Component {
 
 	private $url;
 
-	public $defaults     = array(
+	public $defaults = array(
 		'ShipperZip' => '94901',
 		'ShipperCountry' => 'US',
 		'ShipFromZip' => '94901',
