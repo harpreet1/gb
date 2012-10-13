@@ -78,6 +78,35 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_images() {
+		$users = $this->User->find('all', array(
+			'fields' => array(
+				'User.id',
+				'User.username',
+				'User.name',
+				'User.image',
+				'User.image_1',
+				'User.image_2',
+				'User.image_3',
+				'User.image_4',
+				'User.image_5',
+				'User.image_6',
+			),
+			'conditions' => array(
+				'User.level' => 'vendor'
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			),
+		));
+
+		$this->set(compact('users'));
+
+		$this->layout = 'admin_simple';
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_view($id = null) {
 
 		if (isset($this->request->data['User']['image_type'])) {
