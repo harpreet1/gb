@@ -54,7 +54,7 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 <?php foreach ($shop['Cart']['Items'] as $item): ?>
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
-		<div class="span1"><?php echo $this->Html->image('products/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
+		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
 		<div class="span4"><strong><?php echo $item['Product']['name']; ?></strong></div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
 		<div class="span1"><?php echo $item['totalweight']; ?></div>
