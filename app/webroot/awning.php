@@ -16,7 +16,7 @@ awning
 <br />
 <br />
 
-<div style="width: 680px; height: 120px; background-color: #aa0000"><img src="/img/awning.png"></div>
+<div style="width: 680px; height: 40px; background-image: url(/img/awning.png); background-color: #aa0000; text-align:center; padding-top:75px; border: 1px solid #999;">VENDOR NAME</div>
 
 <br />
 <br />
