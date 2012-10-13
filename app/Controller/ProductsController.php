@@ -381,9 +381,9 @@ class ProductsController extends AppController {
 				'recursive' => -1
 			));
 			if(count($products) == 1) {
-				$this->redirect(array('controller' => 'products', 'action' => 'view', 'id' =>  $products[0]['Product']['id'], 'slug' => $products[0]['Product']['slug']));
+				$this->redirect(array('subdomain' => $products[0]['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $products[0]['Product']['id'], 'slug' => $products[0]['Product']['slug']));
 			}
-			$terms1 = array_diff($terms1, array(''));
+			$terms1 = array_diff($terms, array(''));
 			$this->set(compact('products', 'terms1'));
 		}
 		$this->set(compact('search'));
