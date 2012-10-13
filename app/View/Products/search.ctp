@@ -42,7 +42,7 @@ $i++;
 		$<?php echo $product['Product']['price']; ?>
 
 		<br />
-		<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shop', 'action' => 'add'))); ?>
+		<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 
 		<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
 
