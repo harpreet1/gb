@@ -3,19 +3,12 @@ class PaypalProComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	public $config = array(
-		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'email' => Configure::read('Settings.PAYPAL_USERNAME'),
-		'password' => Configure::read('Settings.PAYPAL_PASSWORD'),
-		'signature' => Configure::read('Settings.PAYPAL_SIGNATURE')
-	);
+	public $paypal_username = null;
+	public $paypal_password = null;
+	public $paypal_signature = null;
 
-	public $sandboxConfig = array(
-		'endpoint' => 'https://api-3t.sandbox.paypal.com/nvp',
-		'email' => Configure::read('Settings.PAYPAL_USERNAME'),
-		'password' => Configure::read('Settings.PAYPAL_PASSWORD'),
-		'signature' => Configure::read('Settings.PAYPAL_SIGNATURE')
-	);
+	private $paypal_endpoint = 'https://api-3t.paypal.com/nvp';
+	private $paypal_endpoint_test = 'https://api-3t.sandbox.paypal.com/nvp';
 
 	public $amount = null;
 
@@ -41,17 +34,30 @@ class PaypalProComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
+	public function __construct() {
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function initialize($controller) {
 
 		$this->_controller = $controller;
 
 		$this->ipAddress = $_SERVER['REMOTE_ADDR'];
 
-		if(Configure::read('Settings.PAYPAL_MODE') == 'test') {
-			$this->config = $this->sandboxConfig;
-		}
-	}
+		$this->paypal_username = Configure::read('Settings.PAYPAL_USERNAME');
+		$this->paypal_password = Configure::read('Settings.PAYPAL_PASSWORD');
+		$this->paypal_signature = Configure::read('Settings.PAYPAL_SIGNATURE');
 
+		$this->paypal_username = Configure::read('Settings.PAYPAL_USERNAME');
+		$this->paypal_password = Configure::read('Settings.PAYPAL_PASSWORD');
+		$this->paypal_signature = Configure::read('Settings.PAYPAL_SIGNATURE');
+
+		if(Configure::read('Settings.PAYPAL_MODE') == 'test') {
+			$this->paypal_endpoint = $this->paypal_endpoint_test;
+		}
+
+	}
 
 ////////////////////////////////////////////////////////////
 
@@ -84,30 +90,17 @@ class PaypalProComponent extends Component {
 			'AMT' => $this->amount,
 			'CURRENCYCODE' => 'USD',
 
-			'USER' => $this->config['email'],
-			'PWD' => $this->config['password'],
-			'SIGNATURE' => $this->config['signature'],
-
+			'USER' => $this->paypal_username,
+			'PWD' => $this->paypal_password,
+			'SIGNATURE' => $this->paypal_signature,
 		);
-
-//		$this->log($doDirectPaymentNvp);
-
-//		print_r($doDirectPaymentNvp);
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
-//		print_r($this->config['endpoint']);
-
-		$response = $httpSocket->post($this->config['endpoint'], $doDirectPaymentNvp);
-
-//		print_r($response);
+		$response = $httpSocket->post($this->paypal_endpoint, $doDirectPaymentNvp);
 
 		parse_str($response , $parsed);
-
-//		print_r($parsed);
-
-//		die('dodirect array');
 
 		if(array_key_exists('ACK', $parsed) && $parsed['ACK'] == 'Success') {
 			return $parsed;
