@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$("input:text:visible:first").focus();
+	//$("input:text:visible:first").focus();
 
 	$("#ProductSearch").autocomplete({
 		minLength: 2,
