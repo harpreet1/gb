@@ -10,8 +10,25 @@ class Subsubcategory extends AppModel {
 			'foreignKey' => 'subcategory_id',
 			'conditions' => '',
 			'fields' => '',
+			'order' => ''
+		)
+	);
+
+////////////////////////////////////////////////////////////
+
+	public $hasMany = array(
+		'Product' => array(
+			'className' => 'Product',
+			'foreignKey' => 'subsubcategory_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
 			'order' => '',
-			//'counterCache' => true,
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 

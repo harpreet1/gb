@@ -17,11 +17,12 @@ class SubcategoryTest extends CakeTestCase {
 		'app.category',
 		'app.user',
 		'app.product',
-		'app.brand',
+		'app.subsubcategory',
+		'app.ustradition',
 		'app.nutrition',
 		'app.tag',
 		'app.products_tag',
-		'app.subsubcategory'
+		'app.recipe'
 	);
 
 /**

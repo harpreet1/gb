@@ -41,7 +41,14 @@
 					</ul>
 				</li>
 
-				<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index', 'admin' => true)); ?></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Sub Categories', array('controller' => 'subcategories', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Sub Sub Categories', array('controller' => 'subsubcategories', 'action' => 'index', 'admin' => true)); ?></li>
+					</ul>
+				</li>
 
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
