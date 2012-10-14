@@ -8,9 +8,8 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-			theme_advanced_resizing : true,
-
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
 	});
 </script>
 
@@ -37,20 +36,24 @@ echo $this->Form->input('image_caption_2');
 echo $this->Form->input('image_caption_3');
 ?>
 <br />
-Active <?php echo $this->Form->checkbox('active'); ?>
-<br />
-
-
-<br />
-
+<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>
 
+<br />
+<br />
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Recipe.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Recipe.id'))); ?></li>
-	</ul>
-</div>
+<h3>Actions</h3>
+
+<?php echo $this->Html->link('View', array('action' => 'view', $this->Form->value('Recipe.id')), array('class' => 'btn')); ?>
+
+<br />
+<br />
+
+<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Recipe.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Recipe.id'))); ?>
+
+<br />
+<br />
+
+
