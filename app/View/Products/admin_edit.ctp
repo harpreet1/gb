@@ -1,4 +1,6 @@
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+<?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
+
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
 	tinyMCE.init({
@@ -13,33 +15,45 @@
 	});
 </script>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$("#ProductSubcategoryId").chained("#ProductCategoryId");
+	$("#ProductSubsubcategoryId").chained("#ProductSubcategoryId");
+
+});
+
+</script>
+
+
 <h2>Admin Edit Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
 <?php echo $this->Form->input('id'); ?>
 
 <div class="row-fluid">
-	<?php echo $this->Form->input('user_id');?>
+	<?php echo $this->Form->input('user_id'); ?>
 
 	<div class="span12">
 
 		<div class="span2">
-			<?php echo $this->Form->input('name');?>
+			<?php echo $this->Form->input('name'); ?>
 		</div>
 		<div class="span2">
-			<?php echo $this->Form->input('category_id');?>
+			<?php echo $this->Form->input('category_id', array('empty' => '-')); ?>
 		</div>
 		<!--<div class="span2">
 			<?php //echo $this->Form->input('category_name');?>
 		</div>-->
 		<div class="span2">
-			<?php echo $this->Form->input('subcategory_id');?>
+			<?php echo $this->Form->input('subcategory_id', array('empty' => '-')); ?>
 		</div>
 		<!--<div class="span2">
 			<?php //echo $this->Form->input('subcategory_name');?>
 		</div>-->
 		<div class="span2">
-			<?php echo $this->Form->input('subsubcategory_id');?>
+			<?php echo $this->Form->input('subsubcategory_id', array('empty' => '-')); ?>
 		</div>
 		<!--<div class="span2">
 			<?php //echo $this->Form->input('subsubcategory_name');?>
@@ -48,16 +62,16 @@
 
 	<div class="span12">
 		<div class="span2">
-			<?php echo $this->Form->input('slug');?>
+			<?php echo $this->Form->input('slug'); ?>
 		</div>
 		<div class="span2">
-			<?php echo $this->Form->input('brand');?>
+			<?php echo $this->Form->input('brand'); ?>
 		</div>
 		<div class="span2">
-			<?php echo $this->Form->input('upc');?>
+			<?php echo $this->Form->input('upc'); ?>
 		</div>
 		<div class="span2">
-			<?php echo $this->Form->input('vendor_sku');?>
+			<?php echo $this->Form->input('vendor_sku'); ?>
 		</div>
 
 	</div>

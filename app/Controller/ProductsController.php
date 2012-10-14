@@ -728,21 +728,68 @@ class ProductsController extends AppController {
 				'User.name' => 'ASC'
 			)
 		));
+
 		$categories = $this->Product->Category->find('list', array(
 			'order' => array(
 				'Category.name' => 'ASC'
 			)
 		));
-		$subcategories = $this->Product->Subcategory->find('list', array(
+
+		//$categories1 = $this->Product->Category->find('all', array(
+		//	'recursive' => -1,
+		//	'fields'=> array(
+		//		'Category.id',
+		//		'Category.name',
+		//	),
+		//	'order' => array(
+		//		'Category.name' => 'ASC'
+		//	)
+		//));
+		//foreach($categories1 as $category) {
+		//	$categories[$category['Category']['id']] = array('name' => $category['Category']['name'], 'value' => $category['Category']['id'], 'class' => 'c_' . $category['Category']['id']);
+		//}
+
+		//$subcategories = $this->Product->Subcategory->find('list', array(
+		//	'order' => array(
+		//		'Subcategory.name' => 'ASC'
+		//	)
+		//));
+
+		$subcategories1 = $this->Product->Subcategory->find('all', array(
+			'recursive' => -1,
+			'fields'=> array(
+				'Subcategory.id',
+				'Subcategory.category_id',
+				'Subcategory.name',
+			),
 			'order' => array(
 				'Subcategory.name' => 'ASC'
 			)
 		));
-		$subsubcategories = $this->Product->Subsubcategory->find('list', array(
+		foreach($subcategories1 as $subcategory) {
+			$subcategories[$subcategory['Subcategory']['id']] = array('name' => $subcategory['Subcategory']['name'], 'value' => $subcategory['Subcategory']['id'], 'class' => $subcategory['Subcategory']['category_id']);
+		}
+
+		//$subsubcategories = $this->Product->Subsubcategory->find('list', array(
+		//	'order' => array(
+		//		'Subsubcategory.name' => 'ASC'
+		//	)
+		//));
+
+		$subsubcategories1 = $this->Product->Subsubcategory->find('all', array(
+			'recursive' => -1,
+			'fields'=> array(
+				'Subsubcategory.id',
+				'Subsubcategory.subcategory_id',
+				'Subsubcategory.name',
+			),
 			'order' => array(
 				'Subsubcategory.name' => 'ASC'
 			)
 		));
+		foreach($subsubcategories1 as $subsubcategory) {
+			$subsubcategories[$subsubcategory['Subsubcategory']['id']] = array('name' => $subsubcategory['Subsubcategory']['name'], 'value' => $subsubcategory['Subsubcategory']['id'], 'class' => $subsubcategory['Subsubcategory']['subcategory_id']);
+		}
 
 		$ustraditions = $this->Product->Ustradition->find('list', array(
 			'order' => array(
@@ -777,3 +824,4 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 }
+
