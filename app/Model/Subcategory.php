@@ -10,7 +10,8 @@ class Subcategory extends AppModel {
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
 		)
 	);
 
