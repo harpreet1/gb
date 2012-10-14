@@ -1,5 +1,3 @@
-<?php echo $this->Html->script(array('switch.js'), array('inline' => false)); ?>
-
 <h2>Articles</h2>
 
 <table class="table table-striped table-bordered table-condensed table-hover">
@@ -11,21 +9,21 @@
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($articles as $article): ?>
 	<tr>
 		<td class="art-constrain"><div><?php echo h($article['Article']['id']); ?></div></td>
-		<td><?php echo h($article['Article']['name']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['slug']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['name']); ?></td>
+		<td><?php echo h($article['Article']['slug']); ?></td>
 		<td class="art-constrain"><div><?php echo ($article['Article']['body']); ?></div></td>
 		<td><a href="/admin/articles/switch/active/<?php echo $article['Article']['id']; ?>" class="status"><img src="/img/icon_<?php echo $article['Article']['active']; ?>.png" alt="" /></a></td>
-		<td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['created']); ?></td>
+		<td><?php echo h($article['Article']['modified']); ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('class' => 'btn btn-mini') , __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $article['Article']['id']), array('class' => 'btn btn-mini btn-danger') , __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
