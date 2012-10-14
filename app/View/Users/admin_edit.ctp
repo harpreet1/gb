@@ -69,7 +69,9 @@
 			<?php echo $this->Form->input('contact_title'); ?>
 			<?php echo $this->Form->input('contact_phone'); ?>
 			<?php echo $this->Form->input('contact_email'); ?>
+
 			<h3>FINANCIAL</h3>
+
 			<?php echo $this->Form->input('contact_fin_first_name'); ?>
 			<?php echo $this->Form->input('contact_fin_last_name'); ?>
 			<?php echo $this->Form->input('contact_fin_title'); ?>
@@ -93,7 +95,9 @@
 			<?php echo $this->Form->input('customer_service_phone'); ?>
 			<?php echo $this->Form->input('customer_service_phone_ext'); ?>
 			<?php echo $this->Form->input('customer_service_email'); ?>
+
 			<h3>IMAGES</h3>
+
 			<?php echo $this->Form->input('image'); ?>
 			<?php echo $this->Form->input('image_featured'); ?>
 			<?php echo $this->Form->input('image1'); ?>
@@ -136,73 +140,10 @@
 			<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
 			<br />
 			<br />
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
 		</div>
 	</div>
 </div>
-
-
-
-
-<br />
-<br />
-
-<hr>
-
-<br />
-<br />
-
-
-<div class="row">
-<div class="span5">
-
-<span class="label label-warning">
- &nbsp; Image : no watermark, square image size </span>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'edit', 'admin' => true)));?>
-<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
-<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
-<?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
-<table class="table table-striped table-bordered table-condensed">
-	<tbody>
-		<tr>
-			<td>Upload Image</td>
-			<td><?php echo $this->Form->file('image'); ?></td>
-		</tr>
-		<tr>
-			<td>Image Type</td>
-			<td>
-
-			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image' => 'Main',
-				'image_1' => 'image 1',
-				'image_2' => 'image 2',
-				'image_3' => 'image 3',
-				'image_4' => 'image 4',
-				'image_5' => 'image 5',
-			))); ?>
-
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
-		</tr>
-	</tbody>
-</table>
-<?php echo $this->Form->end(); ?>
-</div>
-</div>
-
-<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133" class="btn">crop 400 x 133 image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
 
 <br />
 <br />

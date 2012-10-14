@@ -4,10 +4,6 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public $components = array('Image');
-
-////////////////////////////////////////////////////////////
-
 	public function slug() {
 
 		die('slug');
@@ -338,7 +334,10 @@ class ProductsController extends AppController {
 
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
-			'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
+			'contain' => array(
+				'Category',
+				'Subcategory',
+				'Subsubcategory'),
 			'conditions' => array('Product.id' => $id)
 		));
 		if (empty($product)) {
@@ -361,7 +360,10 @@ class ProductsController extends AppController {
 			//$search = preg_replace('/[^a-zA-Z0-9 ]/', '', $search);
 			$terms = explode(' ', trim($search));
 			$terms = array_diff($terms, array(''));
-			$conditions = array();
+			$conditions = array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			);
 			foreach($terms as $term) {
 				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
 				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
@@ -412,7 +414,10 @@ class ProductsController extends AppController {
 			$search = $this->request->query['search'];
 			$terms = explode(' ', trim($search));
 			$terms = array_diff($terms, array(''));
-			$conditions = array();
+			$conditions = array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			);
 			foreach($terms as $term) {
 				//$conditions[] = array(
 				//'Product.name LIKE' => '%' . $term . '%'
@@ -448,6 +453,10 @@ class ProductsController extends AppController {
 				'Product.id',
 				'Product.slug',
 				'User.slug'
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
 			),
 			'order' => array(
 				'Product.created' => 'DESC'
@@ -597,6 +606,8 @@ class ProductsController extends AppController {
 
 			$targetdir = IMAGES . 'products/' . $type . '/';
 
+			$this->Image = $this->Components->load('Image');
+
 			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
 
 			if($upload == 'Success') {
@@ -680,28 +691,6 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
-
-		if (isset($this->request->data['Product']['image_type'])) {
-
-			$image = $this->request->data['Product']['id'] . '.jpg';
-
-			$type = $this->request->data['Product']['image_type'];
-
-			$targetdir = IMAGES . 'products/' . $type . '/';
-
-			$upload = $this->Image->upload($this->request->data['Product']['image']['tmp_name'], $targetdir, $image);
-
-			if($upload == 'Success') {
-				$this->Product->id = $this->request->data['Product']['id'];
-				$this->Product->saveField($type, $image);
-				$uploadedfile = $targetdir . '/' . $image;
-				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/' . $slug . '/', $image, 900, 600, 1, 0);
-				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
-			}
-
-			$this->Session->setFlash($upload);
-			$this->redirect($this->referer());
-		}
 
 		$this->Product->id = $id;
 		if (!$this->Product->exists()) {

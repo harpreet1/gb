@@ -157,71 +157,11 @@
 <?php echo $this->Form->end(); ?>
 
 <h3>Actions</h3>
-<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
-
+<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn')); ?>
+<br />
+<br />
+<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
 
 <br />
 <br />
-
-<hr>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('products/image/' . $product['Product']['image'] . '?date=' . time()); ?>
-
-<br />
-<br />
-
-<a href="/admin/images/crop?src_dir=products/image/&src_file=<?php echo $product['Product']['image']; ?>&dst_dir=products/image/&dst_file=<?php echo $product['Product']['image']; ?>&width=600&height=600" class="btn">crop 600 x 600 image</a>
-
-<br />
-<br />
-
-<div class="row">
-<div class="span5">
-
-<span class="label label-warning">
-  Image : no watermark, square image size
-</span>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'edit', 'admin' => true)));?>
-<?php echo $this->Form->hidden('id', array('value' => $product['Product']['id'])); ?>
-<table class="table table-striped table-bordered table-condensed">
-	<tbody>
-		<tr>
-			<td>Upload Image</td>
-			<td><?php echo $this->Form->file('image'); ?></td>
-		</tr>
-		<tr>
-			<td>Image Type</td>
-			<td>
-
-			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image' => 'Main',
-				'image_1' => 'image 1',
-				'image_2' => 'image 2',
-				'image_3' => 'image 3',
-				'image_4' => 'image 4',
-				'image_5' => 'image 5',
-			))); ?>
-
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
-		</tr>
-	</tbody>
-</table>
-<?php echo $this->Form->end(); ?>
-</div>
-</div>
-
-<br />
-<br />
-
 

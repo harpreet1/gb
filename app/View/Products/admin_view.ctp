@@ -46,11 +46,11 @@
 
 			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
 				'image' => 'Main Image',
-				'image_1' => 'image 2',
-				'image_2' => 'image 3',
-				'image_3' => 'image 4',
-				'image_4' => 'image 5',
-				'image_5' => 'image 6',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
 			))); ?>
 
 			</td>
