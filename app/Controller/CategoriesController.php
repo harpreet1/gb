@@ -30,12 +30,17 @@ class CategoriesController extends AppController {
 
 		$subcategories = $this->Category->Subcategory->find('all', array(
 			'recursive' => -1,
-			'contain' => array('Subsubcategory'),
+			'contain' => array(
+//				'User',
+				'Subsubcategory'
+			),
 			'conditions' => array(
+//				'User.active' => 1,
+//				'User.level' => 'vendor',
 				'Subcategory.category_id' => $id
 			)
 		));
-//		debug($subcategories);
+		debug($subcategories);
 		$this->set(compact('subcategories'));
 
 		$products = $this->Category->Product->find('all', array(
