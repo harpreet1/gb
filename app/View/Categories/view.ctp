@@ -1,3 +1,65 @@
+
+
+<br />
+<br />
+
+	<?php foreach ($subcategories as $subcategory): ?>
+
+		<?php echo $subcategory['Subcategory']['name']; ?>
+		<br />
+			<?php foreach ($subcategory['Subsubcategory'] as $subsubcategor): ?>
+				-- <?php echo $subsubcategor['name']; ?><br />
+			<?php endforeach; ?>
+
+		<hr>
+
+	<?php endforeach; ?>
+
+<br />
+<br />
+
+	<div class="row">
+
+	<?php
+	$i = 0;
+	foreach ($products as $product):
+	$i++;
+	//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+	?>
+
+		<div class="span2">
+			<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+
+			<br />
+			<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+
+			<br />
+			$<?php echo $product['Product']['price']; ?>
+
+			<br />
+			<br />
+
+			<?php echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+
+			<br />
+			<br />
+			<br />
+			<br />
+		</div>
+
+	<?php
+	if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
+	endforeach;
+	?>
+
+	</div>
+
+	<br />
+
+<br />
+
+
+
 <h2><?php echo h($category['Category']['name']); ?><?php // echo __('Category'); ?></h2>
 <dl>
 	<dt><?php echo __('Id'); ?></dt>
@@ -7,7 +69,7 @@
 	</dd>
 	<dt><?php echo __('Name'); ?></dt>
 	<dd>
-		
+
 		&nbsp;
 	</dd>
 	<dt><?php echo __('Slug'); ?></dt>
