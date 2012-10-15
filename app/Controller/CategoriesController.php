@@ -27,6 +27,40 @@ class CategoriesController extends AppController {
 		if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
+
+		$subcategories = $this->Category->Subcategory->find('all', array(
+			'recursive' => -1,
+			'contain' => array('Subsubcategory'),
+			'conditions' => array(
+				'Subcategory.category_id' => $id
+			)
+		));
+//		debug($subcategories);
+		$this->set(compact('subcategories'));
+
+		$products = $this->Category->Product->find('all', array(
+			'recursive' => -1,
+			'contain' => array('User'),
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'User.id',
+				'User.name',
+				'User.slug',
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+				'Product.active' => 1,
+				'Product.category_id' => $id
+			)
+		));
+//		debug($products);
+		$this->set(compact('products'));
+
 		$this->set('category', $this->Category->read(null, $id));
 	}
 

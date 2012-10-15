@@ -369,6 +369,7 @@ class ProductsController extends AppController {
 				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
 			}
 			$products = $this->Product->find('all', array(
+				'recursive' => -1,
 				'contain' => array('User'),
 				'fields' => array(
 					'Product.id',
@@ -380,7 +381,6 @@ class ProductsController extends AppController {
 				),
 				'conditions' => $conditions,
 				'limit' => 200,
-				'recursive' => -1
 			));
 			if(count($products) == 1) {
 				$this->redirect(array('subdomain' => $products[0]['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $products[0]['Product']['id'], 'slug' => $products[0]['Product']['slug']));
@@ -417,6 +417,7 @@ class ProductsController extends AppController {
 			$conditions = array(
 				'User.active' => 1,
 				'User.level' => 'vendor',
+				'Product.active' => 1,
 			);
 			foreach($terms as $term) {
 				//$conditions[] = array(
@@ -430,13 +431,14 @@ class ProductsController extends AppController {
 				);
 			}
 			$products = $this->Product->find('all', array(
+				'recursive' => 0,
+				'contain' => array('User'),
 				'fields' => array(
 					'Product.name',
 					'Product.image'
 				),
 				'conditions' => $conditions,
 				'limit' => 200,
-				'recursive' => -1
 			));
 		}
 		echo json_encode($products);
