@@ -70,6 +70,7 @@ class UstraditionsController extends AppController {
 				'User.slug',
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				'FIND_IN_SET("'.$ustraditionid.'", ustradition_id)'
 			),
 			'limit' => 30,

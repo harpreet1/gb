@@ -74,6 +74,7 @@ class TraditionsController extends AppController {
 				'User.slug',
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				"FIND_IN_SET('$traditionid', traditions)"
 			),
 			'limit' => 30,

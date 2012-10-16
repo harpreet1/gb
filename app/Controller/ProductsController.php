@@ -83,6 +83,7 @@ class ProductsController extends AppController {
 
 		if(!empty($user)) {
 			$conditions[]	= array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id']
 			);
 		}
@@ -164,6 +165,7 @@ class ProductsController extends AppController {
 			),
 			'limit' => 40,
 			'conditions' => array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.category_id' => $category['Category']['id'],
 			),
@@ -231,6 +233,7 @@ class ProductsController extends AppController {
 				'User.slug'
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.subcategory_id' => $id,
 			),
@@ -285,6 +288,7 @@ class ProductsController extends AppController {
 				'User.slug'
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.subsubcategory_id' => $slug,
 			),
@@ -363,6 +367,7 @@ class ProductsController extends AppController {
 			$conditions = array(
 				'User.active' => 1,
 				'User.level' => 'vendor',
+				'Product.active' => 1,
 			);
 			foreach($terms as $term) {
 				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
@@ -459,6 +464,7 @@ class ProductsController extends AppController {
 			'conditions' => array(
 				'User.active' => 1,
 				'User.level' => 'vendor',
+				'Product.active' => 1,
 			),
 			'order' => array(
 				'Product.created' => 'DESC'
