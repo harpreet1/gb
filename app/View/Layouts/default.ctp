@@ -59,12 +59,11 @@
 		<br />
 		<br />
 
-		<div id="footer">
-			<br />
-			<br />
-			&copy;
-			<?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
-		</div>
+		<br />
+		<br />
+		&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
+		<br />
+		<br />
 
 	</div>
 
