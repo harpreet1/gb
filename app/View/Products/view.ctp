@@ -94,7 +94,7 @@
 
 			</div>
 
-			<div class="span4">
+			<div class="span5">
 
 				<h3><?php echo $product['Product']['name']; ?></h3>
 

@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><?php echo $title_for_layout; ?></title>
-<?php echo $this->Html->css(array('bootstrap.min.css', 'css.css', 'bootstrap-responsive.css')); ?>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
-<link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Mako" rel="stylesheet" type="text/css">
+<?php echo $this->Html->css(array('bootstrap.min.css', 'css.css')); ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <?php echo $this->Html->script(array('bootstrap.min.js', 'js.js')); ?>
@@ -20,11 +20,6 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
 				<a class="brand" href="#">GB</a>
 				<div class="nav-collapse">
 					<ul class="nav">

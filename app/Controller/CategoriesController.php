@@ -22,11 +22,23 @@ class CategoriesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function view($id = null) {
-		$this->Category->id = $id;
-		if (!$this->Category->exists()) {
-			throw new NotFoundException(__('Invalid category'));
+	public function view($slug = null) {
+
+		$category = $this->Category->find('first', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Category.*',
+			),
+			'conditions' => array(
+				'Category.slug' => $slug
+			)
+		));
+
+		if(empty($category)) {
+			die('invalid category');
 		}
+
+		$this->set(compact('category'));
 
 		$subcategories = $this->Category->Subcategory->find('all', array(
 			'recursive' => -1,
@@ -37,10 +49,10 @@ class CategoriesController extends AppController {
 			'conditions' => array(
 //				'User.active' => 1,
 //				'User.level' => 'vendor',
-				'Subcategory.category_id' => $id
+				'Subcategory.category_id' => $category['Category']['id']
 			)
 		));
-		debug($subcategories);
+		//debug($subcategories);
 		$this->set(compact('subcategories'));
 
 		$products = $this->Category->Product->find('all', array(
@@ -60,13 +72,12 @@ class CategoriesController extends AppController {
 				'User.active' => 1,
 				'User.level' => 'vendor',
 				'Product.active' => 1,
-				'Product.category_id' => $id
+				'Product.category_id' => $category['Category']['id']
 			)
 		));
 //		debug($products);
 		$this->set(compact('products'));
 
-		$this->set('category', $this->Category->read(null, $id));
 	}
 
 ////////////////////////////////////////////////////////////
