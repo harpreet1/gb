@@ -1,6 +1,6 @@
 <h2>Category</h2>
 
-<table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<td>Id</td>
 		<td><?php echo h($category['Category']['id']); ?></td>
@@ -66,6 +66,71 @@
 
 <br />
 <br />
+
+<br />
+<br />
+
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size </span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('Category', array('type' => 'file', 'url' => array('controller' => 'categories', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $category['Category']['id'])); ?>
+<?php echo $this->Form->hidden('slug', array('value' => $category['Category']['slug'])); ?>
+<table class="table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'Main',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+			))); ?>
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('categories/image/'. $category['Category']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=categories/image&src_file=<?php echo $category['Category']['image']; ?>&dst_dir=categories/image&dst_file=<?php echo $category['Category']['image']; ?>&width=300&height=300" class="btn">crop 300 x 300 image</a>
+
+<br />
+<br />
+<br />
+<br />
+
+<?php echo $this->Html->image('categories/image_1/'. $category['Category']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=categories/image_1&src_file=<?php echo $category['Category']['image_1']; ?>&dst_dir=categories/image_1&dst_file=<?php echo $category['Category']['image_1']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<br />
+<br />
+
 
 <h3>Actions</h3>
 

@@ -90,6 +90,32 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
+
+		if (isset($this->request->data['Category']['image_type'])) {
+
+			$slug = $this->request->data['Category']['slug'];
+			$image = $this->request->data['Category']['slug'] . '.jpg';
+
+			$type = $this->request->data['Category']['image_type'];
+
+			$targetdir = IMAGES . 'categories/' . $type . '/';
+
+			$this->Image = $this->Components->load('Image');
+
+			$upload = $this->Image->upload($this->request->data['Category']['image']['tmp_name'], $targetdir, $image);
+
+			if($upload == 'Success') {
+				$this->Category->id = $this->request->data['Category']['id'];
+				$this->Category->saveField($type, $image);
+				$uploadedfile = $targetdir . '/' . $image;
+				//$this->Image->resample($uploadedfile, IMAGES . '/categories/' . $slug . '/', $image, 900, 600, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/categories/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+
 		if (!$this->Category->exists($id)) {
 			throw new NotFoundException(__('Invalid category'));
 		}

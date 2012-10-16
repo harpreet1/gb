@@ -1,7 +1,7 @@
 <h2>Subcategory</h2>
 
 
-<table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<td>Id</td>
 		<td><?php echo h($subcategory['Subcategory']['id']); ?></td>
