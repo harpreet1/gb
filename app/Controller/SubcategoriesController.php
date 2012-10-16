@@ -32,8 +32,13 @@ class SubcategoriesController extends AppController {
 		if (!$this->Subcategory->exists($id)) {
 			throw new NotFoundException(__('Invalid subcategory'));
 		}
-		$options = array('conditions' => array('Subcategory.' . $this->Subcategory->primaryKey => $id));
-		$this->set('subcategory', $this->Subcategory->find('first', $options));
+		$subcategory = $this->Subcategory->find('first', array(
+			'contain' => array('Category'),
+			'conditions' => array(
+				'Subcategory.id' => $id
+			)
+		));
+		$this->set(compact('subcategory'));
 	}
 
 ////////////////////////////////////////////////////////////

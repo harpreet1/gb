@@ -46,6 +46,9 @@
 						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index', 'admin' => true)); ?></li>
 						<li><?php echo $this->Html->link('Sub Categories', array('controller' => 'subcategories', 'action' => 'index', 'admin' => true)); ?></li>
 						<li><?php echo $this->Html->link('Sub Sub Categories', array('controller' => 'subsubcategories', 'action' => 'index', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Category', array('controller' => 'categories', 'action' => 'add', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Sub Category', array('controller' => 'subcategories', 'action' => 'add', 'admin' => true)); ?></li>
+						<li><?php echo $this->Html->link('Add Sub Sub Category', array('controller' => 'subsubcategories', 'action' => 'add', 'admin' => true)); ?></li>
 					</ul>
 				</li>
 

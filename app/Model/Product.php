@@ -56,21 +56,27 @@ class Product extends AppModel {
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array('Product.active' => 1)
 		),
 		'Subcategory' => array(
 			'className' => 'Subcategory',
 			'foreignKey' => 'subcategory_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array('Product.active' => 1)
 		),
 		'Subsubcategory' => array(
 			'className' => 'Subsubcategory',
 			'foreignKey' => 'subsubcategory_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array('Product.active' => 1)
 		),
 		'Ustradition' => array(
 			'className' => 'Ustradition',

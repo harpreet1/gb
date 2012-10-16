@@ -7,7 +7,6 @@
 <?php
 echo $this->Form->input('id');
 echo $this->Form->input('category_id');
-echo $this->Form->input('subsubcategory_count');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
 ?>

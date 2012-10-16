@@ -1,24 +1,18 @@
-<div class="subsubcategories form">
-<?php echo $this->Form->create('Subsubcategory'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Add Subsubcategory'); ?></legend>
-	<?php
-		echo $this->Form->input('subcategory_id');
-		echo $this->Form->input('subcategory_name');
-		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<h2>Admin Add Subsubcategory</h2>
 
-		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<br />
+<br />
+
+<?php echo $this->Form->create('Subsubcategory'); ?>
+<?php
+echo $this->Form->input('subcategory_id');
+echo $this->Form->input('subcategory_name');
+echo $this->Form->input('name');
+echo $this->Form->input('slug');
+?>
+<br />
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
+
+<br />
+<br />
