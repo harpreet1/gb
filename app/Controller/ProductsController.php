@@ -65,6 +65,7 @@ class ProductsController extends AppController {
 					'Category.slug'
 				),
 				'conditions' => array(
+					'Product.active' => 1,
 					'Product.user_id' => $user['User']['id']
 				),
 				'group' => array(
@@ -141,6 +142,7 @@ class ProductsController extends AppController {
 				'Subcategory.slug'
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.category_id' => $category['Category']['id'],
 			),
@@ -211,6 +213,7 @@ class ProductsController extends AppController {
 				'Subsubcategory.slug'
 			),
 			'conditions' => array(
+				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.subcategory_id' => $id,
 			),
@@ -320,6 +323,7 @@ class ProductsController extends AppController {
 					'Category.slug'
 				),
 				'conditions' => array(
+					'Product.active' => 1,
 					'Product.user_id' => $user['User']['id']
 				),
 				'group' => array(
@@ -341,8 +345,12 @@ class ProductsController extends AppController {
 			'contain' => array(
 				'Category',
 				'Subcategory',
-				'Subsubcategory'),
-			'conditions' => array('Product.id' => $id)
+				'Subsubcategory'
+			),
+			'conditions' => array(
+				'Product.id' => $id,
+				'Product.active' => 1,
+			)
 		));
 		if (empty($product)) {
 			$this->redirect(array('action' => 'index'), 301);
