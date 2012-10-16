@@ -13,9 +13,6 @@
 <br />
 <br />
 
-<div class="row">
-<div class="span5">
-
 <span class="label label-warning">
  &nbsp; Image : no watermark, square image size </span>
 
@@ -25,7 +22,7 @@
 <?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
 <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table-striped table-bordered table-condensed">
 	<tbody>
 		<tr>
 			<td>Upload Image</td>
@@ -54,8 +51,6 @@
 	</tbody>
 </table>
 <?php echo $this->Form->end(); ?>
-</div>
-</div>
 
 <br />
 <br />
@@ -116,9 +111,7 @@
 <br />
 <br />
 
-<div class="row">
-<div class="span8">
-<table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover">
 <tr>
 <td>Id</td>
 <td><?php echo h($user['User']['id']); ?></td>
@@ -209,44 +202,35 @@
 </tr>
 <tr>
 <td>Street Address2</td>
-<td>
-<?php echo h($user['User']['address2']); ?>
-</td>
+<td><?php echo h($user['User']['address2']); ?></td>
 </tr>
-<tr><td>City</td>
-<td>
-<?php echo h($user['User']['city']); ?>
-</td>
+<tr>
+<td>City</td>
+<td><?php echo h($user['User']['city']); ?></td>
 </tr>
-<tr><td>State</td>
-<td>
-<?php echo h($user['User']['state']); ?>
-</td>
+<tr>
+<td>State</td>
+<td><?php echo h($user['User']['state']); ?></td>
 </tr>
-<tr><td>Zip</td>
-<td>
-<?php echo h($user['User']['zip']); ?>
-</td>
+<tr>
+<td>Zip</td>
+<td><?php echo h($user['User']['zip']); ?></td>
 </tr>
-<tr><td>Country</td>
-<td>
-<?php echo h($user['User']['country']); ?>
-</td>
+<tr>
+<td>Country</td>
+<td><?php echo h($user['User']['country']); ?></td>
 </tr>
-<tr><td>Country Id</td>
-<td>
-<?php echo h($user['User']['country_id']); ?>
-</td>
+<tr>
+<td>Country Id</td>
+<td><?php echo h($user['User']['country_id']); ?></td>
 </tr>
-<tr><td>Zone Id</td>
-<td>
-<?php echo h($user['User']['zone_id']); ?>
-</td>
+<tr>
+<td>Zone Id</td>
+<td><?php echo h($user['User']['zone_id']); ?></td>
 </tr>
-<tr><td>Phone</td>
-<td>
-<?php echo h($user['User']['phone']); ?>
-</td>
+<tr>
+<td>Phone</td>
+<td><?php echo h($user['User']['phone']); ?></td>
 </tr>
 <tr>
 <td>Fax</td>
@@ -256,144 +240,142 @@
 <td>Email</td>
 <td><?php echo h($user['User']['email']); ?></td>
 </tr>
-<tr><td>Website</td>
+<tr>
+<td>Website</td>
 <td><?php echo h($user['User']['website']); ?></td>
 </tr>
 <tr>
 <td>Flat Shipping</td>
-<td>
-<?php echo h($user['User']['flat_shipping']); ?>
-</td>
+<td><?php echo h($user['User']['flat_shipping']); ?></td>
 </tr>
 <tr>
 <td>Flat Price</td>
-<td>
-<?php echo h($user['User']['flat_price']); ?>
+<td><?php echo h($user['User']['flat_price']); ?></td>
+</tr>
+<tr>
+<td>Contact First Name</td>
+<td><?php echo h($user['User']['contact_first_name']); ?>
 </td>
 </tr>
-<tr><td>Contact First Name</td>
-<td>
-<?php echo h($user['User']['contact_first_name']); ?>
-</td>
+<tr>
+<td>Contact Last Name</td>
+<td><?php echo h($user['User']['contact_last_name']); ?></td>
 </tr>
-<tr><td>Contact Last Name</td>
-<td>
-<?php echo h($user['User']['contact_last_name']); ?>
-</td></tr>
-<tr><td>Contact Title</td>
+<tr>
+<td>Contact Title</td>
 <td><?php echo h($user['User']['contact_title']); ?></td>
 </tr>
 <tr>
 <td>Contact Phone</td>
 <td><?php echo h($user['User']['contact_phone']); ?></td>
 </tr>
-<tr><td>Contact Email</td>
-<td>
-<?php echo h($user['User']['contact_email']); ?></td>
+<tr>
+<td>Contact Email</td>
+<td><?php echo h($user['User']['contact_email']); ?></td>
 </tr>
-<tr><td>Contact Alt First Name</td>
-<td>
-<?php echo h($user['User']['contact_alt_first_name']); ?>
-</td></tr>
-<tr><td>Contact Alt Last Name</td>
-<td>
-<?php echo h($user['User']['contact_alt_last_name']); ?>
-</td></tr>
-<tr><td>Contact Alt Title</td>
-<td>
-<?php echo h($user['User']['contact_alt_title']); ?>
-</td></tr>
-<tr><td>Contact Alt Phone</td>
-<td>
-<?php echo h($user['User']['contact_alt_phone']); ?>
-</td></tr>
-<tr><td>Contact Alt Email</td>
-<td>
-<?php echo h($user['User']['contact_alt_email']); ?>
-</td></tr>
-<tr><td>Customer Service Contact</td>
-<td>
-<?php echo h($user['User']['customer_service_contact']); ?>
-</td></tr>
-<tr><td>Customer Service Phone</td>
-<td>
-<?php echo h($user['User']['customer_service_phone']); ?>
-</td></tr>
-<tr><td>Customer Service Phone Ext</td>
-<td>
-<?php echo h($user['User']['customer_service_phone_ext']); ?>
-</td></tr>
-<tr><td>Customer Service Email</td>
-<td>
-<?php echo h($user['User']['customer_service_email']); ?>
-</td></tr>
-<tr><td>Contact Fin First Name</td>
-<td>
-<?php echo h($user['User']['contact_fin_first_name']); ?>
-</td></tr>
-<tr><td>Contact Fin Last Name</td>
-<td>
-<?php echo h($user['User']['contact_fin_last_name']); ?>
-</td></tr>
-<tr><td>Contact Fin Title</td>
-<td>
-<?php echo h($user['User']['contact_fin_title']); ?>
-</td></tr>
-<tr><td>Contact Fin Phone</td>
-<td>
-<?php echo h($user['User']['contact_fin_phone']); ?>
-</td></tr>
-<tr><td>Contact Fin Email</td>
-<td>
-<?php echo h($user['User']['contact_fin_email']); ?>
-</td></tr>
-<tr><td>Ins Carrier</td>
-<td>
-<?php echo h($user['User']['ins_carrier']); ?>
-</td></tr>
-<tr><td>Ins Carrier Name</td>
-<td>
-<?php echo h($user['User']['ins_carrier_name']); ?>
-</td></tr>
-<tr><td>Ins Carrier Phone</td>
-<td>
-<?php echo h($user['User']['ins_carrier_phone']); ?>
-</td></tr>
-<tr><td>Ins Policy Num</td>
-<td>
-<?php echo h($user['User']['ins_policy_num']); ?>
-</td></tr>
-<tr><td>Ins Policy Exp</td>
-<td>
-<?php echo h($user['User']['ins_policy_exp']); ?>
-</td></tr>
-<tr><td>Ins Policy Coverage</td>
-<td>
-<?php echo h($user['User']['ins_policy_coverage']); ?>
-</td></tr>
-<tr><td>Shipping Policy</td>
-<td>
-<?php echo h($user['User']['shipping_policy']); ?>
-</td></tr>
-<tr><td>Payment Biz Name</td>
-<td>
-<?php echo h($user['User']['payment_biz_name']); ?>
-</td></tr>
-<tr><td>Payment Street Address</td>
-<td>
-<?php echo h($user['User']['payment_street_address']); ?>
-</td></tr>
-<tr><td>Payment City</td>
-<td>
-<?php echo h($user['User']['payment_city']); ?>
-</td></tr>
-<tr><td>Payment Zone Id</td>
-<td>
-<?php echo h($user['User']['payment_zone_id']); ?>
-</td></tr>
-<tr><td>Payment Zip</td>
-<td>
-<?php echo h($user['User']['payment_zip']); ?></td>
+<tr>
+<td>Contact Alt First Name</td>
+<td><?php echo h($user['User']['contact_alt_first_name']); ?></td>
+</tr>
+<tr>
+<td>Contact Alt Last Name</td>
+<td><?php echo h($user['User']['contact_alt_last_name']); ?></td>
+</tr>
+<tr>
+<td>Contact Alt Title</td>
+<td><?php echo h($user['User']['contact_alt_title']); ?></td>
+</tr>
+<tr>
+<td>Contact Alt Phone</td>
+<td><?php echo h($user['User']['contact_alt_phone']); ?></td>
+</tr>
+<tr>
+<td>Contact Alt Email</td>
+<td><?php echo h($user['User']['contact_alt_email']); ?></td>
+</tr>
+<tr>
+<td>Customer Service Contact</td>
+<td><?php echo h($user['User']['customer_service_contact']); ?></td>
+</tr>
+<tr>
+<td>Customer Service Phone</td>
+<td><?php echo h($user['User']['customer_service_phone']); ?></td>
+</tr>
+<tr>
+<td>Customer Service Phone Ext</td>
+<td><?php echo h($user['User']['customer_service_phone_ext']); ?></td>
+</tr>
+<tr>
+<td>Customer Service Email</td>
+<td><?php echo h($user['User']['customer_service_email']); ?></td>
+</tr>
+<tr>
+<td>Contact Fin First Name</td>
+<td><?php echo h($user['User']['contact_fin_first_name']); ?></td>
+</tr>
+<tr>
+<td>Contact Fin Last Name</td>
+<td><?php echo h($user['User']['contact_fin_last_name']); ?></td>
+</tr>
+<tr>
+<td>Contact Fin Title</td>
+<td><?php echo h($user['User']['contact_fin_title']); ?></td>
+</tr>
+<tr>
+<td>Contact Fin Phone</td>
+<td><?php echo h($user['User']['contact_fin_phone']); ?></td>
+</tr>
+<tr>
+<td>Contact Fin Email</td>
+<td><?php echo h($user['User']['contact_fin_email']); ?></td>
+</tr>
+<tr>
+<td>Ins Carrier</td>
+<td><?php echo h($user['User']['ins_carrier']); ?></td>
+</tr>
+<tr>
+<td>Ins Carrier Name</td>
+<td><?php echo h($user['User']['ins_carrier_name']); ?></td>
+</tr>
+<tr>
+<td>Ins Carrier Phone</td>
+<td><?php echo h($user['User']['ins_carrier_phone']); ?></td>
+</tr>
+<tr>
+<td>Ins Policy Num</td>
+<td><?php echo h($user['User']['ins_policy_num']); ?></td>
+</tr>
+<tr>
+<td>Ins Policy Exp</td>
+<td><?php echo h($user['User']['ins_policy_exp']); ?></td>
+</tr>
+<tr>
+<td>Ins Policy Coverage</td>
+<td><?php echo h($user['User']['ins_policy_coverage']); ?></td>
+</tr>
+<tr>
+<td>Shipping Policy</td>
+<td><?php echo h($user['User']['shipping_policy']); ?></td>
+</tr>
+<tr>
+<td>Payment Biz Name</td>
+<td><?php echo h($user['User']['payment_biz_name']); ?></td>
+</tr>
+<tr>
+<td>Payment Street Address</td>
+<td><?php echo h($user['User']['payment_street_address']); ?></td>
+</tr>
+<tr>
+<td>Payment City</td>
+<td><?php echo h($user['User']['payment_city']); ?></td>
+</tr>
+<tr>
+<td>Payment Zone Id</td>
+<td><?php echo h($user['User']['payment_zone_id']); ?></td>
+</tr>
+<tr>
+<td>Payment Zip</td>
+<td><?php echo h($user['User']['payment_zip']); ?></td>
 </tr>
 <tr><td>Vendor Type</td>
 <td><?php echo h($user['User']['vendor_type']); ?></td>
@@ -463,8 +445,6 @@
 <td><?php echo h($user['User']['modified']); ?></td>
 </tr>
 </table>
-</div>
-</div>
 
 <br />
 <br />

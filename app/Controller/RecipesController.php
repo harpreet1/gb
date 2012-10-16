@@ -170,8 +170,31 @@ class RecipesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Recipe->recursive = 0;
-		$this->set('recipes', $this->paginate());
+
+		$this->paginate = array(
+			'recursive' => -1,
+			'contain' => array(
+				'User',
+				'Category',
+				'Subcategory',
+			),
+			'fields' => array(
+				'Recipe.*',
+				'User.id',
+				'User.name',
+				'Category.id',
+				'Category.name',
+				'Subcategory.id',
+				'Subcategory.name',
+			),
+			'order' => array(
+				'Recipe.name' => 'ASC'
+			),
+			'paramType' => 'querystring',
+		);
+		$recipes = $this->paginate('Recipe');
+
+		$this->set(compact('recipes'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -181,7 +204,18 @@ class RecipesController extends AppController {
 		if (!$this->Recipe->exists()) {
 			throw new NotFoundException(__('Invalid recipe'));
 		}
-		$this->set('recipe', $this->Recipe->read(null, $id));
+
+		$recipe = $this->Recipe->find('first', array(
+			'contain' => array(
+				'User',
+				'Category',
+				'Subcategory',
+			),
+			'conditions' => array(
+				'Recipe.id' => $id
+			)
+		));
+		$this->set(compact('recipe'));
 	}
 
 ////////////////////////////////////////////////////////////

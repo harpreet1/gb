@@ -36,7 +36,7 @@ echo $this->Form->input('image_caption_2');
 echo $this->Form->input('image_caption_3');
 ?>
 <br />
-Active <?php echo $this->Form->checkbox('active'); ?>
+<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 <br />
 
 <br />

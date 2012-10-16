@@ -5,9 +5,7 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function slug() {
-
 		die('slug');
-
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
@@ -27,10 +25,11 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function __trimname() {
+		die('end');
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
-//				'Product.slug' => ''
+			//'Product.slug' => ''
 			),
 			'limit' => 10000
 		));
@@ -40,7 +39,7 @@ class ProductsController extends AppController {
 			$data['Product']['name'] = trim($product['Product']['name']);
 			$this->Product->save($data, false);
 		}
-//		die('vege');
+		//die('end');
 	}
 
 ////////////////////////////////////////////////////////////

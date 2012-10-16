@@ -27,7 +27,7 @@
 	<?php foreach ($recipes as $recipe): ?>
 	<tr>
 		<td><?php echo h($recipe['Recipe']['id']); ?></td>
-		<td><?php echo $this->Html->link($recipe['User']['id'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
+		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
 		<td><?php echo $this->Html->link($recipe['Category']['name'], array('controller' => 'categories', 'action' => 'view', $recipe['Category']['id'])); ?></td>
 		<td><?php echo $this->Html->link($recipe['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $recipe['Subcategory']['id'])); ?></td>
 		<td><?php echo h($recipe['Recipe']['name']); ?></td>
@@ -49,7 +49,6 @@
 		<td class="actions">
 			<?php echo $this->Html->link('View', array('action' => 'view', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $recipe['Recipe']['id']), array('class' => 'btn btn-mini') , __('Are you sure you want to delete # %s?', $recipe['Recipe']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
