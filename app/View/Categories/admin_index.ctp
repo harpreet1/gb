@@ -12,6 +12,7 @@
 		<th><?php echo $this->Paginator->sort('image_4'); ?></th>
 		<th><?php echo $this->Paginator->sort('image_5'); ?></th>
 		<th><?php echo $this->Paginator->sort('subcategory_count'); ?></th>
+		<th><?php echo $this->Paginator->sort('product_count'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 		<th class="actions">Actions</th>
@@ -28,6 +29,7 @@
 		<td><?php echo h($category['Category']['image_4']); ?></td>
 		<td><?php echo h($category['Category']['image_5']); ?></td>
 		<td><?php echo h($category['Category']['subcategory_count']); ?></td>
+		<td><?php echo h($category['Category']['product_count']); ?></td>
 		<td><?php echo h($category['Category']['created']); ?></td>
 		<td><?php echo h($category['Category']['modified']); ?></td>
 		<td class="actions">
