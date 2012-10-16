@@ -22,8 +22,33 @@ class SubsubcategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Subsubcategory->recursive = 0;
-		$this->set('subsubcategories', $this->paginate());
+
+		$this->paginate = array(
+			'recursive' => -1,
+			'contain' => array(
+				'Subcategory',
+			),
+			'fields' => array(
+				'Subsubcategory.*',
+				'Subcategory.id',
+				'Subcategory.name',
+			),
+			'order' => array(
+				'Subsubcategory.name' => 'ASC'
+			),
+			'limit' => 100,
+			'paramType' => 'querystring',
+		);
+		$subsubcategories = $this->paginate('Subsubcategory');
+		$this->set(compact('subsubcategories'));
+
+		$subcategories = $this->Subsubcategory->Subcategory->find('list', array(
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('subcategories'));
+
 	}
 
 ////////////////////////////////////////////////////////////

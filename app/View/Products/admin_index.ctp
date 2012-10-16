@@ -74,6 +74,7 @@ $(document).ready(function() {
 				'id' => 'ID',
 				'brand' => 'Brand',
 				'price' => 'Price',
+				'active' => 'Active',
 			),
 			'selected' => $all['filter']
 		)); ?>

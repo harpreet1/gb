@@ -83,8 +83,21 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
+
+		$this->paginate = array(
+			'recursive' => -1,
+			'fields' => array(
+				'Category.*',
+			),
+			'order' => array(
+				'Category.name' => 'ASC'
+			),
+			'limit' => 100,
+			'paramType' => 'querystring',
+		);
+		$categories = $this->paginate('Category');
+		$this->set(compact('categories'));
+
 	}
 
 ////////////////////////////////////////////////////////////

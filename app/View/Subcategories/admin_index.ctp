@@ -1,3 +1,22 @@
+<?php echo $this->Html->css(array('bootstrap-editable.css'), 'stylesheet', array('inline' => false)); ?>
+
+<?php echo $this->Html->script(array('bootstrap-editable.js'), array('inline' => false)); ?>
+
+<script>
+$(document).ready(function() {
+
+	$('.category').editable({
+		type: 'select',
+		name: 'category_id',
+		url: '/admin/subcategories/editable',
+		title: 'Category',
+		source: <?php echo json_encode($categories); ?>,
+		placement: 'right',
+	});
+
+});
+</script>
+
 <h2>Subcategories</h2>
 
 <br />
@@ -6,6 +25,9 @@
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<!--
+		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
+		-->
 		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
@@ -18,7 +40,10 @@
 	<?php foreach ($subcategories as $subcategory): ?>
 	<tr>
 		<td><?php echo $subcategory['Subcategory']['id']; ?></td>
+		<!--
 		<td><?php echo $this->Html->link($subcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $subcategory['Category']['id'])); ?></td>
+		-->
+		<td><span class="category" data-value="<?php echo $subcategory['Subcategory']['category_id']; ?>" data-pk="<?php echo $subcategory['Subcategory']['id']; ?>"><?php echo $subcategory['Category']['name']; ?></span></td>
 		<td><?php echo $subcategory['Subcategory']['name']; ?></td>
 		<td><?php echo $subcategory['Subcategory']['slug']; ?></td>
 		<td><?php echo $subcategory['Subcategory']['subsubcategory_count']; ?></td>
