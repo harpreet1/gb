@@ -1,6 +1,94 @@
 <?php
+App::uses('AppController', 'Controller');
 class SubsubcategoriesController extends AppController {
 
-	public $scaffold = 'admin';
+////////////////////////////////////////////////////////////
+
+	public function index() {
+		$this->Subsubcategory->recursive = 0;
+		$this->set('subsubcategories', $this->paginate());
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function view($id = null) {
+		if (!$this->Subsubcategory->exists($id)) {
+			throw new NotFoundException(__('Invalid subsubcategory'));
+		}
+		$options = array('conditions' => array('Subsubcategory.' . $this->Subsubcategory->primaryKey => $id));
+		$this->set('subsubcategory', $this->Subsubcategory->find('first', $options));
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_index() {
+		$this->Subsubcategory->recursive = 0;
+		$this->set('subsubcategories', $this->paginate());
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_view($id = null) {
+		if (!$this->Subsubcategory->exists($id)) {
+			throw new NotFoundException(__('Invalid subsubcategory'));
+		}
+		$options = array('conditions' => array('Subsubcategory.' . $this->Subsubcategory->primaryKey => $id));
+		$this->set('subsubcategory', $this->Subsubcategory->find('first', $options));
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_add() {
+		if ($this->request->is('post')) {
+			$this->Subsubcategory->create();
+			if ($this->Subsubcategory->save($this->request->data)) {
+				$this->Session->setFlash(__('The subsubcategory has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The subsubcategory could not be saved. Please, try again.'));
+			}
+		}
+		$subcategories = $this->Subsubcategory->Subcategory->find('list');
+		$this->set(compact('subcategories'));
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_edit($id = null) {
+		if (!$this->Subsubcategory->exists($id)) {
+			throw new NotFoundException(__('Invalid subsubcategory'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Subsubcategory->save($this->request->data)) {
+				$this->Session->setFlash(__('The subsubcategory has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The subsubcategory could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Subsubcategory.' . $this->Subsubcategory->primaryKey => $id));
+			$this->request->data = $this->Subsubcategory->find('first', $options);
+		}
+		$subcategories = $this->Subsubcategory->Subcategory->find('list');
+		$this->set(compact('subcategories'));
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_delete($id = null) {
+		$this->Subsubcategory->id = $id;
+		if (!$this->Subsubcategory->exists()) {
+			throw new NotFoundException(__('Invalid subsubcategory'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Subsubcategory->delete()) {
+			$this->Session->setFlash(__('Subsubcategory deleted'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('Subsubcategory was not deleted'));
+		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
 
 }

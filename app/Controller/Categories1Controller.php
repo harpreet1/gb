@@ -90,11 +90,11 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
-		if (!$this->Category->exists($id)) {
+		$this->Category->id = $id;
+		if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
-		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
-		$this->set('category', $this->Category->find('first', $options));
+		$this->set('category', $this->Category->read(null, $id));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -116,7 +116,8 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
-		if (!$this->Category->exists($id)) {
+		$this->Category->id = $id;
+		if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
@@ -127,8 +128,7 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
-			$this->request->data = $this->Category->find('first', $options);
+			$this->request->data = $this->Category->read(null, $id);
 		}
 		$users = $this->Category->User->find('list');
 		$this->set(compact('users'));

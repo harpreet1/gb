@@ -1,11 +1,11 @@
 <?php
-App::uses('CategoriesController', 'Controller');
+App::uses('SubsubcategoriesController', 'Controller');
 
 /**
- * CategoriesController Test Case
+ * SubsubcategoriesController Test Case
  *
  */
-class CategoriesControllerTest extends ControllerTestCase {
+class SubsubcategoriesControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,16 +13,16 @@ class CategoriesControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
+		'app.subsubcategory',
+		'app.subcategory',
 		'app.category',
 		'app.user',
 		'app.product',
-		'app.subcategory',
-		'app.recipe',
-		'app.subsubcategory',
 		'app.ustradition',
 		'app.nutrition',
 		'app.tag',
-		'app.products_tag'
+		'app.products_tag',
+		'app.recipe'
 	);
 
 /**

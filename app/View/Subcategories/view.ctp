@@ -1,74 +1,39 @@
-<div class="categories view">
-<h2><?php  echo __('Category'); ?></h2>
+<div class="subcategories view">
+<h2><?php  echo __('Subcategory'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['id']); ?>
+			<?php echo h($subcategory['Subcategory']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Subcategory Count'); ?></dt>
+		<dt><?php echo __('Category'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['subcategory_count']); ?>
+			<?php echo $this->Html->link($subcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $subcategory['Category']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Subsubcategory Count'); ?></dt>
+		<dd>
+			<?php echo h($subcategory['Subcategory']['subsubcategory_count']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['name']); ?>
+			<?php echo h($subcategory['Subcategory']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Slug'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['slug']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Article'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['article']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Summary'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['summary']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image 1'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image_1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image 2'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image_2']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image 3'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image_3']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image 4'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image_4']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image 5'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['image_5']); ?>
+			<?php echo h($subcategory['Subcategory']['slug']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['created']); ?>
+			<?php echo h($subcategory['Subcategory']['created']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
-			<?php echo h($category['Category']['modified']); ?>
+			<?php echo h($subcategory['Subcategory']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -76,21 +41,23 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Subcategory'), array('action' => 'edit', $subcategory['Subcategory']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Subcategory'), array('action' => 'delete', $subcategory['Subcategory']['id']), null, __('Are you sure you want to delete # %s?', $subcategory['Subcategory']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subcategories'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subcategory'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Recipes'), array('controller' => 'recipes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Recipe'), array('controller' => 'recipes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subsubcategories'), array('controller' => 'subsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Products'); ?></h3>
-	<?php if (!empty($category['Product'])): ?>
+	<?php if (!empty($subcategory['Product'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -170,7 +137,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($category['Product'] as $product): ?>
+		foreach ($subcategory['Product'] as $product): ?>
 		<tr>
 			<td><?php echo $product['id']; ?></td>
 			<td><?php echo $product['user_id']; ?></td>
@@ -262,34 +229,60 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Subcategories'); ?></h3>
-	<?php if (!empty($category['Subcategory'])): ?>
+	<h3><?php echo __('Related Recipes'); ?></h3>
+	<?php if (!empty($subcategory['Recipe'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Category Id'); ?></th>
-		<th><?php echo __('Subsubcategory Count'); ?></th>
+		<th><?php echo __('Subcategory Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Slug'); ?></th>
+		<th><?php echo __('Description'); ?></th>
+		<th><?php echo __('Tags'); ?></th>
+		<th><?php echo __('Ingredients'); ?></th>
+		<th><?php echo __('Preparation'); ?></th>
+		<th><?php echo __('Comment'); ?></th>
+		<th><?php echo __('Image 1'); ?></th>
+		<th><?php echo __('Image 2'); ?></th>
+		<th><?php echo __('Image 3'); ?></th>
+		<th><?php echo __('Image Caption 1'); ?></th>
+		<th><?php echo __('Image Caption 2'); ?></th>
+		<th><?php echo __('Image Caption 3'); ?></th>
+		<th><?php echo __('Active'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($category['Subcategory'] as $subcategory): ?>
+		foreach ($subcategory['Recipe'] as $recipe): ?>
 		<tr>
-			<td><?php echo $subcategory['id']; ?></td>
-			<td><?php echo $subcategory['category_id']; ?></td>
-			<td><?php echo $subcategory['subsubcategory_count']; ?></td>
-			<td><?php echo $subcategory['name']; ?></td>
-			<td><?php echo $subcategory['slug']; ?></td>
-			<td><?php echo $subcategory['created']; ?></td>
-			<td><?php echo $subcategory['modified']; ?></td>
+			<td><?php echo $recipe['id']; ?></td>
+			<td><?php echo $recipe['user_id']; ?></td>
+			<td><?php echo $recipe['category_id']; ?></td>
+			<td><?php echo $recipe['subcategory_id']; ?></td>
+			<td><?php echo $recipe['name']; ?></td>
+			<td><?php echo $recipe['slug']; ?></td>
+			<td><?php echo $recipe['description']; ?></td>
+			<td><?php echo $recipe['tags']; ?></td>
+			<td><?php echo $recipe['ingredients']; ?></td>
+			<td><?php echo $recipe['preparation']; ?></td>
+			<td><?php echo $recipe['comment']; ?></td>
+			<td><?php echo $recipe['image_1']; ?></td>
+			<td><?php echo $recipe['image_2']; ?></td>
+			<td><?php echo $recipe['image_3']; ?></td>
+			<td><?php echo $recipe['image_caption_1']; ?></td>
+			<td><?php echo $recipe['image_caption_2']; ?></td>
+			<td><?php echo $recipe['image_caption_3']; ?></td>
+			<td><?php echo $recipe['active']; ?></td>
+			<td><?php echo $recipe['created']; ?></td>
+			<td><?php echo $recipe['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'subcategories', 'action' => 'view', $subcategory['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'subcategories', 'action' => 'edit', $subcategory['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'subcategories', 'action' => 'delete', $subcategory['id']), null, __('Are you sure you want to delete # %s?', $subcategory['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'recipes', 'action' => 'view', $recipe['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'recipes', 'action' => 'edit', $recipe['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'recipes', 'action' => 'delete', $recipe['id']), null, __('Are you sure you want to delete # %s?', $recipe['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -298,7 +291,48 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Subcategory'), array('controller' => 'subcategories', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Recipe'), array('controller' => 'recipes', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Subsubcategories'); ?></h3>
+	<?php if (!empty($subcategory['Subsubcategory'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Subcategory Id'); ?></th>
+		<th><?php echo __('Subcategory Name'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Slug'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($subcategory['Subsubcategory'] as $subsubcategory): ?>
+		<tr>
+			<td><?php echo $subsubcategory['id']; ?></td>
+			<td><?php echo $subsubcategory['subcategory_id']; ?></td>
+			<td><?php echo $subsubcategory['subcategory_name']; ?></td>
+			<td><?php echo $subsubcategory['name']; ?></td>
+			<td><?php echo $subsubcategory['slug']; ?></td>
+			<td><?php echo $subsubcategory['created']; ?></td>
+			<td><?php echo $subsubcategory['modified']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'subsubcategories', 'action' => 'view', $subsubcategory['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'subsubcategories', 'action' => 'edit', $subsubcategory['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'subsubcategories', 'action' => 'delete', $subsubcategory['id']), null, __('Are you sure you want to delete # %s?', $subsubcategory['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Subsubcategory'), array('controller' => 'subsubcategories', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>
