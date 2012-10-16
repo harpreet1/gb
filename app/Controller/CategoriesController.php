@@ -109,8 +109,6 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->Category->User->find('list');
-		$this->set(compact('users'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -127,11 +125,9 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
+			$options = array('conditions' => array('Category.id' => $id));
 			$this->request->data = $this->Category->find('first', $options);
 		}
-		$users = $this->Category->User->find('list');
-		$this->set(compact('users'));
 	}
 
 ////////////////////////////////////////////////////////////

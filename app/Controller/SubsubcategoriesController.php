@@ -32,8 +32,15 @@ class SubsubcategoriesController extends AppController {
 		if (!$this->Subsubcategory->exists($id)) {
 			throw new NotFoundException(__('Invalid subsubcategory'));
 		}
-		$options = array('conditions' => array('Subsubcategory.' . $this->Subsubcategory->primaryKey => $id));
-		$this->set('subsubcategory', $this->Subsubcategory->find('first', $options));
+
+		$subsubcategory = $this->Subsubcategory->find('first', array(
+			'contain' => array('Subcategory'),
+			'conditions' => array(
+				'Subsubcategory.id' => $id
+			)
+		));
+
+		$this->set(compact('subsubcategory'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -66,7 +73,7 @@ class SubsubcategoriesController extends AppController {
 				$this->Session->setFlash(__('The subsubcategory could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('Subsubcategory.' . $this->Subsubcategory->primaryKey => $id));
+			$options = array('conditions' => array('Subsubcategory.id' => $id));
 			$this->request->data = $this->Subsubcategory->find('first', $options);
 		}
 		$subcategories = $this->Subsubcategory->Subcategory->find('list');
