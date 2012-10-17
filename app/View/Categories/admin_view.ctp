@@ -55,6 +55,10 @@
 		<td><?php echo h($category['Category']['subcategory_count']); ?></td>
 	</tr>
 	<tr>
+		<td>Product Count</td>
+		<td><?php echo $category['Category']['product_count']; ?></td>
+	</tr>
+	<tr>
 		<td>Created</td>
 		<td><?php echo h($category['Category']['created']); ?></td>
 	</tr>

@@ -23,6 +23,10 @@
 		<td><?php echo h($subsubcategory['Subsubcategory']['slug']); ?></td>
 	</tr>
 	<tr>
+		<td>Product Count</td>
+		<td><?php echo h($subsubcategory['Subsubcategory']['product_count']); ?></td>
+	</tr>
+	<tr>
 		<td>Created</td>
 		<td><?php echo h($subsubcategory['Subsubcategory']['created']); ?></td>
 	</tr>

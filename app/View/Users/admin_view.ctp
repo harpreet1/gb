@@ -437,6 +437,10 @@
 <td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
 </tr>
 <tr>
+<td>Product Count</td>
+<td><?php echo h($user['User']['product_count']); ?></td>
+</tr>
+<tr>
 <td>Created</td>
 <td><?php echo h($user['User']['created']); ?></td>
 </tr>

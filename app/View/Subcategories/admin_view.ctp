@@ -4,7 +4,7 @@
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<td>Id</td>
-		<td><?php echo h($subcategory['Subcategory']['id']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['id']; ?></td>
 	</tr>
 	<tr>
 		<td>Category</td>
@@ -12,23 +12,27 @@
 	</tr>
 	<tr>
 		<td>Name</td>
-		<td><?php echo h($subcategory['Subcategory']['name']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['name']; ?></td>
 	</tr>
 	<tr>
 		<td>Slug</td>
-		<td><?php echo h($subcategory['Subcategory']['slug']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['slug']; ?></td>
 	</tr>
 	<tr>
 		<td>Subsubcategory Count</td>
-		<td><?php echo h($subcategory['Subcategory']['subsubcategory_count']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['subsubcategory_count']; ?></td>
+	</tr>
+	<tr>
+		<td>Product Count</td>
+		<td><?php echo $subcategory['Subcategory']['product_count']; ?></td>
 	</tr>
 	<tr>
 		<td>Created</td>
-		<td><?php echo h($subcategory['Subcategory']['created']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['created']; ?></td>
 	</tr>
 	<tr>
 		<td>Modified</td>
-		<td><?php echo h($subcategory['Subcategory']['modified']); ?></td>
+		<td><?php echo $subcategory['Subcategory']['modified']; ?></td>
 	</tr>
 </table>
 
