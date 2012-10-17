@@ -492,6 +492,37 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_filter() {
+
+		$field = $this->request->query['field'];
+		$id = $this->request->query['id'];
+
+		$this->Session->delete('Product');
+
+		if($field == 'user_id') {
+			$conditions[] = array(
+				'Product.user_id' => $id,
+			);
+			$this->Session->write('Product.user_id', $id);
+			$this->Session->write('Product.filter', '');
+			$this->Session->write('Product.name', '');
+		} else {
+			$this->Session->write('Product.user_id', null);
+			$this->Session->write('Product.filter', $field);
+			$this->Session->write('Product.name', $id);
+			$conditions[] = array(
+				'Product.' . $field => $id
+			);
+		}
+
+		$this->Session->write('Product.conditions', $conditions);
+
+		$this->redirect(array('action' => 'index'));
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 
 		if ($this->request->is('post')) {

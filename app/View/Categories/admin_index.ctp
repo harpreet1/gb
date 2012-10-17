@@ -29,7 +29,7 @@
 		<td><?php echo h($category['Category']['image_4']); ?></td>
 		<td><?php echo h($category['Category']['image_5']); ?></td>
 		<td><?php echo h($category['Category']['subcategory_count']); ?></td>
-		<td><?php echo h($category['Category']['product_count']); ?></td>
+		<td><?php echo $this->Html->link($category['Category']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'category_id', 'id' => $category['Category']['id']))); ?></td>
 		<td><?php echo h($category['Category']['created']); ?></td>
 		<td><?php echo h($category['Category']['modified']); ?></td>
 		<td class="actions">

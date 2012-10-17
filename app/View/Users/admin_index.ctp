@@ -66,7 +66,7 @@ $(document).ready(function() {
 		<td><?php echo h($user['User']['city']); ?></td>
 		<td><?php echo h($user['User']['state']); ?></td>
 		<td><?php echo h($user['User']['zip']); ?></td>
-		<td><?php echo h($user['User']['product_count']); ?></td>
+		<td><?php echo $this->Html->link($user['User']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'user_id', 'id' => $user['User']['id']))); ?></td>
 		<td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
 		<td class="actions">
 			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-mini')); ?>

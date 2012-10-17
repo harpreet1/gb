@@ -45,7 +45,7 @@ $(document).ready(function() {
 		<td><?php echo $subsubcategory['Subsubcategory']['subcategory_name']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['name']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['slug']; ?></td>
-		<td><?php echo $subsubcategory['Subsubcategory']['product_count']; ?></td>
+		<td><?php echo $this->Html->link($subsubcategory['Subsubcategory']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'subsubcategory_id', 'id' => $subsubcategory['Subsubcategory']['id']))); ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['created']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['modified']; ?></td>
 		<td class="actions">

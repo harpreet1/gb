@@ -35,7 +35,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('product_count'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($subcategories as $subcategory): ?>
 	<tr>
@@ -47,7 +47,7 @@ $(document).ready(function() {
 		<td><?php echo $subcategory['Subcategory']['name']; ?></td>
 		<td><?php echo $subcategory['Subcategory']['slug']; ?></td>
 		<td><?php echo $subcategory['Subcategory']['subsubcategory_count']; ?></td>
-		<td><?php echo $subcategory['Subcategory']['product_count']; ?></td>
+		<td><?php echo $this->Html->link($subcategory['Subcategory']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'subcategory_id', 'id' => $subcategory['Subcategory']['id']))); ?></td>
 		<td><?php echo $subcategory['Subcategory']['created']; ?></td>
 		<td><?php echo $subcategory['Subcategory']['modified']; ?></td>
 		<td class="actions">

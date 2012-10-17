@@ -71,7 +71,10 @@ $(document).ready(function() {
 			'class' => 'span2',
 			'options' => array(
 				'name' => 'Name',
-				'id' => 'ID',
+				'id' => 'Product Id',
+				'category_id' => 'Category Id',
+				'subcategory_id' => 'Sub Category Id',
+				'subsubcategory_id' => 'Sub Sub Category Id',
 				'brand' => 'Brand',
 				'price' => 'Price',
 				'active' => 'Active',
