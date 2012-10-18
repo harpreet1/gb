@@ -5,10 +5,10 @@
 		mode : "textareas",
 		theme : "advanced",
 		skin: "thebigreason",
-        plugins : "inlinepopups",
+		plugins : "inlinepopups",
 		// Theme options
-        theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,cleanup,removeformat,code",
-        theme_advanced_resizing : true,
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
 	});
 </script>
 
@@ -19,7 +19,7 @@
 <?php echo $this->Form->input('slug'); ?>
 <?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-xxlarge')); ?>
 <br />
-Active <?php echo $this->Form->checkbox('active'); ?>
+<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 <br />
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
@@ -27,5 +27,4 @@ Active <?php echo $this->Form->checkbox('active'); ?>
 
 <br />
 <br />
-
 

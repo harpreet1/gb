@@ -1,4 +1,5 @@
 .DS_Store
+dwsync.xml
 app/Config/database.php
 app/Config/settings.php
 app/tmp/logs/error.log

@@ -19,7 +19,7 @@ echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active
 
 <br />
 
-<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Note.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Note.id'))); ?><br />
+<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Note.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Note.id'))); ?><br />
 
 <br />
 <br />
