@@ -91,7 +91,7 @@
 
 			</div>
 
-			<div class="span5">
+			<div class="span5 product-description">
 
 				<h3><?php echo $product['Product']['name']; ?></h3>
 
