@@ -1,47 +1,49 @@
-<div class="articles view">
-<h2><?php  echo __('Article'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['slug']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Body'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['body']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Active'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['active']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Article'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Article'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?> </li>
-	</ul>
-</div>
+<h2>Article</h2>
+
+<table class="table-striped table-bordered table-condensed table-hover">
+<tr>
+<td>Id</td>
+<td><?php echo $article['Article']['id']; ?></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><?php echo $article['Article']['name']; ?></td>
+</tr>
+<tr>
+<td>Slug</td>
+<td><?php echo $article['Article']['slug']; ?></td>
+</tr>
+<tr>
+<td>Body</td>
+<td><?php echo $article['Article']['body']; ?></td>
+</tr>
+<tr>
+<td>Active</td>
+<td><?php echo $article['Article']['active']; ?></td>
+</tr>
+<tr>
+<td>Created</td>
+<td><?php echo $article['Article']['created']; ?></td>
+</tr>
+<tr>
+<td>Modified</td>
+<td><?php echo $article['Article']['modified']; ?></td>
+</tr>
+</table>
+
+<br />
+<br />
+
+<h3>Actions</h3>
+
+<br />
+
+<?php echo $this->Html->link('Edit Article', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn')); ?>
+
+<br />
+<br />
+
+<?php echo $this->Form->postLink('Delete Article', array('action' => 'delete', $article['Article']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
+
+<br />
+<br />
