@@ -19,11 +19,11 @@
 </tr>
 <tr>
 <td>Name</td>
-<td><?php echo h($recipe['Recipe']['name']); ?></td>
+<td><?php echo $recipe['Recipe']['name']; ?></td>
 </tr>
 <tr>
 <td>Slug</td>
-<td><?php echo h($recipe['Recipe']['slug']); ?></td>
+<td><?php echo $recipe['Recipe']['slug']; ?></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -31,7 +31,7 @@
 </tr>
 <tr>
 <td>Tags</td>
-<td><?php echo h($recipe['Recipe']['tags']); ?></td>
+<td><?php echo $recipe['Recipe']['tags']; ?></td>
 </tr>
 <tr>
 <td>Ingredients</td>
@@ -43,7 +43,7 @@
 </tr>
 <tr>
 <td>Comment</td>
-<td><?php echo h($recipe['Recipe']['comment']); ?></td>
+<td><?php echo $recipe['Recipe']['comment']; ?></td>
 </tr>
 <tr>
 <td>Image 1</td>
