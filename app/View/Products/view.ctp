@@ -34,22 +34,19 @@
 
 		<br />
 
-		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('products/image_1/' . $product['Product']['image_1'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('products/image_2/' . $product['Product']['image_2'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('products/image_3/' . $product['Product']['image_3'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('products/image_4/' . $product['Product']['image_4'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
-		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
+		<?php echo $this->Html->image('products/image_5/' . $product['Product']['image_5'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 		<br />
 		<br />
 
