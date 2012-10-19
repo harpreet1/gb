@@ -96,7 +96,7 @@ class ProductsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.price',
+				'Product.selling_price',
 				'User.slug'
 			),
 			'limit' => 40,
@@ -161,7 +161,7 @@ class ProductsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.price',
+				'Product.selling_price',
 				'User.slug'
 			),
 			'limit' => 40,
@@ -231,7 +231,7 @@ class ProductsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.price',
+				'Product.selling_price',
 				'User.slug'
 			),
 			'conditions' => array(
@@ -286,7 +286,7 @@ class ProductsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.price',
+				'Product.selling_price',
 				'User.slug'
 			),
 			'conditions' => array(
@@ -388,7 +388,7 @@ class ProductsController extends AppController {
 					'Product.name',
 					'Product.slug',
 					'Product.image',
-					'Product.price',
+					'Product.selling_price',
 					'User.slug'
 				),
 				'conditions' => $conditions,
