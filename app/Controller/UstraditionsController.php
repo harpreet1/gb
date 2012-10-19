@@ -63,7 +63,7 @@ class UstraditionsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.description',
-				'Product.price',
+				'Product.selling_price',
 				'Product.image',
 				'Product.category_id',
 				'User.id',

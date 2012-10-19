@@ -63,7 +63,7 @@ class CategoriesController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.price',
+				'Product.selling_price',
 				'User.id',
 				'User.name',
 				'User.slug',

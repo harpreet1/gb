@@ -162,7 +162,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
-		<td><span class="price" data-value="<?php echo $product['Product']['selling_price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['selling_price']); ?></span></td>
+		<td><span class="selling_price" data-value="<?php echo $product['Product']['selling_price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['selling_price']); ?></span></td>
 		<td><div><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></div></td>
 		<td><div><span class="serving_suggestions" data-value="<?php echo $product['Product']['serving_suggestions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['serving_suggestions']); ?></span></div></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
