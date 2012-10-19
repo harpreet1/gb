@@ -355,7 +355,7 @@ class ProductsController extends AppController {
 			$this->redirect(array('action' => 'index'), 301);
 		}
 		$this->set(compact('product'));
-
+		$this->layout = 'product';
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));
 

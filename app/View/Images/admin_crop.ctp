@@ -50,7 +50,7 @@ Height: <?php echo $height; ?>
 <br />
 <br />
 
-<table>
+<table style="margin-left:40px;margin-top:300px">
 	<tr>
 		<td><?php echo $this->Html->image($src_fileweb . '?' . date('now'), array('id' => 'cropbox', 'style' => 'float: left; margin-right: 10px;', 'width' => $width)); ?></td>
 	</tr>

@@ -21,9 +21,9 @@ $(document).ready(function() {
 		placement: 'left',
 	});
 
-	$('.price').editable({
+	$('.selling_price').editable({
 		type: 'text',
-		name: 'price',
+		name: 'selling_price',
 		url: '/admin/products/editable',
 		title: 'Price',
 		placement: 'right',
@@ -76,7 +76,7 @@ $(document).ready(function() {
 				'subcategory_id' => 'Sub Category Id',
 				'subsubcategory_id' => 'Sub Sub Category Id',
 				'brand' => 'Brand',
-				'price' => 'Price',
+				'selling_price' => 'Selling Price',
 				'active' => 'Active',
 			),
 			'selected' => $all['filter']
@@ -124,7 +124,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
-		<th><?php echo $this->Paginator->sort('price'); ?></th>
+		<th><?php echo $this->Paginator->sort('selling_price'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('serving_suggestions'); ?></th>
 		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
