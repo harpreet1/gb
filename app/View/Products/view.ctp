@@ -8,10 +8,6 @@
 		<h5><?php echo $user['User']['name']; ?></h5>
 
 		<br />
-
-		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
-
-		<br />
 		<br />
 
 		<p><?php echo $user['User']['shop_quote']; ?></p>
@@ -33,20 +29,40 @@
 		<?php endif; ?>
 
 		<br />
+		
 
-		<?php echo $this->Html->image('products/image_1/' . $product['Product']['image_1'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+
+
+		<?php if(!empty($product['Product']['image_1'])) :
+				echo $this->Html->image('products/image_1/' . $product['Product']['image_1'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
+				endif; ?>
 		<br />
 		<br />
-		<?php echo $this->Html->image('products/image_2/' . $product['Product']['image_2'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+		
+		<?php if(!empty($product['Product']['image_2'])) :
+				echo $this->Html->image('products/image_2/' . $product['Product']['image_2'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); 
+				endif; ?>
+
 		<br />
 		<br />
-		<?php echo $this->Html->image('products/image_3/' . $product['Product']['image_3'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+		
+		<?php if(!empty($product['Product']['image_4'])) :
+				echo $this->Html->image('products/image_3/' . $product['Product']['image_3'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
+				endif; ?>
+
 		<br />
 		<br />
-		<?php echo $this->Html->image('products/image_4/' . $product['Product']['image_4'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+		
+		<?php if(!empty($product['Product']['image_5'])) :
+			 	echo $this->Html->image('products/image_4/' . $product['Product']['image_4'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
+				endif; ?>
+				
 		<br />
 		<br />
-		<?php echo $this->Html->image('products/image_5/' . $product['Product']['image_5'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
+		
+		<?php if(!empty($product['Product']['image_6'])) :
+				 echo $this->Html->image('products/image_5/' . $product['Product']['image_5'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
+				endif; ?>
 		<br />
 		<br />
 
@@ -126,12 +142,12 @@
 <div id="fb-root">
 </div>
 <script type="text/javascript">(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=214123048679188";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=214123048679188";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 </script>
 
 <div class="fb-comment">
