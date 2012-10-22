@@ -11,16 +11,55 @@ class CountShell extends Shell {
 
 		$this->out('Start');
 
+		$this->CountReset('User', 'product_count');
+		$this->CountReset('Category', 'product_count');
+		$this->CountReset('Category', 'subcategory_count');
+		$this->CountReset('Subcategory', 'product_count');
+		$this->CountReset('Subcategory', 'subsubcategory_count');
+		$this->CountReset('Subsubcategory', 'product_count');
+		$this->CountReset('Subsubcategory', 'subcategory_name', null);
+
 		$this->usersProductCount();
 
 		$this->categoryProductCount();
 
+		$this->categorySubcategoryCount();
+
 		$this->subcategoryProductCount();
+
+		$this->subcategorySubsubcategoryCount();
 
 		$this->subsubcategoryProductCount();
 
+		$this->subsubcategorySubcategoryName();
+
 		$this->out('End');
 
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function CountReset($model, $field, $value = 0) {
+		$this->$model->updateAll(
+			array($model . '.' . $field => $value),
+			array($model . '.' . $field . ' !=' => $value)
+		);
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function subsubcategorySubcategoryName() {
+		$subsubcategories = $this->Subsubcategory->find('all');
+		foreach($subsubcategories as $subsubcategory) {
+			$SubcategoryName = $this->Subcategory->field('name', array(
+				'Subcategory.id' => $subsubcategory['Subsubcategory']['subcategory_id'],
+			));
+			$this->out($SubcategoryName);
+			$this->out('==========');
+			$ssn['Subsubcategory']['id'] = $subsubcategory['Subsubcategory']['id'];
+			$ssn['Subsubcategory']['subcategory_name'] = $SubcategoryName;
+			$this->Subsubcategory->save($ssn, false);
+		}
 	}
 
 ////////////////////////////////////////////////////////////
@@ -104,6 +143,46 @@ class CountShell extends Shell {
 			$ss['Subsubcategory']['id'] = $subsubcategory['Subsubcategory']['id'];
 			$ss['Subsubcategory']['product_count'] = $product_count;
 			$this->Subsubcategory->save($ss, false);
+		}
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function categorySubcategoryCount() {
+		$categories = $this->Category->find('all');
+		foreach($categories as $category) {
+			$subcategory_count = $this->Subcategory->find('count', array(
+				'conditions' => array(
+					'Subcategory.category_id' => $category['Category']['id'],
+				)
+			));
+			$this->out($category['Category']['id']);
+			$this->out($category['Category']['name']);
+			$this->out($subcategory_count);
+			$this->out('==========');
+			$cs['Category']['id'] = $category['Category']['id'];
+			$cs['Category']['subcategory_count'] = $subcategory_count;
+			$this->Category->save($cs, false);
+		}
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function subcategorySubsubcategoryCount() {
+		$subcategories = $this->Subcategory->find('all');
+		foreach($subcategories as $subcategory) {
+			$subsubcategory_count = $this->Subsubcategory->find('count', array(
+				'conditions' => array(
+					'Subsubcategory.subcategory_id' => $subcategory['Subcategory']['id'],
+				)
+			));
+			$this->out($subcategory['Subcategory']['id']);
+			$this->out($subcategory['Subcategory']['name']);
+			$this->out($subsubcategory_count);
+			$this->out('==========');
+			$css['Subcategory']['id'] = $subcategory['Subcategory']['id'];
+			$css['Subcategory']['subsubcategory_count'] = $subsubcategory_count;
+			$this->Subcategory->save($css, false);
 		}
 	}
 
