@@ -43,7 +43,7 @@ class CartComponent extends Component {
 				'Product.name',
 				'Product.slug',
 				'Product.image',
-				'Product.selling_price',
+				'Product.price',
 				'Product.weight_unit',
 				'Product.weight',
 				'Product.height',
@@ -63,7 +63,7 @@ class CartComponent extends Component {
 			return false;
 		}
 		$data['quantity'] = $quantity;
-		$data['subtotal'] = sprintf('%01.2f', $product['Product']['selling_price'] * $quantity);
+		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
 		$data['totalweight'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
 
 		$data['Product'] = $product['Product'];
