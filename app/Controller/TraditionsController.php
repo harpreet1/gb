@@ -63,7 +63,7 @@ class TraditionsController extends AppController {
 				'Product.name',
 				'Product.slug',
 				'Product.description',
-				'Product.selling_price',
+				'Product.price',
 				'Product.image',
 				'Product.image_1',
 				'Product.image_2',
