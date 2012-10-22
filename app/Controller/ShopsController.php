@@ -211,7 +211,6 @@ class ShopsController extends AppController {
 					$this->PaypalPro->billingZip = '75071';
 					$this->PaypalPro->billingCountryCode = 'US';
 
-
 					$paypal = $this->PaypalPro->doDirectPayment();
 //					debug($result);
 				} catch(Exception $e) {
@@ -222,6 +221,7 @@ class ShopsController extends AppController {
 
 				$i = 0;
 				foreach($shop['Cart']['Items'] as $c) {
+					$o['OrderItem'][$i]['user_id'] = $c['User']['id'];
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
 					$o['OrderItem'][$i]['price'] = $c['subtotal'];
