@@ -23,8 +23,8 @@
 				<a class="brand" href="#">GB</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Home', array('subdomain' => 'www', 'controller' => 'sites', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Categories', array('subdomain' => 'www', 'controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
 							<a href="/users/vendors" class="dropdown-toggle" data-toggle="dropdown">Vendors<b class="caret"></b></a>
@@ -35,12 +35,12 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li><?php echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('US Markets', array('subdomain' => 'www', 'controller' => 'ustraditions', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Int\'l Markets', array('subdomain' => 'www', 'controller' => 'traditions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
+						<li><?php echo $this->Html->link('Articles', array('subdomain' => 'www', 'controller' => 'articles', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Cart', array('subdomain' => 'www', 'controller' => 'shops', 'action' => 'cart')); ?></li>
 					</ul>
 				</div>
 
