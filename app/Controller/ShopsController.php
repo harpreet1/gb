@@ -234,7 +234,7 @@ class ShopsController extends AppController {
 
 				$o['Order']['shipping'] = $shop['Shippingtotal']['03']['TotalCharges'];
 
-				$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'];
+				$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'] + $shop['Shippingtotal']['03']['TotalCharges'];
 				$o['Order']['weight'] = $shop['Cart']['Property']['cartWeight'];
 
 				$o['Order']['status'] = 1;
