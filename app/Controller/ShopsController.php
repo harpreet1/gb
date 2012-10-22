@@ -224,7 +224,7 @@ class ShopsController extends AppController {
 				foreach($shop['Cart']['Items'] as $c) {
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
-					$o['OrderItem'][$i]['selling_price'] = $c['subtotal'];
+					$o['OrderItem'][$i]['price'] = $c['subtotal'];
 					$o['OrderItem'][$i]['weight'] = $c['totalweight'];
 					$i++;
 				}
