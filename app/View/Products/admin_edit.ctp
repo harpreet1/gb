@@ -141,10 +141,10 @@ $(document).ready(function(){
 
 
 		<div class="span2">
-			<?php echo $this->Form->input('cost');?>
+			<?php echo $this->Form->input('price_wholesale');?>
 			<?php echo $this->Form->input('price');?>
-			<?php echo $this->Form->input('list_price');?>
-			<?php echo $this->Form->input('selling_price');?><br />
+			<?php echo $this->Form->input('price_list');?>
+			<?php echo $this->Form->input('price_selling');?><br />
 			<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 			<?php echo $this->Form->input('measurement');?>
 			<?php echo $this->Form->input('weight_unit');?>
