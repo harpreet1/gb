@@ -97,7 +97,9 @@ class User extends AppModel {
 				'User.slug',
 			),
 			'conditions' => array(
-				'User.level' => 'vendor'
+				'User.level' => 'vendor',
+				'User.active' => 1,
+				'User.product_count >' => 0,
 			),
 			'order' => array(
 				'User.name' => 'ASC'
