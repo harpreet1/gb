@@ -21,11 +21,11 @@ $(document).ready(function() {
 		placement: 'left',
 	});
 
-	$('.selling_price').editable({
+	$('.price').editable({
 		type: 'text',
-		name: 'selling_price',
+		name: 'price',
 		url: '/admin/products/editable',
-		title: 'Selling Price',
+		title: 'Price',
 		placement: 'right',
 	});
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
 				'subcategory_id' => 'Sub Category Id',
 				'subsubcategory_id' => 'Sub Sub Category Id',
 				'brand' => 'Brand',
-				'selling_price' => 'Selling Price',
+				'price' => 'Price',
 				'active' => 'Active',
 			),
 			'selected' => $all['filter']
@@ -124,7 +124,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
-		<th><?php echo $this->Paginator->sort('selling_price'); ?></th>
+		<th><?php echo $this->Paginator->sort('price'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('serving_suggestions'); ?></th>
 		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
@@ -162,7 +162,7 @@ $(document).ready(function() {
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
-		<td><span class="selling_price" data-value="<?php echo $product['Product']['selling_price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['selling_price']); ?></span></td>
+		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
 		<td><div><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['description']); ?></span></div></td>
 		<td><div><span class="serving_suggestions" data-value="<?php echo $product['Product']['serving_suggestions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['serving_suggestions']); ?></span></div></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
