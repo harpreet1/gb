@@ -1,3 +1,6 @@
+
+<?php echo $this->Html->script(array('jquery.gallerific.js', 'jquery.opacityrollover.js'), array('inline' => false)); ?>
+
 <br />
 <br />
 
@@ -29,37 +32,34 @@
 		<?php endif; ?>
 
 		<br />
-		
-
-
 
 		<?php if(!empty($product['Product']['image_1'])) :
 				echo $this->Html->image('products/image_1/' . $product['Product']['image_1'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
 				endif; ?>
 		<br />
 		<br />
-		
+
 		<?php if(!empty($product['Product']['image_2'])) :
-				echo $this->Html->image('products/image_2/' . $product['Product']['image_2'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); 
+				echo $this->Html->image('products/image_2/' . $product['Product']['image_2'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
 				endif; ?>
 
 		<br />
 		<br />
-		
+
 		<?php if(!empty($product['Product']['image_4'])) :
 				echo $this->Html->image('products/image_3/' . $product['Product']['image_3'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
 				endif; ?>
 
 		<br />
 		<br />
-		
+
 		<?php if(!empty($product['Product']['image_5'])) :
 			 	echo $this->Html->image('products/image_4/' . $product['Product']['image_4'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
 				endif; ?>
-				
+
 		<br />
 		<br />
-		
+
 		<?php if(!empty($product['Product']['image_6'])) :
 				 echo $this->Html->image('products/image_5/' . $product['Product']['image_5'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid'));
 				endif; ?>
