@@ -47,6 +47,30 @@ $(document).ready(function() {
 		placement: 'left',
 	});
 
+	$('.weight_unit').editable({
+		type: 'text',
+		name: 'weight_unit',
+		url: '/admin/products/editable',
+		title: 'Weight Unit',
+		placement: 'left',
+	});
+
+	$('.weight').editable({
+		type: 'text',
+		name: 'weight',
+		url: '/admin/products/editable',
+		title: 'Weight',
+		placement: 'left',
+	});
+
+	$('.shipping_weight').editable({
+		type: 'text',
+		name: 'shipping_weight',
+		url: '/admin/products/editable',
+		title: 'Shipping Weight',
+		placement: 'left',
+	});
+
 });
 </script>
 
@@ -167,9 +191,9 @@ $(document).ready(function() {
 		<td><div><span class="serving_suggestions" data-value="<?php echo $product['Product']['serving_suggestions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['serving_suggestions']); ?></span></div></td>
 		<td><?php echo h($product['Product']['traditions']); ?></td>
 		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
-		<td><?php echo h($product['Product']['weight_unit']); ?></td>
-		<td><?php echo h($product['Product']['weight']); ?></td>
-		<td><?php echo h($product['Product']['shipping_weight']); ?></td>
+		<td><span class="weight_unit" data-value="<?php echo $product['Product']['weight_unit']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['weight_unit']); ?></span></td>
+		<td><span class="weight" data-value="<?php echo $product['Product']['weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['weight']); ?></span></td>
+		<td><span class="shipping_weight" data-value="<?php echo $product['Product']['shipping_weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['shipping_weight']); ?></span></td>
 		<td><span class="country" data-value="<?php echo $product['Product']['country']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['country']); ?></span></td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 	</tr>

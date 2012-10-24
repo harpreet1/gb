@@ -225,8 +225,9 @@ class ShopsController extends AppController {
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
 					$o['OrderItem'][$i]['price'] = $c['subtotal'];
-					$o['OrderItem'][$i]['subtotal'] = $c['quantity'] * $c['subtotal'];
-					$o['OrderItem'][$i]['weight'] = $c['totalweight'];
+					$o['OrderItem'][$i]['price_total'] = $c['quantity'] * $c['subtotal'];
+					$o['OrderItem'][$i]['weight'] = $c['Product']['weight'];
+					$o['OrderItem'][$i]['weight_total'] = $c['totalweight'];
 					$i++;
 				}
 

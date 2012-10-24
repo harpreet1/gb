@@ -37,6 +37,14 @@ class Product extends AppModel {
 				'message' => 'Only letters and integers, min 3 characters'
 			)
 		),
+		'price' => array(
+			'rule1' => array(
+				'rule' => array('decimal', 2),
+				'message' => 'invalid price',
+				'allowEmpty' => false,
+				'required' => true,
+			),
+		),
 	);
 
 ////////////////////////////////////////////////////////////
