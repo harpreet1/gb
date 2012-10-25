@@ -127,11 +127,8 @@
 				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
 
 				<br />
-<<<<<<< HEAD
-				$<?php echo $product['Product']['price_selling']; ?>
-=======
+
 				$<?php echo $product['Product']['price']; ?>
->>>>>>> a3f8805669d8187629adfedd294ca324abf97fbb
 
 				<br />
 				<br />
