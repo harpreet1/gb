@@ -412,7 +412,7 @@ class FormHelper extends AppHelper {
 		$action = $this->url($options['action']);
 		unset($options['type'], $options['action']);
 
-		if ($options['default'] == false) {
+		if (!$options['default']) {
 			if (!isset($options['onsubmit'])) {
 				$options['onsubmit'] = '';
 			}
@@ -1289,7 +1289,7 @@ class FormHelper extends AppHelper {
 				'value' => ($options['hiddenField'] !== true ? $options['hiddenField'] : '0'),
 				'secure' => false
 			);
-			if (isset($options['disabled']) && $options['disabled'] == true) {
+			if (isset($options['disabled']) && $options['disabled']) {
 				$hiddenOptions['disabled'] = 'disabled';
 			}
 			$output = $this->hidden($fieldName, $hiddenOptions);
@@ -1870,7 +1870,7 @@ class FormHelper extends AppHelper {
 			// Secure the field if there are options, or its a multi select.
 			// Single selects with no options don't submit, but multiselects do.
 			if (
-				(!isset($secure) || $secure == true) &&
+				(!isset($secure) || $secure) &&
 				empty($attributes['disabled']) &&
 				(!empty($attributes['multiple']) || $hasOptions)
 			) {
@@ -2059,6 +2059,11 @@ class FormHelper extends AppHelper {
 		} elseif ($attributes['value'] === false) {
 			$attributes['value'] = null;
 		}
+
+		if ($attributes['value'] > 12 && !$format24Hours) {
+			$attributes['value'] -= 12;
+		}
+
 		return $this->select(
 			$fieldName . ".hour",
 			$this->_generateOptions($format24Hours ? 'hour24' : 'hour'),
@@ -2223,17 +2228,14 @@ class FormHelper extends AppHelper {
 				if (!empty($timeFormat)) {
 					$time = explode(':', $days[1]);
 
-					if (($time[0] > 12) && $timeFormat == '12') {
-						$time[0] = $time[0] - 12;
-						$meridian = 'pm';
-					} elseif ($time[0] == '12' && $timeFormat == '12') {
+					if ($time[0] >= '12' && $timeFormat == '12') {
 						$meridian = 'pm';
 					} elseif ($time[0] == '00' && $timeFormat == '12') {
 						$time[0] = 12;
 					} elseif ($time[0] >= 12) {
 						$meridian = 'pm';
 					}
-					if ($time[0] == 0 && $timeFormat == '12') {
+					if (!$time[0] && $timeFormat == '12') {
 						$time[0] = 12;
 					}
 					$hour = $min = null;
