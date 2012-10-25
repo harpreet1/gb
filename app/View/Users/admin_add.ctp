@@ -8,13 +8,12 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-			theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-			theme_advanced_resizing : true,
-
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
 	});
 </script>
 
-<h2>Admin Edit User</h2>
+<h2>Admin Add User</h2>
 <?php echo $this->Form->create('User'); ?>
 <?php
 echo $this->Form->input('level');
@@ -102,3 +101,6 @@ echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>
+<br />
+<br />
+
