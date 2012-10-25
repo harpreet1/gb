@@ -68,6 +68,9 @@ $(document).ready(function(){
 			<?php echo $this->Form->input('brand'); ?>
 		</div>
 		<div class="span2">
+			<?php echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?></div>
+		</div>
+		<div class="span2">
 			<?php echo $this->Form->input('upc'); ?>
 		</div>
 		<div class="span2">
