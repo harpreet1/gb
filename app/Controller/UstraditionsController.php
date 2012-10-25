@@ -96,8 +96,12 @@ class UstraditionsController extends AppController {
 		if (!$this->Ustradition->exists($id)) {
 			throw new NotFoundException(__('Invalid ustradition'));
 		}
-		$options = array('conditions' => array('Ustradition.' . $this->Ustradition->primaryKey => $id));
-		$this->set('ustradition', $this->Ustradition->find('first', $options));
+		$ustradition = $this->Ustradition->find('first', array(
+			'conditions' => array(
+				'Ustradition.id' => $id
+			)
+		));
+		$this->set(compact('ustradition'));
 	}
 
 ////////////////////////////////////////////////////////////
