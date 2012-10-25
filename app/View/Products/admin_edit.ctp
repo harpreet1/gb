@@ -67,9 +67,7 @@ $(document).ready(function(){
 		<div class="span2">
 			<?php echo $this->Form->input('brand'); ?>
 		</div>
-		<div class="span2">
-			<?php echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?></div>
-		</div>
+		
 		<div class="span2">
 			<?php echo $this->Form->input('upc'); ?>
 		</div>
@@ -85,6 +83,9 @@ $(document).ready(function(){
 			<div><?php echo $this->Form->input('description', array('rows' => 10, 'cols' => 10)); ?></div>
 		</div>
 		<div class="span4">
+			<?php echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?></div>
+		</div>
+		<div class="span4">
 			<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
 			<br />
 			<?php echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
@@ -94,13 +95,14 @@ $(document).ready(function(){
 
 	</div>
 
+
 	<div class="span12">
-		<div class="span4">
+		<div class="span6">
 			<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
 			<div><?php echo $this->Form->input('generic_description', array('rows' => 20, 'class' => '4span')); ?></div>
 		</div>
 
-		<div class="span2">
+		<div class="span3">
 			<?php echo $this->Form->input('traditions'); ?>
 			<?php echo $this->Form->input('ustradition_id', array('empty' => '')); ?>
 			<?php echo $this->Form->input('country'); ?>
@@ -135,7 +137,7 @@ $(document).ready(function(){
 
 	</div>
 	<div class="span12">
-		<div class="span4">
+		<div class="span6">
 			<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span')); ?>
 			<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span')); ?>
 			<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span')); ?>
@@ -144,7 +146,7 @@ $(document).ready(function(){
 		</div>
 
 
-		<div class="span2">
+		<div class="span3">
 			<?php echo $this->Form->input('price_wholesale');?>
 			<?php echo $this->Form->input('price');?>
 			<?php echo $this->Form->input('price_list');?>
@@ -160,26 +162,29 @@ $(document).ready(function(){
 			<?php echo $this->Form->input('height');?>
 			<?php echo $this->Form->input('length');?>
 			<?php echo $this->Form->input('width');?>
+			<?php echo $this->Form->input('related_products'); ?>
 		</div>
 	</div>
 
 </div>
 
 <br />
-
-
-<?php echo $this->Form->input('related_products'); ?>
-<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-<br />
-<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-<?php echo $this->Form->end(); ?>
-
-<h3>Actions</h3>
-<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn')); ?>
-<br />
-<br />
-<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
-
-<br />
-<br />
-
+<div class="row">
+	<div class="span12">
+		<div class="span3">
+			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+			<br />
+			<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+			<?php echo $this->Form->end(); ?>
+			
+			<h3>Actions</h3>
+			<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn')); ?>
+			<br />
+			<br />
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
+			
+			<br />
+			<br />
+		</div>
+	</div>	
+</div>	
