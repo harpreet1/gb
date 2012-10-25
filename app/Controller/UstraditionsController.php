@@ -33,7 +33,7 @@ class UstraditionsController extends AppController {
 		));
 		$this->set(compact('ustraditions'));
 
-		$ustraditionid = $ustradition['Ustradition']['id'];
+		$ustradition_id = $ustradition['Ustradition']['id'];
 
 		$this->loadModel('Product');
 
@@ -71,7 +71,7 @@ class UstraditionsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.active' => 1,
-				'FIND_IN_SET("'.$ustraditionid.'", ustradition_id)'
+				'Product.ustradition_id' => $ustradition_id,
 			),
 			'limit' => 30,
 			'order' => array('
