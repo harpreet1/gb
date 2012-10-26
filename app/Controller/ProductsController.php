@@ -742,6 +742,10 @@ class ProductsController extends AppController {
 			throw new NotFoundException(__('Invalid product'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			if(!empty($this->request->data['Product']['traditions'])) {
+				asort($this->request->data['Product']['traditions']);
+				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
+			}
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));
@@ -782,7 +786,7 @@ class ProductsController extends AppController {
 
 		//$categories1 = $this->Product->Category->find('all', array(
 		//	'recursive' => -1,
-		//	'fields'=> array(
+		//	'fie)ds'=> array(
 		//		'Category.id',
 		//		'Category.name',
 		//	),
@@ -836,6 +840,19 @@ class ProductsController extends AppController {
 			$subsubcategories[$subsubcategory['Subsubcategory']['id']] = array('name' => $subsubcategory['Subsubcategory']['name'], 'value' => $subsubcategory['Subsubcategory']['id'], 'class' => $subsubcategory['Subsubcategory']['subcategory_id']);
 		}
 
+		$traditions = ClassRegistry::init('Tradition')->find('list', array(
+			'recursive' => -1,
+			'fields'=> array(
+				'Tradition.id',
+				'Tradition.name',
+			),
+			'order' => array(
+				'Tradition.name' => 'ASC'
+			)
+		));
+
+		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
+
 		$ustraditions = $this->Product->Ustradition->find('list', array(
 			'order' => array(
 				'Ustradition.name' => 'ASC'
@@ -846,7 +863,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'countries', 'creations'));
 
 	}
 

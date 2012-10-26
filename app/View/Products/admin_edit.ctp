@@ -67,7 +67,7 @@ $(document).ready(function(){
 		<div class="span2">
 			<?php echo $this->Form->input('brand'); ?>
 		</div>
-		
+
 		<div class="span2">
 			<?php echo $this->Form->input('upc'); ?>
 		</div>
@@ -103,12 +103,12 @@ $(document).ready(function(){
 		</div>
 
 		<div class="span3">
-			<?php echo $this->Form->input('traditions'); ?>
+			<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected)); ?>
+			<br />
+			<br />
 			<?php echo $this->Form->input('ustradition_id', array('empty' => '')); ?>
 			<?php echo $this->Form->input('country'); ?>
 			<?php echo $this->Form->input('creation'); ?>
-
-
 		</div>
 		<div class="span2">
 		<?php
@@ -176,15 +176,15 @@ $(document).ready(function(){
 			<br />
 			<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 			<?php echo $this->Form->end(); ?>
-			
+
 			<h3>Actions</h3>
 			<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn')); ?>
 			<br />
 			<br />
 			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Product.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Product.id'))); ?>
-			
+
 			<br />
 			<br />
 		</div>
-	</div>	
-</div>	
+	</div>
+</div>
