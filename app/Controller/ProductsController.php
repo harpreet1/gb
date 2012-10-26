@@ -786,7 +786,7 @@ class ProductsController extends AppController {
 
 		//$categories1 = $this->Product->Category->find('all', array(
 		//	'recursive' => -1,
-		//	'fie)ds'=> array(
+		//	'fields'=> array(
 		//		'Category.id',
 		//		'Category.name',
 		//	),
