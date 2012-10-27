@@ -1,25 +1,23 @@
 <br />
-<br />
 
-	<ul class="breadcrumb">
+<ul class="breadcrumb">
 
-		<?php if(!empty($category)) : ?>
-			<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-			<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
-		<?php endif; ?>
+	<?php if(!empty($category)) : ?>
+		<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
+		<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
+	<?php endif; ?>
 
-		<?php if(!empty($subcategory)) : ?>
-		<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
-		<?php endif; ?>
+	<?php if(!empty($subcategory)) : ?>
+	<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
+	<?php endif; ?>
 
-		<?php if(!empty($subsubcategory)) : ?>
-		<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
-		<?php endif; ?>
+	<?php if(!empty($subsubcategory)) : ?>
+	<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
+	<?php endif; ?>
 
-		<li class="active"><?php //echo $product['Product']['name']; ?></li>
+	<li class="active"><?php //echo $product['Product']['name']; ?></li>
 
-	</ul>
-
+</ul>
 
 <div class="row">
 
@@ -112,6 +110,17 @@
 	<div class="span8">
 
 		<div class="row">
+
+		Sort by:
+		&nbsp;
+		<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
+		&nbsp;
+		<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
+		&nbsp;
+		<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>
+
+		<br />
+		<br />
 
 		<?php
 		$i = 0;
