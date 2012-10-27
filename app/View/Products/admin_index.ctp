@@ -36,7 +36,7 @@ $(document).ready(function() {
 		title: 'Price',
 		placement: 'left',
 	});
-	
+
 	$('.price_wholesale').editable({
 		type: 'text',
 		name: 'price_wholesale',
@@ -102,7 +102,6 @@ $(document).ready(function() {
 
 	<div class="span2">
 		<?php echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
-
 	</div>
 
 	<div class="span2">

@@ -58,6 +58,8 @@
 
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 
+	Router::connect('/vendor', array('controller' => 'users', 'action' => 'dashboard', 'vendor' => true));
+
 	CakePlugin::routes();
 
 	require CAKE . 'Config' . DS . 'routes.php';

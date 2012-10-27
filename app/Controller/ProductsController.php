@@ -522,6 +522,34 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function vendor_index() {
+		$this->paginate = array(
+			'recursive' => 0,
+			'conditions' => array(
+				'Product.user_id' => $this->Auth->user('id')
+			),
+			'fields' => array(
+				'Product.*',
+				'User.id',
+				'User.name',
+				'User.level',
+				'Category.id',
+				'Category.name',
+				'Subcategory.id',
+				'Subcategory.name',
+				'Subsubcategory.id',
+				'Subsubcategory.name',
+				'Ustradition.id',
+				'Ustradition.name',
+			),
+			'limit' => 50,
+		);
+		$products = $this->paginate('Product');
+		$this->set(compact('products'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 
 		if ($this->request->is('post')) {

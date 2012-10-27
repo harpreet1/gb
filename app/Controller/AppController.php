@@ -32,13 +32,17 @@ class AppController extends Controller {
 				),
 				'scope' => array(
 					'User.active' => 1,
-					'User.level' => 'admin'
+					//'User.level' => 'admin'
 				)
 			), 'Form'
 		);
 
 		if(isset($this->request->params['admin']) && ($this->request->params['prefix'] == 'admin')) {
+			$this->isAuthorized($this->Auth->user());
 			$this->layout = 'admin';
+		} elseif(isset($this->request->params['vendor']) && ($this->request->params['prefix'] == 'vendor')) {
+			$this->isAuthorized($this->Auth->user());
+			$this->layout = 'vendor';
 		} else {
 			$this->Auth->allow();
 
@@ -59,6 +63,21 @@ class AppController extends Controller {
 
 ////////////////////////////////////////////////////////////
 
+	public function isAuthorized($user) {
+		if(!$user) {
+			return true;
+		}
+		if (($this->params['prefix'] === 'admin') && ($user['level'] != 'admin')) {
+			die('invalid request for '. $user['level'] . ' user.');
+		}
+		if (($this->params['prefix'] === 'vendor') && ($user['level'] != 'vendor')) {
+			die('invalid request for '. $user['level'] . ' user.');
+		}
+		return true;
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function _getSubDomain() {
 		$url = explode('.', $_SERVER['HTTP_HOST']);
 		return $url[0];
@@ -67,20 +86,15 @@ class AppController extends Controller {
 ////////////////////////////////////////////////////////////
 
 	public function admin_switch($field = null, $id = null) {
-
 		$this->autoRender = false;
-
 		$model = $this->modelClass;
-
 		if ($this->$model && $field && $id) {
 			$field = $this->$model->escapeField($field);
 			return $this->$model->updateAll(array($field => '1 -' . $field), array($this->$model->escapeField() => $id));
 		}
-
 		if(!$this->RequestHandler->isAjax()) {
 			$this->redirect($this->referer());
 		}
-
 	}
 
 ////////////////////////////////////////////////////////////

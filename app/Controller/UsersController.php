@@ -47,7 +47,22 @@ class UsersController extends AppController {
 	public function login() {
 		if ($this->request->is('post')) {
 			if($this->Auth->login()) {
-				return $this->redirect($this->Auth->redirect());
+
+				if ($this->Auth->user('level') == 'vendor') {
+					return $this->redirect(array(
+						'controller' => 'users',
+						'action' => 'dashboard',
+						'vendor' => true
+					));
+				} elseif ($this->Auth->user('level') == 'admin') {
+					return $this->redirect(array(
+						'controller' => 'users',
+						'action' => 'dashboard',
+						'admin' => true
+					));
+				} else {
+					$this->Session->setFlash('Login is incorrect');
+				}
 			} else {
 				$this->Session->setFlash('Login is incorrect');
 			}
@@ -64,6 +79,11 @@ class UsersController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_dashboard() {
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function vendor_dashboard() {
 	}
 
 ////////////////////////////////////////////////////////////
