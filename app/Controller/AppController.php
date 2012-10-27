@@ -21,7 +21,8 @@ class AppController extends Controller {
 
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login', 'admin' => false);
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'index', 'admin' => true);
-		$this->Auth->logoutRedirect = array('controller' => 'products', 'action' => 'index', 'admin' => false);
+		$this->Auth->logoutRedirect = array('controller' => 'contents', 'action' => 'homepage', 'admin' => false, 'vendor' => false);
+		$this->Auth->authorize = array('Controller');
 
 		$this->Auth->authenticate = array(
 			AuthComponent::ALL => array(
@@ -32,17 +33,14 @@ class AppController extends Controller {
 				),
 				'scope' => array(
 					'User.active' => 1,
-					//'User.level' => 'admin'
 				)
 			), 'Form'
 		);
 
 		if(isset($this->request->params['admin']) && ($this->request->params['prefix'] == 'admin')) {
-			$this->isAuthorized($this->Auth->user());
 			$this->set('authUser', $this->Auth->user());
 			$this->layout = 'admin';
 		} elseif(isset($this->request->params['vendor']) && ($this->request->params['prefix'] == 'vendor')) {
-			$this->isAuthorized($this->Auth->user());
 			$this->set('authUser', $this->Auth->user());
 			$this->layout = 'vendor';
 		} else {
@@ -66,9 +64,6 @@ class AppController extends Controller {
 ////////////////////////////////////////////////////////////
 
 	public function isAuthorized($user) {
-		if(!$user) {
-			return true;
-		}
 		if (($this->params['prefix'] === 'admin') && ($user['level'] != 'admin')) {
 			die('Invalid request for '. $user['level'] . ' user.');
 		}
