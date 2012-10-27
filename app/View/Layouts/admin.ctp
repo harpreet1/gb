@@ -82,7 +82,8 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Orders', array('controller' => 'orders', 'action' => 'index', 'admin' => true)); ?></li>
-							<li><?php echo $this->Html->link('Order items', array('controller' => 'order_items', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Order Users', array('controller' => 'order_users', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Order Items', array('controller' => 'order_items', 'action' => 'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>
 

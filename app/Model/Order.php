@@ -122,6 +122,19 @@ class Order extends AppModel {
 //////////////////////////////////////////////////
 
 	public $hasMany = array(
+		'OrderUser' => array(
+			'className' => 'OrderUser',
+			'foreignKey' => 'order_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'OrderItem' => array(
 			'className' => 'OrderItem',
 			'foreignKey' => 'order_id',

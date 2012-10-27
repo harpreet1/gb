@@ -212,12 +212,10 @@ class ShopsController extends AppController {
 					$this->PaypalPro->billingCountryCode = 'US';
 
 					$paypal = $this->PaypalPro->doDirectPayment();
-//					debug($result);
 				} catch(Exception $e) {
 					$this->Session->setFlash($e->getMessage());
 					$this->redirect(array('action' => 'review'));
 				}
-//				die('vege');
 
 				$i = 0;
 				foreach($shop['Cart']['Items'] as $c) {
@@ -228,6 +226,20 @@ class ShopsController extends AppController {
 					$o['OrderItem'][$i]['price_total'] = $c['quantity'] * $c['subtotal'];
 					$o['OrderItem'][$i]['weight'] = $c['Product']['weight'];
 					$o['OrderItem'][$i]['weight_total'] = $c['totalweight'];
+					$i++;
+				}
+
+				$i = 0;
+
+				foreach($shop['Cart']['Users'] as $u) {
+					$o['OrderUser'][$i]['user_id'] = $u['id'];
+					$o['OrderUser'][$i]['name'] = $u['name'];
+					$o['OrderUser'][$i]['quantity'] = $u['totalquantity'];
+					$o['OrderUser'][$i]['subtotal'] = $u['totalprice'];
+					$o['OrderUser'][$i]['weight'] = $u['totalweight'];
+					$o['OrderUser'][$i]['tax'] = 0;
+					$o['OrderUser'][$i]['shipping'] = 10;
+					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}
 
@@ -251,7 +263,6 @@ class ShopsController extends AppController {
 				//}
 				$save = $this->Order->saveAll($o, array('validate' => 'first'));
 				if($save) {
-
 					$this->set(compact('shop'));
 
 					App::uses('CakeEmail', 'Network/Email');
