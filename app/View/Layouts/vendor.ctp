@@ -24,20 +24,15 @@
 
 			<div class="nav-collapse">
 				<ul class="nav">
-
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'vendor' => true)); ?></li>
-						</ul>
-					</li>
-
+					<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'vendor' => true)); ?></li>
+					<li><?php echo $this->Html->link('Orders', '#'); ?></li>
+					<li><?php echo $this->Html->link('Profile', array('controller' => 'users', 'action' => 'profile', 'vendor' => true)); ?></li>
 				</ul>
 			</div>
 
 			<div class="btn-group pull-right">
 				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="icon-user"></i> Vendor
+				<i class="icon-user"></i> <?php echo $authUser['name']; ?>
 				<span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">

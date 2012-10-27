@@ -39,9 +39,11 @@ class AppController extends Controller {
 
 		if(isset($this->request->params['admin']) && ($this->request->params['prefix'] == 'admin')) {
 			$this->isAuthorized($this->Auth->user());
+			$this->set('authUser', $this->Auth->user());
 			$this->layout = 'admin';
 		} elseif(isset($this->request->params['vendor']) && ($this->request->params['prefix'] == 'vendor')) {
 			$this->isAuthorized($this->Auth->user());
+			$this->set('authUser', $this->Auth->user());
 			$this->layout = 'vendor';
 		} else {
 			$this->Auth->allow();
@@ -68,10 +70,10 @@ class AppController extends Controller {
 			return true;
 		}
 		if (($this->params['prefix'] === 'admin') && ($user['level'] != 'admin')) {
-			die('invalid request for '. $user['level'] . ' user.');
+			die('Invalid request for '. $user['level'] . ' user.');
 		}
 		if (($this->params['prefix'] === 'vendor') && ($user['level'] != 'vendor')) {
-			die('invalid request for '. $user['level'] . ' user.');
+			die('Invalid request for '. $user['level'] . ' user.');
 		}
 		return true;
 	}

@@ -88,6 +88,12 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function vendor_profile() {
+		$this->set('user', $this->User->read(null, $this->Auth->user('id')));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
