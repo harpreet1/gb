@@ -37,6 +37,7 @@
 			<?php echo $this->Form->input('phone'); ?>
 			<?php echo $this->Form->input('fax'); ?>
 			<?php echo $this->Form->input('email'); ?>
+			<?php echo $this->Form->input('email_orders'); ?>
 			<?php echo $this->Form->input('website'); ?>
 			<?php echo $this->Form->input('payment_biz_name'); ?>
 			<?php echo $this->Form->input('payment_street_address'); ?>

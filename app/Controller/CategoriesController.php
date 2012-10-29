@@ -18,6 +18,7 @@ class CategoriesController extends AppController {
 			)
 		));
 		$this->set(compact('categories'));
+		$this->layout = 'categories';
 	}
 
 ////////////////////////////////////////////////////////////
