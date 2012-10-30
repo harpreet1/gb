@@ -54,6 +54,9 @@
 	</div>
 
 	<div class="container content">
+		
+	
+	
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 		<br />

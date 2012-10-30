@@ -4,7 +4,7 @@ body {
 	/*	font-family: 'Open Sans', verdana, arial, sans-serif;*/
 	font-family: "Mako", sans-serif;
 	font-size: 15px;
-	background-color: #EEE;
+	background-color: #f4f7fe;
 	padding-top: 80px;
 }
 
@@ -15,6 +15,12 @@ h1 {
 h4 {
 	display: inline;
 }
+
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+	width: 960px;
+}
+
 
 #head {
 	position: relative;
@@ -267,6 +273,7 @@ div.pagination span.ellipsis {
 body.categories .content {
 	background-color:#fffbe5;
 	padding-top:10px;
+	
 }
 
 body.categories .content a {
@@ -276,10 +283,35 @@ body.categories .content a {
 
 #pantry-container {
 	background-image: url(../img/categories/pantry-inside.jpg);
-	background-repeat: no-repeat;	
-	height:650px;
+	background-repeat: no-repeat;
+	height:560px;	
 	padding-top:102px;
+	position:relative;
 }
+
+#left-door, #right-door, #left-door-top #left-door-bottom,
+#right-door-top #right-door-bottom  {
+	position:absolute;	
+}
+
+#left-door {
+	background-image:url(../img/categories/l-door-inside.jpg);
+	background-repeat: no-repeat;
+	width:221px;
+	height:667px;
+	left:-175px;
+	top:100px;
+}
+
+#right-door {
+	background-image:url(../img/categories/r-door-inside.png);
+	width:221px;
+	height:667px;
+	right:-175px;
+	top:100px;
+
+}
+
 
 h3.cat-title {
 	font-size:14px;

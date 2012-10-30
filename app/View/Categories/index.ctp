@@ -3,6 +3,17 @@
 
 
 <div id="pantry-container">
+	<div id="left-door"></div>
+	<div id="left-door-top"></div>
+	<div id="left-door-bottom"></div>
+	
+	
+	<div id="right-door"></div>
+	<div id="right-door-top"></div>
+	<div id="right-door-bottom"></div>
+	
+	
+	
 	<div class="well-stocked-pantry">The Well Stocked Pantry</div>
 
 	<div class="row pantry-row">
