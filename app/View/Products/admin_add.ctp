@@ -1,5 +1,6 @@
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+<?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
 
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js', array('inline' => false)); ?>
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "textareas",
@@ -14,17 +15,30 @@
 	});
 </script>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$("#ProductSubcategoryId").chained("#ProductCategoryId");
+	$("#ProductSubsubcategoryId").chained("#ProductSubcategoryId");
+
+});
+
+</script>
+
+
+
 <h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
 <?php
 echo $this->Form->input('user_id');
-echo $this->Form->input('category_id');
-echo $this->Form->input('category_name');
-echo $this->Form->input('subcategory_id');
-echo $this->Form->input('subcategory_name');
-echo $this->Form->input('subsubcategory_id');
-echo $this->Form->input('subsubcategory_name');
+echo $this->Form->input('category_id', array('empty' => '---choose--'));
+//echo $this->Form->input('category_name');
+echo $this->Form->input('subcategory_id', array('empty' => '---choose--'));
+//echo $this->Form->input('subcategory_name');
+echo $this->Form->input('subsubcategory_id', array('empty' => '---choose ( not required )'));
+//echo $this->Form->input('subsubcategory_name');
 echo $this->Form->input('upc');
 echo $this->Form->input('vendor_sku');
 echo $this->Form->input('brand');
