@@ -73,9 +73,12 @@ h4 {
 }
 
 .img180 {
-	width: 150px;
-	height: 150px;
+	width: 100px;
+	height: 100px;
 }
+
+
+
 
 .cake-sql-log {
 	background: #fff;
@@ -89,6 +92,44 @@ h4 {
 .cake-sql-log caption {
 	color: #666;
 }
+
+
+/** VENDOR PRODUCT DISPLAY **/
+.product-block {
+	margin-left:40px;
+}
+
+.row.gb {
+	margin-left:15px;
+}
+
+.span2.gb {
+	margin-left:0px;
+	margin-right:25px;
+	height:180px;	
+}
+
+.span2.gb {
+	margin-left:0px;
+	width:110px;
+}
+
+.product-name a, div.price {
+	font-size:11px;
+	
+}
+
+div.product-name, div.product-name p, div.product-name a {
+	line-height:14px;
+	padding:0px;
+	margin:0px;
+}
+
+div.price {
+	text-align:right;
+	
+}
+
 
 /** PRODUCT DESCRIPTION **/
 .product-description  {

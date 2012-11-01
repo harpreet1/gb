@@ -1,23 +1,23 @@
 <br />
 
-<ul class="breadcrumb">
+<!--<ul class="breadcrumb">
 
-	<?php if(!empty($category)) : ?>
-		<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-		<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
-	<?php endif; ?>
+	<?php //if(!empty($category)) : ?>
+		<li><?php //echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
+		<li><?php// echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
+	<?php //endif; ?>
 
-	<?php if(!empty($subcategory)) : ?>
-	<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
-	<?php endif; ?>
+	<?php //if(!empty($subcategory)) : ?>
+	<li><?php //echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
+	<?php //endif; ?>
 
-	<?php if(!empty($subsubcategory)) : ?>
-	<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
-	<?php endif; ?>
+	<?php //if(!empty($subsubcategory)) : ?>
+	<li><?php //echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
+	<?php //endif; ?>
 
 	<li class="active"><?php //echo $product['Product']['name']; ?></li>
 
-</ul>
+</ul>-->
 
 <div class="row">
 
@@ -30,11 +30,10 @@
 
 		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
-
 		<?php if(!empty($usercategories)) : ?>
 
-		<br />
-		<br />
+		<br /><br />
+		
 		<h6>Our Categories</h6>
 
 		<?php foreach ($usercategories as $usercategory): ?>
@@ -42,15 +41,13 @@
 
 			<br />
 		<?php endforeach; ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php endif; ?>
-
 
 		<?php if(!empty($usersubcategories)) : ?>
 
-		<br />
-		<br />
+		<br /><br />
+		
 		<h6>Our Subcategories</h6>
 
 		<?php foreach ($usersubcategories as $usersubcategory): ?>
@@ -58,97 +55,92 @@
 
 			<br />
 		<?php endforeach; ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php endif; ?>
 
 		<?php if(!empty($usersubsubcategories)) : ?>
 
-		<br />
-		<br />
+		<br /><br />
 		<strong><?php echo $subcategory['Subcategory']['name']; ?></strong>
 		<br />
-		<h6>Our Sub SUB categories</h6>
+		<h6>Our Sub Sub Categories</h6>
 
 		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
 			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
 
 			<br />
 		<?php endforeach; ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php endif; ?>
-
 
 		<p><?php echo $user['User']['shop_quote']; ?></p>
 
-		<br />
-		<br />
+		<br /><br />
 
 		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
-		<br />
-		<br />
+		<br /><br />
 
 		<?php endif; ?>
 	</div>
 
+
 	<div class="span8">
 
-		<div class="row">
+	
 
-		Sort by:
-		&nbsp;
-		<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
-		&nbsp;
-		<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
-		&nbsp;
-		<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>
+			Sort by:&nbsp;
+			<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
+			&nbsp;
+			<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
+			&nbsp;
+			<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>
+	
+			<br /><br />
+		
+			<div class="awning"><?php echo $this->Html->image('awning/awning-for-bg.png'); ?></div>
 
-		<br />
-		<br />
-
-		<?php
-		$i = 0;
-		foreach ($products as $product):
-		$i++;
-		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-		?>
-
-			<div class="span2">
-				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-
-				<br />
-				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
-
-				<br />
-
-				$<?php echo $product['Product']['price']; ?>
-
-				<br />
-				<br />
-				<br />
+			<div class="product-block">
+						
+			<br />
+			
+			<div class="row gb">
+				
+			<?php
+				$i = 0;
+				foreach ($products as $product):
+				$i++;
+				//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+			?>		
+				<div class="span2 gb">
+									
+					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+					<br />
+					<div class="product-name"><?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?></div>
+	
+					<div class="price">$<?php echo $product['Product']['price']; ?></div>
+	
+					<br />
+					<br />
+					
+				</div>
+						
+			<?php
+				if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row gb\">\n\n";}
+				endforeach;
+			?>
+			
 			</div>
-
-		<?php
-		if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
-		endforeach;
-		?>
-
+		
 		</div>
 
 		<?php echo $this->element('pagination-counter'); ?>
