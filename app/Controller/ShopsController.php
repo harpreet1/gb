@@ -276,10 +276,10 @@ class ShopsController extends AppController {
 						),
 					));
 
-					print_r($orderId);
-					print_r($order);
+					//print_r($orderId);
+					//print_r($order);
 
-					die('end');
+					//die('end');
 
 					$this->set(compact('shop'));
 
