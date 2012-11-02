@@ -110,35 +110,65 @@
 <tr>
 </tr>
 <td>Image</td>
-<td><?php echo h($category['Category']['image']); ?></td>
+<td>
+
+<?php if(!empty($category['Category']['image'])) :
+			echo h($category['Category']['image']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Image 1</td>
-<td><?php echo h($category['Category']['image_1']); ?></td>
+<td>
+
+<?php if(!empty($category['Category']['image'])) :
+			echo h($category['Category']['image']);
+	  endif ?>
+
+
+</td>
 <tr>
 </tr>
 <td>Image 2</td>
-<td><?php echo h($category['Category']['image_2']); ?></td>
+<td><?php if(!empty($category['Category']['image'])) :
+			echo h($category['Category']['image']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Image 3</td>
-<td><?php echo h($category['Category']['image_3']); ?></td>
+<td><?php if(!empty($category['Category']['image_1'])) :
+			echo h($category['Category']['image_1']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Image 4</td>
-<td><?php echo h($category['Category']['image_4']); ?></td>
+<td><?php if(!empty($category['Category']['image_2'])) :
+			echo h($category['Category']['image']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Image 5</td>
-<td><?php echo h($category['Category']['image_5']); ?></td>
+<td><?php if(!empty($category['Category']['image_3'])) :
+			echo h($category['Category']['image_3']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Created</td>
-<td><?php echo h($category['Category']['created']); ?></td>
+<td><?php if(!empty($category['Category']['image_4'])) :
+			echo h($category['Category']['image_4']);
+	  endif ?>
+</td>
 <tr>
 </tr>
 <td>Modified</td>
-<td><?php echo h($category['Category']['modified']); ?></td>
+<td><?php if(!empty($category['Category']['image_5'])) :
+			echo h($category['Category']['image_5']);
+	  endif ?>
+</td>
 </tr>
 </table>
 

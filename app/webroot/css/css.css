@@ -442,3 +442,26 @@ h3.cat-title {
 	background-color: white;
 	line-height: 18px;
 }
+
+/** PRODUCT DISPLAY - individual **/
+
+.content-product {
+	position: relative;
+	float: left;
+	width: 150px;
+	height: 182px;
+	margin-left: 20px;
+	margin-bottom: 35px;
+	padding-top: 18px;
+	background-image: url(../img/content-product.png);
+	background-repeat: no-repeat;
+}
+
+.content-product .content-img {
+	overflow: hidden;
+	height: 110px;
+	width: 110px;
+	margin-left: 18px;
+	margin-bottom: 20px;
+	border: #CCC solid thin;
+}

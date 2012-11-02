@@ -65,6 +65,7 @@
 			<?php echo $this->Form->input('business_established'); ?>
 			<?php echo $this->Form->input('flat_shipping'); ?>
 			<?php echo $this->Form->input('flat_price'); ?>
+			<?php echo $this->Form->input('commission'); ?>
 			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
 			<?php echo $this->Form->input('contact_title'); ?>
