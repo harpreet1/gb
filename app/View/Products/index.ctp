@@ -24,123 +24,142 @@
 	<div class="span4">
 		<?php if(!empty($user)) : ?>
 
-		<h5><?php echo $user['User']['name']; ?></h5>
-
-		<br />
-
-		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-
-		<?php if(!empty($usercategories)) : ?>
-
-		<br /><br />
-		
-		<h6>Our Categories</h6>
-
-		<?php foreach ($usercategories as $usercategory): ?>
-			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-
+			<h5><?php echo $user['User']['name']; ?></h5>
+	
 			<br />
-		<?php endforeach; ?>
-		<br /><br />
-		<?php endif; ?>
+	
+			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+	
+			<?php if(!empty($usercategories)) : ?>
+	
+			<br /><br />
+			
+			<h6>Our Categories</h6>
+	
+			<?php foreach ($usercategories as $usercategory): ?>
+				<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+	
+				<br />
+			<?php endforeach; ?>
+			<br /><br />
+			<?php endif; ?>
 
-		<?php if(!empty($usersubcategories)) : ?>
-
-		<br /><br />
+			<?php if(!empty($usersubcategories)) : ?>
+	
+				<br /><br />
+			
+				<h6>Our Subcategories</h6>
+	
+				<?php foreach ($usersubcategories as $usersubcategory): ?>
+					<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
 		
-		<h6>Our Subcategories</h6>
-
-		<?php foreach ($usersubcategories as $usersubcategory): ?>
-			<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
-
-			<br />
-		<?php endforeach; ?>
-		<br /><br />
-		<?php endif; ?>
+					<br />
+				<?php endforeach; ?>
+			<br /><br />
+			<?php endif; ?>
 
 		<?php if(!empty($usersubsubcategories)) : ?>
 
-		<br /><br />
-		<strong><?php echo $subcategory['Subcategory']['name']; ?></strong>
-		<br />
-		<h6>Our Sub Sub Categories</h6>
-
-		<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
-			<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
-
+			<br /><br />
+			<strong><?php echo $subcategory['Subcategory']['name']; ?></strong>
 			<br />
-		<?php endforeach; ?>
-		<br /><br />
+			<h6>Our Sub Sub Categories</h6>
+	
+			<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
+				<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
+	
+				<br />
+			<?php endforeach; ?>
+			<br /><br />
 		<?php endif; ?>
-
+	
 		<p><?php echo $user['User']['shop_quote']; ?></p>
 
 		<br /><br />
+		
 
-		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_1'])) :
+					echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
+				endif ?>
 		<br /><br />
-		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_2'])) :
+					echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); 
+				endif ?>
 		<br /><br />
-		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_3'])) : 
+					echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); 
+				endif ?>
 		<br /><br />
-		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_4'])) :
+				echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); 
+				endif ?>
 		<br /><br />
-		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_5'])) :
+			echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); 
+				endif ?>
 		<br /><br />
-		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_6'])) :
+				echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid'));
+				endif ?>
 		<br /><br />
 
 		<?php endif; ?>
 	</div>
 
 
-	<div class="span8">
+<div class="span8">
 
-	
 
-			Sort by:&nbsp;
-			<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
-			&nbsp;
-			<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
-			&nbsp;
-			<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>
+
+		Sort by:&nbsp;
+		<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
+		&nbsp;
+		<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
+		&nbsp;
+		<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>
+
+		<br /><br />
 	
-			<br /><br />
+		<div class="awning"><?php echo $this->Html->image('awning/awning-for-bg.png'); ?></div>
+
+		<div class="product-block">
+					
+		<br />
 		
-			<div class="awning"><?php echo $this->Html->image('awning/awning-for-bg.png'); ?></div>
-
-			<div class="product-block">
-						
-			<br />
+		<div class="row gb">
 			
-			<div class="row gb">
+		<?php
+			$i = 0;
+			foreach ($products as $product):
+			$i++;
+			//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+		?>		
+			<div class="span2 gb">
 				
-			<?php
-				$i = 0;
-				foreach ($products as $product):
-				$i++;
-				//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-			?>		
-				<div class="span2 gb">
-									
-					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-					<br />
-					<div class="product-name"><?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?></div>
+				<div class="content-product">
+				
+					<div class="content-img">	
+						
+						<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+						
+						<div class="product-name"><?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?></div>
+						
+					</div>
 	
 					<div class="price">$<?php echo $product['Product']['price']; ?></div>
-	
-					<br />
-					<br />
-					
+
+				
 				</div>
-						
-			<?php
-				if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row gb\">\n\n";}
-				endforeach;
-			?>
-			
+				
 			</div>
+					
+		<?php
+			if (($i % 3) == 0) { echo "</div>\n\n\t\t<div class=\"row gb\">\n\n";}
+			endforeach;
+		?>
 		
+		</div>
+	
 		</div>
 
 		<?php echo $this->element('pagination-counter'); ?>
@@ -187,22 +206,22 @@
 <div class="row">
 
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_2'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_3'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); ?>
+		<?php if(!empty($category['Category']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid')); endif ?>
 	</div>
 
 </div>
