@@ -41,3 +41,10 @@ td.constrain img{
 td.art-constrain div {
 	max-height: 70px;
 }
+
+.emphasize {
+	font-weight:bold;
+	font-size:13px;
+	color:red;
+	margin-bottom:15px;
+}

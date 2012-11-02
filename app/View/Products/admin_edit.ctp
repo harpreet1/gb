@@ -167,10 +167,11 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
+		<div class="emphasize"><?php echo __('Commission: '); ?><?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale');?>
 		<?php echo $this->Form->input('price');?>
 		<?php echo $this->Form->input('price_list');?>
-		<?php echo $this->Form->input('price_selling');?><br />
+		
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php echo $this->Form->input('measurement');?>
 		<?php echo $this->Form->input('weight_unit');?>
