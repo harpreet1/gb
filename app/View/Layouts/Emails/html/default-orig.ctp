@@ -20,40 +20,6 @@
 <html>
 <head>
 	<title><?php echo $title_for_layout;?></title>
-
-	<style type="text/css">
-		body {
-			width: 100% !important;
-			margin: 5px;
-			font-family: Verdana, Arial;
-			font-size: 12px;
-			color: #444444;
-		}
-		table {
-			background-color: #FFFFFF;
-			border: 0px solid #AAAAAA;
-			clear: both;
-			color: #333333;
-			border-collapse: collapse;
-			padding: 0px;
-			border-spacing: 0px;
-		}
-		table th {
-			background-color: #BBBBBB;
-			border-collapse: collapse;
-			padding: 2px;
-			font-size: 100%;
-			border: 1px solid #AAAAAA;
-		}
-		table td {
-			background-color: #FFFFFF;
-			border-collapse: collapse;
-			padding: 2px;
-			font-size: 100%;
-			border: 1px solid #AAAAAA;
-		}
-	</style>
-
 </head>
 <body>
 	<?php echo $this->fetch('content');?>

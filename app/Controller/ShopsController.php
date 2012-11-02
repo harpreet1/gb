@@ -222,8 +222,8 @@ class ShopsController extends AppController {
 					$o['OrderItem'][$i]['user_id'] = $c['User']['id'];
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
-					$o['OrderItem'][$i]['price'] = $c['subtotal'];
-					$o['OrderItem'][$i]['price_total'] = $c['quantity'] * $c['subtotal'];
+					$o['OrderItem'][$i]['price'] = $c['Product']['price'];
+					$o['OrderItem'][$i]['price_total'] = $c['subtotal'];
 					$o['OrderItem'][$i]['weight'] = $c['Product']['weight'];
 					$o['OrderItem'][$i]['weight_total'] = $c['totalweight'];
 					$i++;
@@ -266,53 +266,7 @@ class ShopsController extends AppController {
 
 					$orderId = $this->Order->id;
 
-					$order = $this->Order->find('first', array(
-						'contain' => array(
-							'OrderUser' => array('User'),
-							'OrderItem',
-						),
-						'conditions' => array(
-							'Order.id' => $orderId
-						),
-					));
-
-					//print_r($orderId);
-					//print_r($order);
-
-					//die('end');
-
-					$this->set(compact('shop'));
-
-					App::uses('CakeEmail', 'Network/Email');
-					$email = new CakeEmail();
-					$email->from(Configure::read('Settings.ADMIN_EMAIL'))
-						->cc(Configure::read('Settings.ADMIN_EMAIL'))
-						->to(Configure::read('Settings.ADMIN_EMAIL'))
-						->subject('Shop Order')
-						->template('order-admin')
-						->emailFormat('text')
-						->viewVars(array('order' => $order, 'paypal' => $paypal))
-						->send();
-
-					$email->from(Configure::read('Settings.ADMIN_EMAIL'))
-						->cc(Configure::read('Settings.ADMIN_EMAIL'))
-						->to($order['Order']['email'])
-						->subject('Gourmet Basket Shop Order')
-						->template('order-customer')
-						->emailFormat('text')
-						->viewVars(array('order' => $order, 'paypal' => $paypal))
-						->send();
-
-					foreach($order['OrderUser'] as $vendor) {
-						$email->from(Configure::read('Settings.ADMIN_EMAIL'))
-							->cc(Configure::read('Settings.ADMIN_EMAIL'))
-							->to($vendor['User']['email'])
-							->subject('Gourmet Basket Shop Order')
-							->template('order-vendor')
-							->emailFormat('text')
-							->viewVars(array('order' => $order, 'paypal' => $paypal))
-							->send();
-					}
+					$this->sendemails($orderId);
 
 					$this->redirect(array('action' => 'success'));
 				}
@@ -344,6 +298,60 @@ class ShopsController extends AppController {
 		}
 
 		$this->set(compact('shop'));
+
+	}
+
+//////////////////////////////////////////////////
+
+	public function sendemails($id) {
+
+		$this->loadModel('Order');
+
+		$order = $this->Order->find('first', array(
+			'contain' => array(
+				'OrderUser' => array('User'),
+				'OrderItem' => array('User'),
+			),
+			'conditions' => array(
+				'Order.id' => $id
+			),
+		));
+
+		//debug($order);
+
+		App::uses('CakeEmail', 'Network/Email');
+		$email = new CakeEmail();
+
+		$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+			->cc(Configure::read('Settings.ADMIN_EMAIL'))
+			->to(Configure::read('Settings.ADMIN_EMAIL'))
+			->subject('Shop Order - Admin Copy')
+			->template('order-admin')
+			->emailFormat('html')
+			->viewVars(array('order' => $order))
+			->send();
+
+//		die('vege');
+
+		$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+			->cc(Configure::read('Settings.ADMIN_EMAIL'))
+			->to($order['Order']['email'])
+			->subject('Shop Order - Customer Copy')
+			->template('order-customer')
+			->emailFormat('html')
+			->viewVars(array('order' => $order))
+			->send();
+
+		foreach($order['OrderUser'] as $vendor) {
+//			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+///				->cc(Configure::read('Settings.ADMIN_EMAIL'))
+//				->to($vendor['User']['email'])
+//				->subject('Gourmet Basket Shop Order')
+//				->template('order-vendor')
+//				->emailFormat('text')
+//				->viewVars(array('order' => $order))
+//				->send();
+		}
 
 	}
 
