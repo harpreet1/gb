@@ -27,7 +27,6 @@ $(document).ready(function(){
 </script>
 
 
-
 <h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
@@ -35,9 +34,9 @@ $(document).ready(function(){
 echo $this->Form->input('user_id');
 echo $this->Form->input('category_id', array('empty' => '---choose--'));
 //echo $this->Form->input('category_name');
-//echo $this->Form->input('subcategory_id', array('empty' => '---choose--'));
+echo $this->Form->input('subcategory_id', array('empty' => '---choose--'));
 //echo $this->Form->input('subcategory_name');
-//echo $this->Form->input('subsubcategory_id', array('empty' => '---choose ( not required )'));
+echo $this->Form->input('subsubcategory_id', array('empty' => '---choose ( not required )'));
 //echo $this->Form->input('subsubcategory_name');
 echo $this->Form->input('upc');
 echo $this->Form->input('vendor_sku');
