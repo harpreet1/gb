@@ -35,7 +35,8 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li><?php echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
+						<li><a href="<?php echo $this->webroot; ?>/traditions">US Traditions</a>
+						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>

@@ -24,20 +24,26 @@
 <div class="row">
 
 	<div class="span4">
+	
+		
 
-		<?php foreach ($subcategories as $subcategory): ?>
+			<?php foreach ($subcategories as $subcategory): ?>
 
-			<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
-			<br />
-				<?php foreach ($subcategory['Subsubcategory'] as $subsubcategory          ): ?>
+				<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
+				<br />
+					<?php foreach ($subcategory['Subsubcategory'] as $subsubcategory          ): ?>
 					-- <?php echo $subsubcategory['name']; ?><br />
-				<?php endforeach; ?>
+					<?php endforeach; ?>
 
 			<hr>
 
-		<?php endforeach; ?>
-
+			<?php endforeach; ?>
+		
+		
 	</div>
+
+</div>
+	
 	<div class="span8">
 		<div class="row">
 

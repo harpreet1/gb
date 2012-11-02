@@ -1,19 +1,27 @@
-<br />
-<br />
 
 <div class="row">
-
 	<div class="span4">
+	
+		<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
+		<br />
+		<br />
 
-		<?php foreach ($traditions as $trad): ?>
-		<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
-		<?php endforeach; ?>
-
+		<div id="subcat-menu">
+		
+				<?php foreach ($traditions as $trad): ?>
+				<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
+				<?php endforeach; ?>
+		
+		</div>
 	</div>
+
+
+
 
 	<div class="span8">
 
 		<div class="row">
+		<div class="summary"><?php echo $tradition['Tradition']['summary']; ?></div>
 
 		<?php
 		$i = 0;
@@ -66,58 +74,51 @@
 	<dd>
 		<?php echo h($tradition['Tradition']['name']); ?>
 	</dd>
-	<dt><?php echo __('Slug'); ?></dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['slug']); ?>
-	</dd>
+	
 	<dt><?php echo __('Countries'); ?></dt>
 	<dd>
 		<?php echo h($tradition['Tradition']['countries']); ?>
 	</dd>
-	<dt><?php echo __('Summary'); ?></dt>
-	<dd>
-		<?php echo $tradition['Tradition']['summary']; ?>
-	</dd>
-	<dt><?php echo __('Article'); ?></dt>
-	<dd>
-		<?php echo $tradition['Tradition']['article']; ?>
-	</dd>
-	<dt><?php echo __('Image'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image']); ?>
-	</dd>
-	<dt><?php echo __('Image 1'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1']); ?>
-	</dd>
-	<dt><?php echo __('Image 2'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2']); ?>
-	</dd>
-	<dt><?php echo __('Image 3'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3']); ?>
-	</dd>
-	<dt><?php echo __('Image 4'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4']); ?>
-	</dd>
-	<dt><?php echo __('Image 5'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5']); ?>
-	</dd>
-	<dt><?php echo __('Image 6'); ?></dt>
-	<dd>
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6']); ?>
-	</dd>
-	<dt><?php echo __('Created'); ?></dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['created']); ?>
-	</dd>
-	<dt><?php echo __('Modified'); ?></dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['modified']); ?>
-	</dd>
-</dl>
+</dl>	
+	
+		<div id="category-article">
+			<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
+			<br />
+			<?php echo $tradition['Tradition']['article']; ?>
+		</div>
+
+
+
+
+	
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image'], array('width' => '300px')); ?>
+	
+	
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1'], array('width' => '300px')); ?>
+	
+	
+
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2'], array('width' => '300px')); ?>
+	
+	
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3'], array('width' => '300px')); ?>
+	
+	
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4'], array('width' => '300px')); ?>
+	
+
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5'], array('width' => '300px')); ?>
+	
+	
+	
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6'], array('width' => '300px')); ?>
+	
+	
+
 
 

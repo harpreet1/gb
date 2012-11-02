@@ -3,7 +3,7 @@ body {
 	color: #444;
 	/*	font-family: 'Open Sans', verdana, arial, sans-serif;*/
 	font-family: "Mako", sans-serif;
-	font-size: 15px;
+	font-size: 14px;
 	background-color: #f4f7fe;
 	padding-top: 80px;
 }
@@ -16,6 +16,9 @@ h4 {
 	display: inline;
 }
 
+a {
+	color:#7F131F;
+}
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 	width: 960px;
@@ -385,4 +388,57 @@ h3.cat-title {
 
 .row.pantry-row {
 	margin-left:30px;
+}
+
+
+/** Category Summary ***/
+
+.summary {
+
+	/*font-family: 'Federo', sans-serif;*/
+	letter-spacing: 1px;
+	width: 385px;
+	margin-top:20px;
+	margin-bottom: 30px;
+	margin-left: 165px;
+	color: #032177;
+	text-align: left;
+	background-color: #FEE79B;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	background-position: 200px 0px;
+	background-image: url(../img/blockquote-bkgnd.jpg);
+	background-repeat: repeat;
+	padding: 30px;
+	
+}
+
+/** CATEGORY NAV MENU **/
+
+#subcat-menu {
+	/*float: left;*/
+	width: 270px;
+	padding: 15px;
+	margin-bottom: 10px;
+	margin-left: url(pxx);
+	margin-right: 20px;
+	background-color: #fffbf4;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#subcat-menu a {
+	font-size:89%;
+}
+
+#category-article {
+	float: left;
+	border: thin solid #CCC;
+	width: 590px;
+	padding: 10px;
+	margin-bottom: 20px;
+	background-color: white;
+	line-height: 18px;
 }
