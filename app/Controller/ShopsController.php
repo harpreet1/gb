@@ -213,8 +213,8 @@ class ShopsController extends AppController {
 
 					$paypal = $this->PaypalPro->doDirectPayment();
 				} catch(Exception $e) {
-					$this->Session->setFlash($e->getMessage());
-					$this->redirect(array('action' => 'review'));
+					//$this->Session->setFlash($e->getMessage());
+					//$this->redirect(array('action' => 'review'));
 				}
 
 				$i = 0;
@@ -263,18 +263,57 @@ class ShopsController extends AppController {
 				//}
 				$save = $this->Order->saveAll($o, array('validate' => 'first'));
 				if($save) {
+
+					$orderId = $this->Order->id;
+
+					$order = $this->Order->find('first', array(
+						'contain' => array(
+							'OrderUser' => array('User'),
+							'OrderItem',
+						),
+						'conditions' => array(
+							'Order.id' => $orderId
+						),
+					));
+
+					print_r($orderId);
+					print_r($order);
+
+					die('end');
+
 					$this->set(compact('shop'));
 
 					App::uses('CakeEmail', 'Network/Email');
 					$email = new CakeEmail();
 					$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+						->cc(Configure::read('Settings.ADMIN_EMAIL'))
+						->to(Configure::read('Settings.ADMIN_EMAIL'))
+						->subject('Shop Order')
+						->template('order-admin')
+						->emailFormat('text')
+						->viewVars(array('order' => $order, 'paypal' => $paypal))
+						->send();
+
+					$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+						->cc(Configure::read('Settings.ADMIN_EMAIL'))
+						->to($order['Order']['email'])
+						->subject('Gourmet Basket Shop Order')
+						->template('order-customer')
+						->emailFormat('text')
+						->viewVars(array('order' => $order, 'paypal' => $paypal))
+						->send();
+
+					foreach($order['OrderUser'] as $vendor) {
+						$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 							->cc(Configure::read('Settings.ADMIN_EMAIL'))
-							->to($shop['Data']['email'])
-							->subject('Shop Order')
-							->template('order')
+							->to($vendor['User']['email'])
+							->subject('Gourmet Basket Shop Order')
+							->template('order-vendor')
 							->emailFormat('text')
-							->viewVars(array('shop' => $shop, 'paypal' => $paypal))
+							->viewVars(array('order' => $order, 'paypal' => $paypal))
 							->send();
+					}
+
 					$this->redirect(array('action' => 'success'));
 				}
 
