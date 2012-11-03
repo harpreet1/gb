@@ -25,7 +25,7 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function __trimname() {
-		die('end');
+		die('trim');
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
@@ -39,7 +39,7 @@ class ProductsController extends AppController {
 			$data['Product']['name'] = trim($product['Product']['name']);
 			$this->Product->save($data, false);
 		}
-		//die('end');
+		die('end');
 	}
 
 ////////////////////////////////////////////////////////////
@@ -51,7 +51,6 @@ class ProductsController extends AppController {
 		$subDomain = $this->_getSubDomain();
 
 		if($subDomain != 'www') {
-
 			$user = $this->Product->User->getBySubdomain($subDomain);
 			if(!$user) {
 				die('error');
@@ -74,7 +73,6 @@ class ProductsController extends AppController {
 					'Category.name' => 'ASC'
 				),
 			));
-
 		} else{
 			$user = array();
 			$usercategories = array();
@@ -176,7 +174,6 @@ class ProductsController extends AppController {
 			'paramType' => 'querystring',
 		);
 		$products = $this->paginate('Product');
-
 
 		$this->set(compact('user', 'category', 'usersubcategories', 'products'));
 
@@ -637,11 +634,7 @@ class ProductsController extends AppController {
 		));
 		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.level'));
 
-		$categories = $this->Product->Category->find('list', array(
-			'order' => array(
-				'Category.name' => 'ASC'
-			)
-		));
+		$categories = $this->Product->Category->findList();
 
 		$subcategories = $this->Product->Subcategory->find('list', array(
 			'order' => array(
@@ -655,11 +648,7 @@ class ProductsController extends AppController {
 			)
 		));
 
-		$ustraditions = $this->Product->Ustradition->find('list', array(
-			'order' => array(
-				'Ustradition.name' => 'ASC'
-			)
-		));
+		$ustraditions = $this->Product->Ustradition->findList();
 
 		$countries = $this->Product->countries();
 
@@ -715,10 +704,10 @@ class ProductsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
 		}
 
@@ -731,46 +720,14 @@ class ProductsController extends AppController {
 				'User.name' => 'ASC'
 			)
 		));
-		$categories = $this->Product->Category->find('list', array(
-			'order' => array(
-				'Category.name' => 'ASC'
-			)
-		));
-		$subcategories1 = $this->Product->Subcategory->find('all', array(
-			'recursive' => -1,
-			'fields'=> array(
-				'Subcategory.id',
-				'Subcategory.category_id',
-				'Subcategory.name',
-			),
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			)
-		));
-		foreach($subcategories1 as $subcategory) {
-			$subcategories[$subcategory['Subcategory']['id']] = array('name' => $subcategory['Subcategory']['name'], 'value' => $subcategory['Subcategory']['id'], 'class' => $subcategory['Subcategory']['category_id']);
-		}
 
-		$subsubcategories1 = $this->Product->Subsubcategory->find('all', array(
-			'recursive' => -1,
-			'fields'=> array(
-				'Subsubcategory.id',
-				'Subsubcategory.subcategory_id',
-				'Subsubcategory.name',
-			),
-			'order' => array(
-				'Subsubcategory.name' => 'ASC'
-			)
-		));
-		foreach($subsubcategories1 as $subsubcategory) {
-			$subsubcategories[$subsubcategory['Subsubcategory']['id']] = array('name' => $subsubcategory['Subsubcategory']['name'], 'value' => $subsubcategory['Subsubcategory']['id'], 'class' => $subsubcategory['Subsubcategory']['subcategory_id']);
-		}
+		$categories = $this->Product->Category->findList();
 
-		$ustraditions = $this->Product->Ustradition->find('list', array(
-			'order' => array(
-				'Ustradition.name' => 'ASC'
-			)
-		));
+		$subcategories = $this->Product->Subcategory->findChain();
+
+		$subsubcategories = $this->Product->Subsubcategory->findChain();
+
+		$ustraditions = $this->Product->Ustradition->findList();
 
 		$countries = $this->Product->countries();
 
@@ -786,7 +743,7 @@ class ProductsController extends AppController {
 
 		$this->Product->id = $id;
 		if (!$this->Product->exists()) {
-			throw new NotFoundException(__('Invalid product'));
+			throw new NotFoundException('Invalid product');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if(!empty($this->request->data['Product']['traditions'])) {
@@ -794,10 +751,10 @@ class ProductsController extends AppController {
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
 			}
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
 		} else {
 			$options = array(
@@ -817,75 +774,19 @@ class ProductsController extends AppController {
 
 		$users = $this->Product->User->find('list', array(
 			'conditions' => array(
-				'User.active' => 1,
-				'User.level' => 'vendor',
+//				'User.active' => 1,
+//				'User.level' => 'vendor',
 			),
 			'order' => array(
 				'User.name' => 'ASC'
 			)
 		));
 
-		$categories = $this->Product->Category->find('list', array(
-			'order' => array(
-				'Category.name' => 'ASC'
-			)
-		));
+		$categories = $this->Product->Category->findList();
 
-		//$categories1 = $this->Product->Category->find('all', array(
-		//	'recursive' => -1,
-		//	'fields'=> array(
-		//		'Category.id',
-		//		'Category.name',
-		//	),
-		//	'order' => array(
-		//		'Category.name' => 'ASC'
-		//	)
-		//));
-		//foreach($categories1 as $category) {
-		//	$categories[$category['Category']['id']] = array('name' => $category['Category']['name'], 'value' => $category['Category']['id'], 'class' => 'c_' . $category['Category']['id']);
-		//}
+		$subcategories = $this->Product->Subcategory->findChain();
 
-		//$subcategories = $this->Product->Subcategory->find('list', array(
-		//	'order' => array(
-		//		'Subcategory.name' => 'ASC'
-		//	)
-		//));
-
-		$subcategories1 = $this->Product->Subcategory->find('all', array(
-			'recursive' => -1,
-			'fields'=> array(
-				'Subcategory.id',
-				'Subcategory.category_id',
-				'Subcategory.name',
-			),
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			)
-		));
-		foreach($subcategories1 as $subcategory) {
-			$subcategories[$subcategory['Subcategory']['id']] = array('name' => $subcategory['Subcategory']['name'], 'value' => $subcategory['Subcategory']['id'], 'class' => $subcategory['Subcategory']['category_id']);
-		}
-
-		//$subsubcategories = $this->Product->Subsubcategory->find('list', array(
-		//	'order' => array(
-		//		'Subsubcategory.name' => 'ASC'
-		//	)
-		//));
-
-		$subsubcategories1 = $this->Product->Subsubcategory->find('all', array(
-			'recursive' => -1,
-			'fields'=> array(
-				'Subsubcategory.id',
-				'Subsubcategory.subcategory_id',
-				'Subsubcategory.name',
-			),
-			'order' => array(
-				'Subsubcategory.name' => 'ASC'
-			)
-		));
-		foreach($subsubcategories1 as $subsubcategory) {
-			$subsubcategories[$subsubcategory['Subsubcategory']['id']] = array('name' => $subsubcategory['Subsubcategory']['name'], 'value' => $subsubcategory['Subsubcategory']['id'], 'class' => $subsubcategory['Subsubcategory']['subcategory_id']);
-		}
+		$subsubcategories = $this->Product->Subsubcategory->findChain();
 
 		$traditions = ClassRegistry::init('Tradition')->find('list', array(
 			'recursive' => -1,
@@ -900,11 +801,7 @@ class ProductsController extends AppController {
 
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
 
-		$ustraditions = $this->Product->Ustradition->find('list', array(
-			'order' => array(
-				'Ustradition.name' => 'ASC'
-			)
-		));
+		$ustraditions = $this->Product->Ustradition->findList();
 
 		$countries = $this->Product->countries();
 
@@ -919,14 +816,14 @@ class ProductsController extends AppController {
 	public function admin_delete($id = null) {
 		$this->Product->id = $id;
 		if (!$this->Product->exists()) {
-			throw new NotFoundException(__('Invalid product'));
+			throw new NotFoundException('Invalid product');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Product->delete()) {
-			$this->Session->setFlash(__('Product deleted'));
+			$this->Session->setFlash('Product deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Product was not deleted'));
+		$this->Session->setFlash('Product was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
 

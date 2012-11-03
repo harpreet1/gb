@@ -131,7 +131,7 @@ class CategoriesController extends AppController {
 		}
 
 		if (!$this->Category->exists($id)) {
-			throw new NotFoundException(__('Invalid category'));
+			throw new NotFoundException('Invalid category');
 		}
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
@@ -143,10 +143,10 @@ class CategoriesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Category->create();
 			if ($this->Category->save($this->request->data)) {
-				$this->Session->setFlash(__('The category has been saved'));
+				$this->Session->setFlash('The category has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
+				$this->Session->setFlash('The category could not be saved. Please, try again.');
 			}
 		}
 	}
@@ -159,7 +159,7 @@ class CategoriesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Category->save($this->request->data)) {
-				$this->Session->setFlash(__('The category has been saved'));
+				$this->Session->setFlash('The category has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
@@ -175,14 +175,14 @@ class CategoriesController extends AppController {
 	public function admin_delete($id = null) {
 		$this->Category->id = $id;
 		if (!$this->Category->exists()) {
-			throw new NotFoundException(__('Invalid category'));
+			throw new NotFoundException('Invalid category');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Category->delete()) {
-			$this->Session->setFlash(__('Category deleted'));
+			$this->Session->setFlash('Category deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Category was not deleted'));
+		$this->Session->setFlash('Category was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
 

@@ -98,4 +98,24 @@ class Subcategory extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public function findChain() {
+		$subcategories1 = $this->find('all', array(
+			'recursive' => -1,
+			'fields'=> array(
+				'Subcategory.id',
+				'Subcategory.category_id',
+				'Subcategory.name',
+			),
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			)
+		));
+		foreach($subcategories1 as $subcategory) {
+			$subcategories[$subcategory['Subcategory']['id']] = array('name' => $subcategory['Subcategory']['name'], 'value' => $subcategory['Subcategory']['id'], 'class' => $subcategory['Subcategory']['category_id']);
+		}
+		return $subcategories;
+	}
+
+////////////////////////////////////////////////////////////
+
 }

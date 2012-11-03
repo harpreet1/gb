@@ -72,4 +72,14 @@ class Category extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public function findList() {
+		return $categories = $this->find('list', array(
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+	}
+
+////////////////////////////////////////////////////////////
+
 }

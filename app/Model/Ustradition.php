@@ -59,4 +59,14 @@ class Ustradition extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public function findList() {
+		return $this->find('list', array(
+			'order' => array(
+				'Ustradition.name' => 'ASC'
+			)
+		));
+	}
+
+////////////////////////////////////////////////////////////
+
 }
