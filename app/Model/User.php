@@ -65,6 +65,7 @@ class User extends AppModel {
 				'User.name',
 				'User.slug',
 				'User.shop_quote',
+				'User.shop_signature',
 				'User.shop_description',
 				'User.image',
 				'User.image_1',

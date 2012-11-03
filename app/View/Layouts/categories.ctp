@@ -17,6 +17,8 @@
 </head>
 <body class="categories">
 
+<div id="outer-wrapper">
+
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -69,6 +71,8 @@
 		<br />
 
 	</div>
+	
+	</div><!-- End outer wrapper -->
 
 	<br />
 	<br />

@@ -17,6 +17,8 @@
 </head>
 <body>
 
+<div id="outer-wrapper">
+
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -67,12 +69,18 @@
 		<br />
 
 	</div>
+	
+	
+	</div><!-- end outer wrapper -->
 
 	<br />
 	<br />
 	<?php echo $this->element('sql_dump'); ?>
 	<br />
 	<br />
+	
+	
+	
 
 </body>
 </html>

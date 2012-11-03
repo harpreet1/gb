@@ -25,6 +25,14 @@ a {
 }
 
 
+#outer-wrapper {
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	background: url(../img/global/bubbles.png) no-repeat fixed 50% 0 !important;
+}
+
+
 #head {
 	position: relative;
 	width: 100%;
@@ -107,7 +115,6 @@ a {
 	float: left;
 	width: 150px;
 	height: 182px;
-	margin-left: 20px;
 	margin-bottom: 35px;
 	padding-top: 18px;
 	background-image: url(../img/global/content-product.png);
@@ -170,8 +177,9 @@ div.price {
 }
 
 .span2.gb {
-	/*margin-left:0px;
-	width:110px;*/
+	margin-left: 25px;
+	margin-right: 0px;
+	width: 150px;
 }
 
 

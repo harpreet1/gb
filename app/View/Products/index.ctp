@@ -187,6 +187,143 @@
 <div class="row">
 
 	<div class="span12">
+	
+	
+<div id="vendor-story-wrapper-shell">
+	<div class="vendor-story-wrapper">
+		<div class="pad">
+			<div id="summary" class="vendor-title" >
+				<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
+			</div>
+			<!--<h2>- <?php //echo $products[0]['u']['shop_name'] ?>-</h2>-->
+			<br/>
+
+			<div class="vendor-article-pic1-wrapper">
+			</div>
+			<div class="vendor-article-bottom-wrapper">
+			</div>
+
+			<div class="vendor-article-pic-box upper-left">
+
+<?php
+		if(!empty($category['User']['image_6'])) :
+			echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 3' ));?>
+			<br /><span> attribution</span>
+<?php 
+	 	else : ?><img src="/img/user_image/default.png" alt="" />
+	
+<?php 	endif	?>
+
+
+			</div>
+
+
+			<div class="vendor-info">
+				<div class="vendor-special">
+		<?php echo $user['User']['shop_quote'] ?><br />
+<div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
+				</div>
+
+
+			</div>
+
+			<div class="clear"></div>
+
+				<div id="vendor-group">
+
+					<div id="vendor-article">
+<?php echo $user['User']['shop_description'] ?>
+					</div>
+
+
+
+
+					<div class ="vendor-group-pics">
+
+					<div class="vendor-article-pic-box">
+	<?php
+			if(!empty($category['User']['image_5'])) :
+				echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 5' ));?>
+				<br /><span> attribution</span>
+	<?php 
+	 		else : ?><img src="/img/user_image/default.png" alt="" />
+	
+	<?php 	endif	?>
+					</div>
+
+					<div class="vendor-article-pic-box">
+
+<?php
+		if(!empty($category['User']['image_6'])) :
+			echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 3' ));?>
+			<br /><span> attribution</span>
+<?php 
+	 	else : ?><img src="/img/user_image/default.png" alt="" />
+	
+<?php 	endif	?>
+
+					</div>
+
+					<div class="vendor-article-pic-box" style="padding-right:0">
+
+<?php if( $user['User']['image6'] != ""){
+	echo $html->image('logos/'.$user['User']['image6'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 6' ));?> <br /><span> attribution</span><?php
+} else {
+?>
+
+<img src="/admin/images/default.png" alt="" />
+
+<?php }	?>
+
+
+
+
+					</div>
+
+
+				</div>
+
+
+
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 		<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid')); ?>
 
