@@ -95,6 +95,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
+				'Product.brand',
 				'User.slug'
 			),
 			'limit' => 40,

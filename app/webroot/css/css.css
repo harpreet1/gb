@@ -131,7 +131,8 @@ a {
 }
 
 .content-product .product-name {
-	font-size: 13px;
+	font-size: 11px;
+	font-weight:bold;
 	line-height:13px;
 	display: block;
 	text-align: left;
@@ -144,7 +145,7 @@ a {
 
 .product-name a, div.price {
 	font-size:11px;
-	
+	text-decoration:none;
 	
 }
 
@@ -162,9 +163,15 @@ div.price {
 	
 }
 
-.product-block {
-	margin-left:40px;
+div.brand {
+	margin-top:5px;
+	margin-right:10px;
+	text-align:center;
+	font-size:11px;
+	color:#CCC;
+	
 }
+
 
 .row.gb {
 	margin-left:0px;
@@ -506,3 +513,14 @@ h3.cat-title {
 	line-height: 18px;
 }
 
+.top-product-block  {
+	margin-left:40px;
+}	
+
+.span12.bottom-block  {
+	margin-left:52px;
+}	
+
+.span12.vendor-block {
+	margin-left:52px;
+}
