@@ -329,7 +329,7 @@ class ShopsController extends AppController {
 			),
 		));
 
-		debug($order);
+//		debug($order);
 
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
@@ -341,10 +341,8 @@ class ShopsController extends AppController {
 			->template('order-admin')
 			->emailFormat('html')
 			->viewVars(array('order' => $order))
-		//	->send()
+			->send()
 		;
-
-//		die('vege');
 
 		$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 			->cc(Configure::read('Settings.ADMIN_EMAIL'))
@@ -353,14 +351,12 @@ class ShopsController extends AppController {
 			->template('order-customer')
 			->emailFormat('html')
 			->viewVars(array('order' => $order))
-		//	->send()
+			->send()
 		;
 
 		foreach($order['OrderUser'] as $vendor) {
 
 			$vendoritems = array();
-
-			debug($vendor['User']['name']);
 
 			foreach($order['OrderItem'] as $items) {
 				if($items['user_id'] == $vendor['user_id']) {
@@ -370,12 +366,9 @@ class ShopsController extends AppController {
 				}
 			}
 
-			debug($vendoritems);
-
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-				//->to($vendor['User']['email'])
-				->to('andras@kende.com')
+				->to($vendor['User']['email'])
 				->subject('Gourmet Basket Shop Order - Vendor Copy')
 				->template('order-vendor')
 				->emailFormat('html')
@@ -383,7 +376,7 @@ class ShopsController extends AppController {
 				->send();
 		}
 
-		die;
+		//die('end');
 
 	}
 

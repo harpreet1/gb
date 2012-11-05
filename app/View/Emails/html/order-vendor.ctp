@@ -66,15 +66,17 @@ Shipping Zip: <?php echo $order['Order']['shipping_zip'];?>
 <?php endforeach; ?>
 </table>
 
+Total Quantity: <?php echo $vendor['quantity'];?>
 <br />
-Subtotal: $<?php echo $order['Order']['subtotal'];?>
+Weight Total: <?php echo $vendor['weight'];?>
 <br />
-Shipping: $<?php echo $order['Order']['shipping'];?>
+Subtotal: $<?php echo $vendor['subtotal'];?>
 <br />
-Total: $<?php echo $order['Order']['total'];?>
+Shipping: $<?php echo $vendor['shipping'];?>
+<br />
+Total: $<?php echo $vendor['total'];?>
 <br />
 <br />
-
 
 <br />
 <br />
