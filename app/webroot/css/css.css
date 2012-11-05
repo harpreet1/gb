@@ -155,6 +155,39 @@ div.product-name, div.product-name p, div.product-name a {
 	margin:0px;*/
 }
 
+.pic-thumbnail {
+	height: 50px;
+	width: 50px;
+	padding: 2px;
+	display: block;
+	border: 1px solid #CCC;
+}
+
+
+
+
+#carousel.flexslider {
+	margin: 0 0 60px;
+	background: white;
+	border: none;
+	position: relative;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	-o-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	zoom: 1;
+}
+
+#carousel .slides li {
+	margin-right:10px;
+	cursor:pointer;
+	
+}
+
 .popover {
 	width:400px;
 }
@@ -582,6 +615,7 @@ html[xmlns] .slides {display: block;}
 .flexslider .slides {zoom: 1;}
 
 .carousel li {margin-right: 5px}
+
 
 
 /* Direction Nav */

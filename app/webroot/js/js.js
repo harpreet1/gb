@@ -108,23 +108,22 @@ $(document).ready(function(){
 			
 	// Product Display Slider
 	
-	
-		//  SyntaxHighlighter.all();
-//		});
 		
-		$(window).load(function(){
 			$('#carousel').flexslider({
 				animation: "slide",
 				controlNav: false,
 				animationLoop: false,
 				slideshow: false,
-				itemWidth: 210,
+				itemWidth: 50,
 				itemMargin: 5,
+				
 				asNavFor: '#slider'
 		  });
 		  
 		  $('#slider').flexslider({
 				animation: "fade",
+				animationSpeed: 600,
+				easing: "swing",//{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
 				controlNav: false,
 				animationLoop: false,
 				slideshow: false,
@@ -134,7 +133,7 @@ $(document).ready(function(){
 				}
 		  });
 		
-	  });			
+		
 			
 
 });

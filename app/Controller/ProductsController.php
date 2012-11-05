@@ -355,6 +355,15 @@ class ProductsController extends AppController {
 		if (empty($product)) {
 			$this->redirect(array('action' => 'index'), 301);
 		}
+
+		$this->Product->updateAll(
+			array(
+				'Product.viewed' => 'Product.viewed + 1',
+				'Product.last_viewed' => 'NOW()',
+			),
+			array('Product.id' => $product['Product']['id'])
+		);
+
 		$this->set(compact('product'));
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));

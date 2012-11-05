@@ -42,14 +42,16 @@ if((in_array($account, $accounts))) {
 		include('geoipregionvars.php');
 		$geodb = geoip_open('GeoLiteCity.dat', GEOIP_MEMORY_CACHE);
 		$geo = geoip_record_by_addr($geodb, $ip);
-
 		$country_code = $geo->country_code;
 		$region = $geo->region;
 		$city = $geo->city;
 	}
 
-	@mysql_connect('kende.com', 'root', '') or die(mysql_error());
-	@mysql_select_db('gourmet') or die(mysql_error());
+	require_once('../../Config/database.php');
+	$db = get_class_vars('DATABASE_CONFIG');
+
+	@mysql_connect($db['default']['host'], $db['default']['login'], $db['default']['password']) or die(mysql_error());
+	@mysql_select_db($db['default']['database']) or die(mysql_error());
 
 	$query = "INSERT INTO visitors SET
 	host = '".mysql_real_escape_string($host)."',
