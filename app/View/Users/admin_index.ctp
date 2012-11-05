@@ -33,7 +33,9 @@ $(document).ready(function() {
 <h2>Users</h2>
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
+		<th class="actions">Actions</th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('level'); ?></th>
 		<th><?php echo $this->Paginator->sort('username'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -47,12 +49,15 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('state'); ?></th>
 		<th><?php echo $this->Paginator->sort('zip'); ?></th>
 		<th><?php echo $this->Paginator->sort('product_count'); ?></th>
-		<th><?php echo $this->Paginator->sort('active'); ?></th>
-		<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($users as $user): ?>
 	<tr>
+		<td class="actions">
+			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
+		</td>
 		<td><?php echo $user['User']['id']; ?></td>
+		<td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
 		<td><span class="level" data-value="<?php echo $user['User']['level']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['level']; ?></span></td>
 		<td><?php echo h($user['User']['username']); ?></td>
 		<td><?php echo h($user['User']['name']); ?></td>
@@ -66,11 +71,6 @@ $(document).ready(function() {
 		<td><?php echo h($user['User']['state']); ?></td>
 		<td><?php echo h($user['User']['zip']); ?></td>
 		<td><?php echo $this->Html->link($user['User']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'user_id', 'id' => $user['User']['id']))); ?></td>
-		<td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
-		<td class="actions">
-			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
-		</td>
 	</tr>
 	<?php endforeach; ?>
 </table>

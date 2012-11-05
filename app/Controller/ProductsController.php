@@ -798,14 +798,19 @@ class ProductsController extends AppController {
 		}
 
 		$users = $this->Product->User->find('list', array(
+			'fields' => array(
+				'User.id',
+				'User.name',
+			),
 			'conditions' => array(
-//				'User.active' => 1,
-//				'User.level' => 'vendor',
+				'User.level' => 'vendor',
 			),
 			'order' => array(
+				'User.active' => 'DESC',
 				'User.name' => 'ASC'
-			)
+			),
 		));
+//		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.active'));
 
 		$categories = $this->Product->Category->findList();
 
