@@ -309,15 +309,27 @@ class ShopsController extends AppController {
 
 		$order = $this->Order->find('first', array(
 			'contain' => array(
-				'OrderUser' => array('User'),
-				'OrderItem' => array('User'),
+				'OrderUser' => array('User' => array(
+					'fields' => array(
+						'User.id',
+						'User.name',
+						'User.email',
+					)
+				)),
+				'OrderItem' => array('User' => array(
+					'fields' => array(
+						'User.id',
+						'User.name',
+						'User.email',
+					)
+				)),
 			),
 			'conditions' => array(
 				'Order.id' => $id
 			),
 		));
 
-		//debug($order);
+//		debug($order);
 
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
@@ -329,9 +341,8 @@ class ShopsController extends AppController {
 			->template('order-admin')
 			->emailFormat('html')
 			->viewVars(array('order' => $order))
-			->send();
-
-//		die('vege');
+			->send()
+		;
 
 		$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 			->cc(Configure::read('Settings.ADMIN_EMAIL'))
@@ -340,18 +351,32 @@ class ShopsController extends AppController {
 			->template('order-customer')
 			->emailFormat('html')
 			->viewVars(array('order' => $order))
-			->send();
+			->send()
+		;
 
 		foreach($order['OrderUser'] as $vendor) {
-//			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
-///				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-//				->to($vendor['User']['email'])
-//				->subject('Gourmet Basket Shop Order')
-//				->template('order-vendor')
-//				->emailFormat('text')
-//				->viewVars(array('order' => $order))
-//				->send();
+
+			$vendoritems = array();
+
+			foreach($order['OrderItem'] as $items) {
+				if($items['user_id'] == $vendor['user_id']) {
+
+					$vendoritems[] = $items;
+
+				}
+			}
+
+			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
+				->cc(Configure::read('Settings.ADMIN_EMAIL'))
+				->to($vendor['User']['email'])
+				->subject('Gourmet Basket Shop Order - Vendor Copy')
+				->template('order-vendor')
+				->emailFormat('html')
+				->viewVars(array('order' => $order, 'vendor' => $vendor, 'vendoritems' => $vendoritems))
+				->send();
 		}
+
+		//die('end');
 
 	}
 
