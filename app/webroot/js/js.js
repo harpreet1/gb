@@ -99,7 +99,7 @@ $(document).ready(function(){
 	//$('.pop').popover('toggle');
 	
 	 // popover demo
-    		$("a[rel=popover]").popover({
+    		$("a[rel=pop-generic]").popover({
 				html:'true'
 			}
 			).click(function(e) {
