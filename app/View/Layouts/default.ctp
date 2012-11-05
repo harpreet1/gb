@@ -22,10 +22,9 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="#">GB</a>
+				<a class="brand" href="#">Home</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><a href="/">Home</a></li>
 						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
