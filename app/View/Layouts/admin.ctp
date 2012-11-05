@@ -84,6 +84,8 @@
 							<li><?php echo $this->Html->link('Orders', array('controller' => 'orders', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Order Users', array('controller' => 'order_users', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Order Items', array('controller' => 'order_items', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Order Histories', array('controller' => 'order_histories', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Order Statuses', array('controller' => 'order_statuses', 'action' => 'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>
 

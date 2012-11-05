@@ -251,7 +251,11 @@ class ShopsController extends AppController {
 				$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'] + $shop['Shippingtotal']['03']['TotalCharges'];
 				$o['Order']['weight'] = $shop['Cart']['Property']['cartWeight'];
 
-				$o['Order']['status'] = 1;
+				$o['Order']['order_status_id'] = 1;
+
+				$o['Order']['ip_address'] = $_SERVER['REMOTE_ADDR'];
+				$o['Order']['remotehost'] = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+				$o['Order']['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
 				//if($shop['Data']['order_type'] == 'paypal') {
 				//	$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);

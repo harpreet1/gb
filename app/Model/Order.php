@@ -2,7 +2,7 @@
 App::uses('AppModel', 'Model');
 class Order extends AppModel {
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public $validate = array(
 		'name' => array(
@@ -119,13 +119,25 @@ class Order extends AppModel {
 
 	);
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+	public $belongsTo = array(
+		'OrderStatus' => array(
+			'className' => 'OrderStatus',
+			'foreignKey' => 'order_status_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
+////////////////////////////////////////////////////////////
 
 	public $hasMany = array(
-		'OrderUser' => array(
-			'className' => 'OrderUser',
+		'OrderHistory' => array(
+			'className' => 'OrderHistory',
 			'foreignKey' => 'order_id',
-			'dependent' => true,
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
@@ -138,7 +150,20 @@ class Order extends AppModel {
 		'OrderItem' => array(
 			'className' => 'OrderItem',
 			'foreignKey' => 'order_id',
-			'dependent' => true,
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'OrderUser' => array(
+			'className' => 'OrderUser',
+			'foreignKey' => 'order_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
@@ -150,6 +175,6 @@ class Order extends AppModel {
 		)
 	);
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 }
