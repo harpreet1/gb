@@ -122,7 +122,7 @@ $(document).ready(function(){
 		  
 		  $('#slider').flexslider({
 				animation: "fade",
-				animationSpeed: 600,
+				animationSpeed: 400,
 				easing: "swing",//{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
 				controlNav: false,
 				animationLoop: false,
