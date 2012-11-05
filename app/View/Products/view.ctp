@@ -8,31 +8,27 @@
 
 	<div class="span3">
 		<?php if(!empty($user)) : ?>
-		<h5><?php echo $user['User']['name']; ?></h5>
+			<h5><?php echo $user['User']['name']; ?></h5>
+	
 
-		<br />
-		<br />
-
-		<p><?php echo $user['User']['shop_quote']; ?></p>
-
-		<br />
-
-		<?php if(!empty($usercategories)) : ?>
-
-		<br />
-		<h6>Our Categories</h6>
-
-		<?php foreach ($usercategories as $usercategory): ?>
-			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-
-			<br />
-		<?php endforeach; ?>
-		<br />
-		<br />
-		<?php endif; ?>
-
-		<br />
-
+		
+	
+			<p><?php echo $user['User']['shop_quote']; ?></p>
+	
+	
+	
+				<?php if(!empty($usercategories)) : ?>
+		
+					<br />
+					<h6>Our Categories</h6>
+			
+					<?php foreach ($usercategories as $usercategory): ?>
+						<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+					<br />
+					<?php endforeach; ?>
+					<br />
+				<?php endif; ?>
+	
 		<?php endif; ?>
 	</div>
 
@@ -48,17 +44,13 @@
 					<li><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 					<li class="active"><?php echo $product['Product']['name']; ?></li>
 				</ul>
-
-				<br />
-				<br />
+				
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="span4">
-					
-				<br />
-				
+		<div class="row products">
+		
+			<div class="span4">				
 				
 					<div id="slider" class="flexslider">
 						<ul class="slides">
@@ -123,14 +115,12 @@
 		
 				<?php if(!empty($product['Product']['generic_description'])) : ?>
 				
-					<div class="pop"><a href="#" class="btn" rel="popover" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
+					<div class="pop"><a href="#" class="btn" rel="pop_generic" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
 					</div>
 					
 				<?php endif ?>	
 					
-				
-	
-				<br />
+							
 				<br />
 				<h3>Serving Suggestions:</h3>
 
@@ -147,7 +137,16 @@
 			</div>
 
 			<div class="span5 product-description">
-
+			
+				
+				<?php if(!empty($product['Product']['brand_description'])) : ?>
+				
+					<h4><a href="#" class="btn" rel="pop_generic" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo $product['Product']['brand_description'];?>"><?php echo $product['Product']['brand']; ?></a></h4>
+				
+					<?php else	 : ?>
+						<a class="btn"><?php echo $product['Product']['brand']; ?></a>	
+				<?php endif; ?>
+				
 				<h3><?php echo $product['Product']['name']; ?></h3>
 
 				<p><?php echo $product['Product']['description']; ?></p>

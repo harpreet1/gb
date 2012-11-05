@@ -57,7 +57,7 @@
 
 <?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=400&height=133" class="btn">crop 400 x 133 image</a>
+<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=300&height=100" class="btn">crop 300 x 100 image</a>
 
 <br />
 <br />
