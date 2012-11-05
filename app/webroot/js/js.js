@@ -94,10 +94,17 @@ $(document).ready(function(){
 
 
 	
+	// Popover
 	
+	//$('.pop').popover('toggle');
 	
-	
-	
-	
+	 // popover demo
+    		$("a[rel=popover]").popover({
+					//html:'true',
+			   placement:'bottom'
+			}
+			).click(function(e) {
+					
+			})
 
 });

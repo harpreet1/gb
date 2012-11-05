@@ -155,6 +155,10 @@ div.product-name, div.product-name p, div.product-name a {
 	margin:0px;*/
 }
 
+.popover {
+	width:400px;
+}
+
 div.price {
 	margin-top:44px;
 	margin-right:10px;

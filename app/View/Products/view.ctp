@@ -91,8 +91,16 @@
 			<div class="span4">
 				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid')); ?>
 				<br />
-				<h4>Generic Description( soon to be a popup)</h4>
-				<p><?php echo $product['Product']['generic_description']; ?></p>
+		
+				<?php if(!empty($product['Product']['generic_description'])) : ?>
+				
+					<div class="pop"><a href="#" class="btn" rel="popover" data-placement="top" data-original-title="Generic Description"  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
+					</div>
+					
+				<?php endif ?>	
+					
+				
+	
 				<br />
 				<br />
 				<h3>Serving Suggestions:</h3>

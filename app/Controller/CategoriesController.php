@@ -53,7 +53,7 @@ class CategoriesController extends AppController {
 				'Subcategory.category_id' => $category['Category']['id']
 			)
 		));
-		//debug($subcategories);
+		debug($subcategories);
 		$this->set(compact('subcategories'));
 
 		$products = $this->Category->Product->find('all', array(
@@ -65,6 +65,7 @@ class CategoriesController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
+				'Product.brand',
 				'User.id',
 				'User.name',
 				'User.slug',
