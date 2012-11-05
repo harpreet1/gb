@@ -710,7 +710,7 @@ class ProductsController extends AppController {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
 
-				$product1= $this->$model->find('first', array(
+				$product1= $this->Product->find('first', array(
 					'recursive' => -1,
 					'conditions' => array(
 						'Product.id' => $this->Product->id
@@ -767,7 +767,7 @@ class ProductsController extends AppController {
 			}
 			if ($this->Product->save($this->request->data)) {
 
-				$product1= $this->$model->find('first', array(
+				$product1= $this->Product->find('first', array(
 					'recursive' => -1,
 					'conditions' => array(
 						'Product.id' => $this->Product->id
