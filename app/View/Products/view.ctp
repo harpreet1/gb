@@ -10,13 +10,8 @@
 		<?php if(!empty($user)) : ?>
 			<h5><?php echo $user['User']['name']; ?></h5>
 	
-
-		
-	
 			<p><?php echo $user['User']['shop_quote']; ?></p>
-	
-	
-	
+		
 				<?php if(!empty($usercategories)) : ?>
 		
 					<br />
@@ -80,34 +75,35 @@
 						<?php endif ; ?>
 																				
 					  </ul>
-					  
 					
 					</div>
+					
 					<div id="carousel" class="flexslider">
-					  <ul class="slides">
-						<?php if(!empty($product['Product']['image'])) : ?>
-							<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_1'])) : ?>
-							<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_2'])) : ?>
-							<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_3'])) : ?>
-							<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_4'])) : ?>
-							<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_5'])) : ?>
-							<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
+						<ul class="slides">
+							<?php if(!empty($product['Product']['image'])) : ?>
+								<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_1'])) : ?>
+								<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_2'])) : ?>
+								<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_3'])) : ?>
+								<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_4'])) : ?>
+								<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_5'])) : ?>
+								<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+						</ul>
 												
 					</div>				
 	
@@ -141,7 +137,9 @@
 				
 				<?php if(!empty($product['Product']['brand_description'])) : ?>
 				
-					<h4><a href="#" class="btn" rel="pop_generic" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo $product['Product']['brand_description'];?>"><?php echo $product['Product']['brand']; ?></a></h4>
+				<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
+				
+					<h4><a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo $product['Product']['brand_description'];?>"><?php echo $product['Product']['brand']; ?></a></h4>
 				
 					<?php else	 : ?>
 						<a class="btn"><?php echo $product['Product']['brand']; ?></a>	
