@@ -25,7 +25,7 @@
 				<a class="brand" href="#">GB</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
+						<li><a href="/">Home</a></li>
 						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
