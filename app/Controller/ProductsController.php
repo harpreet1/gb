@@ -709,6 +709,16 @@ class ProductsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
+
+				$product1= $this->$model->find('first', array(
+					'recursive' => -1,
+					'conditions' => array(
+						'Product.id' => $this->Product->id
+					)
+				));
+				$markup = (($product1['Product']['price'] - $product1['Product']['price_wholesale']) / $product1['Product']['price_wholesale']) * 100;
+				$this->Product->saveField('markup', $markup);
+
 				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -756,6 +766,16 @@ class ProductsController extends AppController {
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
 			}
 			if ($this->Product->save($this->request->data)) {
+
+				$product1= $this->$model->find('first', array(
+					'recursive' => -1,
+					'conditions' => array(
+						'Product.id' => $this->Product->id
+					)
+				));
+				$markup = (($product1['Product']['price'] - $product1['Product']['price_wholesale']) / $product1['Product']['price_wholesale']) * 100;
+				$this->Product->saveField('markup', $markup);
+
 				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {

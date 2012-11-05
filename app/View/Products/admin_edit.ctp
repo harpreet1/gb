@@ -49,21 +49,13 @@ $(document).ready(function(){
 		<div class="span3">
 			<?php echo $this->Form->input('category_id', array('empty' => '-')); ?>
 		</div>
-		<!--<div class="span2">
-			<?php //echo $this->Form->input('category_name');?>
-		</div>-->
 		<div class="span3">
 			<?php echo $this->Form->input('subcategory_id', array('empty' => '-')); ?>
 		</div>
-		<!--<div class="span2">
-			<?php //echo $this->Form->input('subcategory_name');?>
-		</div>-->
 		<div class="span3">
 			<?php echo $this->Form->input('subsubcategory_id', array('empty' => '-')); ?>
 		</div>
-		<!--<div class="span2">
-			<?php //echo $this->Form->input('subsubcategory_name');?>
-		</div>-->
+
 </div>
 
 <div class="row">
@@ -167,11 +159,11 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
-		<div class="emphasize"><?php echo __('Commission: '); ?><?php echo h($product['User']['commission']); ?>%</div>
+		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale');?>
-		<?php echo $this->Form->input('price');?>
 		<?php echo $this->Form->input('price_list');?>
-		
+		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
+		<?php echo $this->Form->input('price');?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php echo $this->Form->input('measurement');?>
 		<?php echo $this->Form->input('weight_unit');?>

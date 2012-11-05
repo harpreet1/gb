@@ -48,9 +48,8 @@ echo $this->Form->input('long_description', array('rows' => 20, 'class' => 'inpu
 echo $this->Form->input('tags');
 echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));
 echo $this->Form->input('gift_product', array('type' => 'checkbox', 'label' => 'Gift Product'));
-echo $this->Form->input('cost');
-echo $this->Form->input('list_price');
-echo $this->Form->input('selling_price');
+echo $this->Form->input('price_wholesale');
+echo $this->Form->input('price_list');
 echo $this->Form->input('price');
 echo $this->Form->input('taxable', array('type' => 'checkbox'));
 echo $this->Form->input('traditions');

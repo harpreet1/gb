@@ -107,6 +107,21 @@ class AppController extends Controller {
 		$this->$model->id = $id;
 		$this->$model->saveField($field, $value);
 
+		if(($model == 'Product' && $field == 'price') || ($model == 'Product' && $field == 'price_wholesale')) {
+
+			$product = $this->$model->find('first', array(
+				'recursive' => -1,
+				'conditions' => array(
+					'Product.id' => $id
+				)
+			));
+
+			$markup = (($product['Product']['price'] - $product['Product']['price_wholesale']) / $product['Product']['price_wholesale']) * 100;
+
+			$this->$model->saveField('markup', $markup);
+
+		}
+
 		$this->autoRender = false;
 
 	}
