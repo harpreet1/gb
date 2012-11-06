@@ -32,6 +32,7 @@
 							<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Add User', array('controller' => 'users', 'action' => 'add', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('All User Images', array('controller' => 'users', 'action' => 'images', 'admin' => true), array('target' => '_blank')); ?></li>
+							<li><?php echo $this->Html->link('All User Awnings', array('controller' => 'users', 'action' => 'awnings', 'admin' => true), array('target' => '_blank')); ?></li>
 						</ul>
 					</li>
 
@@ -127,6 +128,8 @@
 	</div>
 
 	<div class="container-fluid content">
+
+	<br />
 
 	<?php echo $this->Session->flash(); ?>
 	<?php echo $this->fetch('content'); ?>

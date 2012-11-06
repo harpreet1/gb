@@ -132,6 +132,31 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_awnings() {
+		$users = $this->User->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'User.id',
+				'User.username',
+				'User.name',
+				'User.awning_image',
+				'User.awning_css',
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor'
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			),
+		));
+
+		$this->set(compact('users'));
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_view($id = null) {
 
 		if (isset($this->request->data['User']['image_type'])) {
@@ -213,7 +238,7 @@ class UsersController extends AppController {
 
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}
