@@ -507,6 +507,18 @@ h3.cat-title {
 	margin-left:30px;
 }
 
+/** Awning **/
+
+.awning {
+	position:relative;
+}
+#awning-logo {
+	position:absolute;
+	top:8px;
+	left:232px;
+}
+
+
 
 /** Category Summary ***/
 

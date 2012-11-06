@@ -123,6 +123,10 @@
 		<br /><br />
 
 	<div class="awning">
+	
+		<div id="awning-logo">
+			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'150px')); ?>
+		</div>
 
 
 	<?php //echo $this->Html->image('awning/awning-for-bg.png'); ?>
