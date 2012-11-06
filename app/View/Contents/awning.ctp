@@ -1,67 +1,89 @@
-body {
-//	padding-top: 40px;
-//	padding-bottom: 40px;
-}
+<div class="container">
+		<section>
+			<div class="page-header">
+				<h1>Beautiful Buttons for<br />Twitter Bootstrappers</h1>
+			</div>
+		</section>
+		<section style="padding-top:20px">
+			<div class="row">
+				<div class="span6 columns">
+					<h2>Button Hue <small id="hue_value"></small></h2>
+					<div id="hue"></div>
+					<h2>Button Saturation <small id="saturation_value"></small></h2>
+					<div id="saturation"></div>
+					<h2>Button Lightness <small id="lightness_value"></small></h2>
+					<div id="lightness"></div>
+					<h2>Button Puffiness <small id="delta_value"></small></h2>
+					<div id="delta"></div>
+					<button class="btn custom large">Be Excellent To Each Other &raquo;</button>
+					<div id="plug">
+						<h4 style="font-size:19px;line-height:1.4">We built this generator to help us build <a href="https://monotask.com">Monotask</a>. If you&rsquo;re easily distracted by shiny things online, you should <a href="https://monotask.com">check Monotask out</a>.</h4>
+					</div>
+				</div>
+				<div id="instructions" class="span10 columns">
+					<div style="padding:20px">
+					<h2>How to Use This CSS Generator</h2>
+					<p>This is an extension to the <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> framework. <strong>It makes creating pretty buttons easy.</strong> (Send improvements to <a href="https://twitter.com/charliepark">@charliepark</a>.)</p>
+					<h3>First, monkey with the sliders on the left.</h3>
+					<p>Use your arrow keys for extra precision. (Button Puffiness might not affect all browsers.)</p>
+					<h3>Second, copy the CSS in the box below.</h3>
+					<p>You should be able to just pop it into your CSS file. Apply the class &ldquo;btn-custom&rdquo; to any button (or other element) on your site that you want to have these colors.</p>
+					<div id="embedded_css"></div>
+				</div>
+				</div>
+			</div>
+	  </section>
+    <section>
+      <div class="row">
+        <div class="span12 offset2 columns">
+          <h2>Some Examples! <small>(you can probably do better than these, though)</small></h2>
+          <div class="row">
+            <div class="span4">
+              <button class="sample btn custom large a" data-h="193" data-s="32" data-l="64", data-p="15">Alpha</button>
+              <button class="sample btn custom large b" data-h="36" data-s="100" data-l="50", data-p="10">Bravo</button>
+              <button class="sample btn custom large c" data-h="86" data-s="79" data-l="64", data-p="20">Charlie</button>
+              <button class="sample btn custom large d" data-h="312" data-s="80" data-l="48", data-p="5">Delta</button>
+              <button class="sample btn custom large e" data-h="110" data-s="56" data-l="26", data-p="10">Echo</button>
+            </div>
+            <div class="span4">
+              <button class="sample btn custom large f" data-h="0" data-s="69" data-l="32", data-p="10">Foxtrot</button>
+              <button class="sample btn custom large g" data-h="195" data-s="79" data-l="53", data-p="10">Golf</button>
+              <button class="sample btn custom large h" data-h="0" data-s="0" data-l="26", data-p="10">Hotel</button>
+              <button class="sample btn custom large i" data-h="214" data-s="37" data-l="45", data-p="17">India</button>
+              <button class="sample btn custom large j" data-h="41" data-s="85" data-l="47", data-p="12">Juliet</button>
+            </div>
+            <div class="span4">
+              <button class="sample btn custom large k" data-h="0" data-s="0" data-l="100", data-p="21">Kilo</button>
+              <button class="sample btn custom large l" data-h="145" data-s="62" data-l="78", data-p="10">Lima</button>
+              <button class="sample btn custom large m" data-h="195" data-s="60" data-l="40", data-p="5">Mike</button>
+              <button class="sample btn custom large n" data-h="0" data-s="100" data-l="86", data-p="4">November</button>
+              <button class="sample btn custom large o" data-h="70" data-s="11" data-l="34", data-p="11">Oscar</button>
+            </div>            
+        </div>
+      </div>
+    </section>
 
-.content {
-	font-size: 80%;
-}
+	</div>
 
-#flashMessage{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	background: #EEEEEE;
-	color: #444444;
-}
+  <script src="jquery.js" type="text/javascript"></script>
+  <script src="application.js" type="text/javascript"></script>
+  <script src="color.js" type="text/javascript"></script>
+  <script type="text/javascript">
 
-.error-message {
-	color: #CC0000;
-}
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15921981-1']);
+    _gaq.push(['_trackPageview']);
 
-.error {
-	color: #CC0000;
-}
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-.img100 {
-	min-width: 100px !important;
-	max-width: 100px !important;
-}
+  </script>
 
-td div {
-	max-height: 130px;
-	overflow-y: scroll;
-}
-
-td.constrain img{
-	max-height: 90px;
-	width: auto;
-}
-
-td.art-constrain div {
-	max-height: 70px;
-}
-
-.emphasize {
-	font-weight:bold;
-	font-size:13px;
-	color:red;
-	margin-bottom:15px;
-}
-
-/** Awning tool **/
-
-.awning {
-	height:300px;
-	width:680px;
-	background:url(../img/awning/awning-for-bg.png) no-repeat;
-	margin:0;
-	padding:0;
-}
-
-/** Sample Colors for Color Tool **/
-
-.btn.a{background-color: hsl(193, 32%, 49%);
+    <style type="text/css" media="screen">
+      .btn.a{background-color: hsl(193, 32%, 49%);
         background-repeat: repeat-x;
         background-image: -khtml-gradient(linear, left top, left bottom, from(hsl(193, 32%, 79%)), to(hsl(193, 32%, 49%)));
         background-image: -moz-linear-gradient(top, hsl(193, 32%, 79%), hsl(193, 32%, 49%));
@@ -300,3 +322,5 @@ td.art-constrain div {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
     -webkit-font-smoothing: antialiased;
   }
+
+    </style>

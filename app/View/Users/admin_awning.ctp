@@ -1,117 +1,18 @@
-<h2>View User</h2>
-
-<br />
-<br />
+<h2>View Awning</h2>
 
 
-
-<br />
-<br />
-
-<hr>
-
-<br />
-<br />
-
-<span class="label label-warning">
- &nbsp; Image : no watermark, square image size </span>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
-<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
-<?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
-<table class="table-striped table-bordered table-condensed">
-	<tbody>
-		<tr>
-			<td>Upload Image</td>
-			<td><?php echo $this->Form->file('image'); ?></td>
-		</tr>
-		<tr>
-			<td>Image Type</td>
-			<td>
-
-			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image' => 'Main',
-				'image_1' => 'image 1',
-				'image_2' => 'image 2',
-				'image_3' => 'image 3',
-				'image_4' => 'image 4',
-				'image_5' => 'image 5',
-				'image_6' => 'image 6',
-			))); ?>
-
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
-		</tr>
-	</tbody>
-</table>
-<?php echo $this->Form->end(); ?>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=300&height=100" class="btn">crop 300 x 100 image</a>
-
-<br />
-<br />
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_1/'. $user['User']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_1&src_file=<?php echo $user['User']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $user['User']['image_1']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_2/'. $user['User']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_2&src_file=<?php echo $user['User']['image_2']; ?>&dst_dir=users/image_2&dst_file=<?php echo $user['User']['image_2']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_3/'. $user['User']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_3&src_file=<?php echo $user['User']['image_3']; ?>&dst_dir=users/image_3&dst_file=<?php echo $user['User']['image_3']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_4/'. $user['User']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_4&src_file=<?php echo $user['User']['image_4']; ?>&dst_dir=users/image_4&dst_file=<?php echo $user['User']['image_4']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_5/'. $user['User']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_5&src_file=<?php echo $user['User']['image_5']; ?>&dst_dir=users/image_5&dst_file=<?php echo $user['User']['image_5']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_6/'. $user['User']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_6&src_file=<?php echo $user['User']['image_6']; ?>&dst_dir=users/image_6&dst_file=<?php echo $user['User']['image_6']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<hr>
-
-		
 <div class="page-header">
 	<h2>Vendor Awning Color Tool</h2>
 </div>
+
+
+<?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->input('id'); ?>
+
+<?php echo $this->Form->input('awning_css'); ?>
+
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
 
 <div class="row">

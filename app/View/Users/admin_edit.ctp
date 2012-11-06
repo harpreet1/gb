@@ -16,6 +16,8 @@
 <h2>Admin Edit User</h2>
 
 <?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->input('id'); ?>
+
 
 <div class="row-fluid">
 	<h3><?php echo $this->Form->input('name'); ?></h3>

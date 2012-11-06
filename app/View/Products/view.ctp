@@ -118,18 +118,26 @@
 					
 							
 				<br />
-				<h3>Serving Suggestions:</h3>
-
-				<p><?php echo $product['Product']['serving_suggestions']; ?></p>
+				
+				<?php if(!empty($product['Product']['serving_suggestions'])) : ?>
+					<h3>Serving Suggestions:</h3>
+	
+					<p><?php echo $product['Product']['serving_suggestions']; ?></p>
+				<?php endif ?>	
 
 				<br />
 				<br />
-				<h3>Here's a recipe:</h3>
-				<p><?php echo $product['Product']['recipes']; ?></p>
-
-				<h4>Sources:</h4>
-				<p><?php echo $product['Product']['attribution']; ?></p>
-
+				
+				<?php if(!empty($product['Product']['recipes'])) : ?>
+					<h3>Here's a recipe:</h3>
+					<p><?php echo $product['Product']['recipes']; ?></p>
+				<?php endif ?>	
+				
+				<?php if(!empty($product['Product']['attribution'])) : ?>
+					<h4>Sources:</h4>
+					<p><?php echo $product['Product']['attribution']; ?></p>
+				<?php endif ?>	
+				
 			</div>
 
 			<div class="span5 product-description">
@@ -139,10 +147,10 @@
 				
 				<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
 				
-					<h4><a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo $product['Product']['brand_description'];?>"><?php echo $product['Product']['brand']; ?></a></h4>
+					<h4><a href="#" class="btn btn-custom"><i class="icon-eye-open"></i> rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo $product['Product']['brand_description'];?>"><?php echo $product['Product']['brand']; ?></a></h4>
 				
 					<?php else	 : ?>
-						<a class="btn"><?php echo $product['Product']['brand']; ?></a>	
+						<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>	
 				<?php endif; ?>
 				
 				<h3><?php echo $product['Product']['name']; ?></h3>
@@ -150,10 +158,13 @@
 				<p><?php echo $product['Product']['description']; ?></p>
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
-
-				<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
-
+				
+				
+				<?php if(!empty($product['Product']['ingredients'])) : ?>
+					<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
+				<?php endif; ?>
 				<br />
+				
 				$<?php echo $product['Product']['price']; ?>
 
 				<br />
