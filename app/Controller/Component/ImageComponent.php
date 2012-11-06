@@ -2,8 +2,8 @@
 class ImageComponent extends Component {
 
 	public $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
-	public $min_filesize = 10000;
-	public $max_filesize = 3000000;
+	public $min_filesize = 5000;
+	public $max_filesize = 2000000;
 
 ////////////////////////////////////////////////////////////
 
@@ -30,8 +30,8 @@ class ImageComponent extends Component {
 			return 'invalid picture size';
 		}
 
-		if ($srcWidth < 200 || $srcHeight < 200) {
-			return 'picture size must be at least 200x200';
+		if ($srcWidth < 100 || $srcHeight < 100) {
+			return 'picture size must be at least 100x100';
 		}
 
 		$this->mkdir($targetdir);
