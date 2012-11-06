@@ -52,9 +52,9 @@ td.art-constrain div {
 /** Awning tool **/
 
 .awning {
-	height:300px;
-	width:680px;
-	background:url(../img/awning/awning-for-bg.png) no-repeat;
+	height:111px;
+	width:690px;
+	
 	margin:0;
 	padding:0;
 }
