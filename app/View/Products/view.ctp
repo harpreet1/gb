@@ -8,31 +8,22 @@
 
 	<div class="span3">
 		<?php if(!empty($user)) : ?>
-		<h5><?php echo $user['User']['name']; ?></h5>
-
-		<br />
-		<br />
-
-		<p><?php echo $user['User']['shop_quote']; ?></p>
-
-		<br />
-
-		<?php if(!empty($usercategories)) : ?>
-
-		<br />
-		<h6>Our Categories</h6>
-
-		<?php foreach ($usercategories as $usercategory): ?>
-			<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-
-			<br />
-		<?php endforeach; ?>
-		<br />
-		<br />
-		<?php endif; ?>
-
-		<br />
-
+			<h5><?php echo $user['User']['name']; ?></h5>
+	
+			<p><?php echo $user['User']['shop_quote']; ?></p>
+		
+				<?php if(!empty($usercategories)) : ?>
+		
+					<br />
+					<h6>Our Categories</h6>
+			
+					<?php foreach ($usercategories as $usercategory): ?>
+						<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+					<br />
+					<?php endforeach; ?>
+					<br />
+				<?php endif; ?>
+	
 		<?php endif; ?>
 	</div>
 
@@ -48,17 +39,13 @@
 					<li><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 					<li class="active"><?php echo $product['Product']['name']; ?></li>
 				</ul>
-
-				<br />
-				<br />
+				
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="span4">
-					
-				<br />
-				
+		<div class="row products">
+		
+			<div class="span4">				
 				
 					<div id="slider" class="flexslider">
 						<ul class="slides">
@@ -88,34 +75,35 @@
 						<?php endif ; ?>
 																				
 					  </ul>
-					  
 					
 					</div>
+					
 					<div id="carousel" class="flexslider">
-					  <ul class="slides">
-						<?php if(!empty($product['Product']['image'])) : ?>
-							<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_1'])) : ?>
-							<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_2'])) : ?>
-							<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_3'])) : ?>
-							<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_4'])) : ?>
-							<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-							
-						<?php if(!empty($product['Product']['image_5'])) : ?>
-							<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
+						<ul class="slides">
+							<?php if(!empty($product['Product']['image'])) : ?>
+								<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_1'])) : ?>
+								<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_2'])) : ?>
+								<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_3'])) : ?>
+								<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_4'])) : ?>
+								<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+								
+							<?php if(!empty($product['Product']['image_5'])) : ?>
+								<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
+							<?php endif ; ?>
+						</ul>
 												
 					</div>				
 	
@@ -123,40 +111,60 @@
 		
 				<?php if(!empty($product['Product']['generic_description'])) : ?>
 				
-					<div class="pop"><a href="#" class="btn" rel="popover" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
+					<div class="pop"><a href="#" class="btn" rel="pop_generic" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
 					</div>
 					
 				<?php endif ?>	
 					
+							
+				<br />
 				
+				<?php if(!empty($product['Product']['serving_suggestions'])) : ?>
+					<h3>Serving Suggestions:</h3>
 	
-				<br />
-				<br />
-				<h3>Serving Suggestions:</h3>
-
-				<p><?php echo $product['Product']['serving_suggestions']; ?></p>
+					<p><?php echo $product['Product']['serving_suggestions']; ?></p>
+				<?php endif ?>	
 
 				<br />
 				<br />
-				<h3>Here's a recipe:</h3>
-				<p><?php echo $product['Product']['recipes']; ?></p>
-
-				<h4>Sources:</h4>
-				<p><?php echo $product['Product']['attribution']; ?></p>
-
+				
+				<?php if(!empty($product['Product']['recipes'])) : ?>
+					<h3>Here's a recipe:</h3>
+					<p><?php echo $product['Product']['recipes']; ?></p>
+				<?php endif ?>	
+				
+				<?php if(!empty($product['Product']['attribution'])) : ?>
+					<h4>Sources:</h4>
+					<p><?php echo $product['Product']['attribution']; ?></p>
+				<?php endif ?>	
+				
 			</div>
 
 			<div class="span5 product-description">
-
+			
+				
+				<?php if(!empty($product['Product']['brand_description'])) : ?>
+				
+				<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
+				
+					<h4><a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo h($product['Product']['brand_description']);?>"><?php echo $product['Product']['brand']; ?></a></h4>
+				
+					<?php else	 : ?>
+						<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>	
+				<?php endif; ?>
+				
 				<h3><?php echo $product['Product']['name']; ?></h3>
 
 				<p><?php echo $product['Product']['description']; ?></p>
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
-
-				<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
-
+				
+				
+				<?php if(!empty($product['Product']['ingredients'])) : ?>
+					<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
+				<?php endif; ?>
 				<br />
+				
 				$<?php echo $product['Product']['price']; ?>
 
 				<br />

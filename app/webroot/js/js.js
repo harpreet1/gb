@@ -98,13 +98,15 @@ $(document).ready(function(){
 	
 	//$('.pop').popover('toggle');
 	
-	 // popover demo
-    		$("a[rel=pop-generic]").popover({
-				html:'true'
-			}
-			).click(function(e) {
-					
-			})
+    		$("a[rel=pop_generic]").popover({html:'true'}).click(function(e) {
+		})
+		
+    		$("a[rel=pop_brand]").popover({html:'true'}).click(function(e) {
+		})
+		
+		
+		
+		
 			
 	// Product Display Slider
 	
