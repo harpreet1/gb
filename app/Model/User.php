@@ -74,6 +74,8 @@ class User extends AppModel {
 				'User.image_4',
 				'User.image_5',
 				'User.image_6',
+				'User.awning_css',
+				'User.awning_image',
 			),
 			'conditions' => array(
 				'User.level' => 'vendor',
