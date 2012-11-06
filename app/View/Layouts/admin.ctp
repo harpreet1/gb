@@ -9,9 +9,9 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
 
-<?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js', 'application.js', 'color.js')); ?>
+
+<?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js')); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
 </head>

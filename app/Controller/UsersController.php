@@ -200,7 +200,7 @@ class UsersController extends AppController {
 			$this->set('user', $this->User->read(null, $id));
 		}
 	}
-	
+
 ////////////////////////////////////////////////////////////
 
 	public function admin_awning($id = null) {
@@ -210,6 +210,7 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
 				$this->redirect(array('action' => 'index'));

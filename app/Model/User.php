@@ -10,13 +10,13 @@ class User extends AppModel {
 				'rule' => array('between', 3, 50),
 				'message' => 'invalid name',
 				'allowEmpty' => false,
-				'required' => true,
+				'required' => false,
 			),
 			'rule2' => array(
 				'rule' => array('isUnique'),
 				'message' => 'name already exists',
 				'allowEmpty' => false,
-				'required' => true,
+				'required' => false,
 			),
 		),
 		'slug' => array(
@@ -24,13 +24,13 @@ class User extends AppModel {
 				'rule' => array('between', 3, 50),
 				'message' => 'invalid slug',
 				'allowEmpty' => false,
-				'required' => true,
+				'required' => false,
 			),
 			'rule2' => array(
 				'rule' => array('isUnique'),
 				'message' => 'slug already exists',
 				'allowEmpty' => false,
-				'required' => true,
+				'required' => false,
 			),
 			'rule3' => array(
 				'rule' => '/^[a-z0-9-]{3,}$/',

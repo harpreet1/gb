@@ -1,204 +1,5 @@
 <h2>View User</h2>
 
-<br />
-<br />
-
-
-
-<br />
-<br />
-
-<hr>
-
-<br />
-<br />
-
-<span class="label label-warning">
- &nbsp; Image : no watermark, square image size </span>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
-<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
-<?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
-<table class="table-striped table-bordered table-condensed">
-	<tbody>
-		<tr>
-			<td>Upload Image</td>
-			<td><?php echo $this->Form->file('image'); ?></td>
-		</tr>
-		<tr>
-			<td>Image Type</td>
-			<td>
-
-			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image' => 'Main',
-				'image_1' => 'image 1',
-				'image_2' => 'image 2',
-				'image_3' => 'image 3',
-				'image_4' => 'image 4',
-				'image_5' => 'image 5',
-				'image_6' => 'image 6',
-			))); ?>
-
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
-		</tr>
-	</tbody>
-</table>
-<?php echo $this->Form->end(); ?>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=300&height=100" class="btn">crop 300 x 100 image</a>
-
-<br />
-<br />
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_1/'. $user['User']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_1&src_file=<?php echo $user['User']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $user['User']['image_1']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_2/'. $user['User']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_2&src_file=<?php echo $user['User']['image_2']; ?>&dst_dir=users/image_2&dst_file=<?php echo $user['User']['image_2']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_3/'. $user['User']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_3&src_file=<?php echo $user['User']['image_3']; ?>&dst_dir=users/image_3&dst_file=<?php echo $user['User']['image_3']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_4/'. $user['User']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_4&src_file=<?php echo $user['User']['image_4']; ?>&dst_dir=users/image_4&dst_file=<?php echo $user['User']['image_4']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_5/'. $user['User']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_5&src_file=<?php echo $user['User']['image_5']; ?>&dst_dir=users/image_5&dst_file=<?php echo $user['User']['image_5']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('users/image_6/'. $user['User']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
-<br />
-<a href="/admin/images/crop?src_dir=users/image_6&src_file=<?php echo $user['User']['image_6']; ?>&dst_dir=users/image_6&dst_file=<?php echo $user['User']['image_6']; ?>&width=300&height=300" class="btn">crop image</a>
-
-<br />
-<br />
-
-<hr>
-
-		
-<div class="page-header">
-	<h2>Vendor Awning Color Tool</h2>
-</div>
-
-
-<div class="row">
-	<div class="span9 columns">
-		<h3>Button Hue <small id="hue_value"></small></h3>
-		<div id="hue"></div>
-		<h3>Button Saturation <small id="saturation_value"></small></h3>
-		<div id="saturation"></div>
-		<h3>Button Lightness <small id="lightness_value"></small></h3>
-		<div id="lightness"></div>
-		<h3>Button Puffiness <small id="delta_value"></small></h3>
-		<div id="delta"></div>
-		<br /><br />
-		
-		<div class="awning custom large">Gourmet Basket Awning Color &raquo;</div>
-		
-	<?php  			
-		$css = $user['User']['awning_css']; 
-		$awning = $user['User']['awning_image']; 
-	?>
-	
-	
-
-<div style="<?php echo $css;?>"><img src="/img/awning/<?php echo $awning; ?>"></div>
-		
-		<textarea name="tttt" id="ttt"> 123456789</textarea>
-		
-		<br />
-		
-		<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
-	</div>
-			
-	<div id="instructions" class="span6 columns">
-		<div style="padding:20px">
-		<h2>How to Use The Awning Color Generator</h2>
-		
-		<h3>First, play with the sliders on the left.</h3>
-		<p>Use your arrow keys for extra precision. (Button Puffiness might not affect all browsers.)</p>
-		<h3>Second, copy the CSS in the box below.</h3>
-		<p>You should be able to just pop it into your CSS file. Apply the class &ldquo;btn-custom&rdquo; to any button (or other element) on your site that you want to have these colors.</p>
-		<div id="embedded_css"></div>
-	</div>
-	
-</div>
-	
-  
-   
-<div class="row">
-
-
-
-	<div class="span12 columns">
-	
-			
-
-	
-		<h2>Some Examples!</h2>
-		<div class="row">
-			<div class="span4">
-			<button class="sample btn custom large a" data-h="193" data-s="32" data-l="64", data-p="15">Alpha</button>
-			<button class="sample btn custom large b" data-h="36" data-s="100" data-l="50", data-p="10">Bravo</button>
-			<button class="sample btn custom large c" data-h="86" data-s="79" data-l="64", data-p="20">Charlie</button>
-			<button class="sample btn custom large d" data-h="312" data-s="80" data-l="48", data-p="5">Delta</button>
-			<button class="sample btn custom large e" data-h="110" data-s="56" data-l="26", data-p="10">Echo</button>
-			</div>
-			<div class="span4">
-			<button class="sample btn custom large f" data-h="0" data-s="69" data-l="32", data-p="10">Foxtrot</button>
-			<button class="sample btn custom large g" data-h="195" data-s="79" data-l="53", data-p="10">Golf</button>
-			<button class="sample btn custom large h" data-h="0" data-s="0" data-l="26", data-p="10">Hotel</button>
-			<button class="sample btn custom large i" data-h="214" data-s="37" data-l="45", data-p="17">India</button>
-			<button class="sample btn custom large j" data-h="41" data-s="85" data-l="47", data-p="12">Juliet</button>
-			</div>
-			<div class="span4">
-			<button class="sample btn custom large k" data-h="0" data-s="0" data-l="100", data-p="21">Kilo</button>
-			<button class="sample btn custom large l" data-h="145" data-s="62" data-l="78", data-p="10">Lima</button>
-			<button class="sample btn custom large m" data-h="195" data-s="60" data-l="40", data-p="5">Mike</button>
-			<button class="sample btn custom large n" data-h="0" data-s="100" data-l="86", data-p="4">November</button>
-			<button class="sample btn custom large o" data-h="70" data-s="11" data-l="34", data-p="11">Oscar</button>
-			</div>            
-		</div>
-	</div>
-
-</div>
-
-
-
-
 <table class="table-striped table-bordered table-condensed table-hover">
 <tr>
 <td>Id</td>
@@ -539,11 +340,8 @@
 </table>
 
 <br />
-<br />
 
 <h3>Actions</h3>
-
-<br />
 
 <?php echo $this->Html->link('Edit User', array('action' => 'edit', $user['User']['id']), array('class' => 'btn')); ?>
 
@@ -554,6 +352,122 @@
 
 <br />
 <br />
+
 <br />
 <br />
+
+<style>
+
+	#awning1 {
+		<?php echo $user['User']['awning_css']; ?>
+	}
+
+</style>
+
+<img id="awning1" src="/img/awning/awning.png">
+
+<br />br
+
+<?php echo $this->Html->link('Edit Awning', array('action' => 'awning', $user['User']['id']), array('class' => 'btn')); ?>
+
+<br />
+<br />
+
+<br />
+<br />
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size </span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?>
+<?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
+<table class="table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'Main',
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+				'image_6' => 'image 6',
+			))); ?>
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image&src_file=<?php echo $user['User']['image']; ?>&dst_dir=users/image&dst_file=<?php echo $user['User']['image']; ?>&width=300&height=100" class="btn">crop 300 x 100 image</a>
+
+<br />
+<br />
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_1/'. $user['User']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_1&src_file=<?php echo $user['User']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $user['User']['image_1']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_2/'. $user['User']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_2&src_file=<?php echo $user['User']['image_2']; ?>&dst_dir=users/image_2&dst_file=<?php echo $user['User']['image_2']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_3/'. $user['User']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_3&src_file=<?php echo $user['User']['image_3']; ?>&dst_dir=users/image_3&dst_file=<?php echo $user['User']['image_3']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_4/'. $user['User']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_4&src_file=<?php echo $user['User']['image_4']; ?>&dst_dir=users/image_4&dst_file=<?php echo $user['User']['image_4']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_5/'. $user['User']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_5&src_file=<?php echo $user['User']['image_5']; ?>&dst_dir=users/image_5&dst_file=<?php echo $user['User']['image_5']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('users/image_6/'. $user['User']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=users/image_6&src_file=<?php echo $user['User']['image_6']; ?>&dst_dir=users/image_6&dst_file=<?php echo $user['User']['image_6']; ?>&width=300&height=300" class="btn">crop image</a>
+
+<br />
+<br />
+
+
 

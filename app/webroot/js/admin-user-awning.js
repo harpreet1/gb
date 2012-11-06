@@ -1,3 +1,9 @@
+$(document).ready(function() {
+
+	$('textarea').hide();
+
+});
+
 function refreshSwatch() {
 	var hue = $("#hue").slider("value"),
 		saturation = $("#saturation").slider("value"),
@@ -14,11 +20,10 @@ function refreshSwatch() {
 		lowhex = hsl2Hex(hue, saturation, lowlight),
 		text = getTextColor(lightness, delta),
 		css = generateHSLGradient(hsl, gradientTop, gradientBottom, borderBottom, text, highhex, lowhex),
-		embeddedCss = ".btn-custom {\n"+css+"}";
+		embeddedCss = css;
 		$(".awning.custom").not('.sample').attr('style', css);
 		$(".ui-slider-range").css("background", hsl);
-		$('#embedded_css').html(embeddedCss);
-		$('#ttt').html(embeddedCss);
+		$('#UserAwningCss').html(embeddedCss);
 		$('.ui-slider-handle').each(function(){
 			var v = $(this).parents('div').slider("value");
 			var i = $(this).parents('div').attr('id');

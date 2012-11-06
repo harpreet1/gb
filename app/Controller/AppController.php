@@ -102,7 +102,7 @@ class AppController extends Controller {
 
 		$id = $this->request->data['pk'];
 		$field = $this->request->data['name'];
-		$value = $this->request->data['value'];
+		$value = trim($this->request->data['value']);
 
 		$this->$model->id = $id;
 		$this->$model->saveField($field, $value);
