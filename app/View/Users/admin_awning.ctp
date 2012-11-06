@@ -39,7 +39,11 @@
 </div>
 
 
-<div  class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/awning/awning.png"></div>
+<div class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/awning/awning.png"></div>
+
+<div style="margin-left:120px;">
+	<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
+</div>
 
 <br />
 
@@ -78,7 +82,3 @@
 	</div>
 
 </div>
-
-
-
-
