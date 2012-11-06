@@ -138,6 +138,12 @@
 					<p><?php echo $product['Product']['attribution']; ?></p>
 				<?php endif ?>	
 				
+				
+
+				
+			
+				
+				
 			</div>
 
 			<div class="span5 product-description">
@@ -177,13 +183,108 @@
 
 			</div>
 		</div>
+		
+		
+<div class="row">
+	<div class="span9">
+
+				
+				<?php $attributes = array("allergen_free",
+					  "gluten",
+					  "vegan",
+					  "fat_free",
+					  "sugar",
+					  "msg",
+					  "lactose",
+					  "low_carb",
+					  "nut",
+					  "heart_smart",
+					  "no_preservatives",
+					  "organic",
+					  "kosher",
+					  "halal",
+					  "fair_traded",
+					  "give_back"
+					  );
+				?>
+				
+				<div>
+					<?php foreach ($attributes as $attribute):?>
+						<?php if(isset($product['Product'][$attribute])) : ?>
+							<?php if($product['Product'][$attribute] == 1):?>
+					
+								<div class="attr-icon-set">
+								
+									<div class="attr-icons">
+										<img src="/img/attributes/<?php print $attribute;?>.png" width="50" height="50" />
+									</div>
+									
+									<div class="attr-icon-caption"> <?php print str_replace("_"," ",$attribute);?> </div>
+									
+								</div>
+								
+							<?php endif;?>
+						<?php endif;?>
+					<?php endforeach;?>
+					
+				</div>
+
+			</div>
+
+
+			<?php
+		
+				if(!empty($product['Product']['related_products'])):
+					$related_products = unserialize($product['Product']['related_products']);
+					$sql = "SELECT product_name, product_id, description, image FROM products WHERE product_id IN (".join(",",array_keys($related_products)).")";
+					$result = mysql_query($sql);
+			?>
+			
+			<h2>PAIRINGS & RELATED PRODUCTS</h2>
+		
+			<div id="carousel-image-and-text" class="touchcarousel grey-blue">
+			
+				<ul class="touchcarousel-container">
+				
+					<?php while ($row = mysql_fetch_object($result)):?>
+					
+						<li class="touchcarousel-item">
+							<a class="item-block" href="/product/<?php echo $row->product_id;?>"> <img src="/administration/images/product/<?php echo $row->image; ?>"/>
+							
+						<h5><?php echo $row->product_name; ?></h5>
+						
+						<p> <?php echo (!empty($related_products[$row->product_id]['description']) ? $related_products[$row->product_id]['description'] : $row->description) ; ?> </p>
+							</a>
+						</li>
+						
+					<?php endwhile;?>
+					
+				</ul>
+			</div>
+		
+			<?php endif;?>
+		
+			<div class="clear"></div>
+		
+
+
+
+
+
+
+	</div>		
+		
+		
 
 	</div>
 
 </div>
 
+
+
 <br />
 <br />
+
 
 <!--Facebook -->
 <div id="fb-root">

@@ -561,6 +561,27 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function related_products() {
+		$this->paginate = array(
+			'recursive' => 0,
+			'conditions' => array(
+				'Product.user_id' => $this->Auth->user('id')
+			),
+			'fields' => array(
+				'Product.*',
+				'User.id',
+				'User.name',
+				'User.level',
+				
+			),
+			'limit' => 50,
+		);
+		$products = $this->paginate('Product');
+		$this->set(compact('products'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 
 		if ($this->request->is('post')) {
@@ -869,4 +890,7 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 }
+
+
+
 

@@ -671,3 +671,114 @@ html[xmlns] .slides {display: block;}
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
   -webkit-font-smoothing: antialiased;
 }
+
+
+/** Attribute icons **/
+
+.attr-icon-set {
+	width: 55px;
+	height: 75px;
+	float: left;
+}
+
+.attr-icons {
+	border: thin solid whiteSmoke;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color: #EAE7E2;
+}
+
+.attr-icon-caption {
+	font-size: 65%;
+	text-align: center;
+	line-height:10px;
+}
+
+
+/******************************************************\
+*
+*  TOUCH CAROUSEL
+*
+\******************************************************/
+
+/* IE and Opera use "move", FF uses -moz-grab */
+.touchcarousel .grab-cursor{ cursor:url(../img/grab.png) 8 8, move; }
+.touchcarousel .grabbing-cursor{ cursor:url(../img/grabbing.png) 8 8, move; }
+
+/* Cursor that used when mouse drag is disabled */
+.touchcarousel .auto-cursor{ cursor:auto; }
+
+
+
+
+/**
+		* Carousel with image and text, custom skinned scrollbar
+		**/
+		#carousel-image-and-text {
+			width: 600px;
+			height: 260px;
+			margin: 0 auto;	
+		}	
+		#carousel-image-and-text .arrow-holder {
+			height: 250px;
+		}		
+		#carousel-image-and-text .touchcarousel-item {
+			margin-right: 2px;	
+			width: 170px;
+			
+		}
+		#carousel-image-and-text .item-block {
+			width: 170px;
+			height: 277px;
+			display: block;
+		}
+		#carousel-image-and-text .item-block img,
+		#carousel-image-and-text .item-block h4, 
+		#carousel-image-and-text .item-block p {
+			float: left;
+			position: relative;
+			display: block;
+			margin: 0;			
+		}
+		#carousel-image-and-text .item-block img {
+			width: 140px;
+			height: 140px;		
+			border: 0;
+			padding: 0;		
+		}
+		#carousel-image-and-text .item-block {			
+			text-decoration: none;
+			color: inherit;			
+		}					
+		#carousel-image-and-text .item-block h4 {
+			font:10px;
+			text-align:center;
+			color: #000;
+			width: 158px;
+			height: auto;		
+			padding: 2px 0 0 6px;
+			-webkit-transition: color 0.2s ease-out; 
+			-moz-transition: color 0.2s ease-out;
+			transition: color 0.2s ease-out;  	
+		}
+		#carousel-image-and-text .item-block:hover h4 {	
+			color: #1873c9;		
+		}
+		#carousel-image-and-text .item-block p {			
+			font: normal 11px;
+			color: #555;		
+			width: 158px;
+			padding: 0 0 0 6px;
+		}
+		#carousel-image-and-text .scrollbar-holder {
+			background: #CED7DB;
+			bottom: 0;
+			height: 1px;
+			left: 0;
+			right: 0;
+		}
+		#carousel-image-and-text .scrollbar {
+			background-color: #45a8ce !important;
+			bottom: 0;
+		}
+
