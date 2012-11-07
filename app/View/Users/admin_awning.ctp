@@ -2,13 +2,46 @@
 
 <?php $awning = $user['User']['awning_image']; ?>
 
+<?php var_dump ($user['User']['awning_css']);?>
+
 <style>
 
 	#awning1 {
 		<?php echo $user['User']['awning_css']; ?>
 	}
 
+#awning1 {
+	position: relative;
+}
+
+#div1 {
+	position: absolute;
+	top:-45px;
+	left:177px;
+	height: 63px;
+	width: 206px;
+	margin: 50px;
+	padding:0px;
+	perspective:100;
+	-webkit-perspective:100; /* Safari and Chrome */
+}
+
+#div2 {
+	padding:0px;
+	background-color: red;
+	transform: rotateX(45deg);
+	-webkit-transform: rotateX(45deg); /* Safari and Chrome */
+}
+
 </style>
+
+<script>
+
+/*window.onload = function() {
+  $('#awning1').css(
+}
+
+*/</script>
 
 <h2>Vendor Awning Color Tool</h2>
 
@@ -39,7 +72,16 @@
 </div>
 
 
-<div class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/awning/awning.png"></div>
+<div class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/awning/awning.png">
+
+	<div id="div1">
+		<div id="div2">
+			<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
+		</div>​
+	</div>
+
+
+</div>
 
 <div style="margin-left:120px;">
 	<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
@@ -80,5 +122,9 @@
 		<button class="sample btn custom large o" data-h="70" data-s="11" data-l="34", data-p="11">Oscar</button>
 
 	</div>
+<style>
 
-</div>
+
+</style>
+
+
