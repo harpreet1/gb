@@ -3,12 +3,14 @@
 
 
 <div id="pantry-container">
-	<div id="left-door-inside"></div>
-	<div id="left-door-outside"></div>
+	<div id="left-door"></div>
+	<div id="left-door-top"></div>
+	<div id="left-door-bottom"></div>
 	
 	
-	<div id="right-door-inside"></div>
-	<div id="right-door-outside"></div>
+	<div id="right-door"></div>
+	<div id="right-door-top"></div>
+	<div id="right-door-bottom"></div>
 	
 	
 	

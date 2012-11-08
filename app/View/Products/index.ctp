@@ -124,21 +124,12 @@
 
 	<div class="awning">
 	
-	<div id="div1">
-		<div id="div2">
-			<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
-		</div>​
-	</div>
+		<div id="div1">
+			<div id="div2">
+				<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
+			</div>​
+		</div>
 	
-	
-	
-		<!--<div id="awning-logo">
-			<?php //echo $this->Html->image('users/image/' . $user['User']['image']); ?>
-		</div>-->
-
-
-	<?php //echo $this->Html->image('awning/awning-for-bg.png'); ?>
-
 		<style>
 		#awning1 {
 			<?php echo $user['User']['awning_css']; ?>
