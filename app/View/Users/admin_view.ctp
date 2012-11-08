@@ -367,6 +367,7 @@
 <img id="awning1" src="/img/awning/awning.png">
 
 <br />
+<br />
 
 <?php echo $this->Html->link('Edit Awning', array('action' => 'awning', $user['User']['id']), array('class' => 'btn')); ?>
 
