@@ -111,7 +111,7 @@
 		
 				<?php if(!empty($product['Product']['generic_description'])) : ?>
 				
-					<div class="pop"><a href="#" class="btn" rel="pop_generic" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo $product['Product']['generic_description'];?>">Click for  more info!</a>
+					<div class="pop"><a href="#" class="btn" rel="pop_generic" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo h($product['Product']['generic_description']);?>">Click for  more info!</a>
 					</div>
 					
 				<?php endif ?>	
