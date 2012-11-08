@@ -3,10 +3,10 @@
 <script>
 $(document).ready(function() {
 	$('#categories').change(function() {
-		location.href = 'http://<?php echo DOMAIN; ?>/recipes/all/category:' + $(this).val();
+		location.href = 'http://<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes/all/category:' + $(this).val();
 	});
 	$('#vendors').change(function() {
-		location.href = 'http://<?php echo DOMAIN; ?>/recipes/all/vendor:' + $(this).val();
+		location.href = 'http://<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes/all/vendor:' + $(this).val();
 	});
 });
 </script>
