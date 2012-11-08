@@ -1,6 +1,10 @@
-<?php echo $this->Html->script(array('admin-user-awning.js', 'color.js'), array('inline' => false)); ?>
-
-<?php $hslv = explode(',', $user['User']['awning_hslv']); ?>
+<?php
+if(!empty($user['User']['awning_hslv'])) {
+	$hslv = explode(',', $user['User']['awning_hslv']);
+} else {
+	$hslv = array(0,0,0,0);
+}
+?>
 
 <style>
 
@@ -18,7 +22,7 @@
 	padding:0px;
 	perspective:100;
 	-webkit-perspective:100; /* Safari and Chrome */
-}
+})
 
 #div2 {
 	padding:0px;
@@ -303,13 +307,9 @@ function refreshSwatch() {
 			var v = $(this).parents('div').slider("value");
 			var i = $(this).parents('div').attr('id');
 			$("#"+i+"_value").text(v);
-
 			code = hslvcode;
-
-			hslvcode = code + v + ',';
-
+			hslvcode =	code + v + ',';
 			$('#UserAwningHslv').val(hslvcode);
-
 		});
 }
 
