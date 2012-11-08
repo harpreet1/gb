@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	//$("input:text:visible:first").focus();
-
 	$("#ProductSearch").autocomplete({
 		minLength: 2,
 		select: function(event, ui) {
@@ -32,6 +30,5 @@ $(document).ready(function(){
 			.append("<a><img width='25' src='" + Shop.basePath + "img/products/image/" + item.image + "' /> " + item.name + "</a>")
 			.appendTo(ul);
 	};
-
 
 });

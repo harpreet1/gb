@@ -21,7 +21,6 @@ $(document).ready(function() {
 	</div>
 </div>
 
-
 <!--
 
 <table cellpadding="5" cellspacing="5">
