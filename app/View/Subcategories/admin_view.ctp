@@ -1,6 +1,5 @@
 <h2>Subcategory</h2>
 
-
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<td>Id</td>
@@ -37,7 +36,6 @@
 </table>
 
 <br />
-<br />
 
 <h3>Actions</h3>
 
@@ -51,9 +49,10 @@
 <br />
 <br />
 
-<h3>Related Subsubcategories</h3>
-
 <br />
+<br />
+
+<h3>Related Subsubcategories</h3>
 
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
@@ -86,8 +85,6 @@
 <br />
 
 <h3>Related Products</h3>
-
-<br />
 
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
@@ -149,3 +146,7 @@
 	</tr>
 	<?php endforeach; ?>
 </table>
+
+<br />
+<br />
+

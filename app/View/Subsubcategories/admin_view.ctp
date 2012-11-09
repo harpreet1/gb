@@ -1,6 +1,5 @@
 <h2>Subsubcategory</h2>
 
-
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<td>Id</td>
@@ -33,7 +32,6 @@
 </table>
 
 <br />
-<br />
 
 <h3>Actions</h3>
 
@@ -43,6 +41,9 @@
 <br />
 
 <?php echo $this->Form->postLink('Delete Subsubcategory', array('action' => 'delete', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $subsubcategory['Subsubcategory']['id'])); ?>
+
+<br />
+<br />
 
 <br />
 <br />
@@ -76,7 +77,7 @@
 	</tr>
 	<?php foreach ($products as $product): ?>
 	<tr>
-		<td class="actions">
+		<td>
 			<?php echo h($product['Product']['id']); ?>
 			<br />
 			<?php echo $this->Html->link('View', array('controller' => 'products', 'action' => 'view', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
@@ -111,3 +112,7 @@
 	</tr>
 	<?php endforeach; ?>
 </table>
+
+<br />
+<br />
+
