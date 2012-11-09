@@ -74,9 +74,9 @@
 		<td><?php echo $subsubcategory['Subsubcategory']['created']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['modified']; ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link('View', array('contoller' => 'subsubcategories', 'action' => 'view', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Html->link('Edit', array('contoller' => 'subsubcategories', 'action' => 'edit', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Form->postLink('Delete', array('contoller' => 'subsubcategories', 'action' => 'delete', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini btn-danger'), __('Are you sure you want to delete # %s?', $subsubcategory['Subsubcategory']['id'])); ?>
+			<?php echo $this->Html->link('View', array('controller' => 'subsubcategories', 'action' => 'view', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('controller' => 'subsubcategories', 'action' => 'edit', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink('Delete', array('controller' => 'subsubcategories', 'action' => 'delete', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini btn-danger'), __('Are you sure you want to delete # %s?', $subsubcategory['Subsubcategory']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
