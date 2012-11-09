@@ -93,8 +93,6 @@ $(document).ready(function() {
 
 <h2>Products</h2>
 
-<br />
-
 <div class="row">
 
 	<?php echo $this->Form->create('Product', array()); ?>
@@ -140,7 +138,6 @@ $(document).ready(function() {
 
 </div>
 
-<br />
 <br />
 
 <?php echo $this->element('pagination-counter'); ?>
@@ -213,7 +210,6 @@ $(document).ready(function() {
 	</tr>
 	<?php endforeach; ?>
 </table>
-
 
 <?php echo $this->element('pagination-counter'); ?>
 
