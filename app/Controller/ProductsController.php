@@ -572,7 +572,7 @@ class ProductsController extends AppController {
 				'User.id',
 				'User.name',
 				'User.level',
-				
+
 			),
 			'limit' => 50,
 		);
@@ -809,6 +809,13 @@ class ProductsController extends AppController {
 				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
+				$product = $this->Product->find('first', array(
+					'recursive' => 0,
+					'conditions' => array(
+						'Product.id' => $id
+					)
+				));
+				$this->set(compact('product'));
 				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
 		} else {

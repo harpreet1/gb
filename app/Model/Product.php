@@ -37,6 +37,20 @@ class Product extends AppModel {
 				'message' => 'Only letters and integers, min 3 characters'
 			)
 		),
+		'price_wholesale' => array(
+			'rule1' => array(
+				'rule' => array('decimal', 2),
+				'message' => 'invalid price wholesale',
+				'allowEmpty' => false,
+				'required' => true,
+			),
+			'rule2' => array(
+				'rule' => array('comparison', '>', 0),
+				'message' => 'invalid price wholesale',
+				'allowEmpty' => false,
+				'required' => true,
+			),
+		),
 		'price' => array(
 			'rule1' => array(
 				'rule' => array('decimal', 2),

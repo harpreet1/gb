@@ -5,8 +5,12 @@ class CategoriesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function index() {
-		$categories = $this->Category->find('all', array(
+		$categories = $this->Category->Product->find('all', array(
 			'recursive' => -1,
+			'contain' => array(
+				'User',
+				'Category'
+			),
 			'fields' => array(
 				'Category.id',
 				'Category.name',
@@ -14,12 +18,19 @@ class CategoriesController extends AppController {
 				'Category.image',
 			),
 			'conditions' => array(
-				'Category.product_count >' => 1
+				'User.active' => 1,
+				'Product.active' => 1,
+				'Product.category_id >' => 0,
+				'Category.id >' => 0,
 			),
 			'order' => array(
 				'Category.name' => 'ASC'
+			),
+			'group' => array(
+				'Category.id'
 			)
 		));
+//		debug($categories);
 		$this->set(compact('categories'));
 		$this->layout = 'categories';
 	}
@@ -29,9 +40,6 @@ class CategoriesController extends AppController {
 	public function view() {
 
 		$args = array_unique(func_get_args());
-
-		$categoryslug = $args[0];
-
 		//debug($args);
 
 		$category = $this->Category->find('first', array(
@@ -40,9 +48,10 @@ class CategoriesController extends AppController {
 				'Category.*',
 			),
 			'conditions' => array(
-				'Category.slug' => $categoryslug
+				'Category.slug' => $args[0]
 			)
 		));
+		//debug($category);
 		$this->set(compact('category'));
 
 		if(empty($category)) {
@@ -61,7 +70,7 @@ class CategoriesController extends AppController {
 			'conditions' => array(
 				'User.active' => 1,
 				'Product.active' => 1,
-				'Product.category_id >' => 0,
+				'Product.category_id' => $category['Category']['id'],
 				'Product.subcategory_id >' => 0,
 				'Subcategory.category_id' => $category['Category']['id'],
 				'Subcategory.product_count >' => 1
@@ -83,13 +92,23 @@ class CategoriesController extends AppController {
 		);
 
 		if(isset($args[1])) {
-			$subcategory =  $this->Category->Subcategory->find('first', array(
+			$subcategory =  $this->Category->Product->find('first', array(
+				'contain' => array(
+					'User',
+					'Subcategory'
+				),
+				'fields' => array(
+					'Subcategory.*'
+				),
 				'conditions' => array(
+					'User.active' => 1,
+					'Product.active' => 1,
+					'Product.category_id' => $category['Category']['id'],
 					'Subcategory.category_id' => $category['Category']['id'],
 					'Subcategory.slug' => $args[1]
 				)
 			));
-//			debug($subcategory);
+			//debug($subcategory);
 			$this->set(compact('subcategory'));
 
 			$productconditions[] = array(
@@ -103,12 +122,12 @@ class CategoriesController extends AppController {
 					'Subsubcategory'
 				),
 				'fields' => array(
-					'Product.*',
 					'Subsubcategory.*'
 				),
 				'conditions' => array(
 					'User.active' => 1,
 					'Product.active' => 1,
+					'Product.category_id' => $category['Category']['id'],
 					'Product.subcategory_id' => $subcategory['Subcategory']['id'],
 					'Product.subsubcategory_id >' => 0,
 					'Subsubcategory.name >' => ''
@@ -117,21 +136,29 @@ class CategoriesController extends AppController {
 					'Subsubcategory.id'
 				)
 			));
-//			debug($subsubcategories);
+			//debug($subsubcategories);
 			$this->set(compact('subsubcategories'));
 		}
 
 		if(isset($args[2])) {
-			$subsubcategory = $this->Category->Product->Subsubcategory->find('first', array(
+			$subsubcategory = $this->Category->Product->find('first', array(
+				'contain' => array(
+					'User',
+					'Subsubcategory'
+				),
 				'conditions' => array(
-//					'Subsubcategory.subcategory_id' => $subcategory['Subcategory']['id'],
+					'User.active' => 1,
+					'Product.active' => 1,
+					'Subsubcategory.subcategory_id' => $subcategory['Subcategory']['id'],
 					'Subsubcategory.slug' => $args[2]
 				)
 			));
+			debug($subsubcategory);
+			$this->set(compact('subsubcategory'));
+
 			$productconditions[] = array(
 				'Product.subsubcategory_id' => $subsubcategory['Subsubcategory']['id']
 			);
-			$this->set(compact('subsubcategory'));
 		}
 
 		//debug($productconditions);

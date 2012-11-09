@@ -26,8 +26,6 @@
 
 	<div class="span3">
 
-		- <?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
-		<br />
 		<br />
 
 		<strong>CATEGORY</strong>
@@ -37,7 +35,6 @@
 
 		<?php if(!empty($subcategories)) : ?>
 
-			<br />
 			<br />
 			<strong>SUB CATEGORIES</strong>
 			<br />
@@ -51,7 +48,6 @@
 
 		<?php if(!empty($subsubcategories)) : ?>
 
-			<br />
 			<br />
 			<strong>SUB SUB CATEGORIES</strong>
 			<br />

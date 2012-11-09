@@ -22,7 +22,7 @@
 
 	Router::connect('/subsubcategory/:slug', array('controller' => 'products', 'action' => 'subsubcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
-	Router::connect('/cat/*', array('controller' => 'categories', 'action' => 'view'), array('pass' => array('categorySlug'), 'routeClass' => 'SubdomainRoute'));
+	Router::connect('/cat/*', array('controller' => 'categories', 'action' => 'view'));
 
 	Router::connect('/us/:slug', array('controller' => 'ustraditions', 'action' => 'view'), array('pass' => array('slug')));
 
