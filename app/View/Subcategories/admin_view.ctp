@@ -7,7 +7,7 @@
 		<td><?php echo $subcategory['Subcategory']['id']; ?></td>
 	</tr>
 	<tr>
-		<td>Category</td>
+		<td>Parent Category</td>
 		<td><?php echo $this->Html->link($subcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $subcategory['Category']['id'])); ?></td>
 	</tr>
 	<tr>
