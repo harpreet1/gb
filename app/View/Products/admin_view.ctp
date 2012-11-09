@@ -137,25 +137,13 @@
 <dd>
 <?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 </dd>
-<dt><?php echo __('Category Name'); ?></dt>
-<dd>
-<?php echo h($product['Product']['category_name']); ?>
-</dd>
 <dt><?php echo __('Subcategory'); ?></dt>
 <dd>
 <?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
 </dd>
-<dt><?php echo __('Subcategory Name'); ?></dt>
-<dd>
-<?php echo h($product['Product']['subcategory_name']); ?>
-</dd>
 <dt><?php echo __('Subsubcategory'); ?></dt>
 <dd>
 <?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
-</dd>
-<dt><?php echo __('Subsubcategory Name'); ?></dt>
-<dd>
-<?php echo h($product['Product']['subsubcategory_name']); ?>
 </dd>
 <dt><?php echo __('Upc'); ?></dt>
 <dd>
