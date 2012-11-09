@@ -242,8 +242,27 @@ class CategoriesController extends AppController {
 		if (!$this->Category->exists($id)) {
 			throw new NotFoundException('Invalid category');
 		}
-		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
-		$this->set('category', $this->Category->find('first', $options));
+
+		$category = $this->Category->find('first', array(
+			'conditions' => array(
+				'Category.id' => $id
+			)
+		));
+		$this->set(compact('category'));
+
+		$products = $this->Category->Product->find('all', array(
+			'contain' => array(
+				'User',
+				'Category',
+				'Subcategory',
+				'Subsubcategory',
+			),
+			'conditions' => array(
+				'Product.category_id' => $id
+			)
+		));
+		$this->set(compact('products'));
+
 	}
 
 ////////////////////////////////////////////////////////////
