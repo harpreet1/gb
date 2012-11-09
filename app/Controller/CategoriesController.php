@@ -13,6 +13,9 @@ class CategoriesController extends AppController {
 				'Category.slug',
 				'Category.image',
 			),
+			'conditions' => array(
+				'Category.product_count >' => 1
+			),
 			'order' => array(
 				'Category.name' => 'ASC'
 			)
@@ -23,7 +26,13 @@ class CategoriesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function view($slug = null) {
+	public function view() {
+
+		$args = array_unique(func_get_args());
+
+		$categoryslug = $args[0];
+
+		//debug($args);
 
 		$category = $this->Category->find('first', array(
 			'recursive' => -1,
@@ -31,30 +40,101 @@ class CategoriesController extends AppController {
 				'Category.*',
 			),
 			'conditions' => array(
-				'Category.slug' => $slug
+				'Category.slug' => $categoryslug
 			)
 		));
+		$this->set(compact('category'));
 
 		if(empty($category)) {
 			die('invalid category');
 		}
 
-		$this->set(compact('category'));
-
-		$subcategories = $this->Category->Subcategory->find('all', array(
+		$subcategories = $this->Category->Product->find('all', array(
 			'recursive' => -1,
 			'contain' => array(
-//				'User',
-				'Subsubcategory'
+				'User',
+				'Subcategory'
+			),
+			'fields' => array(
+				'Subcategory.*'
 			),
 			'conditions' => array(
-//				'User.active' => 1,
-//				'User.level' => 'vendor',
-				'Subcategory.category_id' => $category['Category']['id']
-			)
+				'User.active' => 1,
+				'Product.active' => 1,
+				'Product.category_id >' => 0,
+				'Product.subcategory_id >' => 0,
+				'Subcategory.category_id' => $category['Category']['id'],
+				'Subcategory.product_count >' => 1
+			),
+			'group' => array(
+				'Subcategory.id'
+			),
+			'order' => array(
+				'Subcategory.name' => 'ASC'
+			),
 		));
-		//debug($subcategories);
+//		debug($subcategories);
 		$this->set(compact('subcategories'));
+
+		$productconditions = array(
+			'User.active' => 1,
+			'Product.active' => 1,
+			'Product.category_id' => $category['Category']['id']
+		);
+
+		if(isset($args[1])) {
+			$subcategory =  $this->Category->Subcategory->find('first', array(
+				'conditions' => array(
+					'Subcategory.category_id' => $category['Category']['id'],
+					'Subcategory.slug' => $args[1]
+				)
+			));
+//			debug($subcategory);
+			$this->set(compact('subcategory'));
+
+			$productconditions[] = array(
+				'Product.subcategory_id' => $subcategory['Subcategory']['id']
+			);
+
+			$subsubcategories = $this->Category->Product->find('all', array(
+				'recursive' => -1,
+				'contain' => array(
+					'User',
+					'Subsubcategory'
+				),
+				'fields' => array(
+					'Product.*',
+					'Subsubcategory.*'
+				),
+				'conditions' => array(
+					'User.active' => 1,
+					'Product.active' => 1,
+					'Product.subcategory_id' => $subcategory['Subcategory']['id'],
+					'Product.subsubcategory_id >' => 0,
+					'Subsubcategory.name >' => ''
+				),
+				'group' => array(
+					'Subsubcategory.id'
+				)
+			));
+//			debug($subsubcategories);
+			$this->set(compact('subsubcategories'));
+		}
+
+		if(isset($args[2])) {
+			$subsubcategory = $this->Category->Product->Subsubcategory->find('first', array(
+				'conditions' => array(
+//					'Subsubcategory.subcategory_id' => $subcategory['Subcategory']['id'],
+					'Subsubcategory.slug' => $args[2]
+				)
+			));
+			$productconditions[] = array(
+				'Product.subsubcategory_id' => $subsubcategory['Subsubcategory']['id']
+			);
+			$this->set(compact('subsubcategory'));
+		}
+
+		//debug($productconditions);
 
 		$products = $this->Category->Product->find('all', array(
 			'recursive' => -1,
@@ -70,12 +150,7 @@ class CategoriesController extends AppController {
 				'User.name',
 				'User.slug',
 			),
-			'conditions' => array(
-				'User.active' => 1,
-				'User.level' => 'vendor',
-				'Product.active' => 1,
-				'Product.category_id' => $category['Category']['id']
-			)
+			'conditions' => $productconditions
 		));
 //		debug($products);
 		$this->set(compact('products'));
