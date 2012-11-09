@@ -38,6 +38,14 @@ $(document).ready(function(){
 	<div class="span3">
 		<?php echo $this->Form->input('user_id'); ?>
 	</div>
+	
+	<div class="span3 offset6 ">
+		
+		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+
+
+	</div>
+
 
 </div>
 
