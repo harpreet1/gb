@@ -90,7 +90,6 @@ $(document).ready(function() {
 });
 </script>
 
-
 <h2>Products</h2>
 
 <div class="row">
