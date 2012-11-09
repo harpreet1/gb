@@ -668,6 +668,7 @@ class ProductsController extends AppController {
 			),
 		));
 		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.active'));
+		$users = str_replace(array('(1)','(0)'), array('(active)','(inactive)'), $users);
 
 		$categories = $this->Product->Category->findList();
 
