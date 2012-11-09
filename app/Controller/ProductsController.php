@@ -633,7 +633,7 @@ class ProductsController extends AppController {
 				'Product.*',
 				'User.id',
 				'User.name',
-				'User.level',
+				'User.active',
 				'Category.id',
 				'Category.name',
 				'Subcategory.id',
@@ -655,19 +655,19 @@ class ProductsController extends AppController {
 			'fields' => array(
 				'User.id',
 				'User.name',
-				'User.level',
+				'User.active',
 			),
 			'conditions' => array(
 			),
 			'order' => array(
-				'User.level' => 'DESC',
+				'User.active' => 'DESC',
 				'User.name' => 'ASC'
 			),
 			'group' => array(
 				'Product.user_id'
 			),
 		));
-		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.level'));
+		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.active'));
 
 		$categories = $this->Product->Category->findList();
 

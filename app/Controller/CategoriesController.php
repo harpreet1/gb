@@ -111,9 +111,11 @@ class CategoriesController extends AppController {
 			//debug($subcategory);
 			$this->set(compact('subcategory'));
 
-			$productconditions[] = array(
-				'Product.subcategory_id' => $subcategory['Subcategory']['id']
-			);
+			//if(!empty($subcategory)) {
+				$productconditions[] = array(
+					'Product.subcategory_id' => $subcategory['Subcategory']['id']
+				);
+			//}
 
 			$subsubcategories = $this->Category->Product->find('all', array(
 				'recursive' => -1,
@@ -146,6 +148,9 @@ class CategoriesController extends AppController {
 					'User',
 					'Subsubcategory'
 				),
+				'fields' => array(
+					'Subsubcategory.*'
+				),
 				'conditions' => array(
 					'User.active' => 1,
 					'Product.active' => 1,
@@ -153,12 +158,13 @@ class CategoriesController extends AppController {
 					'Subsubcategory.slug' => $args[2]
 				)
 			));
-			debug($subsubcategory);
+//			debug($subsubcategory);
 			$this->set(compact('subsubcategory'));
-
-			$productconditions[] = array(
-				'Product.subsubcategory_id' => $subsubcategory['Subsubcategory']['id']
-			);
+			//if(!empty($subsubcategory)) {
+				$productconditions[] = array(
+					'Product.subsubcategory_id' => $subsubcategory['Subsubcategory']['id']
+				);
+			//}
 		}
 
 		//debug($productconditions);

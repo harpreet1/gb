@@ -188,7 +188,7 @@ $(document).ready(function() {
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			<br />
-			<?php echo $product['User']['level']; ?>
+			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
 		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>

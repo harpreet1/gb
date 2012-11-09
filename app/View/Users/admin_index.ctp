@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	$('.level').editable({
 		type:  'select',
-		source: {"admin": "admin", "vendor": "vendor", "inactive": "inactive"},
+		source: {"admin": "admin", "vendor": "vendor"},
 		name:  'level',
 		url:   '/admin/users/editable',
 		title: 'Level',

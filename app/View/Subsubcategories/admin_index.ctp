@@ -23,10 +23,6 @@ $(document).ready(function() {
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
-		<!--
-		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
-		-->
-		<th><?php echo $this->Paginator->sort('subcategory_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('product_count'); ?></th>
@@ -37,12 +33,7 @@ $(document).ready(function() {
 	<?php foreach ($subsubcategories as $subsubcategory): ?>
 	<tr>
 		<td><?php echo $subsubcategory['Subsubcategory']['id']; ?></td>
-		<!--
-		<td><?php echo $this->Html->link($subsubcategory['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $subsubcategory['Subcategory']['id'])); ?></td>
-		-->
 		<td><span class="subcategory" data-value="<?php echo $subsubcategory['Subsubcategory']['subcategory_id']; ?>" data-pk="<?php echo $subsubcategory['Subsubcategory']['id']; ?>"><?php echo $subsubcategory['Subcategory']['name']; ?></span></td>
-
-		<td><?php echo $subsubcategory['Subsubcategory']['subcategory_name']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['name']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['slug']; ?></td>
 		<td><?php echo $this->Html->link($subsubcategory['Subsubcategory']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'subsubcategory_id', 'id' => $subsubcategory['Subsubcategory']['id']))); ?></td>

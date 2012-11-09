@@ -11,10 +11,6 @@
 		<td><?php echo $this->Html->link($subsubcategory['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $subsubcategory['Subcategory']['id'])); ?></td>
 	</tr>
 	<tr>
-		<td>Subcategory Name</td>
-		<td><?php echo h($subsubcategory['Subsubcategory']['subcategory_name']); ?></td>
-	</tr>
-	<tr>
 		<td>Name</td>
 		<td><?php echo h($subsubcategory['Subsubcategory']['name']); ?></td>
 	</tr>

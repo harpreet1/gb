@@ -17,7 +17,6 @@ class CountShell extends Shell {
 		$this->CountReset('Subcategory', 'product_count');
 		$this->CountReset('Subcategory', 'subsubcategory_count');
 		$this->CountReset('Subsubcategory', 'product_count');
-		$this->CountReset('Subsubcategory', 'subcategory_name', null);
 
 		$this->usersProductCount();
 
@@ -31,8 +30,6 @@ class CountShell extends Shell {
 
 		$this->subsubcategoryProductCount();
 
-		$this->subsubcategorySubcategoryName();
-
 		$this->out('End');
 
 	}
@@ -44,22 +41,6 @@ class CountShell extends Shell {
 			array($model . '.' . $field => $value),
 			array($model . '.' . $field . ' !=' => $value)
 		);
-	}
-
-////////////////////////////////////////////////////////////
-
-	public function subsubcategorySubcategoryName() {
-		$subsubcategories = $this->Subsubcategory->find('all');
-		foreach($subsubcategories as $subsubcategory) {
-			$SubcategoryName = $this->Subcategory->field('name', array(
-				'Subcategory.id' => $subsubcategory['Subsubcategory']['subcategory_id'],
-			));
-			$this->out($SubcategoryName);
-			$this->out('==========');
-			$ssn['Subsubcategory']['id'] = $subsubcategory['Subsubcategory']['id'];
-			$ssn['Subsubcategory']['subcategory_name'] = $SubcategoryName;
-			$this->Subsubcategory->save($ssn, false);
-		}
 	}
 
 ////////////////////////////////////////////////////////////
