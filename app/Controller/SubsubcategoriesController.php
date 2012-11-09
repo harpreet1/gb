@@ -66,6 +66,20 @@ class SubsubcategoriesController extends AppController {
 		));
 
 		$this->set(compact('subsubcategory'));
+
+		$products = $this->Subcategory->Product->find('all', array(
+			'contain' => array(
+				'User',
+				'Category',
+				'Subcategory',
+				'Subsubcategory',
+			),
+			'conditions' => array(
+				'Product.subsubcategory_id' => $id
+			)
+		));
+		$this->set(compact('products'));
+
 	}
 
 ////////////////////////////////////////////////////////////
