@@ -150,9 +150,40 @@
 <br />
 <br />
 
-<h3>Related Products</h3>
+<h3>Related Subcategories</h3>
+
+<table class="table-striped table-bordered table-condensed table-hover">
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>slug</th>
+		<th>subsubcategory_count</th>
+		<th>product_count</th>
+		<th>created</th>
+		<th>modified</th>
+		<th class="actions">Actions</th>
+	</tr>
+	<?php foreach ($subcategories as $subcategory): ?>
+	<tr>
+		<td><?php echo $subcategory['Subcategory']['id']; ?></td>
+		<td><?php echo $subcategory['Subcategory']['name']; ?></td>
+		<td><?php echo $subcategory['Subcategory']['slug']; ?></td>
+		<td><?php echo $subcategory['Subcategory']['subsubcategory_count']; ?></td>
+		<td><?php echo $this->Html->link($subcategory['Subcategory']['product_count'], array('controller' => 'products', 'action' => 'filter', '?' => array('field' => 'subcategory_id', 'id' => $subcategory['Subcategory']['id']))); ?></td>
+		<td><?php echo $subcategory['Subcategory']['created']; ?></td>
+		<td><?php echo $subcategory['Subcategory']['modified']; ?></td>
+		<td class="actions">
+			<?php echo $this->Html->link('View', array('controller' => 'subcategories', 'action' => 'view', $subcategory['Subcategory']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('controller' => 'subcategories', 'action' => 'edit', $subcategory['Subcategory']['id']), array('class' => 'btn btn-mini')); ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
 
 <br />
+<br />
+
+<h3>Related Products</h3>
 
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>

@@ -250,6 +250,13 @@ class CategoriesController extends AppController {
 		));
 		$this->set(compact('category'));
 
+		$subcategories = $this->Category->Subcategory->find('all', array(
+			'conditions' => array(
+				'Subcategory.category_id' => $id
+			)
+		));
+		$this->set(compact('subcategories'));
+
 		$products = $this->Category->Product->find('all', array(
 			'contain' => array(
 				'User',
