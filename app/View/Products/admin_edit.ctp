@@ -41,7 +41,7 @@ $(document).ready(function(){
 	
 	<div class="span3 offset6 ">
 		
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 
 
 	</div>
@@ -196,7 +196,7 @@ $(document).ready(function(){
 	<div class="span3">
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
 
 	</div>
