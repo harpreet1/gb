@@ -12,10 +12,9 @@ Configure::write(
 		'FEDEX_METER' => '',
 		'FEDEX_KEY' => '',
 		'FEDEX_PASSWORD' => '',
-		'PAYPAL_MODE' => '',
-		'PAYPAL_USERNAME' => '',
-		'PAYPAL_PASSWORD' => '',
-		'PAYPAL_SIGNATURE' => '',
+		'AUTHORIZENET_API_URL' => 'https://test.authorize.net/gateway/transact.dll',
+		'AUTHORIZENET_API_LOGIN' => '',
+		'AUTHORIZENET_API_TRANSACTION_KEY' => '',
 	)
 );
 

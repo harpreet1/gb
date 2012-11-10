@@ -105,16 +105,16 @@ class PaypalProComponent extends Component {
 			return $parsed;
 		}
 		elseif(array_key_exists('ACK', $parsed) && array_key_exists('L_LONGMESSAGE0', $parsed) && $parsed['ACK'] != 'Success') {
-			$this->log($parsed , 'paypal');
+			$this->log($parsed, 'paypal');
 			throw new Exception($parsed['ACK'] . ' : ' . $parsed['L_LONGMESSAGE0']);
 		}
 		elseif(array_key_exists('ACK', $parsed) && array_key_exists('L_ERRORCODE0', $parsed) && $parsed['ACK'] != 'Success') {
-			$this->log($parsed , 'paypal');
+			$this->log($parsed, 'paypal');
 			throw new Exception($parsed['ACK'] . ' : ' . $parsed['L_ERRORCODE0']);
 		}
 		else {
-			$this->log($parsed , 'paypal');
-			throw new Exception(__('There is a problem with the payment gateway. Please try again later.'));
+			$this->log($parsed, 'paypal');
+			throw new Exception('There is a problem with the payment gateway. Please try again later.');
 		}
 
 	}

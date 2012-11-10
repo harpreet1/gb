@@ -8,7 +8,7 @@ class ShopsController extends AppController {
 		'Cart',
 		'Ups',
 		'Fedex',
-		'PaypalPro'
+		'AuthorizeNet'
 	);
 
 //////////////////////////////////////////////////
@@ -178,6 +178,23 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
+	public function charge() {
+
+		$charge = array(
+			'first_name' => 'Andras',
+			'last_name' => 'Kende',
+			'amount' => 14.95,
+			'description' => 'GB ORDER #12345',
+		);
+
+		$authorizeNet = $this->AuthorizeNet->charge($charge);
+
+		die('charge end.');
+
+	}
+
+//////////////////////////////////////////////////
+
 	public function review() {
 
 		$shop = $this->Session->read('Shop');
@@ -194,24 +211,7 @@ class ShopsController extends AppController {
 			if($this->Order->validates()) {
 
 				try {
-					$this->PaypalPro->amount = 19.95;
-					$this->PaypalPro->creditCardNumber = '6221197157705652';
-					$this->PaypalPro->creditCardCvv = '111';
-					$this->PaypalPro->creditCardExpires = '022014';
-					$this->PaypalPro->creditCardType = 'Discover';
-
-					$this->PaypalPro->customerFirstName = 'Andras';
-					$this->PaypalPro->customerLastName = 'Kende';
-					$this->PaypalPro->customerEmail = 'store_1348477764_per@kende.com';
-
-					$this->PaypalPro->billingAddress1 = '301 Lake Village Dr';
-					$this->PaypalPro->billingAddress2 = '';
-					$this->PaypalPro->billingCity = 'McKinney';
-					$this->PaypalPro->billingState = 'TX';
-					$this->PaypalPro->billingZip = '75071';
-					$this->PaypalPro->billingCountryCode = 'US';
-
-					$paypal = $this->PaypalPro->doDirectPayment();
+					$authorizeNet = $this->AuthorizeNet->charge($charge);
 				} catch(Exception $e) {
 					//$this->Session->setFlash($e->getMessage());
 					//$this->redirect(array('action' => 'review'));
@@ -257,14 +257,6 @@ class ShopsController extends AppController {
 				$o['Order']['remotehost'] = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 				$o['Order']['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
-				//if($shop['Data']['order_type'] == 'paypal') {
-				//	$resArray = $this->Paypal->ConfirmPayment($o['Order']['total']);
-				//	// debug($resArray);
-				//	$ack = strtoupper($resArray["ACK"]);
-				//	if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING") {
-				//		$o['Order']['status'] = 2;
-				//	}
-				//}
 				$save = $this->Order->saveAll($o, array('validate' => 'first'));
 				if($save) {
 
@@ -278,27 +270,6 @@ class ShopsController extends AppController {
 			} else {
 				$this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
 			}
-		}
-
-		if(empty($shop['Data']) && !empty($shop['Paypal']['Details'])) {
-			$shop['Data']['name'] = $shop['Paypal']['Details']['FIRSTNAME'] . ' ' . $shop['Paypal']['Details']['LASTNAME'];
-			$shop['Data']['email'] = $shop['Paypal']['Details']['EMAIL'];
-			$shop['Data']['phone'] = '';
-			$shop['Data']['billing_address'] = $shop['Paypal']['Details']['SHIPTOSTREET'];
-			$shop['Data']['billing_address2'] = '';
-			$shop['Data']['billing_city'] = $shop['Paypal']['Details']['SHIPTOCITY'];
-			$shop['Data']['billing_zipcode'] = $shop['Paypal']['Details']['SHIPTOZIP'];
-			$shop['Data']['billing_state'] = $shop['Paypal']['Details']['SHIPTOSTATE'];
-
-			$shop['Data']['shipping_address'] = $shop['Paypal']['Details']['SHIPTOSTREET'];
-			$shop['Data']['shipping_address2'] = '';
-			$shop['Data']['shipping_city'] = $shop['Paypal']['Details']['SHIPTOCITY'];
-			$shop['Data']['shipping_zipcode'] = $shop['Paypal']['Details']['SHIPTOZIP'];
-			$shop['Data']['shipping_state'] = $shop['Paypal']['Details']['SHIPTOSTATE'];
-
-			$shop['Data']['order_type'] = 'paypal';
-
-			$this->Session->write('Shop.Data', $shop['Data']);
 		}
 
 		$this->set(compact('shop'));
