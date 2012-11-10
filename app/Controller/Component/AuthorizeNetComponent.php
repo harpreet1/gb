@@ -38,7 +38,8 @@ class AuthorizeNetComponent extends Component {
 
 			'x_version'			=> '3.1',
 			'x_delim_data'		=> 'TRUE',
-			'x_delim_char'		=> '|',
+			'x_delim_char'		=> ',',
+			'x_encap_char'		=> '"',
 			'x_relay_response'	=> 'FALSE',
 
 			'x_type'			=> 'AUTH_CAPTURE',
@@ -58,36 +59,50 @@ class AuthorizeNetComponent extends Component {
 			// guide at: http://developer.authorize.net
 		);
 
-		print_r($post_values);
-
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
 		$response = $httpSocket->post($this->api_url, $post_values);
 
-		print_r($response);
+		if (!empty($response['body'])) {
+			$parsed = preg_split("/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/", $response['body']);
+			foreach ($parsed as $key => $value) {
+				$parsed[$key] = substr($value, 1, -1);
+			}
+		} else {
+			$parsed = array('-1', '-1', '-1');
+		}
 
-		parse_str($response , $parsed);
-
-		print_r($parsed);
-
-		die('authorizenet response end.');
-
-		if(array_key_exists('ACK', $parsed) && $parsed['ACK'] == 'Success') {
+		if($parsed[0] == '1') {
 			return $parsed;
+		} else {
+			switch ($parsed[2]) {
+			case '7':
+				$error = 'invalid_expiration_date';
+				break;
+
+			case '8':
+				$error = 'expired';
+				break;
+
+			case '6':
+			case '17':
+			case '28':
+				$error = 'declined';
+				break;
+
+			case '78':
+				$error = 'cvc';
+				break;
+
+			default:
+				$error = 'general';
+				break;
+			}
 		}
-		elseif(array_key_exists('ACK', $parsed) && array_key_exists('L_LONGMESSAGE0', $parsed) && $parsed['ACK'] != 'Success') {
-			$this->log($parsed , 'paypal');
-			throw new Exception($parsed['ACK'] . ' : ' . $parsed['L_LONGMESSAGE0']);
-		}
-		elseif(array_key_exists('ACK', $parsed) && array_key_exists('L_ERRORCODE0', $parsed) && $parsed['ACK'] != 'Success') {
-			$this->log($parsed , 'paypal');
-			throw new Exception($parsed['ACK'] . ' : ' . $parsed['L_ERRORCODE0']);
-		}
-		else {
-			$this->log($parsed , 'paypal');
-			throw new Exception(__('There is a problem with the payment gateway. Please try again later.'));
-		}
+
+		$this->log($parsed, 'authorizenet-errors');
+		throw new Exception('Credit Card Processing Error: ' . $error);
 
 	}
 

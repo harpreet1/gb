@@ -187,7 +187,14 @@ class ShopsController extends AppController {
 			'description' => 'GB ORDER #12345',
 		);
 
-		$authorizeNet = $this->AuthorizeNet->charge($charge);
+		try {
+			$authorizeNet = $this->AuthorizeNet->charge($charge);
+			debug($authorizeNet);
+		} catch(Exception $e) {
+			debug($e->getMessage());
+			//$this->Session->setFlash($e->getMessage());
+			//$this->redirect(array('action' => 'review'));
+		}
 
 		die('charge end.');
 
@@ -213,8 +220,8 @@ class ShopsController extends AppController {
 				try {
 					$authorizeNet = $this->AuthorizeNet->charge($charge);
 				} catch(Exception $e) {
-					//$this->Session->setFlash($e->getMessage());
-					//$this->redirect(array('action' => 'review'));
+					$this->Session->setFlash($e->getMessage());
+					$this->redirect(array('action' => 'review'));
 				}
 
 				$i = 0;
