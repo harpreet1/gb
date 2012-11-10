@@ -30,49 +30,49 @@ class AuthorizeNetComponent extends Component {
 
 		$post_values = array(
 
-			'x_login'				=> $this->api_login,
-			'x_tran_key'			=> $this->api_transaction_key,
+			'x_login'               => $this->api_login,
+			'x_tran_key'            => $this->api_transaction_key,
 
-			'x_version'				=> '3.1',
-			'x_delim_data'			=> 'TRUE',
-			'x_delim_char'			=> ',',
-			'x_encap_char'			=> '"',
-			'x_relay_response'		=> 'FALSE',
+			'x_version'             => '3.1',
+			'x_delim_data'          => 'TRUE',
+			'x_delim_char'          => ',',
+			'x_encap_char'          => '"',
+			'x_relay_response'      => 'FALSE',
 
-			'x_type'				=> 'AUTH_CAPTURE',
-			'x_method'				=> 'CC',
+			'x_type'                => 'AUTH_CAPTURE',
+			'x_method'              => 'CC',
 
-			'x_card_num'			=> '4111111111111111',
-			'x_exp_date'			=> '0115',
-			'x_card_code'			=> '',
+			'x_card_num'            => '4111111111111111',
+			'x_exp_date'            => '0115',
+			'x_card_code'           => '',
 
-			'x_invoice_num'			=> '',
-			'x_tax'					=> '',
-			'x_amount'				=> $data['amount'],
+			'x_invoice_num'         => '',
+			'x_tax'                 => '',
+			'x_amount'              => $data['amount'],
 
-			'x_description'			=> $data['description'],
+			'x_description'         => $data['description'],
 
-			'x_first_name'			=> $data['first_name'],
-			'x_last_name'			=> $data['last_name'],
+			'x_first_name'          => $data['first_name'],
+			'x_last_name'           => $data['last_name'],
 
-			'x_address'				=> '1234 Street',
-			'x_state'				=> 'WA',
-			'x_zip'					=> '98004',
-			'x_country'				=> 'United States',
+			'x_address'             => '1234 Street',
+			'x_state'               => 'WA',
+			'x_zip'                 => '98004',
+			'x_country'             => 'United States',
 
-			'x_ship_to_first_name'	=> $data['first_name'],
-			'x_ship_to_last_name'	=> $data['last_name'],
+			'x_ship_to_first_name'  => $data['first_name'],
+			'x_ship_to_last_name'   => $data['last_name'],
 
-			'x_ship_to_address'		=> '',
-			'x_ship_to_state'		=> '',
-			'x_ship_to_zip'			=> '',
-			'x_ship_to_country'		=> '',
+			'x_ship_to_address'     => '',
+			'x_ship_to_state'       => '',
+			'x_ship_to_zip'         => '',
+			'x_ship_to_country'     => '',
 
-			'x_cust_id'				=> '',
-			'x_phone'				=> '',
-			'x_email'				=> '',
+			'x_cust_id'             => '',
+			'x_phone'               => '',
+			'x_email'               => '',
 
-			'x_customer_ip'		=> $_SERVER['REMOTE_ADDR'],
+			'x_customer_ip'         => $_SERVER['REMOTE_ADDR'],
 
 		);
 
