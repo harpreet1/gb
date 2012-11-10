@@ -192,8 +192,6 @@ class ShopsController extends AppController {
 			debug($authorizeNet);
 		} catch(Exception $e) {
 			debug($e->getMessage());
-			//$this->Session->setFlash($e->getMessage());
-			//$this->redirect(array('action' => 'review'));
 		}
 
 		die('charge end.');
