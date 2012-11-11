@@ -25,6 +25,9 @@ a {
 	
 }
 
+.breadcrumb {
+	background-color:#fffbe5;
+}
 
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	background-color:transparent;
@@ -87,8 +90,11 @@ a {
 }
 
 .content {
-	background-color:#FFFFFE;
-	padding: 0 20px;
+	background-color: #FFFFFE;
+	padding-top: 0;
+	padding-right: 20px;
+	padding-bottom: 0;
+	padding-left: 20px;
 }
 
 #footer {
@@ -155,6 +161,30 @@ a {
 
 
 /** PRODUCT DISPLAY - individual **/
+
+.products {
+	margin-top:10px;
+}
+
+.gb {
+	margin-left:0px;
+}
+
+.span2.gb {
+	/*margin-left:0px;
+	margin-right:25px;
+	height:180px;	*/
+}
+
+.span2.gb {
+	margin-left: 25px;
+	margin-right: 0px;
+	width: 150px;
+}
+
+.air {
+	margin-top:15px;	
+}
 
 .content-product {
 	position: relative;
@@ -259,40 +289,6 @@ div.brand {
 	color:#CCC;
 	
 }
-
-
-.row.gb {
-	margin-left:0px;
-}
-
-.span2.gb {
-	/*margin-left:0px;
-	margin-right:25px;
-	height:180px;	*/
-}
-
-.span2.gb {
-	margin-left: 25px;
-	margin-right: 0px;
-	width: 150px;
-}
-
-
-.row.products {
-	margin-top:10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -681,8 +677,76 @@ h3.cat-title {
 	margin-left:52px;
 }	
 
+
+
+/** VENDOR INFO AREA **/
+
+img.vendor-article-logo {
+	width:300px;
+}
+
+.vendor-special {
+	position:relative;
+	/*font-family: 'Federo', sans-serif;*/
+	letter-spacing: 1px;
+	font-size: 110%;
+	width: 500px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 362px;
+	color: #032177;
+	text-align: left;
+	background-color: #FEE79B;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	background-position: 200px 0px;
+	background-image: url(../img/blockquote-bkgnd.jpg);
+	background-repeat: repeat;
+	padding-left: 25px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+
 .span12.vendor-block {
 	margin-left:52px;
+}
+
+.signature {
+
+	text-align: right;
+	font-style: italic;
+}
+
+blockquote {
+	border: none;
+}
+
+blockquote::before {
+	background: url(../img/global/quote-start.png) left top no-repeat;
+	content: '';
+	position: absolute;
+	top: -19px;
+	left: -19px;
+	width: 37px;
+	height: 37px;
+}
+
+ blockquote::after {
+	background: url(../img/global/quote-end.png) right bottom no-repeat;
+	content: '';
+	position: absolute;
+	bottom: -19px;
+	right: -19px;
+	width: 37px;
+	height: 37px;
+}
+
+
+
+img.vendor-pic {
+	width:280px;
 }
 
 /** Product Image Viewer **/
