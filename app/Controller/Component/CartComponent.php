@@ -63,6 +63,7 @@ class CartComponent extends Component {
 			return false;
 		}
 		$data['quantity'] = $quantity;
+		$data['user_id'] = $product['User']['id'];
 		$data['product_id'] = $product['Product']['id'];
 		$data['name'] = $product['Product']['name'];
 		$data['weight'] = $product['Product']['weight'];

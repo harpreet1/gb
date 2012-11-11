@@ -177,15 +177,18 @@ class ShopsController extends AppController {
 
 	public function charge() {
 
-		$charge = array(
-			'first_name' => 'Andras',
-			'last_name' => 'Kende',
-			'amount' => 14.95,
-			'description' => 'GB ORDER #12345',
+		$shop = $this->Session->read('Shop');
+		//debug($shop);
+
+		$payment = array(
+			'creditcard_number' => '4111111111111111',
+			'creditcard_month' => '12',
+			'creditcard_year' => '12',
+			'creditcard_code' => '123',
 		);
 
 		try {
-			$authorizeNet = $this->AuthorizeNet->charge($charge);
+			$authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
 			debug($authorizeNet);
 		} catch(Exception $e) {
 			debug($e->getMessage());
@@ -211,31 +214,22 @@ class ShopsController extends AppController {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
+
+				$payment = array(
+					'creditcard_number' => $this->request->data['Order']['creditcard_number'],
+					'creditcard_month' => $this->request->data['Order']['creditcard_month'],
+					'creditcard_year' => $this->request->data['Order']['creditcard_year'],
+					'creditcard_code' => $this->request->data['Order']['creditcard_code'],
+				);
+
 				try {
-					$charge = array(
-						'first_name' => 'Bill',
-						'last_name' => 'Gates',
-						'amount' => 24.95,
-						'description' => 'GB ORDER #1234511',
-					);
-					$authorizeNet = $this->AuthorizeNet->charge($charge);
+					$authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
 				} catch(Exception $e) {
 					$this->Session->setFlash($e->getMessage());
 					$this->redirect(array('action' => 'review'));
 				}
 
-				$i = 0;
-				foreach($shop['OrderItem'] as $c) {
-					$o['OrderItem'][$i]['user_id'] = $c['User']['id'];
-					$o['OrderItem'][$i]['product_id'] = $c['product_id'];
-					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
-					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
-					$o['OrderItem'][$i]['price'] = $c['Product']['price'];
-					$o['OrderItem'][$i]['subtotal'] = $c['subtotal'];
-					$o['OrderItem'][$i]['weight'] = $c['Product']['weight'];
-					$o['OrderItem'][$i]['weight_total'] = $c['weight_total'];
-					$i++;
-				}
+				$o['OrderItem'] = $shop['OrderItem'];
 
 				$i = 0;
 

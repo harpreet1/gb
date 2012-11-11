@@ -10,7 +10,9 @@
 <div class="row">
 <div class="span4">
 
-<?php echo $this->Form->input('name', array('class' => 'span3')); ?>
+<?php echo $this->Form->input('first_name', array('class' => 'span3')); ?>
+
+<?php echo $this->Form->input('last_name', array('class' => 'span3')); ?>
 
 <?php echo $this->Form->input('email', array('class' => 'span3')); ?>
 

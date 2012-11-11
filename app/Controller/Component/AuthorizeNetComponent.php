@@ -26,7 +26,7 @@ class AuthorizeNetComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	public function charge($data) {
+	public function charge($data, $payment) {
 
 		$post_values = array(
 
@@ -42,39 +42,44 @@ class AuthorizeNetComponent extends Component {
 			'x_type'                => 'AUTH_CAPTURE',
 			'x_method'              => 'CC',
 
-			'x_card_num'            => '4111111111111111',
-			'x_exp_date'            => '0115',
-			'x_card_code'           => '',
+			'x_card_num'            => $payment['creditcard_number'],
+			'x_exp_date'            => $payment['creditcard_month'] . $payment['creditcard_year'],
+			'x_card_code'           => $payment['creditcard_code'],
 
 			'x_invoice_num'         => '',
-			'x_tax'                 => '',
-			'x_amount'              => $data['amount'],
+			'x_tax'                 => '0.00',
+			'x_amount'              => $data['total'],
 
-			'x_description'         => $data['description'],
+			'x_description'         => '',
 
 			'x_first_name'          => $data['first_name'],
 			'x_last_name'           => $data['last_name'],
 
-			'x_address'             => '1234 Street',
-			'x_state'               => 'WA',
-			'x_zip'                 => '98004',
+			'x_address'             => $data['billing_address'],
+			'x_city'                => $data['billing_city'],
+			'x_state'               => $data['billing_state'],
+			'x_zip'                 => $data['billing_zip'],
 			'x_country'             => 'United States',
 
 			'x_ship_to_first_name'  => $data['first_name'],
 			'x_ship_to_last_name'   => $data['last_name'],
 
-			'x_ship_to_address'     => '',
-			'x_ship_to_state'       => '',
-			'x_ship_to_zip'         => '',
-			'x_ship_to_country'     => '',
+			'x_ship_to_address'     => $data['billing_address'],
+			'x_ship_to_city'        => $data['billing_city'],
+			'x_ship_to_state'       => $data['billing_state'],
+			'x_ship_to_zip'         => $data['billing_zip'],
+			'x_ship_to_country'     => 'United States',
 
 			'x_cust_id'             => '',
-			'x_phone'               => '',
-			'x_email'               => '',
+			'x_phone'               => $data['phone'],
+			'x_email'               => $data['email'],
 
 			'x_customer_ip'         => $_SERVER['REMOTE_ADDR'],
 
 		);
+
+		//debug($post_values);
+		//die('end');
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();

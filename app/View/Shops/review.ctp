@@ -7,7 +7,8 @@
 <div class="row">
 <div class="span4">
 
-Name: <?php echo $shop['Order']['name'];?><br />
+First Name: <?php echo $shop['Order']['first_name'];?><br />
+Last Name: <?php echo $shop['Order']['last_name'];?><br />
 Email: <?php echo $shop['Order']['email'];?><br />
 Phone: <?php echo $shop['Order']['phone'];?><br />
 
@@ -161,21 +162,20 @@ Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 	'label' => 'Expiration Year',
 	'class' => 'span2',
 	'options' => array(
-		'2012' => '2012',
-		'2013' => '2013',
-		'2014' => '2014',
-		'2015' => '2015',
-		'2016' => '2016',
-		'2017' => '2017',
-		'2018' => '2018',
-		'2019' => '2019',
-		'2020' => '2020',
-		'2021' => '2021',
-		'2022' => '2022',
+		'13' => '2013',
+		'14' => '2014',
+		'15' => '2015',
+		'16' => '2016',
+		'17' => '2017',
+		'18' => '2018',
+		'19' => '2019',
+		'20' => '2020',
+		'21' => '2021',
+		'22' => '2022',
 	)
 ));?>
 
-<?php echo $this->Form->input('creditcard_csc', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
+<?php echo $this->Form->input('creditcard_code', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
 
 <br />
 

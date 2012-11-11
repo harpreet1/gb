@@ -5,10 +5,20 @@ class Order extends AppModel {
 ////////////////////////////////////////////////////////////
 
 	public $validate = array(
-		'name' => array(
+		'first_name' => array(
 			'notempty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Name is invalid',
+				'message' => 'First Name is invalid',
+				//'allowEmpty' => false,
+				//'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'last_name' => array(
+			'notempty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Last Name is invalid',
 				//'allowEmpty' => false,
 				//'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -106,7 +116,7 @@ class Order extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'creditcard_csc' => array(
+		'creditcard_code' => array(
 			'notempty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Credit Card Code is invalid',
