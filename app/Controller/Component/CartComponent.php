@@ -98,6 +98,7 @@ class CartComponent extends Component {
 		$cartTotal = 0;
 		$cartQuantity = 0;
 		$cartWeight = 0;
+		$order_item_count = 0;
 
 		$this->Session->delete('Shop.Order');
 		$this->Session->delete('Shop.Shipping');
@@ -110,6 +111,7 @@ class CartComponent extends Component {
 				$cartTotal += $item['subtotal'];
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['weight_total'];
+				$order_item_count++;
 
 				$users[$item['User']['id']]['id'] = $item['User']['id'];
 				$users[$item['User']['id']]['name'] = $item['User']['name'];
@@ -129,11 +131,12 @@ class CartComponent extends Component {
 				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
 			}
 
-			$property['total'] = sprintf('%.2f', $cartTotal);
-			$property['subtotal'] = sprintf('%.2f', $cartTotal);
-			$property['quantity'] = $cartQuantity;
-			$property['weight'] = $cartWeight;
-			$this->Session->write('Shop.Order', $property);
+			$order['order_item_count'] = $order_item_count;
+			$order['total'] = sprintf('%.2f', $cartTotal);
+			$order['subtotal'] = sprintf('%.2f', $cartTotal);
+			$order['quantity'] = $cartQuantity;
+			$order['weight'] = $cartWeight;
+			$this->Session->write('Shop.Order', $order);
 
 			$this->Session->write('Shop.Users', $users);
 

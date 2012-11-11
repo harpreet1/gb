@@ -45,7 +45,9 @@ class OrderItem extends AppModel {
 			'foreignKey' => 'order_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array(),
 		),
 		'OrderUser' => array(
 			'className' => 'OrderUser',
