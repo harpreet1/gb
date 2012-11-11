@@ -129,25 +129,25 @@ $(document).ready(function(){
 
 	<div class="span2">
 	<?php
-		echo $this->Form->input('allergen_free', array('type' => 'checkbox'));
-		echo $this->Form->input('gluten_free', array('type' => 'checkbox'));
-		echo $this->Form->input('vegetarian', array('type' => 'checkbox'));
-		echo $this->Form->input('fat_free', array('type' => 'checkbox'));
-		echo $this->Form->input('sugar_free', array('type' => 'checkbox'));
-		echo $this->Form->input('no_msg', array('type' => 'checkbox'));
-		echo $this->Form->input('lactose_free', array('type' => 'checkbox'));
-		echo $this->Form->input('low_carb', array('type' => 'checkbox'));
-		echo $this->Form->input('nut_free', array('type' => 'checkbox'));
-		echo $this->Form->input('heart_smart', array('type' => 'checkbox'));
-		echo $this->Form->input('no_preservatives', array('type' => 'checkbox'));
-		echo $this->Form->input('organic', array('type' => 'checkbox'));
-		echo $this->Form->input('kosher', array('type' => 'checkbox'));
-		echo $this->Form->input('halal', array('type' => 'checkbox'));
-		echo $this->Form->input('fair_traded', array('type' => 'checkbox'));
-		echo $this->Form->input('give_back', array('type' => 'checkbox'));
-		echo $this->Form->input('heat_sensitivity', array('type' => 'checkbox'));
-		echo $this->Form->input('all_natural', array('type' => 'checkbox'));
-		echo $this->Form->input('award_winning', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_allergen_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_gluten_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_fat_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_low_carb', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_organic', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_kosher', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_halal', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_fair_traded', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_give_back', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_all_natural', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_award_winning', array('type' => 'checkbox'));
 	?>
 	</div>
 
