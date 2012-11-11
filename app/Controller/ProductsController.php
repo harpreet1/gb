@@ -364,6 +364,29 @@ class ProductsController extends AppController {
 			array('Product.id' => $product['Product']['id'])
 		);
 
+
+		if(!empty($product['Product']['related_products'])) {
+
+			$related_products_ids = $product['Product']['related_products'];
+
+			$related_products = $this->Product->find('all', array(
+				'recursive' => -1,
+			//	'contain' => array(
+			//		'Category',
+			//		'Subcategory',
+			//		'Subsubcategory'
+			//	),
+				'conditions' => array(
+					'Product.id' => $related_products_ids,
+					'Product.active' => 1,
+				)
+			));
+
+		} else {
+			$related_products = array();
+		}
+		$this->set(compact('related_products'));
+
 		$this->set(compact('product'));
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));

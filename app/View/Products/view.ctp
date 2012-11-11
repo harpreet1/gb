@@ -220,34 +220,24 @@
 
 			</div>
 
-			<?php
-				if(!empty($product['Product']['related_products'])):
-					$related_products = unserialize($product['Product']['related_products']);
-					$sql = "SELECT product_name, product_id, description, image FROM products WHERE product_id IN (".join(",",array_keys($related_products)).")";
-					$result = mysql_query($sql);
-			?>
+			<?php if(!empty($related_products)) : ?>
 
-			<h2>PAIRINGS & RELATED PRODUCTS</h2>
+				<h2>PAIRINGS & RELATED PRODUCTS</h2>
 
-			<div id="carousel-image-and-text" class="touchcarousel grey-blue">
+				<div id="carousel-image-and-text" class="touchcarousel grey-blue">
 
-				<ul class="touchcarousel-container">
+					<ul class="touchcarousel-container">
 
-					<?php while ($row = mysql_fetch_object($result)):?>
+						<?php foreach($related_products as $rproduct): ?>
 
-						<li class="touchcarousel-item">
-							<a class="item-block" href="/product/<?php echo $row->product_id;?>"> <img src="/administration/images/product/<?php echo $row->image; ?>"/>
+							<?php echo $rproduct['Product']['name']; ?>
+							<br />
 
-						<h5><?php echo $row->product_name; ?></h5>
 
-						<p> <?php echo (!empty($related_products[$row->product_id]['description']) ? $related_products[$row->product_id]['description'] : $row->description) ; ?> </p>
-							</a>
-						</li>
+						<?php endforeach; ?>
+					</ul>
 
-					<?php endwhile;?>
-
-				</ul>
-			</div>
+				</div>
 
 			<?php endif;?>
 
