@@ -168,57 +168,36 @@
 
 				<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 				<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
-				<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-primary', 'escape' => false));?>
-				<?php echo $this->Form->end(); ?>
-
-			</div>
-		</div>
-
-
-<div class="row">
-	<div class="span9">
-
-				<?php $attributes = array("allergen_free",
-					  "gluten",
-					  "vegan",
-					  "fat_free",
-					  "sugar",
-					  "msg",
-					  "lactose",
-					  "low_carb",
-					  "nut",
-					  "heart_smart",
-					  "no_preservatives",
-					  "organic",
-					  "kosher",
-					  "halal",
-					  "fair_traded",
-					  "give_back"
-					  );
-				?>
-
-				<div>
-					<?php foreach ($attributes as $attribute):?>
-						<?php if(isset($product['Product'][$attribute])) : ?>
-							<?php if($product['Product'][$attribute] == 1):?>
-
-								<div class="attr-icon-set">
-
-									<div class="attr-icons">
-										<img src="/img/attributes/<?php print $attribute;?>.png" width="50" height="50" />
-									</div>
-
-									<div class="attr-icon-caption"><?php print str_replace('_', ' ', $attribute); ?></div>
-
-								</div>
-
-							<?php endif;?>
-						<?php endif;?>
-					<?php endforeach;?>
+					<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-primary', 'escape' => false));?>
+					<?php echo $this->Form->end(); ?>
 
 				</div>
+			</div>
+
+
+	<div class="row">
+		<div class="span9">
+
+			<br />
+			<br />
+
+			<div>
+				<?php if(!empty($attributes)) : ?>
+					<?php foreach($attributes as $akey => $avalue): ?>
+						<div class="attr-icon-set">
+							<div class="attr-icons">
+								<img src="/img/attributes/<?php echo $akey;?>.png" width="50" height="50" />
+							</div>
+							<div class="attr-icon-caption"><?php echo str_replace('_', ' ', $akey); ?></div>
+						</div>
+					<?php endforeach;?>
+				<?php endif; ?>
 
 			</div>
+
+			<br />
+			<br />
+			<br />
 
 			<?php if(!empty($related_products)) : ?>
 
@@ -233,43 +212,45 @@
 							<?php echo $rproduct['Product']['name']; ?>
 							<br />
 
-
 						<?php endforeach; ?>
 					</ul>
 
 				</div>
 
-			<?php endif;?>
+			<?php endif; ?>
 
-			<div class="clear"></div>
+			<br />
+			<br />
+			<br />
 
+			<!--Facebook -->
+			<div id="fb-root">
+			</div>
+			<script type="text/javascript">(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=214123048679188";
+					fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+			</script>
 
+			<div class="fb-comment">
+				<div class="fb-comments" data-href="http://gourmet-basket.com" data-num-posts="3" data-width="440"></div>
+			</div>
+			<!--Facebook -->
+
+			<br />
+			<br />
+
+		</div>
 	</div>
 
-	</div>
-
+</div>
 </div>
 
 <br />
 <br />
-
-<!--Facebook -->
-<div id="fb-root">
-</div>
-<script type="text/javascript">(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=214123048679188";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-comment">
-	<div class="fb-comments" data-href="http://gourmet-basket.com" data-num-posts="3" data-width="440"></div>
-</div>
-<!--Facebook -->
-
 <br />
 <br />
 

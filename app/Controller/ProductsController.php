@@ -387,6 +387,14 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('related_products'));
 
+		$attributes = array();
+		foreach($product['Product'] as $key => $value) {
+			if($value == 1 && (substr($key, 0, 5) == 'attr_')) {
+				$attributes[substr($key, 5)] = $value;
+			}
+		}
+		$this->set(compact('attributes'));
+
 		$this->set(compact('product'));
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));
