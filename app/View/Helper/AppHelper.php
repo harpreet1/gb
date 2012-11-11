@@ -40,13 +40,13 @@ class AppHelper extends Helper {
 	);
 
 	public function js() {
-		$shop = array();
-		$shop['basePath'] = Router::url('/');
-		$shop['params'] = array(
+		$appshop = array();
+		$appshop['basePath'] = Router::url('/');
+		$appshop['params'] = array(
 			'controller' => $this->params['controller'],
 			'action' => $this->params['action'],
 		);
-		return $this->Html->scriptBlock('var Shop = ' . $this->Js->object($shop) . ';');
+		return $this->Html->scriptBlock('var Shop = ' . $this->Js->object($appshop) . ';');
 	}
 
 }

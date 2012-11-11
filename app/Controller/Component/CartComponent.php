@@ -62,13 +62,17 @@ class CartComponent extends Component {
 		if(empty($product)) {
 			return false;
 		}
+		$data['name'] = $product['Product']['name'];
+		$data['price'] = $product['Product']['price'];
+
 		$data['quantity'] = $quantity;
+		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
 		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
 		$data['totalweight'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
 
 		$data['Product'] = $product['Product'];
 		$data['User'] = $product['User'];
-		$this->Session->write('Shop.Cart.Items.' . $id, $data);
+		$this->Session->write('Shop.OrderItem.' . $id, $data);
 
 		$this->cart();
 
@@ -78,9 +82,9 @@ class CartComponent extends Component {
 //////////////////////////////////////////////////
 
 	public function remove($id) {
-		if($this->Session->check('Shop.Cart.Items.' . $id)) {
-			$product = $this->Session->read('Shop.Cart.Items.' . $id);
-			$this->Session->delete('Shop.Cart.Items.' . $id);
+		if($this->Session->check('Shop.OrderItem.' . $id)) {
+			$product = $this->Session->read('Shop.OrderItem.' . $id);
+			$this->Session->delete('Shop.OrderItem.' . $id);
 			$this->cart();
 			return $product;
 		}
@@ -90,19 +94,19 @@ class CartComponent extends Component {
 //////////////////////////////////////////////////
 
 	public function cart() {
-		$cart = $this->Session->read('Shop.Cart');
+		$shop = $this->Session->read('Shop');
 		$cartTotal = 0;
 		$cartQuantity = 0;
 		$cartWeight = 0;
 
-		$this->Session->delete('Shop.Cart.Property');
-		$this->Session->delete('Shop.Cart.Shipping');
+		$this->Session->delete('Shop.Order');
+		$this->Session->delete('Shop.Shipping');
 
 		$property = array();
 		$users = array();
 
-		if (count($cart['Items']) > 0) {
-			foreach ($cart['Items'] as $item) {
+		if (count($shop['OrderItem']) > 0) {
+			foreach ($shop['OrderItem'] as $item) {
 				$cartTotal += $item['subtotal'];
 				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['totalweight'];
@@ -116,7 +120,7 @@ class CartComponent extends Component {
 				$users[$item['User']['id']]['totalquantity'] = 0;
 				$users[$item['User']['id']]['totalweight'] = 0;
 			}
-			foreach ($cart['Items'] as $item) {
+			foreach ($shop['OrderItem'] as $item) {
 				$users[$item['User']['id']]['totalprice'] += $item['subtotal'];
 				$users[$item['User']['id']]['totalquantity'] += $item['quantity'];
 				$users[$item['User']['id']]['totalweight'] += $item['totalweight'];
@@ -125,17 +129,17 @@ class CartComponent extends Component {
 				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
 			}
 
-			$property['cartTotal'] = sprintf('%.2f', $cartTotal);
-			$property['cartQuantity'] = $cartQuantity;
-			$property['cartWeight'] = $cartWeight;
-			$this->Session->write('Shop.Cart.Property', $property);
+			$property['total'] = sprintf('%.2f', $cartTotal);
+			$property['quantity'] = $cartQuantity;
+			$property['weight'] = $cartWeight;
+			$this->Session->write('Shop.Order', $property);
 
-			$this->Session->write('Shop.Cart.Users', $users);
+			$this->Session->write('Shop.Users', $users);
 
 			return true;
 		}
 		else {
-			$this->Session->delete('Shop.Cart');
+			$this->Session->delete('Shop');
 			return false;
 		}
 	}

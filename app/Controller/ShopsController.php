@@ -72,10 +72,8 @@ class ShopsController extends AppController {
 //////////////////////////////////////////////////
 
 	public function cart() {
-		$cart = $this->Session->read('Shop.Cart');
-		$this->set(compact('cart'));
-		$this->set('items', $cart['Items']);
-		$this->set('cartTotal', $cart['Property']['cartTotal']);
+		$shop = $this->Session->read('Shop');
+		$this->set(compact('shop'));
 	}
 
 //////////////////////////////////////////////////
@@ -84,7 +82,7 @@ class ShopsController extends AppController {
 	public function address() {
 
 		$shop = $this->Session->read('Shop');
-		if(!$shop['Cart']['Property']['cartTotal']) {
+		if(!$shop['Order']['total']) {
 			$this->redirect('/');
 		}
 
@@ -96,7 +94,7 @@ class ShopsController extends AppController {
 				$order['order_type'] = 'creditcard';
 
 				$i = 0;
-				foreach($shop['Cart']['Users'] as $d) {
+				foreach($shop['Users'] as $d) {
 					$data['ShipFromZip'] = $d['zip'];
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $d['totalweight'];
@@ -133,8 +131,7 @@ class ShopsController extends AppController {
 				$this->Session->write('Shop.Shipping', $shipping);
 				$this->Session->write('Shop.Shippingtotal', $total);
 				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
-				$this->Session->write('Shop.Order', $order);
-				$this->Session->write('Shop.Data', $order);
+				$this->Session->write('Shop.Order', $order + $shop['Order']);
 				$this->redirect(array('action' => 'review'));
 			} else {
 				$this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
@@ -214,8 +211,13 @@ class ShopsController extends AppController {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
-
 				try {
+					$charge = array(
+						'first_name' => 'Andras',
+						'last_name' => 'Kende',
+						'amount' => 14.95,
+						'description' => 'GB ORDER #12345',
+					);
 					$authorizeNet = $this->AuthorizeNet->charge($charge);
 				} catch(Exception $e) {
 					$this->Session->setFlash($e->getMessage());
@@ -223,7 +225,7 @@ class ShopsController extends AppController {
 				}
 
 				$i = 0;
-				foreach($shop['Cart']['Items'] as $c) {
+				foreach($shop['OrderItem'] as $c) {
 					$o['OrderItem'][$i]['user_id'] = $c['User']['id'];
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
@@ -236,7 +238,7 @@ class ShopsController extends AppController {
 
 				$i = 0;
 
-				foreach($shop['Cart']['Users'] as $u) {
+				foreach($shop['Users'] as $u) {
 					$o['OrderUser'][$i]['user_id'] = $u['id'];
 					$o['OrderUser'][$i]['name'] = $u['name'];
 					$o['OrderUser'][$i]['quantity'] = $u['totalquantity'];
@@ -248,13 +250,13 @@ class ShopsController extends AppController {
 					$i++;
 				}
 
-				$o['Order'] = $shop['Data'];
-				$o['Order']['subtotal'] = $shop['Cart']['Property']['cartTotal'];
+				$o['Order'] = $shop['Order'];
+				$o['Order']['subtotal'] = $shop['Order']['total'];
 
 				$o['Order']['shipping'] = $shop['Shippingtotal']['03']['TotalCharges'];
 
-				$o['Order']['total'] = $shop['Cart']['Property']['cartTotal'] + $shop['Shippingtotal']['03']['TotalCharges'];
-				$o['Order']['weight'] = $shop['Cart']['Property']['cartWeight'];
+				$o['Order']['total'] = $shop['Order']['total'] + $shop['Shippingtotal']['03']['TotalCharges'];
+				$o['Order']['weight'] = $shop['Order']['weight'];
 
 				$o['Order']['order_status_id'] = 1;
 

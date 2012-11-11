@@ -7,31 +7,31 @@
 <div class="row">
 <div class="span4">
 
-Name: <?php echo $shop['Data']['name'];?><br />
-Email: <?php echo $shop['Data']['email'];?><br />
-Phone: <?php echo $shop['Data']['phone'];?><br />
+Name: <?php echo $shop['Order']['name'];?><br />
+Email: <?php echo $shop['Order']['email'];?><br />
+Phone: <?php echo $shop['Order']['phone'];?><br />
 
 <br />
 
 </div>
 <div class="span4">
 
-Billing Address: <?php echo $shop['Data']['billing_address'];?><br />
-Billing Address 2: <?php echo $shop['Data']['billing_address2'];?><br />
-Billing City: <?php echo $shop['Data']['billing_city'];?><br />
-Billing State: <?php echo $shop['Data']['billing_state'];?><br />
-Billing Zip: <?php echo $shop['Data']['billing_zip'];?><br />
+Billing Address: <?php echo $shop['Order']['billing_address'];?><br />
+Billing Address 2: <?php echo $shop['Order']['billing_address2'];?><br />
+Billing City: <?php echo $shop['Order']['billing_city'];?><br />
+Billing State: <?php echo $shop['Order']['billing_state'];?><br />
+Billing Zip: <?php echo $shop['Order']['billing_zip'];?><br />
 
 <br />
 
 </div>
 <div class="span4">
 
-Shipping Address: <?php echo $shop['Data']['shipping_address'];?><br />
-Shipping Address 2: <?php echo $shop['Data']['shipping_address2'];?><br />
-Shipping City: <?php echo $shop['Data']['shipping_city'];?><br />
-Shipping State: <?php echo $shop['Data']['shipping_state'];?><br />
-Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
+Shipping Address: <?php echo $shop['Order']['shipping_address'];?><br />
+Shipping Address 2: <?php echo $shop['Order']['shipping_address2'];?><br />
+Shipping City: <?php echo $shop['Order']['shipping_city'];?><br />
+Shipping State: <?php echo $shop['Order']['shipping_state'];?><br />
+Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 
 <br />
 
@@ -51,7 +51,7 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 	<div class="span1">SUBTOTAL</div>
 </div>
 
-<?php foreach ($shop['Cart']['Items'] as $item): ?>
+<?php foreach ($shop['OrderItem'] as $item): ?>
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
@@ -68,10 +68,10 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 <hr>
 
 <div class="row">
-	<div class="span2 offset4">Items: <?php echo $shop['Cart']['Property']['cartQuantity']; ?></div>
-	<div class="span2">Weight: <?php echo $shop['Cart']['Property']['cartWeight']; ?></div>
-	<div class="span2">Cart Total: $<?php echo $shop['Cart']['Property']['cartTotal']; ?></div>
-	<div class="span2">Order Total: <span class="bold red">$<?php echo $shop['Cart']['Property']['cartTotal']; ?></span></div>
+	<div class="span2 offset4">Items: <?php echo $shop['Order']['quantity']; ?></div>
+	<div class="span2">Weight: <?php echo $shop['Order']['weight']; ?></div>
+	<div class="span2">Cart Total: $<?php echo $shop['Order']['total']; ?></div>
+	<div class="span2">Order Total: <span class="bold red">$<?php echo $shop['Order']['total']; ?></span></div>
 </div>
 
 <br />
@@ -88,11 +88,11 @@ Shipping Zip: <?php echo $shop['Data']['shipping_zip'];?><br />
 <?php foreach ($shop['Shipping'] as $key => $value): ?>
 
 
-<strong><?php echo $shop['Cart']['Users'][$key]['name']; ?></strong><br />
-Zip Code: <?php echo $shop['Cart']['Users'][$key]['zip']; ?><br />
-Item Total Price: <?php echo $shop['Cart']['Users'][$key]['totalprice']; ?><br />
-Total Quantity: <?php echo $shop['Cart']['Users'][$key]['totalquantity']; ?><br />
-Weight: <?php echo $shop['Cart']['Users'][$key]['totalweight']; ?> LBS<br />
+<strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
+Zip Code: <?php echo $shop['Users'][$key]['zip']; ?><br />
+Item Total Price: <?php echo $shop['Users'][$key]['totalprice']; ?><br />
+Total Quantity: <?php echo $shop['Users'][$key]['totalquantity']; ?><br />
+Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 <?php foreach ($value as $ship): ?>
 <div class="row">
 <div class="span1"><?php echo $ship['ServiceCode']; ?></div>

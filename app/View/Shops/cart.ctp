@@ -5,7 +5,7 @@
 
 <h1>Shopping Cart</h1>
 
-<?php if(empty($items)) : ?>
+<?php if(empty($shop['OrderItem'])) : ?>
 
 Shopping Cart is empty
 
@@ -27,7 +27,7 @@ Shopping Cart is empty
 	<div class="span1">REMOVE</div>
 </div>
 
-<?php foreach ($items as $item): ?>
+<?php foreach ($shop['OrderItem'] as $item): ?>
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
@@ -76,7 +76,7 @@ Shopping Cart is empty
 			<div class="span9"><hr></div>
 		</div>
 
-		<?php foreach ($cart['Users'] as $user): ?>
+		<?php foreach ($shop['Users'] as $user): ?>
 
 		<div class="row">
 			<div class="span2"><?php echo $user['name']; ?></div>
@@ -96,9 +96,9 @@ Shopping Cart is empty
 
 		<div class="row">
 			<div class="span6">Totals: </div>
-			<div class="span1"><?php echo $cart['Property']['cartQuantity']; ?></div>
-			<div class="span1"><?php echo $cart['Property']['cartWeight']; ?></div>
-			<div class="span1">$<?php echo $cart['Property']['cartTotal']; ?></div>
+			<div class="span1"><?php echo $shop['Order']['quantity']; ?></div>
+			<div class="span1"><?php echo $shop['Order']['weight']; ?></div>
+			<div class="span1">$<?php echo $shop['Order']['total']; ?></div>
 		</div>
 
 		<div class="row">
@@ -110,7 +110,7 @@ Shopping Cart is empty
 
 
 	<div class="span2">
-		Subtotal: <span class="normal">$<?php echo $cartTotal; ?></span>
+		Subtotal: <span class="normal">$<?php echo $shop['Order']['total']; ?></span>
 		<br />
 		<br />
 		Sales Tax: <span class="normal">N/A</span>
@@ -119,7 +119,7 @@ Shopping Cart is empty
 		Shipping: <span class="normal">N/A</span>
 		<br />
 		<br />
-		Order Total: <span class="red">$<?php echo $cartTotal; ?></span>
+		Order Total: <span class="red">$<?php echo $shop['Order']['total']; ?></span>
 		<br />
 		<br />
 
@@ -127,10 +127,6 @@ Shopping Cart is empty
 
 		<br />
 		<br />
-
-		<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'step1'))); ?>
-		<input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal' class="sbumit" />
-		<?php echo $this->Form->end(); ?>
 
 	</div>
 </div>
