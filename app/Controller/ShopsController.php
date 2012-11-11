@@ -213,8 +213,8 @@ class ShopsController extends AppController {
 			if($this->Order->validates()) {
 				try {
 					$charge = array(
-						'first_name' => 'Andras',
-						'last_name' => 'Kende',
+						'first_name' => 'Bill',
+						'last_name' => 'Gates',
 						'amount' => 14.95,
 						'description' => 'GB ORDER #12345',
 					);
@@ -350,7 +350,7 @@ class ShopsController extends AppController {
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-				->to($vendor['User']['email'])
+				->to('er777@reyesworld.com')
 				->subject('Gourmet Basket Shop Order - Vendor Copy')
 				->template('order-vendor')
 				->emailFormat('html')
