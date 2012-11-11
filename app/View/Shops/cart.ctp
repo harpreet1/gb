@@ -33,7 +33,7 @@ Shopping Cart is empty
 		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
 		<div class="span3"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $item['Product']['id'], 'slug' => $item['Product']['slug'])); ?></strong></div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
-		<div class="span1"><?php echo $item['totalweight']; ?></div>
+		<div class="span1"><?php echo $item['weight_total']; ?></div>
 		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
 		<div class="span1"><?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>

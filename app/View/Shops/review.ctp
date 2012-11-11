@@ -55,10 +55,10 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 	<div class="row">
 		<div class="span2"><?php echo $item['User']['name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-		<div class="span4"><strong><?php echo $item['Product']['name']; ?></strong></div>
-		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
-		<div class="span1"><?php echo $item['totalweight']; ?></div>
-		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
+		<div class="span4"><strong><?php echo $item['name']; ?></strong></div>
+		<div class="span1"><?php echo $item['weight']; ?></div>
+		<div class="span1"><?php echo $item['weight_total']; ?></div>
+		<div class="span1">$<?php echo $item['price']; ?></div>
 		<div class="span1"><?php echo $item['quantity']; ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>
 	</div>

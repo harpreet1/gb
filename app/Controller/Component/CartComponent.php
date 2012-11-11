@@ -62,14 +62,13 @@ class CartComponent extends Component {
 		if(empty($product)) {
 			return false;
 		}
-		$data['name'] = $product['Product']['name'];
-		$data['price'] = $product['Product']['price'];
-
 		$data['quantity'] = $quantity;
+		$data['product_id'] = $product['Product']['id'];
+		$data['name'] = $product['Product']['name'];
+		$data['weight'] = $product['Product']['weight'];
+		$data['weight_total'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
+		$data['price'] = $product['Product']['price'];
 		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
-		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
-		$data['totalweight'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
-
 		$data['Product'] = $product['Product'];
 		$data['User'] = $product['User'];
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
@@ -109,7 +108,7 @@ class CartComponent extends Component {
 			foreach ($shop['OrderItem'] as $item) {
 				$cartTotal += $item['subtotal'];
 				$cartQuantity += $item['quantity'];
-				$cartWeight += $item['totalweight'];
+				$cartWeight += $item['weight_total'];
 
 				$users[$item['User']['id']]['id'] = $item['User']['id'];
 				$users[$item['User']['id']]['name'] = $item['User']['name'];
@@ -123,13 +122,14 @@ class CartComponent extends Component {
 			foreach ($shop['OrderItem'] as $item) {
 				$users[$item['User']['id']]['totalprice'] += $item['subtotal'];
 				$users[$item['User']['id']]['totalquantity'] += $item['quantity'];
-				$users[$item['User']['id']]['totalweight'] += $item['totalweight'];
+				$users[$item['User']['id']]['totalweight'] += $item['weight_total'];
 			}
 			foreach ($users as & $ship) {
 				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
 			}
 
 			$property['total'] = sprintf('%.2f', $cartTotal);
+			$property['subtotal'] = sprintf('%.2f', $cartTotal);
 			$property['quantity'] = $cartQuantity;
 			$property['weight'] = $cartWeight;
 			$this->Session->write('Shop.Order', $property);

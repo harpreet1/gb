@@ -215,8 +215,8 @@ class ShopsController extends AppController {
 					$charge = array(
 						'first_name' => 'Bill',
 						'last_name' => 'Gates',
-						'amount' => 14.95,
-						'description' => 'GB ORDER #12345',
+						'amount' => 24.95,
+						'description' => 'GB ORDER #1234511',
 					);
 					$authorizeNet = $this->AuthorizeNet->charge($charge);
 				} catch(Exception $e) {
@@ -227,12 +227,13 @@ class ShopsController extends AppController {
 				$i = 0;
 				foreach($shop['OrderItem'] as $c) {
 					$o['OrderItem'][$i]['user_id'] = $c['User']['id'];
+					$o['OrderItem'][$i]['product_id'] = $c['product_id'];
 					$o['OrderItem'][$i]['name'] = $c['Product']['name'];
 					$o['OrderItem'][$i]['quantity'] = $c['quantity'];
 					$o['OrderItem'][$i]['price'] = $c['Product']['price'];
-					$o['OrderItem'][$i]['price_total'] = $c['subtotal'];
+					$o['OrderItem'][$i]['subtotal'] = $c['subtotal'];
 					$o['OrderItem'][$i]['weight'] = $c['Product']['weight'];
-					$o['OrderItem'][$i]['weight_total'] = $c['totalweight'];
+					$o['OrderItem'][$i]['weight_total'] = $c['weight_total'];
 					$i++;
 				}
 
@@ -251,7 +252,7 @@ class ShopsController extends AppController {
 				}
 
 				$o['Order'] = $shop['Order'];
-				$o['Order']['subtotal'] = $shop['Order']['total'];
+				$o['Order']['subtotal'] = $shop['Order']['subtotal'];
 
 				$o['Order']['shipping'] = $shop['Shippingtotal']['03']['TotalCharges'];
 
