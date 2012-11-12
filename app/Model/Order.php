@@ -117,9 +117,17 @@ class Order extends AppModel {
 			),
 		),
 		'creditcard_code' => array(
-			'notempty' => array(
+			'rule1' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Credit Card Code is invalid',
+				'message' => 'Credit Card Code is required',
+				//'allowEmpty' => false,
+				//'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'rule2' => array(
+				 'rule' => '/^[0-9]{3,4}$/i',
+				 'message' => 'Credit Card Code is invalid',
 				//'allowEmpty' => false,
 				//'required' => true,
 				//'last' => false, // Stop validation after this rule

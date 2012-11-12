@@ -1,5 +1,18 @@
 <?php echo $this->set('title_for_layout', 'Order Review'); ?>
 
+<?php echo $this->Html->script(array('shops_review.js'), array('inline' => false)); ?>
+
+<style type="text/css">
+	#ccbox {
+		background: transparent url("/img/cards.png");
+		margin: 0 0 10px 0;
+		padding: 0 0 0 150px;
+		width: 0;
+		height: 23px;
+		overflow: hidden;
+	}
+</style>
+
 <h1>Order Review</h1>
 
 <hr>
@@ -126,54 +139,52 @@ Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 
 <?php echo $this->Form->create('Order'); ?>
 
-<?php echo $this->Form->input('creditcard_type', array(
-	'class' => 'span2',
-	'options' => array(
-		'Visa' => 'Visa',
-		'MasterCard' => 'MasterCard',
-		'American Express' => 'American Express',
-		'Discover' => 'Discover'
-	)
-)); ?>
+<div id="ccbox">
+	Credit Card Type.
+</div>
 
-<?php echo $this->Form->input('creditcard_number', array('class' => 'span2', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
+<?php echo $this->Form->input('creditcard_number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
 
-
-<?php echo $this->Form->input('creditcard_month', array(
-	'label' => 'Expiration Month',
-	'class' => 'span2',
-	'options' => array(
-		'01' => '01 - January',
-		'02' => '02 - February',
-		'03' => '03 - March',
-		'04' => '04 - April',
-		'05' => '05 - May',
-		'06' => '06 - June',
-		'07' => '07 - July',
-		'08' => '08 - August',
-		'09' => '09 - September',
-		'10' => '10 - October',
-		'11' => '11 - November',
-		'12' => '12 - December'
-	)
-)); ?>
-
-<?php echo $this->Form->input('creditcard_year', array(
-	'label' => 'Expiration Year',
-	'class' => 'span2',
-	'options' => array(
-		'13' => '2013',
-		'14' => '2014',
-		'15' => '2015',
-		'16' => '2016',
-		'17' => '2017',
-		'18' => '2018',
-		'19' => '2019',
-		'20' => '2020',
-		'21' => '2021',
-		'22' => '2022',
-	)
-));?>
+<div class="row">
+	<div class="span2">
+		<?php echo $this->Form->input('creditcard_month', array(
+			'label' => 'Expiration Month',
+			'class' => 'span2',
+			'options' => array(
+				'01' => '01 - January',
+				'02' => '02 - February',
+				'03' => '03 - March',
+				'04' => '04 - April',
+				'05' => '05 - May',
+				'06' => '06 - June',
+				'07' => '07 - July',
+				'08' => '08 - August',
+				'09' => '09 - September',
+				'10' => '10 - October',
+				'11' => '11 - November',
+				'12' => '12 - December'
+			)
+		)); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Form->input('creditcard_year', array(
+			'label' => 'Expiration Year',
+			'class' => 'span2',
+			'options' => array(
+				'13' => '2013',
+				'14' => '2014',
+				'15' => '2015',
+				'16' => '2016',
+				'17' => '2017',
+				'18' => '2018',
+				'19' => '2019',
+				'20' => '2020',
+				'21' => '2021',
+				'22' => '2022',
+			)
+		));?>
+	</div>
+</div>
 
 <?php echo $this->Form->input('creditcard_code', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
 
