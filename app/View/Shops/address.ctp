@@ -36,7 +36,7 @@
 
 <br />
 
-<?php echo $this->Form->input('sameaddress', array('type' => 'checkbox', 'label' => 'Copy to Shipping Address')); ?>
+<?php echo $this->Form->input('sameaddress', array('type' => 'checkbox', 'label' => 'Copy Billing Address to Shipping')); ?>
 
 </div>
 <div class="span4">
