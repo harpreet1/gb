@@ -151,7 +151,7 @@
 				<?php elseif(empty($product['Product']['brand'])) : ?>
 					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
 				<?php else : ?>	
-						<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>
+					<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>
 				<?php endif; ?>
 
 				<h3><?php echo $product['Product']['name']; ?></h3>

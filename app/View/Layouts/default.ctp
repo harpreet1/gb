@@ -36,7 +36,7 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li><a href="<?php echo $this->webroot; ?>/traditions">US Traditions</a>
+						<li><a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>
 						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
 
