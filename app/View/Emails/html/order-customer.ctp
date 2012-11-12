@@ -10,7 +10,9 @@ Created: <?php echo $order['Order']['created'];?>
 
 <h2>Customer</h2>
 
-Name: <?php echo $order['Order']['name'];?>
+First Name: <?php echo $order['Order']['first_name'];?>
+<br />
+Last Name: <?php echo $order['Order']['last_name'];?>
 <br />
 Email: <?php echo $order['Order']['email'];?>
 <br />
@@ -61,7 +63,7 @@ Shipping Zip: <?php echo $order['Order']['shipping_zip'];?>
 <td><?php echo $orderitem['weight_total']; ?></td>
 <td>$<?php echo $orderitem['price']; ?></td>
 <td><?php echo $orderitem['quantity']; ?></td>
-<td>$<?php echo $orderitem['price_total']; ?></td>
+<td>$<?php echo $orderitem['subtotal']; ?></td>
 </tr>
 <?php endforeach; ?>
 </table>

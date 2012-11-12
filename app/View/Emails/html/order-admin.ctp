@@ -10,7 +10,9 @@ Created: <?php echo $order['Order']['created'];?>
 
 <h2>Customer</h2>
 
-Name: <?php echo $order['Order']['name'];?>
+First Name: <?php echo $order['Order']['first_name'];?>
+<br />
+Last Name: <?php echo $order['Order']['last_name'];?>
 <br />
 Email: <?php echo $order['Order']['email'];?>
 <br />
@@ -39,6 +41,13 @@ Shipping State: <?php echo $order['Order']['shipping_state'];?>
 Shipping Zip: <?php echo $order['Order']['shipping_zip'];?>
 <br />
 <br />
+IP Address: <?php echo $order['Order']['ip_address'];?>
+<br />
+Remote Host: <?php echo $order['Order']['remotehost'];?>
+<br />
+<br />
+
+<br />
 <br />
 
 <h2>Order Items</h2>
@@ -61,17 +70,18 @@ Shipping Zip: <?php echo $order['Order']['shipping_zip'];?>
 <td><?php echo $orderitem['weight_total']; ?></td>
 <td>$<?php echo $orderitem['price']; ?></td>
 <td><?php echo $orderitem['quantity']; ?></td>
-<td>$<?php echo $orderitem['price_total']; ?></td>
+<td>$<?php echo $orderitem['subtotal']; ?></td>
 </tr>
 <?php endforeach; ?>
 </table>
 
 <br />
+<br />
 Subtotal: $<?php echo $order['Order']['subtotal'];?>
 <br />
 Shipping: $<?php echo $order['Order']['shipping'];?>
 <br />
-Total: $<?php echo $order['Order']['total'];?>
+<strong>Total: $<?php echo $order['Order']['total'];?></strong>
 <br />
 <br />
 
