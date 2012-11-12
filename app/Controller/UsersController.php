@@ -94,6 +94,29 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function vendor_edit() {
+
+		$id = $this->Auth->user('id');
+
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The user has been saved');
+				$this->redirect(array('action' => 'profile'));
+			} else {
+				$this->Session->setFlash('The user could not be saved. Please, try again.');
+			}
+		} else {
+			$this->request->data = $this->User->read(null, $id);
+			$this->set('user', $this->User->read(null, $id));
+		}
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());

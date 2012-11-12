@@ -26,7 +26,8 @@
 				<ul class="nav">
 					<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'vendor' => true)); ?></li>
 					<li><?php echo $this->Html->link('Orders', '#'); ?></li>
-					<li><?php echo $this->Html->link('Profile', array('controller' => 'users', 'action' => 'profile', 'vendor' => true)); ?></li>
+					<li><?php echo $this->Html->link('Profile View', array('controller' => 'users', 'action' => 'profile', 'vendor' => true)); ?></li>
+					<li><?php echo $this->Html->link('Profile Edit', array('controller' => 'users', 'action' => 'edit', 'vendor' => true)); ?></li>
 				</ul>
 			</div>
 
