@@ -1,5 +1,6 @@
 <?php echo $this->set('title_for_layout', 'Address'); ?>
 
+<?php echo $this->Html->script(array('shops_address.js'), array('inline' => false)); ?>
 
 <h1>Address</h1>
 
@@ -34,6 +35,8 @@
 <?php echo $this->Form->input('billing_zip', array('class' => 'span3')); ?>
 
 <br />
+
+<?php echo $this->Form->input('sameaddress', array('type' => 'checkbox', 'label' => 'Copy to Shipping Address')); ?>
 
 </div>
 <div class="span4">
