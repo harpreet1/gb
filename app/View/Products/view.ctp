@@ -148,7 +148,9 @@
 
 					<h4><a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo h($product['Product']['brand_description']);?>"><?php echo $product['Product']['brand']; ?></a></h4>
 
-					<?php else	 : ?>
+				<?php elseif(empty($product['Product']['brand'])) : ?>
+					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
+				<?php else : ?>	
 						<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>
 				<?php endif; ?>
 
