@@ -3,15 +3,12 @@
 
 <div class="row">
 	<div class="span12">
-	
+		
+		<ul class="breadcrumb">
+		
 		<?php if(empty($category)) : ?>
-		<ul class="breadcrumb">
-			<li>Welcome to&nbsp;<?php echo $user['User']['name']; ?></li>
-		</ul>
-		
+				<li>Welcome to&nbsp;<?php echo $user['User']['name']; ?></li>
 		<?php else : ?>
-		<ul class="breadcrumb">
-		
 			<?php if(!empty($category)) : ?>
 				<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
 				<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>

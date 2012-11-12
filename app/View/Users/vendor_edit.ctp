@@ -50,7 +50,7 @@
 
 		</div>
 		<div class="span4">
-			<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
+			<?php //echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
 			<?php //echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
 			<?php //echo $this->Form->input('shop_signature'); ?>
 			<?php echo $this->Form->input('address'); ?>
@@ -67,7 +67,7 @@
 			<?php echo $this->Form->input('business_established'); ?>
 			<?php echo $this->Form->input('flat_shipping'); ?>
 			<?php echo $this->Form->input('flat_price'); ?>
-			<?php echo $this->Form->input('commission'); ?>
+			<?php //echo $this->Form->input('commission'); ?>
 			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
 			<?php echo $this->Form->input('contact_title'); ?>
@@ -102,14 +102,14 @@
 
 			<h3>IMAGES</h3>
 
-			<?php echo $this->Form->input('image'); ?>
-			<?php echo $this->Form->input('image_featured'); ?>
-			<?php echo $this->Form->input('image1'); ?>
-			<?php echo $this->Form->input('image2'); ?>
-			<?php echo $this->Form->input('image3'); ?>
-			<?php echo $this->Form->input('image4'); ?>
-			<?php echo $this->Form->input('image5'); ?>
-			<?php echo $this->Form->input('image6'); ?>
+			<?php //echo $this->Form->input('image'); ?>
+			<?php //echo $this->Form->input('image_featured'); ?>
+			<?php //echo $this->Form->input('image1'); ?>
+			<?php //echo $this->Form->input('image2'); ?>
+			<?php //echo $this->Form->input('image3'); ?>
+			<?php //echo $this->Form->input('image4'); ?>
+			<?php //echo $this->Form->input('image5'); ?>
+			<?php //echo $this->Form->input('image6'); ?>
 
 		</div>
 		<!--<div class="span2">
