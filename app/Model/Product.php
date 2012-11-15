@@ -111,7 +111,7 @@ class Product extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-	public $hasMany = array(
+	public $hasOne = array(
 		'Nutrition' => array(
 			'className' => 'Nutrition',
 			'foreignKey' => 'product_id',

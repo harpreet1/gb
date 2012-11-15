@@ -10,12 +10,8 @@
 <td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
 </tr>
 <tr>
-<td>Category</td>
-<td><?php echo $this->Html->link($recipe['Category']['name'], array('controller' => 'categories', 'action' => 'view', $recipe['Category']['id'])); ?></td>
-</tr>
-<tr>
-<td>Sub Category</td>
-<td><?php echo $this->Html->link($recipe['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $recipe['Subcategory']['id'])); ?></td>
+<td>Recipescategory</td>
+<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
 </tr>
 <tr>
 <td>Name</td>

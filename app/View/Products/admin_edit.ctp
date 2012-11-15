@@ -29,6 +29,9 @@ $(document).ready(function(){
 
 <h2>Admin Edit Product</h2>
 
+<?php debug($product); die; ?>
+
+
 <?php echo $this->Form->create('Product'); ?>
 <?php echo $this->Form->input('id'); ?>
 
@@ -38,9 +41,9 @@ $(document).ready(function(){
 	<div class="span3">
 		<?php echo $this->Form->input('user_id'); ?>
 	</div>
-	
+
 	<div class="span3 offset6 ">
-		
+
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 
 

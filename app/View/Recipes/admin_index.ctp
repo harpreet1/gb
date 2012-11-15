@@ -4,8 +4,7 @@
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('recipescategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
@@ -28,8 +27,7 @@
 	<tr>
 		<td><?php echo h($recipe['Recipe']['id']); ?></td>
 		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
-		<td><?php echo $this->Html->link($recipe['Category']['name'], array('controller' => 'categories', 'action' => 'view', $recipe['Category']['id'])); ?></td>
-		<td><?php echo $this->Html->link($recipe['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $recipe['Subcategory']['id'])); ?></td>
+		<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
 		<td><?php echo h($recipe['Recipe']['name']); ?></td>
 		<td><?php echo h($recipe['Recipe']['slug']); ?></td>
 		<td><div><?php echo h($recipe['Recipe']['description']); ?></div></td>

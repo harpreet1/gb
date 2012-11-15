@@ -22,8 +22,7 @@
 <?php
 echo $this->Form->input('id');
 echo $this->Form->input('user_id');
-echo $this->Form->input('category_id');
-echo $this->Form->input('subcategory_id');
+echo $this->Form->input('recipescategory_id');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
 echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-xxlarge'));

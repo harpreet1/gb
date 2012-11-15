@@ -851,14 +851,16 @@ class ProductsController extends AppController {
 				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
 		} else {
-			$options = array(
+
+			$this->request->data = $this->Product->find('first', array(
 				'recursive' => 0,
+				'contain' => array('Nutrition'),
 				'conditions' => array('Product.id' => $id)
-			);
-			$this->request->data = $this->Product->find('first', $options);
+			));
 
 			$product = $this->Product->find('first', array(
 				'recursive' => 0,
+				'contain' => array('Nutrition'),
 				'conditions' => array(
 					'Product.id' => $id
 				)

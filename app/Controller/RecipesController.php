@@ -35,14 +35,13 @@ class RecipesController extends AppController {
 				'Recipe.created',
 				'User.name',
 				'User.slug',
-				'Category.name',
+				'Recipescategory.name',
 			),
 			'conditions' => array(
 				$conditions
 			),
 			'order' => array(
-				'Category.name' => 'ASC',
-				'Recipe.name' => 'ASC'
+				'Recipescategory.name' => 'ASC',
 			),
 			'limit' => 20
 		);
@@ -175,17 +174,14 @@ class RecipesController extends AppController {
 			'recursive' => -1,
 			'contain' => array(
 				'User',
-				'Category',
-				'Subcategory',
+				'Recipescategory',
 			),
 			'fields' => array(
 				'Recipe.*',
 				'User.id',
 				'User.name',
-				'Category.id',
-				'Category.name',
-				'Subcategory.id',
-				'Subcategory.name',
+				'Recipescategory.id',
+				'Recipescategory.name',
 			),
 			'order' => array(
 				'Recipe.name' => 'ASC'
@@ -208,8 +204,7 @@ class RecipesController extends AppController {
 		$recipe = $this->Recipe->find('first', array(
 			'contain' => array(
 				'User',
-				'Category',
-				'Subcategory',
+				'Recipescategory',
 			),
 			'conditions' => array(
 				'Recipe.id' => $id
@@ -239,17 +234,12 @@ class RecipesController extends AppController {
 				'User.name' => 'ASC'
 			)
 		));
-		$categories = $this->Recipe->Category->find('list', array(
+		$recipescategories = $this->Recipe->Recipescategory->find('list', array(
 			'order' => array(
-				'Category.name' => 'ASC'
+				'Recipescategory.name' => 'ASC'
 			)
 		));
-		$subcategories = $this->Recipe->Subcategory->find('list', array(
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			)
-		));
-		$this->set(compact('users', 'categories', 'subcategories'));
+		$this->set(compact('users', 'recipescategories'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -278,17 +268,12 @@ class RecipesController extends AppController {
 				'User.name' => 'ASC'
 			)
 		));
-		$categories = $this->Recipe->Category->find('list', array(
+		$recipescategories = $this->Recipe->Recipescategory->find('list', array(
 			'order' => array(
-				'Category.name' => 'ASC'
+				'Recipescategory.name' => 'ASC'
 			)
 		));
-		$subcategories = $this->Recipe->Subcategory->find('list', array(
-			'order' => array(
-				'Subcategory.name' => 'ASC'
-			)
-		));
-		$this->set(compact('users', 'categories', 'subcategories'));
+		$this->set(compact('users', 'recipescategories'));
 	}
 
 ////////////////////////////////////////////////////////////

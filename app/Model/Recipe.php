@@ -49,20 +49,15 @@ class Recipe extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Category' => array(
-			'className' => 'Category',
-			'foreignKey' => 'category_id',
+		'Recipescategory' => array(
+			'className' => 'Recipescategory',
+			'foreignKey' => 'recipescategory_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array(),
 		),
-		'Subcategory' => array(
-			'className' => 'Subcategory',
-			'foreignKey' => 'subcategory_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
 	);
 
 ////////////////////////////////////////////////////////////

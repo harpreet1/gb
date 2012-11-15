@@ -6,9 +6,9 @@
 <?php echo $this->Html->css(array('bootstrap.css')); ?>
 <?php echo $this->Html->css(array('admin.css')); ?>
 
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
 
 <?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js')); ?>
@@ -96,6 +96,7 @@
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Traditions', array('controller' => 'traditions', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('US Traditions', array('controller' => 'ustraditions', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Recipes Categories', array('controller' => 'recipescategories', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Contents', array('controller' => 'contents', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>
 						</ul>
