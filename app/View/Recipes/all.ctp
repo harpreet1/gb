@@ -2,7 +2,7 @@
 
 <script>
 $(document).ready(function() {
-	$('#categories').change(function() {
+	$('#recipescategories').change(function() {
 		location.href = 'http://<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes/all/category:' + $(this).val();
 	});
 	$('#vendors').change(function() {
@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="span3">
-		<?php echo $this->Form->input('categories', array('options' => $categories, 'empty' => array('all' => 'All Recipes'), 'default' => $category_selected)); ?>
+		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
 	</div>
 	<div class="span3">
 		<?php echo $this->Form->input('vendors', array('options' => $vendors, 'empty' => array('all' => 'All Vendors'), 'default' => $vendor_selected)); ?>
@@ -27,7 +27,7 @@ $(document).ready(function() {
 	<tr>
 		<th><?php echo $this->Paginator->sort('name');?></th>
 		<th><?php echo $this->Paginator->sort('user_id');?></th>
-		<th><?php echo $this->Paginator->sort('category_name');?></th>
+		<th><?php echo $this->Paginator->sort('recipescategory_name');?></th>
 	</tr>
 <?php foreach ($recipes as $recipe): ?>
 	<tr>
@@ -73,7 +73,7 @@ $(document).ready(function() {
 	if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 	?>
 	<div class="span3">
-		<?php echo $recipe['Category']['name']; ?>
+		<?php echo $recipe['Recipescategory']['name']; ?>
 		<br />
 		<?php echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 

@@ -53,23 +53,26 @@ class RecipesController extends AppController {
 
 	public function all() {
 
-		$categories = $this->Recipe->find('list', array(
-			'recursive' => 1,
+		$recipescategories = $this->Recipe->find('list', array(
+			'recursive' => -1,
+			'contain' => array(
+				'Recipescategory',
+			),
 			'fields' => array(
-				'Category.slug',
-				'Category.name'
+				'Recipescategory.slug',
+				'Recipescategory.name'
 			),
 			'conditions' => array(
 				'Recipe.active' => 1
 			),
 			'group' => array(
-				'Recipe.category_id'
+				'Recipe.recipescategory_id'
 			),
 			'order' => array(
-				'Category.name'
+				'Recipescategory.name'
 			)
 		));
-		$this->set(compact('categories'));
+		$this->set(compact('recipescategories'));
 
 
 		$vendors = $this->Recipe->find('list', array(
@@ -98,17 +101,17 @@ class RecipesController extends AppController {
 
 		if(isset($this->params['named']['category']) ) {
 
-			if (!array_key_exists($this->params['named']['category'], $categories)) {
+			if (!array_key_exists($this->params['named']['category'], $recipescategories)) {
 				$this->redirect(array('action' => 'index'));
 			}
 
-			$conditions[] = array('Category.slug' => $this->params['named']['category']);
+			$conditions[] = array('Recipescategory.slug' => $this->params['named']['category']);
 
-			$category_selected = $this->params['named']['category'];
+			$recipescategory_selected = $this->params['named']['category'];
 		} else {
-			$category_selected = '';
+			$recipescategory_selected = '';
 		}
-		$this->set(compact('category_selected'));
+		$this->set(compact('recipescategory_selected'));
 
 
 		if(isset($this->params['named']['vendor']) ) {
@@ -135,13 +138,13 @@ class RecipesController extends AppController {
 				'Recipe.created',
 				'User.name',
 				'User.slug',
-				'Category.name',
+				'Recipescategory.name',
 			),
 			'conditions' => array(
 				$conditions
 			),
 			'order' => array(
-				'Category.name' => 'ASC',
+				'Recipescategory.name' => 'ASC',
 				'Recipe.name' => 'ASC'
 			),
 			'limit' => 20
@@ -155,6 +158,7 @@ class RecipesController extends AppController {
 
 	public function view($slug = null) {
 		$recipe = $this->Recipe->find('first', array(
+			'recursive' => -1,
 			'conditions' => array(
 				'Recipe.slug' => $slug
 			)
