@@ -63,58 +63,99 @@
 
 	<div class="span9">
 
-	<div class="top-product-block">
-
-		<div class="summary">Summary</div>
-
-		<div class="row">
-			<?php
-				$i = 0;
-				foreach ($products as $product):
-				$i++;
-			?>
-
-			<div class="span2">
-
-				<div class="content-product">
-
-					<div class="content-img">
-
-						<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-
-						<div class="product-name">
-							<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
-								<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
-							</a>
-						</div>
-
-					</div>
-
-					<div class="price">$<?php echo $product['Product']['price']; ?></div>
-
-					<div class="brand"><?php echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?></div>
-
-				</div>
-
+		<div class="top-product-block">
+		
+			<h3><?php echo $category['Category']['name'] ?></h3>
+			<hr />
+	
+			<div class="category-summary">
+				
+				<?php echo $category['Category']['summary'] ?>
 			</div>
+	
+			<div class="row">
+				<?php
+					$i = 0;
+					foreach ($products as $product):
+					$i++;
+				?>
+	
+				<div class="span2">
+	
+					<div class="content-product">
+	
+						<div class="content-img">
+	
+							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+	
+							<div class="product-name">
+								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+									<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+								</a>
+							</div>
+	
+						</div>
+	
+						<div class="price">$<?php echo $product['Product']['price']; ?></div>
+	
+						<div class="brand"><?php echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?></div>
+	
+					</div>
+	
+				</div>
+	
+				<?php if (($i % 4) == 0) : ?>
+	
+			</div>
+		</div>
 
-			<?php if (($i % 4) == 0) : ?>
+		<div class="top-product-block">
+	
+			<div class="row">
+		
+				<?php endif; ?>
+				<?php endforeach; ?>
+		
+			</div>
+		</div>
 
 	</div>
+
+</div>
+
+
+<div class="row">
+
+	
+
+	<div class="span8 air">
+	<h2><?php echo $category['Category']['name'] ?></h2>
+	<hr />
+		<?php echo $category['Category']['article'] ?>  
 	</div>
 
-	<div class="top-product-block">
-
-	<div class="row">
-
-		<?php endif; ?>
-		<?php endforeach; ?>
-
+	<div class="span4 air">
+		<?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
 	</div>
+	
+		<div class="span4 air">
+		<?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
 	</div>
 
+	<div class="span4 air">
+		<?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
 	</div>
 
+	<div class="span4 air">
+		<?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+	</div>
+
+	<div class="span4 air">
+		<?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+	</div>
+
+
+	
 </div>
 
 <br />

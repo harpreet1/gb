@@ -160,7 +160,8 @@ $(document).ready(function(){
 
 	<div class="span5">
 		<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span')); ?>
-		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span')); ?>
+		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span',
+		 'value' => '<p>Calories, 0g, 0| Calories From Fat, 0g, 0| Total Fat, 0g, 0| Saturated Fat, 0g, 0| Cholesterol, 0g, 0| Sodium, 0mg, 75| Total Carbohydrate, 0g, 1| Dietary Fiber, 0g, 0| Sugar, 0g, 0| Protein, 0g, 0| Vitamin A, 0g, 0| Vitamin C, 0g, 0| Calcium, 0g, 0| Iron, 0g, 0</p>')); ?>
 		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span')); ?>
 		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span')); ?></div>
 		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span')); ?>
