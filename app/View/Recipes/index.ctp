@@ -41,7 +41,7 @@
 		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />
 		<br />
-		<?php echo $recipe['User']['shop_name']; ?>
+		<?php echo $recipe['User']['name']; ?>
 	</div>
 
 	<?php endforeach; ?>
