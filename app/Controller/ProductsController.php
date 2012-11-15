@@ -658,7 +658,14 @@ class ProductsController extends AppController {
 		$this->set(compact('all'));
 
 		$this->paginate = array(
-			'recursive' => 0,
+			'recursive' => -1,
+			'contain' => array(
+				'User',
+				'Category',
+				'Subcategory',
+				'Subsubcategory',
+				'Ustradition',
+			),
 			'conditions' => $all['conditions'],
 			'fields' => array(
 				'Product.*',
@@ -704,12 +711,14 @@ class ProductsController extends AppController {
 		$categories = $this->Product->Category->findList();
 
 		$subcategories = $this->Product->Subcategory->find('list', array(
+			'recursive' => -1,
 			'order' => array(
 				'Subcategory.name' => 'ASC'
 			)
 		));
 
 		$subsubcategories = $this->Product->Subsubcategory->find('list', array(
+			'recursive' => -1,
 			'order' => array(
 				'Subsubcategory.name' => 'ASC'
 			)
@@ -789,6 +798,7 @@ class ProductsController extends AppController {
 		}
 
 		$users = $this->Product->User->find('list', array(
+			'recursive' => -1,
 			'conditions' => array(
 				'User.active' => 1,
 				'User.level' => 'vendor',
