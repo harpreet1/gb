@@ -65,7 +65,7 @@ echo $this->Form->input('height');
 echo $this->Form->input('length');
 echo $this->Form->input('width');
 echo $this->Form->input('ingredients');
-echo $this->Form->input('nutrition');
+echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span','value' => '<p>Calories, 0g, 0| Calories From Fat, 0g, 0| Total Fat, 0g, 0| Saturated Fat, 0g, 0| Cholesterol, 0g, 0| Sodium, 0mg, 75| Total Carbohydrate, 0g, 1| Dietary Fiber, 0g, 0| Sugar, 0g, 0| Protein, 0g, 0| Vitamin A, 0g, 0| Vitamin C, 0g, 0| Calcium, 0g, 0| Iron, 0g, 0</p>')); 
 echo $this->Form->input('recipes');
 echo $this->Form->input('serving_suggestions', array('rows' => 20, 'class' => 'input-xlarge'));
 echo $this->Form->input('country');
