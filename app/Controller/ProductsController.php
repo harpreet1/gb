@@ -854,13 +854,13 @@ class ProductsController extends AppController {
 
 			$this->request->data = $this->Product->find('first', array(
 				'recursive' => 0,
-				'contain' => array('Nutrition'),
+				//'contain' => array('Nutrition'),
 				'conditions' => array('Product.id' => $id)
 			));
 
 			$product = $this->Product->find('first', array(
 				'recursive' => 0,
-				'contain' => array('Nutrition'),
+				//'contain' => array('Nutrition'),
 				'conditions' => array(
 					'Product.id' => $id
 				)
