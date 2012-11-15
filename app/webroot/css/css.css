@@ -1,8 +1,8 @@
 body {
 	border-top: none;
 	color: #444;
-	/*	font-family: 'Open Sans', verdana, arial, sans-serif;*/
-	font-family: "Mako", sans-serif;
+	font-family: 'Open Sans', verdana, arial, sans-serif;
+	/*font-family: "Mako", sans-serif;*/
 	font-size: 14px;
 	background-color: #f4f7fe;
 	padding-top: 144px;
@@ -666,6 +666,27 @@ h3.cat-title {
 	margin-bottom: 20px;
 	background-color: white;
 	line-height: 18px;
+}
+
+.category-summary {
+	letter-spacing: 1px;
+	width: 385px;
+	margin-bottom: 30px;
+	margin-left: 182px;
+	color: #032177;
+	text-align: left;
+	background-color: #FEE79B;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	background-position: 200px 0px;
+	background-image: url(../img/blockquote-bkgnd.jpg);
+	background-repeat: repeat;
+	padding: 30px;
+}
+
+.category-pic {
+	width: 300px;
 }
 
 .top-product-block  {
