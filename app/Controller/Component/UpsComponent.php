@@ -34,7 +34,7 @@ class UpsComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public function startup(&$controller, $options=array()) {
+	public function startup(Controller $controller, $options=array()) {
 
 		if(Configure::read('Settings.UPS_MODE') == 'test') {
 			$this->url = self::TEST_URL;

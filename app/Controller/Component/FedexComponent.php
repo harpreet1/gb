@@ -66,7 +66,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		'Service' => '03'
 	);
 
-	public function startup(&$controller, $options=array()) {
+	public function startup(Controller $controller, $options=array()) {
 		$this->defaults = array_merge((array)$this->defaults, (array)$options);
 	}
 

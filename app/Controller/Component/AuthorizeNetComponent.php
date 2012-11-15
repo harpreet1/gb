@@ -3,9 +3,9 @@ class AuthorizeNetComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	private $url = '';
-	private $api_login = '';
-	private $transaction_key = '';
+	private $url = null;
+	private $api_login = null;
+	private $transaction_key = null;
 
 ////////////////////////////////////////////////////////////
 
@@ -14,9 +14,7 @@ class AuthorizeNetComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	public function initialize($controller) {
-
-		$this->_controller = $controller;
+	public function initialize(Controller $controller) {
 
 		$this->api_url = Configure::read('Settings.AUTHORIZENET_API_URL');
 		$this->api_login = Configure::read('Settings.AUTHORIZENET_API_LOGIN');

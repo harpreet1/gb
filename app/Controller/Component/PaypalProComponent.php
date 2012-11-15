@@ -39,7 +39,7 @@ class PaypalProComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	public function initialize($controller) {
+	public function initialize(Controller $controller) {
 
 		$this->_controller = $controller;
 

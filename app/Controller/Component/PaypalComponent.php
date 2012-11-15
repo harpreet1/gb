@@ -16,7 +16,7 @@ class PaypalComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public function initialize(&$controller) {
+	public function initialize(Controller $controller) {
 
 		$this->API_UserName = API_USERNAME;
 		$this->API_Password = API_PASSWORD;
@@ -33,8 +33,8 @@ class PaypalComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public function startup(&$controller)  {
-		$this->controller =& $controller;
+	public function startup(Controller $controller)  {
+		$this->controller = $controller;
 	}
 
 //////////////////////////////////////////////////
