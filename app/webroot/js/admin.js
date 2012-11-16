@@ -12,5 +12,11 @@ $(document).ready(function() {
 		$.get(this.href + "?" + new Date().getTime() );
 		return false;
 	});
+	
+	// Temp removal of "nut" in nutrition labels on admin edit	
+	
+	$(".nutrition label[for='comedyclubs']");
+	   
+
 
 });

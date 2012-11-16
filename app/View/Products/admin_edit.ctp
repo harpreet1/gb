@@ -263,28 +263,63 @@ $(document).ready(function(){
 
 <div class="row">
 
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_calories', array('class' => 'span1')); ?>
 	</div>
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_calories_from_fat', array('class' => 'span1')); ?>
 	</div>
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1')); ?>
 	</div>
 
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1')); ?>
 	</div>
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_cholesterol', array('class' => 'span1')); ?>
 	</div>
-	<div class="span2">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_sodium', array('class' => 'span1')); ?>
 	</div>
 
+</div>
+
+<div class="row">
+
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_fiber', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_sugar', array('class' => 'span1')); ?>
+	</div>
+
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_protein', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_vit_a', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_vit_c', array('class' => 'span1')); ?>
+	</div>
 
 </div>
+
+<div class="row">
+
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_iron', array('class' => 'span1')); ?>
+	</div>
+	
+</div>
+
 
 
 

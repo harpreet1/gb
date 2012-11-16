@@ -14,13 +14,13 @@
 </script>
 
 <h2>Admin Edit Recipe</h2>
-
+<?php echo $this->Form->input('id'); ?>
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 
 <?php echo $this->Form->create('Recipe'); ?>
 
 <?php
-echo $this->Form->input('id');
+
 echo $this->Form->input('user_id');
 echo $this->Form->input('recipescategory_id');
 echo $this->Form->input('name');
