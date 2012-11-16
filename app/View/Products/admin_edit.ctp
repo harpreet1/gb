@@ -263,7 +263,37 @@ $(document).ready(function(){
 
 <div class="row">
 
-	<div class="span3">
+	<div class="span2">
+		<?php echo $this->Form->input('nut_calories', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Form->input('nut_calories_from_fat', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1')); ?>
+	</div>
+
+	<div class="span2">
+		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Form->input('nut_cholesterol', array('class' => 'span1')); ?>
+	</div>
+	<div class="span2">
+		<?php echo $this->Form->input('nut_sodium', array('class' => 'span1')); ?>
+	</div>
+
+
+</div>
+
+
+
+<br />
+<br />
+
+<div class="row">
+
+	<div class="row">
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>

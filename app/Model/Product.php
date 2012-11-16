@@ -111,25 +111,6 @@ class Product extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-	public $hasOne = array(
-		'Nutrition' => array(
-			'className' => 'Nutrition',
-			'foreignKey' => 'product_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
-
-////////////////////////////////////////////////////////////
-
 	public $hasAndBelongsToMany = array(
 		'Tag' => array(
 			'className' => 'Tag',

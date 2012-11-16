@@ -395,6 +395,15 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('attributes'));
 
+
+		$nuts = array();
+		foreach($product['Product'] as $nkey => $nvalue) {
+			if(!empty($nvalue) && (substr($nkey, 0, 4) == 'nut_')) {
+				$nuts[substr($nkey, 4)] = $nvalue;
+			}
+		}
+		$this->set(compact('nuts'));
+
 		$this->set(compact('product'));
 		$title_for_layout = $product['Product']['name'] . ' :: GB';
 		$this->set(compact('title_for_layout'));
@@ -864,13 +873,11 @@ class ProductsController extends AppController {
 
 			$this->request->data = $this->Product->find('first', array(
 				'recursive' => 0,
-				//'contain' => array('Nutrition'),
 				'conditions' => array('Product.id' => $id)
 			));
 
 			$product = $this->Product->find('first', array(
 				'recursive' => 0,
-				//'contain' => array('Nutrition'),
 				'conditions' => array(
 					'Product.id' => $id
 				)
