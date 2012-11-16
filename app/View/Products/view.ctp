@@ -216,8 +216,8 @@
 
 				<?php foreach($nuts as $nkey => $nvalue): ?>
 				<tr>
-					<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> | 0g &nbsp; &nbsp; </td>
-					<td class="nf_Cell nf_Right nf_Text"><?php echo $nvalue; ?>%</td>
+					<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> |<?php echo $nvalue; ?>g &nbsp; &nbsp; </td>
+					<td class="nf_Cell nf_Right nf_Text">%</td>
 				</tr>
 				<?php endforeach;?>
 

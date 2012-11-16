@@ -320,14 +320,23 @@ $(document).ready(function(){
 	
 </div>
 
+
+
+
 <br />
 <br />
 
-<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-<br />
-<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
-<?php echo $this->Form->end(); ?>
+<div class="row">
 
+	<div class="row">
+		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+		<br />
+		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
+		<?php echo $this->Form->end(); ?>
+
+	</div>
+
+</div>
 
 <br />
 <br />
@@ -345,4 +354,3 @@ $(document).ready(function(){
 
 <br />
 <br />
-
