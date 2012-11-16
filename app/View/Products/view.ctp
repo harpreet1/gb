@@ -150,7 +150,7 @@
 
 				<?php elseif(empty($product['Product']['brand'])) : ?>
 					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
-				<?php else : ?>	
+				<?php else : ?>
 					<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>
 				<?php endif; ?>
 
@@ -184,6 +184,51 @@
 		<div class="span9">
 
 			<br />
+
+			<h3>Nutritions</h3>
+
+				<?php if(!empty($nuts)) : ?>
+					<?php foreach($nuts as $nkey => $nvalue): ?>
+								<?php echo $nkey; ?> = <?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> = <?php echo $nvalue; ?>
+						<br />
+					<?php endforeach;?>
+				<?php endif; ?>
+
+				<hr />
+				<?php //debug($nuts); ?>
+				<hr />
+
+<?php if(!empty($nuts)) : ?>
+
+<table class="NutritionFacts">
+	<tr>
+		<td>
+			<table class="" cellpadding="0" cellspacing="0" width="100%" style="">
+				<tr>
+					<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
+				</tr>
+				<tr>
+					<td class="nf_BorderT10" colspan="2"><b class="nf_TextSmall nf_Bold">Amount Per Serving</b></td>
+				</tr>
+				<tr>
+					<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b></td>
+				</tr>
+
+				<?php foreach($nuts as $nkey => $nvalue): ?>
+				<tr>
+					<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> | 0g &nbsp; &nbsp; </td>
+					<td class="nf_Cell nf_Right nf_Text"><?php echo $nvalue; ?>%</td>
+				</tr>
+				<?php endforeach;?>
+
+			</table>
+		</td>
+	</tr>
+</table>
+
+<?php endif; ?>
+
+
 			<br />
 
 			<div>
