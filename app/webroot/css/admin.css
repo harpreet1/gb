@@ -59,4 +59,8 @@ td.art-constrain div {
 	padding:0;
 }
 
+/** Nutrition **/
+.nutrition .text label {
+	font-size:12px;
+}
 

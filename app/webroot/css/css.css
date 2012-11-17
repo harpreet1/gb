@@ -983,6 +983,11 @@ html[xmlns] .slides {display: block;}
 /****************************
 Nutrition Facts
 ****************************/
+
+.nutrition input label {
+	font-size:10px;
+}
+
 table {
 	border-collapse: separate;
 	border-spacing: 2px;
