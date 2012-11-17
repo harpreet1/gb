@@ -257,7 +257,7 @@ $(document).ready(function(){
 
 <div class="row">
 
-	<div class="row">
+	<div class="span4">
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
