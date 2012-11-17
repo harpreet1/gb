@@ -979,3 +979,73 @@ html[xmlns] .slides {display: block;}
 			bottom: 0;
 		}
 
+
+/****************************
+Nutrition Facts
+****************************/
+table {
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+
+.NutritionFacts {
+	background-color:#fff;
+	border:1px solid;
+	border-color: #555;
+	padding: 8px;
+	/*voice-family: "\"}\"";
+	voice-family:inherit; width:322px;*/
+	width:300px;	
+}
+
+.nf_Text {
+	font-size:12px;
+	text-transform:capitalize;
+}
+
+.nf_Bold {
+	font-weight:bold;
+}
+
+.nf_TextSmall{
+	font-size:10px;
+}
+
+.nf_Cell{
+	border-top:1px solid #555;
+	/*padding-bottom:2px;
+	padding-top:2px;*/
+}
+
+.nf_Right {
+	text-align:right;
+}
+
+.nf_Center {
+	text-align:center;
+}
+
+.nf_PaddingB3 {
+	padding-bottom:3px;
+}
+
+.nf_PaddingB5 {
+	padding-bottom:5px;
+}
+
+.nf_PaddingT5 {
+	padding-top:5px;
+}
+
+.nf_BorderT5 {
+	border-top: 5px solid #333;
+}
+
+.nf_BorderT10 {
+	border-top: 10px solid #333;
+}
+
+.nf_Header {
+	font-size:18px;
+	font-weight:bold;
+}
