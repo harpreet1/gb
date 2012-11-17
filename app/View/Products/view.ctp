@@ -169,7 +169,6 @@
 				$<?php echo $product['Product']['price']; ?>
 
 				<br />
-				<br />
 
 				<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 				<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
@@ -183,7 +182,7 @@
 	<div class="row">
 		<div class="span9">
 
-			<br />
+			
 		
 				<?php /*?><?php if(!empty($nuts)) : ?>
 					<?php foreach($nuts as $nkey => $nvalue): ?>
@@ -203,17 +202,8 @@
 	<tr>
 		<td>
 			<table class="" cellpadding="0" cellspacing="0" width="100%" style="">
-			
-			
 		
-			
-			
-			
-			
-			
-			
-			
-	<tr>
+				<tr>
 					<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
 				</tr>
 				<tr>
