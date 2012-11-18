@@ -309,7 +309,7 @@ class AppModel extends Model {
 			'SE' => 'Sweden',
 			'CH' => 'Switzerland',
 			'SY' => 'Syrian Arab Republic',
-			'TW' => 'Taiwan, Province Of China',
+			'TW' => 'Taiwan',
 			'TJ' => 'Tajikistan',
 			'TZ' => 'Tanzania, United Republic Of',
 			'TH' => 'Thailand',
