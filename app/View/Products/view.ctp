@@ -182,8 +182,8 @@
 	<div class="row">
 		<div class="span9">
 
-			
-		
+
+
 				<?php /*?><?php if(!empty($nuts)) : ?>
 					<?php foreach($nuts as $nkey => $nvalue): ?>
 								<?php echo $nkey; ?> = <?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> = <?php echo $nvalue; ?>
@@ -193,16 +193,20 @@
 
 				<hr />
 				<?php //debug($nuts); ?><?php */?>
-				
+
 
 <?php if(!empty($nuts)) : ?>
+
+
+<?php print_r($nuts); ?>
+<?php die; ?>
 
 
 <table class="NutritionFacts">
 	<tr>
 		<td>
 			<table class="" cellpadding="0" cellspacing="0" width="100%" style="">
-		
+
 				<tr>
 					<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
 				</tr>
@@ -211,8 +215,9 @@
 				</tr>
 				<tr>
 					<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b></td>
-				</tr>		
+				</tr>
 				<?php foreach($nuts as $nkey => $nvalue): ?>
+				<?php $nkey = str_replace('_p', '_%', $nkey); ?>
 				<tr>
 					<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> |<?php echo $nvalue; ?>g &nbsp; &nbsp; </td>
 					<td class="nf_Cell nf_Right nf_Text">%</td>
