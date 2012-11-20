@@ -197,11 +197,6 @@
 
 <?php if(!empty($nuts)) : ?>
 
-
-<?php print_r($nuts); ?>
-<?php die; ?>
-
-
 <table class="NutritionFacts">
 	<tr>
 		<td>
