@@ -1866,76 +1866,68 @@ Editableform based on Twitter Bootstrap
     
 }(window.jQuery));
 /**
-* Editable Popover 
+* Editable Inline 
 * ---------------------
-* requires bootstrap-popover.js
 */
 (function ($) {
 
     //extend methods
-    /**
-    Container based on Bootstrap Popover
-
-    @class editableContainer (popover)
-    **/    
     $.extend($.fn.editableContainer.Constructor.prototype, {
-        containerName: 'popover',
-        innerCss: '.popover-content p',
-
+        containerName: 'editableform',
+        innerCss: null,
+                 
         initContainer: function(){
-            $.extend(this.containerOptions, {
-                trigger: 'manual',
-                selector: 'false',
-                content: ' '
-            });
-            this.call(this.containerOptions);
-        },        
+            //no init for container
+            //only convert anim to miliseconds
+            if(!this.options.anim) {
+                this.options.anim = 0;
+            }         
+        },
         
-        setContainerOption: function(key, value) {
-            this.container().options[key] = value; 
-        },               
-
-        /**
-        * move popover to new position. This function mainly copied from bootstrap-popover.
-        */
-        setPosition: function () {     
-            var popover = this.container(),
-            $tip = popover.tip(), 
-            inside = false, 
-            placement, pos, actualWidth, actualHeight, tp;
-
-            placement = typeof popover.options.placement === 'function' ? popover.options.placement.call(popover, $tip[0], popover.$element[0]) : popover.options.placement;
-
-            pos = popover.getPosition(inside);
-
-            actualWidth = $tip[0].offsetWidth;
-            actualHeight = $tip[0].offsetHeight;
-
-            switch (inside ? placement.split(' ')[1] : placement) {
-                case 'bottom':
-                    tp = {top:pos.top + pos.height, left:pos.left + pos.width / 2 - actualWidth / 2};
-                    break;
-                case 'top':
-                    tp = {top:pos.top - actualHeight, left:pos.left + pos.width / 2 - actualWidth / 2};
-                    break;
-                case 'left':
-                    tp = {top:pos.top + pos.height / 2 - actualHeight / 2, left:pos.left - actualWidth};
-                    break;
-                case 'right':
-                    tp = {top:pos.top + pos.height / 2 - actualHeight / 2, left:pos.left + pos.width};
-                    break;
+        splitOptions: function() {
+            this.containerOptions = {};
+            this.formOptions = this.options;
+        },
+        
+        tip: function() {
+           return this.$form; 
+        },
+        
+        show: function () {
+            this.$element.hide();
+            
+            if(this.$form) {
+                this.$form.remove();
             }
-
-            $tip.css(tp).addClass(placement).addClass('in');
-        }  
+            
+            this.initForm();
+            this.tip().addClass('editable-container').addClass('editable-inline');            
+            this.$form.insertAfter(this.$element);
+            this.$form.show(this.options.anim);
+            this.$form.editableform('render');
+        }, 
+        
+        hide: function () {
+            this.$form.hide(this.options.anim, $.proxy(function() {
+                this.$element.show();
+                //return focus on element
+                if (this.options.enablefocus) {
+                    this.$element.focus();
+                }                
+            }, this)); 
+        },
+        
+        destroy: function() {
+            this.tip().remove();
+        } 
     });
 
     //defaults
-    /*
-    $.fn.editableContainer.defaults = $.extend({}, $.fn.popover.defaults, $.fn.editableContainer.defaults, {
-        
-    });
-    */    
+    $.fn.editableContainer.defaults = $.extend({}, $.fn.editableContainer.defaults, {
+        anim: 'fast',
+        enablefocus: false
+    });    
+
 
 }(window.jQuery));
 /**
