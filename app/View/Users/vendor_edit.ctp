@@ -19,7 +19,7 @@
 <?php echo $this->Form->input('id'); ?>
 
 
-<div class="row-fluid">
+<div class="row>
 	<h3><?php echo $this->Form->input('name'); ?></h3>
 
 	<div class="span12">

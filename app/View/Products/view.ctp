@@ -129,7 +129,7 @@
 				<br />
 
 				<?php if(!empty($product['Product']['recipes'])) : ?>
-					<h3>Here's a recipe:</h3>
+					<h3>Give this a try!:</h3>
 					<p><?php echo $product['Product']['recipes']; ?></p>
 				<?php endif ?>
 
