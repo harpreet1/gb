@@ -42,11 +42,21 @@ class SubsubcategoriesController extends AppController {
 		$subsubcategories = $this->paginate('Subsubcategory');
 		$this->set(compact('subsubcategories'));
 
-		$subcategories = $this->Subsubcategory->Subcategory->find('list', array(
+		$subcategories1 = $this->Subsubcategory->Subcategory->find('list', array(
+			'recursive' => -1,
 			'order' => array(
 				'Subcategory.name' => 'ASC'
 			)
 		));
+		$subcategories = array();
+		$i = 0;
+		foreach ($subcategories1 as $key => $value) {
+			$subcategories[$i] = array(
+				'value' => $key,
+				'text' => $value,
+			);
+			$i++;
+		}
 		$this->set(compact('subcategories'));
 
 	}
