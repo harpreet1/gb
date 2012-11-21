@@ -65,78 +65,7 @@ echo $this->Form->input('height');
 echo $this->Form->input('length');
 echo $this->Form->input('width');
 echo $this->Form->input('ingredients');
-echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span','value' => '<table class="NutritionFacts">
-	<tr>
-		<td><table class="" cellpadding="0" cellspacing="0" width="100%" style="">
-				<tr>
-					<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
-				</tr>
-				<tr>
-					<td class="nf_BorderT10" colspan="2"><b class="nf_TextSmall nf_Bold">Amount Per Serving</b></td>
-				</tr>
-				<tr>
-					<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b></td>
-				</tr>
-								<tr>
-					<td class="nf_Cell nf_Text">Calories&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Calories From Fat&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Total Fat&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Saturated Fat&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Cholesterol&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Sodium&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Total Carbohydrate&nbsp;|&nbsp; </td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Dietary Fiber&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Sugar&nbsp;|&nbsp; </td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Protein&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Vitamin A&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Vitamin C&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Calcium&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-									<tr>
-					<td class="nf_Cell nf_Text"> Iron&nbsp;|&nbsp; 0g</td>
-					<td class="nf_Cell nf_Right nf_Text"> 0%</td>
-				<tr>
-								</table></td>
-	</tr>
-</table>
-</table>')); 
+echo $this->Form->input('nutrition', array('rows' => 10));
 echo $this->Form->input('recipes');
 echo $this->Form->input('serving_suggestions', array('rows' => 20, 'class' => 'input-xlarge'));
 echo $this->Form->input('country');
