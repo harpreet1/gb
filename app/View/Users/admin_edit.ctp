@@ -22,12 +22,11 @@
 <div class="row">
 	<div class="span12">
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?><br />
-		<h3><?php echo $this->Form->input('name'); ?></h3>
 	</div>
-	
+
 	<div class="span16">
-	
-	
+
+
 		<div class="span3">
 			<?php echo $this->Form->input('level'); ?>
 			<?php echo $this->Form->input('username'); ?>
@@ -62,10 +61,10 @@
 			<?php echo $this->Form->input('address2'); ?>
 			<?php echo $this->Form->input('city'); ?>
 			<?php echo $this->Form->input('state'); ?>
-			
+
 			<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span')); ?><br />
-			
-			
+
+
 
 		</div>
 		<div class="span3">
@@ -80,7 +79,7 @@
 			<?php echo $this->Form->input('contact_phone'); ?>
 			<?php echo $this->Form->input('contact_email'); ?>
 
-			
+
 		</div>
 		<div class="span3">
 			<h3>FINANCIAL</h3>
@@ -109,7 +108,7 @@
 
 		</div>
 		<!--<div class="span2">
-		
+
 			<?php //echo $this->Form->input('bd_image1'); ?>
 			<?php //echo $this->Form->input('bd_image2'); ?>
 			<?php //echo $this->Form->input('bd_image3'); ?>
