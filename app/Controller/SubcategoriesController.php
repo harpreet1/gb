@@ -49,13 +49,11 @@ class SubcategoriesController extends AppController {
 			)
 		));
 		$categories = array();
-		$i = 0;
 		foreach ($categories1 as $key => $value) {
-			$categories[$i] = array(
+			$categories[] = array(
 				'value' => $key,
 				'text' => $value,
 			);
-			$i++;
 		}
 		$this->set(compact('categories'));
 
