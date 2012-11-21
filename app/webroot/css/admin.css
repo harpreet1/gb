@@ -1,6 +1,4 @@
 body {
-//	padding-top: 40px;
-//	padding-bottom: 40px;
 }
 
 .content {
@@ -29,8 +27,8 @@ body {
 }
 
 td div {
-	max-height: 130px;
-	overflow-y: scroll;
+//	max-height: 130px;
+//	overflow-y: scroll;
 }
 
 td.constrain img{
@@ -43,23 +41,21 @@ td.art-constrain div {
 }
 
 .emphasize {
-	font-weight:bold;
-	font-size:13px;
-	color:red;
-	margin-bottom:15px;
+	font-weight: bold;
+	font-size: 13px;
+	color: red;
+	margin-bottom: 15px;
 }
 
 /** Awning tool **/
-
 .awning {
-	height:111px;
-	width:690px;
-
-	margin:0;
-	padding:0;
+	height: 111px;
+	width: 690px;
+	margin: 0;
+	padding: 0;
 }
 
 /** Nutrition **/
 .nutrition .text label {
-	font-size:12px;
+	font-size: 12px;
 }
