@@ -27,8 +27,8 @@ body {
 }
 
 td div {
-//	max-height: 130px;
-//	overflow-y: scroll;
+	/*max-height: 130px;
+	overflow-y: scroll;*/
 }
 
 td.constrain img{
@@ -38,6 +38,13 @@ td.constrain img{
 
 td.art-constrain div {
 	max-height: 70px;
+}
+
+/***  Limit Height in Admin Index ***/
+
+.limit {
+	max-height:120px;
+	overflow-y:scroll;
 }
 
 .emphasize {
