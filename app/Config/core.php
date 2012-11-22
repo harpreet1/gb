@@ -173,11 +173,10 @@ Configure::write('Routing.prefixes', array('admin', 'vendor'));
  *
  */
 
-
-	   Configure::write('Session', array(
-		  'defaults' => 'php',
-		));
-	
+	Configure::write('Session', array(
+		'defaults' => 'php',
+		'timeout' => 4320 //3 days
+	));
 
 /**
  * The level of CakePHP security.
