@@ -21,7 +21,7 @@ class ShopsController extends AppController {
 //////////////////////////////////////////////////
 
 	public function clear() {
-		$this->Session->delete('Shop');
+		$clear = $this->Cart->clear();
 		$this->Session->setFlash('All item(s) removed from your shopping cart', 'flash_error');
 		$this->redirect('/');
 	}
@@ -361,7 +361,8 @@ class ShopsController extends AppController {
 
 	public function success() {
 		$shop = $this->Session->read('Shop');
-		$this->Session->delete('Shop');
+		$clear = $this->Cart->clear();
+
 		if(empty($shop)) {
 			$this->redirect('/');
 		}

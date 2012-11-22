@@ -74,11 +74,31 @@ class CartComponent extends Component {
 		$data['User'] = $product['User'];
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
 
-		$cartdata['Cart']['sessionid'] = $this->Session->id();
-		$cartdata['Cart']['product_id'] = $product['Product']['id'];
-		$cartdata['Cart']['quantity'] = $quantity;
+		$this->Cart = ClassRegistry::init('Cart');
 
-		ClassRegistry::init('Cart')->save($cartdata, false);
+		$cartdata['Cart']['sessionid'] = $this->Session->id();
+		$cartdata['Cart']['quantity'] = $quantity;
+		$cartdata['Cart']['user_id'] = $product['User']['id'];
+		$cartdata['Cart']['product_id'] = $product['Product']['id'];
+		$cartdata['Cart']['name'] = $product['Product']['name'];
+		$cartdata['Cart']['weight'] = $product['Product']['weight'];
+		$cartdata['Cart']['weight_total'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
+		$cartdata['Cart']['price'] = $product['Product']['price'];
+		$cartdata['Cart']['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
+
+		$existing = $this->Cart->find('first', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'Cart.sessionid' => $this->Session->id(),
+				'Cart.product_id' => $product['Product']['id'],
+			)
+		));
+		if($existing) {
+			$cartdata['Cart']['id'] = $existing['Cart']['id'];
+		} else {
+			$this->Cart->create();
+		}
+		$this->Cart->save($cartdata, false);
 
 		$this->cart();
 
@@ -91,6 +111,19 @@ class CartComponent extends Component {
 		if($this->Session->check('Shop.OrderItem.' . $id)) {
 			$product = $this->Session->read('Shop.OrderItem.' . $id);
 			$this->Session->delete('Shop.OrderItem.' . $id);
+
+			$this->Cart = ClassRegistry::init('Cart');
+			$existing = $this->Cart->find('first', array(
+				'recursive' => -1,
+				'conditions' => array(
+					'Cart.sessionid' => $this->Session->id(),
+					'Cart.product_id' => $id,
+				)
+			));
+			if($existing) {
+				$this->Cart->delete($existing['Cart']['id'], false);
+			}
+
 			$this->cart();
 			return $product;
 		}
@@ -154,6 +187,14 @@ class CartComponent extends Component {
 			$this->Session->delete('Shop');
 			return false;
 		}
+	}
+
+//////////////////////////////////////////////////
+
+	public function clear() {
+		$this->Cart = ClassRegistry::init('Cart');
+		$this->Cart->deleteAll(array('Cart.sessionid' => $this->Session->id()), false);
+		$this->Session->delete('Shop');
 	}
 
 //////////////////////////////////////////////////
