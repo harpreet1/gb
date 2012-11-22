@@ -4,6 +4,48 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function maestro($key = null) {
+
+		if($key != 'secret') {
+			die('sorry');
+		}
+
+		App::uses('HttpSocket', 'Network/Http');
+		$httpSocket = new HttpSocket();
+
+		$products = $this->Product->find('all', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'Product.user_id' => 11,
+				'Product.active' => 1,
+			),
+			'order' => 'RAND()',
+			'limit' => 5
+		));
+
+		foreach($products as $product) {
+
+			sleep(1);
+
+			$response = $httpSocket->get('https://www.maestrolico.com/api/checkstockstatus.asp?distributorid=117&productid=' . $product['Product']['vendor_sku']);
+			echo '<br /><hr><br />';
+			echo $product['Product']['name'] . ' - ' . $product['Product']['vendor_sku'];
+			echo '<br /><br />';
+			debug($response['body']);
+
+			$update = explode('|', $response['body']);
+
+			debug($update);
+
+			debug(date('H:i:s'));
+
+		}
+
+		die('end');
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function slug() {
 		die('slug');
 		$products = $this->Product->find('all', array(
