@@ -74,6 +74,11 @@ class CartComponent extends Component {
 		$data['User'] = $product['User'];
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
 
+		$cartdata['Cart']['product_id'] = $product['Product']['id'];
+		$cartdata['Cart']['quantity'] = $quantity;
+
+		ClassRegistry::init('Cart')->save($cartdata, false);
+
 		$this->cart();
 
 		return $product;
