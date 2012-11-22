@@ -172,9 +172,23 @@ Configure::write('Routing.prefixes', array('admin', 'vendor'));
  * the cake shell command: cake schema create Sessions
  *
  */
-	Configure::write('Session', array(
-		'defaults' => 'php'
-	));
+
+	if(strripos($_SERVER['REDIRECT_URL'],"admin/")) { 
+		Configure::write('Session', array(
+		'defaults' => 'php',
+		'cookie' => 'xyz',
+		'timeout' => 30,
+		'checkAgent' => false,
+	)); 
+	}
+	else
+	{
+	   Configure::write('Session', array(
+		  'defaults' => 'php',
+		));
+	}
+	
+	
 
 /**
  * The level of CakePHP security.
@@ -244,7 +258,7 @@ Configure::write('Routing.prefixes', array('admin', 'vendor'));
 $engine = 'File';
 
 // In development mode, caches should expire quickly.
-$duration = '+999 days';
+$duration = '+60 seconds';
 if (Configure::read('debug') >= 1) {
 	$duration = '+10 seconds';
 }
