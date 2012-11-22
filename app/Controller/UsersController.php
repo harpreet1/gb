@@ -118,8 +118,16 @@ class UsersController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
+		$this->paginate = array(
+			'recursive' => -1,
+			'order' => array(
+				'User.active' => 'DESC',
+				'User.username' => 'ASC',
+			),
+			'limit' => 100,
+		);
+		$users = $this->paginate('User');
+		$this->set(compact('users'));
 	}
 
 ////////////////////////////////////////////////////////////
