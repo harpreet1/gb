@@ -173,21 +173,10 @@ Configure::write('Routing.prefixes', array('admin', 'vendor'));
  *
  */
 
-	if(strripos($_SERVER['REDIRECT_URL'],"admin/")) { 
-		Configure::write('Session', array(
-		'defaults' => 'php',
-		'cookie' => 'xyz',
-		'timeout' => 30,
-		'checkAgent' => false,
-	)); 
-	}
-	else
-	{
+
 	   Configure::write('Session', array(
 		  'defaults' => 'php',
 		));
-	}
-	
 	
 
 /**
