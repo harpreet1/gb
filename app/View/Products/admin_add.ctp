@@ -26,7 +26,6 @@ $(document).ready(function(){
 
 </script>
 
-
 <h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>

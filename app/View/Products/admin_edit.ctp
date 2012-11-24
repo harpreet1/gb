@@ -97,8 +97,7 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span5">
-		
-		<?php echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
+		<?php // echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
 	</div>
 
 	<div class="span2">
