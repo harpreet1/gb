@@ -719,7 +719,7 @@ class ProductsController extends AppController {
 				'Subcategory',
 				'Subsubcategory',
 				'Ustradition',
-				'Brand',
+			//	'Brand',
 			),
 			'conditions' => $all['conditions'],
 			'fields' => array(
@@ -735,8 +735,8 @@ class ProductsController extends AppController {
 				'Subsubcategory.name',
 				'Ustradition.id',
 				'Ustradition.name',
-				'Brand.id',
-				'Brand.name',
+			//	'Brand.id',
+				//'Brand.name',
 
 			),
 			'limit' => 50,
