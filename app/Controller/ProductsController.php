@@ -137,7 +137,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand',
+				'Product.brand_name',
 				'User.slug'
 			),
 			'limit' => 40,
@@ -203,7 +203,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand',
+				'Product.brand_name',
 				'User.slug'
 			),
 			'limit' => 40,
@@ -273,7 +273,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand',
+				'Product.brand_name',
 				'User.slug'
 			),
 			'conditions' => array(
@@ -329,7 +329,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand',
+				'Product.brand_name',
 				'User.slug'
 			),
 			'conditions' => array(
@@ -387,7 +387,8 @@ class ProductsController extends AppController {
 			'contain' => array(
 				'Category',
 				'Subcategory',
-				'Subsubcategory'
+				'Subsubcategory',
+				'Brand'
 			),
 			'conditions' => array(
 				'Product.id' => $id,
@@ -480,7 +481,7 @@ class ProductsController extends AppController {
 					'Product.slug',
 					'Product.image',
 					'Product.price',
-					'Product.brand',
+					'Product.brand_name',
 					'User.slug'
 				),
 				'conditions' => $conditions,
@@ -737,7 +738,6 @@ class ProductsController extends AppController {
 				'Ustradition.name',
 				'Brand.id',
 				'Brand.name',
-
 			),
 			'limit' => 50,
 		);
@@ -783,7 +783,7 @@ class ProductsController extends AppController {
 		));
 
 		$ustraditions = $this->Product->Ustradition->findList();
-		
+
 		$brands = $this->Product->Brand->findList();
 
 		$countries = $this->Product->countries();
@@ -875,14 +875,14 @@ class ProductsController extends AppController {
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
 
 		$ustraditions = $this->Product->Ustradition->findList();
-		
+
 		$brands = $this->Product->Brand->findList();
 
 		$countries = $this->Product->countries();
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions',  'brand','countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brand', 'countries', 'creations'));
 
 	}
 
