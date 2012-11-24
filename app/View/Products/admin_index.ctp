@@ -45,6 +45,15 @@ $(document).ready(function() {
 		placement: 'right',
 	});
 
+	$('.brand').editable({
+		type: 'select',
+		name: 'brand_id',
+		url: '/admin/products/editable',
+		title: 'Brand',
+		source: <?php echo json_encode($brands); ?>,
+		placement: 'left',
+	});
+
 	$('.ustradition').editable({
 		type: 'select',
 		name: 'ustradition_id',
@@ -190,7 +199,7 @@ $(document).ready(function() {
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo ($product['Product']['vendor_sku']); ?></td>
-		<td><?php echo ($product['Brand']['name']); ?></td>
+		<td><span class="brand" data-value="<?php echo $product['Brand']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Brand']['name']); ?></span></td>
 		<td><?php echo ($product['Product']['name']); ?></td>
 		<td><?php echo ($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
