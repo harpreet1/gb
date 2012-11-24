@@ -95,6 +95,7 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span5">
+		<?php echo $this->Form->input('brand_id', array('empty' => '--')); ?>
 		<?php echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
 	</div>
 

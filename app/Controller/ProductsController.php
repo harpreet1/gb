@@ -634,6 +634,9 @@ class ProductsController extends AppController {
 				'Subsubcategory.name',
 				'Ustradition.id',
 				'Ustradition.name',
+				'Brand.id',
+				'Brand.name',
+
 			),
 			'limit' => 50,
 		);
@@ -716,6 +719,7 @@ class ProductsController extends AppController {
 				'Subcategory',
 				'Subsubcategory',
 				'Ustradition',
+				'Brand',
 			),
 			'conditions' => $all['conditions'],
 			'fields' => array(
@@ -731,6 +735,9 @@ class ProductsController extends AppController {
 				'Subsubcategory.name',
 				'Ustradition.id',
 				'Ustradition.name',
+				'Brand.id',
+				'Brand.name',
+
 			),
 			'limit' => 50,
 		);
@@ -776,10 +783,12 @@ class ProductsController extends AppController {
 		));
 
 		$ustraditions = $this->Product->Ustradition->findList();
+		
+		$brands = $this->Product->Brand->findList();
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands','countries'));
 
 	}
 
@@ -866,12 +875,14 @@ class ProductsController extends AppController {
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
 
 		$ustraditions = $this->Product->Ustradition->findList();
+		
+		$brands = $this->Product->Brand->findList();
 
 		$countries = $this->Product->countries();
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions',  'brand','countries', 'creations'));
 
 	}
 
@@ -963,11 +974,13 @@ class ProductsController extends AppController {
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
+		$brands = $this->Product->Brand->findList();
+
 		$countries = $this->Product->countries();
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations'));
 
 	}
 

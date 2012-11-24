@@ -107,6 +107,14 @@ class Product extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Brand' => array(
+			'className' => 'Brand',
+			'foreignKey' => 'brand_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+
 	);
 
 ////////////////////////////////////////////////////////////
