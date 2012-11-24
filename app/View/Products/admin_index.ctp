@@ -153,7 +153,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
-		<th><?php echo $this->Paginator->sort('brand'); ?></th>
+		<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
@@ -190,7 +190,7 @@ $(document).ready(function() {
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo ($product['Product']['vendor_sku']); ?></td>
-		<td><?php echo ($product['Product']['brand']); ?></td>
+		<td><?php echo ($product['Brand']['name']); ?></td>
 		<td><?php echo ($product['Product']['name']); ?></td>
 		<td><?php echo ($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
