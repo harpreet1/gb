@@ -143,15 +143,12 @@
 			<div class="span5 product-description">
 
 				<?php if(!empty($product['Brand']['description'])) : ?>
-
-				<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
-
+					<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
 					<h4><a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo h($product['Brand']['description']);?>"><?php echo $product['Brand']['name']; ?></a></h4>
-
-				<?php elseif(empty($product['Product']['brand'])) : ?>
+				<?php elseif(empty($product['Brand']['name'])) : ?>
 					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
 				<?php else : ?>
-					<a class="btn btn-custom"><?php echo $product['Product']['brand']; ?></a>
+					<a class="btn btn-custom"><?php echo $product['Brand']['name']; ?></a>
 				<?php endif; ?>
 
 				<h3><?php echo $product['Product']['name']; ?></h3>

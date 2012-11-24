@@ -3,9 +3,9 @@
 
 <div class="row">
 	<div class="span12">
-		
+
 		<ul class="breadcrumb">
-		
+
 		<?php if(empty($category)) : ?>
 				<li>Welcome to&nbsp;<?php echo $user['User']['name']; ?></li>
 		<?php else : ?>
@@ -13,17 +13,17 @@
 				<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
 				<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
 			<?php endif; ?>
-		
+
 			<?php if(!empty($subcategory)) : ?>
 				<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
 			<?php endif; ?>
-		
+
 			<?php if(!empty($subsubcategory)) : ?>
 			<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 			<?php endif; ?>
-		
+
 			<li class="active"><?php //echo $product['Product']['name']; ?></li>
-		
+
 		</ul>
 		<?php endif; ?>
 	</div>
@@ -115,44 +115,44 @@
 
 
 	<div class="span8">
-	
+
 			Sort by:&nbsp;
 			<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
 			&nbsp;
 			<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
 			&nbsp;
-	
+
 			<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>&nbsp;
 			<?php echo $this->Html->link('Brand', array('?' => array('sort'=>'brand', 'direction'=>'asc')) + $this->passedArgs); ?>
-	
-	
+
+
 			<br /><br />
-	
+
 		<div class="awning">
-		
+
 			<div id="div1">
 				<div id="div2">
 					<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
 				</div>​
 			</div>
-		
+
 			<style>
 			#awning1 {
 				<?php echo $user['User']['awning_css']; ?>
 			}
 			</style>
-	
+
 			<img id="awning1" src="/img/awning/awning.png">
-	
-	
+
+
 		</div>
-	
+
 		<div class="top-product-block">
-	
+
 			<br />
-	
-			<div class="row gb"> 
-	
+
+			<div class="row gb">
+
 				<?php
 					$i = 0;
 					$count = 0;
@@ -162,81 +162,81 @@
 					//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 				?>
 				<div class="span2 gb">
-	
+
 					<div class="content-product">
-	
+
 						<div class="content-img">
-	
+
 							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-	
+
 							<div class="product-name">
 								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
 									<?php echo $this->Text->truncate(
 										$product['Product']['name'],40,	array('ellipsis' => '...','exact' => 'false')); ?>
 								</a>
-	
+
 							</div>
-	
+
 						</div>
-	
+
 						<div class="price">$<?php echo $product['Product']['price']; ?></div>
-						<div class="brand"><?php echo $product['Product']['brand']; ?></div>
-	
+						<div class="brand"><?php echo $product['Product']['brand_name']; ?></div>
+
 					</div>
-	
+
 				</div>
-	
+
 				<?php
-	
+
 				if ($count == 9) :
-	
+
 					echo "</div><!--end row gb--></div><!--end top product block--></div><div class=\"row\"><div class=\"span12 bottom-block\">";
-	
+
 					if (($i % 6) == 0) { echo "\n\n\t\t<div class=\"row gb\">\n\n"; }
-	
-	
+
+
 				else if (($i % 3) == 0) { echo "\n\n\t\t<div class=\"row gb\">\n\n"; }
-	
+
 				endif ;
-	
+
 				endforeach;
 			?>
-	
-	
-	
-	
-	
+
+
+
+
+
 			</div>
-	
+
 			<div style="clear:both"></div>
-	
+
 			<?php echo $this->element('pagination-counter'); ?>
-	
+
 			<?php echo $this->element('pagination'); ?>
-	
+
 			<br />
-	
-	
+
+
 		</div>
-	
+
 	</div>
-	
+
 	</div>
 
 	<?php if(!empty($user)) : ?>
 
 	<hr>
-	
+
 	<div class="row">
 		<div class="span4 offset4 ">
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'vendor-article-logo')); ?>
 		</div>
 	</div>
-	
+
 	<div class="row">
-	
+
 		<div class="span12 air">
-			
+
 				<div class="vendor-special">
 					<blockquote>
 						<?php echo $user['User']['shop_quote'] ?><br />
@@ -244,12 +244,12 @@
 						<div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
 					</blockquote>
 				</div>
-			
+
 		</div>
-	
-	
+
+
 		<div class="span8 vendor-block">
-	
+
 			<div id="vendor-group">
 
 				<div id="vendor-article">
@@ -265,7 +265,7 @@
 						<br /><span> attribution</span>
 						<?php
 						else : ?><img src="/img/user_image/default.png" alt="" />
-	
+
 						<?php endif	?>
 					</div>
 
@@ -277,18 +277,18 @@
 							<br /><span> attribution</span>
 						<?php
 						else : ?><img src="/img/user_image/default.png" alt="" />
-	
+
 						<?php endif	?>
-	
+
 					</div>
 
-					
+
 				</div>
-				
+
 			</div>
 
 		</div>
-				
+
 
 		<div class="span4">
 			<div class="span4 air">
@@ -307,20 +307,20 @@
 			<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic')); endif ?>
 			</div>
 		</div>
-	
-		
+
+
 	</div>
-		
-
-</div>	
 
 
+</div>
 
-	
+
+
+
 	<div class="row">
-	
-		
-	
-	
+
+
+
+
 	</div>
 	<?php endif; ?>
