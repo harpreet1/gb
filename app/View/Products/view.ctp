@@ -109,6 +109,7 @@
 						</ul>
 
 					</div>
+					
 
 				<?php if(!empty($product['Product']['generic_description'])) : ?>
 
@@ -144,7 +145,7 @@
 
 				<?php if(!empty($product['Brand']['description'])) : ?>
 					<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
-					<h4><a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo h($product['Brand']['description']);?>"><?php echo $product['Brand']['name']; ?></a></h4>
+					<h4><a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name']; ?></a></h4>
 				<?php elseif(empty($product['Brand']['name'])) : ?>
 					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
 				<?php else : ?>

@@ -73,8 +73,6 @@ $(document).ready(function(){
 
 	<div class="span3">
 		<?php echo $this->Form->input('brand_id', array('empty' => '--')); ?>
-		<br />
-		<?php echo $this->Form->input('brand_name'); ?>
 	</div>
 
 	<div class="span3">
