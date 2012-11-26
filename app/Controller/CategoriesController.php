@@ -178,7 +178,7 @@ class CategoriesController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand',
+				'Product.brand_id',
 				'User.id',
 				'User.name',
 				'User.slug',
