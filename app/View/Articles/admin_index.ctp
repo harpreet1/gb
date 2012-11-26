@@ -14,12 +14,12 @@
 	<?php foreach ($articles as $article): ?>
 	<tr>
 		<td><div class="limit"><?php echo ($article['Article']['id']); ?></div></td>
-		<td><?php echo h($article['Article']['name']); ?></td>
-		<td><?php echo h($article['Article']['slug']); ?></td>
+		<td><?php echo ($article['Article']['name']); ?></td>
+		<td><?php echo ($article['Article']['slug']); ?></td>
 		<td><div class="limit"><?php echo ($article['Article']['body']); ?></div></td>
 		<td><a href="/admin/articles/switch/active/<?php echo $article['Article']['id']; ?>" class="status"><img src="/img/icon_<?php echo $article['Article']['active']; ?>.png" alt="" /></a></td>
-		<td><?php echo h($article['Article']['created']); ?></td>
-		<td><?php echo h($article['Article']['modified']); ?></td>
+		<td><?php echo ($article['Article']['created']); ?></td>
+		<td><?php echo ($article['Article']['modified']); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link('View', array('action' => 'view', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
