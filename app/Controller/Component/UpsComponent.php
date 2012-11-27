@@ -1,7 +1,7 @@
 <?php
 class UpsComponent extends Component {
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	const LIVE_URL = 'https://www.ups.com/ups.app/xml/Rate';
 	const TEST_URL = 'https://wwwcie.ups.com/ups.app/xml/Rate';
@@ -13,7 +13,7 @@ class UpsComponent extends Component {
 		'ShipperCountry' => 'US',
 		'ShipFromZip' => '94901',
 		'ShipFromCountry' => 'US',
-		'ShipToZip' => '76086',
+		'ShipToZip' => '',
 		'ShipToCountry' => 'US',
 
 		'ShipperNumber' => '01',
@@ -32,7 +32,7 @@ class UpsComponent extends Component {
 		'Service' => '03'
 	);
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function startup(Controller $controller, $options=array()) {
 
@@ -46,11 +46,15 @@ class UpsComponent extends Component {
 		$this->defaults = array_merge((array)$this->defaults, (array)$options);
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function getRate($data = null) {
 		if ($data['Weight'] < .1) {
 			$data['Weight'] = .1;
+		}
+
+		if ($data['Weight'] > 70) {
+			$data['Weight'] = 70;
 		}
 
 		$res = $this->request($data);
@@ -60,71 +64,22 @@ class UpsComponent extends Component {
 		return false;
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	protected function request($data = null) {
 		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
-		$ch = curl_init($this->url);
-		curl_setopt($ch, CURLOPT_HEADER, 1);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
-		$res = curl_exec($ch);
-		$res = strstr($res, '<?');
-		$response = Xml::toArray(Xml::build($res));
+
+		App::uses('HttpSocket', 'Network/Http');
+		$httpSocket = new HttpSocket();
+		$res = $httpSocket->post($this->url, $xml);
+
+		$response = Xml::toArray(Xml::build($res['body']));
 		$data = $this->formatResponse($response);
 		return $data;
 	}
 
-//////////////////////////////////////////////////
-
-	protected function formatResponse($response) {
-
-		$service_code = array(
-			'01' => 'UPS Next Day Air',
-			'02' => 'UPS 2nd Day Air',
-			'03' => 'UPS Ground',
-			'07' => 'UPS Worldwide Express',
-			'08' => 'UPS Worldwide Expedited',
-			'11' => 'UPS Standard',
-			'12' => 'UPS 3 Day Select',
-			'13' => 'UPS Next Day Air Saver',
-			'14' => 'UPS Next Day Air Early A.M.',
-			'54' => 'UPS Worldwide Express Plus',
-			'59' => 'UPS 2nd Day Air A.M.',
-		);
-
-		$service_enabled = array(
-			'01',
-			'02',
-			'12',
-			'03',
-		);
-
-		$results = array();
-		$i = 0;
-
-		foreach($response['RatingServiceSelectionResponse']['RatedShipment'] as $result) {
-			$code = $result['Service']['Code'];
-			if(in_array($code, $service_enabled)) {
-				$results[$i]['ServiceCode'] = $code;
-				$results[$i]['ServiceName'] = $service_code[$code];
-				$results[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
-				$i++;
-			}
-		}
-
-		$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
-
-		return $results;
-
-	}
-
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	protected function buildRequest($data=array()) {
 
@@ -199,6 +154,50 @@ class UpsComponent extends Component {
 		return $xml;
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+	protected function formatResponse($response) {
+
+		$service_code = array(
+			'01' => 'UPS Next Day Air',
+			'02' => 'UPS 2nd Day Air',
+			'03' => 'UPS Ground',
+			'07' => 'UPS Worldwide Express',
+			'08' => 'UPS Worldwide Expedited',
+			'11' => 'UPS Standard',
+			'12' => 'UPS 3 Day Select',
+			'13' => 'UPS Next Day Air Saver',
+			'14' => 'UPS Next Day Air Early A.M.',
+			'54' => 'UPS Worldwide Express Plus',
+			'59' => 'UPS 2nd Day Air A.M.',
+		);
+
+		$service_enabled = array(
+			'01',
+			'02',
+			'12',
+			'03',
+		);
+
+		$results = array();
+		$i = 0;
+
+		foreach($response['RatingServiceSelectionResponse']['RatedShipment'] as $result) {
+			$code = $result['Service']['Code'];
+			if(in_array($code, $service_enabled)) {
+				$results[$i]['ServiceCode'] = $code;
+				$results[$i]['ServiceName'] = $service_code[$code];
+				$results[$i]['TotalCharges'] = $result['TotalCharges']['MonetaryValue'];
+				$i++;
+			}
+		}
+
+		$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
+
+		return $results;
+
+	}
+
+////////////////////////////////////////////////////////////
 
 }
