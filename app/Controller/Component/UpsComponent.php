@@ -49,6 +49,7 @@ class UpsComponent extends Component {
 ////////////////////////////////////////////////////////////
 
 	public function getRate($data = null) {
+
 		if ($data['Weight'] < .1) {
 			$data['Weight'] = .1;
 		}
@@ -57,26 +58,21 @@ class UpsComponent extends Component {
 			$data['Weight'] = 70;
 		}
 
-		$res = $this->request($data);
-		if (!empty($res)) {
-			return $res;
-		}
-		return false;
-	}
-
-////////////////////////////////////////////////////////////
-
-	protected function request($data = null) {
-		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 		$res = $httpSocket->post($this->url, $xml);
 
+		App::uses('Xml', 'Utility');
 		$response = Xml::toArray(Xml::build($res['body']));
-		$data = $this->formatResponse($response);
-		return $data;
+		$formattedResponse = $this->formatResponse($response);
+
+		if (!empty($formattedResponse)) {
+			return $formattedResponse;
+		}
+		return false;
+
 	}
 
 ////////////////////////////////////////////////////////////
