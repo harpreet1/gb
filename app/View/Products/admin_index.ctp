@@ -120,7 +120,7 @@ $(document).ready(function() {
 				'category_id' => 'Category Id',
 				'subcategory_id' => 'Sub Category Id',
 				'subsubcategory_id' => 'Sub Sub Category Id',
-				'brand' => 'Brand',
+				'brand_id' => 'Brand Id',
 				'price' => 'Price',
 				'price_wholesale' => 'Wholesale Price',
 				'active' => 'Active',
