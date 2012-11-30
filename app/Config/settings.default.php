@@ -1,7 +1,7 @@
 <?php
 
-Configure::write(
-	'Settings', array(
+$config = array(
+	'Settings' => array(
 		'DOMAIN' => 'gourmetdev.com',
 		'ADMIN_EMAIL' => '',
 		'UPS_MODE' => 'test',

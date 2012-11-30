@@ -181,6 +181,6 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-require_once APP . 'Config'  . DS . 'settings.php';
+Configure::load('settings');
 
 ini_set('session.cookie_domain', '.' . Configure::read('Settings.DOMAIN'));
