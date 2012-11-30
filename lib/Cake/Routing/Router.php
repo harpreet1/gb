@@ -184,7 +184,7 @@ class Router {
 /**
  * Validates that the passed route class exists and is a subclass of CakeRoute
  *
- * @param $routeClass
+ * @param string $routeClass Route class name
  * @return string
  * @throws RouterException
  */
@@ -851,7 +851,7 @@ class Router {
 				$output = self::_handleNoRoute($url);
 			}
 		} else {
-			if (preg_match('/:\/\/|^(javascript|mailto|tel|sms):|\#/i', $url)) {
+			if (preg_match('/:\/\/|^(javascript|mailto|tel|sms):|^\#/i', $url)) {
 				return $url;
 			}
 			if (substr($url, 0, 1) === '/') {

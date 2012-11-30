@@ -64,7 +64,7 @@ class DboSource extends DataSource {
  * Whether or not to cache the results of DboSource::name() and DboSource::conditions()
  * into the memory cache.  Set to false to disable the use of the memory cache.
  *
- * @var boolean.
+ * @var boolean
  */
 	public $cacheMethods = true;
 
@@ -2281,7 +2281,8 @@ class DboSource extends DataSource {
 			$virtualFields,
 			$fields,
 			$quote,
-			ConnectionManager::getSourceName($this)
+			ConnectionManager::getSourceName($this),
+			$model->table
 		);
 		$cacheKey = md5(serialize($cacheKey));
 		if ($return = $this->cacheMethod(__FUNCTION__, $cacheKey)) {
@@ -2461,6 +2462,10 @@ class DboSource extends DataSource {
 						$key = 'AND ' . trim($key);
 					}
 					$not = 'NOT ';
+				}
+
+				if (empty($value)) {
+					continue;
 				}
 
 				if (empty($value[1])) {
@@ -2932,7 +2937,7 @@ class DboSource extends DataSource {
  *
  * @param string $table The name of the table to update.
  * @param string $column The column to use when reseting the sequence value.
- * @return boolean success.
+ * @return boolean|void success.
  */
 	public function resetSequence($table, $column) {
 	}

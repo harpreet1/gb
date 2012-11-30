@@ -25,6 +25,13 @@ App::uses('Hash', 'Utility');
 class Helper extends Object {
 
 /**
+ * Settings for this helper.
+ *
+ * @var array
+ */
+	public $settings = array();
+
+/**
  * List of helpers used by this helper
  *
  * @var array
@@ -164,6 +171,9 @@ class Helper extends Object {
 	public function __construct(View $View, $settings = array()) {
 		$this->_View = $View;
 		$this->request = $View->request;
+		if ($settings) {
+			$this->settings = Hash::merge($this->settings, $settings);
+		}
 		if (!empty($this->helpers)) {
 			$this->_helperMap = ObjectCollection::normalizeObjectArray($this->helpers);
 		}
@@ -295,35 +305,51 @@ class Helper extends Object {
 		if (is_array($path)) {
 			return $this->url($path, !empty($options['fullBase']));
 		}
-		if (strpos($path, '://') === false) {
-			if (!array_key_exists('plugin', $options) || $options['plugin'] !== false) {
-				list($plugin, $path) = $this->_View->pluginSplit($path, false);
-			}
-			if (!empty($options['pathPrefix']) && $path[0] !== '/') {
-				$path = $options['pathPrefix'] . $path;
-			}
-			if (
-				!empty($options['ext']) &&
-				strpos($path, '?') === false &&
-				substr($path, -strlen($options['ext'])) !== $options['ext']
-			) {
-				$path .= $options['ext'];
-			}
-			if (isset($plugin)) {
-				$path = Inflector::underscore($plugin) . '/' . $path;
-			}
-			$path = h($this->assetTimestamp($this->webroot($path)));
+		if (strpos($path, '://') !== false) {
+			return $path;
+		}
+		if (!array_key_exists('plugin', $options) || $options['plugin'] !== false) {
+			list($plugin, $path) = $this->_View->pluginSplit($path, false);
+		}
+		if (!empty($options['pathPrefix']) && $path[0] !== '/') {
+			$path = $options['pathPrefix'] . $path;
+		}
+		if (
+			!empty($options['ext']) &&
+			strpos($path, '?') === false &&
+			substr($path, -strlen($options['ext'])) !== $options['ext']
+		) {
+			$path .= $options['ext'];
+		}
+		if (isset($plugin)) {
+			$path = Inflector::underscore($plugin) . '/' . $path;
+		}
+		$path = $this->_encodeUrl($this->assetTimestamp($this->webroot($path)));
 
-			if (!empty($options['fullBase'])) {
-				$base = $this->url('/', true);
-				$len = strlen($this->request->webroot);
-				if ($len) {
-					$base = substr($base, 0, -$len);
-				}
-				$path = $base . $path;
+		if (!empty($options['fullBase'])) {
+			$base = $this->url('/', true);
+			$len = strlen($this->request->webroot);
+			if ($len) {
+				$base = substr($base, 0, -$len);
 			}
+			$path = $base . $path;
 		}
 		return $path;
+	}
+
+/**
+ * Encodes a URL for use in HTML attributes.
+ *
+ * @param string $url The url to encode.
+ * @return string The url encoded for both URL & HTML contexts.
+ */
+	protected function _encodeUrl($url) {
+		$path = parse_url($url, PHP_URL_PATH);
+		$encoded = implode('/', array_map(
+			'rawurlencode',
+			explode('/', $path)
+		));
+		return h(str_replace($path, $encoded, $url));
 	}
 
 /**
