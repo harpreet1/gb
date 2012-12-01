@@ -48,6 +48,9 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			if($this->Auth->login()) {
 
+				$this->User->id = $this->Auth->user('id');
+				$this->User->saveField('last_login', date('Y-m-d H:i:s'));
+
 				if ($this->Auth->user('level') == 'vendor') {
 					return $this->redirect(array(
 						'controller' => 'users',
