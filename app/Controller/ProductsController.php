@@ -909,6 +909,15 @@ class ProductsController extends AppController {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
 			}
+
+			if(!isset($this->request->data['Product']['subcategory_id'])) {
+				$this->request->data['Product']['subcategory_id'] = '';
+			}
+
+			if(!isset($this->request->data['Product']['subsubcategory_id'])) {
+				$this->request->data['Product']['subsubcategory_id'] = '';
+			}
+
 			if ($this->Product->save($this->request->data)) {
 
 				$product1= $this->Product->find('first', array(
