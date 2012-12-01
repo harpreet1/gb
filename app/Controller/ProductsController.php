@@ -681,6 +681,15 @@ class ProductsController extends AppController {
 				$this->Session->write('Product.user_id', '');
 			}
 
+			if(!empty($this->request->data['Product']['brand_id'])) {
+				$conditions[] = array(
+					'Product.brand_id' => $this->request->data['Product']['brand_id']
+				);
+				$this->Session->write('Product.brand_id', $this->request->data['Product']['brand_id']);
+			} else {
+				$this->Session->write('Product.brand_id', '');
+			}
+
 			if(!empty($this->request->data['Product']['name'])) {
 				$filter = $this->request->data['Product']['filter'];
 				$this->Session->write('Product.filter', $filter);
@@ -701,6 +710,7 @@ class ProductsController extends AppController {
 
 		$all = array(
 			'user_id' => '',
+			'brand_id' => '',
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''

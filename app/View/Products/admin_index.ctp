@@ -111,6 +111,11 @@ $(document).ready(function() {
 	</div>
 
 	<div class="span2">
+		<?php echo $this->Form->input('brand_id', array('label' => false, 'class' => 'span2', 'empty' => 'Brand', 'selected' => $all['brand_id'])); ?>
+	</div>
+
+
+	<div class="span2">
 		<?php echo $this->Form->input('filter', array(
 			'label' => false,
 			'class' => 'span2',
@@ -120,7 +125,6 @@ $(document).ready(function() {
 				'category_id' => 'Category Id',
 				'subcategory_id' => 'Sub Category Id',
 				'subsubcategory_id' => 'Sub Sub Category Id',
-				'brand_id' => 'Brand Id',
 				'price' => 'Price',
 				'price_wholesale' => 'Wholesale Price',
 				'active' => 'Active',
