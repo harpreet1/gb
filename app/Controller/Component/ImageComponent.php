@@ -3,7 +3,7 @@ class ImageComponent extends Component {
 
 	public $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
 	public $min_filesize = 5000;
-	public $max_filesize = 2000000;
+	public $max_filesize = 20000000;
 
 ////////////////////////////////////////////////////////////
 
@@ -11,27 +11,29 @@ class ImageComponent extends Component {
 
 		$filesize = filesize($source);
 		if(($filesize < $this->min_filesize) || ($filesize > $this->max_filesize)) {
-			return 'filesize must be between ' . $this->human_filesize($this->min_filesize) . ' and ' . $this->human_filesize($this->max_filesize);
+			return 'Image filesize must be between ' . $this->human_filesize($this->min_filesize) . ' and ' . $this->human_filesize($this->max_filesize);
 		}
 
 		$data = getimagesize($source);
 
-//		if (empty($data) || !is_array($data)) {
-//			return 'invalid picture';
-//		}
+		if (empty($data) || !is_array($data)) {
+			return 'Image is invalid';
+		}
 
 		list($srcWidth, $srcHeight, $type) = $data;
 
-		if($type != IMAGETYPE_JPEG) {
-			return 'file is not allowed.';
+		$ext = $this->_image_type_to_extension($type);
+
+		if (!in_array($ext, $this->allowed_ext)) {
+			return 'Image filetype not allowed.';
 		}
 
 		if (!$srcWidth || !$srcHeight) {
-			return 'invalid picture size';
+			return 'Image size invalid';
 		}
 
 		if ($srcWidth < 100 || $srcHeight < 100) {
-			return 'picture size must be at least 100x100';
+			return 'Image size must be at least 100x100';
 		}
 
 		$this->mkdir($targetdir);
@@ -40,7 +42,7 @@ class ImageComponent extends Component {
 			return 'Success';
 		}
 
-		return 'invalid upload';
+		return 'Image upload is invalid';
 	}
 
 ////////////////////////////////////////////////////////////
@@ -81,6 +83,15 @@ class ImageComponent extends Component {
 			}
 		}
 		return true;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function resampleIM($srcPath, $targetdir, $image, $dst_w = null, $dst_h = null, $fixedSize = false, $centerCrop = false) {
+
+		//$im = '/usr/bin/convert -auto-orient -quality 100 -resample 72x72 -resize 600 "' . WWW_ROOT . 'images/original/' . $origFile . '[0]" ' . WWW_ROOT . 'images/' . $dst;
+		//exec($im);
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -129,7 +140,23 @@ class ImageComponent extends Component {
 		$backColor = ImageColorAllocate($dst, 255, 255, 255);
 		ImageFilledRectangle($dst, 0, 0, $dst_w, $dst_h, $backColor);
 
-		$src = imagecreatefromjpeg($srcPath);
+		$ext = $this->_image_type_to_extension($type);
+
+		switch($ext) {
+		case 'gif' :
+			$src = imagecreatefromgif($srcPath);
+			break;
+		case 'png' :
+			$src = imagecreatefrompng($srcPath);
+			break;
+		case 'jpg' :
+		case 'jpeg' :
+			$src = imagecreatefromjpeg($srcPath);
+			break;
+		default :
+			return false;
+			break;
+		}
 
 		ImageCopyResampled($dst, $src, $dst_x, $dst_y, 0, 0, $new_w, $new_h, $src_w, $src_h);
 		imagejpeg($dst, $dstPath, 100);
@@ -141,4 +168,32 @@ class ImageComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
+	private function _image_type_to_extension($imagetype) {
+		if(empty($imagetype)) {
+			return false;
+		}
+		switch($imagetype) {
+			case IMAGETYPE_GIF      : return 'gif';
+			case IMAGETYPE_JPEG     : return 'jpg';
+			case IMAGETYPE_PNG      : return 'png';
+			case IMAGETYPE_SWF      : return 'swf';
+			case IMAGETYPE_PSD      : return 'psd';
+			case IMAGETYPE_BMP      : return 'bmp';
+			case IMAGETYPE_TIFF_II  : return 'tiff';
+			case IMAGETYPE_TIFF_MM  : return 'tiff';
+			case IMAGETYPE_JPC      : return 'jpc';
+			case IMAGETYPE_JP2      : return 'jp2';
+			case IMAGETYPE_JPX      : return 'jpf';
+			case IMAGETYPE_JB2      : return 'jb2';
+			case IMAGETYPE_SWC      : return 'swc';
+			case IMAGETYPE_IFF      : return 'aiff';
+			case IMAGETYPE_WBMP     : return 'wbmp';
+			case IMAGETYPE_XBM      : return 'xbm';
+			default                 : return false;
+		}
+	}
+
+////////////////////////////////////////////////////////////
+
 }
+
