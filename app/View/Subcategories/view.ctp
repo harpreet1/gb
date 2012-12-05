@@ -129,7 +129,7 @@
 		<th><?php echo __('All Natural'); ?></th>
 		<th><?php echo __('Award Winning'); ?></th>
 		<th><?php echo __('Related Products'); ?></th>
-		<th><?php echo __('Active'); ?></th>
+		<th>Active</th>
 		<th>Created</th>
 		<th>Modified</th>
 		<th><?php echo __('Attribution'); ?></th>
@@ -250,7 +250,7 @@
 		<th><?php echo __('Image Caption 1'); ?></th>
 		<th><?php echo __('Image Caption 2'); ?></th>
 		<th><?php echo __('Image Caption 3'); ?></th>
-		<th><?php echo __('Active'); ?></th>
+		<th>Active</th>
 		<th>Created</th>
 		<th>Modified</th>
 		<th class="actions">Actions</th>

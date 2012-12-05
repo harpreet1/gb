@@ -125,7 +125,7 @@
 		<th><?php echo __('All Natural'); ?></th>
 		<th><?php echo __('Award Winning'); ?></th>
 		<th><?php echo __('Related Products'); ?></th>
-		<th><?php echo __('Active'); ?></th>
+		<th>Active</th>
 		<th>Created</th>
 		<th>Modified</th>
 		<th><?php echo __('Attribution'); ?></th>

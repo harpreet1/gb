@@ -163,7 +163,7 @@
 		<th><?php echo __('Attribution'); ?></th>
 		<th><?php echo __('Viewed'); ?></th>
 		<th><?php echo __('Last Viewed'); ?></th>
-		<th><?php echo __('Active'); ?></th>
+		<th>Active</th>
 		<th>Created</th>
 		<th>Modified</th>
 		<th class="actions">Actions</th>
