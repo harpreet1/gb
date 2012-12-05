@@ -41,38 +41,7 @@
 <td>Business Established</td>
 <td><?php echo h($user['User']['business_established']); ?></td>
 </tr>
-<tr>
-<td>Image</td>
-<td><?php echo h($user['User']['image']); ?></td>
-</tr>
-<tr>
-<td>Image1</td>
-<td><?php echo h($user['User']['image_1']); ?></td>
-</tr>
-<tr>
-<td>Image2</td>
-<td><?php echo h($user['User']['image_2']); ?></td>
-</tr>
-<tr>
-<td>Image3</td>
-<td><?php echo h($user['User']['image_3']); ?></td>
-</tr>
-<tr>
-<td>Image4</td>
-<td><?php echo h($user['User']['image_4']); ?></td>
-</tr>
-<tr>
-<td>Image5</td>
-<td><?php echo h($user['User']['image_5']); ?></td>
-</tr>
-<tr>
-<td>Image6</td>
-<td><?php echo h($user['User']['image_6']); ?></td>
-</tr>
-<tr>
-<td>Image Featured</td>
-<td><?php echo h($user['User']['image_featured']); ?></td>
-</tr>
+
 <tr>
 <td>Shop Description</td>
 <td><?php echo $user['User']['shop_description']; ?></td>
@@ -273,31 +242,6 @@
 <td>Mycategories</td>
 <td><?php echo h($user['User']['mycategories']); ?></td>
 </tr>
-<tr>
-<td>Bd Image1</td>
-<td><?php echo h($user['User']['bd_image1']); ?></td>
-</tr>
-<tr>
-<td>Bd Image2</td>
-<td><?php echo h($user['User']['bd_image2']); ?></td>
-</tr>
-<tr>
-<td>Bd Image3</td>
-<td><?php echo h($user['User']['bd_image3']); ?></td>
-</tr>
-<tr>
-<td>Bd Image4</td>
-<td><?php echo h($user['User']['bd_image4']); ?></td>
-</tr>
-<tr>
-<td>Bd Image5</td>
-<td><?php echo h($user['User']['bd_image5']); ?></td>
-</tr>
-<tr>
-<td>Bd Image6</td>
-<td><?php echo h($user['User']['bd_image6']); ?></td>
-</tr>
-<tr>
 <td>Bd Category1</td>
 <td><?php echo h($user['User']['bd_category1']); ?></td>
 </tr>

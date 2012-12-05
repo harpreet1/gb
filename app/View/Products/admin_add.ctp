@@ -39,7 +39,7 @@ echo $this->Form->input('subsubcategory_id', array('empty' => '---choose ( not r
 //echo $this->Form->input('subsubcategory_name');
 echo $this->Form->input('upc');
 echo $this->Form->input('vendor_sku');
-echo $this->Form->input('brand');
+echo $this->Form->input('brand_id');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
 echo $this->Form->input('description');
@@ -93,6 +93,110 @@ echo $this->Form->input('attr_all_natural', array('type' => 'checkbox'));
 echo $this->Form->input('attr_award_winning', array('type' => 'checkbox'));
 ?>
 <br />
+
+<div class="row">
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_calories', array('class' => 'span1','label' => 'Calories')); ?>
+	</div>
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_calories_from_fat', array('class' => 'span1','label' => 'Cal from Fat')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1','label' => 'Total Fat')); ?>
+	</div>
+
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1','label' => 'Saturated Fat')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_cholesterol', array('class' => 'span1','label' => 'Cholesterol')); ?>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_sodium', array('class' => 'span1','label' => 'Sodium')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_sodium_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Calories')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_carbs_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_fiber', array('class' => 'span1','label' => 'Fiber')); ?>
+	</div>
+		<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_fiber_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+</div>
+
+
+<div class="row">
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_sugar', array('class' => 'span1','label' => 'Sugar')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_sugar_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_protein_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => 'Vitamin A')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_a_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => 'Vitamin C')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_c_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => 'Calcium')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_calcium_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => 'Iron')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_iron_p', array('class' => 'span1','label' => 'Daily %')); ?>
+	</div>
+
+
+</div>
+
+
+
+
+<br />
+<br />
+
+
+
 <?php
 echo $this->Form->input('related_products');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
