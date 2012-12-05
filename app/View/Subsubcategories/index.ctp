@@ -9,7 +9,7 @@
 			<th><?php echo $this->Paginator->sort('slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($subsubcategories as $subsubcategory): ?>
 	<tr>
@@ -45,7 +45,7 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3>Actions</h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Subsubcategory'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Subcategories'), array('controller' => 'subcategories', 'action' => 'index')); ?> </li>

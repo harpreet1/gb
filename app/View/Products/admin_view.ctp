@@ -200,7 +200,7 @@
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions">Actions</th>
 	</tr>
 	<?php
 		$i = 0;

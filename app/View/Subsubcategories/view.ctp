@@ -39,7 +39,7 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3>Actions</h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Subsubcategory'), array('action' => 'edit', $subsubcategory['Subsubcategory']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Subsubcategory'), array('action' => 'delete', $subsubcategory['Subsubcategory']['id']), null, __('Are you sure you want to delete # %s?', $subsubcategory['Subsubcategory']['id'])); ?> </li>
@@ -129,7 +129,7 @@
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Attribution'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions">Actions</th>
 	</tr>
 	<?php
 		$i = 0;
