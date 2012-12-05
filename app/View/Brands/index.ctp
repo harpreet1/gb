@@ -25,9 +25,9 @@
 		<td><?php echo h($brand['Brand']['created']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $brand['Brand']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $brand['Brand']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $brand['Brand']['id']), null, __('Are you sure you want to delete # %s?', $brand['Brand']['id'])); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $brand['Brand']['id'])); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $brand['Brand']['id'])); ?>
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $brand['Brand']['id']), null, __('Are you sure you want to delete # %s?', $brand['Brand']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -3,7 +3,7 @@
 
 <dl>
 
-<dt><?php echo __('Name'); ?></dt>
+<dt>Name</dt>
 <dd>
 <h3><?php echo h($product['Product']['name']); ?></h3>
 </dd>
@@ -157,7 +157,7 @@
 <dd>
 <?php echo h($product['Product']['brand']); ?>
 </dd>
-<dt><?php echo __('Slug'); ?></dt>
+<dt>Slug</dt>
 <dd>
 <?php echo h($product['Product']['slug']); ?>
 </dd>
@@ -197,9 +197,9 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
+		<th>Name</th>
+		<th>Created</th>
+		<th>Modified</th>
 		<th class="actions">Actions</th>
 	</tr>
 	<?php
@@ -211,9 +211,9 @@
 			<td><?php echo $tag['created']; ?></td>
 			<td><?php echo $tag['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'tags', 'action' => 'view', $tag['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'tags', 'action' => 'edit', $tag['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'tags', 'action' => 'delete', $tag['id']), null, __('Are you sure you want to delete # %s?', $tag['id'])); ?>
+				<?php echo $this->Html->link('View', array('controller' => 'tags', 'action' => 'view', $tag['id'])); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'tags', 'action' => 'edit', $tag['id'])); ?>
+				<?php echo $this->Form->postLink('Delete', array('controller' => 'tags', 'action' => 'delete', $tag['id']), null, __('Are you sure you want to delete # %s?', $tag['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

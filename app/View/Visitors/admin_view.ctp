@@ -56,7 +56,7 @@
 <?php echo h($visitor['Visitor']['city']); ?>
 &nbsp;
 </dd>
-<dt><?php echo __('Created'); ?></dt>
+<dt>Created</dt>
 <dd>
 <?php echo h($visitor['Visitor']['created']); ?>
 &nbsp;

@@ -11,7 +11,7 @@
 		echo $this->Form->input('image');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end('Submit'); ?>
 </div>
 <div class="actions">
 	<h3>Actions</h3>

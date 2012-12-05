@@ -25,7 +25,7 @@
 			<br />
 			<?php echo h($user['User']['name']); ?>
 			<br />
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id'])); ?>
 		</td>
 		<td><?php echo $this->Html->image('users/image/'. $user['User']['image'] . '?date=' . time()); ?></td>
 		<td><?php echo $this->Html->image('users/image_1/'. $user['User']['image_1'] . '?date=' . time()); ?></td>

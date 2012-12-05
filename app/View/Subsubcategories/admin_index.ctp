@@ -40,8 +40,8 @@ $(document).ready(function() {
 		<td><?php echo $subsubcategory['Subsubcategory']['created']; ?></td>
 		<td><?php echo $subsubcategory['Subsubcategory']['modified']; ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $subsubcategory['Subsubcategory']['id']), array('class' => 'btn btn-mini')); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>

@@ -1,17 +1,17 @@
 
 <div class="row">
 	<div class="span4">
-	
+
 		<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
 		<br />
 		<br />
 
 		<div id="subcat-menu">
-		
+
 				<?php foreach ($traditions as $trad): ?>
 				<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
 				<?php endforeach; ?>
-		
+
 		</div>
 	</div>
 
@@ -70,17 +70,17 @@
 	<dd>
 		<?php echo h($tradition['Tradition']['id']); ?>
 	</dd>
-	<dt><?php echo __('Name'); ?></dt>
+	<dt>Name</dt>
 	<dd>
 		<?php echo h($tradition['Tradition']['name']); ?>
 	</dd>
-	
+
 	<dt><?php echo __('Countries'); ?></dt>
 	<dd>
 		<?php echo h($tradition['Tradition']['countries']); ?>
 	</dd>
-</dl>	
-	
+</dl>
+
 		<div id="category-article">
 			<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
 			<br />
@@ -90,35 +90,35 @@
 
 
 
-	
-	
+
+
 		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image'], array('width' => '300px')); ?>
-	
-	
-	
+
+
+
 		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1'], array('width' => '300px')); ?>
-	
-	
+
+
 
 		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2'], array('width' => '300px')); ?>
-	
-	
-	
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3'], array('width' => '300px')); ?>
-	
-	
-	
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4'], array('width' => '300px')); ?>
-	
 
-	
+
+
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3'], array('width' => '300px')); ?>
+
+
+
+		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4'], array('width' => '300px')); ?>
+
+
+
 		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5'], array('width' => '300px')); ?>
-	
-	
-	
+
+
+
 		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6'], array('width' => '300px')); ?>
-	
-	
+
+
 
 
 

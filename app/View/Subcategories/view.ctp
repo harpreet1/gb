@@ -16,22 +16,22 @@
 			<?php echo h($subcategory['Subcategory']['subsubcategory_count']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt>Name</dt>
 		<dd>
 			<?php echo h($subcategory['Subcategory']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
+		<dt>Slug</dt>
 		<dd>
 			<?php echo h($subcategory['Subcategory']['slug']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt>Created</dt>
 		<dd>
 			<?php echo h($subcategory['Subcategory']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
+		<dt>Modified</dt>
 		<dd>
 			<?php echo h($subcategory['Subcategory']['modified']); ?>
 			&nbsp;
@@ -71,8 +71,8 @@
 		<th><?php echo __('Upc'); ?></th>
 		<th><?php echo __('Vendor Sku'); ?></th>
 		<th><?php echo __('Brand'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
+		<th>Name</th>
+		<th>Slug</th>
 		<th><?php echo __('Description'); ?></th>
 		<th><?php echo __('Long Description'); ?></th>
 		<th><?php echo __('Tags'); ?></th>
@@ -130,8 +130,8 @@
 		<th><?php echo __('Award Winning'); ?></th>
 		<th><?php echo __('Related Products'); ?></th>
 		<th><?php echo __('Active'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
+		<th>Created</th>
+		<th>Modified</th>
 		<th><?php echo __('Attribution'); ?></th>
 		<th class="actions">Actions</th>
 	</tr>
@@ -213,9 +213,9 @@
 			<td><?php echo $product['modified']; ?></td>
 			<td><?php echo $product['attribution']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'products', 'action' => 'edit', $product['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'products', 'action' => 'delete', $product['id']), null, __('Are you sure you want to delete # %s?', $product['id'])); ?>
+				<?php echo $this->Html->link('View', array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'products', 'action' => 'edit', $product['id'])); ?>
+				<?php echo $this->Form->postLink('Delete', array('controller' => 'products', 'action' => 'delete', $product['id']), null, __('Are you sure you want to delete # %s?', $product['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -237,8 +237,8 @@
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Category Id'); ?></th>
 		<th><?php echo __('Subcategory Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
+		<th>Name</th>
+		<th>Slug</th>
 		<th><?php echo __('Description'); ?></th>
 		<th><?php echo __('Tags'); ?></th>
 		<th><?php echo __('Ingredients'); ?></th>
@@ -251,8 +251,8 @@
 		<th><?php echo __('Image Caption 2'); ?></th>
 		<th><?php echo __('Image Caption 3'); ?></th>
 		<th><?php echo __('Active'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
+		<th>Created</th>
+		<th>Modified</th>
 		<th class="actions">Actions</th>
 	</tr>
 	<?php
@@ -280,9 +280,9 @@
 			<td><?php echo $recipe['created']; ?></td>
 			<td><?php echo $recipe['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'recipes', 'action' => 'view', $recipe['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'recipes', 'action' => 'edit', $recipe['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'recipes', 'action' => 'delete', $recipe['id']), null, __('Are you sure you want to delete # %s?', $recipe['id'])); ?>
+				<?php echo $this->Html->link('View', array('controller' => 'recipes', 'action' => 'view', $recipe['id'])); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'recipes', 'action' => 'edit', $recipe['id'])); ?>
+				<?php echo $this->Form->postLink('Delete', array('controller' => 'recipes', 'action' => 'delete', $recipe['id']), null, __('Are you sure you want to delete # %s?', $recipe['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -303,10 +303,10 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Subcategory Id'); ?></th>
 		<th><?php echo __('Subcategory Name'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
+		<th>Name</th>
+		<th>Slug</th>
+		<th>Created</th>
+		<th>Modified</th>
 		<th class="actions">Actions</th>
 	</tr>
 	<?php
@@ -321,9 +321,9 @@
 			<td><?php echo $subsubcategory['created']; ?></td>
 			<td><?php echo $subsubcategory['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'subsubcategories', 'action' => 'view', $subsubcategory['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'subsubcategories', 'action' => 'edit', $subsubcategory['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'subsubcategories', 'action' => 'delete', $subsubcategory['id']), null, __('Are you sure you want to delete # %s?', $subsubcategory['id'])); ?>
+				<?php echo $this->Html->link('View', array('controller' => 'subsubcategories', 'action' => 'view', $subsubcategory['id'])); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'subsubcategories', 'action' => 'edit', $subsubcategory['id'])); ?>
+				<?php echo $this->Form->postLink('Delete', array('controller' => 'subsubcategories', 'action' => 'delete', $subsubcategory['id']), null, __('Are you sure you want to delete # %s?', $subsubcategory['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

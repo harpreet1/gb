@@ -40,7 +40,7 @@
 <td class="actions">
 <?php echo $this->Html->link('View', array('action' => 'view', $visitor['Visitor']['id'])); ?>
 <?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $visitor['Visitor']['id'])); ?>
-<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $visitor['Visitor']['id']), null, __('Are you sure you want to delete # %s?', $visitor['Visitor']['id'])); ?>
+<?php //echo $this->Form->postLink('Delete', array('action' => 'delete', $visitor['Visitor']['id']), null, __('Are you sure you want to delete # %s?', $visitor['Visitor']['id'])); ?>
 </td>
 </tr>
 <?php endforeach; ?>

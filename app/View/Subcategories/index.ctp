@@ -23,9 +23,9 @@
 		<td><?php echo h($subcategory['Subcategory']['created']); ?>&nbsp;</td>
 		<td><?php echo h($subcategory['Subcategory']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $subcategory['Subcategory']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $subcategory['Subcategory']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $subcategory['Subcategory']['id']), null, __('Are you sure you want to delete # %s?', $subcategory['Subcategory']['id'])); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $subcategory['Subcategory']['id'])); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $subcategory['Subcategory']['id'])); ?>
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $subcategory['Subcategory']['id']), null, __('Are you sure you want to delete # %s?', $subcategory['Subcategory']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

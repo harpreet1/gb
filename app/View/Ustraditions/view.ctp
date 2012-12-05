@@ -65,7 +65,7 @@
 	<dd>
 		<?php echo h($ustradition['Ustradition']['id']); ?>
 	</dd>
-	<dt><?php echo __('Name'); ?></dt>
+	<dt>Name</dt>
 	<dd>
 		<?php echo h($ustradition['Ustradition']['name']); ?>
 	</dd>
@@ -113,11 +113,11 @@
 	<dd>
 		<?php echo h($ustradition['Ustradition']['image_6']); ?>
 	</dd>
-	<dt><?php echo __('Created'); ?></dt>
+	<dt>Created</dt>
 	<dd>
 		<?php echo h($ustradition['Ustradition']['created']); ?>
 	</dd>
-	<dt><?php echo __('Modified'); ?></dt>
+	<dt>Modified</dt>
 	<dd>
 		<?php echo h($ustradition['Ustradition']['modified']); ?>
 	</dd>

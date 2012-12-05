@@ -16,22 +16,22 @@
 			<?php echo h($subsubcategory['Subsubcategory']['subcategory_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt>Name</dt>
 		<dd>
 			<?php echo h($subsubcategory['Subsubcategory']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
+		<dt>Slug</dt>
 		<dd>
 			<?php echo h($subsubcategory['Subsubcategory']['slug']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt>Created</dt>
 		<dd>
 			<?php echo h($subsubcategory['Subsubcategory']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
+		<dt>Modified</dt>
 		<dd>
 			<?php echo h($subsubcategory['Subsubcategory']['modified']); ?>
 			&nbsp;
@@ -67,8 +67,8 @@
 		<th><?php echo __('Upc'); ?></th>
 		<th><?php echo __('Vendor Sku'); ?></th>
 		<th><?php echo __('Brand'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
+		<th>Name</th>
+		<th>Slug</th>
 		<th><?php echo __('Description'); ?></th>
 		<th><?php echo __('Long Description'); ?></th>
 		<th><?php echo __('Tags'); ?></th>
@@ -126,8 +126,8 @@
 		<th><?php echo __('Award Winning'); ?></th>
 		<th><?php echo __('Related Products'); ?></th>
 		<th><?php echo __('Active'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
+		<th>Created</th>
+		<th>Modified</th>
 		<th><?php echo __('Attribution'); ?></th>
 		<th class="actions">Actions</th>
 	</tr>
@@ -209,9 +209,9 @@
 			<td><?php echo $product['modified']; ?></td>
 			<td><?php echo $product['attribution']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'products', 'action' => 'edit', $product['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'products', 'action' => 'delete', $product['id']), null, __('Are you sure you want to delete # %s?', $product['id'])); ?>
+				<?php echo $this->Html->link('View', array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'products', 'action' => 'edit', $product['id'])); ?>
+				<?php echo $this->Form->postLink('Delete', array('controller' => 'products', 'action' => 'delete', $product['id']), null, __('Are you sure you want to delete # %s?', $product['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
