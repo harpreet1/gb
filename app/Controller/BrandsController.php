@@ -23,7 +23,6 @@ class BrandsController extends AppController {
 
 	public function admin_reset() {
 		$this->Session->delete('Brand');
-
 		$this->redirect(array('action' => 'index'));
 	}
 
