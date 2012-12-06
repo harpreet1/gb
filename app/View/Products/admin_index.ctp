@@ -127,6 +127,7 @@ $(document).ready(function() {
 				'subsubcategory_id' => 'Sub Sub Category Id',
 				'price' => 'Price',
 				'price_wholesale' => 'Wholesale Price',
+				'country' => 'Country',
 				'active' => 'Active',
 			),
 			'selected' => $all['filter']
