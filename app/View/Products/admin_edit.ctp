@@ -220,7 +220,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nut_sodium_p', array('class' => 'span1','label' => 'Daily %')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Calories')); ?>
+		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Carbs')); ?>
 	</div>
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_carbs_p', array('class' => 'span1','label' => 'Daily %')); ?>
