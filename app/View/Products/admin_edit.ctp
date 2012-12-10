@@ -241,47 +241,26 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nut_sugar', array('class' => 'span1','label' => 'Sugar')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_sugar_p', array('class' => 'span1','label' => 'Daily %')); ?>
-	</div>
-	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_protein_p', array('class' => 'span1','label' => 'Daily %')); ?>
-	</div>
-
-	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => 'Vitamin A')); ?>
 	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_a_p', array('class' => 'span1','label' => 'Daily %')); ?>
+    <div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => 'Vitamin C')); ?>
 	</div>
 
+    
 </div>
 
 <div class="row">
 
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => 'Vitamin C')); ?>
-	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_c_p', array('class' => 'span1','label' => 'Daily %')); ?>
-	</div>
-
-	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => 'Calcium')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_calcium_p', array('class' => 'span1','label' => 'Daily %')); ?>
-	</div>
-
-	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => 'Iron')); ?>
 	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_iron_p', array('class' => 'span1','label' => 'Daily %')); ?>
-	</div>
-
 
 </div>
 
