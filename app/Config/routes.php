@@ -28,6 +28,8 @@
 
 	Router::connect('/international/:slug', array('controller' => 'traditions', 'action' => 'view'), array('pass' => array('slug')));
 
+	Router::connect('/mailchimp.rss', array('controller' => 'products', 'action' => 'mailchimp'));
+
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
 	Router::connect(

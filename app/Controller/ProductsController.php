@@ -552,6 +552,33 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function mailchimp() {
+		$products = $this->Product->find('all', array(
+			'recursive' => -1,
+			'contain' => array('User'),
+			'fields' => array(
+				//'Product.id',
+				//'Product.slug',
+				//'User.slug'
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+				'Product.active' => 1,
+			),
+			'order' => array(
+				'Product.created' => 'DESC'
+			),
+			'limit' => 20
+		));
+		$this->set(compact('products'));
+		$this->layout = 'rss';
+		$this->response->type('rss');
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function sitemap() {
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
