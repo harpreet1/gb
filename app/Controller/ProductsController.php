@@ -553,6 +553,7 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function mailchimp() {
+
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'contain' => array('User'),
@@ -567,7 +568,7 @@ class ProductsController extends AppController {
 				'Product.active' => 1,
 			),
 			'order' => array(
-				'Product.created' => 'DESC'
+				'Product.id' => 'rand()'
 			),
 			'limit' => 20
 		));
