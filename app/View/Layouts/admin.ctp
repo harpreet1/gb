@@ -53,6 +53,7 @@
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Add Product', array('controller' => 'products', 'action' => 'add', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Products CSV Export', array('controller' => 'products', 'action' => 'csv', 'admin' => true)); ?></li>
 						</ul>
 					</li>
 

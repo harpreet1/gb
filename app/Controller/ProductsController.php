@@ -696,6 +696,24 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_csv($id = null) {
+
+		$products = $this->Product->find('all', array(
+			'recursive' => -1,
+			'conditions' => array(),
+			'order' => array(
+				'Product.created' => 'DESC'
+			),
+			'limit' => 1000,
+		));
+		$this->set(compact('products'));
+
+		$this->layout = false;
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 
 		if ($this->request->is('post')) {
