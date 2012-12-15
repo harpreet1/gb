@@ -568,9 +568,9 @@ class ProductsController extends AppController {
 				'Product.active' => 1,
 			),
 			'order' => array(
-				'Product.id' => 'rand()'
+				'rand()'
 			),
-			'limit' => 20
+			'limit' => 30
 		));
 		$this->set(compact('products'));
 		$this->layout = 'rss';
