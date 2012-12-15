@@ -12,12 +12,6 @@
 		<th><?php echo $this->Paginator->sort('ingredients'); ?></th>
 		<th><?php echo $this->Paginator->sort('preparation'); ?></th>
 		<th><?php echo $this->Paginator->sort('comment'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_1'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_2'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_3'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_caption_1'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_caption_2'); ?></th>
-		<th><?php echo $this->Paginator->sort('image_caption_3'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -30,17 +24,11 @@
 		<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
 		<td><?php echo h($recipe['Recipe']['name']); ?></td>
 		<td><?php echo h($recipe['Recipe']['slug']); ?></td>
-		<td><div><?php echo h($recipe['Recipe']['description']); ?></div></td>
-		<td><?php echo h($recipe['Recipe']['tags']); ?></td>
-		<td><div><?php echo h($recipe['Recipe']['ingredients']); ?></div></td>
-		<td><div><?php echo h($recipe['Recipe']['preparation']); ?></div></td>
-		<td><div><?php echo h($recipe['Recipe']['comment']); ?></div></td>
-		<td><?php echo h($recipe['Recipe']['image_1']); ?></td>
-		<td><?php echo h($recipe['Recipe']['image_2']); ?></td>
-		<td><?php echo h($recipe['Recipe']['image_3']); ?></td>
-		<td><?php echo h($recipe['Recipe']['image_caption_1']); ?></td>
-		<td><?php echo h($recipe['Recipe']['image_caption_2']); ?></td>
-		<td><?php echo h($recipe['Recipe']['image_caption_3']); ?></td>
+		<td><div class="limit"><?php echo ($recipe['Recipe']['description']); ?></div></td>
+		<td><?php echo  ($recipe['Recipe']['tags']); ?></td>
+		<td><div class="limit"><?php echo  ($recipe['Recipe']['ingredients']); ?></div></td>
+		<td><div class="limit"><?php echo  ($recipe['Recipe']['preparation']); ?></div></td>
+		<td><div class="limit"><?php echo  ($recipe['Recipe']['comment']); ?></div></td>
 		<td><a href="/admin/recipes/switch/active/<?php echo $recipe['Recipe']['id']; ?>" class="status"><img src="/img/icon_<?php echo $recipe['Recipe']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($recipe['Recipe']['created']); ?></td>
 		<td><?php echo h($recipe['Recipe']['modified']); ?></td>
