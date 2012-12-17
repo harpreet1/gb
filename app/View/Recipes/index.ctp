@@ -34,7 +34,7 @@
 	<?php foreach ($recipes as $recipe): ?>
 
 	<div class="recipes">
-		<?php echo $recipe['Category']['name']; ?>
+		<?php echo $recipe['Recipe']['name']; ?>
 		<br />
 		<?php echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 		<br />

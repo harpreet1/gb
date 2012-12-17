@@ -25,6 +25,7 @@ echo $this->Form->input('user_id');
 echo $this->Form->input('recipescategory_id');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
+echo $this->Form->input('attribution',array('class' => 'input-xxlarge'));
 echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('ingredients', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-xxlarge'));
