@@ -200,6 +200,33 @@ class RecipesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
+
+
+		if (isset($this->request->data['Recipe']['image_type'])) {
+
+			$slug = $this->request->data['Recipe']['slug'];
+			$image = $this->request->data['Recipe']['slug'] . '.jpg';
+
+			$type = $this->request->data['Recipe']['image_type'];
+
+			$targetdir = IMAGES . 'recipes/' . $type;
+
+			$this->Image = $this->Components->load('Image');
+
+			$upload = $this->Image->upload($this->request->data['Recipe']['image']['tmp_name'], $targetdir, $image);
+
+			if($upload == 'Success') {
+				$this->Recipe->id = $this->request->data['Recipe']['id'];
+				$this->Recipe->saveField($type, $image);
+				$uploadedfile = $targetdir . '/' . $image;
+				$this->Image->resample($uploadedfile, IMAGES . '/recipes/' . $type . '/', $image, 400, 400, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+
 		$this->Recipe->id = $id;
 		if (!$this->Recipe->exists()) {
 			throw new NotFoundException(__('Invalid recipe'));

@@ -79,6 +79,60 @@
 </tr>
 </table>
 
+
+<br />
+<br />
+
+<?php echo $this->Html->image('recipes/image_1/' . $recipe['Recipe']['image_1']); ?>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('recipes/image_2/' . $recipe['Recipe']['image_2']); ?>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('recipes/image_3/' . $recipe['Recipe']['image_3']); ?>
+
+<br />
+<br />
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size </span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('Recipe', array('type' => 'file', 'url' => array('controller' => 'recipes', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $recipe['Recipe']['id'])); ?>
+<?php echo $this->Form->hidden('slug', array('value' => $recipe['Recipe']['slug'])); ?>
+<table class="table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image_1' => 'image 1',
+				'image_2' => 'image 2',
+				'image_3' => 'image 3',
+			))); ?>
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+
 <br />
 <br />
 
