@@ -32,8 +32,8 @@ class ImageComponent extends Component {
 			return 'Image size invalid';
 		}
 
-		if ($srcWidth < 100 || $srcHeight < 100) {
-			return 'Image size must be at least 100x100';
+		if ($srcWidth < 100 || $srcHeight < 15) {
+			return 'Image size must be at least 100x15';
 		}
 
 		$this->mkdir($targetdir);
