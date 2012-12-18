@@ -300,8 +300,15 @@ div.brand {
 	
 }
 
+div.brand-search {
+	text-align:left;
+	font-size:11px;
+	color:#CCC;
+}
 
-
+.search-result a {
+	font-size:11px;
+}
 
 /** PRODUCT DESCRIPTION **/
 .product-description  {
