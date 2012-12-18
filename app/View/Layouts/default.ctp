@@ -6,36 +6,15 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <!--<link href="http://fonts.googleapis.com/css?family=Mako" rel="stylesheet" type="text/css">-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<?php echo $this->Html->css(array('bootstrap.min.css','mega-menu.css', 'css.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css', 'css.css')); ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js', 'jquery.dcmegamenu.1.3.3.min.js','jquery.columnizer.min.js','jquery.hoverIntent.minified.js','js.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js', 'js.js')); ?>
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
 <script type="text/javascript" src="/t/track.php?id=gourmet"></script>
-<script type="text/javascript">
-	//$(document).ready(function($){
-//		$('#mega-menu-9').dcMegaMenu({
-//			rowItems: '3',
-//			speed: 'fast',
-//			effect: 'fade'
-//		});
-//	});
-</script>
-<script type="text/javascript">
-		$(document).ready(function() {
-		// Columnizer
-		$('.jquery-column').columnize({
-			columns : 2,
-			accuracy : 1,
-			buildOnce : true
-		})
-	});
-</script>
-
-
 </head>
 <body>
 
@@ -45,12 +24,13 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="#">Home</a>
-				<div>
-					<ul id="mega-menu-9" class="mega-menu nav">
-						<li class="dropdown"><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
-						<li><a href="/users/vendors">Vendors<b class="caret"></b></a>
-							<ul class="jquery-column">
+						<li class="dropdown">
+							<a href="/users/vendors" class="dropdown-toggle" data-toggle="dropdown">Vendors<b class="caret"></b></a>
+							<ul class="dropdown-menu">
 								<?php foreach($menuvendors as $menuvendor) : ?>
 								<li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
 
