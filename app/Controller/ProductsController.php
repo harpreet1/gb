@@ -470,18 +470,26 @@ class ProductsController extends AppController {
 			);
 			foreach($terms as $term) {
 				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
-				$conditions[] = array('Product.name LIKE' => '%' . $term . '%');
+				$conditions[] = array(
+					'OR' => array(
+						'Product.name LIKE' => '%' . $term . '%',
+						'Brand.name LIKE' => '%' . $term . '%',
+					)
+				);
 			}
 			$products = $this->Product->find('all', array(
 				'recursive' => -1,
-				'contain' => array('User'),
+				'contain' => array(
+					'User',
+					'Brand'
+				),
 				'fields' => array(
 					'Product.id',
 					'Product.name',
 					'Product.slug',
 					'Product.image',
 					'Product.price',
-					'Product.brand_name',
+					'Brand.name',
 					'User.slug'
 				),
 				'conditions' => $conditions,

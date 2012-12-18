@@ -39,6 +39,9 @@ $i++;
 		<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
 
 		<br />
+		<?php echo $product['Brand']['name']; ?>
+
+		<br />
 		$<?php echo $product['Product']['price']; ?>
 
 		<br />
