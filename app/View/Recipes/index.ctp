@@ -34,9 +34,9 @@
 	<?php foreach ($recipes as $recipe): ?>
 
 	<div class="recipes">
-		<?php echo $recipe['Recipe']['name']; ?>
+		<?php //echo $recipe['Recipe']['name']; ?>
 		<br />
-		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['slug'] . '.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
+		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 		<br />
 		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />
