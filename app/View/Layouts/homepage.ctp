@@ -8,11 +8,18 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js', 'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js','jquery.columnizer.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js')); ?>
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
+
+	<script>
+		// Drop Down Hover!
+		$(document).ready(function() {
+		  $('.js-activated').dropdownHover(true);
+		});
+	</script>
 
 	<script>
 		jQuery(function(){
@@ -51,11 +58,44 @@
 				<a class="brand" href="#">GB</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><?php echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
+						<!--<li><?php //echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>-->
+						<li class="dropdown">
+							<a href="/categories" class="js-activated">Categories<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="/cat/appetizers">Appetizers</a></li>
+								<li><a href="/cat/bakery">Bakery</a></li>
+								<li><a href="/cat/beverages">Beverages</a></li>
+								<li><a href="/cat/chocolates">Chocolates</a></li>
+								<li><a href="/cat/coffee">Coffee</a></li>
+								<li><a href="/cat/condiments">Condiments</a></li>
+								<li><a href="/cat/confections">Confections</a></li>
+								<li><a href="/cat/dairy">Dairy</a></li>
+								<li><a href="/cat/desserts">Desserts</a></li>
+								<li><a href="/cat/seafood">Fish &amp; Seafood</a></li>
+								<li><a href="/cat/fruits">Fruits</a></li>
+								<li><a href="/cat/grains-and-cereals">Grains &amp; Cereals</a></li>
+								<li><a href="/cat/herbs-spices">Herbs and Spices</a></li>
+								<li><a href="/cat/jams-syrups">Jams &amp; Syrups</a></li>
+								<li><a href="/cat/legumes-beans">Legumes &amp; Beans</a></li>
+								<li><a href="/cat/meats-poultry">Meats &amp; Poultry</a></li>
+								<li><a href="/cat/nuts-seeds">Nuts &amp; Seeds</a></li>
+								<li><a href="/cat/oils-vinegars">Oils &amp; Vinegars</a></li>
+								<li><a href="/cat/pasta-noodles">Pasta &amp; Noodles</a></li>
+								<li><a href="/cat/rice">Rice</a></li>
+								<li><a href="/cat/sauces">Sauces &amp; Marinades</a></li>
+								<li><a href="/cat/snacks">Snacks</a></li>
+								<li><a href="/cat/soups-prepared-foods">Soups &amp; Prepared Foods</a></li>
+								<li><a href="/cat/vegetables-and-potatoes">Vegetables &amp; Potatoes</a></li>
+							</ul>
+						
+						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
+						</li>
+						
+						
+						
 						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
-							<a href="/users/vendors" class="dropdown-toggle" data-toggle="dropdown">Vendors<b class="caret"></b></a>
+							<a href="/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach($menuvendors as $menuvendor) : ?>
 								<li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
