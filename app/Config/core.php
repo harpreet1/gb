@@ -175,7 +175,7 @@ Configure::write('Routing.prefixes', array('admin', 'vendor'));
 
 	Configure::write('Session', array(
 		'defaults' => 'php',
-		'timeout' => 4320  //3 days
+		'timeout' => 100000  //3 days
 	));
 
 /**
