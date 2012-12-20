@@ -57,7 +57,8 @@ class ProductupdateShell extends Shell {
 					// echo '####################################################################';
 					// echo "\n\n";
 
-					$row = "\n MAESTRO NAME: " . urldecode($maestro['productname']) . ' - MAESTRO COST: ' . $maestro['cost'] . ' === GB ID: ' . $product['Product']['id'] . ' GB NAME: ' . $product['Product']['name'] . ' - GB WHOLESALE: ' . $product['Product']['price_wholesale'] . ' GB PRICE: ' . $product['Product']['price'];
+					$row = "\n\nMAESTRO NAME: " . urldecode($maestro['productname']) . ' - MAESTRO COST: ' . $maestro['cost'] . " \n GB ID: " . $product['Product']['id'] . ' GB NAME: ' . $product['Product']['name'] .  ' GB PRICE: ' . $product['Product']['price'] .'GB WHOLESALE: ' . $product['Product']['price_wholesale'] ;
+					
 
 					if($row != $tmrow) {
 						$changed .= $row;

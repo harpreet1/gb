@@ -225,9 +225,9 @@ a {
 }
 
 div.product-name, div.product-name p, div.product-name a {
-	/*line-height:14px;
+	line-height:14px;
 	padding:0px;
-	margin:0px;*/
+	margin:0px;
 }
 
 .pic-thumbnail {
@@ -291,6 +291,12 @@ div.price {
 	
 }
 
+.search-price {
+	font-size: 11px;
+	font-weight: bold;
+	color: #555;
+}
+
 div.brand {
 	margin-top:5px;
 	margin-right:10px;
@@ -308,6 +314,10 @@ div.brand-search {
 
 .search-result a {
 	font-size:11px;
+}
+
+.search-image {
+	margin-bottom: 10px;
 }
 
 /** PRODUCT DESCRIPTION **/
