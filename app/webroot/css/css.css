@@ -242,7 +242,7 @@ div.product-name, div.product-name p, div.product-name a {
 
 
 #carousel.flexslider {
-	margin: 0 0 60px;
+	margin: 0 0 30px;
 	background: white;
 	border: none;
 	position: relative;
@@ -1068,4 +1068,9 @@ table {
 .nf_Header {
 	font-size:18px;
 	font-weight:bold;
+}
+
+/** Tabs **/
+.nav-tabs li {
+	font-size: 10px;
 }

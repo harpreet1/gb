@@ -111,30 +111,90 @@
 					</div>
 					
 
-				<?php if(!empty($product['Product']['generic_description'])) : ?>
-					
-					<div class="pop">
-                    	<a href="#" class="btn" rel="pop_generic" data-placement="top" data-original-title="Here's something cool to know..."  data-content="<?php echo ($product['Product']['generic_description']);?>">Click for  more info!</a>
-                        </a>
-					</div>
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
+						<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
+						<li><a href="#recipes" data-toggle="tab">Recipes</a></li>
+						<li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
+					</ul>
+						
+					<div class="tab-content">
+						<div class="tab-pane active" id="more">
+							<?php if(!empty($product['Product']['generic_description'])) : 
+								echo ($product['Product']['generic_description']);
+								endif
+							?>
+						</div>
+						<div class="tab-pane" id="serving">
+							<?php if(!empty($product['Product']['serving_suggestions'])) :
+								echo $product['Product']['serving_suggestions'];
+								endif
+							?>
+						</div>
 
-				<?php endif ?>
+						<div class="tab-pane" id="recipes">
+							<?php if(!empty($product['Product']['recipes'])) :
+								echo $product['Product']['recipes'];
+								endif
+							?>
+
+						</div>
+						<div class="tab-pane" id="nutrition">
+
+							<?php /*?><?php if(!empty($nuts)) : ?>
+								<?php foreach($nuts as $nkey => $nvalue): ?>
+											<?php echo $nkey; ?> = <?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> = <?php echo $nvalue; ?>
+									<br />
+								<?php endforeach;?>
+							<?php endif; ?>
+
+							<hr />
+							<?php //debug($nuts); ?><?php */?>
+
+
+							<?php if(!empty($nuts)) : ?>
+
+							<table class="NutritionFacts">
+								<tr>
+									<td>
+										<table class="" cellpadding="0" cellspacing="0" width="100%" style="">
+											<tr>
+												<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
+											</tr>
+											<tr>
+												<td class="nf_BorderT10" colspan="2"><b class="nf_TextSmall nf_Bold">Amount Per Serving</b></td>
+											</tr>
+											<tr>
+												<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b></td>
+											</tr>
+											<?php foreach($nuts as $nkey => $nvalue): ?>
+											<?php $nkey = str_replace('_p', '_%', $nkey); ?>
+											<tr>
+												<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> |<?php echo $nvalue; ?>g &nbsp; &nbsp; </td>
+												<td class="nf_Cell nf_Right nf_Text">%</td>
+											</tr>
+											<?php endforeach;?>
+
+										</table>
+									</td>
+								</tr>
+							</table>
+
+							<?php endif; ?>
+
+
+						</div>
+						</div>
+
+
+
 
 				<br />
 
-				<?php if(!empty($product['Product']['serving_suggestions'])) : ?>
-					<h3>Serving Suggestions:</h3>
-
-					<p><?php echo $product['Product']['serving_suggestions']; ?></p>
-				<?php endif ?>
 
 				<br />
 				<br />
 
-				<?php if(!empty($product['Product']['recipes'])) : ?>
-					<h3>Give this a try!:</h3>
-					<p><?php echo $product['Product']['recipes']; ?></p>
-				<?php endif ?>
 
 				<?php if(!empty($product['Product']['attribution'])) : ?>
 					<h4>Sources:</h4>
@@ -181,51 +241,6 @@
 
 	<div class="row">
 		<div class="span9">
-
-
-
-				<?php /*?><?php if(!empty($nuts)) : ?>
-					<?php foreach($nuts as $nkey => $nvalue): ?>
-								<?php echo $nkey; ?> = <?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> = <?php echo $nvalue; ?>
-						<br />
-					<?php endforeach;?>
-				<?php endif; ?>
-
-				<hr />
-				<?php //debug($nuts); ?><?php */?>
-
-
-<?php if(!empty($nuts)) : ?>
-
-<table class="NutritionFacts">
-	<tr>
-		<td>
-			<table class="" cellpadding="0" cellspacing="0" width="100%" style="">
-
-				<tr>
-					<td class="nf_Center nf_PaddingB5 nf_Header" colspan="2">Nutrition Facts</td>
-				</tr>
-				<tr>
-					<td class="nf_BorderT10" colspan="2"><b class="nf_TextSmall nf_Bold">Amount Per Serving</b></td>
-				</tr>
-				<tr>
-					<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b></td>
-				</tr>
-				<?php foreach($nuts as $nkey => $nvalue): ?>
-				<?php $nkey = str_replace('_p', '_%', $nkey); ?>
-				<tr>
-					<td class="nf_Cell nf_Text"><?php echo ucfirst(str_replace('_', ' ', $nkey)); ?> |<?php echo $nvalue; ?>g &nbsp; &nbsp; </td>
-					<td class="nf_Cell nf_Right nf_Text">%</td>
-				</tr>
-				<?php endforeach;?>
-
-			</table>
-		</td>
-	</tr>
-</table>
-
-<?php endif; ?>
-
 
 			<br />
 
