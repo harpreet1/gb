@@ -326,6 +326,10 @@ div.brand-search {
 	width:360px;
 }
 
+.product-description .hand {
+	width:45px;
+	}
+	
 /** PRODUCT SLIDESHOW **/
 
 div.slideshow-container {

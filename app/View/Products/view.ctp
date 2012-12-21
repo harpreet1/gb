@@ -213,6 +213,8 @@
 				<?php else : ?>
 					<a class="btn btn-custom"><?php echo $product['Brand']['name']; ?></a>
 				<?php endif; ?>
+				
+				<span><img class="hand" src="/img/global/hand.png"/></span>
 
 				<h3><?php echo $product['Product']['name']; ?></h3>
 
