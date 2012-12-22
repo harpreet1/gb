@@ -185,3 +185,4 @@ Configure::load('settings');
 
 ini_set('session.cookie_domain', '.' . Configure::read('Settings.DOMAIN'));
 
+ini_set('session.gc_maxlifetime', 8*60*60);
