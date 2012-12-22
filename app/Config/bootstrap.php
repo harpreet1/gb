@@ -184,3 +184,4 @@ CakeLog::config('error', array(
 Configure::load('settings');
 
 ini_set('session.cookie_domain', '.' . Configure::read('Settings.DOMAIN'));
+
