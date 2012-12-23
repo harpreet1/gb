@@ -218,6 +218,10 @@ a {
 	width: 118px;
 }
 
+h2.product-name {
+	font-size: 15px;
+}
+
 .product-name a, div.price {
 	font-size:11px;
 	text-decoration:none;

@@ -45,7 +45,7 @@ class ProductupdateShell extends Shell {
 
 			if(!empty($product)) {
 
-				if($maestro['cost'] != $product['Product']['price_wholesale']) {
+				if (number_format($maestro['cost'], 2) != $product['Product']['price_wholesale']) {
 
 					// echo "\n\n";
 					// echo '####################################################################';
@@ -57,7 +57,7 @@ class ProductupdateShell extends Shell {
 					// echo '####################################################################';
 					// echo "\n\n";
 
-					$row = "\n\nMAESTRO NAME: " . urldecode($maestro['productname']) . ' - MAESTRO COST: ' . $maestro['cost'] . " \n GB ID: " . $product['Product']['id'] . ' GB NAME: ' . $product['Product']['name'] .  ' GB PRICE: ' . $product['Product']['price'] .'GB WHOLESALE: ' . $product['Product']['price_wholesale'] ;
+					$row = "\n\nMAESTRO NAME: " . urldecode($maestro['productname']) . ' - MAESTRO COST: ' . number_format($maestro['cost'], 2) . " \n GB ID: " . $product['Product']['id'] . ' GB NAME: ' . $product['Product']['name'] .  ' GB PRICE: ' . $product['Product']['price'] .'GB WHOLESALE: ' . $product['Product']['price_wholesale'] ;
 					
 
 					if($row != $tmrow) {

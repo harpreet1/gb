@@ -63,7 +63,6 @@
 						
 						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
 						</li>
-						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
 							<a href="/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -122,6 +121,17 @@
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Let\'s Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
+						<li class="dropdown">
+							<a href="/pages/about" class="js-activated">About<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/pages/faq">FAQ</a></li>
+									<li><a href="/pages/shipping">Shipping</a></li>
+									<li><a href="/pages/policies">Policies</a></li>
+							</ul>
+						</li>
+						
+							<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
+
 						<li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
 					</ul>
 				</div>
