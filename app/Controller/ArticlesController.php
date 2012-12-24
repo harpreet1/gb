@@ -37,11 +37,48 @@ class ArticlesController extends AppController {
 	}
 
 	public function admin_view($id = null) {
+		
+		if (isset($this->request->data['Article']['image_type'])) {
+
+			$slug = $this->request->data['Article']['slug'];
+			$image = $this->request->data['Article']['slug'] . '.jpg';
+
+			$type = $this->request->data['Article']['image_type'];
+
+			$targetdir = IMAGES . 'articles/' . $type;
+
+			$this->Image = $this->Components->load('Image');
+
+			$upload = $this->Image->upload($this->request->data['Article']['image']['tmp_name'], $targetdir, $image);
+
+			if($upload == 'Success') {
+				$this->Article->id = $this->request->data['Article']['id'];
+				$this->Article->saveField($type, $image);
+				$uploadedfile = $targetdir . '/' . $image;
+				$this->Image->resample($uploadedfile, IMAGES . '/articles/' . $type . '/', $image, 400, 400, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+
+		
+		
+		
+		
+		
 		if (!$this->Article->exists($id)) {
 			throw new NotFoundException(__('Invalid article'));
 		}
 		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
 		$this->set('article', $this->Article->find('first', $options));
+		
+		
+		
+		
+		
+		
 	}
 
 	public function admin_add() {
