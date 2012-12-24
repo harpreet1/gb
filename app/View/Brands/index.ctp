@@ -18,9 +18,9 @@
 		<td><?php echo h($brand['Brand']['id']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['name']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['slug']); ?>&nbsp;</td>
-		<td><?php echo h($brand['Brand']['description']); ?>&nbsp;</td>
-		<td><?php echo h($brand['Brand']['summary']); ?>&nbsp;</td>
-		<td><?php echo h($brand['Brand']['article']); ?>&nbsp;</td>
+		<td><?php echo ($brand['Brand']['description']); ?>&nbsp;</td>
+		<td><?php echo ($brand['Brand']['summary']); ?>&nbsp;</td>
+		<td><?php echo ($brand['Brand']['article']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['image']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['created']); ?>&nbsp;</td>
 		<td><?php echo h($brand['Brand']['modified']); ?>&nbsp;</td>
