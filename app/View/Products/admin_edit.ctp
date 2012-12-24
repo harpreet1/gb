@@ -201,9 +201,14 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1','label' => 'Total Fat')); ?>
 	</div>
-
-	<div class="span2 nutrition">
-		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1','label' => 'Saturated Fat')); ?>
+    	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_total_fat_p', array('class' => 'span1','label' => '% Total Fat')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1','label' => 'Sat Fat')); ?>
+	</div>
+    <div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_saturated_fat_p', array('class' => 'span1','label' => '% Sat Fat')); ?>
 	</div>
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_cholesterol', array('class' => 'span1','label' => 'Cholesterol')); ?>
@@ -243,23 +248,22 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
 	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => 'Vitamin A')); ?>
-	</div>
-    <div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => 'Vitamin C')); ?>
-	</div>
 
     
 </div>
 
 <div class="row">
-
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => 'Calcium')); ?>
+		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => '% Vit A')); ?>
+	</div>
+    <div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => '% Vit C')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => 'Iron')); ?>
+		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => '% Calc')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => '% Iron')); ?>
 	</div>
 
 </div>
