@@ -1,14 +1,16 @@
+
+	<script>
+		$(document).ready(function() {
+			$('.article').columnize({ columns: 2 });
+		});
+	</script>
+
 <h1><?php echo $article['Article']['name']; ?></h1>
 
-<br />
-<br />
-<br />
-
-<p>
+<div class="article">
 	<?php echo $article['Article']['body']; ?>
-</p>
+</div>
 
-<br />
 <br />
 
 <p>
@@ -29,9 +31,4 @@
 <?php if(!empty($article['Article']['image_3'])) : ?>
 	<?php echo $this->Html->image('articles/image_3/' .$article['Article']['image_3']); ?>
 <?php endif ; ?>
-
-
-
-<br />
-<br />
 

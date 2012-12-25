@@ -25,7 +25,7 @@
 		<td><?php echo h($tradition['Tradition']['name']); ?></td>
 		<td><?php echo h($tradition['Tradition']['slug']); ?></td>
 		<td><?php echo h($tradition['Tradition']['countries']); ?></td>
-		<td><?php echo h($tradition['Tradition']['summary']); ?></td>
+		<td><div class="limit"><?php echo ($tradition['Tradition']['summary']); ?></div></td>
 		<td><?php //echo h($tradition['Tradition']['article']); ?></td>
 		<td><?php echo h($tradition['Tradition']['image']); ?></td>
 		<td><?php echo h($tradition['Tradition']['image_1']); ?></td>
