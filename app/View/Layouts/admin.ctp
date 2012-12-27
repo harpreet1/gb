@@ -56,6 +56,17 @@
 							<li><?php echo $this->Html->link('Products CSV Export', array('controller' => 'products', 'action' => 'csv', 'admin' => true)); ?></li>
 						</ul>
 					</li>
+                    
+                    
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><?php echo $this->Html->link('Brands', array('controller' => 'brands', 'action' => 'index', 'admin' => true)); ?></li>
+						</ul>
+					</li>
+                    
+                    
+                    
 
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recipes<b class="caret"></b></a>
@@ -96,7 +107,6 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Shopping Carts', array('controller' => 'carts', 'action' => 'index', 'admin' => true)); ?></li>
-							<li><?php echo $this->Html->link('Brands', array('controller' => 'brands', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Traditions', array('controller' => 'traditions', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('US Traditions', array('controller' => 'ustraditions', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Recipes Categories', array('controller' => 'recipescategories', 'action' => 'index', 'admin' => true)); ?></li>

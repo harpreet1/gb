@@ -1,34 +1,34 @@
 <h2>Article</h2>
 
 <table class="table-striped table-bordered table-condensed table-hover">
-<tr>
-<td>Id</td>
-<td><?php echo $article['Article']['id']; ?></td>
-</tr>
-<tr>
-<td>Name</td>
-<td><?php echo $article['Article']['name']; ?></td>
-</tr>
-<tr>
-<td>Slug</td>
-<td><?php echo $article['Article']['slug']; ?></td>
-</tr>
-<tr>
-<td>Body</td>
-<td><?php echo $article['Article']['body']; ?></td>
-</tr>
-<tr>
-<td>Active</td>
-<td><?php echo $article['Article']['active']; ?></td>
-</tr>
-<tr>
-<td>Created</td>
-<td><?php echo $article['Article']['created']; ?></td>
-</tr>
-<tr>
-<td>Modified</td>
-<td><?php echo $article['Article']['modified']; ?></td>
-</tr>
+    <tr>
+        <td>Id</td>
+        <td><?php echo $article['Article']['id']; ?></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><?php echo $article['Article']['name']; ?></td>
+    </tr>
+    <tr>
+        <td>Slug</td>
+        <td><?php echo $article['Article']['slug']; ?></td>
+    </tr>
+    <tr>
+        <td>Body</td>
+        <td><?php echo $article['Article']['body']; ?></td>
+    </tr>
+    <tr>
+        <td>Active</td>
+        <td><?php echo $article['Article']['active']; ?></td>
+    </tr>
+    <tr>
+        <td>Created</td>
+        <td><?php echo $article['Article']['created']; ?></td>
+    </tr>
+    <tr>
+        <td>Modified</td>
+        <td><?php echo $article['Article']['modified']; ?></td>
+    </tr>
 </table>
 
 <br />

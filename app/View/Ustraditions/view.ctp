@@ -1,42 +1,62 @@
-<br />
-<br />
-
 <div class="row">
 
 	<div class="span4">
+    
+    <h3><?php echo h($ustradition['Ustradition']['name']); ?></h3>
+    
+    	<div id="subcat-menu">
 
-		<?php foreach ($ustraditions as $tradition): ?>
-		<?php echo $this->Html->link($tradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', 'slug' => $tradition['Ustradition']['slug'])); ?><br />
-		<?php endforeach; ?>
+			<?php foreach ($ustraditions as $tradition): ?>
+				<?php echo $this->Html->link($tradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', 'slug' => $tradition['Ustradition']['slug'])); ?><br />
+			<?php endforeach; ?>
+        
+        </div>
 
 	</div>
 
 	<div class="span8">
 
 		<div class="row">
+        
+            <div class="summary"><strong><?php echo h($ustradition['Ustradition']['name']); ?>: </strong>
+            	<?php echo $ustradition['Ustradition']['summary']; ?>
+            </div>
+    
+            <?php
+            $i = 0;
+            foreach ($products as $product):
+            $i++;
+            //if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+            ?>
 
-		<?php
-		$i = 0;
-		foreach ($products as $product):
-		$i++;
-		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-		?>
+            <div class="span2">
+            
+                <div class="content-product">
+    
+                    <div class="content-img">
+                    <?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+                    
+                        <div class="product-name">
+                        
+                            <a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+                            	<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+                  
+                    			<?php //echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+    
+                            </a>
+                        
+                        </div>
+    
+                    </div>
+    
+                    <div class="price">$<?php echo $product['Product']['price']; ?></div>
+    
+    				<div class="brand"><?php echo $this->Html->link($product['User']['username'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+                </div>
 
-			<div class="span2">
-				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
-
-				<br />
-				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
-
-				<br />
-				$<?php echo $product['Product']['price']; ?>
-
-				<br />
-				<br />
-				<br />
-			</div>
-
-		<?php
+            
+            </div>
+            </div>		<?php
 		if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
 		endforeach;
 		?>

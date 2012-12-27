@@ -10,10 +10,9 @@ $(document).ready(function() {
 		name: 'recipes_category',
 		url: '/admin/recipes/editable',
 		title: 'Category',
-		placement: 'bottom',
-	});
-
-	
+		source: <?php echo json_encode($brands); ?>,
+		placement: 'right',
+	});	
 
 });
 </script>

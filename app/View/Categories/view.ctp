@@ -98,7 +98,7 @@
 	
 						<div class="price">$<?php echo $product['Product']['price']; ?></div>
 	
-						<div class="brand"><?php //echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+						<div class="brand"><?php echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
                         </div>
 	
 					</div>

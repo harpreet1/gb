@@ -1,53 +1,67 @@
 <div class="brands view">
-<h2><?php  echo __('Brand'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($brand['Brand']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt>Name</dt>
-		<dd>
-			<?php echo h($brand['Brand']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt>Slug</dt>
-		<dd>
-			<?php echo h($brand['Brand']['slug']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Description'); ?></dt>
-		<dd>
-			<?php echo h($brand['Brand']['description']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Summary'); ?></dt>
-		<dd>
-			<?php echo h($brand['Brand']['summary']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Article'); ?></dt>
-		<dd>
-			<?php echo h($brand['Brand']['article']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image'); ?></dt>
-		<dd>
-			<?php echo h($brand['Brand']['image']); ?>
-			&nbsp;
-		</dd>
-		<dt>Created</dt>
-		<dd>
-			<?php echo h($brand['Brand']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt>Modified</dt>
-		<dd>
-			<?php echo h($brand['Brand']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+
+
+
+<h2>Brand</h2>
+	<table class="table-striped table-bordered table-condensed table-hover">
+        <tr>
+            <td>ID</td>
+            <td><?php echo h($brand['Brand']['id']); ?></td>
+        </tr>
+		<tr>
+            <td>Name</td>
+            <td><?php echo h($brand['Brand']['name']); ?></td>
+        </tr>
+		<tr>
+            <td>Slug</td>
+            <td>
+                <?php echo h($brand['Brand']['slug']); ?>
+            </td>
+		</tr>
+		<tr>
+            <td>Description</td>
+            <td>
+                <?php echo h($brand['Brand']['description']); ?>
+            </td>
+		</tr>
+		<tr>
+            <td>Summary</td>
+            <td>
+                <?php echo h($brand['Brand']['summary']); ?>
+            </td>
+		</tr>
+		<tr>
+            <td>Article</td>
+            <td>
+                <?php echo h($brand['Brand']['article']); ?>
+            </td>
+		</tr>
+		<tr>
+
+            <td>Image</td>
+            <td>
+                <?php echo h($brand['Brand']['image']); ?>
+            </td>
+		</tr>
+		<tr>
+
+            <td>Created</td>
+            <td>
+                <?php echo h($brand['Brand']['created']); ?>
+            </td>
+		</tr>
+		<tr>
+
+            <td>Modified</td>
+            <td>
+                <?php echo h($brand['Brand']['modified']); ?>
+            </td>
+		</tr>
+		<tr>
+
+	</table>
 </div>
+
 <div class="actions">
 	<h3>Actions</h3>
 	<ul>
@@ -109,7 +123,7 @@
 		<th><?php echo __('Dimension Unit'); ?></th>
 		<th><?php echo __('Height'); ?></th>
 		<th><?php echo __('Length'); ?></th>
-		<th><?php echo __('Width'); ?></th>
+		<th><?php echo __('Witdh'); ?></th>
 		<th><?php echo __('Ingredients'); ?></th>
 		<th><?php echo __('Nutrition'); ?></th>
 		<th><?php echo __('Nut Calories'); ?></th>
@@ -217,7 +231,7 @@
 			<td><?php echo $product['dimension_unit']; ?></td>
 			<td><?php echo $product['height']; ?></td>
 			<td><?php echo $product['length']; ?></td>
-			<td><?php echo $product['width']; ?></td>
+			<td><?php echo $product['witdh']; ?></td>
 			<td><?php echo $product['ingredients']; ?></td>
 			<td><?php echo $product['nutrition']; ?></td>
 			<td><?php echo $product['nut_calories']; ?></td>
@@ -283,10 +297,58 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
+<br />
+<br />
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
+    
+    
+    
+<?php echo $this->Html->image('brands/image/' . $brand['Brand']['image']); ?>
+
+
+
+<br />Brand
+
+<span class="label label-warning">
+ &nbsp; Image : no watermark, square image size </span>
+
+<br />
+<br />
+
+<?php echo $this->Form->create('Brand', array('type' => 'file', 'url' => array('controller' => 'brands', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->hidden('id', array('value' => $brand['Brand']['id'])); ?>
+<?php echo $this->Form->hidden('slug', array('value' => $brand['Brand']['slug'])); ?>
+<table class="table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td>
+
+			<?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image' => 'image',
+			))); ?>
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+<?php echo $this->Form->end(); ?>
+
+<br />
+<br />    
+    
+    
+    
 </div>

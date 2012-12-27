@@ -9,45 +9,46 @@
 		<div id="subcat-menu">
 
 				<?php foreach ($traditions as $trad): ?>
-				<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
+					<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
 				<?php endforeach; ?>
 
 		</div>
 	</div>
 
 
-
-
 	<div class="span8">
 
 		<div class="row">
-		<div class="summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
-		<?php echo $tradition['Tradition']['summary']; ?></div>
+            <div class="summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
+            	<?php echo $tradition['Tradition']['summary']; ?>
+            </div>
 
-		<?php
-		$i = 0;
-		foreach ($products as $product):
-		$i++;
-		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-		?>
-
-			<div class="span2">
+			<?php
+            $i = 0;
+            foreach ($products as $product):
+            $i++;
+            //if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+            ?>
+    
+            <div class="span2">
             
-            	<div class="content-product">
+                <div class="content-product">
 
-					<div class="content-img">
-					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+                    <div class="content-img">
+                    <?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
 
-						<div class="product-name">
-							<?php //echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+                        <div class="product-name">
+                            
+                            <a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+                            	<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+								
+								<?php //echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
                     
-                        	<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
-									<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
-							</a>
+                            </a>
                         
                         </div>
 
-					</div>
+                    </div>
                 
                 <div class="price">$<?php echo $product['Product']['price']; ?></div>
                 
@@ -56,12 +57,12 @@
 
                 
                 </div>
-			</div>
-
-		<?php
-		if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
-		endforeach;
-		?>
+            </div>
+    
+            <?php
+            if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
+            endforeach;
+            ?>
 
 		</div>
 
