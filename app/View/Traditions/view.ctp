@@ -21,7 +21,8 @@
 	<div class="span8">
 
 		<div class="row">
-		<div class="summary"><?php echo $tradition['Tradition']['summary']; ?></div>
+		<div class="summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
+		<?php echo $tradition['Tradition']['summary']; ?></div>
 
 		<?php
 		$i = 0;
