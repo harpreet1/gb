@@ -1,3 +1,23 @@
+<?php echo $this->Html->css(array('bootstrap-editable.css'), 'stylesheet', array('inline' => false)); ?>
+
+<?php echo $this->Html->script(array('bootstrap-editable.js'), array('inline' => false)); ?>
+
+<script>
+$(document).ready(function() {
+
+	$('.recipes_category').editable({
+		type: 'textarea',
+		name: 'recipes_category',
+		url: '/admin/recipes/editable',
+		title: 'Category',
+		placement: 'bottom',
+	});
+
+	
+
+});
+</script>
+
 <h2>Recipes</h2>
 
 <table class="table table-striped table-bordered table-condensed table-hover">
@@ -22,7 +42,7 @@
 	<tr>
 		<td><?php echo h($recipe['Recipe']['id']); ?></td>
 		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
-		<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
+		<td><span class="recipes_category"<?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
 		<td><?php echo h($recipe['Recipe']['name']); ?></td>
 		<td><?php echo h($recipe['Recipe']['slug']); ?></td>
 		<td><?php echo h($recipe['Recipe']['attribution']); ?></td>

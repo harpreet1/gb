@@ -31,17 +31,30 @@
 		?>
 
 			<div class="span2">
-				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+            
+            	<div class="content-product">
 
-				<br />
-				<?php echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+					<div class="content-img">
+					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
 
-				<br />
-				$<?php echo $product['Product']['price']; ?>
+						<div class="product-name">
+							<?php //echo $this->Html->link($product['Product']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
+                    
+                        	<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+									<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+							</a>
+                        
+                        </div>
 
-				<br />
-				<br />
-				<br />
+					</div>
+                
+                <div class="price">$<?php echo $product['Product']['price']; ?></div>
+                
+                <div class="brand"><?php //echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+                </div>
+
+                
+                </div>
 			</div>
 
 		<?php
