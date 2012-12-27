@@ -7,6 +7,10 @@
 
 <h1><?php echo $article['Article']['name']; ?></h1>
 
+<div class="row">
+	<div class="span9">
+
+
 <div class="article">
 	<?php echo $article['Article']['body']; ?>
 </div>
@@ -32,3 +36,5 @@
 	<?php echo $this->Html->image('articles/image_3/' .$article['Article']['image_3']); ?>
 <?php endif ; ?>
 
+</div>
+</div>

@@ -1092,3 +1092,18 @@ table {
 .nav-tabs li {
 	font-size: 10px;
 }
+
+/*Column */
+	.column * {
+	padding-right: 20px;
+}
+
+.column p strong {
+	padding-right:0;
+	}
+	
+/** Articles **/
+
+.content h1 {
+	padding-top:20px;
+}
