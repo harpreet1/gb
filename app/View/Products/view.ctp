@@ -245,7 +245,37 @@
 												<?php $nkey = str_replace('_p', '_%', $nkey); ?>
 											<tr>
 												<td class="nf_Cell nf_Text">
-													<?php echo (str_replace('_', ' ', $nkey)); ?> |<?php echo $nvalue; ?>g <div style="display:inline;float:right;">
+													<?php echo (str_replace('_', ' ', $nkey)); ?> |<?php 
+													if (($nkey == 'vitamin_a'  || $nkey == 'vitamin_c' || $nkey == 'calcium' || $nkey == 'iron' )) {
+															echo ('');
+															
+															?>
+                                                            
+                                                            <div style="display:inline;float:right;">
+                                                            
+                                                            <?php
+															
+																if ($nkey == 'vitamin_a') {
+																echo $product['Product']['vitamin_a_p'];
+															}
+															
+															if ($nkey == 'vitamin_c') {
+																echo $product['Product']['vitamin_c_p'];
+															}
+	
+															if ($nkey == 'calcium') {
+																echo $product['Product']['calcium_p'];
+															}
+															
+															if ($nkey == 'iron') {
+																echo $product['Product']['iron_p'];
+															}
+													}
+													else {
+															echo $nvalue . 'g'; ?><div style="display:inline;float:right;">
+                                                    <?php } ?>   
+                                                       
+                                                    
                                                     <?php
 														//print_r ($nkey);
 														//echo 'yes';
@@ -278,22 +308,6 @@
 															echo $product['Product']['protein_p'];
 														}
 														
-														if ($nkey == 'vitamin_a') {
-															echo $product['Product']['vitamin_a_p'];
-														}
-														
-														if ($nkey == 'vitamin_c') {
-															echo $product['Product']['vitamin_c_p'];
-														}
-
-														if ($nkey == 'calcium') {
-															//echo $product['Product']['calcium_p'];
-															echo 'yes';
-														}
-														
-														if ($nkey == 'iron') {
-															echo $product['Product']['iron_p'];
-														}
 
 														?>
                                                                                                         			
