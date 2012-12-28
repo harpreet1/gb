@@ -49,7 +49,7 @@
 		<div class="row products">
 
 			<div class="span4 gb-col2">
-			
+
 				<div id="slider" class="flexslider">
 					<ul class="slides">
 
@@ -109,30 +109,30 @@
 					</ul>
 
 				</div>
-					
-				<?php 
-					$description = 'unloaded'; 
+
+				<?php
+					$description = 'unloaded';
 					$serv = 'unloaded';
 					$recipes = 'unloaded';
 					$nutrition = 'unloaded';
 
 					if(!empty($product['Product']['generic_description'])) :
-						$description = 'loaded'; 
+						$description = 'loaded';
 					endif;
 
-					if(!empty($product['Product']['serving_suggestions'])) : 
-						$serv = 'loaded'; 
+					if(!empty($product['Product']['serving_suggestions'])) :
+						$serv = 'loaded';
 					endif;
 
 					if(!empty($product['Product']['recipes'])) :
-						$recipes = 'loaded'; 
+						$recipes = 'loaded';
 					endif;
 
-					if ($nuts) : 
+					if ($nuts) :
 						$nutrition = 'loaded';
 					endif;
-						
-				
+
+
 					//print_r($description); ?><br /><?php
 					//print_r($serv); ?><br /><?php
 					//print_r($recipes); ?><br /><?php
@@ -141,65 +141,65 @@
 
 				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') || ($nutrition == 'loaded')) : ?>nav-tabs"<?php endif; ?>"id="myTab">
 
-					
+
 					<?php if(!empty($product['Product']['generic_description'])) : ?>
 					<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
 					<?php $description = 'loaded';
 					endif;?>
 
-						
-					<?php if(!empty($product['Product']['serving_suggestions'])) : 
+
+					<?php if(!empty($product['Product']['serving_suggestions'])) :
 							if ($description == 'loaded') : ?>
 					<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
 							<?php else : ?>
 					<li class="active"><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
-							<?php endif;?>	
+							<?php endif;?>
 					<?php $serv = 'loaded';
 					endif;?>
 
-						
-					<?php if(!empty($product['Product']['recipes'])) : 
+
+					<?php if(!empty($product['Product']['recipes'])) :
 							if ($serv == 'loaded' || $description == 'loaded') : ?>
 					<li><a href="#recipes" data-toggle="tab">Recipes</a></li>
 							<?php else : ?>
 					<li class="active"><a href="#recipes" data-toggle="tab">Recipes</a></li>
-							<?php endif;?>	
+							<?php endif;?>
 					<?php $recipes = 'loaded';
 					endif;?>
 
-						
-					<?php if(!empty($nuts)) : 
+
+					<?php if(!empty($nuts)) :
 						if ($serv == 'loaded' || $description == 'loaded' || $recipes == 'loaded') : ?>
 					<li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
 							<?php else : ?>
 					<li class="active"><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
-							<?php endif;?>	
+							<?php endif;?>
 					<?php $nutrition = 'loaded';
-					endif;?>		
+					endif;?>
 
 				</ul>
 
-				<?php 
-					$value = ''; 
+				<?php
+					$value = '';
 					$value2 = '';
 					$value3 = '';
 				?>
 
 				<div class="tab-content">
-					
+
 					<?php if(!empty($product['Product']['generic_description'])) : ?>
 						<div class="tab-pane active" id="more">
 					<?php	echo ($product['Product']['generic_description']); ?>
 						</div>
 					<?php endif; ?>
-						
-					<?php if (($description == 'unloaded') && ($serv == 'loaded')) : 
+
+					<?php if (($description == 'unloaded') && ($serv == 'loaded')) :
 										$value = 'active';
 								endif; ?>
 
 
 
-						
+
 					<?php if(!empty($product['Product']['serving_suggestions'])) : ?>
 						<div class="tab-pane <?php echo $value; ?>" id="serving">
 					<?php echo ($product['Product']['serving_suggestions']) ; ?>
@@ -241,65 +241,65 @@
 												<td class="nf_Right nf_PaddingT5 nf_BorderT5" colspan="2"><b class="nf_TextSmall nf_Bold">% Daily Value*</b>						</td>
 											</tr>
 											<?php foreach($nuts as $nkey => $nvalue): ?>
-                                            
+
 												<?php $nkey = str_replace('_p', '_%', $nkey); ?>
 											<tr>
 												<td class="nf_Cell nf_Text">
-													<?php echo (str_replace('_', ' ', $nkey)); ?> |<?php 
+													<?php echo (str_replace('_', ' ', $nkey)); ?> |<?php
 													if (($nkey == 'vitamin_a'  || $nkey == 'vitamin_c' || $nkey == 'calcium' || $nkey == 'iron' )) {
 															echo ('');
-															
+
 															?>
-                                                            
+
                                                             <div style="display:inline;float:right;">
-                                                            
+
                                                             <?php
-															
-																if ($nkey == 'vitamin_a') {
+
+															if ($nkey == 'vitamin_a') {
 																echo $product['Product']['vitamin_a_p'];
 															}
-															
+
 															if ($nkey == 'vitamin_c') {
 																echo $product['Product']['vitamin_c_p'];
 															}
-	
+
 															if ($nkey == 'calcium') {
 																echo $product['Product']['calcium_p'];
 															}
-															
+
 															if ($nkey == 'iron') {
 																echo $product['Product']['iron_p'];
 															}
 													}
 													else {
 															echo $nvalue . 'g'; ?><div style="display:inline;float:right;">
-                                                    <?php } ?>   
-                                                       
-                                                    
+                                                    <?php } ?>
+
+
                                                     <?php
 														//print_r ($nkey);
 														//echo 'yes';
-													
+
 														if ($nkey == 'calories') {
 															echo $product['Product']['total_fat_p'];
 														}
-														
+
 														if ($nkey == 'saturated_fat') {
 															echo $product['Product']['saturated_fat_p'];
 														}
-														
+
 														if ($nkey == 'sodium') {
 															echo $product['Product']['sodium_p'];
 														}
-														
+
 														if ($nkey == 'carbs') {
 															echo $product['Product']['carbs_p'];
 														}
-														
+
 														if ($nkey == 'fiber') {
 															echo $product['Product']['fiber_p'];
 														}
-														
+
 														if ($nkey == 'sugar') {
 															echo $product['Product']['sugar_p'];
 														}
@@ -307,50 +307,50 @@
 														if ($nkey == 'protein') {
 															echo $product['Product']['protein_p'];
 														}
-														
+
 
 														?>
-                                                                                                        			
+
                                                 %</div></td>
 												<!--<td class="nf_Cell nf_Right nf_Text">%</td>-->
 											</tr>
 											<?php endforeach;?>
 
 										</table>
-                                          
-                                        
+
+
 									</td>
 								</tr>
 							</table>
-						</div>	
+						</div>
 					<?php endif; ?>
 
-				</div>	
-			
+				</div>
 
-			
+
+
 
 					<?php if(!empty($product['Product']['attribution'])) : ?>
 						<h4>Sources:</h4>
 						<p><?php echo $product['Product']['attribution']; ?></p>
 					<?php endif ?>
 
-			</div>	
+			</div>
 
 			<div class="span5 product-description">
 
 				<?php if(!empty($product['Brand']['description'])) : ?>
 					<!--<a href="#" class="btn" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>">xxxx</a>-->
 					<a href="#" class="btn btn-custom" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name']; ?></a>
-					
+
 				<span><img class="hand" src="/img/global/hand.png"/></span>
 				<?php elseif(empty($product['Brand']['name'])) : ?>
 					<a class="btn btn-custom"><?php echo $user['User']['name']; ?></a>
 				<?php else : ?>
 					<a class="btn btn-custom"><?php echo $product['Brand']['name']; ?></a>
 				<?php endif; ?>
-				
-				
+
+
 
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 

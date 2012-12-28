@@ -438,13 +438,15 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('attributes'));
 
-
 		$nuts = array();
 		foreach($product['Product'] as $nkey => $nvalue) {
-			if(!empty($nvalue) && (substr($nkey, 0, 4) == 'nut_')) {
-				$nuts[substr($nkey, 4)] = $nvalue;
+			if((substr($nkey, 0, 4) == 'nut_')) {
+				if(!empty($nvalue) || $nkey == 'nut_vitamin_a' || $nkey == 'nut_vitamin_c' || $nkey == 'nut_calcium' || $nkey == 'nut_iron') {
+					$nuts[substr($nkey, 4)] = $nvalue;
+				}
 			}
 		}
+
 		$this->set(compact('nuts'));
 
 		$this->set(compact('product'));
