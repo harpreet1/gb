@@ -254,18 +254,32 @@ $(document).ready(function(){
 
 <div class="row">
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => '% Vit A')); ?>
+		<?php echo $this->Form->input('nut_vitamin_a', array('class' => 'span1','label' => 'Vit A')); ?>
 	</div>
     <div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => '% Vit C')); ?>
-	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => '% Calc')); ?>
-	</div>
-	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => '% Iron')); ?>
+		<?php echo $this->Form->input('vitamin_a_p', array('class' => 'span1','label' => '% Vit A')); ?>
 	</div>
 
+    <div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_vitamin_c', array('class' => 'span1','label' => 'Vit C')); ?>
+	</div>
+    <div class="span1 nutrition">
+		<?php echo $this->Form->input('vitamin_c_p', array('class' => 'span1','label' => '% Vit C')); ?>
+	</div>
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_calcium', array('class' => 'span1','label' => 'Calc')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('calcium_p', array('class' => 'span1','label' => '% Calc')); ?>
+	</div>
+
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('nut_iron', array('class' => 'span1','label' => 'Iron')); ?>
+	</div>
+	<div class="span1 nutrition">
+		<?php echo $this->Form->input('iron_p', array('class' => 'span1','label' => '% Iron')); ?>
+	</div>
 </div>
 
 
