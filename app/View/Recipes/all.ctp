@@ -1,4 +1,4 @@
-<h2>Recipes</h2>
+<h2>All Gourmet Basket Recipes</h2>
 
 <script>
 $(document).ready(function() {

@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="span3">
-		<img class="recipe-pic border" src="/img/recipes/image_1////<? echo $recipe['Recipe']['image_1']?>"  />
+		<img class="recipe-pic border" src="/img/recipes/image_1/<? echo $recipe['Recipe']['image_1']?>"  />
 		<br />
 		<br />
 		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>
