@@ -34,7 +34,7 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="dropdown">
-							<a href="/categories" class="js-activated">Categories<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/categories" class="js-activated">Categories<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/cat/appetizers">Appetizers</a></li>
 								<li><a href="/cat/bakery">Bakery</a></li>
@@ -65,7 +65,7 @@
 						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
 						</li>
 						<li class="dropdown">
-							<a href="/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach($menuvendors as $menuvendor) : ?>
 								<li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
@@ -74,7 +74,7 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="/ustraditions" class="js-activated">US Traditions<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/ustraditions" class="js-activated">US Traditions<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/us/amish">Amish</a></li>
 								<li><a href="/us/deep-south ">Deep South </a></li>
@@ -94,7 +94,7 @@
 						<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
 						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li class="dropdown">
-							<a href="/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
 							<ul class="dropdown-menu">			
 								<li><a href="/international/east_africa">East Africa</a></li>
 								<li><a href="/international/china">East Asia - China and Taiwan</a></li>
@@ -123,7 +123,7 @@
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Let\'s Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
 						<li class="dropdown">
-							<a href="/pages/about" class="js-activated">About<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="/pages/faq">FAQ</a></li>
 									<li><a href="/pages/shipping">Shipping</a></li>

@@ -47,20 +47,14 @@
 	<!--<div id="right-header">&nbsp;</div>-->
 	
 	
-	<div class="navbar">
+<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="#">GB</a>
+				<a class="brand" href="#">Home</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<!--<li><?php //echo $this->Html->link('Home', array('controller' => 'sites', 'action' => 'index')); ?></li>-->
 						<li class="dropdown">
-							<a href="/categories" class="js-activated">Categories<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/categories" class="js-activated">Categories<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/cat/appetizers">Appetizers</a></li>
 								<li><a href="/cat/bakery">Bakery</a></li>
@@ -90,12 +84,8 @@
 						
 						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
 						</li>
-						
-						
-						
-						<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
 						<li class="dropdown">
-							<a href="/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/users/vendors" class="js-activated">Vendors<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach($menuvendors as $menuvendor) : ?>
 								<li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
@@ -103,11 +93,66 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li><?php echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
+						<li class="dropdown">
+							<a href="http://gourmetdev.com/ustraditions" class="js-activated">US Traditions<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="/us/amish">Amish</a></li>
+								<li><a href="/us/deep-south ">Deep South </a></li>
+								<li><a href="/us/far-west ">Far West </a></li>
+								<li><a href="/us/great-lakes">Great Lakes</a></li>
+								<li><a href="/us/hawaii">Hawaii</a></li>
+								<li><a href="/us/mid-atlantic">Mid-Atlantic</a></li>
+								<li><a href="/us/midwest">Midwest and Plains </a></li>
+								<li><a href="/us/native-american">Native American</a></li>
+								<li><a href="/us/new-england">New England</a></li>
+								<li><a href="/us/northwest">Pacific Northwest</a></li>
+								<li><a href="/us/south-central-louisiana">South Central/Louisiana</a></li>
+								<li><a href="/us/southeast">Southeast</a></li>
+								<li><a href="/us/southwest">Southwest</a></li>
+							</ul>
+						</li>
+						<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
+						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
+						<li class="dropdown">
+							<a href="http://gourmetdev.com/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
+							<ul class="dropdown-menu">			
+								<li><a href="/international/east_africa">East Africa</a></li>
+								<li><a href="/international/china">East Asia - China and Taiwan</a></li>
+								<li><a href="/international/east_asia">East Asia - Japan</a></li>
+								<li><a href="/international/korea">East Asia - Korea</a></li>
+								<li><a href="/international/eastern_europe">Eastern and Central Europe</a></li>
+								<li><a href="/international/mediterranean_europe">Mediterranean Europe</a></li>
+								<li><a href="/international/mexico_central_america">Mexico and Central America</a></li>
+								<li><a href="/international/middle_east">Middle East</a></li>
+								<li><a href="/international/north_africa">North Africa </a></li>
+								<li><a href="/international/north_america">North America / Canada</a></li>
+								<li><a href="/international/oceania">Oceania</a></li>
+								<li><a href="/international/south_africa">South Africa</a></li>
+								<li><a href="/international/latin_america">South America</a></li>
+								<li><a href="/international/south_asia">South Asia</a></li>
+								<li><a href="/international/southeast_asia">Southeast Asia</a></li>
+								<li><a href="/international/the_caribbean">The Caribbean</a></li>
+								<li><a href="/international/northern_europe">W Europe - British Isle &amp; Ireland</a></li>
+								<li><a href="/international/west_africa">West Africa</a></li>
+								<li><a href="/international/scandinavia">West Europe - Scandinavia</a></li>
+								<li><a href="/international/western_europe">Western Europe</a></li>
+							</ul>					
+						
+						<?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Articles', array('controller' => 'articles', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Let\'s Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
+						<li class="dropdown">
+							<a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/pages/faq">FAQ</a></li>
+									<li><a href="/pages/shipping">Shipping</a></li>
+									<li><a href="/pages/policies">Policies</a></li>
+							</ul>
+						</li>
+						
+							<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
+
 						<li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
 					</ul>
 				</div>
@@ -119,8 +164,7 @@
 
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 	
 	
 	
