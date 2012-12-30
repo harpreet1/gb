@@ -24,8 +24,7 @@
     <div id="shop-info"><?php echo $user['User']['name'] . (isset($name) ? ": ".$name : '') ?></div>
 </div>
 
-<br />
-<br />
+
 
 <h2>Our Own Recipes</h2>
 
@@ -48,7 +47,6 @@
 	<?php endforeach; ?>
 </div>
 
-<br />
 <br />
 
 <?php $this->Paginator->options(array('url' => $this->passedArgs)); ?>
