@@ -21,16 +21,6 @@
 		});
 	</script>
 
-	<script>
-		jQuery(function(){
-			jQuery('.jquery-column').columnize({
-				columns : 3,
-				accuracy : 1,
-				buildOnce : true
-			})
-		});
-	</script>
-
 
 
 </head>
