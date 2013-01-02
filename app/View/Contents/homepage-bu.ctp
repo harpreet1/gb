@@ -52,8 +52,8 @@
 </div>
 
 <div id="lower">
-	<!--<div id="star-band"></div>
--->
+	<div id="star-band"></div>
+
 	<div id="myCarousel" class="carousel slide">
 
 		<div class="carousel-inner">

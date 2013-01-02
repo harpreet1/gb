@@ -1,361 +1,215 @@
 body {
+	background-color: #94c0c0;
 	border-top: 5px solid #000;
 	font-size: 13px;
-	background-color: #94c0c0;
-	padding-top: 0px;
-}
-
+	padding-top: 0px; }
+ 
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container { width: 1170px; }
+ 
 .span4 {
-	background-color:#FFF;
-	height:390px;
-	margin-bottom:30px;
-}
-
-.row-fluid .span4 img {
-	
-	
-}
-
-.row-fluid .span4 .img-box {
-	padding-left:36px;
-}
-
-
-#gb-title {
-	
-	margin-top: 10px;	
-}
-#gb-title img {
-	text-align:center;
-}
-
+	background-color: #FFF;
+	height: 390px;
+	margin-bottom: 30px; }
+ 
+.row-fluid .span4 img {  }
+ 
+.row-fluid .span4 .img-box { padding-left: 36px; }
+ 
+#gb-title { margin-top: 10px; }
+ 
+	#gb-title img { text-align: center; }
+ 
 .title-description {
-	color:#fff;
-	font-weight:bold;
-}
-
+	color: #fff;
+	font-weight: bold; }
+ 
 #account {
 	position: absolute;
-	top: 70px;
-	right: 170px;	
-}
-
-#nav ul.gb-horiz li.gb a{
- 	text-decoration: none;
-	color:#FFF;	
-}
-
-ul.gb-horiz {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size:80%;
-	margin-left: 20px;
-}
-
-li.gb {
-	display: inline;
-	list-style-image: none;
-	font-weight: bold;
-	font-size:125%;
-	color: #FFF;
-	padding-left: 15px;
-}
-
+	right: 170px;
+	top: 70px; }
+ 
+ 
 ul.gb-horiz-account {
 	font-family: Verdana, Geneva, sans-serif;
-	font-size:70%;
-	
-}
-
+	font-size: 70%; }
+ 
 li.gb-account {
 	display: inline;
 	list-style-image: none;
-	padding-left: 15px;
-}
-li.gb-account a{
-	font-weight: bold;
-	color: #d64c32;
-    /*text-decoration: none;*/
-}
-
-.span4 {
-	border:#F33 thin solid;
-}
-
-
+	padding-left: 15px; }
+ 
+	li.gb-account a {
+		color: #d64c32; /*text-decoration: none;*/
+		font-weight: bold; }
+ 
+.span4 { border: #F33 thin solid; }
+ 
 #upper {
-	height:800px;
-	
+	height: 800px;
 	margin: 0px;
-	padding: 0px;	
-}
-
+	padding: 0px; }
+ 
 #lower {
-	position: relative;
-	background:url(../img/global/fff-50.png) repeat;
-	
-}
-.carousel-inner  {
-	
-}
-
-.carousel-inner .item  {
-	width:960px;
-	left:9.2%;
-	position:relative;
-}
-
-
-#star-band {
-	background-image: url(../img/global/star-band.jpg);
-	background-repeat: repeat-x;
-	height: 23px;
-}
-
-#wrapper {
-	width: 1000px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 30px;
-	margin-left: auto;
-	min-height: 800px;
-	position: relative;
-}
-
-
-#lower-wrapper {
-	width: 1000px;
-	margin-top: 20px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	
-}
-
-#big-white {
-	color: #FFF;
-	height: 100px;
-	width: 100%;
-	position: absolute;
-	top: 15px;
-	right: 0px;
-	background-image: url(../img/global/white-sliver.jpg);
-	background-repeat: repeat-x;
-}
-
-body {
-	
-	}
-
-#infinite-background  {
+	background: url(../img/global/fff-50.png) repeat;
+	position: relative; }
+ 
+.carousel-inner {  }
+ 
+	.carousel-inner .item {
+		margin-left:95px;
+		margin-top:30px;
+		/*left: 9.2%; /*position:relative;*/
+		/*width: 100%;*/ }
+.carousel-control {
+	top:50%; } 
+ 
+#infinite-background {
 	background-image: url(../img/global/infinite-header.png);
-	background-repeat: repeat-x;
-	
-}
-
+	background-repeat: repeat-x; }
+ 
 #header-magazine, #header {
 	background-repeat: no-repeat;
-	height: 105px;
-	
-}
-
-#header {
-	
-	background-image: url(../img/global/GB-header4.png);
-	
-}
-
+	height: 105px; }
+  
 #header-magazine {
-	width:1200px;
-	margin:auto;
 	background-image: url(../img/global/GB-header-clean.png);
-}
-
+	margin: auto;
+	width: 1200px; }
+ 
 #left-header, #right-header {
-	
-	width: 600px;
 	height: 100px;
 	position: absolute;
-}
-
+	width: 600px; }
+ 
 #left-header {
-	top: 0px;
-	left: -600px;
 	background-image: url(../img/global/bubbles-left.png);
 	background-repeat: repeat-x;
-}
-
+	left: -600px;
+	top: 0px; }
+ 
 #right-header {
-	top: 0px;
-	right: -600px;	
 	background-image: url(../img/global/bubbles-right.png);
 	background-repeat: repeat-x;
-
-}
-
-
-#logo {
-	background-image: url(../img/global/gb-logo-156.png);
-	background-repeat: no-repeat;
-	height: 156px;
-	width: 156px;
-	position: fixed;
-	z-index: 200;
-	top: 65px;
-	left: 140px;
-}
-
-
-
-
-
-
-
-
-
-
+	right: -600px;
+	top: 0px; }
+ 
+ 
 /** TICKER **/
-
 .ticker-wrap {
 	height: 80px;
 	position: absolute;
-	top: 515px;
-}
+	top: 515px; }
+ 
 /* liScroll styles */
-
-.tickercontainer { /* the outer div with the black border */
-	margin: 0;
-	padding: 0;
+.tickercontainer {
+	margin: 0; /* the outer div with the black border */
 	overflow: hidden;
-}
-.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
-	position: relative;
-	width: 1200px;/**overflow: hidden;**/
-}
-ul.newsticker { /* that's your list */
-	position: relative;
-	/**left: 1000px;**/
-	font: bold 10px Verdana;
+	padding: 0; }
+ 
+	.tickercontainer .mask {
+		position: relative; /* that serves as a mask. so you get a sort of padding both left and right */
+		width: 1200px; /**overflow: hidden;**/ }
+ 
+ul.newsticker {
+	font: bold 10px Verdana; /**left: 1000px;**/
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-}
-ul.newsticker li {
-	float: left; /* important: display inline gives incorrect results when you check for elem's width */
-	margin: 0;
-	padding: 0;
-}
-ul.newsticker a {
-	white-space: nowrap;
-	padding: 0;
-	color: #ff0000;
-	font: bold 10px Verdana;
-	margin: 0 50px 0 0;
-}
-ul.newsticker span {
-	margin: 0 10px 0 0;
-}
-
+	position: relative; /* that's your list */ }
+ 
+	ul.newsticker li {
+		float: left; /* important: display inline gives incorrect results when you check for elem's width */
+		margin: 0;
+		padding: 0; }
+  
+ 
 /** Headlines **/
-
 #headlines {
 	margin-top: 55px;
-	position: relative;
-}
-
+	position: relative; }
+ 
 .headline-1, .headline-2, .headline-3, .headline-4 {
-	font-size:150%;
-	color:#FFF;
-	height:150px;
-	margin-bottom:75px;
-	background-color: transparent;	
-	
-}
-
-
+	background-color: transparent;
+	color: #FFF;
+	font-size: 150%;
+	height: 150px;
+	margin-bottom: 75px; }
+ 
 .headline-1 a, .headline-2 a, .headline-3 a, .headline-4 a {
 	color: #FFF;
-	text-decoration: none;
-}
-.headline-2.span6 h2 a, .headline-4.span6 h2 a {
-	float:right;
-}
-
+	text-decoration: none; }
+ 
+.headline-2.span6 h2 a, .headline-4.span6 h2 a { float: right; }
+ 
 .headline-4 a {
-	font-style: italic;
 	color: #D9553E;
-	
-}
-
+	font-style: italic; }
+ 
 .front-page-pic-link {
+	color: #FFF; /*font-weight: bold;*/
 	float: left;
 	height: 23px;
-	background-color: #312b2d;
-	position: absolute;
 	left: 0px;
+	position: absolute; /*background-color: #312b2d;*/
 	top: 320px;
-	/*font-weight: bold;*/
-	color: #FFF;
-}
-
-div.pic-link-title a{
+	width: 470px; }
+ 
+div.pic-link-title a {
 	color: #FFF;
 	font-size: 90%;
-	text-decoration: none;
-}
-
+	text-decoration: none; }
+ 
 div.pic-link-title {
-	padding-top: 5px;
 	float: left;
-}
-
+	padding-top: 0px;
+	position: relative;
+	z-index: 500; }
+ 
 .shop-now {
 	background-color: #DD5944;
-	position: relative;
-	margin-top:-4px;
-	z-index: 1000;
 	border: 1px solid #bbb;
-}
-
-.shop-now a {
-	/* [disabled]font-weight: bold; */
-	font-size:90%;
-	text-decoration:none;
-	color:#fff;
-	width: 100px;
-	padding:5px 5px;
-}
-
+	margin-top: -1px;
+	position: relative;
+	z-index: 200; }
+ 
+	.shop-now a {
+		color: #fff;
+		font-size: 90%; /* [disabled]font-weight: bold; */
+		padding: 5px 5px;
+		text-decoration: none;
+		width: 100px; }
+ 
 .carousel-caption {
-	position:absolute;
-	top:10px;
-	left:20px;
-	width:300px;
-	
-}
-
+	color: #fff;
+	font-size: 14px;
+	left: 20px;
+	line-height: 20px;
+	position: absolute;
+	top: 10px;
+	width: 300px; }
+ 
+	.carousel-caption h1 { font-size: 34px; }
+ 
 .navbar {
-	width:1200px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.navbar-fixed-top {
-	top:121px;
-}
-
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px; }
+ 
+.navbar-fixed-top { top: 121px; }
+ 
 .navbar-inner {
-	background:none;
-	border:none;
-	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
-	box-shadow: none;
-}
-
+	-webkit-box-shadow: none;
+	background: none;
+	border: none;
+	box-shadow: none; }
+ 
 .navbar .nav > li > a {
-	
-	padding: 10px 15px 10px;
 	color: #FFF;
+	padding: 10px 15px 10px;
 	text-decoration: none;
-	text-shadow:none;
-}
-	
+	text-shadow: none; }
+ 

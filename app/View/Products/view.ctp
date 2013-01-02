@@ -225,7 +225,12 @@
 
 
 
-					<?php if(!empty($nuts)) : ?>
+					<?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== '' 
+					//&& $product['Product']['vitamin_c_p'] !== '' 
+					//&& $product['Product']['calcium_p'] !== '' 
+					//&& $product['Product']['iron_p'] !== ''
+					) : ?>
+                    <?php //debug($nuts); ?>
 						<div class="tab-pane <?php echo $value3; ?>" id="nutrition">
 							<table class="NutritionFacts">
 								<tr>
@@ -247,29 +252,29 @@
 												<td class="nf_Cell nf_Text">
 													<?php echo (str_replace('_', ' ', $nkey)); ?> |<?php
 													if (($nkey == 'vitamin_a'  || $nkey == 'vitamin_c' || $nkey == 'calcium' || $nkey == 'iron' )) {
-															echo ('');
+														echo ('');
 
-															?>
+														?>
 
-                                                            <div style="display:inline;float:right;">
+														<div style="display:inline;float:right;">
 
-                                                            <?php
+														<?php
 
-															if ($nkey == 'vitamin_a') {
-																echo $product['Product']['vitamin_a_p'];
-															}
+														if ($nkey == 'vitamin_a') {
+															echo $product['Product']['vitamin_a_p'];
+														}
 
-															if ($nkey == 'vitamin_c') {
-																echo $product['Product']['vitamin_c_p'];
-															}
+														if ($nkey == 'vitamin_c') {
+															echo $product['Product']['vitamin_c_p'];
+														}
 
-															if ($nkey == 'calcium') {
-																echo $product['Product']['calcium_p'];
-															}
+														if ($nkey == 'calcium') {
+															echo $product['Product']['calcium_p'];
+														}
 
-															if ($nkey == 'iron') {
-																echo $product['Product']['iron_p'];
-															}
+														if ($nkey == 'iron') {
+															echo $product['Product']['iron_p'];
+														}
 													}
 													else {
 															echo $nvalue . 'g'; ?><div style="display:inline;float:right;">

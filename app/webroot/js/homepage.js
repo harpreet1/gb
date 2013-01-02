@@ -14,5 +14,12 @@ $(document).ready(function(){
 //			src: '/img/overlays/02.png'
 //		});
 	});
+	
+	
+	// Carousel Bootstrap	
+	$('.carousel').carousel({
+  		interval: 6000,
+		pause:'hover'
+	})
 
 });
