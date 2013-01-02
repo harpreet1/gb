@@ -12,11 +12,15 @@ class BrandsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function view($id = null) {
-		if (!$this->Brand->exists($id)) {
-			throw new NotFoundException(__('Invalid brand'));
+		$brand = $this->Brand->find('first', array(
+			'conditions' => array(
+				'Brand.id' => $id
+			)
+		));
+		if (empty($brand)) {
+			$this->redirect(array('action' => 'index'), 301);
 		}
-		$options = array('conditions' => array('Brand.' . $this->Brand->primaryKey => $id));
-		$this->set('brand', $this->Brand->find('first', $options));
+		$this->set(compact('brand'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -83,8 +87,12 @@ class BrandsController extends AppController {
 		if (!$this->Brand->exists($id)) {
 			throw new NotFoundException(__('Invalid brand'));
 		}
-		$options = array('conditions' => array('Brand.' . $this->Brand->primaryKey => $id));
-		$this->set('brand', $this->Brand->find('first', $options));
+		$brand = $this->Brand->find('first', array(
+			'conditions' => array(
+				'Brand.id' => $id
+			)
+		));
+		$this->set(compact('brand'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -93,10 +101,10 @@ class BrandsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Brand->create();
 			if ($this->Brand->save($this->request->data)) {
-				$this->Session->setFlash(__('The brand has been saved'));
+				$this->Session->setFlash('The brand has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The brand could not be saved. Please, try again.'));
+				$this->Session->setFlash('The brand could not be saved. Please, try again.');
 			}
 		}
 	}
