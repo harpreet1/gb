@@ -38,17 +38,17 @@
             
             
             
-            <strong><?php if(!empty($category)) : ?><br />-
+            <strong><?php if(!empty($category)) : ?><br />- -
 				
 				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 			<?php endif; ?>
 
 			<?php if(!empty($subcategory)) : ?>
-				<br />---<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
+				<br />- - -<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
 			<?php endif; ?></li>
 
 			<?php if(!empty($subsubcategory)) : ?>
-			<br />-----<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
+			<br />- - - - -<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
             <?php endif; ?>
             </strong>
            
@@ -112,7 +112,15 @@
         
         </div>
         
+        <ul class="navList">
+					<li><a href="#vendor-unit">Our Story</a></li>
+                    	
+		</ul>
         
+        <ul class="navList">
+					<li><a href="#">Our Policies</a></li>
+                    	
+		</ul>
 
 
 		<br />
@@ -242,14 +250,20 @@
 
 			</div>
 
-			<div style="clear:both"></div>
+			<div style="clear:both" id="vendor-unit"></div>
+            
+            <div class="row">
+				<div class="span12">
 
 			<?php echo $this->element('pagination-counter'); ?>
 
 			<?php echo $this->element('pagination'); ?>
+            
+            	</div>
+            
+            </div>
 
-			<br />
-
+		
 
 		</div>
 
@@ -262,7 +276,7 @@
 	<hr>
 
 	<div class="row">
-		<div class="span4 offset4 ">
+		<div class="span4 offset4">
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'vendor-article-logo')); ?>
 		</div>
 	</div>
@@ -273,8 +287,8 @@
 
 				<div class="vendor-special">
 					<blockquote>
-						<?php echo $user['User']['shop_quote'] ?><br />
-						<br />
+						<?php echo $user['User']['shop_quote'] ?>
+						
 						<div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
 					</blockquote>
 				</div>

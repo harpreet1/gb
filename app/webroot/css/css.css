@@ -776,13 +776,14 @@ img.vendor-article-logo {
 }
 
 .signature {
-
+	margin-top:15px;
 	text-align: right;
 	font-style: italic;
 }
 
 blockquote {
 	border: none;
+	margin-bottom:5px;
 }
 
 blockquote::before {
