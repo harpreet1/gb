@@ -2,6 +2,8 @@
 App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
+////////////////////////////////////////////////////////////
+
 	public function index() {
 		$this->paginate = array(
 			'recursive' => -1,
@@ -18,6 +20,8 @@ class ArticlesController extends AppController {
 		$this->set(compact('articles'));
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function view($slug = null) {
 		$article = $this->Article->find('first', array(
 			'conditions' => array(
@@ -31,13 +35,17 @@ class ArticlesController extends AppController {
 		$this->set(compact('article'));
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
 		$this->Article->recursive = 0;
 		$this->set('articles', $this->paginate());
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_view($id = null) {
-		
+
 		if (isset($this->request->data['Article']['image_type'])) {
 
 			$slug = $this->request->data['Article']['slug'];
@@ -63,23 +71,15 @@ class ArticlesController extends AppController {
 			$this->redirect($this->referer());
 		}
 
-		
-		
-		
-		
-		
 		if (!$this->Article->exists($id)) {
 			throw new NotFoundException(__('Invalid article'));
 		}
-		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+		$options = array('conditions' => array('Article.id' => $id));
 		$this->set('article', $this->Article->find('first', $options));
-		
-		
-		
-		
-		
-		
+
 	}
+
+////////////////////////////////////////////////////////////
 
 	public function admin_add() {
 		if ($this->request->is('post')) {
@@ -93,6 +93,8 @@ class ArticlesController extends AppController {
 		}
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_edit($id = null) {
 		if (!$this->Article->exists($id)) {
 			throw new NotFoundException(__('Invalid article'));
@@ -105,23 +107,27 @@ class ArticlesController extends AppController {
 				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+			$options = array('conditions' => array('Article.id' => $id));
 			$this->request->data = $this->Article->find('first', $options);
 		}
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function admin_delete($id = null) {
 		$this->Article->id = $id;
 		if (!$this->Article->exists()) {
-			throw new NotFoundException(__('Invalid article'));
+			throw new NotFoundException('Invalid article');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Article->delete()) {
-			$this->Session->setFlash(__('Article deleted'));
+			$this->Session->setFlash('Article deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Article was not deleted'));
+		$this->Session->setFlash('Article was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
+
+////////////////////////////////////////////////////////////
 
 }

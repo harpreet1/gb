@@ -84,14 +84,40 @@ class BrandsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
-		if (!$this->Brand->exists($id)) {
-			throw new NotFoundException(__('Invalid brand'));
+
+		if (isset($this->request->data['Brand']['image_type'])) {
+
+			$slug = $this->request->data['Brand']['slug'];
+			$image = $this->request->data['Brand']['slug'] . '.jpg';
+
+			$type = $this->request->data['Brand']['image_type'];
+
+			$targetdir = IMAGES . 'brands/' . $type;
+
+			$this->Image = $this->Components->load('Image');
+
+			$upload = $this->Image->upload($this->request->data['Brand']['image']['tmp_name'], $targetdir, $image);
+
+			if($upload == 'Success') {
+				$this->Brand->id = $this->request->data['Brand']['id'];
+				$this->Brand->saveField($type, $image);
+				$uploadedfile = $targetdir . '/' . $image;
+				$this->Image->resample($uploadedfile, IMAGES . '/brands/' . $type . '/', $image, 150, 150, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
 		}
+
 		$brand = $this->Brand->find('first', array(
 			'conditions' => array(
 				'Brand.id' => $id
 			)
 		));
+		if (empty($brand)) {
+			throw new NotFoundException('Invalid Brand');
+		}
 		$this->set(compact('brand'));
 	}
 
@@ -117,13 +143,13 @@ class BrandsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Brand->save($this->request->data)) {
-				$this->Session->setFlash(__('The brand has been saved'));
+				$this->Session->setFlash('The brand has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The brand could not be saved. Please, try again.'));
+				$this->Session->setFlash('The brand could not be saved. Please, try again.');
 			}
 		} else {
-			$options = array('conditions' => array('Brand.' . $this->Brand->primaryKey => $id));
+			$options = array('conditions' => array('Brand.id' => $id));
 			$this->request->data = $this->Brand->find('first', $options);
 		}
 	}
@@ -133,14 +159,14 @@ class BrandsController extends AppController {
 	public function admin_delete($id = null) {
 		$this->Brand->id = $id;
 		if (!$this->Brand->exists()) {
-			throw new NotFoundException(__('Invalid brand'));
+			throw new NotFoundException('Invalid brand');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Brand->delete()) {
-			$this->Session->setFlash(__('Brand deleted'));
+			$this->Session->setFlash('Brand deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Brand was not deleted'));
+		$this->Session->setFlash('Brand was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
 
