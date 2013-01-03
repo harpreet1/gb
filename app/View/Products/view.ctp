@@ -1,9 +1,4 @@
-
 <?php echo $this->Html->script(array('jquery.flexslider-min.js', 'product_view.js'), array('inline' => false)); ?>
-
-<br />
-
-<br />
 
 <div class="row">
 

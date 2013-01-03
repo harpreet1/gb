@@ -30,5 +30,23 @@ $(document).ready(function(){
 			.append("<a><img width='25' src='" + Shop.basePath + "img/products/image/" + item.image + "' /> " + item.name + "</a>")
 			.appendTo(ul);
 	};
+	
+	
+// Fly out menus
+
+		//Menu animation						
+		$('.navList ul').css({display: "none"}); //Fix Opera
+  		
+		$('.navList li').hover(function() {  
+		$(this).find('a').stop().animate({'width' : "220"});
+   		$(this).find('ul:first').css({visibility : "visible", display : "none"}).show(400);
+    
+  		}, function() {
+    		$(this).find('ul:first').css({visibility : "hidden"}).hide(400);
+   			$(this).find('a').stop().animate({'width' : "200"});
+			});
+		
+	
+	
 
 });

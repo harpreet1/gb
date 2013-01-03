@@ -1,33 +1,10 @@
-<br />
-
-<ul class="breadcrumb">
-
-	<li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
-	<span class="divider">/</span>
-
-	<?php if(!empty($category)) : ?>
-		<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></li>
-		<span class="divider">/</span>
-	<?php endif; ?>
-
-	<?php if(!empty($subcategory)) : ?>
-		<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?></li>
-		<span class="divider">/</span>
-	<?php endif; ?>
-
-	<?php if(!empty($subsubcategory)) : ?>
-		<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?></li>
-		<span class="divider">/</span>
-	<?php endif; ?>
-
-</ul>
-
 <div class="row">
 
 	<div class="span3">
+    
+    <h3><?php echo $category['Category']['name'] ?></h3>
 
-		<br />
-
+	
 		<strong>CATEGORY</strong>
 		<br />
 		-- <?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?>
@@ -58,20 +35,61 @@
 			<?php endforeach; ?>
 
 		<?php endif; ?>
+        
+        
+        
+        
+    <div class="category-summary">
+				
+				<?php echo $category['Category']['summary'] ?>
+			</div>    
+        
+        
 
 	</div>
 
 	<div class="span9">
+    
+    
+    	<div class="span9">
+    
+        <ul class="breadcrumb">
+        
+            <li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
+            <span class="divider">/</span>
+        
+            <?php if(!empty($category)) : ?>
+                <li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></li>
+                <span class="divider">/</span>
+            <?php endif; ?>
+        
+            <?php if(!empty($subcategory)) : ?>
+                <li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?></li>
+                <span class="divider">/</span>
+            <?php endif; ?>
+        
+            <?php if(!empty($subsubcategory)) : ?>
+                <li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?></li>
+                <span class="divider">/</span>
+            <?php endif; ?>
+        
+        </ul>
+        
+        
+	</div>
+    
+    
+    
+    
+    
+    
 
 		<div class="top-product-block">
 		
-			<h3><?php echo $category['Category']['name'] ?></h3>
+			
 			<hr />
 	
-			<div class="category-summary">
-				
-				<?php echo $category['Category']['summary'] ?>
-			</div>
+			
 	
 			<div class="row">
 				<?php
@@ -128,38 +146,41 @@
 <div class="row">
 
 	
-
-	<div class="span8 air">
-	<h2><?php echo $category['Category']['name'] ?></h2>
-	<hr />
-		<?php echo $category['Category']['article'] ?>  
-	</div>
-
-	<div class="span4 air">
-		<?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-	</div>
-	
-		<div class="span4 air">
-		<?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-	</div>
-
-	<div class="span4 air">
-		<?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-	</div>
-
-	<div class="span4 air">
-		<?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-	</div>
-
-	<div class="span4 air">
-		<?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-	</div>
-
-
 	
 </div>
 
-<br />
-<br />
 
 
+
+
+<div class="row">
+
+	
+
+	<div class="span8 air">
+        <h2><?php echo $category['Category']['name'] ?></h2>
+        <hr />
+            <?php echo $category['Category']['article'] ?>  
+	</div>
+    
+    <div class="span4 air">
+        <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+    </div>
+    
+    <div class="span4 air">
+        <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+    </div>
+
+    <div class="span4 air">
+        <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+    </div>
+
+    <div class="span4 air">
+        <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+    </div>
+
+    <div class="span4 air">
+        <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+    </div>
+
+</div>

@@ -18,6 +18,7 @@ h4 {
 
 a {
 	color:#7F131F;
+	text-decoration:underline;
 }
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
@@ -90,7 +91,7 @@ a {
 
 .content {
 	background-color: #FFFFFE;
-	padding-top: 0;
+	padding-top: 30px;
 	padding-right: 20px;
 	padding-bottom: 0;
 	padding-left: 20px;
@@ -576,6 +577,12 @@ h3.cat-title {
 	text-align:center;
 }
 
+h3.cat-list {
+	font-size:14px;
+	line-height:14px;
+	margin-bottom:0px;
+	}
+
 .well-stocked-pantry {
 	text-align:center;
 	font-weight:bold;
@@ -705,9 +712,9 @@ h3.cat-title {
 
 .category-summary {
 	letter-spacing: 1px;
-	width: 385px;
+	/*width: 385px;*/
 	margin-bottom: 30px;
-	margin-left: 182px;
+	/*margin-left: 182px;*/
 	color: #032177;
 	text-align: left;
 	background-color: #FEE79B;
@@ -1105,4 +1112,87 @@ table {
 
 .content h1 {
 	padding-top:20px;
+}
+
+/** Flyout Nav **/
+ul {
+	margin: 0;
+	padding: 0;
+
+}
+
+#nav {
+	width: 200px;
+	float: left;
+	margin: 10px 0 0;
+	overflow: visible;
+}
+.navList li {
+	list-style: none;
+	margin: 0 0 10px 0;
+	position: relative;
+	float: left;
+}
+
+
+.navList a.title {
+	text-align:center;
+	text-transform:uppercase;
+	}
+	
+.navList a {
+	text-decoration: none;
+	color: #ffffff;
+	/*font-size: 16px;*/
+	background-image: url(../img/global/navBack.jpg);
+	background-repeat: repeat-y;
+	padding: 7px;
+	/*border: 1px #4f9bd9 solid;*/
+	-webkit-box-shadow: 3px 3px 5px #283958;
+	-moz-box-shadow: 3px 3px 5px #283958;
+	box-shadow: 3px 3px 5px #283958;
+	display: block;
+	width: 200px;
+}
+.navList a:hover {
+	background-image: url(../img/global/navHover.jpg);
+	color: #fae489;
+}
+.navList ul, .navList ul ul {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 220px;
+	background-image: url(../img/global/navHover.jpg);
+	background-repeat: repeat-y;
+	/*border: 1px #4f9bd9 solid;*/
+	-webkit-box-shadow: 3px 3px 5px #283958;
+	-moz-box-shadow: 3px 3px 5px #283958;
+	box-shadow: 3px 3px 5px #283958;
+}
+.listTab {
+	z-index: 100;
+}
+.navList .listTab li {
+	margin: 0 0 0 0;
+}
+.navList .listTab a, .navList .listTab a:hover {
+	background-image: none;
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	width: 250px;
+}
+.navList .listTab a {
+	padding: 4px 5px 4px 10px;
+}
+.navList li:hover ul ul, .navList li:hover ul ul ul, .navList li:hover ul ul ul ul {
+	display: none;
+}
+.navList li:hover ul, .navList li li:hover ul, .navList li li li:hover ul, .navList li li li li:hover ul {
+	display: block;
+}
+.byline {
+	font-size: 12px;
 }

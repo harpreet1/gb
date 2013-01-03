@@ -1,6 +1,3 @@
-<br />
-
-
 <div class="row">
 	<div class="span12">
 
@@ -32,54 +29,91 @@
 <div class="row">
 
 	<div class="span4">
+    	
 		<?php if(!empty($user)) : ?>
 
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+            
+            <p><?php echo $user['User']['shop_quote']; ?></p>
+            
+            
+            
+            <strong><?php if(!empty($category)) : ?><br />-
+				
+				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
+			<?php endif; ?>
+
+			<?php if(!empty($subcategory)) : ?>
+				<br />---<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
+			<?php endif; ?></li>
+
+			<?php if(!empty($subsubcategory)) : ?>
+			<br />-----<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
+            <?php endif; ?>
+            </strong>
+           
+            
+            
+            <div style="clear:both">
 
 			<?php if(!empty($usercategories)) : ?>
 
-			<br />
+			<ul class="navList">
+                    <li><a href="#">Our Categories</a>
+                        <!-- This is the sub nav -->
+						<ul class="listTab">
+                            <?php foreach ($usercategories as $usercategory): ?>
+                            <li><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+                            </li>
+                            <?php endforeach; ?>
+            <?php endif; ?>
+			
+                </ul>
+            
+            </div>
+            
+            <br />
+            
+            <div style="clear:both">
+            
+            			<?php if(!empty($usersubcategories)) : ?>
 
-			<h6>Our Categories</h6>
-
-			<?php foreach ($usercategories as $usercategory): ?>
-				<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-
-				<br />
-			<?php endforeach; ?>
-			<br /><br />
+				<ul class="navList">
+					<li><a href="#">Our Subcategories</a>
+						 <!-- This is the sub nav -->
+                         <ul class="listTab">
+							<?php foreach ($usersubcategories as $usersubcategory): ?>
+							<li><?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
+                            </li>
+							<?php endforeach; ?>
 			<?php endif; ?>
-
-			<?php if(!empty($usersubcategories)) : ?>
-
-				<br /><br />
-
-				<h6>Our Subcategories</h6>
-
-				<?php foreach ($usersubcategories as $usersubcategory): ?>
-					<?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
-
-					<br />
-				<?php endforeach; ?>
-			<br /><br />
-			<?php endif; ?>
+                    
+				</ul>
+            
+            </div>
+            
+            <br />
+            
+            <div style="clear:both">
 
 		<?php if(!empty($usersubsubcategories)) : ?>
 
-			<br /><br />
-			<strong><?php echo $subcategory['Subcategory']['name']; ?></strong>
-			<br />
-			<h6>Our Sub Sub Categories</h6>
+			<ul class="navList">
+					<li><a href="#">Our Sub Sub Categories</a>
+                    	<!-- This is the sub nav -->
+						 <ul class="listTab">
+						<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
+						<li><?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
+                        </li>
+						<?php endforeach; ?>
+						<?php endif; ?>
+            
+</ul>
+        
+        </div>
+        
+        
 
-			<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
-				<?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
-
-				<br />
-			<?php endforeach; ?>
-			<br />
-		<?php endif; ?>
-
-		<p><?php echo $user['User']['shop_quote']; ?></p>
 
 		<br />
 
