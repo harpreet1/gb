@@ -29,17 +29,17 @@
 <div class="row">
 
 	<div class="span4">
-    	
+
 		<?php if(!empty($user)) : ?>
 
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-            
-            <p><?php echo $user['User']['shop_quote']; ?></p>
-            
-            
-            
-            <strong><?php if(!empty($category)) : ?><br />- -
-				
+
+			<p><?php echo $user['User']['shop_quote']; ?></p>
+
+
+
+			<strong><?php if(!empty($category)) : ?><br />- -
+
 				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 			<?php endif; ?>
 
@@ -49,80 +49,82 @@
 
 			<?php if(!empty($subsubcategory)) : ?>
 			<br />- - - - -<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
-            <?php endif; ?>
-            </strong>
-           
-            
-            
-            <div style="clear:both">
+			<?php endif; ?>
+			</strong>
+
+
+
+			<div style="clear:both">
 
 			<?php if(!empty($usercategories)) : ?>
 
 			<ul class="navList">
-                    <li><a href="#">Our Categories</a>
-                        <!-- This is the sub nav -->
+					<li><a href="#">Our Categories</a>
+						<!-- This is the sub nav -->
 						<ul class="listTab">
-                            <?php foreach ($usercategories as $usercategory): ?>
-                            <li><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-                            </li>
-                            <?php endforeach; ?>
-            <?php endif; ?>
-			
-                </ul>
-            
-            </div>
-            
-            <br />
-            
-            <div style="clear:both">
-            
-            			<?php if(!empty($usersubcategories)) : ?>
+							<?php foreach ($usercategories as $usercategory): ?>
+							<li><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+							</li>
+							<?php endforeach; ?>
+			<?php endif; ?>
+
+				</ul>
+
+			</div>
+
+			<br />
+
+			<div style="clear:both">
+
+						<?php //debug($usersubcategories); ?>
+
+						<?php if(!empty($usersubcategories)) : ?>
 
 				<ul class="navList">
 					<li><a href="#">Our Subcategories</a>
 						 <!-- This is the sub nav -->
-                         <ul class="listTab">
+						 <ul class="listTab">
 							<?php foreach ($usersubcategories as $usersubcategory): ?>
 							<li><?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?>
-                            </li>
+							</li>
 							<?php endforeach; ?>
 			<?php endif; ?>
-                    
+
 				</ul>
-            
-            </div>
-            
-            <br />
-            
-            <div style="clear:both">
+
+			</div>
+
+			<br />
+
+			<div style="clear:both">
 
 		<?php if(!empty($usersubsubcategories)) : ?>
 
 			<ul class="navList">
 					<li><a href="#">Our Sub Sub Categories</a>
-                    	<!-- This is the sub nav -->
+						<!-- This is the sub nav -->
 						 <ul class="listTab">
 						<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
 						<li><?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?>
-                        </li>
+						</li>
 						<?php endforeach; ?>
 						<?php endif; ?>
-            
+
 </ul>
-        
-        </div>
-        
-        <ul class="navList">
+
+		</div>
+
+		<ul class="navList">
 					<li><a href="#vendor-unit">Our Story</a></li>
-                    	
+
 		</ul>
-        
-        <ul class="navList">
+
+		<ul class="navList">
 					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-                    	
+
 		</ul>
-        
-                <ul class="navList">
+
+				<ul class="navList">
 
 					<li><a href="#vendor-unit">Our Regions</a></li>
 
@@ -130,9 +132,9 @@
 
 
 
-        <ul class="navList">
+		<ul class="navList">
 					<li><a href="#">Our Policies</a></li>
-                    	
+
 		</ul>
 
 		<br />
@@ -263,19 +265,19 @@
 			</div>
 
 			<div style="clear:both" id="vendor-unit"></div>
-            
-            <div class="row">
+
+			<div class="row">
 				<div class="span12">
 
 			<?php echo $this->element('pagination-counter'); ?>
 
 			<?php echo $this->element('pagination'); ?>
-            
-            	</div>
-            
-            </div>
 
-		
+				</div>
+
+			</div>
+
+
 
 		</div>
 
@@ -300,7 +302,7 @@
 				<div class="vendor-special">
 					<blockquote>
 						<?php echo $user['User']['shop_quote'] ?>
-						
+
 						<div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
 					</blockquote>
 				</div>

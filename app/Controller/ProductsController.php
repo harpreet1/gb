@@ -442,10 +442,13 @@ class ProductsController extends AppController {
 		foreach($product['Product'] as $nkey => $nvalue) {
 			if((substr($nkey, 0, 4) == 'nut_')) {
 				if(!empty($nvalue) || $nkey == 'nut_vitamin_a' || $nkey == 'nut_vitamin_c' || $nkey == 'nut_calcium' || $nkey == 'nut_iron') {
-					$nuts[substr($nkey, 4)] = $nvalue;
+					// if(!empty($nvalue)) {
+						$nuts[substr($nkey, 4)] = $nvalue;
+					// }
 				}
 			}
 		}
+		// debug($nuts);
 
 		$this->set(compact('nuts'));
 
@@ -539,10 +542,10 @@ class ProductsController extends AppController {
 				//'Product.name LIKE' => '%' . $term . '%'
 				//);
 				$conditions[] = array(
-					'OR' => array(
+					// 'OR' => array(
 						array('Product.name LIKE' => '%' . $term . '%'),
-						array('Product.brand LIKE' => '%' . $term . '%'),
-					)
+						// array('Product.brand LIKE' => '%' . $term . '%'),
+					// )
 				);
 			}
 			$products = $this->Product->find('all', array(

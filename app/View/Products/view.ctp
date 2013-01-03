@@ -220,9 +220,9 @@
 
 
 
-					<?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== '' 
-					//&& $product['Product']['vitamin_c_p'] !== '' 
-					//&& $product['Product']['calcium_p'] !== '' 
+					<?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== ''
+					//&& $product['Product']['vitamin_c_p'] !== ''
+					//&& $product['Product']['calcium_p'] !== ''
 					//&& $product['Product']['iron_p'] !== ''
 					) : ?>
                     <?php //debug($nuts); ?>
