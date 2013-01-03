@@ -121,6 +121,14 @@
 					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
                     	
 		</ul>
+        
+                <ul class="navList">
+
+					<li><a href="#vendor-unit">Our Regions</a></li>
+
+		</ul>
+
+
 
         <ul class="navList">
 					<li><a href="#">Our Policies</a></li>
