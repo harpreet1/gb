@@ -118,7 +118,7 @@
 		</ul>
         
         <ul class="navList">
-					<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
                     	
 		</ul>
 
