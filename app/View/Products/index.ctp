@@ -118,10 +118,14 @@
 		</ul>
         
         <ul class="navList">
-					<li><a href="#">Our Policies</a></li>
+					<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
                     	
 		</ul>
 
+        <ul class="navList">
+					<li><a href="#">Our Policies</a></li>
+                    	
+		</ul>
 
 		<br />
 
