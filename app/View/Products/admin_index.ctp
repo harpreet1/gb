@@ -136,7 +136,12 @@ $(document).ready(function() {
 	</div>
 
 	<div class="span2">
-		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'span2', 'value' => $all['name'])); ?>
+		<?php echo $this->Form->input('name', array(
+		'label' => false,
+		'id' => false,
+		'class' => 'span2',
+		'required'=>'norequire',
+		'value' => $all['name'])); ?>
 
 	</div>
 
