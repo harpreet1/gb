@@ -140,7 +140,7 @@ $(document).ready(function() {
 		'label' => false,
 		'id' => false,
 		'class' => 'span2',
-		'required'=>'norequire',
+		'required'=> false,
 		'value' => $all['name'])); ?>
 
 	</div>
