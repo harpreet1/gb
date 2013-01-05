@@ -1,3 +1,19 @@
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		skin: "thebigreason",
+		plugins : "inlinepopups",
+		plugins : "paste",
+		// Theme options
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
+	});
+</script>
+
+
 <h2>Traditions</h2>
 
 <table class="table table-striped table-bordered table-condensed table-hover">
