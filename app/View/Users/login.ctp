@@ -9,5 +9,8 @@
 <?php echo $this->Form->end(); ?>
 <br />
 
+<?php
 
+    echo $this->Form->input('auto_login', array('type'=>'checkbox', 'label'=>__('Remember on this computer')));
 
+?>

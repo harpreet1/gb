@@ -6,10 +6,22 @@ class AppController extends Controller {
 
 	public $components = array(
 		'Session',
+		'AutoLogin',
 		'Auth',
 		'RequestHandler',
 		'DebugKit.Toolbar',
 	);
+
+////////////////////////////////////////////////////////////
+
+	public function login() {
+		if ($this->User->validates()) {
+			if ($this->Auth->user()) {
+				$this->redirect($this->Auth->redirect());
+			}
+		}
+	}
+
 
 ////////////////////////////////////////////////////////////
 
@@ -58,6 +70,32 @@ class AppController extends Controller {
 		if ($this->RequestHandler->isAjax()) {
 			$this->layout = 'ajax';
 		}
+		
+		
+		$this->AutoLogin->settings = array(
+		// Model settings
+		'model' => 'Member',
+		'username' => 'name',
+		'password' => 'pass',
+ 
+		// Controller settings
+		'plugin' => '',
+		'controller' => 'members',
+		'loginAction' => 'signin',
+		'logoutAction' => 'signout',
+ 
+		// Cookie settings
+		'cookieName' => 'rememberMe',
+		'expires' => '+1 month',
+ 
+		// Process logic
+		'active' => true,
+		'redirect' => true,
+		'requirePrompt' => true
+	);
+		
+		
+		
 
 	}
 
