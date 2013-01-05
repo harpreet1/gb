@@ -76,7 +76,7 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="http://gourmetdev.com/ustraditions" class="js-activated">US Traditions<b class="caret"></b></a>
+							<a href="/ustraditions" class="js-activated">US Traditions<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/us/amish">Amish</a></li>
 								<li><a href="/us/deep-south ">Deep South </a></li>
@@ -96,7 +96,7 @@
 						<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
 						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li class="dropdown">
-							<a href="http://gourmetdev.com/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
+							<a href="/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
 							<ul class="dropdown-menu">			
 								<li><a href="/international/east_africa">East Africa</a></li>
 								<li><a href="/international/china">East Asia - China and Taiwan</a></li>

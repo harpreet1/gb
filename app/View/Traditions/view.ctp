@@ -2,7 +2,9 @@
 <div class="row">
 	<div class="span4">
 
-		<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
+		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
+        
+        </h3>
 		<br />
 		<br />
 
