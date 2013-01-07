@@ -51,6 +51,10 @@ $(document).ready(function(){
 <div class="row">
 
 		<div class="span3">
+			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+		</div>
+
+		<div class="span3">
 			<?php echo $this->Form->input('name'); ?>
 		</div>
 		<div class="span3">
@@ -291,8 +295,7 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span4">
-		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-		<br />
+		
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
 
