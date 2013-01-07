@@ -421,6 +421,8 @@
 			<?php endif; ?>
 
 			<br />
+           
+ 
 			<br />
 			<br />
 
@@ -442,6 +444,7 @@
 			<!--Facebook -->
 
 			<br />
+            <div class="disclaimer"> Disclaimer:  Every effort has been made to ensure the data presented on this page is accurate.  It is provided to you for reference only.  We assume no liability for inaccuracies due to typographical errors or packaging changes.  Please carefully read the actual package before consuming.  </div>
 			<br />
 
 		</div>

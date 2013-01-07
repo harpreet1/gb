@@ -39,10 +39,9 @@
         
         
         
-    <div class="category-summary">
-				
-				<?php echo $category['Category']['summary'] ?>
-			</div>    
+		<div class="category-summary">
+			<?php echo $category['Category']['summary'] ?>
+		</div>    
         
         
 

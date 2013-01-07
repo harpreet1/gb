@@ -108,7 +108,7 @@
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Shopping Carts', array('controller' => 'carts', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Traditions', array('controller' => 'traditions', 'action' => 'index', 'admin' => true)); ?></li>
-							<li><?php echo $this->Html->link('US Traditions', array('controller' => 'ustraditions', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('US Traditions', array('controller' => 'ustraditions', 'action' => 'index', 'admin' => true)); ?></li>                           
 							<li><?php echo $this->Html->link('Recipes Categories', array('controller' => 'recipescategories', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Contents', array('controller' => 'contents', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>

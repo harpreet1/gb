@@ -96,6 +96,35 @@ class TraditionsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
+		
+		if (isset($this->request->data['Tradition']['image_type'])) {
+
+			$slug = $this->request->data['Tradition']['slug'];
+			$image = $this->request->data['Tradition']['slug'] . '.jpg';
+			$awning_image = $this->request->data['Tradition']['slug'] . '.png';
+
+			$type = $this->request->data['Tradition']['image_type'];
+
+			$targetdir = IMAGES . 'Traditions/' . $type . '/';
+
+			$this->Image = $this->Components->load('Image');
+
+			$upload = $this->Image->upload($this->request->data['Tradition']['image']['tmp_name'], $targetdir, $image);
+			$upload_awning = $this->Image->upload($this->request->data['Tradition']['image']['tmp_name'], $targetdir, $awning_image);
+
+			if($upload == 'Success') {
+					$this->Tradition->id = $this->request->data['Tradition']['id'];
+					$this->Tradition->saveField($type, $image);
+					$uploadedfile = $targetdir . '/' . $image;
+					//$this->Image->resample($uploadedfile, IMAGES . '/Tradition_image/' . $slug . '/', $image, 900, 600, 1, 0);
+					//$this->Image->resample($uploadedfile, IMAGES . '/Tradition_image/', $image, 200, 200, 1, 0);
+			}
+
+			$this->Session->setFlash($upload);
+			$this->redirect($this->referer());
+		}
+		
+		
 		if (!$this->Tradition->exists($id)) {
 			throw new NotFoundException(__('Invalid tradition'));
 		}
@@ -150,6 +179,56 @@ class TraditionsController extends AppController {
 		}
 		$this->Session->setFlash(__('Tradition was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_awnings() {
+		$users = $this->Tradition->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Tradition.id',
+				'Tradition.slug',
+				'Tradition.name',
+				'Tradition.image',
+				'Tradition.image_1',
+				'Tradition.image_2',
+				'Tradition.image_3',
+				'Tradition.image_4',
+				'Tradition.image_5',
+				'Tradition.image_6',
+				'Tradition.awning_image',
+				'Tradition.awning_css',
+			),
+			'order' => array(
+				'Tradition.name' => 'ASC'
+			),
+		));
+
+		$this->set(compact('traditions'));
+
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_awning($id = null) {
+
+		$this->Tradition->id = $id;
+		if (!$this->Tradition->exists()) {
+			throw new NotFoundException(__('Invalid tradition'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+
+			if ($this->Tradition->save($this->request->data)) {
+				$this->Session->setFlash('The tradition has been saved');
+				$this->redirect(array('action' => 'view', $id));
+			} else {
+				$this->Session->setFlash('The tradition could not be saved. Please, try again.');
+			}
+		} else {
+			$this->request->data = $this->Tradition->read(null, $id);
+			$this->set('tradition', $this->Tradition->read(null, $id));
+		}
 	}
 
 ////////////////////////////////////////////////////////////

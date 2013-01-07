@@ -6,7 +6,9 @@
         
         </h3>
 		<br />
-		<br />
+		<div class="tradition-summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
+			<?php echo $tradition['Tradition']['summary']; ?>
+        </div>
 
 		<div id="subcat-menu">
 
@@ -19,11 +21,31 @@
 
 
 	<div class="span8">
+    
+    
+    	<div class="awning">
+
+			<div id="div1">
+				<div id="div2">
+					<?php //echo $this->Html->image('users/image/'. $user['User']['image']); ?>
+				</div>​
+			</div>
+
+			<style>
+			#awning1 {
+				<?php //echo $user['User']['awning_css']; ?>
+			}
+			</style>
+
+			<?php echo $this->Html->image('traditions/awning_image/'. $tradition['Tradition']['image']); ?>
+
+
+		</div>
+    
+    
 
 		<div class="row">
-            <div class="summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
-            	<?php echo $tradition['Tradition']['summary']; ?>
-            </div>
+           
 
 			<?php
             $i = 0;

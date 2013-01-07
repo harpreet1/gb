@@ -107,27 +107,28 @@
 						<li class="dropdown">
 							<a href="http://gourmetdev.com/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
 							<ul class="dropdown-menu">			
-								<li><a href="/international/east_africa">East Africa</a></li>
-								<li><a href="/international/china">East Asia - China and Taiwan</a></li>
-								<li><a href="/international/east_asia">East Asia - Japan</a></li>
-								<li><a href="/international/korea">East Asia - Korea</a></li>
+								<li><a href="/international/china">China and Taiwan</a></li>
+								<li><a href="/international/east_asia">Japan</a></li>
+								<li><a href="/international/korea">Korea</a></li>
+                                <li><a href="/international/south_asia">South Asia</a></li>
+								<li><a href="/international/southeast_asia">Southeast Asia</a></li>
+                                <li><a href="/international/northern_europe">British Isles &amp; Ireland</a></li>
 								<li><a href="/international/eastern_europe">Eastern and Central Europe</a></li>
 								<li><a href="/international/mediterranean_europe">Mediterranean Europe</a></li>
+                                <li><a href="/international/western_europe">Western Europe</a></li>
+                                <li><a href="/international/scandinavia">Scandinavia</a></li>
+                                <li><a href="/international/middle_east">Middle East</a></li>
 								<li><a href="/international/mexico_central_america">Mexico and Central America</a></li>
-								<li><a href="/international/middle_east">Middle East</a></li>
-								<li><a href="/international/north_africa">North Africa </a></li>
 								<li><a href="/international/north_america">North America / Canada</a></li>
-								<li><a href="/international/oceania">Oceania</a></li>
-								<li><a href="/international/south_africa">South Africa</a></li>
-								<li><a href="/international/latin_america">South America</a></li>
-								<li><a href="/international/south_asia">South Asia</a></li>
-								<li><a href="/international/southeast_asia">Southeast Asia</a></li>
+                                <li><a href="/international/latin_america">South America</a></li>
 								<li><a href="/international/the_caribbean">The Caribbean</a></li>
-								<li><a href="/international/northern_europe">W Europe - British Isle &amp; Ireland</a></li>
+                                <li><a href="/international/north_africa">North Africa </a></li>
+                                <li><a href="/international/south_africa">South Africa</a></li>
+                                <li><a href="/international/east_africa">East Africa</a></li>
 								<li><a href="/international/west_africa">West Africa</a></li>
-								<li><a href="/international/scandinavia">West Europe - Scandinavia</a></li>
-								<li><a href="/international/western_europe">Western Europe</a></li>
+                                <li><a href="/international/oceania">Oceania</a></li>
 							</ul>					
+
 						
 						<?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
 

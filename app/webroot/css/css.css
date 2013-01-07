@@ -721,15 +721,28 @@ h3.cat-list {
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	background-position: 200px 0px;
-	background-image: url(../img/blockquote-bkgnd.jpg);
-	background-repeat: repeat;
 	padding: 30px;
 }
 
 .category-pic {
 	width: 300px;
 }
+
+.tradition-summary {
+	
+	margin-top: 10px;
+	margin-bottom: 20px;
+	color: #032177;
+	text-align: left;
+	background-color: #FEE79B;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 30px;
+}
+user agent stylesheet
+
+
 
 .top-product-block  {
 	margin-left:40px;
