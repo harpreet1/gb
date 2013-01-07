@@ -99,7 +99,7 @@
 							<a href="/traditions" class="js-activated">Int'l Markets<b class="caret"></b></a>
 							<ul class="dropdown-menu">			
 								<li><a href="/international/china">China and Taiwan</a></li>
-								<li><a href="/international/east_asia">Japan</a></li>
+								<li><a href="/international/japan">Japan</a></li>
 								<li><a href="/international/korea">Korea</a></li>
                                 <li><a href="/international/south_asia">South Asia</a></li>
 								<li><a href="/international/southeast_asia">Southeast Asia</a></li>
