@@ -166,31 +166,6 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function admin_awnings() {
-		$users = $this->User->find('all', array(
-			'recursive' => -1,
-			'fields' => array(
-				'User.id',
-				'User.username',
-				'User.name',
-				'User.awning_image',
-				'User.awning_css',
-			),
-			'conditions' => array(
-				'User.active' => 1,
-				'User.level' => 'vendor'
-			),
-			'order' => array(
-				'User.name' => 'ASC'
-			),
-		));
-
-		$this->set(compact('users'));
-
-	}
-
-////////////////////////////////////////////////////////////
-
 	public function admin_view($id = null) {
 
 		if (isset($this->request->data['User']['image_type'])) {
@@ -258,6 +233,31 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->read(null, $id);
 			$this->set('user', $this->User->read(null, $id));
 		}
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_awnings() {
+		$users = $this->User->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'User.id',
+				'User.username',
+				'User.name',
+				'User.awning_image',
+				'User.awning_css',
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor'
+			),
+			'order' => array(
+				'User.name' => 'ASC'
+			),
+		));
+
+		$this->set(compact('users'));
+
 	}
 
 ////////////////////////////////////////////////////////////
