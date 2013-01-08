@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="span3">
+	<div class="span3" style="width:280px">
 
 		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
         
@@ -20,7 +20,7 @@
 	</div>
 
 
-	<div class="span8">
+	<div class="span8" style="padding-left:20px">
     
     
     	<div class="awning">
