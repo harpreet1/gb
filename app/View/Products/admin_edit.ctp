@@ -38,6 +38,10 @@ $(document).ready(function(){
 	<div class="span3">
 		<?php echo $this->Form->input('user_id'); ?>
 	</div>
+    
+    <div class="span3 offset3">
+			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+		</div>
 
 	<div class="span3 offset6 ">
 
@@ -49,10 +53,6 @@ $(document).ready(function(){
 </div>
 
 <div class="row">
-
-		<div class="span3">
-			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-		</div>
 
 		<div class="span3">
 			<?php echo $this->Form->input('name'); ?>
