@@ -66,9 +66,11 @@
 							<li><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
 							</li>
 							<?php endforeach; ?>
+                        </ul>
+                    </li>
 			<?php endif; ?>
 
-				</ul>
+			</ul>
 
 			</div>
 

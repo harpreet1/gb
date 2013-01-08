@@ -5,18 +5,29 @@
 		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
         
         </h3>
-		<br />
+		
+		
+
+        <div>
+        	<ul class="navList">
+				<li><a href="#">International Traditions</a>
+                	<!-- This is the sub nav -->
+					<ul class="listTab">
+						<?php foreach ($traditions as $trad): ?>
+							<li><?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?></li>
+						<?php endforeach; ?>
+					</ul>
+ 				</li>
+            </ul>    
+        </div>    
+            
 		<div class="tradition-summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
-			<?php echo $tradition['Tradition']['summary']; ?>
-        </div>
+            <?php echo $this->Text->truncate($tradition['Tradition']['summary'],140,	array('ellipsis' => '...','exact' => 'false')); ?>
+            
+            
+        </div>                       
 
-		<div id="subcat-menu">
-
-				<?php foreach ($traditions as $trad): ?>
-					<?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?><br />
-				<?php endforeach; ?>
-
-		</div>
+		
 	</div>
 
 
