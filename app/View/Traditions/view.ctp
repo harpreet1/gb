@@ -5,25 +5,16 @@
 		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
         
         </h3>
-		
-		
-							<?php foreach ($countries_list as $key => $value): ?>
-							<?php echo $this->Html->link($value, '#' . $value); ?>
-						<?php endforeach; ?>
+								
 
         <div style="height:38px;">
         	<ul class="navList">
-				<li><a href="#">International Traditions</a>
-				
-			
+				<li><a href="#">About Each Region</a>
                 	<!-- This is the sub nav -->
 					<ul class="listTab">
-					
-	
-					
-					
-						<?php foreach ($traditions as $trad): ?>
-							<li><?php echo $this->Html->link($trad['Tradition']['name'], array('controller' => 'traditions', 'action' => 'view', 'slug' => $trad['Tradition']['slug'])); ?></li>
+					<?php foreach ($countries_list as $key => $value): ?>
+						<?php //foreach ($traditions as $trad): ?>
+							<li><?php echo $this->Html->link($value, '#' . $value); ?></li>
 						<?php endforeach; ?>
 					</ul>
  				</li>
@@ -60,9 +51,12 @@
 				<?php //echo $user['User']['awning_css']; ?>
 			}
 			</style>
-
-			<?php echo $this->Html->image('traditions/awning_image/'. $tradition['Tradition']['image']); ?>
-
+			<?php if (!($tradition['Tradition']['image'])) :
+				echo $this->Html->image('traditions/awning_image/'. $tradition['Tradition']['image']); 
+				else : echo '?><img src="traditions/awning_image/default.jpg" /> ';
+				
+				 endif;
+			?>
 
 		</div>
         
