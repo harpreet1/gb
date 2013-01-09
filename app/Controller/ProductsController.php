@@ -7,18 +7,23 @@ class ProductsController extends AppController {
 	public function maestro($key = null) {
 
 		if($key != 'secret') {
-			//die('sorry');
+			die('sorry');
 		}
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
+
+		$yesterday = date("Y-m-d H:i:s", strtotime("-1 day"));
+
+		// print_r($yesterday);
+		// die;
 
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(
 				'Product.user_id' => 11,
 				'Product.active' => 1,
-				'Product.stock_updated >' => date("Y-m-d H:i:s", strtotime("-1 day"))
+				'Product.stock_updated <' => $yesterday
 			),
 			'order' => 'RAND()',
 			'limit' => 20
