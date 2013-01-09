@@ -40,7 +40,7 @@
     
     	<div class="awning">
 
-			<div id="div1">
+		<!--	<div id="div1">
 				<div id="div2">
 					<?php //echo $this->Html->image('users/image/'. $user['User']['image']); ?>
 				</div>​
@@ -50,12 +50,12 @@
 			#awning1 {
 				<?php //echo $user['User']['awning_css']; ?>
 			}
-			</style>
+			</style>-->
 			<?php if (!($tradition['Tradition']['image'])) :
-				echo $this->Html->image('traditions/awning_image/'. $tradition['Tradition']['image']); 
-				else : echo '?><img src="traditions/awning_image/default.jpg" /> ';
+					echo $this->Html->image('traditions/awning_image/'. $tradition['Tradition']['image']); 
+				else : echo ' <img src="/traditions/awning_image/default.png" /> ';
 				
-				 endif;
+				endif;
 			?>
 
 		</div>
