@@ -169,6 +169,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('stock'); ?></th>
 		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
@@ -188,7 +189,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
 		<th><?php echo $this->Paginator->sort('country'); ?></th>
-		
+
 	</tr>
 	<?php foreach ($products as $product): ?>
 	<tr>
@@ -207,6 +208,7 @@ $(document).ready(function() {
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
+		<td><?php echo ($product['Product']['stock']); ?></td>
 		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
@@ -226,7 +228,7 @@ $(document).ready(function() {
 		<td><span class="weight" data-value="<?php echo $product['Product']['weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['weight']); ?></span></td>
 		<td><span class="shipping_weight" data-value="<?php echo $product['Product']['shipping_weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['shipping_weight']); ?></span></td>
 		<td><span class="country" data-value="<?php echo $product['Product']['country']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['country']); ?></span></td>
-		
+
 	</tr>
 	<?php endforeach; ?>
 </table>
