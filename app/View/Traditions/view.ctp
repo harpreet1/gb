@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="span3" style="width:280px">
+	<div class="span3" style="width:230px">
 
 		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
         
@@ -8,7 +8,7 @@
 		
 		
 
-        <div>
+        <div style="height:38px;">
         	<ul class="navList">
 				<li><a href="#">International Traditions</a>
                 	<!-- This is the sub nav -->
@@ -31,7 +31,7 @@
 	</div>
 
 
-	<div class="span8" style="padding-left:20px">
+	<div class="span8" style="width:710px;">
     
     
     	<div class="awning">
@@ -55,7 +55,7 @@
         
 		<br />
         
-		<div class="row">
+		<div class="row" style="margin-left:17px">
            
 
 			<?php
