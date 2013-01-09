@@ -7,7 +7,7 @@ class ProductsController extends AppController {
 	public function maestro($key = null) {
 
 		if($key != 'secret') {
-			die('sorry');
+			//die('sorry');
 		}
 
 		App::uses('HttpSocket', 'Network/Http');
@@ -18,14 +18,15 @@ class ProductsController extends AppController {
 			'conditions' => array(
 				'Product.user_id' => 11,
 				'Product.active' => 1,
+				'Product.stock_updated >' => date("Y-m-d H:i:s", strtotime("-1 day"))
 			),
 			'order' => 'RAND()',
-			'limit' => 5
+			'limit' => 20
 		));
 
 		foreach($products as $product) {
 
-			sleep(1);
+			//sleep(1);
 
 			$response = $httpSocket->get('https://www.maestrolico.com/api/checkstockstatus.asp?distributorid=117&productid=' . $product['Product']['vendor_sku']);
 			echo '<br /><hr><br />';
@@ -38,6 +39,11 @@ class ProductsController extends AppController {
 			debug($update);
 
 			debug(date('H:i:s'));
+
+			$data['Product']['id'] = $product['Product']['id'];
+			$data['Product']['stock'] = $update[1];
+			$data['Product']['stock_updated'] = date('Y-m-d H:i:s');
+			$this->Product->save($data, false);
 
 		}
 

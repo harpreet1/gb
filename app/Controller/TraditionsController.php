@@ -18,6 +18,12 @@ class TraditionsController extends AppController {
 				'Tradition.slug' => $slug
 			)
 		));
+		
+		$countries_list1 = explode(',', $tradition['Tradition']['countries_list']);
+		$countries_list = array_map('trim', $countries_list1);
+		$this->set(compact('countries_list'));
+		
+				
 		if(empty($tradition)) {
 			die('invalid tradition');
 		}
@@ -32,6 +38,7 @@ class TraditionsController extends AppController {
 				'Tradition.name' => 'ASC'
 			)
 		));
+		
 		$this->set(compact('traditions'));
 
 		$this->loadModel('Product');
