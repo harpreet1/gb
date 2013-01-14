@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="span3" style="width:230px">
+	<div class="span3" style="width:270px">
 
 		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
         
