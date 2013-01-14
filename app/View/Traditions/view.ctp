@@ -35,7 +35,7 @@
 	</div>
 
 
-	<div class="span8" style="width:710px;">
+	<div class="span8" style="width:660px;">
     
     
     	<div class="awning">
