@@ -62,7 +62,7 @@
         
 		<br />
         
-		<div class="row" style="margin-left:17px">
+		<div class="row" style="margin-left:-2px">
            
 
 			<?php
