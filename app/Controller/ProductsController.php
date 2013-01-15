@@ -975,6 +975,12 @@ class ProductsController extends AppController {
 			throw new NotFoundException('Invalid product');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			print_r($this->request->data['Product']);
+			
+			die('testing');
+			
+			
 			if(!empty($this->request->data['Product']['traditions'])) {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);

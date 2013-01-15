@@ -1,5 +1,5 @@
 <?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
-
+<?php echo $this->Html->script(array('jquery.multiselect.min.js'), array('inline' => false)); ?>
 <?php echo $this->Html->script('/tiny_mce/tiny_mce.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
@@ -22,6 +22,11 @@ $(document).ready(function(){
 	$("#ProductSubcategoryId").chained("#ProductCategoryId");
 	$("#ProductSubsubcategoryId").chained("#ProductSubcategoryId");
 
+});
+
+
+$(function(){
+   $("select#country_select").multiselect(); 
 });
 
 </script>
@@ -126,6 +131,26 @@ $(document).ready(function(){
 		<br />
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
+		
+		<br />
+		<br />
+
+		<select id="country_select" name="countries" multiple="multiple">
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+			<option value="4">Option 4</option>
+			<option value="5">Option 5</option>
+		</select>
+
+
+		<br />
+		<br />
+
+
+
+		
+		
 		<?php echo $this->Form->input('country'); ?>
 		<?php echo $this->Form->input('creation'); ?>
 	</div>
