@@ -3,7 +3,7 @@
 <?php echo $this->Form->create('Project');?>
 <?php
 
-echo $this->Form->input('projectcategory_id');
+echo $this->Form->input('projectcategory_id', array('label' => 'status')); 
 echo $this->Form->input('body');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>

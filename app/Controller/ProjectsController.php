@@ -7,6 +7,15 @@ class ProjectsController extends AppController {
 	public function admin_index() {
 		$this->Project->recursive = 0;
 		$this->set('Projects', $this->paginate());
+		
+		$projectcategories = $this->Project->Projectcategory->find('list', array(
+			'order' => array(
+				'Projectcategory.name' => 'ASC'
+			)
+		));
+		$this->set(compact('projects', 'projectcategories'));
+		
+		
 	}
 
 ////////////////////////////////////////////////////////////
