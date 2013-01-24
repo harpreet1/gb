@@ -5,7 +5,10 @@
 echo $this->Form->input('id');
 echo $this->Form->input('projectcategory_id', array('label' => 'Status'));
 echo $this->Form->input('source', array('label' => 'Source'));
-echo $this->Form->input('body');
+echo $this->Form->input('client_name');
+echo $this->Form->input('phone');
+echo $this->Form->input('email', array('label' => 'eMail'));
+echo $this->Form->input('body', array('rows' => 10, 'class' => 'field span5')); 
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
 
