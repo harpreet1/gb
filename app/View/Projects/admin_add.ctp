@@ -1,9 +1,11 @@
-<h2>Admin Add Project</h2>
+<h2>Add Client</h2>
 
 <?php echo $this->Form->create('Project');?>
 <?php
 
-echo $this->Form->input('projectcategory_id', array('label' => 'status')); 
+echo $this->Form->input('projectcategory_id', array('label' => 'Status'));
+echo $this->Form->input('source', array('label' => 'Source')); 
+
 echo $this->Form->input('body');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>

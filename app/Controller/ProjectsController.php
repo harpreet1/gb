@@ -42,11 +42,13 @@ class ProjectsController extends AppController {
 		}
 		
 		$projectcategories = $this->Project->Projectcategory->find('list', array(
-			'order' => array(
-				'Projectcategory.name' => 'ASC'
+			'projectcategory' => array(
+				'Projectcategory.id' => 'ASC'
 			)
 		));
-		$this->set(compact('projects', 'projectcategories'));
+		
+		$sources = $this->Project->sources();
+		$this->set(compact('projectcategories','sources'));
 				
 	}
 
@@ -69,11 +71,13 @@ class ProjectsController extends AppController {
 		}
 		
 		$projectcategories = $this->Project->Projectcategory->find('list', array(
-			'order' => array(
-				'Projectcategory.name' => 'ASC'
+			'projectcategory' => array(
+				'Projectcategory.id' => 'ASC'
 			)
 		));
-		$this->set(compact('projects', 'projectcategories'));
+		
+		$sources = $this->Project->sources();
+		$this->set(compact('projectcategories','sources'));
 	}
 		
 ////////////////////////////////////////////////////////////

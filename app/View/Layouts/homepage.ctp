@@ -150,7 +150,7 @@
 				</div>
 
 				<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form pull-right', 'url' => array('controller' => 'products', 'action' => 'search'))); ?>
-				<?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'off')); ?>
+				<?php //echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'off')); ?>
 				<?php echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-primary', 'escape' => false)); ?>
 				<?php echo $this->Form->end(); ?>
 
