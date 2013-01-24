@@ -18,9 +18,11 @@ class Project extends AppModel {
 
 	public function sources() {
 		$sources = array(
-			'Trade Show' => 'Trade Show',
+			'TS - NASFT-1/13' => 'TS - NASFT-1/13',
 			'Internet' => 'Internet',
-			'Packaged Domestic' => 'Packaged Domestic',
+			'Farmers Market' => 'Farmers Market',
+			'Advertisement' => 'Advertisement',
+			'Referral' => 'Referral',
 			
 		);
 		return $sources;

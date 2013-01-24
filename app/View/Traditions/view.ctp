@@ -1,11 +1,9 @@
 
 <div class="row">
 	<div class="span3" style="width:270px">
-
-		<h3><img src="/img/regions/<?php echo ($tradition['Tradition']['slug']); ?>.jpg" />
-        
-        </h3>
-								
+		<div style="margin-bottom:20px">
+			<img style="width:200px" src="/img/traditions/image_logo/<?php echo ($tradition['Tradition']['logo_image']); ?>" />
+        </div>
 
         <div style="height:38px;">
         	<ul class="navList">
@@ -52,7 +50,7 @@
 			}
 			</style>-->
 			<?php if (($tradition['Tradition']['awning_image'])) :
-					echo $this->Html->image('/img/traditions/awning_image/'. $tradition['Tradition']['image']); 
+					echo $this->Html->image('/img/traditions/awning_image/'. $tradition['Tradition']['awning_image']); 
 				else : echo ' <img src="/img/traditions/awning_image/default.png" /> ';
 				
 				endif;
@@ -62,7 +60,7 @@
         
 		<br />
         
-		<div class="row" style="margin-left:-2px">
+		<div class="row product">
            
 
 			<?php
@@ -102,7 +100,7 @@
             </div>
     
             <?php
-            if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row\">\n\n";}
+            if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row product\">\n\n";}
             endforeach;
             ?>
 
