@@ -7,6 +7,15 @@ class NotesController extends AppController {
 	public function admin_index() {
 		$this->Note->recursive = 0;
 		$this->set('notes', $this->paginate());
+		
+		
+		$notes = $this->Note->find('list', array(
+			'order' => array(
+				'Note.id' => 'DESC'
+			)
+		));	
+		
+		
 	}
 
 ////////////////////////////////////////////////////////////
