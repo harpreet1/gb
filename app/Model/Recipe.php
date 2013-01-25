@@ -67,6 +67,15 @@ class Recipe extends AppModel {
 			'counterCache' => true,
 			'counterScope' => array(),
 		),
+			'Ustradition' => array(
+			'className' => 'Ustradition',
+			'foreignKey' => 'ustradition_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array(),
+		),
 
 	);
 

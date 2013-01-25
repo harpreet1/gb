@@ -36,7 +36,8 @@ class RecipesController extends AppController {
 				'User.name',
 				'User.slug',
 				'Recipescategory.name',
-				'Traditions.name',
+				'Tradition.name',
+				'Ustradition.name',
 			),
 			'conditions' => array(
 				$conditions
@@ -69,12 +70,13 @@ class RecipesController extends AppController {
 			'group' => array(
 				'Recipe.recipescategory_id',
 				'Tradition.tradition_id',
+				'Ustradition.ustradition_id',
 			),
 			'order' => array(
 				'Recipescategory.name'
 			)
 		));
-		$this->set(compact('recipescategories','traditions'));
+		$this->set(compact('recipescategories','traditions','ustraditions'));
 
 
 		$vendors = $this->Recipe->find('list', array(
@@ -181,6 +183,8 @@ class RecipesController extends AppController {
 			'contain' => array(
 				'User',
 				'Recipescategory',
+				'Tradition',
+				'Ustradition',
 			),
 			'fields' => array(
 				'Recipe.*',
@@ -190,6 +194,8 @@ class RecipesController extends AppController {
 				'Recipescategory.name',
 				'Tradition.id',
 				'Tradition.name',
+				'Ustradition.id',
+				'Ustradition.name',
 			),
 			'order' => array(
 				'Recipe.name' => 'ASC'
@@ -241,6 +247,7 @@ class RecipesController extends AppController {
 				'User',
 				'Recipescategory',
 				'Tradition',
+				'Ustradition',
 			),
 			'conditions' => array(
 				'Recipe.id' => $id
@@ -281,8 +288,13 @@ class RecipesController extends AppController {
 				'Tradition.name' => 'ASC'
 			)
 		));
-		
-		$this->set(compact('users', 'recipescategories','traditions'));
+		$ustraditions = $this->Recipe->Ustradition->find('list', array(
+			'order' => array(
+				'Ustradition.name' => 'ASC'
+			)
+		));
+
+		$this->set(compact('users', 'recipescategories','traditions','ustraditions'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -316,7 +328,21 @@ class RecipesController extends AppController {
 				'Recipescategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'recipescategories','traditions'));
+		
+		$traditions = $this->Recipe->Tradition->find('list', array(
+			'order' => array(
+				'Tradition.name' => 'ASC'
+			)
+		));
+		
+		$ustraditions = $this->Recipe->Ustradition->find('list', array(
+			'order' => array(
+				'Ustradition.name' => 'ASC'
+			)
+		));
+
+
+		$this->set(compact('users', 'recipescategories','traditions','ustraditions'));
 	}
 
 ////////////////////////////////////////////////////////////
