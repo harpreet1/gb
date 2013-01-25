@@ -58,6 +58,16 @@ class Recipe extends AppModel {
 			'counterCache' => true,
 			'counterScope' => array(),
 		),
+			'Tradition' => array(
+			'className' => 'Tradition',
+			'foreignKey' => 'tradition_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array(),
+		),
+
 	);
 
 ////////////////////////////////////////////////////////////

@@ -8,6 +8,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('projectcategory_id', array('label' => 'Status'));
 		echo $this->Form->input('source', array('label' => 'Source'));
+		echo $this->Form->input('business_name');
 		echo $this->Form->input('client_firstname');
 		echo $this->Form->input('client_lastname');?>
 		<br />
@@ -36,7 +37,6 @@
 		echo $this->Form->input('city');
 		echo $this->Form->input('state');
 		echo $this->Form->input('zip');
-		echo $this->Form->input('phone');
 		echo $this->Form->input('phone');
 		echo $this->Form->input('email', array('label' => 'eMail')); ?>
 	

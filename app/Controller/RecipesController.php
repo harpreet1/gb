@@ -36,6 +36,7 @@ class RecipesController extends AppController {
 				'User.name',
 				'User.slug',
 				'Recipescategory.name',
+				'Traditions.name',
 			),
 			'conditions' => array(
 				$conditions
@@ -66,13 +67,14 @@ class RecipesController extends AppController {
 				'Recipe.active' => 1
 			),
 			'group' => array(
-				'Recipe.recipescategory_id'
+				'Recipe.recipescategory_id',
+				'Tradition.tradition_id',
 			),
 			'order' => array(
 				'Recipescategory.name'
 			)
 		));
-		$this->set(compact('recipescategories'));
+		$this->set(compact('recipescategories','traditions'));
 
 
 		$vendors = $this->Recipe->find('list', array(
@@ -186,6 +188,8 @@ class RecipesController extends AppController {
 				'User.name',
 				'Recipescategory.id',
 				'Recipescategory.name',
+				'Tradition.id',
+				'Tradition.name',
 			),
 			'order' => array(
 				'Recipe.name' => 'ASC'
@@ -236,6 +240,7 @@ class RecipesController extends AppController {
 			'contain' => array(
 				'User',
 				'Recipescategory',
+				'Tradition',
 			),
 			'conditions' => array(
 				'Recipe.id' => $id
@@ -270,7 +275,14 @@ class RecipesController extends AppController {
 				'Recipescategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'recipescategories'));
+		
+		$traditions = $this->Recipe->Tradition->find('list', array(
+			'order' => array(
+				'Tradition.name' => 'ASC'
+			)
+		));
+		
+		$this->set(compact('users', 'recipescategories','traditions'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -304,7 +316,7 @@ class RecipesController extends AppController {
 				'Recipescategory.name' => 'ASC'
 			)
 		));
-		$this->set(compact('users', 'recipescategories'));
+		$this->set(compact('users', 'recipescategories','traditions'));
 	}
 
 ////////////////////////////////////////////////////////////
