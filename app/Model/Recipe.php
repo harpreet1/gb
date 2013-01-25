@@ -32,10 +32,10 @@ class Recipe extends AppModel {
 				'allowEmpty' => false,
 				'required' => true,
 			),
-			'rule3' => array(
-				'rule' => '/^[a-z0-9-]{3,}$/',
-				'message' => 'Only letters and integers, min 3 characters'
-			)
+			//'rule3' => array(
+			//	'rule' => '/^[a-z0-9-]{3,}$/',
+			//	'message' => 'Only letters and integers, min 3 characters'
+			//)
 		),
 	);
 

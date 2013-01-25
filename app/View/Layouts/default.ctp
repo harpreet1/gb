@@ -36,7 +36,7 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="dropdown">
-							<a href="http://gourmetdev.com/categories" class="js-activated">Categories<b class="caret"></b></a>
+							<a href="http://gourmetdev.com/categories" class="js-activated">Foods<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/cat/appetizers">Appetizers</a></li>
 								<li><a href="/cat/bakery">Bakery</a></li>
