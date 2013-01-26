@@ -20,10 +20,6 @@
 		<h2>Add Recipe</h2>
 	</div>	
 		
-
-	<div class="span6 offset11">
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-	</div>
 			
 
 </div>

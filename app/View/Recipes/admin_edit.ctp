@@ -24,7 +24,6 @@
 	<div class= "span4">
 		<br />
 		
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 		<br />
 		<br />
 		<br />
@@ -64,7 +63,6 @@
 		
 		<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Recipe.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Recipe.id'))); ?>
 		
-		<?php echo $this->Form->end(); ?>
 		
 		<br />
 		<br />
@@ -72,3 +70,4 @@
 		</div>
 </div>
 
+		<?php echo $this->Form->end(); ?>
