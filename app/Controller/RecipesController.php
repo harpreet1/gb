@@ -69,8 +69,8 @@ class RecipesController extends AppController {
 			),
 			'group' => array(
 				'Recipe.recipescategory_id',
-				'Tradition.tradition_id',
-				'Ustradition.ustradition_id',
+				//'Tradition.tradition_id',
+				//'Ustradition.ustradition_id',
 			),
 			'order' => array(
 				'Recipescategory.name'
