@@ -5,7 +5,7 @@ body {
 	/*font-family: "Mako", sans-serif;*/
 	font-size: 13px;
 	background-color: #ffffe8;
-	padding-top: 144px;
+	padding-top: 0px;
 }
 
 h1 {
@@ -71,8 +71,13 @@ a {
 }
 
 .navbar .nav > li > a {
-	color:#FFF;
+	color:#526292;
 }
+
+.navbar .nav > li > a:hover {
+	color:#fff;
+}
+
 
 #outer-wrapper {
 	margin: 0px;

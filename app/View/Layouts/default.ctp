@@ -29,7 +29,7 @@
 
 <div id="outer-wrapper">
 
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="/">Home</a>

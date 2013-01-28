@@ -3,26 +3,23 @@
 
 		<ul class="breadcrumb">
 
-		<?php if(empty($category)) : ?>
+		
 				<li><?php echo $user['User']['name']; ?> Shoppe</li>
-		<?php else : ?>
-			<?php if(!empty($category)) : ?>
-				<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-				<li><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?> <span class="divider">/</span></li>
-			<?php endif; ?>
-
-			<?php if(!empty($subcategory)) : ?>
-				<li><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?> <span class="divider">/</span></li>
-			<?php endif; ?>
-
-			<?php if(!empty($subsubcategory)) : ?>
-			<li><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
-			<?php endif; ?>
-
-			<li class="active"><?php //echo $product['Product']['name']; ?></li>
-
+			
+			<div style="float:right">
+				Sort by:&nbsp;
+				<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
+				&nbsp;
+				<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
+				&nbsp;
+	
+				<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>&nbsp;
+				<?php echo $this->Html->link('Brand', array('?' => array('sort'=>'brand', 'direction'=>'asc')) + $this->passedArgs); ?>
+			</div>
+				
+				
 		</ul>
-		<?php endif; ?>
+		
 	</div>
 </div>
 
@@ -169,18 +166,6 @@
 
 
 	<div class="span8">
-
-			Sort by:&nbsp;
-			<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
-			&nbsp;
-			<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
-			&nbsp;
-
-			<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>&nbsp;
-			<?php echo $this->Html->link('Brand', array('?' => array('sort'=>'brand', 'direction'=>'asc')) + $this->passedArgs); ?>
-
-
-			<br /><br />
 
 		<div class="awning">
 
