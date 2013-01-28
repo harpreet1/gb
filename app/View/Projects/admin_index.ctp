@@ -4,7 +4,7 @@
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('projectcategory_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('business_name'); ?></th>
+		<th style="width:100px"><?php echo $this->Paginator->sort('business_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('source'); ?></th>
 		<th><?php echo $this->Paginator->sort('body'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>

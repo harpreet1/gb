@@ -11,7 +11,7 @@
 				<?php if(!empty($usercategories)) : ?>
 
 					<br />
-					<h6>Our Categories</h6>
+					<h6>Food Categories</h6>
 
 					<?php foreach ($usercategories as $usercategory): ?>
 						<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
