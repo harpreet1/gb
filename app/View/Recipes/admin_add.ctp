@@ -12,15 +12,11 @@
 		theme_advanced_resizing : true,
 	});
 </script>
-
-
 		
 <div class="row">
 	<div class="span6">
 		<h2>Add Recipe</h2>
 	</div>	
-		
-			
 
 </div>
 

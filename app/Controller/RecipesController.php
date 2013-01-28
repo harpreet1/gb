@@ -198,7 +198,7 @@ class RecipesController extends AppController {
 				'Ustradition.name',
 			),
 			'order' => array(
-				'Recipe.name' => 'ASC'
+				'Recipe.modified' => 'DESC'
 			),
 			'paramType' => 'querystring',
 		);

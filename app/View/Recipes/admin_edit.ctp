@@ -22,14 +22,16 @@
 	
 <div class= "row">
 	<div class= "span4">
-		
-		<?php //echo $this->Form->input('id'); ?>
-		
+	
 		<?php echo $this->Form->create('Recipe'); ?>
+
+		<?php echo $this->Form->input('id',array(
+			'readonly' => 'readonly')); ?>
+	
 		
 		<?php
 		
-		echo $this->Form->input('user_id');
+		//echo $this->Form->input('user_id');
 		echo $this->Form->input('recipescategory_id',array('label' => 'Recipe Category'));
 		echo $this->Form->input('slug');
 		echo $this->Form->input('attribution',array('class' => 'input-gb-large'));
