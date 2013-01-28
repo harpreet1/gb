@@ -22,7 +22,8 @@
 	</div>
 	
 	<div class="span3">
-		<?php echo $this->Form->input('address');
+		<?php
+		echo $this->Form->input('address');
 		echo $this->Form->input('city');
 		echo $this->Form->input('state');
 		echo $this->Form->input('zip');
@@ -42,7 +43,7 @@
 		<br />
 		<?php echo $this->Form->input('contact_2', array('label' => 'Second Contact')); 
 		echo $this->Form->input('title_2', array('label' => 'Second Contact Title'));
-		echo $this->Form->input('email_2', array('label' => 'Main Contact eMail')); 
+		echo $this->Form->input('email_2', array('label' => 'Second Contact eMail')); 
 		echo $this->Form->input('phone_2', array('label' => 'Second Contact Phone'));
 		echo $this->Form->input('cell_2', array('label' => 'Second Contact Cell'));
 		?>
