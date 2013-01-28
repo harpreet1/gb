@@ -4,7 +4,7 @@
 		<ul class="breadcrumb">
 
 		<?php if(empty($category)) : ?>
-				<li>Welcome to&nbsp;<?php echo $user['User']['name']; ?></li>
+				<li><?php echo $user['User']['name']; ?> Shoppe</li>
 		<?php else : ?>
 			<?php if(!empty($category)) : ?>
 				<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
@@ -59,7 +59,7 @@
 			<?php if(!empty($usercategories)) : ?>
 
 			<ul class="navList">
-					<li><a href="#">Our Categories</a>
+					<li><a href="#">Our Products</a>
 						<!-- This is the sub nav -->
 						<ul class="listTab">
 							<?php foreach ($usercategories as $usercategory): ?>
@@ -126,16 +126,12 @@
 
 		</ul>
 
-				<ul class="navList">
-
+		<!--<ul class="navList">
 					<li><a href="#vendor-unit">Our Regions</a></li>
-
-		</ul>
-
-
+		</ul>-->
 
 		<ul class="navList">
-					<li><a href="#">Our Policies</a></li>
+					<li><a href="#">Our Shoppe Policies</a></li>
 
 		</ul>
 
@@ -188,12 +184,12 @@
 
 		<div class="awning">
 
-			<div id="div1">
+			<!--<div id="div1">
 				<div id="div2">
 					<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
 				</div>​
 			</div>
-
+-->
 			<style>
 			#awning1 {
 				<?php echo $user['User']['awning_css']; ?>
