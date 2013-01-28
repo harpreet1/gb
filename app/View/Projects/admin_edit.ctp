@@ -17,7 +17,6 @@
 		<br />
 		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 		
-		
 		<br />
 		<br />
 		
