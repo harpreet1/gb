@@ -9,8 +9,8 @@
 		echo $this->Form->input('projectcategory_id', array('label' => 'Status'));
 		echo $this->Form->input('source', array('label' => 'Source'));
 		echo $this->Form->input('business_name');
-		echo $this->Form->input('client_firstname');
-		echo $this->Form->input('client_lastname');?>
+		echo $this->Form->input('client_firstname', array('label' => 'Client First Name')); 
+		echo $this->Form->input('client_lastname', array('label' => 'Client Last Name')); ?>
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		
