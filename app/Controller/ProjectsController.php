@@ -13,6 +13,13 @@ class ProjectsController extends AppController {
 				'Projectcategory.name' => 'ASC'
 			)
 		));
+		
+		$project = $this->Project->find('list', array(
+			'order' => array(
+				'Project.modified' => 'DESC'
+			)
+		));
+
 		$this->set(compact('projects', 'projectcategories'));
 		
 		

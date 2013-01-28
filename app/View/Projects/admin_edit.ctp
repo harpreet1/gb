@@ -37,18 +37,13 @@
 		echo $this->Form->input('state');
 		echo $this->Form->input('zip');
 		echo $this->Form->input('phone', array('label' => 'Business Phone')); 
-		echo $this->Form->input('email', array('label' => 'Business eMail')); 
 		echo $this->Form->input('fax');
 		echo $this->Form->input('website');
 		echo $this->Form->input('contact_1', array('label' => 'Main Contact')); 
-		echo $this->Form->input('title_1', array('label' => 'Main Contact Title')); 
+		echo $this->Form->input('title_1', array('label' => 'Main Contact Title'));
+		echo $this->Form->input('email_1', array('label' => 'Main Contact eMail')); 
 		echo $this->Form->input('phone_1', array('label' => 'Main Contact Phone'));
 		echo $this->Form->input('cell_1', array('label' => 'Main Contact Cell'));
-		echo $this->Form->input('contact_2', array('label' => 'Second Contact')); 
-		echo $this->Form->input('title_2', array('label' => 'Second Contact Title')); 
-		echo $this->Form->input('phone_2', array('label' => 'Second Contact Phone'));
-		echo $this->Form->input('cell_2', array('label' => 'Second Contact Cell'));
-		
 		?>
 	</div>
 	
@@ -56,6 +51,14 @@
 	
 
 		<?php echo $this->Form->input('body', array('rows' => 10, 'class' => 'field span6')); ?>
+		<br />
+		<?php echo $this->Form->input('contact_2', array('label' => 'Second Contact')); 
+		echo $this->Form->input('title_2', array('label' => 'Second Contact Title'));
+		echo $this->Form->input('email_2', array('label' => 'Main Contact eMail')); 
+		echo $this->Form->input('phone_2', array('label' => 'Second Contact Phone'));
+		echo $this->Form->input('cell_2', array('label' => 'Second Contact Cell'));
+		?>
+
 		<?php echo $this->Form->end(); ?>
 	</div>
 

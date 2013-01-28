@@ -4,6 +4,7 @@
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('projectcategory_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('business_name'); ?></th>
 		<th><?php echo $this->Paginator->sort('source'); ?></th>
 		<th><?php echo $this->Paginator->sort('body'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
@@ -15,6 +16,7 @@
 	<tr>
 		<td><?php echo h($Project['Project']['id']); ?></td>
 		<td><?php echo h($Project['Projectcategory']['name']); ?></td>
+		<td><?php echo h($Project['Project']['business_name']); ?></td>
 		<td><?php echo h($Project['Project']['source']); ?></td>
 		<td><?php echo h($Project['Project']['body']); ?></td>
 		<td><a href="/admin/Projects/switch/active/<?php echo $Project['Project']['id']; ?>" class="status"><img src="/img/icon_<?php echo $Project['Project']['active']; ?>.png" alt="" /></a></td>
