@@ -70,8 +70,10 @@
 		<div class="span3">
 			<?php echo $this->Form->input('business_ownership'); ?>
 			<?php echo $this->Form->input('business_established'); ?>
-			<?php echo $this->Form->input('flat_shipping'); ?>
-			<?php echo $this->Form->input('flat_price'); ?>
+			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox')); ?>
+			<?php echo $this->Form->input('flat_shipping_threshold'); ?>
+			<?php echo $this->Form->input('flat_shipping_price'); ?>
+			<?php echo $this->Form->input('shipping_method', array('options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 			<?php echo $this->Form->input('commission'); ?>
 			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
