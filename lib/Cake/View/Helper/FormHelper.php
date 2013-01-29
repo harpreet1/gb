@@ -433,7 +433,9 @@ class FormHelper extends AppHelper {
 		$htmlAttributes = array_merge($options, $htmlAttributes);
 
 		$this->fields = array();
-		$append .= $this->_csrfField();
+		if ($this->requestType !== 'get') {
+			$append .= $this->_csrfField();
+		}
 
 		if (!empty($append)) {
 			$append = $this->Html->useTag('hiddenblock', $append);
@@ -504,7 +506,11 @@ class FormHelper extends AppHelper {
 			}
 			$out .= $this->submit($submit, $submitOptions);
 		}
-		if (isset($this->request['_Token']) && !empty($this->request['_Token'])) {
+		if (
+			$this->requestType !== 'get' &&
+			isset($this->request['_Token']) &&
+			!empty($this->request['_Token'])
+		) {
 			$out .= $this->secure($this->fields);
 			$this->fields = array();
 		}
@@ -1123,6 +1129,10 @@ class FormHelper extends AppHelper {
 			$options['type'] = 'select';
 		} elseif (in_array($fieldKey, array('psword', 'passwd', 'password'))) {
 			$options['type'] = 'password';
+		} elseif (in_array($fieldKey, array('tel', 'telephone', 'phone'))) {
+			$options['type'] = 'tel';
+		} elseif ($fieldKey === 'email') {
+			$options['type'] = 'email';
 		} elseif (isset($options['checked'])) {
 			$options['type'] = 'checkbox';
 		} elseif ($fieldDef = $this->_introspectModel($modelKey, 'fields', $fieldKey)) {
@@ -1229,7 +1239,9 @@ class FormHelper extends AppHelper {
 			is_scalar($fieldDef['length']) &&
 			$options['type'] !== 'select'
 		);
-		if ($autoLength && $options['type'] == 'text') {
+		if ($autoLength &&
+			in_array($options['type'], array('text', 'email', 'tel', 'url'))
+		) {
 			$options['maxlength'] = $fieldDef['length'];
 		}
 		if ($autoLength && $fieldDef['type'] == 'float') {
@@ -1379,9 +1391,10 @@ class FormHelper extends AppHelper {
 			unset($options['default']);
 		}
 
+		$options += array('required' => false);
 		$options = $this->_initInputField($fieldName, $options) + array('hiddenField' => true);
 		$value = current($this->value($valueOptions));
-		$output = "";
+		$output = '';
 
 		if (empty($options['value'])) {
 			$options['value'] = 1;
@@ -1416,7 +1429,8 @@ class FormHelper extends AppHelper {
  * ### Attributes:
  *
  * - `separator` - define the string in between the radio buttons
- * - `between` - the string between legend and input set
+ * - `between` - the string between legend and input set or array of strings to insert
+ *    strings between each input block
  * - `legend` - control whether or not the widget set has a fieldset & legend
  * - `value` - indicate a value that is should be checked
  * - `label` - boolean to indicate whether or not labels for widgets show be displayed
@@ -1485,6 +1499,10 @@ class FormHelper extends AppHelper {
 		$hiddenField = isset($attributes['hiddenField']) ? $attributes['hiddenField'] : true;
 		unset($attributes['hiddenField']);
 
+		if (isset($value) && is_bool($value)) {
+			$value = $value ? 1 : 0;
+		}
+
 		foreach ($options as $optValue => $optTitle) {
 			$optionsHere = array('value' => $optValue);
 
@@ -1500,6 +1518,9 @@ class FormHelper extends AppHelper {
 
 			if ($label) {
 				$optTitle = $this->Html->useTag('label', $tagName, '', $optTitle);
+			}
+			if (is_array($between)) {
+				$optTitle .= array_shift($between);
 			}
 			$allOptions = array_merge($attributes, $optionsHere);
 			$out[] = $this->Html->useTag('radio', $attributes['name'], $tagName,
@@ -1518,6 +1539,9 @@ class FormHelper extends AppHelper {
 		}
 		$out = $hidden . implode($separator, $out);
 
+		if (is_array($between)) {
+			$between = '';
+		}
 		if ($legend) {
 			$out = $this->Html->useTag('fieldset', '', $this->Html->useTag('legend', $legend) . $between . $out);
 		}
@@ -2590,7 +2614,7 @@ class FormHelper extends AppHelper {
 			if ($name !== null) {
 				if (
 					(!$selectedIsArray && !$selectedIsEmpty && (string)$attributes['value'] == (string)$name) ||
-					($selectedIsArray && in_array($name, $attributes['value']))
+					($selectedIsArray && in_array($name, $attributes['value'], true))
 				) {
 					if ($attributes['style'] === 'checkbox') {
 						$htmlOptions['checked'] = true;
