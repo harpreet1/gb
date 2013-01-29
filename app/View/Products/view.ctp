@@ -362,15 +362,17 @@
 				<?php if(!empty($product['Product']['ingredients'])) : ?>
 					<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
 				<?php endif; ?>
-				<br />
-				<br />
-				Made in:<?php echo $product['Product']['country']; ?>
 				
 				<br />
 				<br />
 				
+				<?php if(!empty($product['Product']['country'])) : ?>
+				Made in&nbsp;<?php echo $product['Product']['country']; ?>
+				<?php endif; ?>
 				
-
+				<br />
+				<br />
+				
 				Stock: <?php echo $product['Product']['stock']; ?>
 
 				<br />
