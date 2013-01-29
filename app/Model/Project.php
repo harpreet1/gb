@@ -18,6 +18,7 @@ class Project extends AppModel {
 
 	public function sources() {
 		$sources = array(
+			'' => '',
 			'SF Fancy FD 2013' => 'SF Fancy FD 2013',
 			'SF Fancy FD 2012' => 'SF Fancy FD 2012',
 			'Nat Prod Expo W 2013' => 'Nat Prod Expo W 2013',

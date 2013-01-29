@@ -17,20 +17,9 @@
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		
 		<br />
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-		
-		<br />
-		<br />
-		
-		<h3>Actions</h3>
-		
-		<br />
-		
-		<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Project.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Project.id'))); ?><br />
-		
-		<br />
 		<br />
 
+		<br />
 	</div>
 		<div class="span3">
 		<?php echo $this->Form->input('address');
@@ -59,10 +48,16 @@
 		echo $this->Form->input('phone_2', array('label' => 'Second Contact Phone'));
 		echo $this->Form->input('cell_2', array('label' => 'Second Contact Cell'));
 		?>
-
-		<?php echo $this->Form->end(); ?>
+		<br />
 	</div>
-
 
 </div>
 
+
+		<h3>Actions</h3>
+
+		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+		<?php echo $this->Form->end(); ?>
+		<br />
+		<br />
+		<br />

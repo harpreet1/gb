@@ -16,12 +16,9 @@
 
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-		
-		
 		<br />
 		<br />
 		
-
 	</div>
 	
 	<div class="span3">
