@@ -67,6 +67,12 @@ class ToolbarAccessController extends DebugKitAppController {
 		}
 		$this->helpers['DebugKit.Toolbar']['cacheKey'] = $this->Toolbar->cacheKey;
 		$this->helpers['DebugKit.Toolbar']['cacheConfig'] = 'debug_kit';
+
+		if (isset($this->Auth) && method_exists($this->Auth, 'mapActions')) {
+			$this->Auth->mapActions(array(
+				'read' => array('history_state', 'sql_explain')
+			));
+		}
 	}
 
 /**
@@ -85,8 +91,8 @@ class ToolbarAccessController extends DebugKitAppController {
 
 /**
  * Run SQL explain/profiling on queries. Checks the hash + the hashed queries,
- * if there is mismatch a 404 will be rendered.  If debug == 0 a 404 will also be
- * rendered.  No explain will be run if a 404 is made.
+ * if there is mismatch a 404 will be rendered. If debug == 0 a 404 will also be
+ * rendered. No explain will be run if a 404 is made.
  *
  * @throws BadRequestException
  * @return void

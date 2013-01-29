@@ -83,7 +83,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
 				$value = 'function';
 			}
 
-			if (is_array($value) && !empty($value)) {
+			if (($value instanceof ArrayAccess || is_array($value)) && !empty($value)) {
 				$out .= $this->makeNeatArray($value, $openDepth, $nextDepth, $doubleEncode);
 			} else {
 				$out .= h($value, $doubleEncode);
@@ -170,7 +170,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
  * @return string Rendered Html link or '' if the query is not a select/describe
  */
 	public function explainLink($sql, $connection) {
-		if (!preg_match('/^(SELECT)/i', $sql)) {
+		if (!preg_match('/^[\s()]*SELECT/i', $sql)) {
 			return '';
 		}
 		$hash = Security::hash($sql . $connection, null, true);
