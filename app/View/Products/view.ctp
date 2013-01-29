@@ -364,6 +364,12 @@
 				<?php endif; ?>
 				<br />
 				<br />
+				Made in:<?php echo $product['Product']['country']; ?>
+				
+				<br />
+				<br />
+				
+				
 
 				Stock: <?php echo $product['Product']['stock']; ?>
 

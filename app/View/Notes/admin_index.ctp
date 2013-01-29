@@ -14,7 +14,7 @@
 	<tr>
 		<td><?php echo h($note['Note']['id']); ?></td>
 		<td><?php echo h($note['Note']['name']); ?></td>
-		<td><?php echo h($note['Note']['note']); ?></td>
+		<td><?php echo ($note['Note']['note']); ?></td>
 		<td><a href="/admin/notes/switch/active/<?php echo $note['Note']['id']; ?>" class="status"><img src="/img/icon_<?php echo $note['Note']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($note['Note']['created']); ?></td>
 		<td><?php echo h($note['Note']['modified']); ?></td>
