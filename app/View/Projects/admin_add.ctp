@@ -9,7 +9,10 @@
 		echo $this->Form->input('source', array('label' => 'Source'));
 		echo $this->Form->input('business_name');
 		echo $this->Form->input('client_firstname', array('label' => 'Client First Name')); 
-		echo $this->Form->input('client_lastname', array('label' => 'Client Last Name')); ?>
+		echo $this->Form->input('client_lastname', array('label' => 'Client Last Name'));
+		echo $this->Form->input('client_title', array('label' => 'Client Title'));  
+
+?>
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		
