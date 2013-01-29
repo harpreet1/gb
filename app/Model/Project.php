@@ -18,7 +18,13 @@ class Project extends AppModel {
 
 	public function sources() {
 		$sources = array(
-			'TS - NASFT-1/13' => 'TS - NASFT-1/13',
+			'SF Fancy FD 2013' => 'SF Fancy FD 2013',
+			'SF Fancy FD 2012' => 'SF Fancy FD 2012',
+			'Nat Prod Expo W 2013' => 'Nat Prod Expo W 2013',
+			'Nat Prod Expo W 2012' => 'Nat Prod Expo W 2012',
+			'SM Choc Show 2013' => 'SM Choc Show 2013',
+			'LA Show Mart 2013' => 'LA Show Mart 2013',
+			'LA Show Mart 2012' => 'LA Show Mart 2012',
 			'Internet' => 'Internet',
 			'Farmers Market' => 'Farmers Market',
 			'Advertisement' => 'Advertisement',
