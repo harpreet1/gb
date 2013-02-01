@@ -61,12 +61,11 @@ class ProjectsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function admin_edit($id = null) {
+	public function admin_edit($id = null) {		
 		$this->Project->id = $id;
-		if (!$this->Project->exists()) {
-			throw new NotFoundException(__('Invalid Project'));
-		}
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
+			
 			if ($this->Project->save($this->request->data)) {
 				$this->Session->setFlash(__('The Project has been saved'));
 				$this->redirect(array('action' => 'index'));

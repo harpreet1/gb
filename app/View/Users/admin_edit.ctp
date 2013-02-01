@@ -32,49 +32,55 @@
 			<?php echo $this->Form->input('username'); ?>
 			<?php echo $this->Form->input('password'); ?>
 			<?php echo $this->Form->input('password_clear'); ?>
-			<?php echo $this->Form->input('name'); ?>
+			<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
 			<?php echo $this->Form->input('slug'); ?>
-			<?php echo $this->Form->input('business_name'); ?>
+			<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
+            <?php echo $this->Form->input('business_name_dba', array('label' => 'DBA')); ?>
 			<?php echo $this->Form->input('vendor_type'); ?>
-			<?php echo $this->Form->input('zip'); ?>
 			<?php //echo $this->Form->input('country'); ?>
 			<?php //echo $this->Form->input('country_id'); ?>
 			<?php //echo $this->Form->input('zone_id'); ?>
 			<?php echo $this->Form->input('phone'); ?>
 			<?php echo $this->Form->input('fax'); ?>
-			<?php echo $this->Form->input('email'); ?>
-			<?php echo $this->Form->input('email_orders'); ?>
+			<?php echo $this->Form->input('email', array('label' => 'email - General')); ?>
+			<?php echo $this->Form->input('email_orders', array('label' => 'email - Orders')); ?>
 			<?php echo $this->Form->input('website'); ?>
 			<?php echo $this->Form->input('payment_biz_name'); ?>
 			<?php echo $this->Form->input('payment_street_address'); ?>
 			<?php echo $this->Form->input('payment_city'); ?>
-			<?php echo $this->Form->input('payment_zone_id'); ?>
+			<?php //echo $this->Form->input('payment_zone_id'); ?>
 			<?php echo $this->Form->input('payment_zip'); ?>
-			<?php echo $this->Form->input('mycategories'); ?>
+			<?php //echo $this->Form->input('mycategories'); ?>
 
 		</div>
 		<div class="span5">
 			<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
 			<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
 			<?php echo $this->Form->input('shop_signature'); ?>
-			<?php echo $this->Form->input('address'); ?>
-			<?php echo $this->Form->input('address2'); ?>
+			<?php echo $this->Form->input('address', array('label' => 'Address - Line 1')); ?>
+			<?php echo $this->Form->input('address2', array('label' => 'Address - Line 2')); ?>
 			<?php echo $this->Form->input('city'); ?>
 			<?php echo $this->Form->input('state'); ?>
+            <?php echo $this->Form->input('zip'); ?>
 
-			<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span')); ?><br />
+
+			<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping Policy in your Shoppe')); ?><br />
 
 
 
 		</div>
 		<div class="span3">
-			<?php echo $this->Form->input('business_ownership'); ?>
+			<?php echo $this->Form->input('business_ownership', array('label' => 'Year the business was established')); ?>
 			<?php echo $this->Form->input('business_established'); ?>
-			<?php echo $this->Form->input('flat_shipping'); ?>
-			<?php echo $this->Form->input('flat_price'); ?>
-			<?php echo $this->Form->input('commission'); ?>
-			<?php echo $this->Form->input('contact_first_name'); ?>
+			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
+            <?php echo $this->Form->input('flat_shipping_price', array('type' => 'checkbox','label' =>'Free Shipping threshhold')); ?>
+			<?php echo $this->Form->input('free_shipping_threshold'); ?>
+			<?php echo $this->Form->input('shipping_method', array('options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
+			<?php echo $this->Form->input('commission', array('label' => 'Commision %')); ?>
+            <?php echo $this->Form->input('contact_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
+            <?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_title'); ?>
 			<?php echo $this->Form->input('contact_phone'); ?>
 			<?php echo $this->Form->input('contact_email'); ?>
@@ -83,7 +89,7 @@
 		</div>
 		<div class="span3">
 			<h3>FINANCIAL</h3>
-
+            <?php echo $this->Form->input('contact_fin_name'); ?>
 			<?php echo $this->Form->input('contact_fin_first_name'); ?>
 			<?php echo $this->Form->input('contact_fin_last_name'); ?>
 			<?php echo $this->Form->input('contact_fin_title'); ?>
