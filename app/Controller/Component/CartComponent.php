@@ -54,6 +54,10 @@ class CartComponent extends Component {
 				'User.email',
 				'User.zip',
 				'User.state',
+				'User.flat_shipping',
+				'User.flat_shipping_threshold',
+				'User.flat_shipping_price',
+				'User.shipping_method',
 			),
 			'conditions' => array(
 				'Product.id' => $id
@@ -157,6 +161,13 @@ class CartComponent extends Component {
 				$users[$item['User']['id']]['email'] = $item['User']['email'];
 				$users[$item['User']['id']]['zip'] = $item['User']['zip'];
 				$users[$item['User']['id']]['state'] = $item['User']['state'];
+
+				$users[$item['User']['id']]['flat_shipping'] = $item['User']['flat_shipping'];
+				$users[$item['User']['id']]['flat_shipping_threshold'] = $item['User']['flat_shipping_threshold'];
+				$users[$item['User']['id']]['flat_shipping_price'] = $item['User']['flat_shipping_price'];
+
+				$users[$item['User']['id']]['shipping_method'] = $item['User']['shipping_method'];
+
 				$users[$item['User']['id']]['totalprice'] = 0;
 				$users[$item['User']['id']]['totalquantity'] = 0;
 				$users[$item['User']['id']]['totalweight'] = 0;

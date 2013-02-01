@@ -72,6 +72,7 @@
 		<div class="span3">
 			<?php echo $this->Form->input('business_ownership', array('label' => 'Year the business was established')); ?>
 			<?php echo $this->Form->input('business_established'); ?>
+<<<<<<< HEAD
 			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
             <?php echo $this->Form->input('flat_shipping_price', array('type' => 'checkbox','label' =>'Free Shipping threshhold')); ?>
 			<?php echo $this->Form->input('free_shipping_threshold'); ?>
@@ -79,6 +80,14 @@
 			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
 			<?php echo $this->Form->input('commission', array('label' => 'Commision %')); ?>
             <?php echo $this->Form->input('contact_name'); ?>
+=======
+			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox')); ?>
+			<?php echo $this->Form->input('flat_shipping_threshold'); ?>
+			<?php echo $this->Form->input('flat_shipping_price'); ?>
+			<?php echo $this->Form->input('shipping_method', array('options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('commission'); ?>
+			<?php echo $this->Form->input('contact_first_name'); ?>
+>>>>>>> e856bc19ccc8dd29a2fbdfd2f24d0aa6685f22a3
 			<?php echo $this->Form->input('contact_last_name'); ?>
             <?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_title'); ?>
