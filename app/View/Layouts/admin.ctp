@@ -62,6 +62,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Brands', array('controller' => 'brands', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Add Brands', array('controller' => 'brands', 'action' => 'add', 'admin' => true)); ?></li>
 						</ul>
 					</li>
                     
