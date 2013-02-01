@@ -962,7 +962,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brand', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands', 'countries', 'creations'));
 
 	}
 

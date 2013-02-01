@@ -43,7 +43,7 @@ $(document).ready(function(){
         //echo $this->Form->input('subsubcategory_name');
         echo $this->Form->input('upc');
         echo $this->Form->input('vendor_sku');
-        echo $this->Form->input('brand_id');
+        echo $this->Form->input('brand_id', array('empty' => '--'));
         echo $this->Form->input('name');
         echo $this->Form->input('slug');
         echo $this->Form->input('description');
