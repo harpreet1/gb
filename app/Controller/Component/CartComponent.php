@@ -55,7 +55,7 @@ class CartComponent extends Component {
 				'User.zip',
 				'User.state',
 				'User.flat_shipping',
-				'User.flat_shipping_threshold',
+				'User.free_shipping_price_threshold',
 				'User.flat_shipping_price',
 				'User.shipping_method',
 			),
@@ -163,7 +163,7 @@ class CartComponent extends Component {
 				$users[$item['User']['id']]['state'] = $item['User']['state'];
 
 				$users[$item['User']['id']]['flat_shipping'] = $item['User']['flat_shipping'];
-				$users[$item['User']['id']]['flat_shipping_threshold'] = $item['User']['flat_shipping_threshold'];
+				$users[$item['User']['id']]['free_shipping_price_threshold'] = $item['User']['free_shipping_price_threshold'];
 				$users[$item['User']['id']]['flat_shipping_price'] = $item['User']['flat_shipping_price'];
 
 				$users[$item['User']['id']]['shipping_method'] = $item['User']['shipping_method'];
