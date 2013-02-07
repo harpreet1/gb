@@ -30,8 +30,8 @@
 		<div class="span3">
 			<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
 			<?php echo $this->Form->input('username'); ?>
-			<?php echo $this->Form->input('password'); ?>
-			<?php echo $this->Form->input('password_clear'); ?>
+			<?php //echo $this->Form->input('password'); ?>
+			<?php echo $this->Form->input('password_clear', array('label' => 'Password')); ?>
 			<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
 			<?php echo $this->Form->input('slug'); ?>
 			<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
@@ -46,7 +46,8 @@
 			<?php echo $this->Form->input('email', array('label' => 'email - General')); ?>
 			<?php echo $this->Form->input('email_orders', array('label' => 'email - Orders')); ?>
 			<?php echo $this->Form->input('website'); ?>
-			<?php echo $this->Form->input('payment_biz_name'); ?>
+			<br />
+			<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
 			<?php echo $this->Form->input('payment_street_address'); ?>
 			<?php echo $this->Form->input('payment_city'); ?>
 			<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?> 
@@ -73,6 +74,8 @@
 		<div class="span3">
 			<?php echo $this->Form->input('business_ownership', array('label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
 			<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
+			<br />
+			<br />
 			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
             <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
 			<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
@@ -86,6 +89,7 @@
 			<br />
 			<br />
 			<?php echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
+			<h5>If so, please indicate tax as %</h5>
 			<?php echo $this->Form->input('state_sales_tax_in_state', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('state_sales_tax_out_state', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('local_sales_tax_in_state', array('class' => 'span1')); ?>
