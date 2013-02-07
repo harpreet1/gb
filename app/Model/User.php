@@ -47,15 +47,21 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-	public $belongsTo = array(
-		
+	public $hasOne = array(
+
 		'Tax' => array(
 			'className' => 'Tax',
-			'foreignKey' => 'id',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
-		),
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
 
 	);
 

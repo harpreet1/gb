@@ -205,7 +205,12 @@ class UsersController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
-			if ($this->User->save($this->request->data)) {
+			$user = $this->User->save($this->request->data);
+			if ($user) {
+
+				$this->request->data['Tax']['user_id'] = $this->User->id;
+				$this->User->Tax->save($this->request->data);
+
 				$this->Session->setFlash('The user has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -223,19 +228,28 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->User->save($this->request->data)) {
+
+			if ($this->User->saveAll($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}
 		} else {
-			$this->request->data = $this->User->read(null, $id);
+			$user = $this->User->find('first', array(
+				'contain' => array(
+					'Tax'
+				),
+				'conditions' => array(
+					'User.id' => $id
+				)
+			));
+			$this->request->data = $user;
 			$this->set('user', $this->User->read(null, $id));
 		}
-		
+
 		$states = $this->User->states();
-		
+
 		$taxes = $this->User->Tax->find('all', array(
 		'recursive' => -1,
 			'fields' => array(
@@ -252,7 +266,7 @@ class UsersController extends AppController {
 				'Tax.local_use_tax_out_state',
 			),
 		));
-		$this->set(compact('users','taxes','states'));	
+		$this->set(compact('users','taxes','states'));
 	}
 
 ////////////////////////////////////////////////////////////

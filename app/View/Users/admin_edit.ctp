@@ -18,7 +18,6 @@
 <?php echo $this->Form->create('User'); ?>
 <?php echo $this->Form->input('id'); ?>
 
-
 <div class="row">
 	<div class="span12">
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?><br />
@@ -50,7 +49,7 @@
 			<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
 			<?php echo $this->Form->input('payment_street_address'); ?>
 			<?php echo $this->Form->input('payment_city'); ?>
-			<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?> 
+			<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?>
 			<?php echo $this->Form->input('payment_zip'); ?>
 			<?php //echo $this->Form->input('mycategories'); ?>
 
@@ -90,21 +89,22 @@
 			<br />
 			<?php echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
 			<h5>If so, please indicate tax as %</h5>
-			<?php echo $this->Form->input('state_sales_tax_in_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('state_sales_tax_out_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('local_sales_tax_in_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('local_sales_tax_out_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('state_use_tax_in_state',array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('state_use_tax_out_state',array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('local_use_tax_in_state',array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('local_use_tax_out_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.id', array('type' => 'hidden')); ?>
+			<?php echo $this->Form->input('Tax.state_sales_tax_in_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.state_sales_tax_out_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.local_sales_tax_in_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.local_sales_tax_out_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.state_use_tax_in_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.state_use_tax_out_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.local_use_tax_in_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('Tax.local_use_tax_out_state',array('class' => 'span1')); ?>
 
 			<br />
 			<br />
-			
+
 			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
-            <?php echo $this->Form->input('contact_first_name'); ?>
+			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_title'); ?>
 			<?php echo $this->Form->input('contact_phone'); ?>
 			<?php echo $this->Form->input('contact_email'); ?>
@@ -113,7 +113,7 @@
 		</div>
 		<div class="span3">
 			<h3>FINANCIAL</h3>
-            <?php echo $this->Form->input('contact_fin_name'); ?>
+			<?php echo $this->Form->input('contact_fin_name'); ?>
 			<?php echo $this->Form->input('contact_fin_first_name'); ?>
 			<?php echo $this->Form->input('contact_fin_last_name'); ?>
 			<?php echo $this->Form->input('contact_fin_title'); ?>
@@ -159,7 +159,6 @@
 
 		<div class="span4">
 			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-
 
 			<br />
 			<br />
