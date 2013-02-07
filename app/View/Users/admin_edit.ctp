@@ -79,8 +79,9 @@
             <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
 			<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
-			<?php echo $this->Form->input('commission_full', array('class' => 'span1','label' => 'Commision %')); ?>
-			<?php echo $this->Form->input('commission_discount', array('class' => 'span1','label' => 'Commision %')); ?>
+			<?php echo $this->Form->input('commission_full', array('class' => 'span1','label' => 'Full Commision %')); ?>
+			<?php echo $this->Form->input('commission_discount', array('class' => 'span1','label' => 'Discounrt Commision %')); ?>
+			
 			
 			<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
 			<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
@@ -89,8 +90,8 @@
 			<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 			<br />
 			<br />
-			<?php echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
-			<h5>If so, please indicate tax as %</h5>
+			<?php //echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
+			<h5>Please indicate tax as %</h5>
 			<?php echo $this->Form->input('Tax.id', array('type' => 'hidden')); ?>
 			<?php echo $this->Form->input('Tax.total_food_tax_in_state', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('Tax.total_food_tax_out_state', array('class' => 'span1')); ?>
