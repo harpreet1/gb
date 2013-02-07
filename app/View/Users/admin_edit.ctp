@@ -70,20 +70,34 @@
 
 		</div>
 		<div class="span3">
-			<?php echo $this->Form->input('business_ownership', array('label' => 'Year the business was established')); ?>
-			<?php echo $this->Form->input('business_established'); ?>
+			<?php echo $this->Form->input('business_ownership'); ?>
+			<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
 			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
-            <?php echo $this->Form->input('flat_shipping_price', array('type' => 'checkbox','label' =>'Free Shipping threshhold')); ?>
-			<?php echo $this->Form->input('free_shipping_threshold'); ?>
-			<?php echo $this->Form->input('shipping_method', array('options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+            <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
+			<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
-			<?php echo $this->Form->input('commission', array('label' => 'Commision %')); ?>
+			<?php echo $this->Form->input('commission', array('class' => 'span1','label' => 'Commision %')); ?>
             <?php echo $this->Form->input('contact_name'); ?>
-			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox')); ?>
-			<?php echo $this->Form->input('flat_shipping_threshold'); ?>
-			<?php echo $this->Form->input('flat_shipping_price'); ?>
-			<?php echo $this->Form->input('shipping_method', array('options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<?php echo $this->Form->input('commission'); ?>
+			<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
+			<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<br />
+			<br />
+			<?php echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
+			<?php echo $this->Form->input('state_sales_tax_in_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('state_sales_tax_out_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('local_sales_tax_in_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('local_sales_tax_out_state', array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('state_use_tax_in_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('state_use_tax_out_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('local_use_tax_in_state',array('class' => 'span1')); ?>
+			<?php echo $this->Form->input('local_use_tax_out_state',array('class' => 'span1')); ?>
+
+			<br />
+			<br />
+			
 			<?php echo $this->Form->input('contact_first_name'); ?>
 			<?php echo $this->Form->input('contact_last_name'); ?>
             <?php echo $this->Form->input('contact_first_name'); ?>

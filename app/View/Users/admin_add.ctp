@@ -83,18 +83,6 @@ echo $this->Form->input('payment_zone_id');
 echo $this->Form->input('payment_zip');
 echo $this->Form->input('vendor_type');
 echo $this->Form->input('mycategories');
-echo $this->Form->input('bd_image1');
-echo $this->Form->input('bd_image2');
-echo $this->Form->input('bd_image3');
-echo $this->Form->input('bd_image4');
-echo $this->Form->input('bd_image5');
-echo $this->Form->input('bd_image6');
-echo $this->Form->input('bd_category1');
-echo $this->Form->input('bd_category2');
-echo $this->Form->input('bd_category3');
-echo $this->Form->input('bd_category4');
-echo $this->Form->input('bd_category5');
-echo $this->Form->input('bd_category6');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 ?>
 <br />

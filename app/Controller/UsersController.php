@@ -233,6 +233,25 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->read(null, $id);
 			$this->set('user', $this->User->read(null, $id));
 		}
+		
+		
+		$taxes = $this->User->Tax->find('all', array(
+		'recursive' => -1,
+			'fields' => array(
+				'Tax.id',
+				'Tax.user_id',
+				'Tax.check',
+				'Tax.state_sales_tax_in_state',
+				'Tax.state_sales_tax_out_state',
+				'Tax.local_sales_tax_in_state',
+				'Tax.local_sales_tax_out_state',
+				'Tax.state_use_tax_in_state',
+				'Tax.state_use_tax_out_state',
+				'Tax.local_use_tax_in_state',
+				'Tax.local_use_tax_out_state',
+			),
+		));
+		$this->set(compact('users','taxes'));	
 	}
 
 ////////////////////////////////////////////////////////////

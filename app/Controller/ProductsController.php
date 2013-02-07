@@ -953,6 +953,8 @@ class ProductsController extends AppController {
 		$subcategories = $this->Product->Subcategory->findChain();
 
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
+		
+		$traditions = $this->Product->Tradition->findList();
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
@@ -962,7 +964,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions','ustraditions', 'brands', 'countries', 'creations'));
 
 	}
 

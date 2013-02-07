@@ -47,6 +47,21 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public $belongsTo = array(
+		
+		'Tax' => array(
+			'className' => 'Tax',
+			'foreignKey' => 'id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+
+	);
+
+
+////////////////////////////////////////////////////////////
+
 	public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
