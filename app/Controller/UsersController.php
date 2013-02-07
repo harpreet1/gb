@@ -234,6 +234,7 @@ class UsersController extends AppController {
 			$this->set('user', $this->User->read(null, $id));
 		}
 		
+		$states = $this->User->states();
 		
 		$taxes = $this->User->Tax->find('all', array(
 		'recursive' => -1,
@@ -251,7 +252,7 @@ class UsersController extends AppController {
 				'Tax.local_use_tax_out_state',
 			),
 		));
-		$this->set(compact('users','taxes'));	
+		$this->set(compact('users','taxes','states'));	
 	}
 
 ////////////////////////////////////////////////////////////

@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td>Flat Price</td>
-<td><?php echo h($user['User']['flat_price']); ?></td>
+<td><?php echo h($user['User']['flat_shipping_price']); ?></td>
 </tr>
 <tr>
 <td>Contact First Name</td>
@@ -229,7 +229,7 @@
 </tr>
 <tr>
 <td>Payment Zone Id</td>
-<td><?php echo h($user['User']['payment_zone_id']); ?></td>
+<td><?php echo h($user['User']['payment_state']); ?></td>
 </tr>
 <tr>
 <td>Payment Zip</td>

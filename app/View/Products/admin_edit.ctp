@@ -125,7 +125,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected)); ?>
 		<br />
 		<br />
-		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
+		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
 		<?php echo $this->Form->input('country'); ?>
 		<?php echo $this->Form->input('creation'); ?>
 	</div>

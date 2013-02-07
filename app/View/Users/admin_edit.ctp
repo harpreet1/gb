@@ -28,7 +28,7 @@
 
 
 		<div class="span3">
-			<?php echo $this->Form->input('level'); ?>
+			<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
 			<?php echo $this->Form->input('username'); ?>
 			<?php echo $this->Form->input('password'); ?>
 			<?php echo $this->Form->input('password_clear'); ?>
@@ -36,6 +36,7 @@
 			<?php echo $this->Form->input('slug'); ?>
 			<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
             <?php echo $this->Form->input('business_name_dba', array('label' => 'DBA')); ?>
+			<?php echo $this->Form->input('contact_name'); ?>
 			<?php echo $this->Form->input('vendor_type'); ?>
 			<?php //echo $this->Form->input('country'); ?>
 			<?php //echo $this->Form->input('country_id'); ?>
@@ -48,7 +49,7 @@
 			<?php echo $this->Form->input('payment_biz_name'); ?>
 			<?php echo $this->Form->input('payment_street_address'); ?>
 			<?php echo $this->Form->input('payment_city'); ?>
-			<?php //echo $this->Form->input('payment_zone_id'); ?>
+			<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?> 
 			<?php echo $this->Form->input('payment_zip'); ?>
 			<?php //echo $this->Form->input('mycategories'); ?>
 
@@ -70,19 +71,18 @@
 
 		</div>
 		<div class="span3">
-			<?php echo $this->Form->input('business_ownership'); ?>
+			<?php echo $this->Form->input('business_ownership', array('label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
 			<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
 			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
             <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
 			<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
 			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
 			<?php echo $this->Form->input('commission', array('class' => 'span1','label' => 'Commision %')); ?>
-            <?php echo $this->Form->input('contact_name'); ?>
 			<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
 			<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' , 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+			<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 			<br />
 			<br />
 			<?php echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
@@ -118,8 +118,8 @@
 			<?php echo $this->Form->input('ins_carrier'); ?>
 			<?php echo $this->Form->input('ins_carrier_name'); ?>
 			<?php echo $this->Form->input('ins_carrier_phone'); ?>
-			<?php echo $this->Form->input('ins_policy_num'); ?>
-			<?php echo $this->Form->input('ins_policy_exp'); ?>
+			<?php echo $this->Form->input('ins_policy_num', array('label' => 'Insurance Policy Number')); ?>
+			<?php echo $this->Form->input('ins_policy_exp', array('label' => 'Policy Expiration Date')); ?>
 			<?php echo $this->Form->input('ins_policy_coverage'); ?><br /><br />
 			<?php echo $this->Form->input('contact_alt_first_name'); ?>
 			<?php echo $this->Form->input('contact_alt_last_name'); ?>
