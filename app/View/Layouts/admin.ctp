@@ -12,7 +12,7 @@
 
 
 <?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js')); ?>
-<?php echo $this->fetch('css'); ?>
+<?php echo $this->fetch('css,http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css'); ?>
 <?php echo $this->fetch('script'); ?>
 </head>
 <body>

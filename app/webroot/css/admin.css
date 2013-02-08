@@ -1,7 +1,11 @@
 body {
-	background-color:#F8E3B5;
+	background-color:#FFFCF5;
 }
 
+#wrapper {
+	width:1120px;
+	margin:auto;
+}
 .content {
 	font-size: 80%;
 }
@@ -98,4 +102,29 @@ td.art-constrain div {
 
 .input-gb-large {
  	width: 440px;
+}
+
+input.gb-text-large {
+	width: 206px;
+	height:50px;
+}
+	
+div hr {
+	border: 1px solid #969696;
 	}
+	
+	
+	/**Title **/
+.title {
+	text-align:center;
+	font-weight:bold;
+	font-size:30px;
+}
+
+/** Hide Chrome Spinner **/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}

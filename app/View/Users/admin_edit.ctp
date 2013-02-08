@@ -1,9 +1,11 @@
 <?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
 
+
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "textareas",
 		theme : "advanced",
+		editor_deselector : "mceNoEditor",
 		skin: "thebigreason",
 		plugins : "inlinepopups",
 		plugins : "paste",
@@ -12,171 +14,217 @@
 		theme_advanced_resizing : true,
 	});
 </script>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+	
+	$( "#datepicker" ).datepicker({ changeYear: true });
+	// getter
+	var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+	// setter
+	$( "#datepicker" ).datepicker( "option", "changeYear", true );
+	
+	
+	
+	$( "#datepicker" ).datepicker({ gotoCurrent: true });
+	// getter
+	var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+	// setter
+	$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
 
-<h2>Admin Edit User</h2>
+	
+  });
+  </script>
 
-<?php echo $this->Form->create('User'); ?>
-<?php echo $this->Form->input('id'); ?>
+<div id="wrapper">
 
-<div class="row">
-	<div class="span12">
-		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?><br />
-	</div>
-
-	<div class="span16">
-
-
-		<div class="span3">
-			<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
-			<?php echo $this->Form->input('username'); ?>
-			<?php //echo $this->Form->input('password'); ?>
-			<?php echo $this->Form->input('password_clear', array('label' => 'Password')); ?>
-			<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
-			<?php echo $this->Form->input('slug'); ?>
-			<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
-            <?php echo $this->Form->input('business_name_dba', array('label' => 'DBA')); ?>
-			<?php echo $this->Form->input('contact_name'); ?>
-			<?php echo $this->Form->input('vendor_type'); ?>
-			<?php //echo $this->Form->input('country'); ?>
-			<?php //echo $this->Form->input('country_id'); ?>
-			<?php //echo $this->Form->input('zone_id'); ?>
-			<?php echo $this->Form->input('phone'); ?>
-			<?php echo $this->Form->input('fax'); ?>
-			<?php echo $this->Form->input('email', array('label' => 'email - General')); ?>
-			<?php echo $this->Form->input('email_orders', array('label' => 'email - Orders')); ?>
-			<?php echo $this->Form->input('website'); ?>
-			<br />
-			<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
-			<?php echo $this->Form->input('payment_street_address'); ?>
-			<?php echo $this->Form->input('payment_city'); ?>
-			<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?>
-			<?php echo $this->Form->input('payment_zip'); ?>
-			<?php //echo $this->Form->input('mycategories'); ?>
-
+	<div class="title">VENDOR PROFILE</div>
+	
+	<h4>Admin Info Edit</h4>
+	
+	<?php echo $this->Form->create('User'); ?>
+	<?php echo $this->Form->input('id'); ?>
+	
+	<div class="row">
+		<div class="span12">
+			<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?><br />
 		</div>
-		<div class="span5">
-			<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
-			<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
-			<?php echo $this->Form->input('shop_signature'); ?>
-			<?php echo $this->Form->input('address', array('label' => 'Address - Line 1')); ?>
-			<?php echo $this->Form->input('address2', array('label' => 'Address - Line 2')); ?>
-			<?php echo $this->Form->input('city'); ?>
-			<?php echo $this->Form->input('state'); ?>
-            <?php echo $this->Form->input('zip'); ?>
-
-
-			<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping Policy in your Shoppe')); ?><br />
-
-
-
-		</div>
-		<div class="span3">
-			<?php echo $this->Form->input('business_ownership', array('label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
-			<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
-			<br />
-			<br />
-			<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
-            <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
-			<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
-			<?php echo $this->Form->input('commission_full', array('class' => 'span1','label' => 'Full Commision %')); ?>
-			<?php echo $this->Form->input('commission_discount', array('class' => 'span1','label' => 'Discounrt Commision %')); ?>
+	
+		<div class="span16">
+	
+	
+			<div class="span3">
+				<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
+				<?php echo $this->Form->input('username'); ?>
+				<?php //echo $this->Form->input('password'); ?>
+				<?php echo $this->Form->input('password_clear', array('label' => 'Password')); ?>
+				<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
+				<?php echo $this->Form->input('slug'); ?>
+				<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
+				<?php echo $this->Form->input('business_name_dba', array('label' => 'DBA - List all' , 'rows'=> '3', 'cols' => '3', 'class' => 'mceNoEditor')); ?>
+				
+				<hr />
+				
+				<?php echo $this->Form->input('phone', array('label' => 'Phone - General')); ?>
+				<?php echo $this->Form->input('fax', array('label' => 'Fax - General')); ?>
+				<?php echo $this->Form->input('email', array('label' => 'email - General')); ?>
+				<?php echo $this->Form->input('address', array('label' => 'Address - Line 1')); ?>
+				<?php echo $this->Form->input('address2', array('label' => 'Address - Line 2')); ?>
+				<?php echo $this->Form->input('city'); ?>
+				<?php echo $this->Form->input('state'); ?>
+				<?php echo $this->Form->input('zip', array('class' => 'span1')); ?>
+				
 			
-			
-			<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
-			<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
-			<br />
-			<br />
-			<?php //echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
-			<h5>Please indicate tax as %</h5>
-			<?php echo $this->Form->input('Tax.id', array('type' => 'hidden')); ?>
-			<?php echo $this->Form->input('Tax.total_food_tax_in_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('Tax.total_food_tax_out_state', array('class' => 'span1')); ?>
-			<?php //echo $this->Form->input('Tax.local_sales_tax_in_state', array('class' => 'span1')); ?>
-			<?php //echo $this->Form->input('Tax.local_sales_tax_out_state', array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('Tax.total_non_food_tax_in_state',array('class' => 'span1')); ?>
-			<?php echo $this->Form->input('Tax.total_non_food_tax_out_state',array('class' => 'span1')); ?>
-			<?php //echo $this->Form->input('Tax.local_use_tax_in_state',array('class' => 'span1')); ?>
-			<?php //echo $this->Form->input('Tax.local_use_tax_out_state',array('class' => 'span1')); ?>
+				<hr />
+				
+				<?php echo $this->Form->input('website'); ?>
+								
+				<?php //echo $this->Form->input('contact_name'); ?>
+				<?php //echo $this->Form->input('vendor_type'); ?>
+								
+				<?php //echo $this->Form->input('mycategories'); ?>
+	
+			</div>
+			<div class="span5">
+			<h3>SHIPPING</h3>
+				
+				<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+				<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+				<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+	
+				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping Policy in your Shoppe')); ?><br />
+				<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat shipping offered in shoppe')); ?>
+				<?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
+				<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
+				<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
+				<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
 
-			<br />
-			<br />
+				<hr />
+				<h3>CUSTOMER SERVICE</h3>
+				<?php echo $this->Form->input('customer_service_contact', array('label' =>'Customer Service Name')); ?>
+				<?php echo $this->Form->input('customer_service_phone'); ?>
+				<?php echo $this->Form->input('customer_service_phone_ext'); ?>
+				<?php echo $this->Form->input('customer_service_email'); ?>
+				
+				<hr />
+				
+				<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
+				<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
+				<?php echo $this->Form->input('shop_signature'); ?>
 
-			<?php echo $this->Form->input('contact_first_name'); ?>
-			<?php echo $this->Form->input('contact_last_name'); ?>
-			<?php echo $this->Form->input('contact_first_name'); ?>
-			<?php echo $this->Form->input('contact_title'); ?>
-			<?php echo $this->Form->input('contact_phone'); ?>
-			<?php echo $this->Form->input('contact_email'); ?>
+	
 
+	
+			</div>
+			<div class="span3">
+				<?php echo $this->Form->input('business_ownership', array('label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
+				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
+				
+				<hr />
+				<h3>CONTACT INFO</h3>
+				<?php echo $this->Form->input('contact_name'); ?>
+				<?php echo $this->Form->input('contact_last_name'); ?>
+				<?php echo $this->Form->input('contact_first_name'); ?>
+				<?php echo $this->Form->input('contact_title'); ?>
+				<?php echo $this->Form->input('contact_phone'); ?>
+				<?php echo $this->Form->input('contact_email'); ?>
+				
+				<hr />
+				
+				<?php echo $this->Form->input('contact_alt_first_name'); ?>
+				<?php echo $this->Form->input('contact_alt_last_name'); ?>
+				<?php echo $this->Form->input('contact_alt_title'); ?>
+				<?php echo $this->Form->input('contact_alt_phone'); ?>
+				<?php echo $this->Form->input('contact_alt_email'); ?>
 
+	
+	
+			</div>
+			<div class="span3">
+				<h3>FINANCIAL INFO</h3>
+				<?php echo $this->Form->input('fin_contact_name'); ?>
+				<?php echo $this->Form->input('contact_fin_first_name'); ?>
+				<?php echo $this->Form->input('contact_fin_last_name'); ?>
+				<?php echo $this->Form->input('fin_contact__title'); ?>
+				<?php echo $this->Form->input('fin_contact_phone'); ?>
+				<?php echo $this->Form->input('fin_contact_email'); ?>
+				<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
+				<?php echo $this->Form->input('payment_street_address'); ?>
+				<?php echo $this->Form->input('payment_city'); ?>
+				<?php echo $this->Form->input('payment_state', array('options' => $states,'empty' => '--')); ?>
+				<?php echo $this->Form->input('payment_zip'); ?>
+				<?php echo $this->Form->input('email_orders', array('label' => 'email - Orders')); ?>
+
+				<hr />
+				
+				<?php echo $this->Form->input('ins_carrier', array('label' => 'Insurance Carrier')); ?>
+				<?php //echo $this->Form->input('ins_carrier_name'); ?>
+				<?php echo $this->Form->input('ins_carrier_phone', array('label' => 'Insurance Carrier Phone')); ?>
+				<?php echo $this->Form->input('ins_policy_num', array('label' => 'Insurance Policy Number')); ?>
+				<?php echo $this->Form->input('ins_policy_exp', array('id' => 'datepicker', 'label' => 'Policy Expiration Date','class' => 'mceNoEditor')); ?>
+				<?php echo $this->Form->input('ins_policy_coverage'); ?>
+				
+				<hr />
+				<h3>PRICES</h3>
+				<?php echo $this->Form->input('wholesale', array('type' => 'checkbox','label' => 'Check if wholesale vendor')); ?>
+				<?php echo $this->Form->input('commission_full', array('class' => 'span1','label' => 'Full Commision %')); ?>
+				<?php echo $this->Form->input('commission_discount', array('class' => 'span1','label' => 'Discount Commision %')); ?>
+				
+				<hr />
+				
+				<h3>TAXES</h3>
+				<?php //echo $this->Form->input('check', array('type' => 'checkbox','label' => 'Do you charge tax?')); ?>
+				<h5>Please indicate tax as %</h5>
+				<?php echo $this->Form->input('Tax.id', array('type' => 'hidden')); ?>
+				<?php echo $this->Form->input('Tax.total_food_tax_in_state', array('class' => 'span1')); ?>
+				<?php echo $this->Form->input('Tax.total_food_tax_out_state', array('class' => 'span1')); ?>
+				<?php //echo $this->Form->input('Tax.local_sales_tax_in_state', array('class' => 'span1')); ?>
+				<?php //echo $this->Form->input('Tax.local_sales_tax_out_state', array('class' => 'span1')); ?>
+				<?php echo $this->Form->input('Tax.total_non_food_tax_in_state',array('class' => 'span1')); ?>
+				<?php echo $this->Form->input('Tax.total_non_food_tax_out_state',array('class' => 'span1')); ?>
+				<?php //echo $this->Form->input('Tax.local_use_tax_in_state',array('class' => 'span1')); ?>
+				<?php //echo $this->Form->input('Tax.local_use_tax_out_state',array('class' => 'span1')); ?>
+
+				
+	
+			</div>
+			<!--<div class="span2">
+	
+				<?php //echo $this->Form->input('bd_image1'); ?>
+				<?php //echo $this->Form->input('bd_image2'); ?>
+				<?php //echo $this->Form->input('bd_image3'); ?>
+				<?php //echo $this->Form->input('bd_image4'); ?>
+				<?php //echo $this->Form->input('bd_image5'); ?>
+				<?php //echo $this->Form->input('bd_image6'); ?>
+				<?php //echo $this->Form->input('bd_category1'); ?>
+				<?php //echo $this->Form->input('bd_category2'); ?>
+				<?php //echo $this->Form->input('bd_category3'); ?>
+				<?php //echo $this->Form->input('bd_category4'); ?>
+				<?php //echo $this->Form->input('bd_category5'); ?>
+				<?php //echo $this->Form->input('bd_category6'); ?>
+			</div>-->
 		</div>
-		<div class="span3">
-			<h3>FINANCIAL</h3>
-			<?php echo $this->Form->input('contact_fin_name'); ?>
-			<?php echo $this->Form->input('contact_fin_first_name'); ?>
-			<?php echo $this->Form->input('contact_fin_last_name'); ?>
-			<?php echo $this->Form->input('contact_fin_title'); ?>
-			<?php echo $this->Form->input('contact_fin_phone'); ?>
-			<?php echo $this->Form->input('contact_fin_email'); ?>
-			<?php echo $this->Form->input('ins_carrier'); ?>
-			<?php echo $this->Form->input('ins_carrier_name'); ?>
-			<?php echo $this->Form->input('ins_carrier_phone'); ?>
-			<?php echo $this->Form->input('ins_policy_num', array('label' => 'Insurance Policy Number')); ?>
-			<?php echo $this->Form->input('ins_policy_exp', array('label' => 'Policy Expiration Date')); ?>
-			<?php echo $this->Form->input('ins_policy_coverage'); ?><br /><br />
-			<?php echo $this->Form->input('contact_alt_first_name'); ?>
-			<?php echo $this->Form->input('contact_alt_last_name'); ?>
-			<?php echo $this->Form->input('contact_alt_title'); ?>
-			<?php echo $this->Form->input('contact_alt_phone'); ?>
-			<?php echo $this->Form->input('contact_alt_email'); ?>
-			<?php echo $this->Form->input('customer_service_contact'); ?>
-			<?php echo $this->Form->input('customer_service_phone'); ?>
-			<?php echo $this->Form->input('customer_service_phone_ext'); ?>
-			<?php echo $this->Form->input('customer_service_email'); ?>
-
-
-		</div>
-		<!--<div class="span2">
-
-			<?php //echo $this->Form->input('bd_image1'); ?>
-			<?php //echo $this->Form->input('bd_image2'); ?>
-			<?php //echo $this->Form->input('bd_image3'); ?>
-			<?php //echo $this->Form->input('bd_image4'); ?>
-			<?php //echo $this->Form->input('bd_image5'); ?>
-			<?php //echo $this->Form->input('bd_image6'); ?>
-			<?php //echo $this->Form->input('bd_category1'); ?>
-			<?php //echo $this->Form->input('bd_category2'); ?>
-			<?php //echo $this->Form->input('bd_category3'); ?>
-			<?php //echo $this->Form->input('bd_category4'); ?>
-			<?php //echo $this->Form->input('bd_category5'); ?>
-			<?php //echo $this->Form->input('bd_category6'); ?>
-		</div>-->
 	</div>
-</div>
-<div class="row">
-	<div class="span12">
-
-		<div class="span4">
-			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
-
-			<br />
-			<br />
-			<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-			<?php echo $this->Form->end(); ?>
-
-			<h3>Actions</h3>
-			<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
-			<br />
-			<br />
-			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
+	<div class="row">
+		<div class="span12">
+	
+			<div class="span4">
+				<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+	
+				<br />
+				<br />
+				<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+				<?php echo $this->Form->end(); ?>
+	
+				<h3>Actions</h3>
+				<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
+				<br />
+				<br />
+				<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
+			</div>
 		</div>
 	</div>
-</div>
-
-<br />
-<br />
-
+	
+	<br />
+	<br />
+	
