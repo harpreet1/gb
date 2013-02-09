@@ -99,6 +99,7 @@ $(document).ready(function() {
 });
 </script>
 
+
 <h2>Products</h2>
 
 <div class="row">
@@ -113,7 +114,6 @@ $(document).ready(function() {
 	<div class="span2">
 		<?php echo $this->Form->input('brand_id', array('label' => false, 'class' => 'span2', 'empty' => 'Brand', 'selected' => $all['brand_id'])); ?>
 	</div>
-
 
 	<div class="span2">
 		<?php echo $this->Form->input('filter', array(

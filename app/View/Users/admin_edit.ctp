@@ -88,7 +88,7 @@
 			<div class="span5">
 			<h3>SHIPPING</h3>
 				
-				<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
+				<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method','empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 				<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 				<?php echo $this->Form->input('shipping_method', array('label' => '2nd Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 	
@@ -107,7 +107,7 @@
 				<?php echo $this->Form->input('customer_service_email'); ?>
 				
 				<hr />
-				
+				<h3>SHOPPE DESCRIPTION</h3>
 				<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
 				<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
 				<?php echo $this->Form->input('shop_signature'); ?>
@@ -130,7 +130,7 @@
 				<?php echo $this->Form->input('contact_email'); ?>
 				
 				<hr />
-				
+				<?php echo $this->Form->input('contactalt_name'); ?>
 				<?php echo $this->Form->input('contact_alt_first_name'); ?>
 				<?php echo $this->Form->input('contact_alt_last_name'); ?>
 				<?php echo $this->Form->input('contact_alt_title'); ?>
@@ -156,7 +156,7 @@
 				<?php echo $this->Form->input('email_orders', array('label' => 'email - Orders')); ?>
 
 				<hr />
-				
+				<h3>INSURANCE</h3>
 				<?php echo $this->Form->input('ins_carrier', array('label' => 'Insurance Carrier')); ?>
 				<?php //echo $this->Form->input('ins_carrier_name'); ?>
 				<?php echo $this->Form->input('ins_carrier_phone', array('label' => 'Insurance Carrier Phone')); ?>

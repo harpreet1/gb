@@ -121,6 +121,13 @@ div hr {
 	font-size:30px;
 }
 
+/** Larger text field **/
+
+.text input#UserShopSignature {
+	width:200px;
+	}
+
+
 /** Hide Chrome Spinner **/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

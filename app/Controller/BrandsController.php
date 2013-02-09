@@ -61,6 +61,7 @@ class BrandsController extends AppController {
 			'filter' => '',
 			'conditions' => ''
 		);
+		
 
 		if($this->Session->check('Brand')) {
 			$all = $this->Session->read('Brand');

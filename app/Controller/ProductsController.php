@@ -840,7 +840,7 @@ class ProductsController extends AppController {
 				'User.name' => 'ASC'
 			),
 			'group' => array(
-				'Product.user_id'
+				'Product.user_id',
 			),
 		));
 		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.active'));
