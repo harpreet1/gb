@@ -217,8 +217,27 @@ class UsersController extends AppController {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}
 		}
-	}
 
+		$states = $this->User->states();
+
+		$taxes = $this->User->Tax->find('all', array(
+		'recursive' => -1,
+			'fields' => array(
+				'Tax.id',
+				'Tax.user_id',
+				'Tax.check',
+				'Tax.total_food_tax_in_state',
+				'Tax.total_food_tax_out_state',
+				'Tax.local_sales_tax_in_state',
+				'Tax.local_sales_tax_out_state',
+				'Tax.total_non_food_tax_in_state',
+				'Tax.total_non_food_tax_out_state',
+				'Tax.local_use_tax_in_state',
+				'Tax.local_use_tax_out_state',
+			),
+		));
+		$this->set(compact('users','taxes','states'));
+	}
 ////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {

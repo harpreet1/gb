@@ -123,16 +123,12 @@
 				<hr />
 				<h3>CONTACT INFO</h3>
 				<?php echo $this->Form->input('contact_name'); ?>
-				<?php echo $this->Form->input('contact_last_name'); ?>
-				<?php echo $this->Form->input('contact_first_name'); ?>
 				<?php echo $this->Form->input('contact_title'); ?>
 				<?php echo $this->Form->input('contact_phone'); ?>
 				<?php echo $this->Form->input('contact_email'); ?>
 				
 				<hr />
 				<?php echo $this->Form->input('contactalt_name', array('label' => 'Alternate Contact Name')); ?>
-				<?php echo $this->Form->input('contact_alt_first_name'); ?>
-				<?php echo $this->Form->input('contact_alt_last_name'); ?>
 				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
 				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
 				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
@@ -143,8 +139,6 @@
 			<div class="span3">
 				<h3>FINANCIAL INFO</h3>
 				<?php echo $this->Form->input('fin_contact_name', array('label' => 'Financial Contact Name')); ?>
-				<?php echo $this->Form->input('contact_fin_first_name'); ?>
-				<?php echo $this->Form->input('contact_fin_last_name'); ?>
 				<?php echo $this->Form->input('fin_contact__title', array('label' => 'Financial Contact Title')); ?>
 				<?php echo $this->Form->input('fin_contact_phone', array('label' => 'Financial Contact Phone')); ?>
 				<?php echo $this->Form->input('fin_contact_email', array('label' => 'Financial Contact eMail')); ?>
@@ -190,18 +184,6 @@
 			</div>
 			<!--<div class="span2">
 	
-				<?php //echo $this->Form->input('bd_image1'); ?>
-				<?php //echo $this->Form->input('bd_image2'); ?>
-				<?php //echo $this->Form->input('bd_image3'); ?>
-				<?php //echo $this->Form->input('bd_image4'); ?>
-				<?php //echo $this->Form->input('bd_image5'); ?>
-				<?php //echo $this->Form->input('bd_image6'); ?>
-				<?php //echo $this->Form->input('bd_category1'); ?>
-				<?php //echo $this->Form->input('bd_category2'); ?>
-				<?php //echo $this->Form->input('bd_category3'); ?>
-				<?php //echo $this->Form->input('bd_category4'); ?>
-				<?php //echo $this->Form->input('bd_category5'); ?>
-				<?php //echo $this->Form->input('bd_category6'); ?>
 			</div>-->
 		</div>
 	</div>
