@@ -117,7 +117,7 @@
 	
 			</div>
 			<div class="span3">
-				<?php echo $this->Form->input('business_ownership', array('label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
+				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
 				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
 				
 				<hr />
