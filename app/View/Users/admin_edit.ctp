@@ -117,7 +117,7 @@
 	
 			</div>
 			<div class="span3">
-				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'corporation' => 'Corporation'))); ?>
+				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
 				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
 				
 				<hr />
@@ -142,12 +142,12 @@
 			</div>
 			<div class="span3">
 				<h3>FINANCIAL INFO</h3>
-				<?php echo $this->Form->input('fin_contact_name'); ?>
+				<?php echo $this->Form->input('fin_contact_name', array('label' => 'Financial Contact Name')); ?>
 				<?php echo $this->Form->input('contact_fin_first_name'); ?>
 				<?php echo $this->Form->input('contact_fin_last_name'); ?>
-				<?php echo $this->Form->input('fin_contact__title'); ?>
-				<?php echo $this->Form->input('fin_contact_phone'); ?>
-				<?php echo $this->Form->input('fin_contact_email'); ?>
+				<?php echo $this->Form->input('fin_contact__title', array('label' => 'Financial Contact Title')); ?>
+				<?php echo $this->Form->input('fin_contact_phone', array('label' => 'Financial Contact Phone')); ?>
+				<?php echo $this->Form->input('fin_contact_email', array('label' => 'Financial Contact eMail')); ?>
 				<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
 				<?php echo $this->Form->input('payment_street_address'); ?>
 				<?php echo $this->Form->input('payment_city'); ?>
