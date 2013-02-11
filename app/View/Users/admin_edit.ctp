@@ -86,13 +86,7 @@
 			</div>
 			<div class="span5">
             
-               <div style="background-color:#FFC;; border:#CCC thin dotted;padding:10px;">
-                  <h3>VENDOR APPROVAL</h3>
-                      <?php echo $this->Form->input('Approval.id', array('type' => 'hidden')); ?>
-                      <?php echo $this->Form->input('Approval.status', array('label' => 'Approval Status','empty' => '--', 'options' => array('1' => 'Approve as is', '2' => 'Approve with modifications', ))); ?>
-                      
-                      <?php echo $this->Form->input('Approval.comments', array('label' => 'Modifications')); ?>
-               </div>       
+               
 			<h3>SHIPPING</h3>
 				
 				<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method','empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
@@ -125,6 +119,22 @@
 				<?php echo $this->Form->input('shop_signature'); ?>
 	
 			</div>
+            
+            <div class="span6">
+            <div style="background-color:#FFC;; border:#CCC thin dotted;padding:10px;">
+                  <h3>VENDOR APPROVAL</h3>
+                      <?php echo $this->Form->input('Approval.id', array('type' => 'hidden')); ?>
+                      <?php echo $this->Form->input('Approval.status', array('label' => 'Approval Status','empty' => '--', 'options' => array('1' => 'Approve as is', '2' => 'Approve with modifications', ))); ?>
+                      
+                      <?php echo $this->Form->input('Approval.comments', array('label' => 'Modifications')); ?>
+               </div>       
+            
+            
+            </div>
+            
+            
+            
+            
 			<div class="span3">
 				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
 				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
