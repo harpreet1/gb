@@ -105,6 +105,11 @@ class UsersController extends AppController {
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
+		
+		$states = $this->User->states();
+		
+		$this->set(compact('users','taxes','states'));
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
@@ -257,11 +262,13 @@ class UsersController extends AppController {
 		} else {
 			$user = $this->User->find('first', array(
 				'contain' => array(
-					'Tax'
+					'Tax',
+					'Approval'
 				),
 				'conditions' => array(
 					'User.id' => $id
-				)
+				),
+				
 			));
 			$this->request->data = $user;
 			$this->set('user', $this->User->read(null, $id));
@@ -270,22 +277,35 @@ class UsersController extends AppController {
 		$states = $this->User->states();
 
 		$taxes = $this->User->Tax->find('all', array(
-		'recursive' => -1,
-			'fields' => array(
-				'Tax.id',
-				'Tax.user_id',
-				'Tax.check',
-				'Tax.total_food_tax_in_state',
-				'Tax.total_food_tax_out_state',
-				'Tax.local_sales_tax_in_state',
-				'Tax.local_sales_tax_out_state',
-				'Tax.total_non_food_tax_in_state',
-				'Tax.total_non_food_tax_out_state',
-				'Tax.local_use_tax_in_state',
-				'Tax.local_use_tax_out_state',
+		   'recursive' => -1,
+			   'fields' => array(
+				   'Tax.id',
+				   'Tax.user_id',
+				   'Tax.check',
+				   'Tax.total_food_tax_in_state',
+				   'Tax.total_food_tax_out_state',
+				   'Tax.local_sales_tax_in_state',
+				   'Tax.local_sales_tax_out_state',
+				   'Tax.total_non_food_tax_in_state',
+				   'Tax.total_non_food_tax_out_state',
+				   'Tax.local_use_tax_in_state',
+				   'Tax.local_use_tax_out_state',
 			),
+			
 		));
-		$this->set(compact('users','taxes','states'));
+			
+		$approvals = $this->User->Approval->find('all', array(
+		   'recursive' => -1,
+			   'fields' => array(
+			   		'Approval.id',
+					'Approval.user_id',
+					'Approval.comments',
+					'Approval.status',
+			),
+
+		));
+	
+		$this->set(compact('users','taxes','states','approvals'));
 	}
 
 ////////////////////////////////////////////////////////////

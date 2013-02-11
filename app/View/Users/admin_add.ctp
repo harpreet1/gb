@@ -56,7 +56,7 @@
 			<div class="span3">
 				<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
 				<?php echo $this->Form->input('username'); ?>
-				<?php //echo $this->Form->input('password'); ?>
+				<?php echo $this->Form->input('password'); ?>
 				<?php echo $this->Form->input('password_clear', array('label' => 'Password')); ?>
 				<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
 				<?php echo $this->Form->input('slug'); ?>

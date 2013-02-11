@@ -1,5 +1,6 @@
 body {
 	background-color:#FFFCF5;
+	font-size:13px;
 }
 
 #wrapper {
@@ -7,7 +8,7 @@ body {
 	margin:auto;
 }
 .content {
-	font-size: 80%;
+	/*font-size: 80%;*/
 }
 
 #flashMessage{
@@ -112,7 +113,11 @@ input.gb-text-large {
 div hr {
 	border: 1px solid #969696;
 	}
-	
+
+div.inline > .input {
+	width:46px;
+	display:inline;
+	}	
 	
 	/**Title **/
 .title {

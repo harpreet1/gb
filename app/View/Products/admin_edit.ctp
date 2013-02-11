@@ -122,7 +122,8 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
-		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected)); ?>
+    <h3>Traditions</h3>
+		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected, 'label' => 'International Traditions')); ?>
 		<br />
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
@@ -131,26 +132,27 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span2">
+    <h3>Attributes</h3>
 	<?php
-		echo $this->Form->input('attr_allergen_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_gluten_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_fat_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_low_carb', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_free', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_organic', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_kosher', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_halal', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_fair_traded', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_give_back', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_all_natural', array('type' => 'checkbox'));
-		echo $this->Form->input('attr_award_winning', array('type' => 'checkbox'));
+		echo $this->Form->input('attr_allergen_free', array('type' => 'checkbox','label' => 'Allergen Free'));
+		echo $this->Form->input('attr_gluten_free', array('type' => 'checkbox','label' => 'Gluten Free'));
+		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Allergen Free'));
+		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Vegetarian'));
+		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
+		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
+		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
+		echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));
+		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox','label' => 'Nut Free'));
+		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox','label' => 'Heart Smart'));
+		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox','label' => 'No Artificial Preservatives'));
+		echo $this->Form->input('attr_organic', array('type' => 'checkbox','label' => 'Organic'));
+		echo $this->Form->input('attr_kosher', array('type' => 'checkbox','label' => 'Kosher'));
+		echo $this->Form->input('attr_halal', array('type' => 'checkbox','label' => 'Halal'));
+		echo $this->Form->input('attr_fair_traded', array('type' => 'checkbox','label' => 'Fair Traded'));
+		echo $this->Form->input('attr_give_back', array('type' => 'checkbox','label' => 'Give Back'));
+		echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox','label' => 'Not Heat Sensitive'));
+		echo $this->Form->input('attr_all_natural', array('type' => 'checkbox','label' => 'All Natural'));
+		echo $this->Form->input('attr_award_winning', array('type' => 'checkbox','label' => 'Award Winning'));
 	?>
 	</div>
 

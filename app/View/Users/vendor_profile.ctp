@@ -139,7 +139,7 @@
 </tr>
 <tr>
 <td>Flat Price</td>
-<td><?php echo h($user['User']['flat_price']); ?></td>
+<td><?php echo h($user['User']['flat_shipping_price']); ?></td>
 </tr>
 <tr>
 <td>Contact First Name</td>
@@ -208,15 +208,15 @@
 </tr>
 <tr>
 <td>Contact Fin Title</td>
-<td><?php echo h($user['User']['contact_fin_title']); ?></td>
+<td><?php echo h($user['User']['fin_contact_title']); ?></td>
 </tr>
 <tr>
 <td>Contact Fin Phone</td>
-<td><?php echo h($user['User']['contact_fin_phone']); ?></td>
+<td><?php echo h($user['User']['fin_contact_phone']); ?></td>
 </tr>
 <tr>
 <td>Contact Fin Email</td>
-<td><?php echo h($user['User']['contact_fin_email']); ?></td>
+<td><?php echo h($user['User']['fin_contact_email']); ?></td>
 </tr>
 <tr>
 <td>Ins Carrier</td>
@@ -259,10 +259,6 @@
 <td><?php echo h($user['User']['payment_city']); ?></td>
 </tr>
 <tr>
-<td>Payment Zone Id</td>
-<td><?php echo h($user['User']['payment_zone_id']); ?></td>
-</tr>
-<tr>
 <td>Payment Zip</td>
 <td><?php echo h($user['User']['payment_zip']); ?></td>
 </tr>
@@ -272,55 +268,6 @@
 <tr>
 <td>Mycategories</td>
 <td><?php echo h($user['User']['mycategories']); ?></td>
-</tr>
-<tr>
-<td>Bd Image1</td>
-<td><?php echo h($user['User']['bd_image1']); ?></td>
-</tr>
-<tr>
-<td>Bd Image2</td>
-<td><?php echo h($user['User']['bd_image2']); ?></td>
-</tr>
-<tr>
-<td>Bd Image3</td>
-<td><?php echo h($user['User']['bd_image3']); ?></td>
-</tr>
-<tr>
-<td>Bd Image4</td>
-<td><?php echo h($user['User']['bd_image4']); ?></td>
-</tr>
-<tr>
-<td>Bd Image5</td>
-<td><?php echo h($user['User']['bd_image5']); ?></td>
-</tr>
-<tr>
-<td>Bd Image6</td>
-<td><?php echo h($user['User']['bd_image6']); ?></td>
-</tr>
-<tr>
-<td>Bd Category1</td>
-<td><?php echo h($user['User']['bd_category1']); ?></td>
-</tr>
-<tr>
-<td>Bd Category2</td>
-<td><?php echo h($user['User']['bd_category2']); ?></td>
-</tr>
-<tr>
-<td>Bd Category3</td>
-<td><?php echo h($user['User']['bd_category3']); ?></td>
-</tr>
-<tr>
-<td>Bd Category4</td>
-<td><?php echo h($user['User']['bd_category4']); ?></td>
-</tr>
-<tr>
-<td>Bd Category5</td>
-<td><?php echo h($user['User']['bd_category5']); ?></td>
-</tr>
-<tr>
-<td>Bd Category6</td>
-<td><?php echo h($user['User']['bd_category6']); ?></td>
-</tr>
 <tr>
 <td>Active</td>
 <td><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></td>
