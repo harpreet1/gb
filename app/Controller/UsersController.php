@@ -105,11 +105,11 @@ class UsersController extends AppController {
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		
+
 		$states = $this->User->states();
-		
+
 		$this->set(compact('users','taxes','states'));
-		
+
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
@@ -249,7 +249,7 @@ class UsersController extends AppController {
 
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
+			throw new NotFoundException('Invalid user');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 
@@ -268,7 +268,6 @@ class UsersController extends AppController {
 				'conditions' => array(
 					'User.id' => $id
 				),
-				
 			));
 			$this->request->data = $user;
 			$this->set('user', $this->User->read(null, $id));
@@ -277,34 +276,32 @@ class UsersController extends AppController {
 		$states = $this->User->states();
 
 		$taxes = $this->User->Tax->find('all', array(
-		   'recursive' => -1,
-			   'fields' => array(
-				   'Tax.id',
-				   'Tax.user_id',
-				   'Tax.check',
-				   'Tax.total_food_tax_in_state',
-				   'Tax.total_food_tax_out_state',
-				   'Tax.local_sales_tax_in_state',
-				   'Tax.local_sales_tax_out_state',
-				   'Tax.total_non_food_tax_in_state',
-				   'Tax.total_non_food_tax_out_state',
-				   'Tax.local_use_tax_in_state',
-				   'Tax.local_use_tax_out_state',
+			'recursive' => -1,
+			'fields' => array(
+				'Tax.id',
+				'Tax.user_id',
+				'Tax.check',
+				'Tax.total_food_tax_in_state',
+				'Tax.total_food_tax_out_state',
+				'Tax.local_sales_tax_in_state',
+				'Tax.local_sales_tax_out_state',
+				'Tax.total_non_food_tax_in_state',
+				'Tax.total_non_food_tax_out_state',
+				'Tax.local_use_tax_in_state',
+				'Tax.local_use_tax_out_state',
 			),
-			
 		));
-			
-		$approvals = $this->User->Approval->find('all', array(
-		   'recursive' => -1,
-			   'fields' => array(
-			   		'Approval.id',
-					'Approval.user_id',
-					'Approval.comments',
-					'Approval.status',
-			),
 
+		$approvals = $this->User->Approval->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Approval.id',
+				'Approval.user_id',
+				'Approval.comments',
+				'Approval.status',
+			),
 		));
-	
+
 		$this->set(compact('users','taxes','states','approvals'));
 	}
 
@@ -331,6 +328,26 @@ class UsersController extends AppController {
 
 		$this->set(compact('users'));
 
+	}
+
+
+////////////////////////////////////////////////////////////
+
+	public function admin_password($id = null) {
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException('Invalid user');
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The user has been saved');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The user could not be saved. Please, try again.');
+			}
+		} else {
+			$this->request->data = $this->User->read(null, $id);
+		}
 	}
 
 ////////////////////////////////////////////////////////////
