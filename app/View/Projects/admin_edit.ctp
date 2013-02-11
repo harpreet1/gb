@@ -1,4 +1,4 @@
-<h2>Edit Client</h2>
+<h2>Edit Vendor Tracking</h2>
 
 <div class="row">
 	<div class="span4">

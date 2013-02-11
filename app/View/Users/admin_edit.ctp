@@ -87,7 +87,7 @@
 			<div class="span5">
             
                
-			<h3>SHIPPING</h3>
+			<h3>SHIPPING/ ORDER POLICIES</h3>
 				
 				<?php echo $this->Form->input('shipping_method', array('label' => 'Preferred Shipping Method','empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
 				<?php echo $this->Form->input('shipping_method', array('label' => 'Alternate Shipping Method' ,'empty' => '--', 'options' => array('ups' => 'UPS', 'fedex' => 'FEDEX', 'usps' => 'US Postal Service'))); ?>
@@ -105,12 +105,7 @@
 				<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
 				<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
 
-				<hr />
-				<h3>CUSTOMER SERVICE</h3>
-				<?php echo $this->Form->input('customer_service_contact', array('label' =>'Customer Service Name')); ?>
-				<?php echo $this->Form->input('customer_service_phone'); ?>
-				<?php echo $this->Form->input('customer_service_phone_ext'); ?>
-				<?php echo $this->Form->input('customer_service_email'); ?>
+				
 				
 				<hr />
 				<h3>SHOPPE DESCRIPTION</h3>
@@ -131,15 +126,13 @@
             
             
             </div>
-            
-            
-            
-            
+                        
 			<div class="span3">
 				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
 				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
 				
 				<hr />
+                
 				<h3>CONTACT INFO</h3>
 				<?php echo $this->Form->input('contact_name'); ?>
 				<?php echo $this->Form->input('contact_title'); ?>
@@ -147,10 +140,19 @@
 				<?php echo $this->Form->input('contact_email'); ?>
 				
 				<hr />
+                
 				<?php echo $this->Form->input('contactalt_name', array('label' => 'Alternate Contact Name')); ?>
 				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
 				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
 				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
+                
+                <hr />
+                
+				<h3>CUSTOMER SERVICE</h3>
+				<?php echo $this->Form->input('customer_service_contact', array('label' =>'Customer Service Name')); ?>
+				<?php echo $this->Form->input('customer_service_phone'); ?>
+				<?php echo $this->Form->input('customer_service_phone_ext'); ?>
+				<?php echo $this->Form->input('customer_service_email'); ?>
 	
 			</div>
 			<div class="span3">

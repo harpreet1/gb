@@ -1,6 +1,6 @@
 body {
 	background-color:#FFFCF5;
-	font-size:13px;
+	
 }
 
 #wrapper {
@@ -38,6 +38,14 @@ td div {
 	/*max-height: 130px;
 	overflow-y: scroll;*/
 }
+
+th {
+	font-size:11px;
+	}
+	
+td {
+	font-size:12px;
+	}
 
 td.constrain img{
 	max-height: 90px;

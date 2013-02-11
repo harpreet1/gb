@@ -58,6 +58,39 @@ class AppController extends Controller {
 		} else {
 			$this->Auth->allow();
 
+			//$menucategories = Cache::read('menucat1egories');
+			if (!$menucategories) {			
+				$menucategories = ClassRegistry::init('Product')->find('all', array(
+			'recursive' => -1,
+			'contain' => array(
+				'User',
+				'Category'
+			),
+			'fields' => array(
+				'Category.id',
+				'Category.name',
+				'Category.slug',
+			),
+			'conditions' => array(
+				'User.active' => 1,
+				'Product.active' => 1,
+				'Product.category_id >' => 0,
+				'Category.id >' => 0,
+			),
+			'order' => array(
+				'Category.name' => 'ASC'
+			),
+			'group' => array(
+				'Category.id'
+			)
+			));
+				
+				
+				Cache::set(array('duration' => '+10 minutes'));
+				Cache::write('menucategories', $menucategories);
+			}
+			$this->set(compact('menucategories'));
+
 			$menuvendors = Cache::read('menuvendors');
 			if (!$menuvendors) {
 				$menuvendors = ClassRegistry::init('User')->getVendors();

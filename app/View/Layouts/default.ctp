@@ -38,30 +38,16 @@
 						<li class="dropdown">
 							<a href="http://gourmetdev.com/categories" class="js-activated">Food Categories<b class="caret"></b></a>
 							<ul class="dropdown-menu">
+                            	<?php foreach($menucategories as $menucategory) : ?>
+								<li><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></li>
+                                
+								<?php endforeach; ?>
+                            
 								<li><a href="/cat/appetizers">Appetizers</a></li>
 								<li><a href="/cat/bakery">Bakery</a></li>
 								<li><a href="/cat/beverages">Beverages</a></li>
 								<li><a href="/cat/chocolates">Chocolates</a></li>
-								<li><a href="/cat/coffee">Coffee</a></li>
-								<li><a href="/cat/condiments">Condiments</a></li>
-								<li><a href="/cat/confections">Confections</a></li>
-								<li><a href="/cat/dairy">Dairy</a></li>
-								<li><a href="/cat/desserts">Desserts</a></li>
-								<li><a href="/cat/seafood">Fish &amp; Seafood</a></li>
-								<li><a href="/cat/fruits">Fruits</a></li>
-								<li><a href="/cat/grains-and-cereals">Grains &amp; Cereals</a></li>
-								<li><a href="/cat/herbs-spices">Herbs and Spices</a></li>
-								<li><a href="/cat/jams-syrups">Jams &amp; Syrups</a></li>
-								<li><a href="/cat/legumes-beans">Legumes &amp; Beans</a></li>
-								<li><a href="/cat/meats-poultry">Meats &amp; Poultry</a></li>
-								<li><a href="/cat/nuts-seeds">Nuts &amp; Seeds</a></li>
-								<li><a href="/cat/oils-vinegars">Oils &amp; Vinegars</a></li>
-								<li><a href="/cat/pasta-noodles">Pasta &amp; Noodles</a></li>
-								<li><a href="/cat/rice">Rice</a></li>
-								<li><a href="/cat/sauces">Sauces &amp; Marinades</a></li>
-								<li><a href="/cat/snacks">Snacks</a></li>
-								<li><a href="/cat/soups-prepared-foods">Soups &amp; Prepared Foods</a></li>
-								<li><a href="/cat/vegetables-and-potatoes">Vegetables &amp; Potatoes</a></li>
+	
 							</ul>
 						
 						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
