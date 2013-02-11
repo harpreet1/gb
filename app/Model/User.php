@@ -48,7 +48,6 @@ class User extends AppModel {
 ////////////////////////////////////////////////////////////
 
 	public $hasOne = array(
-
 		'Tax' => array(
 			'className' => 'Tax',
 			'foreignKey' => 'user_id',
@@ -62,8 +61,6 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-
-	
 		'Approval' => array(
 			'className' => 'Approval',
 			'foreignKey' => 'user_id',
@@ -77,10 +74,7 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-
 	);
-
-
 
 ////////////////////////////////////////////////////////////
 
