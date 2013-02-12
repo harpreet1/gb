@@ -5,12 +5,13 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Model.Datasource.Database
  * @since         CakePHP(tm) v 0.10.5.1790
@@ -20,10 +21,12 @@
 App::uses('DboSource', 'Model/Datasource');
 
 /**
- * Dbo driver for SQLServer
+ * Dbo layer for Mircosoft's offical SQLServer driver
  *
- * A Dbo driver for SQLServer 2008 and higher. Requires the `sqlsrv`
- * and `pdo_sqlsrv` extensions to be enabled.
+ * A Dbo layer for MS SQL Server 2005 and higher. Requires the
+ * `pdo_sqlsrv` extension to be enabled.
+ * 
+ * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php
  *
  * @package       Cake.Model.Datasource.Database
  */
