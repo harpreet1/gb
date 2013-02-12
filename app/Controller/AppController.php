@@ -58,7 +58,7 @@ class AppController extends Controller {
 		} else {
 			$this->Auth->allow();
 
-			//$menucategories = Cache::read('menucat1egories');
+			$menucategories = Cache::read('menucategories');
 			if (!$menucategories) {			
 				$menucategories = ClassRegistry::init('Product')->find('all', array(
 			'recursive' => -1,
