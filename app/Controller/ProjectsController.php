@@ -54,8 +54,10 @@ class ProjectsController extends AppController {
 			)
 		));
 		
+		$states = $this->Project->states();
 		$sources = $this->Project->sources();
-		$this->set(compact('projectcategories','sources'));
+		$persons = $this->Project->persons();
+		$this->set(compact('projectcategories','sources', 'states','persons'));
 				
 	}
 
@@ -82,8 +84,10 @@ class ProjectsController extends AppController {
 			)
 		));
 		
+		$states = $this->Project->states();
 		$sources = $this->Project->sources();
-		$this->set(compact('projectcategories','sources'));
+		$persons = $this->Project->persons();
+		$this->set(compact('projectcategories','sources', 'states','persons'));
 	}
 		
 ////////////////////////////////////////////////////////////

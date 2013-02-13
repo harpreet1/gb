@@ -1,4 +1,4 @@
-<h2>Projects</h2>
+<h2>Prospective Vendor Tracking</h2>
 
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>

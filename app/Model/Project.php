@@ -18,7 +18,7 @@ class Project extends AppModel {
 
 	public function sources() {
 		$sources = array(
-			'' => '',
+			'-' => '-',
 			'SF Fancy FD 2013' => 'SF Fancy FD 2013',
 			'SF Fancy FD 2012' => 'SF Fancy FD 2012',
 			'Nat Prod Expo W 2013' => 'Nat Prod Expo W 2013',
@@ -33,6 +33,20 @@ class Project extends AppModel {
 			
 		);
 		return $sources;
+	}
+
+
+////////////////////////////////////////////////////////////
+
+	public function persons() {
+		$persons = array(
+			'-' => '-',
+			'Jon' => 'Jon',
+			'Cari' => 'Cari',
+			'Sharon' => 'Sharon',
+			'JC' => 'JC',
+		);
+		return $persons;
 	}
 
 ////////////////////////////////////////////////////////////	

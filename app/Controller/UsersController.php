@@ -389,6 +389,74 @@ class UsersController extends AppController {
 		$this->Session->setFlash('User was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
+	
+
+////////////////////////////////////////////////////////////
+
+	public function search() {
+
+		$search = null;
+		if(!empty($this->request->query['search']) || !empty($this->request->data['name'])) {
+			$search = empty($this->request->query['search']) ? $this->request->data['name'] : $this->request->query['search'] ;
+			//$search = preg_replace('/[^a-zA-Z0-9 ]/', '', $search);
+			$terms = explode(' ', trim($search));
+			$terms = array_diff($terms, array(''));
+			//$conditions = array(
+//				'User.active' => 1,
+//				'User.level' => 'vendor',
+//				'Product.active' => 1,
+//			);
+			foreach($terms as $term) {
+				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
+				$conditions[] = array(
+					'OR' => array(
+						'User.name LIKE' => '%' . $term . '%',
+						//'Brand.name LIKE' => '%' . $term . '%',
+					)
+				);
+			}
+			$products = $this->Product->find('all', array(
+				'recursive' => -1,
+				//'contain' => array(
+//					'User',
+//					'Brand'
+//				),
+				'fields' => array(
+					'Product.id',
+					'Product.name',
+					'Product.slug',
+					'Product.image',
+					'Product.price',
+					'Brand.name',
+					'User.slug'
+				),
+				'conditions' => $conditions,
+				'limit' => 200,
+			));
+			if(count($products) == 1) {
+				$this->redirect(array('subdomain' => $products[0]['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $products[0]['Product']['id'], 'slug' => $products[0]['Product']['slug']));
+			}
+			$terms1 = array_diff($terms, array(''));
+			$this->set(compact('products', 'terms1'));
+		}
+		$this->set(compact('search'));
+
+		if ($this->request->is('ajax')) {
+			$this->layout = false;
+			$this->set('ajax', 1);
+		} else {
+			$this->set('ajax', 0);
+		}
+
+		$this->set('title_for_layout', 'Search');
+
+		$description = 'Search';
+		$this->set(compact('description'));
+
+		$keywords = 'search';
+		$this->set(compact('keywords'));
+	}
+	
 
 
 }
