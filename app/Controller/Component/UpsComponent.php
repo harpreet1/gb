@@ -169,7 +169,7 @@ class UpsComponent extends Component {
 		);
 
 		$service_enabled = array(
-			'01',
+			// '01',
 			'02',
 			'12',
 			'03',
