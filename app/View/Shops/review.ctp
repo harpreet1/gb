@@ -82,10 +82,10 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 <hr>
 
 <div class="row">
-	<div class="span2 offset4">Items: <?php echo $shop['Order']['quantity']; ?></div>
-	<div class="span2">Weight: <?php echo $shop['Order']['weight']; ?></div>
-	<div class="span2">Cart Total: $<?php echo $shop['Order']['total']; ?></div>
-	<div class="span2">Order Total: <span class="bold red">$<?php echo $shop['Order']['total']; ?></span></div>
+	<div class="span8"><strong>Totals</strong></div>
+	<div class="span1"><strong><?php echo $shop['Order']['weight']; ?></strong></div>
+	<div class="span1 offset1"><strong><?php echo $shop['Order']['quantity']; ?></strong></div>
+	<div class="span1"><strong>$<?php echo $shop['Order']['total']; ?></strong></div>
 </div>
 
 <br />
@@ -93,14 +93,7 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 
 <hr>
 
-<div class="row">
-<div class="span1">ServiceCode</div>
-<div class="span3">ServiceName</div>
-<div class="span2">TotalCharges</div>
-</div>
-<hr>
 <?php foreach ($shop['Shipping'] as $key => $value): ?>
-
 
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 Zip Code: <?php echo $shop['Users'][$key]['zip']; ?><br />
@@ -118,27 +111,48 @@ Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 <?php endforeach; ?>
 
 <br />
+
+<h4>Select Shipping Method</h4>
 <br />
 
-<strong>Shipping Totals:</strong>
+<script type="text/javascript">
+$(document).ready(function(){
+		$('input[type=radio]').click(function() {
+		$(this).closest("form").submit();
+	});
+});
+</script>
+
 <br />
+<?php echo $this->Form->create('Ship'); ?>
 
-<?php foreach ($shop['Shippingtotal'] as $shiptotal): ?>
-
-<div class="row">
-<div class="span1"><?php echo $shiptotal['ServiceCode']; ?></div>
-<div class="span3"><?php echo $shiptotal['ServiceName']; ?></div>
-<div class="span2">$<?php echo $shiptotal['TotalCharges']; ?></div>
-</div>
-
+<?php foreach ($shop['Shipping'] as $key => $value): ?>
+<strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
+<?php $optionship = array(); ?>
+<?php foreach ($value as $ship): ?>
+<?php $optionship[$ship['ServiceCode']] = $ship['ServiceName']; ?>
+<?php endforeach; ?>
+<?php echo $this->Form->input('rating_' . $shop['Users'][$key]['id'], array('type' => 'radio', 'legend' => false, 'options' => $optionship));?>
+<br />
 <?php endforeach; ?>
 
+<?php //echo $this->Form->button('Change Shipping Method', array('class' => 'btn', 'ecape' => false)); ?>
+<?php echo $this->Form->end(); ?>
+
+<strong>Items: <strong>$<?php echo $shop['Order']['total']; ?></strong>
 <br />
+<strong>Shipping: <?php echo $shop['Totalship']; ?><strong>
+<br />
+<strong>Order Total: <?php echo $shop['Order']['total'] + $shop['Totalship']; ?><strong>
+<br />
+
 <hr>
+
+<h4>Payment Method</h4>
+<br />
 <br />
 
 <?php echo $this->Form->create('Order'); ?>
-
 <div id="ccbox">
 	Credit Card Type.
 </div>
@@ -188,6 +202,7 @@ Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 
 <?php echo $this->Form->input('creditcard_code', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
 
+<br />
 <br />
 
 <?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Submit Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?>

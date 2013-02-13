@@ -132,6 +132,9 @@ class ShopsController extends AppController {
 				$this->Session->write('Shop.Shippingtotal', $total);
 				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
+
+				$this->Session->write('Shop.Totalship', 0);
+
 				$this->redirect(array('action' => 'review'));
 			} else {
 				$this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
@@ -210,7 +213,24 @@ class ShopsController extends AppController {
 			$this->redirect('/');
 		}
 
-		if ($this->request->is('post')) {
+		if ($this->request->is('post') && isset($this->request->data['Ship'])) {
+
+			$totalShip = 0;
+			foreach($this->request->data['Ship'] as $key => $value) {
+				$userId = str_replace('rating_', '', $key);
+				foreach($shop['Shipping'][$userId] as $k => $v) {
+					if($v['ServiceCode'] == $value) {
+						$totalShip += $v['TotalCharges'];
+					}
+				}
+			}
+
+			$this->Session->write('Shop.Totalship', $totalShip);
+			$shop = $this->Session->read('Shop');
+
+		}
+
+		if ($this->request->is('post') && isset($this->request->data['Order'])) {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
