@@ -29,4 +29,23 @@ class Note extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+
+	public function getNotes() {
+
+		$notes = $this->find('all', array(
+			'fields' => array(
+				'Note.id',
+				'Note.name',
+				'Note.slug',
+			),
+			'order' => array(
+				'Note.id' => 'DESC'
+			),
+		));
+
+		return $notes;
+	}
+
+
+
 }

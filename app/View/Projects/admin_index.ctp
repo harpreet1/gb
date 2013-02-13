@@ -8,8 +8,8 @@
 		<th><?php echo $this->Paginator->sort('source'); ?></th>
 		<th><?php echo $this->Paginator->sort('body'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
-		<th><?php echo $this->Paginator->sort('created'); ?></th>
-		<th><?php echo $this->Paginator->sort('modified'); ?></th>
+		<!--<th><?php echo $this->Paginator->sort('created'); ?></th>
+		<th><?php echo $this->Paginator->sort('modified'); ?></th>-->
 		<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($Projects as $Project): ?>
@@ -20,8 +20,8 @@
 		<td><?php echo h($Project['Project']['source']); ?></td>
 		<td><?php echo h($Project['Project']['body']); ?></td>
 		<td><a href="/admin/Projects/switch/active/<?php echo $Project['Project']['id']; ?>" class="status"><img src="/img/icon_<?php echo $Project['Project']['active']; ?>.png" alt="" /></a></td>
-		<td><?php echo h($Project['Project']['created']); ?></td>
-		<td><?php echo h($Project['Project']['modified']); ?></td>
+		<!--<td><?php echo h($Project['Project']['created']); ?></td>
+		<td><?php echo h($Project['Project']['modified']); ?></td>-->
 		<td class="actions">
 		<?php echo $this->Html->link('View', array('action' => 'view', $Project['Project']['id']), array('class' => 'btn btn-mini')); ?>&nbsp;
 		<?php echo $this->Html->link('Edit', array('action' => 'edit', $Project['Project']['id']), array('class' => 'btn btn-mini')); ?>&nbsp;

@@ -4,7 +4,7 @@
 
 
 	<tr>
-		<th><?php echo $this->Paginator->sort('id', null, array('direction' => 'desc')); ?></th>
+		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('note'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>

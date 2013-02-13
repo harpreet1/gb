@@ -120,7 +120,7 @@
             
             <div class="span6">
             <div style="background-color:#FFC;; border:#CCC thin dotted;padding:10px;">
-                  <h3>VENDOR APPROVAL</h3>
+                  <h3>VENDOR SITE APPROVAL</h3>
                       <?php echo $this->Form->input('Approval.id', array('type' => 'hidden')); ?>
                       <?php echo $this->Form->input('Approval.status', array('label' => 'Approval Status','empty' => '--', 'options' => array('1' => 'Approve as is', '2' => 'Approve with modifications', ))); ?>
                       
