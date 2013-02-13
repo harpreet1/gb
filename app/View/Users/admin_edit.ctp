@@ -96,7 +96,7 @@
                <div class="inline"> We ship in&nbsp;<?php echo $this->Form->input('ship_time', array('label' => false, 'class' => 'span1')); ?> days from receipt of order.</div>
               
                <br />
-				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping Policy in your Shoppe')); ?><br />
+				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping/ Return/ Customer Satisfaction Policies')); ?><br />
 				<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
 				<?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
 				<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
