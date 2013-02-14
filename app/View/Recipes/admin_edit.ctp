@@ -19,20 +19,21 @@
 		<h2>Admin Edit Recipe</h2>
 	</div>
 </div>
-	
+
 <div class= "row">
 	<div class= "span4">
-	
+
 		<?php echo $this->Form->create('Recipe'); ?>
 
 		<?php echo $this->Form->input('id',array(
 			'readonly' => 'readonly')); ?>
-	
-		
+
+
 		<?php
-		
+
 		//echo $this->Form->input('user_id');
 		echo $this->Form->input('recipescategory_id',array('label' => 'Recipe Category'));
+		echo $this->Form->input('name');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('attribution',array('class' => 'input-gb-large'));
 		echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-gb-large'));
@@ -48,25 +49,25 @@
 		<br />
 		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 		<?php echo $this->Form->end(); ?>
-		
-		
+
+
 		<br />
 		<br />
-		
+
 		<h3>Actions</h3>
-		
+
 		<?php echo $this->Html->link('View', array('action' => 'view', $this->Form->value('Recipe.id')), array('class' => 'btn')); ?>
-		
+
 		<br />
 		<br />
-		
+
 		<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('Recipe.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('Recipe.id'))); ?>
-		
-		
+
+
 		<br />
 		<br />
-		
+
 		</div>
 </div>
 
-		
+

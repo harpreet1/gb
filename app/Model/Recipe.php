@@ -58,7 +58,7 @@ class Recipe extends AppModel {
 			'counterCache' => true,
 			'counterScope' => array(),
 		),
-			'Tradition' => array(
+		'Tradition' => array(
 			'className' => 'Tradition',
 			'foreignKey' => 'tradition_id',
 			'conditions' => '',
@@ -67,7 +67,7 @@ class Recipe extends AppModel {
 			'counterCache' => true,
 			'counterScope' => array(),
 		),
-			'Ustradition' => array(
+		'Ustradition' => array(
 			'className' => 'Ustradition',
 			'foreignKey' => 'ustradition_id',
 			'conditions' => '',

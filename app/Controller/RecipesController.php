@@ -282,7 +282,7 @@ class RecipesController extends AppController {
 				'Recipescategory.name' => 'ASC'
 			)
 		));
-		
+
 		$traditions = $this->Recipe->Tradition->find('list', array(
 			'order' => array(
 				'Tradition.name' => 'ASC'
@@ -302,14 +302,14 @@ class RecipesController extends AppController {
 	public function admin_edit($id = null) {
 		$this->Recipe->id = $id;
 		if (!$this->Recipe->exists()) {
-			throw new NotFoundException(__('Invalid recipe'));
+			throw new NotFoundException('Invalid recipe');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Recipe->save($this->request->data)) {
-				$this->Session->setFlash(__('The recipe has been saved'));
+				$this->Session->setFlash('The recipe has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The recipe could not be saved. Please, try again.'));
+				$this->Session->setFlash('The recipe could not be saved. Please, try again.');
 			}
 		} else {
 			$this->request->data = $this->Recipe->read(null, $id);
@@ -328,13 +328,13 @@ class RecipesController extends AppController {
 				'Recipescategory.name' => 'ASC'
 			)
 		));
-		
+
 		$traditions = $this->Recipe->Tradition->find('list', array(
 			'order' => array(
 				'Tradition.name' => 'ASC'
 			)
 		));
-		
+
 		$ustraditions = $this->Recipe->Ustradition->find('list', array(
 			'order' => array(
 				'Ustradition.name' => 'ASC'
@@ -354,10 +354,10 @@ class RecipesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Recipe->delete()) {
-			$this->Session->setFlash(__('Recipe deleted'));
+			$this->Session->setFlash('Recipe deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Recipe was not deleted'));
+		$this->Session->setFlash('Recipe was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
 
