@@ -9,5 +9,4 @@ app/tmp/cache/persistent/*
 app/tmp/cache/views/*
 app/tmp/cache/cake_toolbar*
 app/tmp/cache/cake_menuvendors
-
-
+app/tmp/cache/cake_menucategories
