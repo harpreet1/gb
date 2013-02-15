@@ -40,8 +40,8 @@
 		echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-gb-large'));
 		echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large'));
 		echo $this->Form->input('tags');
-		echo $this->Form->input('tradition_id');
-		echo $this->Form->input('ustradition_id');
+		echo $this->Form->input('tradition_id', array('empty' => '--'));
+		echo $this->Form->input('ustradition_id', array('empty' => '--'));
 		?>
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
