@@ -22,9 +22,9 @@ a {
 }
 
 ul {
-	list-style-position:inside;
+	margin-top:10px;
 	list-style-image:url(../img/ul-disc.png);
-	text-indent:9px;
+	
 	
 	}
 
@@ -1159,9 +1159,7 @@ table {
 
 /** Flyout Nav **/
 ul {
-	margin: 0;
-	padding: 0;
-
+	
 }
 
 #nav {
@@ -1239,3 +1237,13 @@ ul {
 .byline {
 	font-size: 12px;
 }
+
+/** Recipes **/
+.recipe-name {
+	color:#F96;
+	}
+	
+.recipe-description {
+		
+	font-weight:bold;
+	}

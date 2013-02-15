@@ -7,9 +7,9 @@
 	</div>
 
 	<div class="span6">
-		<h2><?php echo $recipe['Recipe']['name']; ?></h2>
+		<h2 class="recipe-name"><?php echo $recipe['Recipe']['name']; ?></h2>
 		<!-- <? //echo $recipe['Recipe']['slug']?>-1.jpg"  /> -->
-		<p> <?php echo $recipe['Recipe']['description']; ?> </p>
+		<p class="recipe-description"> <?php echo $recipe['Recipe']['description']; ?> </p>
 		<h4>Ingredients</h4>
 		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
