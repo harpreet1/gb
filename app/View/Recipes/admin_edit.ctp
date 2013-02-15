@@ -24,7 +24,6 @@
 	<div class= "span4">
 
 		<?php echo $this->Form->create('Recipe'); ?>
-
 		<?php echo $this->Form->input('id',array(
 			'readonly' => 'readonly')); ?>
 
