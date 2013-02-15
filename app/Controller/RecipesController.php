@@ -172,6 +172,27 @@ class RecipesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set(compact('recipe'));
+		
+		$subDomain = $this->_getSubDomain();
+		if($subDomain != 'www') {
+			$conditions = array(
+				'User.slug' => $subDomain
+			);
+		}
+
+		$this->loadModel('User');
+		$user = $this->User->find('first', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'User.slug' => $subDomain,
+			)
+		));
+		if(empty($user)) {
+			$this->redirect(array('action' => 'all'));
+		}
+		$this->set(compact('user'));
+
+		
 	}
 
 ////////////////////////////////////////////////////////////

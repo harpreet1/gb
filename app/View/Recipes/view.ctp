@@ -1,9 +1,9 @@
-<h3>GB Recipes List</h3>
+<h4><?php echo $user['User']['name']; ?> Recipes List</h3>
 
 <div class="row">
 
 	<div class="span3">
-		NAV
+		NAV ( coming )
 	</div>
 
 	<div class="span6">
