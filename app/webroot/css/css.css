@@ -21,6 +21,13 @@ a {
 	
 }
 
+ul {
+	list-style-position:inside;
+	list-style-image:url(../img/ul-disc.png);
+	text-indent:9px;
+	
+	}
+
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 	width: 960px;
 	

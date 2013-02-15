@@ -11,16 +11,14 @@
 		<!-- <? //echo $recipe['Recipe']['slug']?>-1.jpg"  /> -->
 		<p> <?php echo $recipe['Recipe']['description']; ?> </p>
 		<h4>Ingredients</h4>
-		<ul>
-			<li>
+		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
-			</li>
-		</ul>
+		<br />
 		<h4>Directions</h4>
 		<p><?php echo $recipe['Recipe']['preparation']; ?></p>
 		<br />
 		<br />
-		<h4>Additional Images</h4>
+		
 		<br />
 	</div>
 
