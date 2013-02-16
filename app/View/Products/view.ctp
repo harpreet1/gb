@@ -4,8 +4,9 @@
 
 	<div class="span3">
 		<?php if(!empty($user)) : ?>
-        
+        <a href="/">
         <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+        </a>
 			<h5><?php echo $user['User']['name']; ?></h5>
 
 			<p><?php echo $user['User']['shop_quote']; ?></p>

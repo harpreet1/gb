@@ -30,9 +30,10 @@
     
 
 		<?php if(!empty($user)) : ?>
-
+			
+            <a href="/">
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-
+			</a>
 			<p><?php echo $user['User']['shop_quote']; ?></p>
 
 
