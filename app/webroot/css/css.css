@@ -189,7 +189,7 @@ ul {
 }
 
 .row .product {
-	margin-left:-2px;
+	margin-left:15px;
 	}
 
 .gb {
@@ -700,7 +700,7 @@ h3.cat-list {
 
 
 div.span8>div.awning>img {
-	width:660px;
+	width:690px;
 	height:111px;
 }
 
@@ -1158,12 +1158,13 @@ table {
 }
 
 /** Flyout Nav **/
-ul {
+ul.navList {
+	margin-left:0px;
 	
 }
 
 #nav {
-	width: 200px;
+	width: 221px;
 	float: left;
 	margin: 10px 0 0;
 	overflow: visible;
@@ -1193,7 +1194,7 @@ ul {
 	-moz-box-shadow: 3px 3px 5px #283958;
 	box-shadow: 3px 3px 5px #283958;
 	display: block;
-	width: 200px;
+	width: 221px;
 }
 .navList a:hover {
 	background-image: url(../img/global/navHover.jpg);
@@ -1203,7 +1204,7 @@ ul {
 	display: none;
 	position: absolute;
 	top: 0;
-	left: 220px;
+	left: 180px;
 	background-image: url(../img/global/navHover.jpg);
 	background-repeat: repeat-y;
 	/*border: 1px #4f9bd9 solid;*/

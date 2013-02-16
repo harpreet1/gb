@@ -197,7 +197,6 @@ class TraditionsController extends AppController {
 				'Tradition.id',
 				'Tradition.slug',
 				'Tradition.name',
-				'Tradition.image',
 				'Tradition.image_1',
 				'Tradition.image_2',
 				'Tradition.image_3',
@@ -205,7 +204,6 @@ class TraditionsController extends AppController {
 				'Tradition.image_5',
 				'Tradition.image_6',
 				'Tradition.awning_image',
-				'Tradition.awning_css',
 			),
 			'order' => array(
 				'Tradition.name' => 'ASC'

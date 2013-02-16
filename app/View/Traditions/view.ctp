@@ -1,8 +1,8 @@
 
 <div class="row">
 	<div class="span3" style="width:270px">
-		<div style="margin-bottom:20px">
-			<img style="width:200px" src="/img/traditions/image_logo/<?php echo ($tradition['Tradition']['logo_image']); ?>" />
+		<div style="margin-bottom:20px;margin-left:0px;">
+			<img style="width:235px" src="/img/traditions/image_logo/<?php echo ($tradition['Tradition']['logo_image']); ?>" />
         </div>
 
         <div style="height:38px;">
@@ -33,7 +33,7 @@
 	</div>
 
 
-	<div class="span8" style="width:660px;">
+	<div class="span8" style="width:690px;margin-left:0px;">
     
     
     	<div class="awning">
@@ -142,12 +142,6 @@
 			<?php echo $tradition['Tradition']['article']; ?>
 		</div>
 
-
-
-
-
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image'], array('width' => '300px')); ?>
 
 
 
