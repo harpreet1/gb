@@ -478,13 +478,13 @@ $(document).ready(function(){
 
 </div>
 
-<div class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/awning/awning.png">
+<div class="awning custom large" id="awning1"><img id="awning1" class="awning custom large" src="/img/users/awning/default.png">
 
-	<div id="div1">
+	<!--<div id="div1">
 		<div id="div2">
-			<?php echo $this->Html->image('users/image/'. $user['User']['image']); ?>
+			<?php //echo $this->Html->image('users/image/'. $user['User']['image']); ?>
 		</div>​
-	</div>
+	</div>-->
 
 </div>
 

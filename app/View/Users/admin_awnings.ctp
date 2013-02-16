@@ -11,7 +11,7 @@
 <br />
 <br />
 
-<img id="awning-<?php echo $user['User']['id']; ?>" src="/img/awning/awning.png">
+<img id="awning-<?php echo $user['User']['id']; ?>" src="/img/users/awning/default.png">
 
 <hr>
 <?php endforeach; ?>
