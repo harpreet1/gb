@@ -42,12 +42,6 @@
 								<li><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></li>
                                 
 								<?php endforeach; ?>
-                            
-								<li><a href="/cat/appetizers">Appetizers</a></li>
-								<li><a href="/cat/bakery">Bakery</a></li>
-								<li><a href="/cat/beverages">Beverages</a></li>
-								<li><a href="/cat/chocolates">Chocolates</a></li>
-	
 							</ul>
 						
 						<?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
@@ -64,17 +58,21 @@
 						<li class="dropdown">
 							<a href="/ustraditions" class="js-activated">US Food Traditions<b class="caret"></b></a>
 							<ul class="dropdown-menu">
+                            
+                            	<?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
+								<!--<li><?php //echo $this->Html->link($menu_ustradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', $menu_ustradition['Ustradition']['slug'])); ?></li>-->
+								<?php //endforeach; ?>
 								<li><a href="/us/amish">Amish</a></li>
 								<li><a href="/us/deep-south ">Deep South </a></li>
 								<li><a href="/us/far-west ">Far West </a></li>
 								<li><a href="/us/great-lakes">Great Lakes</a></li>
 								<li><a href="/us/hawaii">Hawaii</a></li>
+                                <li><a href="/us/louisiana">Louisiana</a></li>
 								<li><a href="/us/mid-atlantic">Mid-Atlantic</a></li>
 								<li><a href="/us/midwest">Midwest and Plains </a></li>
 								<li><a href="/us/native-american">Native American</a></li>
 								<li><a href="/us/new-england">New England</a></li>
 								<li><a href="/us/northwest">Pacific Northwest</a></li>
-								<li><a href="/us/south-central-louisiana">South Central/Louisiana</a></li>
 								<li><a href="/us/southeast">Southeast</a></li>
 								<li><a href="/us/southwest">Southwest</a></li>
 							</ul>
@@ -83,27 +81,24 @@
 						<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
 						<li class="dropdown">
 							<a href="/traditions" class="js-activated">Int'l Food Traditions<b class="caret"></b></a>
-							<ul class="dropdown-menu">			
+							<ul class="dropdown-menu">	
+                            	<li><a href="/international/africa">Africa </a></li>
+                                 <li><a href="/international/northern_europe">British Isles &amp; Ireland</a></li>
 								<li><a href="/international/china">China and Taiwan</a></li>
+								<li><a href="/international/eastern_europe">Eastern and Central Europe</a></li>
 								<li><a href="/international/japan">Japan</a></li>
 								<li><a href="/international/korea">Korea</a></li>
-                                <li><a href="/international/south_asia">South Asia</a></li>
-								<li><a href="/international/southeast_asia">Southeast Asia</a></li>
-                                <li><a href="/international/northern_europe">British Isles &amp; Ireland</a></li>
-								<li><a href="/international/eastern_europe">Eastern and Central Europe</a></li>
-								<li><a href="/international/mediterranean_europe">Mediterranean Europe</a></li>
-                                <li><a href="/international/western_europe">Western Europe</a></li>
-                                <li><a href="/international/scandinavia">Scandinavia</a></li>
+                                <li><a href="/international/mediterranean_europe">Mediterranean Europe</a></li>
+                                <li><a href="/international/mexico_central_america">Mexico and Central America</a></li>
                                 <li><a href="/international/middle_east">Middle East</a></li>
-								<li><a href="/international/mexico_central_america">Mexico and Central America</a></li>
-								<li><a href="/international/north_america">North America / Canada</a></li>
-                                <li><a href="/international/latin_america">South America</a></li>
-								<li><a href="/international/the_caribbean">The Caribbean</a></li>
-                                <li><a href="/international/north_africa">North Africa </a></li>
-                                <li><a href="/international/south_africa">South Africa</a></li>
-                                <li><a href="/international/east_africa">East Africa</a></li>
-								<li><a href="/international/west_africa">West Africa</a></li>
-                                <li><a href="/international/oceania">Oceania</a></li>
+                                <li><a href="/international/north_america">North America / Canada</a></li>
+                   				<li><a href="/international/oceania">Oceania</a></li>
+                                <li><a href="/international/scandinavia">Scandinavia</a></li>
+                                <li><a href="/international/southeast_asia">Southeast Asia</a></li>
+                                <li><a href="/international/south_america">South America</a></li>
+                                <li><a href="/international/south_asia">South Asia</a></li>
+                                <li><a href="/international/the_caribbean">The Caribbean</a></li>
+                                <li><a href="/international/western_europe">Western Europe</a></li>
 							</ul>					
 						
 						<?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>

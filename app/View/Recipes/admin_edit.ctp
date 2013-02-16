@@ -28,20 +28,18 @@
 			'readonly' => 'readonly')); ?>
 
 
-		<?php
-
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('recipescategory_id',array('label' => 'Recipe Category'));
-		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
-		echo $this->Form->input('attribution',array('class' => 'input-gb-large'));
-		echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-gb-large'));
-		echo $this->Form->input('ingredients', array('rows' => 20, 'class' => 'input-gb-large'));
-		echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-gb-large'));
-		echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large'));
-		echo $this->Form->input('tags');
-		echo $this->Form->input('tradition_id', array('empty' => '--'));
-		echo $this->Form->input('ustradition_id', array('empty' => '--'));
+		<?php echo $this->Form->input('user_id', array('label' => 'Vendor')); ?>
+		<?php echo $this->Form->input('recipescategory_id',array('label' => 'Recipe Category')); ?>
+		<?php echo $this->Form->input('name'); ?>
+		<?php echo $this->Form->input('slug'); ?>
+		<?php echo $this->Form->input('attribution',array('class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('ingredients', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('tags'); ?>
+		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
+		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
 		?>
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
