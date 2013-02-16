@@ -193,17 +193,15 @@
 
 			<br />
 
-			<div class="row gb">
+			<div class="row product">
 
 				<?php
-					$i = 0;
-					$count = 0;
-					foreach ($products as $product):
-					$i++;
-					$count++;
-					//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+				  $i = 0;
+				  foreach ($products as $product):
+				  $i++;
+				  //if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 				?>
-				<div class="span2 gb">
+				<div class="span2">
 
 					<div class="content-product">
 
@@ -213,9 +211,8 @@
 
 							<div class="product-name">
 								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
-									<?php echo $this->Text->truncate(
-										$product['Product']['name'],40,	array('ellipsis' => '...','exact' => 'false')); ?>
-								</a>
+                            	<?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+                            	</a>
 
 							</div>
 
@@ -229,20 +226,9 @@
 				</div>
 
 				<?php
-
-				if ($count == 9) :
-
-					echo "</div><!--end row gb--></div><!--end top product block--></div><div class=\"row\"><div class=\"span12 bottom-block\">";
-
-					if (($i % 6) == 0) { echo "\n\n\t\t<div class=\"row gb\">\n\n"; }
-
-
-				else if (($i % 3) == 0) { echo "\n\n\t\t<div class=\"row gb\">\n\n"; }
-
-				endif ;
-
-				endforeach;
-			?>
+				  if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row product\">\n\n";}
+				  endforeach;
+				?>
 
 
 
