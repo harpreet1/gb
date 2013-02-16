@@ -25,7 +25,6 @@
 		<th><?php echo $this->Paginator->sort('countries'); ?></th>
 		<th><?php echo $this->Paginator->sort('summary'); ?></th>
 		<th><?php echo $this->Paginator->sort('article'); ?></th>
-		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 		
@@ -42,7 +41,6 @@
 		<td><?php echo h($tradition['Tradition']['countries']); ?></td>
 		<td><div class="limit"><?php echo ($tradition['Tradition']['summary']); ?></div></td>
 		<td><?php //echo h($tradition['Tradition']['article']); ?></td>
-		<td><?php echo h($tradition['Tradition']['image']); ?></td>
 		<td><?php echo h($tradition['Tradition']['created']); ?></td>
 		<td><?php echo h($tradition['Tradition']['modified']); ?></td>
 		

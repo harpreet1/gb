@@ -120,21 +120,20 @@
 <hr>
 <br />
 
-<dl>
-	<dt><?php echo __('Id'); ?></dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['id']); ?>
-	</dd>
-	<dt>Name</dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['name']); ?>
-	</dd>
 
-	<dt><?php echo __('Countries'); ?></dt>
-	<dd>
-		<?php echo h($tradition['Tradition']['countries']); ?>
-	</dd>
-</dl>
+	
+	
+<br />	
+	
+	
+		<?php echo h($tradition['Tradition']['name']); ?>
+<br />
+
+	<dt>Countries</dt>
+	
+		<?php echo ($tradition['Tradition']['countries']); ?>
+<br />	
+
 
 		<div id="category-article">
 			<h3><?php echo h($tradition['Tradition']['name']); ?></h3>
