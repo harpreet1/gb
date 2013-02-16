@@ -51,7 +51,7 @@
 			</style>-->
 			<?php if (($tradition['Tradition']['awning_image'])) :
 					echo $this->Html->image('/img/traditions/awning_image/'. $tradition['Tradition']['awning_image']); 
-				else : echo ' <img src="/img/traditions/awning_image/default.png" /> ';
+				else : echo ' <img src="/img/traditions/awning_image/default.jpg" /> ';
 				
 				endif;
 			?>
