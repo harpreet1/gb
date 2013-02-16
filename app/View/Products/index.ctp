@@ -25,7 +25,9 @@
 
 <div class="row">
 
-	<div class="span4">
+	<div class="span3" style="width:270px">
+
+    
 
 		<?php if(!empty($user)) : ?>
 
@@ -165,8 +167,9 @@
 
 
 
-	<div class="span8">
-
+	
+	<div class="span8" style="width:690px;margin-left:0px;">
+    
 		<div class="awning">
 
 			<!--<div id="div1">
@@ -181,7 +184,7 @@
 			}
 			</style>
 
-			<img id="awning1" src="/img/awning/awning.png">
+			<img id="awning1" src="/img/users/awning/default.png">
 
 
 		</div>

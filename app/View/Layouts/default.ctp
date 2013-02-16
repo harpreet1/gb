@@ -104,7 +104,7 @@
 						<?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
 
 						<li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
+						<!--<li><?php //echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>-->
 						<!--<li class="dropdown">
 							<a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
 								<ul class="dropdown-menu">
