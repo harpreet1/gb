@@ -5,17 +5,14 @@ class NotesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Note->recursive = 0;
-		$this->set('notes', $this->paginate());
-		
-		
-		$notes = $this->Note->find('list', array(
+		$this->paginate = array(
+			'recursive' => 0,
 			'order' => array(
 				'Note.id' => 'DESC'
-			)
-		));	
-		
-		
+			),
+		);
+		$notes = $this->paginate('Note');
+		$this->set(compact('notes'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -23,7 +20,7 @@ class NotesController extends AppController {
 	public function admin_view($id = null) {
 		$this->Note->id = $id;
 		if (!$this->Note->exists()) {
-			throw new NotFoundException(__('Invalid note'));
+			throw new NotFoundException('Invalid note');
 		}
 		$this->set('note', $this->Note->read(null, $id));
 	}
