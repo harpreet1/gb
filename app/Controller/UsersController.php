@@ -125,13 +125,67 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_reset() {
+		$this->Session->delete('User');
+
+		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
+
+		if ($this->request->is('post')) {
+
+			if($this->request->data['User']['active'] == '1' || $this->request->data['User']['active'] == '0') {
+				$conditions[] = array(
+					'User.active' => $this->request->data['User']['active']
+				);
+				$this->Session->write('User.active', $this->request->data['User']['active']);
+			} else {
+				$this->Session->write('User.active', '');
+			}
+
+
+			if(!empty($this->request->data['User']['name'])) {
+				$filter = $this->request->data['User']['filter'];
+				$this->Session->write('User.filter', $filter);
+				$name = $this->request->data['User']['name'];
+				$this->Session->write('User.name', $name);
+				$conditions[] = array(
+					'User.' . $filter . ' LIKE' => '%' . $name . '%'
+				);
+			} else {
+				$this->Session->write('User.filter', '');
+				$this->Session->write('User.name', '');
+			}
+
+			$this->Session->write('User.conditions', $conditions);
+			$this->redirect(array('action' => 'index'));
+
+		}
+
+		$all = array(
+			'active' => '',
+			'name' => '',
+			'filter' => '',
+			'conditions' => ''
+		);
+
+		if($this->Session->check('User')) {
+			$all = $this->Session->read('User');
+		}
+
+		$this->set(compact('all'));
+
+
 		$this->paginate = array(
 			'recursive' => -1,
 			'order' => array(
 				'User.active' => 'DESC',
 				'User.username' => 'ASC',
 			),
+			'conditions' => $all['conditions'],
 			'limit' => 100,
 		);
 		$users = $this->paginate('User');
@@ -389,7 +443,7 @@ class UsersController extends AppController {
 		$this->Session->setFlash('User was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
-	
+
 
 ////////////////////////////////////////////////////////////
 
@@ -456,7 +510,7 @@ class UsersController extends AppController {
 		$keywords = 'search';
 		$this->set(compact('keywords'));
 	}
-	
+
 
 
 }

@@ -31,6 +31,52 @@ $(document).ready(function() {
 </script>
 
 <h2>Users</h2>
+
+<div class="row">
+
+	<?php echo $this->Form->create('User', array()); ?>
+	<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
+
+	<div class="span2">
+		<?php echo $this->Form->input('active', array('label' => false, 'class' => 'span2', 'empty' => 'All Status', 'options' => array(1 => 'Active', 0 => 'Inactive'), 'selected' => $all['active'])); ?>
+	</div>
+
+	<div class="span2">
+		<?php echo $this->Form->input('filter', array(
+			'label' => false,
+			'class' => 'span2',
+			'options' => array(
+				'name' => 'Name',
+				'username' => 'Username',
+			),
+			'selected' => $all['filter']
+		)); ?>
+
+	</div>
+
+	<div class="span2">
+		<?php echo $this->Form->input('name', array(
+		'label' => false,
+		'id' => false,
+		'class' => 'span2',
+		'required'=> false,
+		'value' => $all['name'])); ?>
+
+	</div>
+
+	<div class="span4">
+		<?php echo $this->Form->button('Search', array('class' => 'btn')); ?>
+		&nbsp; &nbsp;
+		<?php echo $this->Html->link('Reset Search', array('controller' => 'users', 'action' => 'reset', 'admin' => true), array('class' => 'btn')); ?>
+
+	</div>
+
+	<?php echo $this->Form->end(); ?>
+
+</div>
+
+<br />
+
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th class="actions">Actions</th>
