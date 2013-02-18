@@ -8,7 +8,7 @@ class TraditionsController extends AppController {
 	public function index() {
 				
 	}
-	
+
 
 ////////////////////////////////////////////////////////////
 
@@ -74,11 +74,11 @@ class TraditionsController extends AppController {
 				'Product.description',
 				'Product.price',
 				'Product.image',
-				'Product.image_1',
-				'Product.image_2',
-				'Product.image_3',
-				'Product.image_4',
-				'Product.image_5',
+				//'Product.image_1',
+//				'Product.image_2',
+//				'Product.image_3',
+//				'Product.image_4',
+//				'Product.image_5',
 				'User.id',
 				'User.slug',
 			),

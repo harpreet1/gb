@@ -134,7 +134,8 @@ class Product extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
+		
 	);
 
 ////////////////////////////////////////////////////////////

@@ -954,7 +954,7 @@ class ProductsController extends AppController {
 
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
 		
-		$traditions = $this->Product->Tradition->findList();
+		//$traditions = $this->Product->Tradition->findList();
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
