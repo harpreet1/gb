@@ -31,10 +31,10 @@ class NotesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Note->create();
 			if ($this->Note->save($this->request->data)) {
-				$this->Session->setFlash(__('The note has been saved'));
+				$this->Session->setFlash('The note has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The note could not be saved. Please, try again.'));
+				$this->Session->setFlash('The note could not be saved. Please, try again.');
 			}
 		}
 	}
@@ -44,14 +44,14 @@ class NotesController extends AppController {
 	public function admin_edit($id = null) {
 		$this->Note->id = $id;
 		if (!$this->Note->exists()) {
-			throw new NotFoundException(__('Invalid note'));
+			throw new NotFoundException('Invalid note');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Note->save($this->request->data)) {
-				$this->Session->setFlash(__('The note has been saved'));
+				$this->Session->setFlash('The note has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The note could not be saved. Please, try again.'));
+				$this->Session->setFlash('The note could not be saved. Please, try again.');
 			}
 		} else {
 			$this->request->data = $this->Note->read(null, $id);
@@ -66,13 +66,13 @@ class NotesController extends AppController {
 		}
 		$this->Note->id = $id;
 		if (!$this->Note->exists()) {
-			throw new NotFoundException(__('Invalid note'));
+			throw new NotFoundException('Invalid note');
 		}
 		if ($this->Note->delete()) {
-			$this->Session->setFlash(__('Note deleted'));
+			$this->Session->setFlash('Note deleted');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Note was not deleted'));
+		$this->Session->setFlash('Note was not deleted');
 		$this->redirect(array('action' => 'index'));
 	}
 
