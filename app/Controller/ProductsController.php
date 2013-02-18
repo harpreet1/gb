@@ -919,6 +919,20 @@ class ProductsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
+
+			if(!empty($this->request->data['Product']['traditions'])) {
+				asort($this->request->data['Product']['traditions']);
+				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
+			}
+
+			if(!isset($this->request->data['Product']['subcategory_id'])) {
+				$this->request->data['Product']['subcategory_id'] = '';
+			}
+
+			if(!isset($this->request->data['Product']['subsubcategory_id'])) {
+				$this->request->data['Product']['subsubcategory_id'] = '';
+			}
+
 			if ($this->Product->save($this->request->data)) {
 
 				$product1= $this->Product->find('first', array(
@@ -953,8 +967,17 @@ class ProductsController extends AppController {
 		$subcategories = $this->Product->Subcategory->findChain();
 
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
-		
-		//$traditions = $this->Product->Tradition->findList();
+
+		$traditions = ClassRegistry::init('Tradition')->find('list', array(
+			'recursive' => -1,
+			'fields'=> array(
+				'Tradition.id',
+				'Tradition.name',
+			),
+			'order' => array(
+				'Tradition.name' => 'ASC'
+			)
+		));
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
@@ -964,7 +987,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions','ustraditions', 'brands', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'ustraditions', 'brands', 'countries', 'creations'));
 
 	}
 
