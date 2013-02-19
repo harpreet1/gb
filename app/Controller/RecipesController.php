@@ -272,7 +272,6 @@ class RecipesController extends AppController {
 
 		$this->set(compact('recipes'));
 	}
-
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {

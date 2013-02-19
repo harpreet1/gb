@@ -166,11 +166,16 @@
 
 				<hr />
 				<h3>INSURANCE</h3>
-				<?php echo $this->Form->input('ins_carrier', array('label' => 'Insurance Carrier')); ?>
-				<?php echo $this->Form->input('ins_carrier_phone', array('label' => 'Insurance Carrier Phone')); ?>
-				<?php echo $this->Form->input('ins_policy_num', array('label' => 'Insurance Policy Number')); ?>
+				<?php echo $this->Form->input('ins_carrier', array('label' => 'Insurance Company')); ?>
+                <?php echo $this->Form->input('ins_agent_name', array('label' => 'Insurance Agent Name')); ?>
+				<?php echo $this->Form->input('ins_agent_phone', array('label' => 'Insurance Agent Phone')); ?>
+                <?php echo $this->Form->input('ins_agent_email', array('label' => 'Insurance Agent Email')); ?>
+                <?php echo $this->Form->input('insuting_company', array('label' => 'Insuring Company')); ?>
+				<?php echo $this->Form->input('ins_policy_num', array('label' => 'Policy Number')); ?>
 				<?php echo $this->Form->input('ins_policy_exp', array('id' => 'datepicker', 'label' => 'Policy Expiration Date','class' => 'mceNoEditor')); ?>
-				<?php echo $this->Form->input('ins_policy_coverage'); ?>
+                <h4>Policy Coverage:</h4>
+				<?php echo $this->Form->input('ins_coverage_each', array('label' => 'Each Occurence')); ?>
+                <?php echo $this->Form->input('ins_coverage_aggr', array('label' => 'Aggregate Amount')); ?>
 				
 				<hr />
 				<h3>COMPENSATION</h3>

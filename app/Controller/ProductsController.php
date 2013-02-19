@@ -1095,6 +1095,8 @@ class ProductsController extends AppController {
 		$creations = $this->Product->creations();
 
 		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations'));
+		
+		
 
 	}
 
