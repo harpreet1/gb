@@ -36,14 +36,42 @@ class Note extends AppModel {
 			'fields' => array(
 				'Note.id',
 				'Note.name',
-				'Note.slug',
+				'Note.priority',
+				'Note.author',
 			),
 			'order' => array(
-				'Note.id' => 'DESC'
+				//'Note.priority' => 'DESC',
+				'Note.id' => 'ASC'
 			),
 		));
 
 		return $notes;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function priorities() {
+		$priorities = array(
+			'-' => '-',
+			'H' => 'H',
+			'N' => 'N',
+			'L' => 'L',
+		);
+		return $priorities;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function authors() {
+		$authors = array(
+			'-' => '-',
+			'Jon' => 'Jon',
+			'Cari' => 'Cari',
+			'Sharon' => 'Sharon',
+			'JC' => 'JC',
+			'Eddie' => 'Eddie',
+		);
+		return $authors;
 	}
 
 

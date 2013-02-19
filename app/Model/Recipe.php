@@ -47,7 +47,10 @@ class Recipe extends AppModel {
 			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
+			'counterScope' => array('Recipe.active' => 1)
+
 		),
 		'Recipescategory' => array(
 			'className' => 'Recipescategory',
@@ -78,6 +81,16 @@ class Recipe extends AppModel {
 		),
 
 	);
+	
+////////////////////////////////////////////////////////////
+
+	public function findList() {
+		return $this->find('list', array(
+			'order' => array(
+				'Recipe.name' => 'ASC'
+			)
+		));
+	}
 
 ////////////////////////////////////////////////////////////
 

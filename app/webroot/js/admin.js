@@ -18,5 +18,11 @@ $(document).ready(function() {
 	$(".nutrition label[for='comedyclubs']");
 	   
 
+// Conditional CSS for Note Priority
+
+
+	$("td.priority:contains('H')").css('backgroundColor','red').css('color','white');
+	$("td.priority:contains('H')").css('backgroundColor','red');
+
 
 });

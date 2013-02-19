@@ -8,7 +8,9 @@ class NotesController extends AppController {
 		$this->paginate = array(
 			'recursive' => 0,
 			'order' => array(
-				'Note.id' => 'DESC'
+				'Note.priority' => 'ASC',
+				'Note.id' => 'DESC',
+				'Note.active' => 'DESC'
 			),
 		);
 		$notes = $this->paginate('Note');
@@ -37,7 +39,15 @@ class NotesController extends AppController {
 				$this->Session->setFlash('The note could not be saved. Please, try again.');
 			}
 		}
+		
+		$priorities = $this->Note->priorities();
+		$authors = $this->Note->authors();
+		$this->set(compact('priorities','authors'));
+		
 	}
+	
+	
+	
 
 ////////////////////////////////////////////////////////////
 
@@ -56,6 +66,10 @@ class NotesController extends AppController {
 		} else {
 			$this->request->data = $this->Note->read(null, $id);
 		}
+		
+		$priorities = $this->Note->priorities();
+		$authors = $this->Note->authors();
+		$this->set(compact('priorities','authors'));
 	}
 
 ////////////////////////////////////////////////////////////

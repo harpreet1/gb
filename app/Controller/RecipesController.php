@@ -197,7 +197,49 @@ class RecipesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_reset() {
+		$this->Session->delete('Recipe');
+		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
+		
+		if ($this->request->is('post')) {
+
+			if(!empty($this->request->data['Recipe']['name'])) {
+				$filter = $this->request->data['Recipe']['filter'];
+				$this->Session->write('Recipe.filter', $filter);
+				$name = $this->request->data['Recipe']['name'];
+				$this->Session->write('Recipe.name', $name);
+				$conditions[] = array(
+					'Recipe.' . $filter . ' LIKE' => '%' . $name . '%'
+				);
+			} else {
+				$this->Session->write('Recipe.filter', '');
+				$this->Session->write('Recipe.name', '');
+			}
+
+			$this->Session->write('Recipe.conditions', $conditions);
+			$this->redirect(array('action' => 'index'));
+
+		}
+
+		$all = array(
+			'user_id' => '',
+			'name' => '',
+			'filter' => '',
+			'conditions' => ''
+		);
+		
+
+		if($this->Session->check('Recipe')) {
+			$all = $this->Session->read('Recipe');
+		}
+
+		$this->set(compact('all'));
+		
 
 		$this->paginate = array(
 			'recursive' => -1,
@@ -207,6 +249,9 @@ class RecipesController extends AppController {
 				'Tradition',
 				'Ustradition',
 			),
+			'conditions' => $all['conditions'],
+			'limit' => 50,
+
 			'fields' => array(
 				'Recipe.*',
 				'User.id',
@@ -219,7 +264,7 @@ class RecipesController extends AppController {
 				'Ustradition.name',
 			),
 			'order' => array(
-				'Recipe.modified' => 'DESC'
+				'Recipe.modified' => 'DESC',
 			),
 			'paramType' => 'querystring',
 		);

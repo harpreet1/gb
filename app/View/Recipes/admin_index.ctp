@@ -19,6 +19,52 @@ $(document).ready(function() {
 
 <h2>Recipes</h2>
 
+<div class="row">
+
+	<div class="span2">
+    
+    	<?php echo $this->Form->create('Recipe', array()); ?>
+		<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
+        <?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
+    
+    </div>
+
+	<div class="span2">
+		<?php echo $this->Form->input('filter', array(
+			'label' => false,
+			'class' => 'span2',
+			'options' => array(
+				'name' => 'Name',
+				'ingredients' => 'Ingredients',
+			),
+			'selected' => $all['filter']
+		)); ?>
+
+	</div>
+
+	<div class="span2">
+		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'span2', 'value' => $all['name'])); ?>
+
+	</div>
+
+	<div class="span4">
+		<?php echo $this->Form->button('Search', array('class' => 'btn')); ?>
+		&nbsp; &nbsp;
+		<?php echo $this->Html->link('Reset Search', array('controller' => 'recipes', 'action' => 'reset', 'admin' => true), array('class' => 'btn')); ?>
+
+	</div>
+
+	<?php echo $this->Form->end(); ?>
+
+</div>
+
+<br />
+
+
+
+
+
+
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>

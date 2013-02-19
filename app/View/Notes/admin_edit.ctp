@@ -19,6 +19,8 @@
 <?php echo $this->Form->create('Note');?>
 <?php
 echo $this->Form->input('id');
+echo $this->Form->input('priority');
+echo $this->Form->input('author');
 echo $this->Form->input('name');
 echo $this->Form->input('note');
 echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
