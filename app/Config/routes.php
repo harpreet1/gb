@@ -58,10 +58,6 @@
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-
-
-
-
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 
 	Router::connect('/vendor', array('controller' => 'users', 'action' => 'dashboard', 'vendor' => true));
