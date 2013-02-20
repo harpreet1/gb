@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="span3">
-		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
+		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'label' => 'Recipe Categories','empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
 	</div>
 	<div class="span3">
 		<?php echo $this->Form->input('vendors', array('options' => $vendors, 'empty' => array('all' => 'All Vendors'), 'default' => $vendor_selected)); ?>
@@ -77,9 +77,9 @@ $(document).ready(function() {
 		<br />
 		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 
-<!--		<?php //echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
+		<?php //echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 
--->
+	
 		<br />
 		<?php echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />

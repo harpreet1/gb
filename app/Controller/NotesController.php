@@ -8,9 +8,10 @@ class NotesController extends AppController {
 		$this->paginate = array(
 			'recursive' => 0,
 			'order' => array(
+				'Note.active' => 'DESC',
 				'Note.priority' => 'ASC',
 				'Note.id' => 'DESC',
-				'Note.active' => 'DESC'
+				
 			),
 		);
 		$notes = $this->paginate('Note');

@@ -81,6 +81,7 @@ class TraditionsController extends AppController {
 //				'Product.image_5',
 				'User.id',
 				'User.slug',
+				'User.name',
 			),
 			'conditions' => array(
 				'Product.active' => 1,

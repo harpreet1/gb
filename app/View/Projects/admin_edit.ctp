@@ -1,14 +1,32 @@
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({ changeYear: true });
+		// getter
+		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+		// getter
+		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	});
+  </script>
+
+
 <h2>Vendor Tracking Edit </h2>
 
 <div class="row">
 
 	
 	<div class="span4">
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+		
+		
+		<?php echo $this->Form->create('Project');?>
+        <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 		<br />
         <br />
-		<?php echo $this->Form->create('Project');?>
-
 		<?php echo $this->Form->input('id');?>
 		<?php echo $this->Form->input('persons', array('label' => 'GB Point Person')); ?>
 		<?php echo $this->Form->input('projectcategory_id', array('label' => 'Vendor Status'));?>
@@ -40,6 +58,8 @@
 		<?php echo $this->Form->input('email_1', array('label' => 'Main Contact eMail')); ?>
 		<?php echo $this->Form->input('phone_1', array('label' => 'Main Contact Phone')); ?>
 		<?php echo $this->Form->input('cell_1', array('label' => 'Main Contact Cell')); ?>
+        <br />
+        <?php echo $this->Form->input('date_contact', array('id' => 'datepicker', 'label' => 'Date of first contact','class' => 'mceNoEditor')); ?>
         
         <div class ="row">
     

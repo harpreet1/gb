@@ -14,26 +14,21 @@
 		theme_advanced_resizing : true,
 	});
 </script>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-	
-	$( "#datepicker" ).datepicker({ changeYear: true });
-	// getter
-	var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
-	// setter
-	$( "#datepicker" ).datepicker( "option", "changeYear", true );
-	
-	
-	
-	$( "#datepicker" ).datepicker({ gotoCurrent: true });
-	// getter
-	var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
-	// setter
-	$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
 
-	
-  });
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({ changeYear: true });
+		// getter
+		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+		// getter
+		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	});
   </script>
 
 <div id="wrapper">
@@ -207,13 +202,16 @@
 				<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 	
 				<br />
-				<br />
 				<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 				<?php echo $this->Form->end(); ?>
-	
+				<br />
+				
 				<h3>Actions</h3>
 				<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
 				<br />
+				<br />
+                <br />
+                <br />
 				<br />
 				<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
 			</div>

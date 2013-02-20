@@ -26,7 +26,7 @@
 		
 		<?php echo $this->Form->create('Recipe'); ?>
 		<?php
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array('default' => 'General Library'));
 		echo $this->Form->input('recipescategory_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('slug');

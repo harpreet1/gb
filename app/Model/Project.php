@@ -39,7 +39,7 @@ class Project extends AppModel {
 ////////////////////////////////////////////////////////////
 
 	public function persons() {
-		$persons = array(
+		$persons  = array(
 			'-' => '-',
 			'Jon' => 'Jon',
 			'Cari' => 'Cari',

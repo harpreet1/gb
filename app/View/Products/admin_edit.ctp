@@ -26,6 +26,23 @@ $(document).ready(function(){
 
 </script>
 
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({ changeYear: true });
+		// getter
+		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+		// getter
+		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	});
+  </script>
+
+
 
 <h2>Admin Edit Product</h2>
 
@@ -187,7 +204,13 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('dimension_unit');?>
 		<?php echo $this->Form->input('height');?>
 		<?php echo $this->Form->input('length');?>
-		<?php echo $this->Form->input('width');?>
+		<br />
+		<br />
+        <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
+        <?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Seasonal Stock Item')); ?>
+        <?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
+ 		<br />
+		<br />       
 		<?php echo $this->Form->input('related_products'); ?>
 	</div>
 
