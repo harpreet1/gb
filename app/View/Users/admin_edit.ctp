@@ -149,7 +149,7 @@
 			<div class="span3">
 				<h3>FINANCIAL INFO</h3>
 				<?php echo $this->Form->input('fin_contact_name', array('label' => 'Financial Contact Name')); ?>
-				<?php echo $this->Form->input('fin_contact__title', array('label' => 'Financial Contact Title')); ?>
+				<?php echo $this->Form->input('fin_contact_title', array('label' => 'Financial Contact Title')); ?>
 				<?php echo $this->Form->input('fin_contact_phone', array('label' => 'Financial Contact Phone')); ?>
 				<?php echo $this->Form->input('fin_contact_email', array('label' => 'Financial Contact eMail')); ?>
 				<?php echo $this->Form->input('payment_biz_name', array('label' => 'Payment Business Name')); ?>
