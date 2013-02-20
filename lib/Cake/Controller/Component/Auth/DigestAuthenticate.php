@@ -134,7 +134,7 @@ class DigestAuthenticate extends BaseAuthenticate {
  * @param CakeRequest $request Request object.
  * @return mixed Either false or an array of user information
  */
-	public function getUser(CakeRequest $request) {
+	public function getUser($request) {
 		$digest = $this->_getDigest();
 		if (empty($digest)) {
 			return false;

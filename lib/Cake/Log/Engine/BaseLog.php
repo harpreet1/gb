@@ -57,10 +57,8 @@ abstract class BaseLog implements CakeLogInterface {
  */
 	public function config($config = array()) {
 		if (!empty($config)) {
-			foreach (array('types', 'scopes') as $option) {
-				if (isset($config[$option]) && is_string($config[$option])) {
-					$config[$option] = array($config[$option]);
-				}
+			if (isset($config['types']) && is_string($config['types'])) {
+				$config['types'] = array($config['types']);
 			}
 			$this->_config = $config;
 		}

@@ -294,12 +294,36 @@ class AuthComponent extends Component {
 		if (!$this->_setDefaults()) {
 			return false;
 		}
-		$request = $controller->request;
+
+		if ($this->_isAllowed($controller)) {
+			return true;
+		}
+
+		if (!$this->_getUser()) {
+			return $this->_unauthenticated($controller);
+		}
+
+		if (empty($this->authorize) || $this->isAuthorized($this->user())) {
+			return true;
+		}
+
+		return $this->_unauthorized($controller);
+	}
+
+/**
+ * Checks whether current action is accessible without authentication.
+ * If current action is login action referrer url is saved in session which is
+ * later accessible using AuthComponent::redirectUrl().
+ *
+ * @param Controller $controller A reference to the instantiating controller object
+ * @return boolean True if action is accessible without authentication else false
+ */
+	protected function _isAllowed(Controller $controller) {
+		$action = strtolower($controller->request->params['action']);
 
 		$url = '';
-
-		if (isset($request->url)) {
-			$url = $request->url;
+		if (isset($controller->request->url)) {
+			$url = $controller->request->url;
 		}
 		$url = Router::normalize($url);
 		$loginAction = Router::normalize($this->loginAction);
@@ -309,35 +333,37 @@ class AuthComponent extends Component {
 		}
 
 		if ($loginAction == $url) {
-			if (empty($request->data)) {
+			if (empty($controller->request->data)) {
 				if (!$this->Session->check('Auth.redirect') && !$this->loginRedirect && env('HTTP_REFERER')) {
 					$this->Session->write('Auth.redirect', $controller->referer(null, true));
 				}
 			}
 			return true;
 		}
+		return false;
+	}
 
-		if (!$this->_getUser()) {
-			if (!$request->is('ajax')) {
-				$this->flash($this->authError);
-				$this->Session->write('Auth.redirect', $request->here());
-				$controller->redirect($loginAction);
-				return false;
-			}
-			if (!empty($this->ajaxLogin)) {
-				$controller->viewPath = 'Elements';
-				echo $controller->render($this->ajaxLogin, $this->RequestHandler->ajaxLayout);
-				$this->_stop();
-				return false;
-			}
-			$controller->redirect(null, 403);
+/**
+ * Handle unauthenticated access attempt.
+ *
+ * @param Controller $controller A reference to the controller object
+ * @return boolean Returns false
+ */
+	protected function _unauthenticated(Controller $controller) {
+		if (!$controller->request->is('ajax')) {
+			$this->flash($this->authError);
+			$this->Session->write('Auth.redirect', $controller->request->here());
+			$controller->redirect($this->loginAction);
+			return false;
 		}
-
-		if (empty($this->authorize) || $this->isAuthorized($this->user())) {
-			return true;
+		if (!empty($this->ajaxLogin)) {
+			$controller->viewPath = 'Elements';
+			echo $controller->render($this->ajaxLogin, $this->RequestHandler->ajaxLayout);
+			$this->_stop();
+			return false;
 		}
-
-		return $this->_unauthorized($controller);
+		$controller->redirect(null, 403);
+		return false;
 	}
 
 /**
@@ -393,7 +419,7 @@ class AuthComponent extends Component {
  * @param CakeRequest $request The request to authenticate for. If empty, the current request will be used.
  * @return boolean True if $user is authorized, otherwise false
  */
-	public function isAuthorized($user = null, CakeRequest $request = null) {
+	public function isAuthorized($user = null, $request = null) {
 		if (empty($user) && !$this->user()) {
 			return false;
 		}
@@ -745,7 +771,7 @@ class AuthComponent extends Component {
  * @return boolean true if the user is logged in, false otherwise
  */
 	public function loggedIn() {
-		return (boolean)$this->user();
+		return $this->user() != array();
 	}
 
 /**

@@ -165,12 +165,11 @@ class ActionsAuthorizeTest extends CakeTestCase {
  */
 	public function testActionNoDoubleSlash() {
 		$this->auth->settings['actionPath'] = '/controllers/';
-		$request = new CakeRequest('/posts/index', false);
-		$request->addParams(array(
+		$request = array(
 			'plugin' => null,
 			'controller' => 'posts',
 			'action' => 'index'
-		));
+		);
 		$result = $this->auth->action($request);
 		$this->assertEquals('controllers/Posts/index', $result);
 	}
