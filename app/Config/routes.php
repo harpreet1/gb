@@ -1,6 +1,7 @@
 <?php
 
 	App::uses('SubdomainRoute', 'Route');
+	App::uses('SubdomainRoute1', 'Route');
 
 	function getSubDomain() {
 		$url = explode('.', env('HTTP_HOST'));
@@ -13,6 +14,7 @@
 	} else {
 		Router::connect('/', array('controller' => 'contents', 'action' => 'homepage'));
 	}
+
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
 
@@ -32,16 +34,18 @@
 
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
-	Router::connect(
-		'/recipe/:short_name/:slug',
-		array(
-			'controller' => 'recipes',
-			'action' => 'view'
-		),
-		array(
-			'pass' => array('slug')
-		)
-	);
+	Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+
+	// Router::connect(
+	// 	'/recipe/:short_name/:slug',
+	// 	array(
+	// 		'controller' => 'recipes',
+	// 		'action' => 'view'
+	// 	),
+	// 	array(
+	// 		'pass' => array('slug')
+	// 	)
+	// );
 
 	Router::connect(
 		'/article/:year/:month/:day/:slug',

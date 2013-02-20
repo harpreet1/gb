@@ -1,14 +1,21 @@
 <?php
 class SubdomainRoute extends CakeRoute {
 
+////////////////////////////////////////////////////////////
+
 	private $Request;
+
+////////////////////////////////////////////////////////////
 
 	public function __construct($template, $defaults = array(), $options = array()) {
 		parent::__construct($template, $defaults, $options);
 		$this->Request = new CakeRequest();
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function match($params) {
+
 		$subdomain = isset($params['subdomain']) ? $params['subdomain'] : '';
 		unset($params['subdomain']);
 
@@ -19,11 +26,17 @@ class SubdomainRoute extends CakeRoute {
 		if ($subdomain) {
 			$path = 'http://' . $subdomain . '.' . $domain . $path;
 		}
+
 		return $path;
 	}
 
+////////////////////////////////////////////////////////////
+
 	protected function _getDomain() {
-		return $this->Request->domain();
+		$d = $this->Request->domain();
+		return $d;
 	}
+
+////////////////////////////////////////////////////////////
 
 }

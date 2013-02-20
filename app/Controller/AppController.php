@@ -22,7 +22,6 @@ class AppController extends Controller {
 		}
 	}
 
-
 ////////////////////////////////////////////////////////////
 
 	public $paginate = array('limit' => 100);
@@ -59,33 +58,31 @@ class AppController extends Controller {
 			$this->Auth->allow();
 
 			$menucategories = Cache::read('menucategories');
-			if (!$menucategories) {			
+			if (!$menucategories) {
 				$menucategories = ClassRegistry::init('Product')->find('all', array(
-			'recursive' => -1,
-			'contain' => array(
-				'User',
-				'Category'
-			),
-			'fields' => array(
-				'Category.id',
-				'Category.name',
-				'Category.slug',
-			),
-			'conditions' => array(
-				'User.active' => 1,
-				'Product.active' => 1,
-				'Product.category_id >' => 0,
-				'Category.id >' => 0,
-			),
-			'order' => array(
-				'Category.name' => 'ASC'
-			),
-			'group' => array(
-				'Category.id'
-			)
-			));
-				
-				
+					'recursive' => -1,
+					'contain' => array(
+						'User',
+						'Category'
+					),
+					'fields' => array(
+						'Category.id',
+						'Category.name',
+						'Category.slug',
+					),
+					'conditions' => array(
+						'User.active' => 1,
+						'Product.active' => 1,
+						'Product.category_id >' => 0,
+						'Category.id >' => 0,
+					),
+					'order' => array(
+						'Category.name' => 'ASC'
+					),
+					'group' => array(
+						'Category.id'
+					)
+				));
 				Cache::set(array('duration' => '+10 minutes'));
 				Cache::write('menucategories', $menucategories);
 			}
@@ -103,32 +100,28 @@ class AppController extends Controller {
 		if ($this->RequestHandler->isAjax()) {
 			$this->layout = 'ajax';
 		}
-		
-		
+
 		$this->AutoLogin->settings = array(
-		// Model settings
-		'model' => 'Member',
-		'username' => 'name',
-		'password' => 'pass',
- 
-		// Controller settings
-		'plugin' => '',
-		'controller' => 'members',
-		'loginAction' => 'signin',
-		'logoutAction' => 'signout',
- 
-		// Cookie settings
-		'cookieName' => 'rememberMe',
-		'expires' => '+1 month',
- 
-		// Process logic
-		'active' => true,
-		'redirect' => true,
-		'requirePrompt' => true
-	);
-		
-		
-		
+			// Model settings
+			'model' => 'Member',
+			'username' => 'name',
+			'password' => 'pass',
+
+			// Controller settings
+			'plugin' => '',
+			'controller' => 'members',
+			'loginAction' => 'signin',
+			'logoutAction' => 'signout',
+
+			// Cookie settings
+			'cookieName' => 'rememberMe',
+			'expires' => '+1 month',
+
+			// Process logic
+			'active' => true,
+			'redirect' => true,
+			'requirePrompt' => true
+		);
 
 	}
 

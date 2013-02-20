@@ -160,7 +160,7 @@ class RecipesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function view($slug = null) {
+	public function view($slug) {
 		$recipe = $this->Recipe->find('first', array(
 			'recursive' => -1,
 			'conditions' => array(
@@ -172,7 +172,7 @@ class RecipesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set(compact('recipe'));
-		
+
 		$subDomain = $this->_getSubDomain();
 		if($subDomain != 'www') {
 			$conditions = array(
@@ -192,7 +192,7 @@ class RecipesController extends AppController {
 		}
 		$this->set(compact('user'));
 
-		
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -205,7 +205,7 @@ class RecipesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		
+
 		if ($this->request->is('post')) {
 
 			if(!empty($this->request->data['Recipe']['name'])) {
@@ -232,14 +232,14 @@ class RecipesController extends AppController {
 			'filter' => '',
 			'conditions' => ''
 		);
-		
+
 
 		if($this->Session->check('Recipe')) {
 			$all = $this->Session->read('Recipe');
 		}
 
 		$this->set(compact('all'));
-		
+
 
 		$this->paginate = array(
 			'recursive' => -1,
