@@ -59,7 +59,7 @@
 				<?php echo $this->Form->input('password'); ?>
 				<?php echo $this->Form->input('password_clear', array('label' => 'Password')); ?>
 				<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
-				<?php echo $this->Form->input('slug'); ?>
+				<?php echo $this->Form->input('slug', array('label' => 'Subdomain (Use ONLY lower case letters, no hyphens')); ?>
 				<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
 				<?php echo $this->Form->input('business_name_dba', array('label' => 'DBA - List all' , 'rows'=> '3', 'cols' => '3', 'class' => 'mceNoEditor')); ?>
 				
