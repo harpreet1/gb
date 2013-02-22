@@ -52,7 +52,7 @@
 				<?php echo $this->Form->input('level', array('label' => 'User Level' , 'options' => array( 'admin' => 'Admin','vendor' => 'Vendor'))); ?>
 				<?php echo $this->Form->input('username'); ?>
 				<?php echo $this->Form->input('name', array('label' => 'Shoppe Name')); ?>
-				<?php echo $this->Form->input('slug'); ?>
+				<?php echo $this->Form->input('slug', array('label' => 'Domain Prefix <br />do NOT use hyphens here - only one word, no spaces')); ?>
 				<?php echo $this->Form->input('business_name', array('label' => 'Business Name')); ?>
 				<?php echo $this->Form->input('business_name_dba', array('label' => 'DBA - List all' , 'rows'=> '3', 'cols' => '3', 'class' => 'mceNoEditor')); ?>
 				
