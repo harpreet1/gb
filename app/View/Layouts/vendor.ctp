@@ -14,6 +14,15 @@
 <?php echo $this->Html->script(array('bootstrap.min.js', 'vendor.js')); ?>
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
+
+<!------ CSS for Brands ------>    
+<style>
+.btn-gb {
+	
+	<?php echo $user['User']['awning_css']; ?>
+}
+</style>    
+
 </head>
 <body>
 
