@@ -665,6 +665,7 @@ h3.cat-list {
 
 /** Awning **/
 
+
 .awning {
 	position:relative;
 }
@@ -678,6 +679,25 @@ h3.cat-list {
 #awning1 {
 	position: relative;
 }
+
+/** Awning Title **/
+	
+#awning-text-wrapper {
+	position:absolute;
+	z-index:50;
+	top:85px;
+	left:200px;
+	width:300px;
+	
+	
+}
+
+#awning-text {
+	text-align:center;
+	font-size:15px;
+	color:#fff;
+	text-shadow:2px 2px #000222;
+	}
 
 #div1 {
 	position: absolute;
@@ -1248,3 +1268,5 @@ ul.navList {
 		
 	font-weight:bold;
 	}
+	
+	

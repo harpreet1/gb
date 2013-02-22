@@ -186,9 +186,12 @@
 			</style>
 
 			<img id="awning1" src="/img/users/awning/default.png">
-
-
-		</div>
+            
+            <div id="awning-text-wrapper">
+            
+            	<div id="awning-text"><?php echo $user['User']['name']; ?></div>
+            
+            </div>
 
 		<div class="top-product-block">
 
