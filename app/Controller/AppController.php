@@ -192,4 +192,26 @@ class AppController extends Controller {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_importcsv() {
+		$modelClass = $this->modelClass;
+		if ($this->request->is('POST')) {
+			$records_count = $this->$modelClass->find('count');
+			try {
+				$this->$modelClass->importCSV($this->request->data[$modelClass]['CsvFile']['tmp_name']);
+			} catch (Exception $e) {
+				$import_errors = $this->$modelClass->getImportErrors();
+				$this->set(compact('import_errors'));
+				$this->Session->setFlash('Error Importing' . ' ' . $this->request->data[$modelClass]['CsvFile']['name'] . ', ' . 'column name mismatch.');
+				$this->redirect(array('action'=>'importcsv'));
+			}
+			$new_records_count = $this->$modelClass->find('count') - $records_count;
+			$this->Session->setFlash('Successfully imported' . ' ' . $new_records_count .  ' records from ' . $this->request->data[$modelClass]['CsvFile']['name']);
+			$this->redirect( array('action'=>'index') );
+		}
+		$this->set(compact('modelClass'));
+		$this->render('../Common/admin_importcsv');
+	}
+
+////////////////////////////////////////////////////////////
+
 }
