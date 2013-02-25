@@ -140,7 +140,7 @@
 				<?php echo $this->Form->input('contact_email'); ?>
 				
 				<hr />
-				<?php echo $this->Form->input('contactalt_name', array('label' => 'Alternate Contact Name')); ?>
+				<?php echo $this->Form->input('contact_alt_name', array('label' => 'Alternate Contact Name')); ?>
 				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
 				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
 				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
