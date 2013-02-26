@@ -165,7 +165,7 @@
                 <?php echo $this->Form->input('ins_agent_name', array('label' => 'Insurance Agent Name')); ?>
 				<?php echo $this->Form->input('ins_agent_phone', array('label' => 'Insurance Agent Phone')); ?>
                 <?php echo $this->Form->input('ins_agent_email', array('label' => 'Insurance Agent Email')); ?>
-                <?php echo $this->Form->input('insuting_company', array('label' => 'Insuring Company')); ?>
+                <?php echo $this->Form->input('ins_company', array('label' => 'Insuring Company')); ?>
 				<?php echo $this->Form->input('ins_policy_num', array('label' => 'Policy Number')); ?>
 				<?php echo $this->Form->input('ins_policy_exp', array('id' => 'datepicker', 'label' => 'Policy Expiration Date','class' => 'mceNoEditor')); ?>
                 <h4>Policy Coverage:</h4>
