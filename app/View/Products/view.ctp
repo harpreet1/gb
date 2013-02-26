@@ -22,7 +22,7 @@
 					<?php endforeach; ?>
 					<br />
 				<?php endif; ?>
-
+                
 		<?php endif; ?>
 	</div>
 
@@ -341,9 +341,10 @@
 			</div>
 
 			<div class="span5 product-description">
-
+            
+           
 				<?php if(!empty($product['Brand']['description'])) : ?>
-					<!--<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php //echo $product['Product']['brand_description'];?>"></a>-->
+					
 					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
 				<span><img class="hand" src="/img/global/hand.png"/></span>

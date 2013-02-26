@@ -11,7 +11,7 @@ class AppModel extends Model {
 	public $actsAs = array(
 		'Containable',
 		'Utils.CsvImport' => array(
-			'delimiter'  => ','
+			'delimiter'  => '~'
 		)
 	);
 

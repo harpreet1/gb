@@ -28,13 +28,13 @@
 	<div class="span3" style="width:270px">
 
     
-
+		<div>
 		<?php if(!empty($user)) : ?>
 			
             <a href="/">
 			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
 			</a>
-			<p><?php echo $user['User']['shop_quote']; ?></p>
+			<p class="quote"><?php echo $user['User']['shop_quote']; ?></p>
 
 
 
@@ -53,6 +53,12 @@
 			</strong>
 
 
+
+			<style>
+				.navList li a {
+					<?php echo $user['User']['awning_css']; ?>
+				}
+			</style>
 
 			<div style="clear:both">
 
@@ -132,10 +138,19 @@
 
 		<ul class="navList">
 					<li><a href="#">Our Shoppe Policies</a></li>
-
+						<ul class="listTab">
+                    		<li></li>
+						</ul>
 		</ul>
 
-		<br />
+		</div>
+        
+        
+        <div>
+        <p><?php //echo $user['User']['shipping_policy']; ?></p>
+        <a href="#" class="btn btn-gb" data-toggle="popover" data-placement="bottom" title data-content="<?php echo ($user['User']['shipping_policy']);?>">SHIPPING POLICY</a>
+        <span><img class="hand" src="/img/global/hand.png" width="40px"/></span>
+        </div>
 
 
 		<?php if(!empty($category['Category']['image_1'])) :
