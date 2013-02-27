@@ -82,14 +82,17 @@ class TraditionsController extends AppController {
 				'User.id',
 				'User.slug',
 				'User.name',
+				'User.active',
 			),
 			'conditions' => array(
 				'Product.active' => 1,
+				'User.active',
 				"FIND_IN_SET('$traditionid', traditions)"
 			),
 			'limit' => 30,
 			'order' => array('Product.id' => 'DESC')
 		);
+
 
 		$products = $this->paginate('Product');
 		$this->set(compact('products'));

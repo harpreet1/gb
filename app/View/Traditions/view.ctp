@@ -1,4 +1,3 @@
-
 <div class="row">
 	<div class="span3" style="width:270px">
 		<div style="margin-bottom:20px;margin-left:0px;">
@@ -6,7 +5,7 @@
 		</div>
 
 		<div style="height:38px;">
-			<ul class="navList">
+			<ul class="navList gb-">
 				<li><a href="#">About Each Region</a>
 					<!-- This is the sub nav -->
 					<ul class="listTab">
