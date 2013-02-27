@@ -29,17 +29,6 @@
 
 		<div class="awning">
 
-		<!--	<div id="div1">
-				<div id="div2">
-					<?php //echo $this->Html->image('users/image/'. $user['User']['image']); ?>
-				</div>​
-			</div>
-
-			<style>
-			#awning1 {
-				<?php //echo $user['User']['awning_css']; ?>
-			}
-			</style>-->
 			<?php if (($tradition['Tradition']['awning_image'])) :
 					echo $this->Html->image('/img/traditions/awning_image/'. $tradition['Tradition']['awning_image']);
 				else :
@@ -75,11 +64,7 @@
 
 				<div class="price">$<?php echo $product['Product']['price']; ?></div>
 
-				<div class="brand">
-
-					<?php  echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
-
-				</div>
+				<div class="brand"><?php  echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?></div>
 
 				</div>
 			</div>
