@@ -154,8 +154,24 @@
                
 				
 				<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
-				<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
-				<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
+                
+                <hr />
+                
+                
+                <div class="row">
+                	
+                    <div class="span2 shipping">
+                        <?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
+                    </div>
+                    
+                    <div class="span2 shipping">
+                        <?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Price')); ?>
+                        
+                    </div>
+                  
+				</div>
+				
+				
 
 				<hr />
 				<h3>CUSTOMER SERVICE</h3>
