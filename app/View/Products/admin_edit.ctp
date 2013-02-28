@@ -190,20 +190,21 @@ $(document).ready(function(){
 
 	<div class="span3">
 		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
-		<?php echo $this->Form->input('price_wholesale');?>
-		<?php echo $this->Form->input('price_list');?>
+		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('price_list', array('class' => 'span1'));?>
 		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
-		<?php echo $this->Form->input('price');?>
+		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
-		<?php echo $this->Form->input('measurement');?>
-		<?php echo $this->Form->input('weight_unit');?>
-		<?php echo $this->Form->input('weight');?>
-		<?php echo $this->Form->input('shipping_weight');?>
-		<?php echo $this->Form->input('volume');?>
-		<?php echo $this->Form->input('volume_unit');?>
-		<?php echo $this->Form->input('dimension_unit');?>
-		<?php echo $this->Form->input('height');?>
-		<?php echo $this->Form->input('length');?>
+		<?php //echo $this->Form->input('measurement');?>
+		<?php //echo $this->Form->input('weight_unit');?>
+		<?php echo $this->Form->input('weight', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('shipping_weight', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('volume', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('height', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('length', array('class' => 'span1'));?>
+        <?php echo $this->Form->input('width', array('class' => 'span1'));?>
 		<br />
 		<br />
         <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>

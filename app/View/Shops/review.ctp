@@ -126,6 +126,10 @@ $(document).ready(function(){
 <br />
 <?php echo $this->Form->create('Ship'); ?>
 
+
+<?php echo $this->Form->input($shop['Order']['residential'], array('type' => 'checkbox', 'label' => 'Residential Address?'));?>
+
+
 <?php foreach ($shop['Shipping'] as $key => $value): ?>
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 <?php $optionship = array(); ?>
