@@ -15,10 +15,10 @@
     
         <div class="awning"> 
            
-            <?php if (($tradition['Ustradition']['awning_image'])) :
-					echo $this->Html->image('/img/us-traditions/awning_image/'. $tradition['Ustradition']['awning_image']);
+            <?php if (($ustradition['Ustradition']['awning_image'])) :
+					echo $this->Html->image('/img/us-traditions/awning_image/'. $ustradition['Ustradition']['awning_image']);
 				else :
-					echo ' <img src="/img/traditions/awning_image/default.jpg" /> ';
+					echo ' <img src="/img/us-traditions/awning_image/far-west.jpg" /> ';
 				endif;
 			?>
         </div>
