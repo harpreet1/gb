@@ -1,4 +1,3 @@
-
 <style>
 .recipescontainer {
 	overflow: hidden;
@@ -21,10 +20,8 @@
 </style>
 
 <div id="tea_shoppe">
-    <div id="shop-info"><?php echo $user['User']['name'] . (isset($name) ? ": ".$name : '') ?></div>
+	<div id="shop-info"><?php echo $user['User']['name'] . (isset($name) ? ": ".$name : '') ?></div>
 </div>
-
-
 
 <h2>Our Own Recipes</h2>
 
@@ -36,7 +33,13 @@
 	<div class="recipes">
 		<?php //echo $recipe['Recipe']['name']; ?>
 		<br />
-		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
+		<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
+		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
+		<br />
+		<?php echo $recipe['Recipe']['name']; ?>
+		</a>
+
+		<?php //echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 		<br />
 		<?php //echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
 		<br />
@@ -48,17 +51,12 @@
 </div>
 
 <br />
+<br />
 
 <?php $this->Paginator->options(array('url' => $this->passedArgs)); ?>
 
-<p>
-<?php echo $this->Paginator->counter(array('format' => 'Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')); ?>
-</p>
-
-<br />
+<?php echo $this->element('pagination-counter'); ?>
 
 <?php echo $this->element('pagination'); ?>
 
 <br />
-
-

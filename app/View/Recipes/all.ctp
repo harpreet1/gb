@@ -11,7 +11,6 @@ $(document).ready(function() {
 });
 </script>
 
-
 <div class="row">
 	<div class="span3">
 		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'label' => 'Recipe Categories','empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
@@ -75,13 +74,12 @@ $(document).ready(function() {
 	<div class="span3">
 		<?php echo $recipe['Recipescategory']['name']; ?>
 		<br />
-		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'subdomain' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 
-		<?php //echo $this->Html->image('/img/recipes/' . $recipe['Recipe']['slug'] . '-1.jpg', array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['short_name'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
-
+		<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
+		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
 		<br />
-
-		<?php echo $this->Html->link($recipe['Recipe']['name'], array('subdomain' => $recipe['User']['slug'], 'controller' => 'recipes', 'action' => 'view', 'slug' => $recipe['Recipe']['slug'])); ?>
+		<?php echo $recipe['Recipe']['name']; ?>
+		</a>
 		<br />
 		<br />
 		<?php echo $recipe['User']['name']; ?>
@@ -105,4 +103,3 @@ $(document).ready(function() {
 <?php echo $this->element('pagination'); ?>
 
 <br />
-
