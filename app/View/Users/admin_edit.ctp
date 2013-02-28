@@ -91,9 +91,68 @@
                <div class="inline"> We ship in&nbsp;<?php echo $this->Form->input('ship_time', array('label' => false, 'class' => 'span1')); ?> days from receipt of order.</div>
               
                <br />
-				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping/ Return/ Customer Satisfaction Policies')); ?><br />
-				<?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
-				<?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Flat Shipping Price')); ?>
+				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping/ Return/ Customer Satisfaction Policies')); ?>
+                <br />
+                <hr />
+                <h4>FLAT SHIPPING LEVELS</h4>
+                <?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
+               
+                <?php echo $this->Form->input('ship_determinant', array('empty' => '--','label' => 'Shipping Determinant' , 'options' => array( 'containers' => 'Containers','dollars' => 'Dollars'))); ?>
+               
+                <div class="row">
+                	<div class="span1 horiz-label">Level 1:</div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_1_low', array('class' => 'span1','label' => 'From:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_1_high', array('class' => 'span1','label' => 'To:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                       <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Price')); ?>
+                    </div>
+				</div>
+
+                <div class="row">
+                	<div class="span1 horiz-label">Level 2:</div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_2_low', array('class' => 'span1','label' => 'From:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_2_high', array('class' => 'span1','label' => 'To:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                       <?php echo $this->Form->input('flat_ship_level_2_price', array('class' => 'span1','label' =>'Price')); ?>
+                    </div>
+				</div>
+
+                <div class="row">
+                	<div class="span1 horiz-label">Level 3:</div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_3_low', array('class' => 'span1','label' => 'From:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_3_high', array('class' => 'span1','label' => 'To:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                       <?php echo $this->Form->input('flat_ship_level_3_price', array('class' => 'span1','label' =>'Price')); ?>
+                    </div>
+				</div>
+
+                <div class="row">
+                	<div class="span1 horiz-label">Level 4:</div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_4_low', array('class' => 'span1','label' => 'From:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                        <?php echo $this->Form->input('flat_ship_level_4_high', array('class' => 'span1','label' => 'To:')); ?>
+                    </div>
+                    <div class="span1 shipping">
+                       <?php echo $this->Form->input('flat_ship_level_4_price', array('class' => 'span1','label' =>'Price')); ?>
+                    </div>
+				</div>
+
+               
+				
 				<?php echo $this->Form->input('flat_shipping_weight_threshold', array('class' => 'span1')); ?>
 				<?php echo $this->Form->input('free_shipping', array('type' => 'checkbox')); ?>
 				<?php echo $this->Form->input('free_shipping_price_threshold', array('class' => 'span1','label' => 'Free Shipping Price')); ?>
