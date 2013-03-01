@@ -153,6 +153,7 @@ class ProductsController extends AppController {
 			),
 			'limit' => 40,
 			'order' => array(
+				'Product.brand_name' => 'ASC',
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
