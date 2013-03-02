@@ -67,6 +67,8 @@ $(document).ready(function() {
 
 <table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
+    	<th class="actions">Actions</th>
+    	<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('recipescategory_id'); ?></th>
@@ -77,13 +79,17 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('ingredients'); ?></th>
 		<th><?php echo $this->Paginator->sort('preparation'); ?></th>
 		<th><?php echo $this->Paginator->sort('comment'); ?></th>
-		<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th class="actions">Actions</th>
+		
 	</tr>
 	<?php foreach ($recipes as $recipe): ?>
 	<tr>
+    	<td class="actions">
+			<?php echo $this->Html->link('View', array('action' => 'view', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
+		</td>
+        <td><a href="/admin/recipes/switch/active/<?php echo $recipe['Recipe']['id']; ?>" class="status"><img src="/img/icon_<?php echo $recipe['Recipe']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($recipe['Recipe']['id']); ?></td>
 		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
 		<td><span class="recipes_category"<?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
@@ -94,13 +100,8 @@ $(document).ready(function() {
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['ingredients']); ?></div></td>
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['preparation']); ?></div></td>
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['comment']); ?></div></td>
-		<td><a href="/admin/recipes/switch/active/<?php echo $recipe['Recipe']['id']; ?>" class="status"><img src="/img/icon_<?php echo $recipe['Recipe']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($recipe['Recipe']['created']); ?></td>
 		<td><?php echo h($recipe['Recipe']['modified']); ?></td>
-		<td class="actions">
-			<?php echo $this->Html->link('View', array('action' => 'view', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php echo $this->Html->link('Edit', array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
-		</td>
 	</tr>
 	<?php endforeach; ?>
 </table>
