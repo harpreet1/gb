@@ -17,9 +17,16 @@
 		<h4>Directions</h4>
 		<p><?php echo $recipe['Recipe']['preparation']; ?></p>
 		<br />
+        <h4>Comments</h4>
+        <p><?php echo $recipe['Recipe']['comment']; ?></p>
 		<br />
+        <h4>Tags</h4>
+         <p><?php echo $recipe['Recipe']['tags']; ?></p>
 		
 		<br />
+        <br />
+        <h4>Attribution</h4>
+         <p><?php echo $recipe['Recipe']['attribution']; ?></p>
 	</div>
 
 	<div class="span3">
