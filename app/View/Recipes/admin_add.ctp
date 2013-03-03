@@ -30,8 +30,8 @@
 		echo $this->Form->input('recipescategory_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('slug');
-		echo $this->Form->input('traditions');
-		echo $this->Form->input('ustraditions', array( 'label' => 'US Traditions'));
+		echo $this->Form->input('traditions', array('empty' => '--', 'label' => 'International Traditions'));
+		echo $this->Form->input('ustraditions', array('empty' => '--', 'label' => 'US Traditions'));
 		echo $this->Form->input('attribution',array( 'class' => 'input-gb-large'));
 		echo $this->Form->input('description', array('rows' => 10, 'class' => 'input-gb-large'));
 		echo $this->Form->input('comment', array('rows' => 10, 'class' => 'input-gb-large'));
