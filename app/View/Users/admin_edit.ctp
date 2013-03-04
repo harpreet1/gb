@@ -108,7 +108,7 @@
                         <?php echo $this->Form->input('flat_ship_level_1_high', array('class' => 'span1','label' => 'To:')); ?>
                     </div>
                     <div class="span1 shipping">
-                       <?php echo $this->Form->input('flat_shipping_price', array('class' => 'span1','label' =>'Price')); ?>
+                       <?php echo $this->Form->input('flat_ship_level_1_price', array('class' => 'span1','label' =>'Price')); ?>
                     </div>
 				</div>
 
