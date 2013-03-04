@@ -26,6 +26,23 @@ $(document).ready(function(){
 
 </script>
 
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({ changeYear: true });
+		// getter
+		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+		// getter
+		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	});
+  </script>
+
+
 
 <h2>Admin Add Product</h2>
 
@@ -121,7 +138,7 @@ $(document).ready(function(){
 
 	<div class="span3">
     <h3>Traditions</h3>
-		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'label' => 'International Traditions')); ?>
+		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected, 'label' => 'International Traditions')); ?>
 		<br />
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
@@ -170,22 +187,29 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
-		<div class="emphasize">Commission: maybe with ajax....</div>
-		<?php echo $this->Form->input('price_wholesale');?>
-		<?php echo $this->Form->input('price_list');?>
-
-		<?php echo $this->Form->input('price');?>
+		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
+		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('price_list', array('class' => 'span1'));?>
+		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
+		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
-		<?php echo $this->Form->input('measurement');?>
-		<?php echo $this->Form->input('weight_unit');?>
-		<?php echo $this->Form->input('weight');?>
-		<?php echo $this->Form->input('shipping_weight');?>
-		<?php echo $this->Form->input('volume');?>
-		<?php echo $this->Form->input('volume_unit');?>
-		<?php echo $this->Form->input('dimension_unit');?>
-		<?php echo $this->Form->input('height');?>
-		<?php echo $this->Form->input('length');?>
-		<?php echo $this->Form->input('width');?>
+		<?php //echo $this->Form->input('measurement');?>
+		<?php //echo $this->Form->input('weight_unit');?>
+		<?php echo $this->Form->input('weight', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('shipping_weight', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('volume', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('height', array('class' => 'span1'));?>
+		<?php echo $this->Form->input('length', array('class' => 'span1'));?>
+        <?php echo $this->Form->input('width', array('class' => 'span1'));?>
+		<br />
+		<br />
+        <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
+        <?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Seasonal Stock Item')); ?>
+        <?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
+ 		<br />
+		<br />       
 		<?php echo $this->Form->input('related_products'); ?>
 	</div>
 
@@ -193,6 +217,18 @@ $(document).ready(function(){
 
 <br />
 <br />
+
+<div class="row">
+
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_serv_size', array('class' => 'span1','label' => 'Serving Size')); ?>
+	</div>
+    	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_serv_per_container', array('class' => 'span1','label' => 'Servings per Container')); ?>
+	</div>
+
+	
+</div>
 
 <div class="row">
 
@@ -253,7 +289,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
 	</div>
 
-
+    
 </div>
 
 <div class="row">
@@ -286,13 +322,16 @@ $(document).ready(function(){
 	</div>
 </div>
 
+
+
+
 <br />
 <br />
 
 <div class="row">
 
 	<div class="span4">
-
+		
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
 

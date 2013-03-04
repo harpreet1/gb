@@ -222,6 +222,18 @@ $(document).ready(function(){
 
 <div class="row">
 
+	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_serv_size', array('class' => 'span1','label' => 'Serving Size')); ?>
+	</div>
+    	<div class="span2 nutrition">
+		<?php echo $this->Form->input('nut_serv_per_container', array('class' => 'span1','label' => 'Servings per Container')); ?>
+	</div>
+
+	
+</div>
+
+<div class="row">
+
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_calories', array('class' => 'span1','label' => 'Calories')); ?>
 	</div>
