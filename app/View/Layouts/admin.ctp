@@ -89,7 +89,10 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => true)); ?></li>
+                            <li><?php echo $this->Html->link('Notes to Discuss', array('controller' => 'notes', 'action' => 'discuss', 'admin' => true)); ?></li>
+                            <li><?php echo $this->Html->link('Notes Addressed', array('controller' => 'notes', 'action' => 'addressed', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Add Note', array('controller' => 'notes', 'action' => 'add', 'admin' => true)); ?></li>
+                            
 						</ul>
 					</li>
 

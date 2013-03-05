@@ -13,12 +13,49 @@ class NotesController extends AppController {
 				'Note.id' => 'DESC',
 				
 			),
+			'conditions' => array(
+				'NOT' => array(
+					'Note.priority' => array('A','D'))
+			),
+			
+		);
+		$notes = $this->paginate('Note');
+		$this->set(compact('notes'));
+	}
+	
+////////////////////////////////////////////////////////////
+
+	public function admin_discuss() {
+		$this->paginate = array(
+			'recursive' => 0,
+			'order' => array(
+				'Note.id' => 'DESC',
+			),
+			'conditions' => array(
+				'Note.priority' => array('D')
+			),
+			
+		);
+		$notes = $this->paginate('Note');
+		$this->set(compact('notes'));
+	}
+////////////////////////////////////////////////////////////
+
+	public function admin_addressed() {
+		$this->paginate = array(
+			'recursive' => 0,
+			'order' => array(
+				'Note.id' => 'DESC',
+			),
+			'conditions' => array(
+				'Note.priority' => array('A')
+			),
+			
 		);
 		$notes = $this->paginate('Note');
 		$this->set(compact('notes'));
 	}
 
-////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
 		$this->Note->id = $id;

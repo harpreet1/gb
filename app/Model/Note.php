@@ -48,6 +48,7 @@ class Note extends AppModel {
 		return $notes;
 	}
 
+
 ////////////////////////////////////////////////////////////
 
 	public function priorities() {
@@ -56,6 +57,8 @@ class Note extends AppModel {
 			'H' => 'H',
 			'N' => 'N',
 			'L' => 'L',
+			'D' => 'Discuss',
+			'A' => 'Addressed',
 		);
 		return $priorities;
 	}
