@@ -999,7 +999,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .attr-icons {
-	border: thin solid whiteSmoke;
+	border: none;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	background-color: #EAE7E2;

@@ -408,7 +408,7 @@
 					<?php foreach($attributes as $akey => $avalue): ?>
 						<div class="attr-icon-set">
 							<div class="attr-icons">
-								<img src="/img/attributes/<?php echo $akey;?>.png" width="50" height="50" />
+								<img src="/img/attributes/<?php echo $akey;?>.jpg" width="50" height="50" />
 							</div>
 							<div class="attr-icon-caption"><?php echo str_replace('_', ' ', $akey); ?></div>
 						</div>
