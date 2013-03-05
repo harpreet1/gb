@@ -236,9 +236,21 @@
 							</div>
 
 						</div>
+                        
+                    
 
 						<div class="price">$<?php echo $product['Product']['price']; ?></div>
-						<div class="brand"><?php echo $product['Product']['brand_name']; ?></div>
+                        
+                        
+                       <?php if(!empty($product['Product']['brand_id'])) : ?> 
+                        
+							<div class="brand"><?php echo $product['Product']['brand_id']; ?> / <?php echo $product['Product']['brand_name']; ?></div>
+                        
+                        <?php elseif(empty($product['Product']['brand_id'])) : ?> 
+                        
+                        	<div class="brand"><?php echo $user['User']['name']; ?></div>
+                        
+                        <?php endif; ?>
 
 					</div>
 

@@ -10,8 +10,16 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,||,cleanup,removeformat,code",
 		theme_advanced_resizing : true,
+		
+		
+		
+		
+	
+		
+		
+		
 	});
 </script>
 
@@ -153,8 +161,8 @@ $(document).ready(function(){
 	<?php
 		echo $this->Form->input('attr_allergen_free', array('type' => 'checkbox','label' => 'Allergen Free'));
 		echo $this->Form->input('attr_gluten_free', array('type' => 'checkbox','label' => 'Gluten Free'));
-		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Allergen Free'));
-		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Vegetarian'));
+		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Vegetarian'));
+		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Low Fat'));
 		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
 		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
 		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
@@ -263,13 +271,13 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_sodium', array('class' => 'span1','label' => 'Sodium')); ?>
 	</div>
-	<div class="span1 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_sodium_p', array('class' => 'span1','label' => 'Daily %')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Carbs')); ?>
+		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Total Carb')); ?>
 	</div>
-	<div class="span1 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_carbs_p', array('class' => 'span1','label' => 'Daily %')); ?>
 	</div>
 	<div class="span1 nutrition">

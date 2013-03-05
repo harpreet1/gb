@@ -9,7 +9,7 @@ class AppController extends Controller {
 		'AutoLogin',
 		'Auth',
 		'RequestHandler',
-		//'DebugKit.Toolbar',
+		'DebugKit.Toolbar',
 	);
 
 ////////////////////////////////////////////////////////////

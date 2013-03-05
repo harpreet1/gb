@@ -148,12 +148,13 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
+				'Product.brand_id',
 				'Product.brand_name',
 				'User.slug'
 			),
 			'limit' => 40,
 			'order' => array(
-				'Product.brand_name' => 'ASC',
+				'Product.brand_id' => 'ASC',
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
@@ -695,7 +696,7 @@ class ProductsController extends AppController {
 			'limit' => 50,
 		);
 		$products = $this->paginate('Product');
-		$this->set(compact('products'));
+		$this->set(compact('products','brands'));
 	}
 
 ////////////////////////////////////////////////////////////
