@@ -26,23 +26,6 @@ $(document).ready(function(){
 
 </script>
 
-<script>
-	$(function() {
-		$( "#datepicker" ).datepicker();
-		$( "#datepicker" ).datepicker({ changeYear: true });
-		// getter
-		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
-		// setter
-		$( "#datepicker" ).datepicker( "option", "changeYear", true );
-		$( "#datepicker" ).datepicker({ gotoCurrent: true });
-		// getter
-		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
-		// setter
-		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
-	});
-  </script>
-
-
 
 <h2>Admin Add Product</h2>
 
@@ -138,7 +121,6 @@ $(document).ready(function(){
 
 	<div class="span3">
     <h3>Traditions</h3>
-		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected, 'label' => 'International Traditions')); ?>
 		<br />
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
@@ -151,8 +133,8 @@ $(document).ready(function(){
 	<?php
 		echo $this->Form->input('attr_allergen_free', array('type' => 'checkbox','label' => 'Allergen Free'));
 		echo $this->Form->input('attr_gluten_free', array('type' => 'checkbox','label' => 'Gluten Free'));
-		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Allergen Free'));
-		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Vegetarian'));
+		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Vegetarian'));
+		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Low Fat'));
 		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
 		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
 		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
@@ -187,10 +169,8 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
-		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('price_list', array('class' => 'span1'));?>
-		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php //echo $this->Form->input('measurement');?>
@@ -205,7 +185,6 @@ $(document).ready(function(){
         <?php echo $this->Form->input('width', array('class' => 'span1'));?>
 		<br />
 		<br />
-        <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
         <?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Seasonal Stock Item')); ?>
         <?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
  		<br />
@@ -261,13 +240,13 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_sodium', array('class' => 'span1','label' => 'Sodium')); ?>
 	</div>
-	<div class="span1 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_sodium_p', array('class' => 'span1','label' => 'Daily %')); ?>
 	</div>
 	<div class="span1 nutrition">
-		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Carbs')); ?>
+		<?php echo $this->Form->input('nut_carbs', array('class' => 'span1','label' => 'Total Carb')); ?>
 	</div>
-	<div class="span1 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_carbs_p', array('class' => 'span1','label' => 'Daily %')); ?>
 	</div>
 	<div class="span1 nutrition">
@@ -322,16 +301,13 @@ $(document).ready(function(){
 	</div>
 </div>
 
-
-
-
 <br />
 <br />
 
 <div class="row">
 
 	<div class="span4">
-		
+
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
 

@@ -154,7 +154,7 @@ class ProductsController extends AppController {
 			),
 			'limit' => 40,
 			'order' => array(
-				'Product.brand_id' => 'ASC',
+				'Product.brand_name' => 'ASC',
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
@@ -980,6 +980,7 @@ class ProductsController extends AppController {
 				'Tradition.name' => 'ASC'
 			)
 		));
+		
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
