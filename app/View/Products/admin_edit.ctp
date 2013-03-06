@@ -119,6 +119,18 @@ $(document).ready(function(){
 
 <div class="row">
 
+	<div class="span2">
+		<?php echo $this->Form->input('displaygroup', array('label' => 'Display Group Priority','empty' => '--')); ?>
+	</div>
+
+
+</div>
+
+<br />
+<br />
+
+<div class="row">
+
 	<div class="span5">
 		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
 	</div>

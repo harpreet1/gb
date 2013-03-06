@@ -10,6 +10,7 @@ $(document).ready(function() {
 		url: '/admin/notes/editable',
 		title: 'Priority',
 		placement: 'right',
+		//source: <?php //echo json_encode($priorities); ?>,
 	});
 });
 </script>
@@ -34,7 +35,7 @@ $(document).ready(function() {
 	<tr>
 		<td><?php echo h($note['Note']['id']); ?></td>
         <td class="priority"><?php echo h($note['Note']['author']); ?></td>
-         <td class="priority"><span class="prioritize" data-value="<?php //echo $note['Note']['priority']; ?>" data-pk="<?php echo $note['Note']['id']; ?>"><?php echo $note['Note']['priority']; ?></span></td>
+         <td class="priority"><span class="prioritize" data-value="<?php echo $note['Note']['priority']; ?>" data-pk="<?php echo $note['Note']['id']; ?>"><?php echo $note['Note']['priority']; ?></span></td>
 		<td><?php echo h($note['Note']['name']); ?></td>
 		<td><?php echo ($note['Note']['note']); ?></td>
 		<td><a href="/admin/notes/switch/active/<?php echo $note['Note']['id']; ?>" class="status"><img src="/img/icon_<?php echo $note['Note']['active']; ?>.png" alt="" /></a></td>

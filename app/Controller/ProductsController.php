@@ -839,7 +839,8 @@ class ProductsController extends AppController {
 			),
 			'order' => array(
 				'User.active' => 'DESC',
-				'User.name' => 'ASC'
+				'User.name' => 'ASC',
+				'Product.displaygroup',
 			),
 			'group' => array(
 				'Product.user_id',
@@ -864,13 +865,15 @@ class ProductsController extends AppController {
 			)
 		));
 
+		$displaygroups = $this->Product->displaygroups();
+
 		$ustraditions = $this->Product->Ustradition->findList();
 
 		$brands = $this->Product->Brand->findList();
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands','countries'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands','countries','displaygroups'));
 
 	}
 
@@ -912,6 +915,9 @@ class ProductsController extends AppController {
 				'Product.id' => $id
 			)
 		));
+
+
+		
 		$this->set(compact('product'));
 
 	}
@@ -1090,6 +1096,8 @@ class ProductsController extends AppController {
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
 
 		$ustraditions = $this->Product->Ustradition->findList();
+		
+		$displaygroups = $this->Product->displaygroups();
 
 		$brands = $this->Product->Brand->findList();
 
@@ -1097,10 +1105,8 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups'));
 		
-		
-
 	}
 
 ////////////////////////////////////////////////////////////

@@ -54,6 +54,15 @@ $(document).ready(function() {
 		placement: 'left',
 	});
 
+	$('.displaygroup').editable({
+		type: 'select',
+		name: 'displaygroup',
+		url: '/admin/products/editable',
+		title: 'Brand',
+		source: <?php echo json_encode($displaygroups); ?>,
+		placement: 'right',
+	});
+
 	$('.ustradition').editable({
 		type: 'select',
 		name: 'ustradition_id',
@@ -169,6 +178,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+        <th><?php echo $this->Paginator->sort('displaygroup'); ?></th>
 		<th><?php echo $this->Paginator->sort('stock'); ?></th>
 		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
@@ -208,6 +218,9 @@ $(document).ready(function() {
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
+        <!--<td><?php //echo ($product['Product']['displaygroup'], array('label' => 'Group')); ?></td>-->
+        <td><span class="displaygroup" data-value="<?php echo $product['Product']['displaygroup']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['displaygroup']); ?></span></td>
+        
 		<td><?php echo ($product['Product']['stock']); ?></td>
 		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
