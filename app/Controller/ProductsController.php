@@ -150,19 +150,22 @@ class ProductsController extends AppController {
 				'Product.price',
 				'Product.brand_id',
 				'Product.brand_name',
+				'Product.displaygroup',
 				'User.slug'
 			),
 			'limit' => 40,
 			'order' => array(
-				'Product.brand_name' => 'ASC',
-				'Product.name' => 'ASC'
+				'Product.displaygroup' => 'DESC',
+				//'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
 			'conditions' => $conditions
 		);
 		$products = $this->paginate('Product');
+		
+		$displaygroups = $this->Product->displaygroups();
 
-		$this->set(compact('products'));
+		$this->set(compact('products','displaygroups'));
 
 		$title = empty($user) ? 'All Products' : $user['User']['name'];
 
