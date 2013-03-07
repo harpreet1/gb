@@ -156,7 +156,7 @@ class ProductsController extends AppController {
 			'limit' => 40,
 			'order' => array(
 				'Product.displaygroup' => 'DESC',
-				//'Product.name' => 'ASC'
+				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
 			'conditions' => $conditions
@@ -843,8 +843,8 @@ class ProductsController extends AppController {
 			'order' => array(
 				'User.active' => 'DESC',
 				'User.name' => 'ASC',
-				'Product.displaygroup',
-			),
+				'Product.displaygroup' => 'DESC',
+			), 
 			'group' => array(
 				'Product.user_id',
 			),
