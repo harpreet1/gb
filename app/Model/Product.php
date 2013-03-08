@@ -143,7 +143,7 @@ class Product extends AppModel {
 	public function displaygroups() {
 		
 		$displaygroups = array(
-			'1' => 'Featured',
+			'1' => '1',
 			'2' => '2',
 			'3' => '3',
 			'4' => '4',
@@ -159,6 +159,11 @@ class Product extends AppModel {
 			'14' => '14',
 			'14' => '15',
 			'15' => '16',
+			'16' => '17',
+			'17' => '17',
+			'18' => '18',
+			'19' => '19',
+			'20' => 'Featured',
 		);
 		return $displaygroups;
 	}

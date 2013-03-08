@@ -843,8 +843,8 @@ class ProductsController extends AppController {
 			'order' => array(
 				'User.active' => 'DESC',
 				'User.name' => 'ASC',
-				'Product.displaygroup',
-			),
+				'Product.displaygroup' => 'DESC',
+			), 
 			'group' => array(
 				'Product.user_id',
 			),
