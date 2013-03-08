@@ -155,7 +155,7 @@ class ProductsController extends AppController {
 			),
 			'limit' => 40,
 			'order' => array(
-				'Product.displaygroup' => 'ASC',
+				//'Product.displaygroup' => 'ASC',
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
