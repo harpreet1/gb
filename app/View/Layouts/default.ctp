@@ -44,7 +44,7 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="http://gourmetdev.com">Home</a>
+				<a class="brand" href="/">Home</a>
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="dropdown">
