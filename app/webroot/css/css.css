@@ -64,7 +64,7 @@ ul {
 	top: 105px;
 	height: 44px;
 	z-index: 0;
-	background-color: #CC3;
+	background-color: #f7f1e5;
 }
 	
 .basket {
@@ -119,11 +119,11 @@ ul {
 }
 
 .navbar .nav > li > a {
-	color:#526292;
+	color:#fff;
 }
 
 .navbar .nav > li > a:hover {
-	color:#fff;
+	color:#FFC;
 }
 
 
