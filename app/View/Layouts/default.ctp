@@ -48,7 +48,7 @@
                 
 				<div class="nav-collapse">
                 
-                    <div class="gb-nav-bkgnd btn-gb">
+                    <div class="gb-nav-bkgnd">
                     
                     	<div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>
                     
