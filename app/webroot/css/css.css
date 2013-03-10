@@ -120,6 +120,9 @@ ul {
 
 .navbar .nav > li > a {
 	color:#fff;
+	font-weight: bold;
+	font-size:100%;
+	text-shadow: none;
 }
 
 .navbar .nav > li > a:hover {
