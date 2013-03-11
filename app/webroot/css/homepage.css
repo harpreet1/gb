@@ -1,6 +1,7 @@
 body {
 	background-color: #94c0c0;
 	border-top: 5px solid #000;
+	font-family: 'Open Sans', verdana, arial, sans-serif;
 	font-size: 13px;
 	padding-top: 0px; }
  
@@ -196,7 +197,7 @@ div.pic-link-title {
 .navbar {
 	margin-left: auto;
 	margin-right: auto;
-	width: 1200px; }
+	width: 960px; }
  
 .navbar-fixed-top { top: 121px; }
  
@@ -213,3 +214,8 @@ div.pic-link-title {
 	text-decoration: none;
 	text-shadow: none; }
  
+.caret {
+	vertical-align: middle;
+	padding-left;:3px;
+
+}

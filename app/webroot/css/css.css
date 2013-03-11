@@ -129,6 +129,15 @@ ul {
 	color:#FFC;
 }
 
+/** Mega Menu **/
+
+.meganizr {
+	border: none;
+	background:none;
+}
+
+
+
 
 #outer-wrapper {
 	margin: 0px;

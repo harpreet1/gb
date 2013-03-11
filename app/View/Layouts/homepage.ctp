@@ -14,12 +14,12 @@
 
 
 
-<?php echo $this->Html->css(array('bootstrap.min.css', 'jquery.vegas.css', 'homepage.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css', 'jquery.vegas.css', 'homepage.css','meganizr.css')); ?>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js','jquery.columnizer.min.js')); ?>
 <?php //echo $this->App->js(); ?>
 <?php //echo $this->fetch('meta'); ?>
 <?php //echo $this->fetch('css'); ?>
@@ -29,6 +29,12 @@
 		// Drop Down Hover!
 		$(document).ready(function() {
 		  $('.js-activated').dropdownHover(true);
+		  
+		  //Columnizer
+		  	$(function(){
+			$('.wide').columnize({width:250});
+			//$('.thin').columnize({width:200});
+		});
 		});
 	</script>
 
@@ -58,74 +64,92 @@
                     <div class="gb-nav-bkgnd">
                     
                     	<!--<div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>-->
+                        
                     
-                        <ul class="nav meganizr mzr-class mzr-slide mzr-responsive">
-                            <li class="dropdown">
-                                <a href="/categories" class="js-activated">Food Categories<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <?php foreach($menucategories as $menucategory) : ?>
-                                    <li><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></li>
+                        <ul class="meganizr mzr-slide mzr-responsive">
+                        
+                        
+                        
+                        	<!-- 4 Columns Mega Dropdown -->
+                           <!-- Portfolio -->
+                            <li class="mzr-drop">
+                                <a href="/categories">Food Categories</a>
+                                <div class="mzr-content drop-three-columns">
+                                	<div class="wide">
+										<?php foreach($menucategories as $menucategory) : ?>
+										<p><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></p>
+										<?php endforeach; ?>  
+									</div>
+								</div> 
+                                 <?php /*?>  <?php foreach($menucategories as $menucategory) : ?>
+                                    <?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?><br />
     
                                     <?php endforeach; ?>
-                                </ul>
-    
-                            <?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
+                                    <?php */?>
                             </li>
-                            <li class="dropdown">
+                            
+                          
+                            <li class="mzr-drop">
                                 <a href="/users/vendors" class="js-activated">Vendor Shoppes<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <?php foreach($menuvendors as $menuvendor) : ?>
-                                    <li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
-    
-                                    <?php endforeach; ?>
-                                </ul>
+                                <div class="mzr-content drop-three-columns">
+                                    <div class="wide">
+                                        <?php foreach($menuvendors as $menuvendor) : ?><p>
+                                        <?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></p>
+        
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
                             </li>
-                            <li class="dropdown">
+                            
+                            
+                            <li class="mzr-drop">
                                 <a href="/ustraditions" class="js-activated">US Food Traditions<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-    
-                                    <?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
-                                    <!--<li><?php //echo $this->Html->link($menu_ustradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', $menu_ustradition['Ustradition']['slug'])); ?></li>-->
-                                    <?php //endforeach; ?>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/amish">Amish</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/deep-south ">Deep South </a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/far-west ">Far West </a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/great-lakes">Great Lakes</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/hawaii">Hawaii</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/louisiana">Louisiana</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/mid-atlantic">Mid-Atlantic</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/midwest">Midwest and Plains </a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/native-american">Native American</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/new-england">New England</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/northwest">Pacific Northwest</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southeast">Southeast</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southwest">Southwest</a></li>
-                                </ul>
+                                <div class="mzr-content drop-three-columns">
+                                    <div class="wide">
+        
+                                        <?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
+                                        <!--<li><?php //echo $this->Html->link($menu_ustradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', $menu_ustradition['Ustradition']['slug'])); ?></li>-->
+                                        <?php //endforeach; ?>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/amish">Amish</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/deep-south ">Deep South </a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/far-west ">Far West </a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/great-lakes">Great Lakes</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/hawaii">Hawaii</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/louisiana">Louisiana</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/mid-atlantic">Mid-Atlantic</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/midwest">Midwest and Plains </a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/native-american">Native American</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/new-england">New England</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/northwest">Pacific Northwest</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southeast">Southeast</a></p>
+                                        <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southwest">Southwest</a></p>
+                                    </div>
+								</div>
                             </li>
                             <!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
                             <?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
-                            <li class="dropdown">
+                            <li class="mzr-drop">
                                 <a href="/traditions" class="js-activated">Int'l Food Traditions<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/northern_europe">British Isles &amp; Ireland</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/china">China and Taiwan</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern_europe">Eastern and Central Europe</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/japan">Japan</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/korea">Korea</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean_europe">Mediterranean Europe</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico_central_america">Mexico and Central America</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle_east">Middle East</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north_america">North America / Canada</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/oceania">Oceania</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/scandinavia">Scandinavia</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/southeast_asia">Southeast Asia</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_america">South America</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_asia">South Asia</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a></li>
-                                    <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a></li>
-                                </ul>
-                            <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
+                                <div>
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/northern_europe">British Isles &amp; Ireland</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/china">China and Taiwan</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern_europe">Eastern and Central Europe</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/japan">Japan</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/korea">Korea</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean_europe">Mediterranean Europe</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico_central_america">Mexico and Central America</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle_east">Middle East</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north_america">North America / Canada</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/oceania">Oceania</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/scandinavia">Scandinavia</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/southeast_asia">Southeast Asia</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_america">South America</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_asia">South Asia</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a><br />
+                                    <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a><br />
+                                </div>
+                            <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?>
     
                             <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
                             <!--<li><?php //echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>-->
@@ -138,10 +162,15 @@
                                 </ul>
                             </li>-->
     
-                                <?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
+                                <?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
     
                             <li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
+                            
+                            
+                            
                         </ul>
+                        
+                        
                     
                    </div> 
                     
