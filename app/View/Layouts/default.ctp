@@ -30,14 +30,21 @@
 	<?php echo $user['User']['awning_css']; ?>
 }
 .bkgnd-gb {
-	<?php //echo $user['User']['awning_css']; ?>
+	<?php echo $user['User']['awning_css']; ?>
 	opacity: 0.2; /* Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ */
 }
+
+gb-content-border {
+	
+}
+
+
 </style>    
     
 
 </head>
 <body>
+
 
 <div id="outer-wrapper">
 

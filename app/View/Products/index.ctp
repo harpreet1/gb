@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span12">
 
-		<ul class="breadcrumb">
+		<ul class="breadcrumb btn-gb">
 
 		
 				<li><?php echo $user['User']['name']; ?> Shoppe</li>
