@@ -68,6 +68,9 @@ class UpsComponent extends Component {
 		$response = Xml::toArray(Xml::build($res['body']));
 		$formattedResponse = $this->formatResponse($response);
 
+		debug($response);
+		die;
+
 		if (!empty($formattedResponse)) {
 			return $formattedResponse;
 		}
@@ -112,19 +115,19 @@ class UpsComponent extends Component {
 					</Address>
 					<ShipperNumber>' . $this->defaults['ShipperNumber'] . '</ShipperNumber>
 				</Shipper>
-				<ShipTo>
-					<Address>
-						<PostalCode>' . $this->defaults['ShipToZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipToCountry'] . '</CountryCode>
-						<ResidentialAddressIndicator/>
-					</Address>
-				</ShipTo>
 				<ShipFrom>
 					<Address>
 						<PostalCode>' . $this->defaults['ShipFromZip'] . '</PostalCode>
 						<CountryCode>' . $this->defaults['ShipFromCountry'] . '</CountryCode>
 					</Address>
 				</ShipFrom>
+				<ShipTo>
+					<Address>
+						<PostalCode>' . $this->defaults['ShipToZip'] . '</PostalCode>
+						<CountryCode>' . $this->defaults['ShipToCountry'] . '</CountryCode>
+						<ResidentialAddressIndicator>1</ResidentialAddressIndicator>
+					</Address>
+				</ShipTo>
 				<Package>
 					<PackagingType>
 						<Code>' . $this->defaults['PackagingType'] . '</Code>
