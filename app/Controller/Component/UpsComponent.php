@@ -68,9 +68,6 @@ class UpsComponent extends Component {
 		$response = Xml::toArray(Xml::build($res['body']));
 		$formattedResponse = $this->formatResponse($response);
 
-		debug($response);
-		die;
-
 		if (!empty($formattedResponse)) {
 			return $formattedResponse;
 		}
