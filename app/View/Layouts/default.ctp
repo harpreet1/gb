@@ -151,6 +151,9 @@
 	</div>
 
 	<div class="container content">
+    	<div class="left-sun"></div>
+        <div class="right-sun"></div>
+    
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 		<br />

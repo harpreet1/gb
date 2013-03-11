@@ -226,16 +226,16 @@
 .mzr-fade > li > div,
 .mzr-fade > li > ul,
 .mzr-fade > li > ul li > ul {
-	-webkit-transition: all .25s linear .15s;
-	-moz-transition: all .25s linear .15s;
-	-o-transition: all .25s linear .15s;
-	-ms-transition: all .25s linear .15s;
-	transition: all .25s linear .15s;
+	-webkit-transition: all .15s linear .15s;
+	-moz-transition: all .15s linear .15s;
+	-o-transition: all .15s linear .15s;
+	-ms-transition: all .15s linear .15s;
+	transition: all .15s linear .15s;
 }
 
 .mzr-slide > li > div,
 .mzr-slide > li > ul,
-.mzr-slide > li > ul li > ul { top: 100px; }
+.mzr-slide > li > ul li > ul { top: 75px; }
 
 .mzr-slide > li.mzr-drop:hover > div,
 .mzr-slide > li.mzr-drop:hover > ul,

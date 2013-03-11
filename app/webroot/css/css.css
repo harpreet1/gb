@@ -35,7 +35,29 @@ ul {
 
 .container.content {
 	margin-top:-20px;
+	position:relative;
 }
+
+.left-sun , .right-sun {
+	width:61px;
+	height:508px;
+	position:absolute;
+	top:165px;
+	z-index:500;
+	
+}
+
+.left-sun {
+	left:-62px;
+	background-image:url(../img/global/left-sun.png)
+}
+
+.right-sun {
+	right:-62px;
+	background-image:url(../img/global/right-sun.png)
+}
+
+
 
 .quote {
 	padding-right:35px;
