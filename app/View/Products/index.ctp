@@ -147,8 +147,10 @@
         
         
         <div>
-        <p><?php //echo $user['User']['shipping_policy']; ?></p>
-        <a href="#" class="btn btn-gb" data-toggle="popover" data-placement="bottom" title data-content="<?php echo ($user['User']['shipping_policy']);?>">SHIPPING POLICY</a>
+       <?php $vendor_policy = $user['User']['shipping_policy']; ?>
+       
+       
+        <a href="#" class="btn btn-gb" data-toggle="popover" data-placement="bottom" data-content="<?php echo ($vendor_policy); ?>">SHIPPING POLICY</a>
         <span><img class="hand" src="/img/global/hand.png" width="40px"/></span>
         </div>
 

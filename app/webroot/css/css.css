@@ -824,7 +824,7 @@ div.span8>div.awning>img {
 	float: left;
 	border: thin solid #CCC;
 	width: 590px;
-	padding: 10px;
+	padding: 20px;
 	margin-bottom: 20px;
 	background-color: white;
 	line-height: 20px;
@@ -903,6 +903,11 @@ img.vendor-article-logo {
 	padding-right: 20px;
 	padding-bottom: 20px;
 }
+
+#vendor-article {
+	padding-left:20px;
+}
+
 
 .span12.vendor-block {
 	margin-left:52px;

@@ -81,7 +81,7 @@ gb-content-border {
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="/ustraditions" class="js-activated">US Food Traditions<b class="caret"></b></a>
+                                <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/ustraditions" class="js-activated">US Food Traditions<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
     
                                     <?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
@@ -105,7 +105,7 @@ gb-content-border {
                             <!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
                             <?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?></li>
                             <li class="dropdown">
-                                <a href="/traditions" class="js-activated">Int'l Food Traditions<b class="caret"></b></a>
+                                <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions" class="js-activated">Int'l Food Traditions<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></li>
                                     <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/northern_europe">British Isles &amp; Ireland</a></li>
