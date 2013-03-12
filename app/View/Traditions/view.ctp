@@ -103,16 +103,26 @@
 			<br />
 			<?php echo $tradition['Tradition']['article']; ?>
 		</div>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6'], array('width' => '300px')); ?>
-
+        
+        <div class="tradition-images">
+        
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_1'], array('width' => '300px')); ?>
+            </div>
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_2'], array('width' => '300px')); ?>
+            </div>
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_3'], array('width' => '300px')); ?>
+            </div>
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_4'], array('width' => '300px')); ?>
+            </div>
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_5'], array('width' => '300px')); ?>
+            </div>
+            <div class="intl-image">
+                <?php echo $this->Html->image('traditions/' . $tradition['Tradition']['image_6'], array('width' => '300px')); ?>
+            </div>
+            
+		</div>

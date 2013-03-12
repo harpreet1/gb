@@ -52,7 +52,7 @@
     
     	<div class="span9">
     
-        <ul class="breadcrumb">
+        <ul class="breadcrumb categories">
         
             <li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
             <span class="divider">/</span>

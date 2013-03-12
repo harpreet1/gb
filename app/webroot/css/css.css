@@ -83,6 +83,17 @@ ul {
 	font-weight:bold;
 }
 
+/**Category Breadcrumbs **/
+
+.categories {
+	background:#649d78;
+}
+
+.breadcrumb.categories li {
+	text-shadow:none;
+	
+}
+
 
 /** GB Nav background **/
 
@@ -844,8 +855,14 @@ div.span8>div.awning>img {
 	padding: 30px;
 }
 
-.category-pic {
+
+.tradition-images {
+	float:left;
+}
+
+.category-pic, .intl-image {
 	width: 300px;
+	padding:10px;
 }
 
 .tradition-summary {
@@ -1281,6 +1298,7 @@ ul.navList {
 .navList a {
 	text-decoration: none;
 	color: #ffffff;
+	background-color:#3a3a3a;
 	/*font-size: 16px;*/
 	/*background-image: url(../img/global/navBack.jpg);*/
 	background-repeat: repeat-y;
