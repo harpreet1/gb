@@ -50,8 +50,6 @@
 	<div class="span9">
     
     
-    	<div class="span9">
-    
         <ul class="breadcrumb categories">
         
             <li><?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?></li>
@@ -75,21 +73,11 @@
         </ul>
         
         
-	</div>
-    
-    
-    
-    
     
     
 
-		<div class="top-product-block">
-		
+		<div class="cat-product-block">
 			
-			<hr />
-	
-			
-	
 			<div class="row">
 				<?php
 					$i = 0;
@@ -128,7 +116,7 @@
 			</div>
 		</div>
 
-		<div class="top-product-block">
+		<div class="cat-product-block">
 	
 			<div class="row">
 		
