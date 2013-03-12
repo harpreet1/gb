@@ -37,7 +37,8 @@ $(document).ready(function(){
 		//Menu animation						
 		$('.navList ul').css({display: "none"}); //Fix Opera
   		
-		$('.navList li').hover(function() {  
+		$('.navList li').hover(function() { 
+		$('.navList ul').css('background-color','3a3a3a');
 		$(this).find('a').stop().animate({'width' : "225"});
    		$(this).find('ul:first').css({visibility : "visible", display : "none"}).show(400);
     

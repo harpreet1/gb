@@ -851,12 +851,12 @@ div.span8>div.awning>img {
 	/*width: 385px;*/
 	margin-bottom: 30px;
 	/*margin-left: 182px;*/
-	color: #032177;
+	color: #fff;
 	text-align: left;
-	background-color: #FEE79B;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	background-color: #649d78;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	padding: 30px;
 }
 
@@ -874,12 +874,12 @@ div.span8>div.awning>img {
 	
 	margin-top: 10px;
 	margin-bottom: 20px;
-	color: #032177;
+	color: #fff;
 	text-align: left;
-	background-color: #FEE79B;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	background-color: #649d78;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	padding: 30px;
 }
 user agent stylesheet
@@ -1294,6 +1294,9 @@ ul.navList {
 	float: left;
 }
 
+ul.navList, .navList li, .navList li a:hover {
+	background-color:#3a3a3a !important;
+}
 
 .navList a.title {
 	text-align:center;
@@ -1316,15 +1319,15 @@ ul.navList {
 	width: 221px;
 }
 .navList a:hover {
-	background-image: url(../img/global/navHover.jpg);
-	color: #fae489;
+	background: #3a3a3a;
+	color: #fff;
 }
 .navList ul, .navList ul ul {
 	display: none;
 	position: absolute;
 	top: 0;
 	left: 180px;
-	background-image: url(../img/global/navHover.jpg);
+	background:#3a3a3a;
 	background-repeat: repeat-y;
 	/*border: 1px #4f9bd9 solid;*/
 	-webkit-box-shadow: 3px 3px 5px #283958;
