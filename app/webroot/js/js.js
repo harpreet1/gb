@@ -44,7 +44,7 @@ $(document).ready(function(){
     
   		}, function() {
     		$(this).find('ul:first').css({visibility : "hidden"}).hide(400);
-   			$(this).find('a').stop().animate({'width' : "221"});
+   			$(this).find('a').stop().animate({'width' : "225"});
 			});
 		
 	

@@ -22,6 +22,16 @@
 		$(document).ready(function() {
 			$('.js-activated').dropdownHover(true);
 		});
+		
+		
+		 $('#mega-2').dcVerticalMegaMenu({
+			rowItems: '3',
+			speed: 'slow',
+			effect: 'fade',
+			direction: 'right'
+		});
+		
+
 	</script>
     
 <!------ CSS for Brands ------>    

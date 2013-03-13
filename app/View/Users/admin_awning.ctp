@@ -315,9 +315,11 @@ function refreshSwatch() {
 
 function getTextColor(lightness, puffiness){
 	if(parseInt(lightness) < 50){
-		return "color: #fff !important;\n  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0."+shadowAlpha(puffiness)+");\n  -webkit-font-smoothing: antialiased;"
+		return "color: #fff !important;"
+		// \n  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0."+shadowAlpha(puffiness)+");\n  -webkit-font-smoothing: antialiased;
 	} else {
-		return "color: #333 !important;\n  text-shadow: 0 1px 1px rgba(255, 255, 255, 0."+shadowAlpha(puffiness)+");\n  -webkit-font-smoothing: antialiased;"
+		// \n  text-shadow: 0 1px 1px rgba(255, 255, 255, 0."+shadowAlpha(puffiness)+");\n  -webkit-font-smoothing: antialiased;
+		return "color: #333 !important;"
 	};
 }
 

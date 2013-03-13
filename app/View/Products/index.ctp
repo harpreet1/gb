@@ -66,10 +66,13 @@
 
 			<ul class="navList">
 					<li><a href="#">Our Products</a>
+                    
+                    
+                    
 						<!-- This is the sub nav -->
 						<ul class="listTab">
-							<?php foreach ($usercategories as $usercategory): ?>
-							<li><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+							<?php foreach ($usercategories as $usercategory): ?><li>
+							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
 							</li>
 							<?php endforeach; ?>
                         </ul>
