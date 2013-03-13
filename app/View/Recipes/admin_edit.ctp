@@ -37,7 +37,6 @@
 		<?php echo $this->Form->input('ingredients', array('rows' => 20, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-        <?php echo $this->Form->input('attribution'); ?>
 		<?php echo $this->Form->input('tags'); ?>
 		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
 		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
