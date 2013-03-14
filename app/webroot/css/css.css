@@ -348,6 +348,72 @@ div.product-name, div.product-name p, div.product-name a {
 	margin:0px;
 }
 
+/** Recipe **/
+
+.recipescontainer {
+	overflow: hidden;
+	background: #FFFFFF;
+	margin: 0 auto;
+	color: #444;
+}
+.recipes {
+	display: inline-block;
+	width: 160px;
+	padding: 5px;
+	margin: 5px;
+	vertical-align: top;
+}
+.recipes img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px #CCC solid;
+}
+
+
+.content-recipe {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 260px;
+	margin-bottom: 25px;
+	padding-top: 12px;
+	background-image: url(../img/global/content-recipe.png);
+	background-repeat: no-repeat;
+}
+
+.content-recipe .content-img {
+	/*overflow: hidden;*/
+	width: 110px;
+	margin-left: 27px;
+	margin-bottom: 20px;
+	/*border: #CCC solid thin;*/
+}
+
+.content-recipe .recipe-name {
+	font-size: 11px;
+	font-weight:bold;
+	line-height:13px;
+	display: block;
+	text-align: left;
+	margin-top: 30px;
+	margin-right: 6px;
+	margin-left: 0px;
+	padding-top: 0px;
+	width: 154px;
+}
+
+.content-recipe .small {
+	font-size: 11px;
+	padding-left:20px;
+}
+
+.img-polaroid {
+	max-width: 120%;
+}
+
+
+
+
 .pic-thumbnail {
 	height: 50px;
 	width: 50px;
@@ -355,8 +421,6 @@ div.product-name, div.product-name p, div.product-name a {
 	display: block;
 	border: 1px solid #CCC;
 }
-
-
 
 #carousel.flexslider {
 	margin: 0 0 30px;
@@ -1375,7 +1439,26 @@ ul.navList, .navList li, .navList li a:hover {
 		
 	font-weight:bold;
 	}
-	
+
+.recipescontainer {
+	overflow: hidden;
+	background: #FFFFFF;
+	margin: 0 auto;
+	color: #444;
+}
+.recipes {
+	display: inline-block;
+	width: 160px;
+	padding: 5px;
+	margin: 5px;
+	vertical-align: top;
+}
+.recipes img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px #CCC solid;
+}
+
 	
 	/** Bootstrap Edit **/
 	

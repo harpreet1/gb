@@ -20,9 +20,9 @@ $(document).ready(function() {
 	</div>
 </div>
 
-<!--
 
-<table cellpadding="5" cellspacing="5">
+
+<?php /*?><table cellpadding="5" cellspacing="5">
 	<tr>
 		<th><?php echo $this->Paginator->sort('name');?></th>
 		<th><?php echo $this->Paginator->sort('user_id');?></th>
@@ -36,57 +36,54 @@ $(document).ready(function() {
 	</tr>
 <?php endforeach; ?>
 </table>
+<?php */?>
 
--->
 
 <br />
 <br />
 
-<style>
-.recipescontainer {
-	overflow: hidden;
-	background: #FFFFFF;
-	margin: 0 auto;
-	color: #444;
-}
-.recipes {
-	display: inline-block;
-	width: 160px;
-	padding: 5px;
-	margin: 5px;
-	vertical-align: top;
-}
-.recipes img {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border: 1px #CCC solid;
-}
-</style>
 
 <div class="row">
 
 	<?php
 	$i = 0;
 	foreach ($recipes as $recipe):
-	$i++;
-	if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+		$i++;
+		if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 	?>
-	<div class="span3">
-		<?php echo $recipe['Recipescategory']['name']; ?>
-		<br />
-
-		<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
-		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
-		<br />
-		<?php echo $recipe['Recipe']['name']; ?>
-		</a>
-		<br />
-		<br />
-		<?php echo $recipe['User']['name']; ?>
-		<br />
-		<br />
-
-	</div>
+        <div class="span3">
+        
+            <div class="content-recipe">
+    
+               
+                
+				<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
+					<div class="small"><?php echo $recipe['Recipescategory']['name']; ?>
+					</div>
+                    
+                    <div class="content-img">
+                        <?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 200, 'height' => 200, 'alt' => $recipe['Recipe']['name'], 'class' => 'img-polaroid')); ?>
+                    
+                    
+						<?php /*?><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?><?php */?>
+                    
+                        <div class="recipe-name">
+                            <?php echo $recipe['Recipe']['name']; ?>
+                        
+                        
+                            <?php /*?><!--<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>"> <?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+                            </a>--><?php */?>
+                        </div>
+                        
+                    </div>
+                    
+                   </a> 
+                
+                  
+            </div>
+    
+        </div>
+        
 	<?php
 	if (($i % 4) == 0) { echo "\n</div>\n\n";}
 	endforeach;
