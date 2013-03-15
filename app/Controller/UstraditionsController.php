@@ -31,6 +31,7 @@ class UstraditionsController extends AppController {
 				'Ustradition.name' => 'ASC'
 			)
 		));
+		
 		$this->set(compact('ustraditions'));
 
 		$ustradition_id = $ustradition['Ustradition']['id'];
@@ -81,6 +82,7 @@ class UstraditionsController extends AppController {
 		);
 		$products = $this->paginate('Product');
 		$this->set(compact('products'));
+		
 
 	}
 

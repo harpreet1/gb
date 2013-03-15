@@ -99,20 +99,40 @@
 <br />
 
 		<div id="category-article">
-			<h3><?php echo h($tradition['Ustradition']['name']); ?></h3>
+			<h3><?php echo h($ustradition['Ustradition']['name']); ?></h3>
 			<br />
-			<?php echo $tradition['Ustradition']['article']; ?>
+			<?php echo $ustradition['Ustradition']['article']; ?>
 		</div>
 
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_1'], array('width' => '300px')); ?>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['main_image'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['main_image_desc'] ?></div>
+		</div>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_1'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_1_desc'] ?></div>
+		</div>
 
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_2'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_3'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_4'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_5'], array('width' => '300px')); ?>
-
-		<?php echo $this->Html->image('ustraditions/' . $tradition['Ustradition']['image_6'], array('width' => '300px')); ?>
-
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_2'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_2_desc'] ?></div>
+        </div>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_3'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_3_desc'] ?></div>
+        </div>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_4'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_4_desc'] ?></div>
+        </div>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_5'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_5_desc'] ?></div>
+        </div>
+        <div class="tradition-images">
+            <img class="tradition" src="/img/us-traditions/selections/<?php echo $ustradition['Ustradition']['slug'] ?>/<? echo $ustradition['Ustradition']['image_6'] ?>" />
+            <div><?php echo $ustradition['Ustradition']['image_6_desc'] ?></div>
+        </div>
+        
+        <div class="clear"></div>
+    
