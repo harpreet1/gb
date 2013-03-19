@@ -95,17 +95,48 @@ class UstraditionsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+//	public function admin_view($id = null) {
+//		if (!$this->Ustradition->exists($id)) {
+//			throw new NotFoundException(__('Invalid ustradition'));
+//		}
+//		$ustradition = $this->Ustradition->find('first', array(
+//			'conditions' => array(
+//				'Ustradition.id' => $id
+//			)
+//		));
+//		$this->set(compact('ustradition'));
+//	}
+//
+
+////////////////////////////////////////////////////////////
+
 	public function admin_view($id = null) {
 		if (!$this->Ustradition->exists($id)) {
 			throw new NotFoundException(__('Invalid ustradition'));
 		}
+				
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Ustradition->save($this->request->data)) {
+				$this->Session->setFlash(__('The ustradition has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The ustradition could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Ustradition.' . $this->Ustradition->primaryKey => $id));
+			$this->request->data = $this->Ustradition->find('first', $options);
+		}
+		
 		$ustradition = $this->Ustradition->find('first', array(
 			'conditions' => array(
 				'Ustradition.id' => $id
 			)
 		));
+		
 		$this->set(compact('ustradition'));
 	}
+
+
 
 ////////////////////////////////////////////////////////////
 

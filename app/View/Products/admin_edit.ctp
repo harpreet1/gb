@@ -219,12 +219,12 @@ $(document).ready(function(){
 		<?php //echo $this->Form->input('weight_unit');?>
 		<?php echo $this->Form->input('weight', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('shipping_weight', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('volume', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('volume', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('height', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('length', array('class' => 'span1'));?>
-        <?php echo $this->Form->input('width', array('class' => 'span1'));?>
+        <?php echo $this->Form->input('width', array('class' => 'span1','label' => 'Width / Diameter'));?>
+        <?php echo $this->Form->input('length', array('class' => 'span1','label' => 'Depth / Diameter'));?>
 		<br />
 		<br />
         <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>

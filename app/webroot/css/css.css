@@ -933,7 +933,7 @@ div.span8>div.awning>img {
 
 img.tradition {
 	width:300px;
-	border:ridge #CCC 3px;
+	border:solid #CCC 3px;
 	padding:5px;
 }
 
