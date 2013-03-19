@@ -377,7 +377,7 @@
 
 <?php echo $this->Html->image('users/image_1/'. $user['User']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=users/image_1&src_file=<?php echo $user['User']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $user['User']['image_1']; ?>&width=300&height=300" class="btn">crop image</a>
+<a href="/admin/images/crop?src_dir=users/image_1&src_file=<?php echo $user['User']['image_1']; ?>&dst_dir=users/image_1&dst_file=<?php echo $user['User']['image_1']; ?>&width=300" class="btn">crop image</a>
 
 <br />
 <br />
