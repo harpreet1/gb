@@ -978,14 +978,13 @@ img.vendor-article-logo {
 	position:relative;
 	/*font-family: 'Federo', sans-serif;*/
 	letter-spacing: 1px;
-	font-size: 110%;
+	font-size: 100%;
 	width: 500px;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	margin-left: 362px;
 	color: #032177;
 	text-align: left;
-	background-color: #FEE79B;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -998,6 +997,13 @@ img.vendor-article-logo {
 	padding-bottom: 20px;
 }
 
+blockquote p {
+	font-style:italic;
+	font-size:13px;
+	font-weight:bold;
+	line-height:19px;
+}
+
 #vendor-article {
 	padding-left:20px;
 }
@@ -1008,9 +1014,10 @@ img.vendor-article-logo {
 }
 
 .signature {
-	margin-top:15px;
+	margin-top:0px;
 	text-align: right;
 	font-style: italic;
+	font-weight:bold;
 }
 
 blockquote {
