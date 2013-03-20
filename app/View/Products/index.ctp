@@ -1,27 +1,4 @@
-<div class="row">
-	<div class="span12">
 
-		<ul class="breadcrumb vendor-index">
-
-		
-				<li><?php echo $user['User']['name']; ?> Shoppe</li>
-			
-			<div style="float:right">
-				Sort by:&nbsp;
-				<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
-				&nbsp;
-				<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
-				&nbsp;
-	
-				<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>&nbsp;
-				<?php echo $this->Html->link('Brand', array('?' => array('sort'=>'brand', 'direction'=>'asc')) + $this->passedArgs); ?>
-			</div>
-				
-				
-		</ul>
-		
-	</div>
-</div>
 
 <div class="row">
 
@@ -139,12 +116,7 @@
 					<li><a href="#vendor-unit">Our Regions</a></li>
 		</ul>-->
 
-		<ul class="navList">
-					<li><a href="#">Our Shoppe Policies</a></li>
-						<ul class="listTab">
-                    		<li></li>
-						</ul>
-		</ul>
+		
 
 		</div>
         
@@ -153,7 +125,7 @@
        <?php $vendor_policy = $user['User']['shipping_policy']; ?>
        
        
-        <a href="#" id="my-button" class="btn btn-gb">SHIPPING POLICY</a>
+        <a href="#" id="my-button" class="btn btn-gb">SHIPPING & CUSTOMER SERVICE</a>
         <span><img class="hand" src="/img/global/hand.png" width="40px"/></span>
         </div>
         
@@ -199,6 +171,32 @@
 
 	
 	<div class="span8" style="width:690px;margin-left:0px;">
+    
+    
+
+
+		<ul class="breadcrumb vendor-index">
+
+		
+				<li><?php //echo $user['User']['name']; ?></li>
+			
+			<div style="float:right">
+				Sort by:&nbsp;
+				<?php echo $this->Html->link('Alphabetical', array('?' => array('sort'=>'name', 'direction'=>'asc')) + $this->passedArgs); ?>
+				&nbsp;
+				<?php echo $this->Html->link('Lowest Price', array('?' => array('sort'=>'price', 'direction'=>'asc')) + $this->passedArgs); ?>
+				&nbsp;
+	
+				<?php echo $this->Html->link('Highest Price', array('?' => array('sort'=>'price', 'direction'=>'desc')) + $this->passedArgs); ?>&nbsp;
+				<?php echo $this->Html->link('Brand', array('?' => array('sort'=>'brand', 'direction'=>'asc')) + $this->passedArgs); ?>
+			</div>
+				
+				
+		</ul>
+		
+
+    
+    
     
 		<div class="awning">
 
