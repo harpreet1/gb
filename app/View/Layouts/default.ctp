@@ -19,9 +19,9 @@
 <script type="text/javascript" src="/t/track.php?id=gourmet"></script>
 	<script>
 		// Drop Down Hover!
-		//$(document).ready(function() {
-//			$('.js-activated').dropdownHover(true);
-//		});
+		$(document).ready(function() {
+			$('.js-activated').dropdownHover(true);
+	});
 		
 		//Mega Menu
 		// $('#mega-2').dcVerticalMegaMenu({
