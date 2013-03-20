@@ -118,7 +118,7 @@ gb-content-border {
                             <?php //echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'index')); ?>
                             </li>
                             <li class="dropdown">
-                                <a href="/users/vendors" class="js-activated">Vendor Shoppes<b class="caret"></b></a>
+                                <a href="/users/vendors" class="js-activated">Vendor Shops<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <?php foreach($menuvendors as $menuvendor) : ?>
                                     <li><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></li>
