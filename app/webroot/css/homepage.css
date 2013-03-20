@@ -14,19 +14,30 @@ body {
 	background-color: #FFF;
 	height: 390px;
 	margin-bottom: 30px; }
+
+#lower .row-fluid {
+	padding-left:30px;
+}
+
  
-.row-fluid .span4 img {  }
+.row-fluid .span4 img { margin-bottom:10px; }
  
 .row-fluid .span4 .img-box { 
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-top: 30px;
-
+	font-size:12px;
  }
+ 
+.span4.gb-box-front {
+	width:29.1%;
+	height:325px;
+	margin-left:30px;
+}
  
 #gb-title { margin-top: 10px; }
  
-	#gb-title img { text-align: center; }
+#gb-title img { text-align: center; }
  
 .title-description {
 	color: #fff;
@@ -61,7 +72,11 @@ li.gb-account {
 #lower {
 	background: url(../img/global/fff-50.png) repeat;
 	position: relative; }
- 
+	
+.carousel {
+	margin-bottom:30px;
+}
+
 .carousel-inner {  }
  
 .carousel-inner .item {
@@ -241,6 +256,3 @@ div.pic-link-title {
 
 }
 
-.gb-box-front {
-	width:25%;
-}

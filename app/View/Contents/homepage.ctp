@@ -80,11 +80,12 @@
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
 
-	<br /><br />
+
 
 	<?php //debug($blocks); ?>
 
 	<div class="row-fluid">
+  
 
 		<?php
 		$i = 0;
@@ -98,9 +99,9 @@
 		
 			<div class="img-box">
 				<?php echo $this->Html->image('homepage/' . $block['Block']['image']); ?>
-				<br />
+				
 				<strong><?php echo $block['Block']['name']; ?></strong>
-				<br />
+				
 				<?php echo $block['Block']['subtitle']; ?>
 			</div>
 
