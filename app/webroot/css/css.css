@@ -931,7 +931,7 @@ div.span8>div.awning>img {
 	margin-left:10px;
 }
 
-img.tradition {
+img.tradition , img.vendor-pic{
 	width:300px;
 	border:solid #CCC 3px;
 	padding:5px;
