@@ -17,7 +17,12 @@ body {
  
 .row-fluid .span4 img {  }
  
-.row-fluid .span4 .img-box { padding-left: 36px; }
+.row-fluid .span4 .img-box { 
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 30px;
+
+ }
  
 #gb-title { margin-top: 10px; }
  
@@ -59,14 +64,24 @@ li.gb-account {
  
 .carousel-inner {  }
  
-	.carousel-inner .item {
-		margin-left:95px;
-		margin-top:30px;
-		/*left: 9.2%; /*position:relative;*/
-		/*width: 100%;*/ }
+.carousel-inner .item {
+	margin-left:0px;
+	margin-top:0px;
+	/*left: 9.2%; /*position:relative;*/
+	/*width: 100%;*/ }
+	
 .carousel-control {
-	top:50%; } 
- 
+	top:50%;
+	 } 
+
+.carousel-control.left {
+	left:-55px; 
+}	
+.carousel-control.right {
+	right:-55px; 
+}	
+
+	
 #infinite-background {
 	background-image: url(../img/global/infinite-header.png);
 	background-repeat: repeat-x; }
@@ -138,6 +153,11 @@ ul.newsticker {
 	font-size: 150%;
 	height: 150px;
 	margin-bottom: 75px; }
+	
+.headline-3, .headline-4 {
+	margin-bottom: 20px;
+	height:30px;
+}
  
 .headline-1 a, .headline-2 a, .headline-3 a, .headline-4 a {
 	color: #FFF;
@@ -150,6 +170,7 @@ ul.newsticker {
 	font-style: italic; }
  
 .front-page-pic-link {
+	display:none;
 	color: #FFF; /*font-weight: bold;*/
 	float: left;
 	height: 23px;
@@ -218,4 +239,8 @@ div.pic-link-title {
 	vertical-align: middle;
 	padding-left;:3px;
 
+}
+
+.gb-box-front {
+	width:25%;
 }

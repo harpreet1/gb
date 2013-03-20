@@ -93,10 +93,9 @@
 		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 		?>
 
-		<div class="span4">
+		<div class="span4 gb-box-front">
 
-			<br />
-			<br />
+		
 			<div class="img-box">
 				<?php echo $this->Html->image('homepage/' . $block['Block']['image']); ?>
 				<br />
