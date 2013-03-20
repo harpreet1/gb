@@ -153,9 +153,18 @@
        <?php $vendor_policy = $user['User']['shipping_policy']; ?>
        
        
-        <a href="#" class="btn btn-gb" data-toggle="popover" data-placement="bottom" data-content="<?php echo ($vendor_policy); ?>">SHIPPING POLICY</a>
+        <a href="#" id="my-button" class="btn btn-gb">SHIPPING POLICY</a>
         <span><img class="hand" src="/img/global/hand.png" width="40px"/></span>
         </div>
+        
+        <div>
+        <!-- Button that triggers the popup -->
+            <!--<button id="my-button">POP IT UP</button>-->
+            <!-- Element to pop up -->
+            <div id="element_to_pop_up" style="display:none;color:#000;width:700px;background-color:#fff;padding:20px;"><?php echo ($vendor_policy); ?></div>
+        </div>
+        
+        
 
 
 		<?php if(!empty($category['Category']['image_1'])) :
