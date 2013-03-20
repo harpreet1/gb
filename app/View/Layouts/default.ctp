@@ -10,7 +10,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
@@ -19,23 +19,59 @@
 <script type="text/javascript" src="/t/track.php?id=gourmet"></script>
 	<script>
 		// Drop Down Hover!
-		$(document).ready(function() {
-			$('.js-activated').dropdownHover(true);
-		});
+		//$(document).ready(function() {
+//			$('.js-activated').dropdownHover(true);
+//		});
 		
+		//Mega Menu
+		// $('#mega-2').dcVerticalMegaMenu({
+//			rowItems: '3',
+//			speed: 'slow',
+//			effect: 'fade',
+//			direction: 'right'
+//		});
 		
-		 $('#mega-2').dcVerticalMegaMenu({
-			rowItems: '3',
-			speed: 'slow',
-			effect: 'fade',
-			direction: 'right'
-		});
+		// Pop Up
 		
+		// $('#gb_popup').bPopup({
+//            speed: 650,
+//            transition: 'slideIn'
+//        });
+
+// Semicolon (;) to ensure closing of earlier scripting
+    // Encapsulation
+    // $ is assigned to jQuery
+    ;(function($) {
+
+         // DOM Ready
+        $(function() {
+
+            // Binding a click event
+            // From jQuery v.1.7.0 use .on() instead of .bind()
+            $('#my-button').bind('click', function(e) {
+
+                // Prevents the default action to be triggered. 
+                e.preventDefault();
+
+                // Triggering bPopup when click event is fired
+                $('#element_to_pop_up').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+
 
 	</script>
+
+<style>  
+
+
+ 
     
 <!------ CSS for Brands ------>    
-<style>
+
 .btn-gb {
 	<?php echo $user['User']['awning_css']; ?>
 }
