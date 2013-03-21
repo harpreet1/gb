@@ -17,7 +17,7 @@ h4 {
 }
 
 a {
-	color:#fff;
+	color:#3f9179;
 	
 }
 
@@ -778,8 +778,13 @@ h3.cat-list {
 .span2.pantry {
 	width:100px;
 	height:112px;
+	background-image:url(../img/global/pantry-item-bkgnd.png);
 }
 
+.span2.pantry a {
+	color:#fff;
+	font-size:11px;
+}
 .span2.pantry .cat-name {
 	text-align:center;
 }
