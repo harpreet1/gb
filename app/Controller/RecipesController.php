@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 class RecipesController extends AppController {
 
-////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 
 	public function index() {
 
@@ -192,7 +192,23 @@ class RecipesController extends AppController {
 		}
 		$this->set(compact('user'));
 
-
+		// Get recipe list find by vendors
+		$recipelist = $this->Recipe->find('all', array(
+			'recursive' => 0,
+			'fields' => array(
+				'Recipe.name',
+				'Recipe.slug',
+				'Recipescategory.name',
+				'User.slug'
+			),
+			'conditions' => array(
+				'User.slug' => $subDomain
+			)
+		));
+		if(empty($recipelist)) {
+			$this->redirect(array('action' => 'all'));
+		}
+		$this->set(compact('recipelist'));
 	}
 
 ////////////////////////////////////////////////////////////

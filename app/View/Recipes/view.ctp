@@ -3,7 +3,17 @@
 <div class="row">
 
 	<div class="span3">
-		NAV ( coming )
+		<?php //NAV ( coming ) ?>
+		<?php
+			echo "<br>";
+			foreach($recipelist as $recipekey)
+			{
+				echo '<a href="http://' . $recipekey['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipekey['Recipe']['slug'] . '">';
+				echo $recipekey['Recipe']['name'];
+				echo '</a>';
+				echo "<br>";
+			}
+		?>
 	</div>
 
 	<div class="span6">
