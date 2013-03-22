@@ -6,7 +6,22 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <!--<link href="http://fonts.googleapis.com/css?family=Mako" rel="stylesheet" type="text/css">-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>-->
+<link href='http://fonts.googleapis.com/css?family=Euphoria+Script' rel='stylesheet' type='text/css'>
 <?php echo $this->Html->css(array('bootstrap.min.css', 'css.css')); ?>
+
+<!------ CSS for Brands ------>    
+<style>  
+
+.btn-gb {
+	<?php echo $user['User']['awning_css']; ?>
+}
+.bkgnd-gb {
+	<?php echo $user['User']['awning_css']; ?>
+	opacity: 0.2; /* Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ */
+}
+
+</style>    
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
@@ -72,30 +87,7 @@
     })(jQuery);
 
 
-	</script>
-
-<style>  
-
-
- 
-    
-<!------ CSS for Brands ------>    
-
-.btn-gb {
-	<?php echo $user['User']['awning_css']; ?>
-}
-.bkgnd-gb {
-	<?php echo $user['User']['awning_css']; ?>
-	opacity: 0.2; /* Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ */
-}
-
-gb-content-border {
-	
-}
-
-
-</style>    
-    
+	</script>    
 
 </head>
 <body>

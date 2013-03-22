@@ -211,13 +211,13 @@ $(document).ready(function(){
 	<div class="span3">
 		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('price_list', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('price_list', array('class' => 'span1'));?>
 		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php //echo $this->Form->input('measurement');?>
 		<?php //echo $this->Form->input('weight_unit');?>
-		<?php echo $this->Form->input('weight', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('weight', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('shipping_weight', array('class' => 'span1'));?>
 		<?php //echo $this->Form->input('volume', array('class' => 'span1'));?>
 		<?php //echo $this->Form->input('volume_unit', array('class' => 'span1'));?>

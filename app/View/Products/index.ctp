@@ -3,16 +3,16 @@
 <div class="row">
 
 	<div class="span3" style="width:270px">
-
     
 		<div>
+        
 		<?php if(!empty($user)) : ?>
-			
-            <a href="/">
-			<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-			</a>
-			<p class="quote"><?php echo $user['User']['shop_quote']; ?></p>
-
+			<div class="vendor-logo">
+                <a href="/">
+                <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+                </a>
+                <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
+			</div>
 
 
 			<strong><?php if(!empty($category)) : ?><br />- -
