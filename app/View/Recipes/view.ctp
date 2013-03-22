@@ -1,17 +1,24 @@
-<h4><?php echo $user['User']['name']; ?> Recipes List</h3>
-
 <div class="row">
-
 	<div class="span3">
-		<?php //NAV ( coming ) ?>
+ <div class="vendor-logo">
+    <a href="/">
+    	<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
+    </a>
+</div>
+   
+   <br />
+    <h4>Recipes</h4>
+  <br />   
+		
 		<?php
 			echo "<br>";
 			foreach($recipelist as $recipekey)
 			{
-				echo '<a href="http://' . $recipekey['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipekey['Recipe']['slug'] . '">';
+				echo '<div class="recipe-button btn-gb">';
+				echo '<a class="" href="http://' . $recipekey['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipekey['Recipe']['slug'] . '">';
 				echo $recipekey['Recipe']['name'];
 				echo '</a>';
-				echo "<br>";
+				echo "</div>";
 			}
 		?>
 	</div>
