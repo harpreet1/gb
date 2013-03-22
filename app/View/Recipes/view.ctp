@@ -7,7 +7,7 @@
 </div>
    
    <br />
-    <h4>Recipes</h4>
+    <h4>Our Recipes</h4>
   <br />   
 		
 		<?php
