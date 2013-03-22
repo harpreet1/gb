@@ -19,35 +19,59 @@
 }
 </style>
 
-<div id="tea_shoppe">
-	<div id="shop-info"><?php echo $user['User']['name'] . (isset($name) ? ": ".$name : '') ?></div>
-</div>
 
-<h2>Our Own Recipes</h2>
+<div class="vendor-logo">
+            <a href="/">
+                <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
+            </a>
+        </div>
+
+
+<h4>Our Recipes</h4>
 
 <br />
 
 <div class="recipescontainer">
 	<?php foreach ($recipes as $recipe): ?>
 
-	<div class="recipes">
-		<?php //echo $recipe['Recipe']['name']; ?>
-		<br />
-		<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
-		<?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
-		<br />
-		<?php echo $recipe['Recipe']['name']; ?>
-		</a>
+    
+<div class="span3">
+        
+            <div class="content-recipe">
+    
+               
+                
+				<?php echo '<a href="http://' . $recipe['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipe['Recipe']['slug'] . '">'; ?>
+					<div class="small"><?php echo $recipe['Recipescategory']['name']; ?>
+					</div>
+                    
+                    <div class="content-img">
+                        <?php echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('width' => 200, 'height' => 200, 'alt' => $recipe['Recipe']['name'], 'class' => 'img-polaroid')); ?>
+                    
+                    
+						<?php /*?><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?><?php */?>
+                    
+                        <div class="recipe-name">
+                            <?php echo $recipe['Recipe']['name']; ?>
+                        
+                        
+                            <?php /*?><!--<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>"> <?php echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+                            </a>--><?php */?>
+                        </div>
+                        
+                    </div>
+                    
+                   </a> 
+                
+                  
+            </div>
+    
+        </div>
 
-		<?php //echo $this->Html->image('/img/recipes/image_1/' . $recipe['Recipe']['image_1'] , array('url' => array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), 'width' => 160, 'height' => 160, 'alt' => $recipe['Recipe']['name'])); ?>
-		<br />
-		<?php //echo $this->Html->link(h($recipe['Recipe']['name']), $this->Html->url(array('controller' => 'recipes', 'action' => 'view', 'short_name' => $recipe['User']['slug'], 'slug' => $recipe['Recipe']['slug']), true), array('escape' => false)); ?>
-		<br />
-		<br />
-		<?php echo $recipe['User']['name']; ?>
-	</div>
+            <?php endforeach; ?>
+    
+        </div>
 
-	<?php endforeach; ?>
 </div>
 
 <br />

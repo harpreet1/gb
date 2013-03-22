@@ -44,8 +44,6 @@
 			<ul class="navList">
 					<li><a href="#">Our Products</a>
                     
-                    
-                    
 						<!-- This is the sub nav -->
 						<ul class="listTab">
 							<?php foreach ($usercategories as $usercategory): ?><li>
@@ -59,8 +57,6 @@
 			</ul>
 
 			</div>
-
-			<br />
 
 			<div style="clear:both">
 
@@ -82,7 +78,6 @@
 
 			</div>
 
-			<br />
 
 			<div style="clear:both">
 

@@ -1394,7 +1394,7 @@ ul.navList {
 }
 
 ul.navList, .navList li, .navList li a:hover {
-	background-color:#3a3a3a !important;
+	/*background-color:#3a3a3a !important;*/
 }
 
 .navList a.title {
