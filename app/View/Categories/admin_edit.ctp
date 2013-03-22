@@ -20,12 +20,12 @@
 <br />
 
 <div class="row-fluid">
-	<div class="span6"><pre>span6</pre>
+	<div class="span6">
 		<?php echo $this->Form->create('Category'); ?>
 	
 		<?php echo $this->Form->input('id'); ?>
 	
-		<?php echo $this->Form->input('name', array('disabled' => 'true')); ?>
+		<?php echo $this->Form->input('name'); ?>
 	
 		<?php echo $this->Form->input('slug'); ?>
 	
