@@ -186,17 +186,16 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+        <th><?php echo $this->Paginator->sort('name'); ?></th>
+		<th><?php echo $this->Paginator->sort('slug'); ?></th>
         <th><?php echo $this->Paginator->sort('image'); ?></th>
         <th><?php echo $this->Paginator->sort('displaygroup'); ?></th>
 		<th><?php echo $this->Paginator->sort('stock'); ?></th>
-		
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
         <th><?php echo $this->Paginator->sort('height'); ?></th>
         <th><?php echo $this->Paginator->sort('length'); ?></th>
         <th><?php echo $this->Paginator->sort('width'); ?></th>
 		<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('name'); ?></th>
-		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('price_wholesale'); ?></th>
 		<th><?php echo $this->Paginator->sort('markup'); ?></th>
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
@@ -218,16 +217,15 @@ $(document).ready(function() {
 			<br />
 			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $product['Product']['id']), array('class' => 'btn btn-danger btn-mini') , __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>
-        
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			<br />
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
-        
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
         <td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
-        
+        <td><?php echo ($product['Product']['name']); ?></td>
+		<td><?php echo ($product['Product']['slug']); ?></td>
         <td><span class="displaygroup" data-value="<?php echo $product['Product']['displaygroup']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['displaygroup']); ?></span></td>
         
 		<td><?php echo ($product['Product']['stock']); ?></td>
@@ -235,20 +233,11 @@ $(document).ready(function() {
         <td><span class="height" data-value="<?php echo $product['Product']['height']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['height']); ?></span></td>
         <td><span class="length" data-value="<?php echo $product['Product']['length']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['length']); ?></span></td>
         <td><span class="width" data-value="<?php echo $product['Product']['width']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['width']); ?></span></td>
-
-        
 		<td><span class="brand" data-value="<?php echo $product['Brand']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Brand']['name']); ?></span></td>
-		<td><?php echo ($product['Product']['name']); ?></td>
-		<td><?php echo ($product['Product']['slug']); ?></td>
-        
-        
 		<td><span class="price_wholesale" data-value="<?php echo $product['Product']['price_wholesale']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['price_wholesale']); ?></span></td>
 		<td><?php echo ($product['Product']['markup']); ?>%</td>
-        
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
-               
 		<td><span class="shipping_weight" data-value="<?php echo $product['Product']['shipping_weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['shipping_weight']); ?></span></td>
-        
 	</tr>
 	<?php endforeach; ?>
 </table>
