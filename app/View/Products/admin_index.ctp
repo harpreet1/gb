@@ -58,7 +58,7 @@ $(document).ready(function() {
 		type: 'select',
 		name: 'displaygroup',
 		url: '/admin/products/editable',
-		title: 'Brand',
+		title: 'Display Group',
 		source: <?php echo json_encode($displaygroups); ?>,
 		placement: 'right',
 	});
@@ -81,19 +81,27 @@ $(document).ready(function() {
 		placement: 'left',
 	});
 
-	$('.weight_unit').editable({
+	$('.height').editable({
 		type: 'text',
-		name: 'weight_unit',
+		name: 'height',
 		url: '/admin/products/editable',
-		title: 'Weight Unit',
+		title: 'Height',
 		placement: 'left',
 	});
 
-	$('.weight').editable({
+	$('.width').editable({
 		type: 'text',
-		name: 'weight',
+		name: 'width',
 		url: '/admin/products/editable',
 		title: 'Weight',
+		placement: 'left',
+	});
+	
+	$('.length').editable({
+		type: 'text',
+		name: 'length',
+		url: '/admin/products/editable',
+		title: 'Length',
 		placement: 'left',
 	});
 
@@ -178,27 +186,25 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+        <th><?php echo $this->Paginator->sort('image'); ?></th>
         <th><?php echo $this->Paginator->sort('displaygroup'); ?></th>
 		<th><?php echo $this->Paginator->sort('stock'); ?></th>
-		<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
+		
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
+        <th><?php echo $this->Paginator->sort('height'); ?></th>
+        <th><?php echo $this->Paginator->sort('length'); ?></th>
+        <th><?php echo $this->Paginator->sort('width'); ?></th>
 		<th><?php echo $this->Paginator->sort('brand_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
-		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('price_wholesale'); ?></th>
 		<th><?php echo $this->Paginator->sort('markup'); ?></th>
 		<th><?php echo $this->Paginator->sort('price'); ?></th>
-		<th><?php echo $this->Paginator->sort('description'); ?></th>
+<?php /*?>		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('generic_description'); ?></th>
 		<th><?php echo $this->Paginator->sort('serving_suggestions'); ?></th>
-		<th><?php echo $this->Paginator->sort('traditions'); ?></th>
-		<th><?php echo $this->Paginator->sort('ustradition_id'); ?></th>
-		<th><?php echo $this->Paginator->sort('weight'); ?></th>
+<?php */?>
 		<th><?php echo $this->Paginator->sort('shipping_weight'); ?></th>
-		<th><?php echo $this->Paginator->sort('country'); ?></th>
 
 	</tr>
 	<?php foreach ($products as $product): ?>
@@ -212,36 +218,37 @@ $(document).ready(function() {
 			<br />
 			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $product['Product']['id']), array('class' => 'btn btn-danger btn-mini') , __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>
+        
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 			<br />
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
+        
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
-        <!--<td><?php //echo ($product['Product']['displaygroup'], array('label' => 'Group')); ?></td>-->
+        <td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
+        
         <td><span class="displaygroup" data-value="<?php echo $product['Product']['displaygroup']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['displaygroup']); ?></span></td>
         
 		<td><?php echo ($product['Product']['stock']); ?></td>
-		<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
-		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
-		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo ($product['Product']['vendor_sku']); ?></td>
+        <td><span class="height" data-value="<?php echo $product['Product']['height']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['height']); ?></span></td>
+        <td><span class="length" data-value="<?php echo $product['Product']['length']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['length']); ?></span></td>
+        <td><span class="width" data-value="<?php echo $product['Product']['width']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['width']); ?></span></td>
+
+        
 		<td><span class="brand" data-value="<?php echo $product['Brand']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Brand']['name']); ?></span></td>
 		<td><?php echo ($product['Product']['name']); ?></td>
 		<td><?php echo ($product['Product']['slug']); ?></td>
-		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
+        
+        
 		<td><span class="price_wholesale" data-value="<?php echo $product['Product']['price_wholesale']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['price_wholesale']); ?></span></td>
 		<td><?php echo ($product['Product']['markup']); ?>%</td>
+        
 		<td><span class="price" data-value="<?php echo $product['Product']['price']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['price']); ?></span></td>
-		<td><div class="limit"><span class="description" data-value="<?php echo $product['Product']['description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['description']); ?></span></div></td>
-		<td><div class="limit"><span class="generic_description" data-value="<?php echo $product['Product']['generic_description']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['generic_description']; ?></span></div></td>
-		<td><div class="limit"><span class="serving_suggestions" data-value="<?php echo $product['Product']['serving_suggestions']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo $product['Product']['serving_suggestions']; ?></span></div></td>
-		<td><div class="limit"><?php echo ($product['Product']['traditions']); ?></div></td>
-		<td><span class="ustradition" data-value="<?php echo $product['Ustradition']['id']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Ustradition']['name']); ?></span></td>
-		<td><span class="weight" data-value="<?php echo $product['Product']['weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['weight']); ?></span></td>
+               
 		<td><span class="shipping_weight" data-value="<?php echo $product['Product']['shipping_weight']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo ($product['Product']['shipping_weight']); ?></span></td>
-		<td><span class="country" data-value="<?php echo $product['Product']['country']; ?>" data-pk="<?php echo $product['Product']['id']; ?>"><?php echo h($product['Product']['country']); ?></span></td>
-
+        
 	</tr>
 	<?php endforeach; ?>
 </table>
