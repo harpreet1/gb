@@ -54,9 +54,15 @@ class CartComponent extends Component {
 				'User.email',
 				'User.zip',
 				'User.state',
-				'User.flat_shipping',
-				'User.free_shipping_price_threshold',
-				'User.flat_shipping_price',
+				'User.flat_ship_level_1_low',
+				'User.flat_ship_level_1_high',
+				'User.flat_ship_level_2_low',
+				'User.flat_ship_level_2_high',
+				'User.flat_ship_level_3_low',
+				'User.flat_ship_level_3_high',
+				'User.flat_ship_level_4_low',
+				'User.flat_ship_level_4_high',
+				'User.ship_determinant',
 				'User.shipping_method',
 			),
 			'conditions' => array(
@@ -162,9 +168,9 @@ class CartComponent extends Component {
 				$users[$item['User']['id']]['zip'] = $item['User']['zip'];
 				$users[$item['User']['id']]['state'] = $item['User']['state'];
 
-				$users[$item['User']['id']]['flat_shipping'] = $item['User']['flat_shipping'];
-				$users[$item['User']['id']]['free_shipping_price_threshold'] = $item['User']['free_shipping_price_threshold'];
-				$users[$item['User']['id']]['flat_shipping_price'] = $item['User']['flat_shipping_price'];
+				// $users[$item['User']['id']]['flat_shipping'] = $item['User']['flat_shipping'];
+				// $users[$item['User']['id']]['free_shipping_price_threshold'] = $item['User']['free_shipping_price_threshold'];
+				$users[$item['User']['id']]['ship_determinant'] = $item['User']['ship_determinant'];
 
 				$users[$item['User']['id']]['shipping_method'] = $item['User']['shipping_method'];
 
@@ -181,6 +187,18 @@ class CartComponent extends Component {
 				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
 			}
 
+			foreach ($users as & $user) {
+				if($user['ship_determinant'] == 1) {
+					if($user['totalprice'] < 50) {
+						$user['totalshipping'] = 21;
+					} else {
+						$user['totalshipping'] = 51;
+					}
+				} else {
+					$user['totalshipping'] = 0;
+				}
+			}
+
 			$order['order_item_count'] = $order_item_count;
 			$order['total'] = sprintf('%.2f', $cartTotal);
 			$order['subtotal'] = sprintf('%.2f', $cartTotal);
@@ -189,6 +207,9 @@ class CartComponent extends Component {
 			$order['sessionid'] = $this->Session->id();
 
 			$this->Session->write('Shop.Order', $order);
+
+			// debug($users);
+			// die;
 
 			$this->Session->write('Shop.Users', $users);
 

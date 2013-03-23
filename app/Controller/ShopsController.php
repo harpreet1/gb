@@ -98,7 +98,17 @@ class ShopsController extends AppController {
 					$data['ShipFromZip'] = $d['zip'];
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $d['totalweight'];
-					$shipping[$d['id']] = $this->_ups($data);
+
+					if($d['ship_determinant'] != 1) {
+						$shipping[$d['id']] = $this->_ups($data);
+					} else {
+						$shipping[$d['id']][0] = array(
+							'ServiceCode' => '1',
+							'ServiceName' => 'Flat',
+							'TotalCharges' => $d['totalshipping']
+						);
+					}
+
 					$shippingchecks['User'][$d['id']]['id'] = $d['id'];
 					$shippingchecks['User'][$d['id']]['name'] = $d['name'];
 					$shippingchecks['User'][$d['id']]['totalprice'] = $d['totalprice'];
