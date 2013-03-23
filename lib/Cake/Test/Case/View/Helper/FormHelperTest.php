@@ -2210,6 +2210,15 @@ class FormHelperTest extends CakeTestCase {
 		$this->assertContains('<option value="06" selected="selected">6</option>', $result);
 		$this->assertContains('<option value="15" selected="selected">15</option>', $result);
 		$this->assertContains('<option value="pm" selected="selected">pm</option>', $result);
+
+		$result = $this->Form->input('published', array('type' => 'time'));
+		$now = strtotime('now');
+		$this->assertContains('<option value="' . date('h', $now) . '" selected="selected">' . date('g', $now) . '</option>', $result);
+
+		$now = strtotime('2013-03-09 00:42:21');
+		$result = $this->Form->input('published', array('type' => 'time', 'selected' => $now));
+		$this->assertContains('<option value="12" selected="selected">12</option>', $result);
+		$this->assertContains('<option value="42" selected="selected">42</option>', $result);
 	}
 
 /**
@@ -5560,23 +5569,6 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Form->input('published', array('type' => 'time'));
-		$now = strtotime('now');
-		$expected = array(
-			'div' => array('class' => 'input time'),
-			'label' => array('for' => 'ContactPublishedHour'),
-			'Published',
-			'/label',
-			array('select' => array('name' => 'data[Contact][published][hour]', 'id' => 'ContactPublishedHour')),
-			'preg:/(?:<option value="([\d])+">[\d]+<\/option>[\r\n]*)*/',
-			array('option' => array('value' => date('h', $now), 'selected' => 'selected')),
-			date('g', $now),
-			'/option',
-			'*/select',
-			':',
-		);
-		$this->assertTags($result, $expected);
-
 		$result = $this->Form->input('published', array(
 			'timeFormat' => 24,
 			'interval' => 5,
@@ -5588,8 +5580,14 @@ class FormHelperTest extends CakeTestCase {
 		$this->assertRegExp('/<option[^<>]+value="03"[^<>]+selected="selected"[^>]*>3<\/option>/', $result);
 		$this->assertRegExp('/<option[^<>]+value="13"[^<>]+selected="selected"[^>]*>13<\/option>/', $result);
 		$this->assertRegExp('/<option[^<>]+value="35"[^<>]+selected="selected"[^>]*>35<\/option>/', $result);
+	}
 
-		$this->assertNoErrors();
+/**
+ * Test that empty values don't trigger errors.
+ *
+ * @return void
+ */
+	public function testDateTimeNoErrorsOnEmptyData() {
 		$this->Form->request->data['Contact'] = array(
 			'date' => array(
 				'day' => '',
@@ -5601,6 +5599,7 @@ class FormHelperTest extends CakeTestCase {
 			)
 		);
 		$result = $this->Form->dateTime('Contact.date', 'DMY', '12', array('empty' => false));
+		$this->assertNotEmpty($result);
 	}
 
 /**
