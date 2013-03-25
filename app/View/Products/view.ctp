@@ -129,12 +129,7 @@
 					if ($nuts) :
 						$nutrition = 'loaded';
 					endif;
-
-
-					//print_r($description); ?><br /><?php
-					//print_r($serv); ?><br /><?php
-					//print_r($recipes); ?><br /><?php
-					//print_r($nutrition);
+					
 				?>
 
 				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') || ($nutrition == 'loaded')) : ?>nav-tabs"<?php endif; ?>"id="myTab">
@@ -166,14 +161,14 @@
 					endif;?>
 
 
-					<?php if(!empty($nuts)) :
+					<?php /*?><?php if(!empty($nuts)) :
 						if ($serv == 'loaded' || $description == 'loaded' || $recipes == 'loaded') : ?>
 					<li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
 							<?php else : ?>
 					<li class="active"><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
 							<?php endif;?>
 					<?php $nutrition = 'loaded';
-					endif;?>
+					endif;?><?php */?>
 
 				</ul>
 
