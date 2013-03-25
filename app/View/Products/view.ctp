@@ -112,7 +112,7 @@
 					$description = 'unloaded';
 					$serv = 'unloaded';
 					$recipes = 'unloaded';
-					$nutrition = 'unloaded';
+					//$nutrition = 'unloaded';
 
 					if(!empty($product['Product']['generic_description'])) :
 						$description = 'loaded';
@@ -126,9 +126,9 @@
 						$recipes = 'loaded';
 					endif;
 
-					if ($nuts) :
-						$nutrition = 'loaded';
-					endif;
+					//if ($nuts) :
+						//$nutrition = 'loaded';
+					//endif;
 
 
 					//print_r($description); ?><br /><?php

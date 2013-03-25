@@ -152,7 +152,7 @@
                             <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?>
     
                             <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-                            <!--<li><?php //echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>-->
+                            <li><?php echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
                             <!--<li class="dropdown">
                                 <a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -188,12 +188,12 @@
 	
 	
 
-	<div id="account">
+	<!--<div id="account">
 		<ul class="gb-horiz-account">
 			<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>
 			<li class="gb-account"><a href="/members/login">LOG IN</a></li>
 		</ul>
-	</div>
+	</div>-->
 
 	<div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" />
 		<div class="title-description">A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>

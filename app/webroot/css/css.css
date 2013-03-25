@@ -376,7 +376,7 @@ div.product-name, div.product-name p, div.product-name a {
 	border: 1px #CCC solid;
 }
 
-.recipe-button {
+/*.recipe-button {
 	margin-bottom:5px;
 	padding:5px;
 }
@@ -386,7 +386,7 @@ div.product-name, div.product-name p, div.product-name a {
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 	
 }
-
+*/
 .content-recipe {
 	position: relative;
 	float: left;
