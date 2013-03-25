@@ -112,7 +112,7 @@
 					$description = 'unloaded';
 					$serv = 'unloaded';
 					$recipes = 'unloaded';
-					//$nutrition = 'unloaded';
+					$nutrition = 'unloaded';
 
 					if(!empty($product['Product']['generic_description'])) :
 						$description = 'loaded';
@@ -126,9 +126,9 @@
 						$recipes = 'loaded';
 					endif;
 
-					//if ($nuts) :
-						//$nutrition = 'loaded';
-					//endif;
+					if ($nuts) :
+						$nutrition = 'loaded';
+					endif;
 
 
 					//print_r($description); ?><br /><?php
@@ -166,7 +166,7 @@
 					endif;?>
 
 
-					<?php /*?><?php if(!empty($nuts)) :
+					<?php if(!empty($nuts)) :
 						if ($serv == 'loaded' || $description == 'loaded' || $recipes == 'loaded') : ?>
 					<li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
 							<?php else : ?>
@@ -174,7 +174,7 @@
 							<?php endif;?>
 					<?php $nutrition = 'loaded';
 					endif;?>
-<?php */?>
+
 				</ul>
 
 				<?php
@@ -223,7 +223,7 @@
 
 
 
-					<?php /*?><?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== ''
+					<?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== ''
 					//&& $product['Product']['vitamin_c_p'] !== ''
 					//&& $product['Product']['calcium_p'] !== ''
 					//&& $product['Product']['iron_p'] !== ''
@@ -328,7 +328,7 @@
 						</div>
 					<?php endif; ?>
 
-				</div><?php */?>
+				</div>
 
 
 
