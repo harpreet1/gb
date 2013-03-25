@@ -1,3 +1,7 @@
+@color: #4D926F;
+
+
+
 body {
 	border-top: none;
 	color: #444;
@@ -75,7 +79,7 @@ ul {
 	padding-top:10px;
 	padding-bottom:1px;
 	/*font-style:italic;*/
-	color:#3f9179;
+	color:@red;
 }
 
 .breadcrumb.vendor-index {
