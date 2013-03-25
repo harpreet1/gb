@@ -86,10 +86,10 @@ class TraditionsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.active' => 1,
-				'User.active',
+				'User.active' => 1,
 				"FIND_IN_SET('$traditionid', traditions)"
 			),
-			'limit' => 30,
+			'limit' => 32,
 			'order' => array('Product.id' => 'DESC')
 		);
 

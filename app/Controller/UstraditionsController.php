@@ -7,6 +7,7 @@ class UstraditionsController extends AppController {
 	public function index() {
 		$this->Ustradition->recursive = 0;
 		$this->set('ustraditions', $this->paginate());
+		
 	}
 
 ////////////////////////////////////////////////////////////
@@ -73,9 +74,10 @@ class UstraditionsController extends AppController {
 			),
 			'conditions' => array(
 				'Product.active' => 1,
+				'User.active' => 1,
 				'Product.ustradition_id' => $ustradition_id,
 			),
-			'limit' => 30,
+			'limit' => 32,
 			'order' => array('
 				Product.id' => 'DESC'
 			)

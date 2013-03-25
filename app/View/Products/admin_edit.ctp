@@ -178,7 +178,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
 		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
 		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
-		echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));
+		//echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));
 		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox','label' => 'Nut Free'));
 		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox','label' => 'Heart Smart'));
 		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox','label' => 'No Artificial Preservatives'));
@@ -187,7 +187,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_halal', array('type' => 'checkbox','label' => 'Halal'));
 		echo $this->Form->input('attr_fair_traded', array('type' => 'checkbox','label' => 'Fair Traded'));
 		echo $this->Form->input('attr_give_back', array('type' => 'checkbox','label' => 'Give Back'));
-		echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox','label' => 'Not Heat Sensitive'));
+		//echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox','label' => 'Not Heat Sensitive'));
 		echo $this->Form->input('attr_all_natural', array('type' => 'checkbox','label' => 'All Natural'));
 		echo $this->Form->input('attr_award_winning', array('type' => 'checkbox','label' => 'Award Winning'));
 	?>
