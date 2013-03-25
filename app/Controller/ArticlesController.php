@@ -4,7 +4,7 @@ class ArticlesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function index() {
+	/*public function index() {
 		$this->paginate = array(
 			'recursive' => -1,
 			'limit' => 40,
@@ -18,6 +18,38 @@ class ArticlesController extends AppController {
 		);
 		$articles = $this->paginate('Article');
 		$this->set(compact('articles'));
+	}*/
+
+public $uses = array('Article','Block');
+////////////////////////////////////////////////////////////
+
+	public function index() {
+		if(!isset($this->params['named']['slug'])){
+			$article = $this->Article->find('first', array(
+				'conditions' => array(
+					'Article.active' => 1,
+				),
+				'order' => array(
+					'Article.created' => 'DESC'
+				)
+			));
+			}
+		else{
+			$article = $this->Article->find('first', array(
+				'conditions' => array(
+					'Article.active' => 1,
+					'Article.slug' => $this->params['named']['slug'],
+				)
+			));
+		}
+		
+		$this->set(compact('article'));
+		
+		
+		$blocks = $this->Block->find('all', array(
+			'recursive' => 2,
+		));
+		$this->set(compact('blocks'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -74,6 +106,14 @@ class ArticlesController extends AppController {
 		if (!$this->Article->exists($id)) {
 			throw new NotFoundException(__('Invalid article'));
 		}
+		// For particular block on article views
+		$subcategory = $this->Article->find('first', array(
+			'contain' => array('Block'),
+			'conditions' => array(
+				'Article.id' => $id
+			)
+		));
+		$this->set(compact('article'));
 		$options = array('conditions' => array('Article.id' => $id));
 		$this->set('article', $this->Article->find('first', $options));
 
@@ -91,6 +131,9 @@ class ArticlesController extends AppController {
 				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
 			}
 		}
+		// Getting records of articles
+		$blocks = $this->Article->Block->find('list');
+		$this->set(compact('blocks'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -110,6 +153,9 @@ class ArticlesController extends AppController {
 			$options = array('conditions' => array('Article.id' => $id));
 			$this->request->data = $this->Article->find('first', $options);
 		}
+		// Getting records of articles
+		$blocks = $this->Article->Block->find('list');
+		$this->set(compact('blocks'));
 	}
 
 ////////////////////////////////////////////////////////////

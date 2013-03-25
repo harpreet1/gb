@@ -39,6 +39,17 @@ class Article extends AppModel {
 		),
 	);
 
-////////////////////////////////////////////////////////////
+// Relationship of article belongs to block 
+
+	public $belongsTo = array(
+            'Block' => array(
+                    'className' => 'Block',
+                    'foreignKey' => 'block_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => '',
+                    'counterCache' => true,
+            )
+	);
 
 }

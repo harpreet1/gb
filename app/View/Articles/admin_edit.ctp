@@ -17,6 +17,10 @@
 
 <?php echo $this->Form->create('Article'); ?>
 <?php echo $this->Form->input('id'); ?>
+<?php 
+// Add select box with blocks name
+echo $this->Form->input('block_id'); 
+?>
 <?php echo $this->Form->input('name'); ?>
 <?php echo $this->Form->input('slug'); ?>
 <?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-xxlarge')); ?>

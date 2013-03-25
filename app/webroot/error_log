@@ -1,0 +1,3 @@
+[25-Mar-2013 01:47:21 America/Los_Angeles] PHP Fatal error:  Call to a member function find() on a non-object in /home/monart5/public_html/gourmet/app/Controller/ArticlesController.php on line 94
+[25-Mar-2013 01:53:48 America/Los_Angeles] PHP Fatal error:  Call to a member function find() on a non-object in /home/monart5/public_html/gourmet/app/Controller/ArticlesController.php on line 94
+[25-Mar-2013 01:54:39 America/Los_Angeles] PHP Fatal error:  Call to a member function find() on a non-object in /home/monart5/public_html/gourmet/app/Controller/ArticlesController.php on line 94

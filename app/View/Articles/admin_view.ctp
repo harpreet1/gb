@@ -6,6 +6,14 @@
         <td><?php echo $article['Article']['id']; ?></td>
     </tr>
     <tr>
+	<td>Parent Block</td>
+<?php if(isset($article['Block'])){ ?>
+	<td><?php echo $this->Html->link($article['Block']['name'], array('controller' => 'blocks', 'action' => 'view', $article['Block']['id'])); ?></td>
+<?php } else{ ?>
+<td>Not selected</td>
+<?php }?>
+    </tr>
+    <tr>
         <td>Name</td>
         <td><?php echo $article['Article']['name']; ?></td>
     </tr>
