@@ -98,7 +98,7 @@
 
 		
 			<div class="img-box">
-				<?php echo $this->Html->image('homepage/' . $block['Block']['image']); ?>
+				<?php echo $this->Html->image('article-categories/' . $block['Block']['image']); ?>
 				
 				<strong><?php echo $block['Block']['name']; ?></strong>
 				

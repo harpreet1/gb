@@ -1383,6 +1383,12 @@ table {
 	
 /** Articles **/
 
+.article-nav {
+	font-family: Oregano, cursive;
+	font-size:110%;
+	color: #3F9179;
+}
+
 .content h1 {
 	padding-top:20px;
 }

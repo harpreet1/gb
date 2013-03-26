@@ -25,6 +25,7 @@ class ArticlesController extends AppController {
 				'fields' => array(
 					'Block.id',
 					'Block.name',
+					'Block.image',
 					'Block.writeup',
 					'Block.slug'
 				)
