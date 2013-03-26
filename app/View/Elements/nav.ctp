@@ -73,15 +73,17 @@
                             <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
     
                             <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-                            <li><?php echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?></li>
-                            <!--<li class="dropdown">
-                                <a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
+			    
+                            <!-- For overlay Articles overlay -->
+			    <li class="dropdown">
+                                <a href="/articles" class="js-activated">Learn More<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/pages/faq">FAQ</a></li>
-                                        <li><a href="/pages/shipping">Shipping</a></li>
-                                        <li><a href="/pages/policies">Policies</a></li>
-                                </ul>
-                            </li>-->
+				    <?php foreach($menublocks as $menublock) : ?>
+                                    <li><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></li>
+    
+                                    <?php endforeach; ?>
+				    </ul>
+                            </li>
     
                                 <?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
     

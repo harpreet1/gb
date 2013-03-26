@@ -95,6 +95,26 @@ class AppController extends Controller {
 				Cache::write('menuvendors', $menuvendors);
 			}
 			$this->set(compact('menuvendors'));
+			
+			// Settings for menuBlocks on LearnMore navigation
+			$menublocks = Cache::read('menublocks');
+			if (!$menublocks) {
+				$menublocks = ClassRegistry::init('Block')->find('all', array(
+					'recursive' => -1,
+					'fields' => array(
+						'Block.id',
+						'Block.name',
+						'Block.slug',
+					),
+					'order' => array(
+						'Block.name' => 'ASC'
+					)
+				));
+				Cache::set(array('duration' => '+10 minutes'));
+				Cache::write('menublocks', $menublocks);
+			}
+			$this->set(compact('menublocks'));		
+			
 		}
 
 		if ($this->RequestHandler->isAjax()) {
@@ -122,7 +142,6 @@ class AppController extends Controller {
 			'redirect' => true,
 			'requirePrompt' => true
 		);
-
 	}
 
 ////////////////////////////////////////////////////////////

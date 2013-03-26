@@ -2,29 +2,11 @@
 App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
+	public $uses = array('Article','Block');
 ////////////////////////////////////////////////////////////
 
-	/*public function index() {
-		$this->paginate = array(
-			'recursive' => -1,
-			'limit' => 40,
-			'conditions' => array(
-				'Article.active' => 1
-			),
-			'order' => array(
-				'Article.created' => 'DESC'
-			),
-			'paramType' => 'querystring',
-		);
-		$articles = $this->paginate('Article');
-		$this->set(compact('articles'));
-	}*/
-
-public $uses = array('Article','Block');
-////////////////////////////////////////////////////////////
-
-	public function index() {
-		if(!isset($this->params['named']['slug'])){
+	public function index($block = null, $slug = null) {
+		if(empty($slug) && empty($block)){
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
 					'Article.active' => 1,
@@ -34,17 +16,31 @@ public $uses = array('Article','Block');
 				)
 			));
 			}
+		elseif(empty($slug) && $block != null){
+			$article = $this->Block->find('first', array(
+				'recursive' => -1,
+				'conditions' => array(
+					'Block.slug' => $block
+				),
+				'fields' => array(
+					'Block.id',
+					'Block.name',
+					'Block.writeup',
+					'Block.slug'
+				)
+			));
+		}
 		else{
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
 					'Article.active' => 1,
-					'Article.slug' => $this->params['named']['slug'],
+					'Article.slug' => $slug,
 				)
 			));
 		}
 		
 		$this->set(compact('article'));
-		
+		//pr($article); exit;
 		
 		$blocks = $this->Block->find('all', array(
 			'recursive' => 2,
