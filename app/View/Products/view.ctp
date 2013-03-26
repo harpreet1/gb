@@ -26,7 +26,7 @@
 		<?php endif; ?>
 	</div>
 
-	<div class="span9">
+	<div class="span9 product-column">
 
 		<div class="row">
 			<div class="span9">

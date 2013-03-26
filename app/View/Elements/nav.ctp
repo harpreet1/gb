@@ -70,13 +70,43 @@
                                     <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a></li>
                                     <li><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a></li>
                                 </ul>
-                            <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?></li>
+                            <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?>
+                            </li>
     
                             <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
+<<<<<<< HEAD
 			    
                             <!-- For overlay Articles overlay -->
 			    <li class="dropdown">
                                 <a href="/articles" class="js-activated">Learn More<b class="caret"></b></a>
+=======
+                           
+                            <li class="dropdown">
+                             	<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/articles" class="js-activated">Articles<b class="caret"></b></a>
+                            	<?php //echo $this->Html->link('Learn More', array('controller' => 'articles', 'action' => 'index')); ?>
+                            	<ul class="dropdown-menu">
+                                	<li><a href="">EXCELLENT FOOD ADVENTURES</a></li>
+                                    <li><a href="">THE ULTIMATE BUFFET</a></li>
+                                    <li><a href="">EAT OUT AT HOME</a></li>
+                                    <li><a href="">BREAKFASTS IN BED</a></li>
+                                    <li><a href="">FEATURED ARTICLE</a></li>
+                                    <li><a href="">MOMMAS KITCHEN</a></li>
+                                    <li><a href="">GUILTY PLEASURES</a></li>
+                                    <li><a href="">SEASONAL & SPECIAL OCCASIONS</a></li>
+                                	<li><a href="">HEALTHY EATING</a></li>
+                                </ul>
+                            </li>
+                                <?php /*?><ul class="dropdown-menu">
+                                	 <?php foreach($blocks as $block) : ?>
+                                    <li><?php echo $this->Html->link($block['Block']['name']); ?></li>
+    
+                                    <?php endforeach; ?>
+                                </ul><?php */?>
+                                
+                           
+                            <!--<li class="dropdown">
+                                <a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
+>>>>>>> e84be1c5fcfc9539cd0f5f442990f47cc3237994
                                     <ul class="dropdown-menu">
 				    <?php foreach($menublocks as $menublock) : ?>
                                     <li><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></li>

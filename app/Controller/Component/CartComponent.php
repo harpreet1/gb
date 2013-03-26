@@ -18,6 +18,7 @@ class CartComponent extends Component {
 //////////////////////////////////////////////////
 
 	public $maxQuantity = 100;
+	public $product;
 
 //////////////////////////////////////////////////
 
@@ -35,84 +36,24 @@ class CartComponent extends Component {
 			return;
 		}
 
-		$product = ClassRegistry::init('Product')->find('first', array(
-			'recursive' => -1,
-			'contain' => array('User'),
-			'fields' => array(
-				'Product.id',
-				'Product.name',
-				'Product.slug',
-				'Product.image',
-				'Product.price',
-				'Product.weight_unit',
-				'Product.weight',
-				'Product.height',
-				'Product.length',
-				'Product.width',
-				'User.id',
-				'User.name',
-				'User.email',
-				'User.zip',
-				'User.state',
-				'User.flat_ship_level_1_low',
-				'User.flat_ship_level_1_high',
-				'User.flat_ship_level_2_low',
-				'User.flat_ship_level_2_high',
-				'User.flat_ship_level_3_low',
-				'User.flat_ship_level_3_high',
-				'User.flat_ship_level_4_low',
-				'User.flat_ship_level_4_high',
-				'User.ship_determinant',
-				'User.shipping_method',
-			),
-			'conditions' => array(
-				'Product.id' => $id
-			)
-		));
-		if(empty($product)) {
-			return false;
-		}
+		$this->getProduct($id);
+
 		$data['quantity'] = $quantity;
-		$data['user_id'] = $product['User']['id'];
-		$data['product_id'] = $product['Product']['id'];
-		$data['name'] = $product['Product']['name'];
-		$data['weight'] = $product['Product']['weight'];
-		$data['weight_total'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
-		$data['price'] = $product['Product']['price'];
-		$data['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
-		$data['Product'] = $product['Product'];
-		$data['User'] = $product['User'];
+		$data['user_id'] = $this->product['Product']['user_id'];
+		$data['product_id'] = $this->product['Product']['id'];
+		$data['name'] = $this->product['Product']['name'];
+		$data['weight'] = $this->product['Product']['weight'];
+		$data['weight_total'] = sprintf('%01.2f', $this->product['Product']['weight'] * $quantity);
+		$data['price'] = $this->product['Product']['price'];
+		$data['subtotal'] = sprintf('%01.2f', $this->product['Product']['price'] * $quantity);
+		$data['Product'] = $this->product['Product'];
+
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
-
-		$this->Cart = ClassRegistry::init('Cart');
-
-		$cartdata['Cart']['sessionid'] = $this->Session->id();
-		$cartdata['Cart']['quantity'] = $quantity;
-		$cartdata['Cart']['user_id'] = $product['User']['id'];
-		$cartdata['Cart']['product_id'] = $product['Product']['id'];
-		$cartdata['Cart']['name'] = $product['Product']['name'];
-		$cartdata['Cart']['weight'] = $product['Product']['weight'];
-		$cartdata['Cart']['weight_total'] = sprintf('%01.2f', $product['Product']['weight'] * $quantity);
-		$cartdata['Cart']['price'] = $product['Product']['price'];
-		$cartdata['Cart']['subtotal'] = sprintf('%01.2f', $product['Product']['price'] * $quantity);
-
-		$existing = $this->Cart->find('first', array(
-			'recursive' => -1,
-			'conditions' => array(
-				'Cart.sessionid' => $this->Session->id(),
-				'Cart.product_id' => $product['Product']['id'],
-			)
-		));
-		if($existing) {
-			$cartdata['Cart']['id'] = $existing['Cart']['id'];
-		} else {
-			$this->Cart->create();
-		}
-		$this->Cart->save($cartdata, false);
+		$this->Session->write('Shop.Users.' . $this->product['Product']['user_id'], $this->product['User']);
 
 		$this->cart();
 
-		return $product;
+		return $this->product;
 	}
 
 //////////////////////////////////////////////////
@@ -121,18 +62,6 @@ class CartComponent extends Component {
 		if($this->Session->check('Shop.OrderItem.' . $id)) {
 			$product = $this->Session->read('Shop.OrderItem.' . $id);
 			$this->Session->delete('Shop.OrderItem.' . $id);
-
-			$this->Cart = ClassRegistry::init('Cart');
-			$existing = $this->Cart->find('first', array(
-				'recursive' => -1,
-				'conditions' => array(
-					'Cart.sessionid' => $this->Session->id(),
-					'Cart.product_id' => $id,
-				)
-			));
-			if($existing) {
-				$this->Cart->delete($existing['Cart']['id'], false);
-			}
 
 			$this->cart();
 			return $product;
@@ -150,10 +79,19 @@ class CartComponent extends Component {
 		$order_item_count = 0;
 
 		$this->Session->delete('Shop.Order');
+		$this->Session->delete('Shop.Users');
 		$this->Session->delete('Shop.Shipping');
+		$this->Session->delete('Shop.Shippingtotal');
+		$this->Session->delete('Shop.Shippingchecks');
 
 		$property = array();
-		$users = array();
+		$users = $shop['Users'];
+
+		foreach ($users as & $user) {
+			$user['totalprice'] = 0;
+			$user['totalquantity'] = 0;
+			$user['totalweight'] = 0;
+		}
 
 		if (count($shop['OrderItem']) > 0) {
 			foreach ($shop['OrderItem'] as $item) {
@@ -162,41 +100,24 @@ class CartComponent extends Component {
 				$cartWeight += $item['weight_total'];
 				$order_item_count++;
 
-				$users[$item['User']['id']]['id'] = $item['User']['id'];
-				$users[$item['User']['id']]['name'] = $item['User']['name'];
-				$users[$item['User']['id']]['email'] = $item['User']['email'];
-				$users[$item['User']['id']]['zip'] = $item['User']['zip'];
-				$users[$item['User']['id']]['state'] = $item['User']['state'];
-
-				// $users[$item['User']['id']]['flat_shipping'] = $item['User']['flat_shipping'];
-				// $users[$item['User']['id']]['free_shipping_price_threshold'] = $item['User']['free_shipping_price_threshold'];
-				$users[$item['User']['id']]['ship_determinant'] = $item['User']['ship_determinant'];
-
-				$users[$item['User']['id']]['shipping_method'] = $item['User']['shipping_method'];
-
-				$users[$item['User']['id']]['totalprice'] = 0;
-				$users[$item['User']['id']]['totalquantity'] = 0;
-				$users[$item['User']['id']]['totalweight'] = 0;
-			}
-			foreach ($shop['OrderItem'] as $item) {
-				$users[$item['User']['id']]['totalprice'] += $item['subtotal'];
-				$users[$item['User']['id']]['totalquantity'] += $item['quantity'];
-				$users[$item['User']['id']]['totalweight'] += $item['weight_total'];
-			}
-			foreach ($users as & $ship) {
-				$ship['totalprice'] = sprintf('%.2f', $ship['totalprice']);
+				$users[$item['user_id']]['totalprice'] += sprintf('%.2f', $item['subtotal']);
+				$users[$item['user_id']]['totalquantity'] += $item['quantity'];
+				$users[$item['user_id']]['totalweight'] += $item['weight_total'];
 			}
 
 			foreach ($users as & $user) {
 				if($user['ship_determinant'] == 1) {
-					if($user['totalprice'] < 50) {
-						$user['totalshipping'] = 21;
-					} else {
-						$user['totalshipping'] = 51;
-					}
+					$user['totalshipping'] = $this->calculateFlatShipping($user);
 				} else {
-					$user['totalshipping'] = 0;
+					$user['totalshipping'] = ' TBD';
 				}
+
+				$user['totalprice'] = sprintf('%.2f', $user['totalprice']);
+
+				if($user['totalquantity'] == 0) {
+					unset($users[$user['id']]);
+				}
+
 			}
 
 			$order['order_item_count'] = $order_item_count;
@@ -207,9 +128,6 @@ class CartComponent extends Component {
 			$order['sessionid'] = $this->Session->id();
 
 			$this->Session->write('Shop.Order', $order);
-
-			// debug($users);
-			// die;
 
 			$this->Session->write('Shop.Users', $users);
 
@@ -224,9 +142,72 @@ class CartComponent extends Component {
 //////////////////////////////////////////////////
 
 	public function clear() {
-		$this->Cart = ClassRegistry::init('Cart');
-		$this->Cart->deleteAll(array('Cart.sessionid' => $this->Session->id()), false);
 		$this->Session->delete('Shop');
+	}
+
+//////////////////////////////////////////////////
+
+	protected function calculateFlatShipping($user) {
+		if (($user['flat_ship_level_1_low'] <= $user['totalprice']) && ($user['flat_ship_level_1_high'] >= $user['totalprice'])) {
+			return $user['flat_ship_level_1_price'];
+		} elseif (($user['flat_ship_level_2_low'] <= $user['totalprice']) && ($user['flat_ship_level_2_high'] >= $user['totalprice'])) {
+			return $user['flat_ship_level_2_price'];
+		} elseif (($user['flat_ship_level_3_low'] <= $user['totalprice']) && ($user['flat_ship_level_3_high'] >= $user['totalprice'])) {
+			return $user['flat_ship_level_3_price'];
+		} elseif (($user['flat_ship_level_4_low'] <= $user['totalprice']) && ($user['flat_ship_level_4_high'] >= $user['totalprice'])) {
+			return $user['flat_ship_level_4_price'];
+		} else {
+			return 0;
+		}
+	}
+
+//////////////////////////////////////////////////
+
+	protected function getProduct($id) {
+		$product = ClassRegistry::init('Product')->find('first', array(
+			'recursive' => -1,
+			'contain' => array('User'),
+			'fields' => array(
+				'Product.id',
+				'Product.user_id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'Product.weight_unit',
+				'Product.weight',
+				'Product.height',
+				'Product.length',
+				'Product.width',
+				'User.id',
+				'User.name',
+				'User.email',
+				'User.zip',
+				'User.state',
+				'User.flat_ship_level_1_low',
+				'User.flat_ship_level_1_high',
+				'User.flat_ship_level_1_price',
+				'User.flat_ship_level_2_low',
+				'User.flat_ship_level_2_high',
+				'User.flat_ship_level_2_price',
+				'User.flat_ship_level_3_low',
+				'User.flat_ship_level_3_high',
+				'User.flat_ship_level_3_price',
+				'User.flat_ship_level_4_low',
+				'User.flat_ship_level_4_high',
+				'User.flat_ship_level_4_price',
+				'User.ship_determinant',
+				'User.shipping_method',
+			),
+			'conditions' => array(
+				'Product.id' => $id
+			)
+		));
+		if(empty($product)) {
+			return false;
+		} else {
+			$this->product = $product;
+		}
 	}
 
 //////////////////////////////////////////////////
