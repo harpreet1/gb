@@ -1,13 +1,16 @@
-<style>             .close-x{float: right;}
-    .art-list{
-                background-color: white;
-                border: 1px solid;
-                width: 200px;
-                padding: 10px;
-            }
+<style>
+
+.close-x{float: right;}
+.art-list{
+	background-color: white;
+	border: 1px solid;
+	width: 200px;
+	padding: 10px;
+}
 </style>
+
 <div class="row">
-    <div class="span2">
+    <div class="span3">
         <br />
         <h4>Our Blocks</h4>
         <?php
@@ -15,7 +18,7 @@
             foreach($blocks as $blockskey)
             {
                 echo '<div class="recipe-button btn-gb">';
-                echo '<a href="javascript:void(0);" class="basic-info-'.$blockskey['Block']['id'].'" onclick="overlay('.$blockskey['Block']['id'].')">';
+                echo '<a href="javascript:void(0);" class="basic-info-'.$blockskey['Block']['id'].'" onmouseover="overlay('.$blockskey['Block']['id'].')">';
                 echo $blockskey['Block']['name'];
                 echo '</a>';
                 ?>

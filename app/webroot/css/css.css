@@ -80,6 +80,7 @@ ul {
 
 
 .quote {
+	color:#3f9179;
 	padding-right:35px;
 	padding-top:10px;
 	padding-bottom:1px;
@@ -1479,7 +1480,8 @@ ul.navList, .navList li, .navList li a:hover {
 
 /** Recipes **/
 .recipe-name {
-	color:#4e6295;
+	font-family: Oregano, cursive;
+	color:#3f9179;
 	}
 	
 .recipe-description {
