@@ -120,30 +120,27 @@ class ShopsController extends AppController {
 					$i++;
 				}
 
-				$i = 0;
-				foreach ($shipping as $ship) {
-					foreach ($ship as $k) {
-						$total[$k['ServiceCode']]['ServiceCode'] = $k['ServiceCode'];
-						$total[$k['ServiceCode']]['ServiceName'] = $k['ServiceName'];
-						$total[$k['ServiceCode']]['TotalCharges'] = 0;
-						$i++;
-					}
-				}
+				// $i = 0;
+				// foreach ($shipping as $ship) {
+				// 	foreach ($ship as $k) {
+				// 		$total[$k['ServiceCode']]['ServiceCode'] = $k['ServiceCode'];
+				// 		$total[$k['ServiceCode']]['ServiceName'] = $k['ServiceName'];
+				// 		$total[$k['ServiceCode']]['TotalCharges'] = 0;
+				// 		$i++;
+				// 	}
+				// }
 
-				$i = 0;
+				$totalship = 0;
 				foreach ($shipping as $ship) {
-					foreach ($ship as $k) {
-						$total[$k['ServiceCode']]['TotalCharges'] = $k['TotalCharges'] + $total[$k['ServiceCode']]['TotalCharges'];
-						$i++;
-					}
+					$totalship += $ship[0]['TotalCharges'];
 				}
 
 				$this->Session->write('Shop.Shipping', $shipping);
-				$this->Session->write('Shop.Shippingtotal', $total);
+				// $this->Session->write('Shop.Shippingtotal', $total);
 				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
 
-				$this->Session->write('Shop.Totalship', 0);
+				$this->Session->write('Shop.Totalship', $totalship);
 
 				$this->redirect(array('action' => 'review'));
 			} else {
