@@ -287,12 +287,15 @@ ul {
 
 
 /** PRODUCT DISPLAY - individual **/
+.span9.product-column {
+	margin-left:36px;
+}
 
 .products {
 	margin-top:10px;
 }
 
-.row .product {
+.row.product {
 	margin-left:15px;
 	}
 
@@ -1505,6 +1508,11 @@ ul.navList, .navList li, .navList li a:hover {
 
 	
 	/** Bootstrap Edit **/
+	
+.dropdown-menu li {
+	padding-left:0px;
+	padding-right:15px;
+}
 	
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,

@@ -3,12 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><?php echo $title_for_layout; ?></title>
+
+
+
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <!--<link href="http://fonts.googleapis.com/css?family=Mako" rel="stylesheet" type="text/css">-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <!--<link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>-->
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
-<?php echo $this->Html->css(array('bootstrap.min.css', 'css.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css','css.css')); ?>
 
 <!------ CSS for Brands ------>    
 <style>  
@@ -25,7 +28,11 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','less-1.3.3.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
+
+<?php //echo $this->Html->css('bootstrap.less?','stylesheet/less') ?>
+
+
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
