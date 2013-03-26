@@ -26,6 +26,7 @@ class ArticlesController extends AppController {
 					'Block.id',
 					'Block.name',
 					'Block.image',
+					'Block.subtitle',
 					'Block.writeup',
 					'Block.slug'
 				)
