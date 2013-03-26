@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="brands view">
 <h2><?php  echo __('Brand'); ?></h2>
 	<dl>
@@ -146,4 +145,3 @@
 		<td><?php echo h($brand['Brand']['modified']); ?></td>
 	</tr>
 </table>
->>>>>>> 0dca09ff19234c87c274cad77ae6ee58b13ca441

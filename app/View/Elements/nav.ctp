@@ -74,12 +74,12 @@
                             </li>
     
                             <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-<<<<<<< HEAD
+
 			    
                             <!-- For overlay Articles overlay -->
 			    <li class="dropdown">
                                 <a href="/articles" class="js-activated">Learn More<b class="caret"></b></a>
-=======
+
                            
                             <li class="dropdown">
                              	<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/articles" class="js-activated">Articles<b class="caret"></b></a>
@@ -106,7 +106,7 @@
                            
                             <!--<li class="dropdown">
                                 <a href="http://gourmetdev.com/pages/about" class="js-activated">About<b class="caret"></b></a>
->>>>>>> e84be1c5fcfc9539cd0f5f442990f47cc3237994
+
                                     <ul class="dropdown-menu">
 				    <?php foreach($menublocks as $menublock) : ?>
                                     <li><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></li>
