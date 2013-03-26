@@ -28,7 +28,7 @@ Shopping Cart is empty
 
 <?php foreach ($shop['OrderItem'] as $item): ?>
 	<div class="row">
-		<div class="span2"><?php echo $item['User']['name']; ?><br /><?php echo $item['User']['state']; ?> <?php echo $item['User']['zip']; ?></div>
+		<div class="span2"><?php echo $shop['Users'][$item['Product']['user_id']]['name']; ?><br /><?php echo $shop['Users'][$item['Product']['user_id']]['state']; ?> <?php $shop['Users'][$item['Product']['user_id']]['zip']; ?></div>
 		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
 		<div class="span3"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $item['Product']['id'], 'slug' => $item['Product']['slug'])); ?></strong></div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
@@ -69,10 +69,11 @@ Shopping Cart is empty
 			<div class="span1">Quantity</div>
 			<div class="span1">Weight</div>
 			<div class="span1">Price</div>
+			<div class="span1">Shipping</div>
 		</div>
 
 		<div class="row">
-			<div class="span9"><hr></div>
+			<div class="span10"><hr></div>
 		</div>
 
 		<?php foreach ($shop['Users'] as $user): ?>
@@ -85,12 +86,13 @@ Shopping Cart is empty
 			<div class="span1"><?php echo $user['totalquantity']; ?></div>
 			<div class="span1"><?php echo $user['totalweight']; ?></div>
 			<div class="span1">$<?php echo $user['totalprice']; ?></div>
+			<div class="span1">$<?php echo $user['totalshipping']; ?></div>
 		</div>
 
 		<?php endforeach; ?>
 
 		<div class="row">
-			<div class="span9"><hr></div>
+			<div class="span10"><hr></div>
 		</div>
 
 		<div class="row">
@@ -101,7 +103,7 @@ Shopping Cart is empty
 		</div>
 
 		<div class="row">
-			<div class="span9"><hr></div>
+			<div class="span10"><hr></div>
 		</div>
 
 

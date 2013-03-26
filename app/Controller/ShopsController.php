@@ -270,7 +270,7 @@ class ShopsController extends AppController {
 					$o['OrderUser'][$i]['subtotal'] = $u['totalprice'];
 					$o['OrderUser'][$i]['weight'] = $u['totalweight'];
 					$o['OrderUser'][$i]['tax'] = 0;
-					$o['OrderUser'][$i]['shipping'] = 10;
+					$o['OrderUser'][$i]['shipping'] = $u['totalshipping'];
 					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}
@@ -278,9 +278,9 @@ class ShopsController extends AppController {
 				$o['Order'] = $shop['Order'];
 				$o['Order']['subtotal'] = $shop['Order']['subtotal'];
 
-				$o['Order']['shipping'] = $shop['Shippingtotal']['03']['TotalCharges'];
+				$o['Order']['shipping'] = $shop['Totalship'];
 
-				$o['Order']['total'] = $shop['Order']['total'] + $shop['Shippingtotal']['03']['TotalCharges'];
+				$o['Order']['total'] = $shop['Order']['total'] + $shop['Totalship'];
 				$o['Order']['weight'] = $shop['Order']['weight'];
 
 				$o['Order']['order_status_id'] = 1;
