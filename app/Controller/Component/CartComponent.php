@@ -106,7 +106,7 @@ class CartComponent extends Component {
 			}
 
 			foreach ($users as & $user) {
-				if($user['ship_determinant'] == 1) {
+				if($user['flat_shipping'] == 1) {
 					$user['totalshipping'] = $this->calculateFlatShipping($user);
 				} else {
 					$user['totalshipping'] = ' TBD';
@@ -196,7 +196,7 @@ class CartComponent extends Component {
 				'User.flat_ship_level_4_low',
 				'User.flat_ship_level_4_high',
 				'User.flat_ship_level_4_price',
-				'User.ship_determinant',
+				'User.flat_shipping',
 				'User.shipping_method',
 			),
 			'conditions' => array(
