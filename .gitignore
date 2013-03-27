@@ -10,5 +10,6 @@ app/tmp/cache/views/*
 app/tmp/cache/cake_toolbar*
 app/tmp/cache/cake_menuvendors
 app/tmp/cache/cake_menucategories
+app/tmp/cache/cake_menublocks
 
 /app/webroot/img/global/_notes/gb-title.png.mno

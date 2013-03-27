@@ -107,7 +107,15 @@ class CartComponent extends Component {
 
 			foreach ($users as & $user) {
 				if($user['flat_shipping'] == 1) {
-					$user['totalshipping'] = $this->calculateFlatShipping($user);
+
+					if($user['ship_determinant'] == 0) {
+						$user['totalshipping'] = $this->calculateFlatShippingPrice($user);
+					}
+					if($user['ship_determinant'] == 1) {
+						$user['totalshipping'] = $this->calculateFlatShippingBox($user);
+					}
+
+
 				} else {
 					$user['totalshipping'] = ' TBD';
 				}
@@ -147,7 +155,7 @@ class CartComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	protected function calculateFlatShipping($user) {
+	protected function calculateFlatShippingPrice($user) {
 		if (($user['flat_ship_level_1_low'] <= $user['totalprice']) && ($user['flat_ship_level_1_high'] >= $user['totalprice'])) {
 			return $user['flat_ship_level_1_price'];
 		} elseif (($user['flat_ship_level_2_low'] <= $user['totalprice']) && ($user['flat_ship_level_2_high'] >= $user['totalprice'])) {
@@ -155,6 +163,22 @@ class CartComponent extends Component {
 		} elseif (($user['flat_ship_level_3_low'] <= $user['totalprice']) && ($user['flat_ship_level_3_high'] >= $user['totalprice'])) {
 			return $user['flat_ship_level_3_price'];
 		} elseif (($user['flat_ship_level_4_low'] <= $user['totalprice']) && ($user['flat_ship_level_4_high'] >= $user['totalprice'])) {
+			return $user['flat_ship_level_4_price'];
+		} else {
+			return 0;
+		}
+	}
+
+//////////////////////////////////////////////////
+
+	protected function calculateFlatShippingBox($user) {
+		if (($user['flat_ship_level_1_low'] <= $user['totalquantity']) && ($user['flat_ship_level_1_high'] >= $user['totalquantity'])) {
+			return $user['flat_ship_level_1_price'];
+		} elseif (($user['flat_ship_level_2_low'] <= $user['totalquantity']) && ($user['flat_ship_level_2_high'] >= $user['totalquantity'])) {
+			return $user['flat_ship_level_2_price'];
+		} elseif (($user['flat_ship_level_3_low'] <= $user['totalquantity']) && ($user['flat_ship_level_3_high'] >= $user['totalquantity'])) {
+			return $user['flat_ship_level_3_price'];
+		} elseif (($user['flat_ship_level_4_low'] <= $user['totalquantity']) && ($user['flat_ship_level_4_high'] >= $user['totalquantity'])) {
 			return $user['flat_ship_level_4_price'];
 		} else {
 			return 0;
@@ -197,6 +221,7 @@ class CartComponent extends Component {
 				'User.flat_ship_level_4_high',
 				'User.flat_ship_level_4_price',
 				'User.flat_shipping',
+				'User.ship_determinant',
 				'User.shipping_method',
 			),
 			'conditions' => array(
