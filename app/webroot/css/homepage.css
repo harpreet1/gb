@@ -264,10 +264,12 @@ div.pic-link-title {
 }
 
 .navbar .nav {
-	
-	left:126px;
+	width:1000px;
+	left:0px;
 	
 }
+
+
 
 .navbar .nav > li > a {
 	color:#fff;
