@@ -206,7 +206,7 @@
 			}
 			</style>
 
-			<img id="awning1" src="/img/users/awning/222default.png" />
+			<img id="awning1" src="/img/users/awning/default.png" />
             
             <div id="awning-text-wrapper">
             
