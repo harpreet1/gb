@@ -99,7 +99,7 @@ class ShopsController extends AppController {
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $d['totalweight'];
 
-					if($d['ship_determinant'] != 1) {
+					if($d['flat_shipping'] != 1) {
 						$shipping[$d['id']] = $this->_ups($data);
 					} else {
 						$shipping[$d['id']][0] = array(
