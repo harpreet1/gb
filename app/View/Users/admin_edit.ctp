@@ -97,7 +97,7 @@
                 <h4>FLAT SHIPPING LEVELS</h4>
                 <?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
                
-                <?php echo $this->Form->input('ship_determinant', array('empty' => '--','label' => 'Shipping Determinant' , 'options' => array( 'containers' => 'Containers','dollars' => 'Dollars'))); ?>
+                <?php echo $this->Form->input('ship_determinant', array('empty' => '--','label' => 'Shipping Determinant' , 'options' => array('0' => 'Dollars', '1' => 'Containers',))); ?>
                
                 <div class="row">
                 	<div class="span1 horiz-label">Level 1:</div>
