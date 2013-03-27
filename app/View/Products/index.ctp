@@ -206,7 +206,7 @@
 			}
 			</style>
 
-			<img id="awning1" src="/img/users/awning/default.png" />
+			<img id="awning1" src="/img/users/awning/222default.png" />
             
             <div id="awning-text-wrapper">
             
@@ -340,35 +340,7 @@
                 <div id="vendor-article">
                     <?php echo $user['User']['shop_description'] ?>
                 </div>
-
-                <div class ="vendor-group-pics">
-
-                    <div class="vendor-article-pic-box">
-                        <?php
-                        if(!empty($category['User']['image_5'])) :
-                        echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 5' ));?>
-                        <br /><span> attribution</span>
-                        <?php
-                        else : ?><img src="/img/user_image/default.png" alt="" />
-
-                        <?php endif	?>
-                    </div>
-
-                    <div class="vendor-article-pic-box">
-
-                        <?php
-                        if(!empty($category['User']['image_6'])) :
-                            echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('width' => '250px', 'border' => '0', 'class' =>'vendor-story-pic', 'alt' => 'Vendor', 'title' => 'Vendor Pic 3' ));?>
-                            <br /><span> attribution</span>
-                        <?php
-                        else : ?><img src="/img/user_image/default.png" alt="" />
-
-                        <?php endif	?>
-
-                    </div>
-
-
-                </div>
+                
 
             </div>
 

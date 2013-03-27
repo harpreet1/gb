@@ -14,9 +14,6 @@
 <td><?php echo h($user['User']['username']); ?></td>
 </tr>
 <tr>
-<td>Password</td>
-<td><?php echo h($user['User']['password']); ?></td>
-</tr>
 <tr>
 <td>Password Clear</td>
 <td><?php echo h($user['User']['password_clear']); ?></td>
@@ -42,37 +39,6 @@
 <td><?php echo h($user['User']['business_established']); ?></td>
 </tr>
 <tr>
-<td>Image</td>
-<td><?php echo h($user['User']['image']); ?></td>
-</tr>
-<tr>
-<td>Image1</td>
-<td><?php echo h($user['User']['image_1']); ?></td>
-</tr>
-<tr>
-<td>Image2</td>
-<td><?php echo h($user['User']['image_2']); ?></td>
-</tr>
-<tr>
-<td>Image3</td>
-<td><?php echo h($user['User']['image_3']); ?></td>
-</tr>
-<tr>
-<td>Image4</td>
-<td><?php echo h($user['User']['image_4']); ?></td>
-</tr>
-<tr>
-<td>Image5</td>
-<td><?php echo h($user['User']['image_5']); ?></td>
-</tr>
-<tr>
-<td>Image6</td>
-<td><?php echo h($user['User']['image_6']); ?></td>
-</tr>
-<tr>
-<td>Image Featured</td>
-<td><?php echo h($user['User']['image_featured']); ?></td>
-</tr>
 <tr>
 <td>Shop Description</td>
 <td><?php echo $user['User']['shop_description']; ?></td>
@@ -138,9 +104,6 @@
 <td><?php echo h($user['User']['flat_shipping']); ?></td>
 </tr>
 <tr>
-<td>Flat Price</td>
-<td><?php echo h($user['User']['flat_shipping_price']); ?></td>
-</tr>
 <tr>
 <td>Contact First Name</td>
 <td><?php echo h($user['User']['contact_first_name']); ?>
@@ -223,12 +186,12 @@
 <td><?php echo h($user['User']['ins_carrier']); ?></td>
 </tr>
 <tr>
-<td>Ins Carrier Name</td>
-<td><?php echo h($user['User']['ins_carrier_name']); ?></td>
+<td>Ins Agent Name</td>
+<td><?php echo h($user['User']['ins_agent_name']); ?></td>
 </tr>
 <tr>
 <td>Ins Carrier Phone</td>
-<td><?php echo h($user['User']['ins_carrier_phone']); ?></td>
+<td><?php echo h($user['User']['ins_agent_phone']); ?></td>
 </tr>
 <tr>
 <td>Ins Policy Num</td>
@@ -239,12 +202,8 @@
 <td><?php echo h($user['User']['ins_policy_exp']); ?></td>
 </tr>
 <tr>
-<td>Ins Policy Coverage</td>
-<td><?php echo h($user['User']['ins_policy_coverage']); ?></td>
-</tr>
-<tr>
 <td>Shipping Policy</td>
-<td><?php echo h($user['User']['shipping_policy']); ?></td>
+<td><?php echo ($user['User']['shipping_policy']); ?></td>
 </tr>
 <tr>
 <td>Payment Biz Name</td>

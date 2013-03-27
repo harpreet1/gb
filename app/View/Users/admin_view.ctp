@@ -16,9 +16,6 @@
         <td><?php echo h($user['User']['username']); ?></td>
         </tr>
         <tr>
-        <td>Password</td>
-        <td><?php echo h($user['User']['password']); ?></td>
-        </tr>
         <tr>
         <td>Password Clear</td>
         <td><?php echo h($user['User']['password_clear']); ?></td>
@@ -109,9 +106,7 @@
         <td><?php echo h($user['User']['flat_shipping']); ?></td>
         </tr>
         <tr>
-        <td>Flat Price</td>
-        <td><?php echo h($user['User']['flat_shipping_price']); ?></td>
-        </tr>
+       
         <tr>
         <td>Contact First Name</td>
         <td><?php echo h($user['User']['contact_first_name']); ?>
