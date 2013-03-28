@@ -118,10 +118,11 @@
         
         <div>
        <?php $vendor_policy = $user['User']['shipping_policy']; ?>
-       
+       <br />
        
         <a href="#" id="policies" class="btn btn-gb">SHIPPING & CUSTOMER SERVICE</a>
-        <span><img class="hand" src="/img/global/hand.png" width="40px"/></span>
+        
+        <!--<span><img class="hand" src="/img/global/hand.png" width="40px"/></span>-->
         </div>
         
         <div>

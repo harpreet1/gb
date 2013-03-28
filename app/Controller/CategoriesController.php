@@ -32,7 +32,7 @@ class CategoriesController extends AppController {
 		));
 //		debug($categories);
 		$this->set(compact('categories'));
-		$this->layout = 'categories';
+		//$this->layout = 'categories';
 	}
 
 ////////////////////////////////////////////////////////////
