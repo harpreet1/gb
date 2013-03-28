@@ -17,3 +17,9 @@ ins{border-bottom:1px solid #690;text-decoration:none;color:green;}
 del{color:#900;text-decoration:line-through;}
 cite{border-bottom:1px dashed #36C;}
 abbr,acronym{border-bottom:1px dotted #ccc;cursor:help}
+
+.gb-heading {
+	font-family: 'Oregano', cursive;
+	color: #3F9179;
+
+}
