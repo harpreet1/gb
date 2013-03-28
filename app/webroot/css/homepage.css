@@ -95,21 +95,26 @@ li.gb-account {
 .carousel-control.right {
 	right:-55px; 
 }	
-
+.basket {
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	z-index: 500;
+}
 	
 #infinite-background {
 	background-image: url(../img/global/infinite-header.png);
 	background-repeat: repeat-x; }
  
-#header-magazine, #header {
-	background-repeat: no-repeat;
-	height: 105px; }
-  
 #header-magazine {
 	background-image: url(../img/global/GB-header-clean.png);
+	background-repeat: no-repeat;
+	height: 170px;
 	margin: auto;
-	width: 1200px; }
- 
+	width: 1200px; 
+	position: relative;	
+}
+	 
 #left-header, #right-header {
 	height: 100px;
 	position: absolute;
@@ -228,11 +233,24 @@ div.pic-link-title {
 	top: 10px;
 	width: 300px; }
  
-	.carousel-caption h1 { font-size: 34px; }
+.carousel-caption h1 {
+	font-size: 36px;
+	font-family: 'Oregano', cursive;
+	 }
  
-
+.carousel-caption h1 a {
+	color:#649c78;
+}
 
 /* Navigation **/
+
+#nav-wrapper {
+	height: 100px;
+	width: 100%;
+	padding-top: 107px;
+	padding-left:60px;
+}
+
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	background-color:transparent;
 	-webkit-box-shadow: none;
@@ -281,9 +299,27 @@ div.pic-link-title {
 .navbar .nav > li > a:hover {
 	color:#FFC;
 }
+/** Mega Menu **/
+
+.meganizr {
+	border: none;
+	background:none;
+}
+
 
 .meganizr > li.mzr-drop {
 	border: none;
 }
 
+ul.meganizr >li {
+	border: none;
+}
+
+ul.meganizr > li > a {
+	padding-left:8px;
+}
+
+ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
+	color:#97c199;
+}
 

@@ -212,12 +212,14 @@ ul.meganizr >li {
 }
 
 ul.meganizr > li > a {
-	padding-left:15px;
+	padding-left:8px;
 }
 
 ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	color:#97c199;
 }
+
+
 
 #outer-wrapper {
 	margin: 0px;
@@ -1504,8 +1506,12 @@ ul.navList, .navList li, .navList li a:hover {
 }
 
 /** Recipes **/
-.recipe-name {
+
+.recipe-title {
 	font-family: Oregano, cursive;
+	color:#3f9179;
+}
+.recipe-name {
 	color:#3f9179;
 	}
 	

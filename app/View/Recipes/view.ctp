@@ -14,7 +14,7 @@
 			echo "<br>";
 			foreach($recipelist as $recipekey)
 			{
-				echo '<div class="recipe-button btn-gb">';
+				echo '<div class="recipe-button ">';
 				echo '<a class="" href="http://' . $recipekey['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipekey['Recipe']['slug'] . '">';
 				echo $recipekey['Recipe']['name'];
 				echo '</a>';
@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="span6">
-		<h2 class="recipe-name"><?php echo $recipe['Recipe']['name']; ?></h2>
+		<h2 class="recipe-title"><?php echo $recipe['Recipe']['name']; ?></h2>
 		<!-- <? //echo $recipe['Recipe']['slug']?>-1.jpg"  /> -->
 		<p class="recipe-description"> <?php echo $recipe['Recipe']['description']; ?> </p>
 		<h4>Ingredients</h4>
