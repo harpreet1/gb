@@ -7,7 +7,7 @@
             }
 </style>
 <div class="row">
-    <div class="span2">
+    <div class="span3">
         <br />
         <h4>Our Blocks</h4>
         <?php
@@ -35,6 +35,9 @@
     </div>
 
     <?php if(isset($article['Article'])){ ?>
+    
+    
+    
     <!-- For Articles content -->
         <div class="span6">
                 <h3 class="recipe-name"><?php echo $article['Article']['name']; ?></h3>
@@ -42,24 +45,27 @@
         </div>
 
         <div class="span3">
-                <img class="recipe-pic border" src="/img/articles/image_1/<? echo $article['Article']['image_1']?>"  />
+                <img class="article-pic border" src="/img/articles/image_1/<? echo $article['Article']['image_1']?>"  />
                 <br />
                 <br />
                 <?php if(!empty($recipe['Article']['image_2'])) : ?>
-                        <img class="recipe-pic border" src="/img/articles/image_2/<? echo $article['Article']['image_2'] ?>" />
+                        <img class="article-pic border" src="/img/articles/image_2/<? echo $article['Article']['image_2'] ?>" />
                 <?php endif ; ?>
                 <!--<?php //echo $this->Html->image('/img/recipes/thumb-' . $recipe['Recipe']['slug'] . '-2.jpg'); ?>-->
                 <br />
                 <?php if(!empty($recipe['Article']['image_3'])) : ?>
-                        <img class="recipe-pic border" src="/img/articles/image_3/<? echo $recipe['Article']['image_3']?>"  />
+                        <img class="article-pic border" src="/img/articles/image_3/<? echo $recipe['Article']['image_3']?>"  />
                 <?php endif ; ?>
                 <br />
         </div>
+        
     <?php }else{ ?>
+    
     <!-- For blocks landing page -->
             <div class="span9">
-                <h3 class="recipe-name"><?php echo $article['Block']['name']; ?></h3>
-                <p class="recipe-description"> <?php echo $article['Block']['writeup']; ?> </p>
+            	<img class="article-landing polaroid" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
+                <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
+                <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
             </div>
     <?php
         }

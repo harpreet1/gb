@@ -96,7 +96,7 @@
 
 		<div class="span4 gb-box-front">
 
-		
+		<a href="<?php echo $block['Block']['link'];?>">				
 			<div class="img-box">
 				<?php echo $this->Html->image('article-categories/' . $block['Block']['image']); ?>
 				
@@ -104,7 +104,7 @@
 				
 				<?php echo $block['Block']['subtitle']; ?>
 			</div>
-
+		</a>
 
 		</div>
 

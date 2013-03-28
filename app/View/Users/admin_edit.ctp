@@ -5,6 +5,7 @@
 	tinyMCE.init({
 		mode : "textareas",
 		theme : "advanced",
+		theme_advanced_styles:'',
 		editor_deselector : "mceNoEditor",
 		skin: "thebigreason",
 		plugins : "inlinepopups",

@@ -125,11 +125,15 @@
         <!--<span><img class="hand" src="/img/global/hand.png" width="40px"/></span>-->
         </div>
         
-        <div>
+        
       
             <!-- Element to pop up -->
-            <div id="policy_content" style="display:none;color:#000;width:700px;background-color:#fff;padding:20px;"><?php echo ($vendor_policy); ?></div>
-        </div>
+            <div id="policy_content">
+				<div class="pad"><?php echo ($vendor_policy); ?>
+				</div>
+			</div>
+            
+        
         
         
 
