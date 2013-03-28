@@ -15,9 +15,7 @@
             foreach($blocks as $blockskey)
             {
                 echo '<div class="recipe-button btn-gb">';
-                echo '<a href="javascript:void(0);" class="basic-info-'.$blockskey['Block']['id'].'" onclick="overlay('.$blockskey['Block']['id'].')">';
-                echo $blockskey['Block']['name'];
-                echo '</a>';
+                echo $this->Html->link($blockskey['Block']['name'], '#', array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onclick' => 'overlay('.$blockskey['Block']['id'].')'));
                 ?>
                  <div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?=$blockskey['Block']['id']?>">
                         <a href="javascript:void(0);" class="close-x">[ x ]</a>
