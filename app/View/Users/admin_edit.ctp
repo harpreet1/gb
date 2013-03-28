@@ -11,7 +11,7 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_buttons1 : "styleselect,bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
 		theme_advanced_resizing : true,
 	});
 </script>
@@ -76,8 +76,38 @@
 				<?php //echo $this->Form->input('vendor_type'); ?>
 								
 				<?php //echo $this->Form->input('mycategories'); ?>
+                
+                
+				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
+				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
+				
+				<hr />
+				<h3>CONTACT INFO</h3>
+				<?php echo $this->Form->input('contact_name'); ?>
+				<?php echo $this->Form->input('contact_title'); ?>
+				<?php echo $this->Form->input('contact_phone'); ?>
+				<?php echo $this->Form->input('contact_email'); ?>
+				
+				<hr />
+				<?php echo $this->Form->input('contact_alt_name', array('label' => 'Alternate Contact Name')); ?>
+				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
+				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
+				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
+	
+			
+                
+                
+                
+                
 	
 			</div>
+            
+            
+            
+            
+            
+            
+            
 			<div class="span5">
             
                
@@ -204,25 +234,8 @@
             
             
             
-			<div class="span3">
-				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
-				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
-				
-				<hr />
-				<h3>CONTACT INFO</h3>
-				<?php echo $this->Form->input('contact_name'); ?>
-				<?php echo $this->Form->input('contact_title'); ?>
-				<?php echo $this->Form->input('contact_phone'); ?>
-				<?php echo $this->Form->input('contact_email'); ?>
-				
-				<hr />
-				<?php echo $this->Form->input('contact_alt_name', array('label' => 'Alternate Contact Name')); ?>
-				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
-				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
-				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
-	
-			</div>
-			<div class="span3">
+			
+			<div class="span3 offset3">
 				<h3>FINANCIAL INFO</h3>
 				<?php echo $this->Form->input('fin_contact_name', array('label' => 'Financial Contact Name')); ?>
 				<?php echo $this->Form->input('fin_contact_title', array('label' => 'Financial Contact Title')); ?>
