@@ -97,30 +97,41 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function vendor_edit() {
-
-		$id = $this->Auth->user('id');
+	public function vendor_edit($id = null) {
 
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-
-		$states = $this->User->states();
-
-		$this->set(compact('users','taxes','states'));
-
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->User->save($this->request->data)) {
+			if ($this->User->saveAll($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
-				$this->redirect(array('action' => 'profile'));
+				$this->redirect(array('action' => 'edit', $id));
+				
 			} else {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}
 		} else {
-			$this->request->data = $this->User->read(null, $id);
+			
+			$user = $this->User->find('first', array(
+				'contain' => array(
+					'Tax',
+					'Approval'
+				),
+				'conditions' => array(
+					'User.id' => $id
+				),
+			));
+			$this->request->data = $user;
 			$this->set('user', $this->User->read(null, $id));
 		}
+
+		$states = $this->User->states();
+		
+		
+		$this->set(compact('users','taxes','states','approvals'));
+	
 	}
 
 ////////////////////////////////////////////////////////////
