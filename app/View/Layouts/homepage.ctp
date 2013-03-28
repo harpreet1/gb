@@ -37,7 +37,7 @@
 
 		 $(function() {
          
-            $('#welcome').on('click', function(e) {
+            $('#welcome').on('hover', function(e) {
                 e.preventDefault();
                 $('#welcome_content').bPopup();
 
@@ -83,11 +83,11 @@
             <div id="welcome_content">
 				<h2>We welcome you to GOURMET BASKET the first-ever virtual ethnic market and interactive cultural cuisine magazine. </h2>
 
-<p>Shopping markets today are massive, and now with the variety of dishes from around the world finding their way to your table, buying what you need for a recipe or finding the product can be daunting. At GOURMET BASKET we are taking the overwhelm out, while adding in the fun of shopping for foods from around the country and the world.  
+<p>Shopping markets today are massive, and now with the variety of dishes from around the world finding their way to your table, buying what you need for a recipe or finding the product can be daunting. At GOURMET BASKET we are taking the "overwhelm" out, while adding in the fun of shopping for foods from around the country and the world.  
 </p>
 <p>Supermarkets from each nationality of the population are popping up all over the country. They all offer the ability to lose yourself in another culture while perusing the aisles and exploring the ethnic flavors from around the globe.  These Hispanic, Asian, middle eastern, culinary shopping meccas, while stimulating and inspirational, can be overwhelming with so many choices of unfamiliar ingredients lining the shelves.  Often it ends in your walking out with nothing, wishing you knew name of the dish you’d had once, or one of the recipes from that country.
 </p>
-<p>That is where Gourmet Basket comes in.  GOURMET BASKET has taken the onus out of trying to figure out which ingredient to buy for an ethnic or regional dish.  Our online market not only offers a vast array of international and regional products, we offer detailed information on each item, the region, culture, and the foods.  We give ideas on how to use the ingredients or products; give insight into the country or regions lifestyle; enhance your knowledge of food; and tips to help inspire the cook to experiment while creating their meals. 
+<p>That's where Gourmet Basket comes in.  GOURMET BASKET has taken the onus out of trying to figure out which ingredient to buy for an ethnic or regional dish.  Our online market not only offers a vast array of international and regional products, we offer detailed information on each item: the region and culture.  We give ideas on how to use the ingredients or products; give insight into the country or regions lifestyle; enhance your knowledge of food; and offer tips to help inspire the cook to experiment while creating their meals. 
 </p>
 <p>Did you know there are two million brands of soy sauce?  That you wouldn’t use a Chinese soy sauce for a Japanese dish?  That rice and beans are a great combination of foods not just because they taste great together, but because combining grains and legumes together forms a complete protein?  
 </p>
