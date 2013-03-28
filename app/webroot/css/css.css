@@ -1672,6 +1672,19 @@ img.article-landing {
 	background:url('loader.gif') center center no-repeat
 }
 
+#story_content .gb-heading,
+#policy_content  .gb-heading,
+#welcome_content .gb-heading,
+#vendor-article span.gb-heading {
+	font-size:24px;
+	font-family: 'Oregano', cursive;
+	color: #3F9179;
+	margin-top:20px;
+
+}
+
+
+
 #story_content, #policy_content, #welcome_content{
 	-webkit-border-radius: 12px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
      border-radius: 12px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
