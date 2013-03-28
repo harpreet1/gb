@@ -11,7 +11,8 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <!--<link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>-->
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
-<?php echo $this->Html->css(array('bootstrap.min.css','css.css')); ?>
+
+<?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css')); ?>
 
 <!------ CSS for Brands ------>    
 <style>  
@@ -45,13 +46,11 @@
 			$('.js-activated').dropdownHover(true);
 	});
 		
-		//Mega Menu
-		// $('#mega-2').dcVerticalMegaMenu({
-//			rowItems: '3',
-//			speed: 'slow',
-//			effect: 'fade',
-//			direction: 'right'
-//		});
+		 //Columnizer
+		  	$(function(){
+			$('.wide').columnize({width:250});
+			//$('.thin').columnize({width:200});
+		});
 		
 		// Pop Up
 		

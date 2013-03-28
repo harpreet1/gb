@@ -141,6 +141,10 @@ ul {
 	padding-top:107px;
 }
 
+.nav-collapse {
+	margin-left:88px;
+}
+
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	background-color:transparent;
 	
@@ -186,8 +190,14 @@ ul {
 	text-shadow: none;
 }
 
-.navbar .nav > li > a:hover {
-	color:#FFC;
+
+.caret {
+	
+	vertical-align:middle;
+	border-top: 4px solid white;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: "";
 }
 
 /** Mega Menu **/
@@ -197,8 +207,17 @@ ul {
 	background:none;
 }
 
+ul.meganizr >li {
+	border: none;
+}
 
+ul.meganizr > li > a {
+	padding-left:15px;
+}
 
+ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
+	color:#97c199;
+}
 
 #outer-wrapper {
 	margin: 0px;
@@ -1437,7 +1456,7 @@ ul.navList, .navList li, .navList li a:hover {
 	width: 221px;
 }
 .navList a:hover {
-	background: #3a3a3a;
+	background: #f7f1e5;
 	color: #fff;
 }
 .navList ul, .navList ul ul {
@@ -1532,6 +1551,7 @@ ul.navList, .navList li, .navList li a:hover {
 	
 	{
 	/* Legacy browsers */
+	color:#f7f1e5;
 	background: #3a3a3a url("gradient-bg.png") repeat-x top;
 	-o-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;

@@ -625,6 +625,6 @@
 /* // 7. EXTRA COLOR STYLES */
 /* ################################################################ */
 
-.meganizr .drop-three-columns, .meganizr .drop-four-columns {
+.meganizr .drop-two-columns, .meganizr .drop-three-columns, .meganizr .drop-four-columns {
 	padding:20px;
 }
