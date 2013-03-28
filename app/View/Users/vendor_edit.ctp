@@ -275,18 +275,18 @@
 				<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 	
 				<br />
-				<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+				<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 				<?php echo $this->Form->end(); ?>
 				<br />
 				
-				<h3>Actions</h3>
-				<?php echo $this->Html->link('View User', array('action' => 'view', $user['User']['id']), array('class' => 'btn')); ?>
+				<!--<h3>Actions</h3>-->
+				<?php //echo $this->Html->link('View User', array('action' => 'profile', $user['User']['id']), array('class' => 'btn')); ?>
 				<br />
 				<br />
                 <br />
                 <br />
 				<br />
-				<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
+				<?php //echo $this->Form->postLink('Delete', array('action' => 'delete', $this->Form->value('User.id')), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?>
 			</div>
 		</div>
 	</div>

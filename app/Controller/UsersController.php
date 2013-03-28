@@ -97,12 +97,15 @@ class UsersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function vendor_edit($id = null) {
-
+	public function vendor_edit() {
+		$id = $this->Auth->user('id');
+		
+		
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
+		
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->saveAll($this->request->data)) {
@@ -124,11 +127,10 @@ class UsersController extends AppController {
 				),
 			));
 			$this->request->data = $user;
-			$this->set('user', $this->User->read(null, $id));
+			
 		}
 
 		$states = $this->User->states();
-		
 		
 		$this->set(compact('users','taxes','states','approvals'));
 	

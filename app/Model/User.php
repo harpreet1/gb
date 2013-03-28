@@ -146,25 +146,5 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-public function getCategories() {
-
-		$menucategories = $this->find('all', array(
-			'fields' => array(
-				'User.id',
-				'User.name',
-				'User.slug',
-			),
-			'conditions' => array(
-				'User.level' => 'vendor',
-				'User.active' => 1,
-				'User.product_count >' => 0,
-			),
-			'order' => array(
-				'User.name' => 'ASC'
-			),
-		));
-
-		return $menuvendors;
-	}
 
 }
