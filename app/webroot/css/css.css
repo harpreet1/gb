@@ -1104,7 +1104,7 @@ blockquote::before {
 
 
 
-img.vendor-pic {
+.vendor-pic, img.vendor-pic {
 	width:280px;
 }
 
@@ -1684,6 +1684,12 @@ img.article-landing {
 
 }
 
+.gb-heading {
+	font-family: 'Oregano', cursive;
+	color: #3F9179;
+	font-size:21px;
+	letter-spacing: 1px;
+}
 
 
 #story_content, #policy_content, #welcome_content{

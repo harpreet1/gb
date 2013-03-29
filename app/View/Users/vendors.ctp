@@ -1,16 +1,27 @@
-<h1>Vendors</h1>
 
-<br />
 
-<?php foreach($users as $user) : ?>
-<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('url' => array('subdomain' => $user['User']['slug'], 'controller' => 'products', 'action' => 'index'), 'alt' => $user['User']['name'])); ?>
+ <h2 class="gb-heading">Our Vendors</h2>
+ <?php foreach($users as $user) : ?>
 
-<br />
-<br />
-<?php echo $this->Html->link($user['User']['name'], array('subdomain' => $user['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+<div class="row">
 
-<br />
-<br />
+   
+    
+    
+    
+    <div class="span3">
+    	<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'vendor-pic','url' => array('subdomain' => $user['User']['slug'], 'controller' => 'products', 'action' => 'index'), 'alt' => $user['User']['name'])); ?>
+		<br />
+		<?php echo $this->Html->link($user['User']['name'], array('subdomain' => $user['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+    </div>
+    
+    <div class="span8 offset1">
+		<div class="gb-heading"><?php echo $user['User']['shop_quote']; ?></div>
+    </div>
+    
+    
+   
+    
+</div>
 <hr>
-
-<?php endforeach; ?>
+ <?php endforeach; ?>

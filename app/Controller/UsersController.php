@@ -19,9 +19,10 @@ class UsersController extends AppController {
 				'User.name',
 				'User.slug',
 				'User.image',
+				'User.shop_quote',
 			),
 			'conditions' => array(
-				'User.active' => 1,
+				'User.show' => 1,
 				'User.level' => 'vendor'
 			),
 			'order' => array(
