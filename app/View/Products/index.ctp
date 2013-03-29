@@ -128,7 +128,7 @@
         
       
             <!-- Element to pop up -->
-            <div id="policy_content">
+            <div id="policy_content">Customer Satisfaction, Shipping and Return Policy
 				<div class="pad"><?php echo ($vendor_policy); ?>
 				</div>
 			</div>
