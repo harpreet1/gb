@@ -8,9 +8,9 @@
    
   
     <h3 class="gb-heading">Our Recipes</h3>
+    
     <hr class="recipe-divider" />
  
-		
 		<?php
 			
 			foreach($recipelist as $recipekey)

@@ -1,41 +1,31 @@
-<style>
-.recipescontainer {
-	overflow: hidden;
-	background: #FFFFFF;
-	margin: 0 auto;
-	color: #444;
-}
-.recipes {
-	display: inline-block;
-	width: 160px;
-	padding: 5px;
-	margin: 5px;
-	vertical-align: top;
-}
-.recipes img {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border: 1px #CCC solid;
-}
-</style>
+<div class="row">
+
+	<div class="span3">
+        <span class="vendor-logo">
+                <a href="/">
+                    <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
+                </a>
+        </span>
+    </div>
+        
+    <div class="span6 center">  
+		<h2 class="gb-heading">Our Recipes</h3>
+    </div>
+    
+</div>
 
 
-<div class="vendor-logo">
-            <a href="/">
-                <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
-            </a>
-        </div>
-
-
-<h4>Our Recipes</h4>
 
 <br />
+
+
+<div class="row" style="margin-left:25px">
 
 <div class="recipescontainer">
 	<?php foreach ($recipes as $recipe): ?>
 
     
-<div class="span3">
+<div class="span3" style="margin-left:10px;">
         
             <div class="content-recipe">
     
@@ -74,6 +64,8 @@
 
 </div>
 
+
+
 <br />
 <br />
 
@@ -84,3 +76,4 @@
 <?php echo $this->element('pagination'); ?>
 
 <br />
+

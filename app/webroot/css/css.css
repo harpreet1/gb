@@ -26,6 +26,10 @@ ul {
 	list-style-image:url(../img/ul-disc.png);
 }
 
+.center {
+	text-align:center;
+}
+
 /** Pic Frame **/
 
 img.frame   {
