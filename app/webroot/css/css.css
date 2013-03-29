@@ -1765,11 +1765,11 @@ h2.gb-heading hr {
 	 -webkit-box-shadow: 0px 0px 8px 0px #ffffff; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
      box-shadow: 0px 0px 8px 0px #ffffff; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
 	  background-color: #444444;
-	  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f1e5), to(#ffffff)); /* Chrome, Safari 4+ */
-	  background-image: -webkit-linear-gradient(top, #f7f1e5, #ffffff); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
-	  background-image:    -moz-linear-gradient(top, #f7f1e5, #ffffff); /* Firefox 3.6-15 */
-	  background-image:      -o-linear-gradient(top, #f7f1e5, #ffffff);; /* Opera 11.10-12.00 */
-	  background-image:         linear-gradient(to bottom, #f7f1e5, #ffffff); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f1e5)); /* Chrome, Safari 4+ */
+	  background-image: -webkit-linear-gradient(top, #ffffff, #f7f1e5); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	  background-image:    -moz-linear-gradient(top, #ffffff, #f7f1e5); /* Firefox 3.6-15 */
+	  background-image:      -o-linear-gradient(top, #ffffff, #f7f1e5);; /* Opera 11.10-12.00 */
+	  background-image:         linear-gradient(to bottom, #ffffff, #f7f1e5); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
 
 #policy_content {

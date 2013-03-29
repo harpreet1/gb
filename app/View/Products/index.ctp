@@ -101,6 +101,88 @@
 					<li><a href="#" id="story">Our Story</a></li>
 
 		</ul>
+        
+		<?php if(!empty($user)) : ?>
+        
+                <style>
+                        .vendor-css {
+                            <?php echo $user['User']['awning_css']; ?>
+                        }
+                </style>
+        
+        
+        <!-- Vendor Story -->
+        <div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
+            
+            <div class="row">
+                <div class="span4 left-corner-air">
+                    <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'frame vendor-article-logo')); ?>
+                </div>
+                
+                <div class="span6 quote-air">
+        
+                        <div class="vendor-special vendor-css">
+                            <blockquote>
+                                <?php echo $user['User']['shop_quote'] ?>
+        
+                                <div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
+                            </blockquote>
+                        </div>
+        
+                </div>
+            </div>
+        
+            <div class="row">
+        
+                
+        
+        
+                <div class="span8 vendor-block">
+        
+                    <div id="vendor-group">
+        
+                        <div id="vendor-article">
+                            <?php echo $user['User']['shop_description'] ?>
+                        </div>
+                        
+        
+                    </div>
+        
+                </div>
+                
+                
+        
+        
+                <div class="span4">
+                    <div class="span4 air">
+                    <?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); endif ?>
+                    </div>
+                    <div class="span4 air">
+                    <?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); endif ?>
+                    </div>
+                    <div class="span4 air">
+                    <?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); endif ?>
+                    </div>
+                    <div class="span4 air">
+                    <?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); endif ?>
+                    </div>
+                    <div class="span4 air">
+                    <?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic')); endif ?>
+                    </div>
+                </div>
+        
+        
+            </div>
+        
+        
+        </div>
+        
+        
+        <?php endif; ?>        
+        
+        
+        
+        
 
 		<ul class="navList">
 					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
@@ -305,80 +387,3 @@
 
 
     
-<?php if(!empty($user)) : ?>
-
-		<style>
-				.vendor-css {
-					<?php echo $user['User']['awning_css']; ?>
-				}
-		</style>
-
-
-<!-- Vendor Story -->
-<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
-    
-    <div class="row">
-        <div class="span4 left-corner-air">
-            <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'frame vendor-article-logo')); ?>
-        </div>
-        
-        <div class="span6 quote-air">
-
-                <div class="vendor-special vendor-css">
-                    <blockquote>
-                        <?php echo $user['User']['shop_quote'] ?>
-
-                        <div class="signature"><?php echo $user['User']['shop_signature'] ?></div>
-                    </blockquote>
-                </div>
-
-        </div>
-    </div>
-
-    <div class="row">
-
-        
-
-
-        <div class="span8 vendor-block">
-
-            <div id="vendor-group">
-
-                <div id="vendor-article">
-                    <?php echo $user['User']['shop_description'] ?>
-                </div>
-                
-
-            </div>
-
-        </div>
-        
-        
-
-
-        <div class="span4">
-            <div class="span4 air">
-            <?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); endif ?>
-            </div>
-            <div class="span4 air">
-            <?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); endif ?>
-            </div>
-            <div class="span4 air">
-            <?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); endif ?>
-            </div>
-            <div class="span4 air">
-            <?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); endif ?>
-            </div>
-            <div class="span4 air">
-            <?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic')); endif ?>
-            </div>
-        </div>
-
-
-    </div>
-
-
-</div>
-
-
-<?php endif; ?>
