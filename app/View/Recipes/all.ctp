@@ -1,4 +1,5 @@
-<h2>All Gourmet Basket Recipes</h2>
+<h2 class="gb-heading">All Gourmet Basket Recipes</h2>
+
 
 <script>
 $(document).ready(function() {
@@ -13,10 +14,12 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="span3">
-		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'label' => 'Recipe Categories','empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
+    <div class="gb-heading dropdown-air">Recipe Categories</div>
+		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'label' => false,'empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
 	</div>
 	<div class="span3">
-		<?php echo $this->Form->input('vendors', array('options' => $vendors, 'empty' => array('all' => 'All Vendors'), 'default' => $vendor_selected)); ?>
+    <div class="gb-heading dropdown-air">Recipe Vendors</div>
+		<?php echo $this->Form->input('vendors', array('label' => false,'options' => $vendors, 'empty' => array('all' => 'All Vendors'), 'default' => $vendor_selected)); ?>
 	</div>
 </div>
 
@@ -40,10 +43,10 @@ $(document).ready(function() {
 
 
 <br />
-<br />
 
 
-<div class="row">
+
+<div class="row" style="margin-left:25px">
 
 	<?php
 	$i = 0;
@@ -51,7 +54,7 @@ $(document).ready(function() {
 		$i++;
 		if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
 	?>
-        <div class="span3">
+        <div class="span3" style="margin-left:10px;">
         
             <div class="content-recipe">
     

@@ -100,7 +100,7 @@
 			<div class="img-box">
 				<?php echo $this->Html->image('article-categories/' . $block['Block']['image']); ?>
 				
-				<strong><?php echo $block['Block']['name']; ?></strong>
+				<p class="gb-heading"><?php echo $block['Block']['name']; ?></p>
 				
 				<?php echo $block['Block']['subtitle']; ?>
 			</div>

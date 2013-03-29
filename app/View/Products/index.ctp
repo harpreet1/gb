@@ -313,19 +313,16 @@
 				}
 		</style>
 
+
+<!-- Vendor Story -->
 <div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
     
-
-
     <div class="row">
-        <div class="span4 offset4">
-            <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'vendor-article-logo')); ?>
+        <div class="span4 left-corner-air">
+            <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' =>'frame vendor-article-logo')); ?>
         </div>
-    </div>
-
-    <div class="row">
-
-        <div class="span12 air">
+        
+        <div class="span6 quote-air">
 
                 <div class="vendor-special vendor-css">
                     <blockquote>
@@ -336,6 +333,11 @@
                 </div>
 
         </div>
+    </div>
+
+    <div class="row">
+
+        
 
 
         <div class="span8 vendor-block">

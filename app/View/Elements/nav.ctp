@@ -18,17 +18,19 @@
 				</div>
             </li>
             
-            <li class="mzr-drop"> <a href="/users/vendors" >Vendor Shoppes<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="#" >Vendor Shoppes<b class="caret"></b></a>
                 <div class="mzr-content drop-three-columns">
 					<div class="wide">
                     <?php foreach($menuvendors as $menuvendor) : ?>
                     <p><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></p>
                     <?php endforeach; ?>
+                    <span class="special"><a href="/users/vendors">Full Vendor List</a></span>
 					</div>
 				</div>
             </li>
 
-            <li class="mzr-drop"> <a href="/users/vendors">US Traditions<b class="caret"></b></a>
+            <li class="mzr-drop">
+            	<a href="#">US Traditions<b class="caret"></b></a>
                 <div class="mzr-content drop-three-columns">
 					<div class="wide">
                     <?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
@@ -47,6 +49,8 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/northwest">Pacific Northwest</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southeast">Southeast</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southwest">Southwest</a></p>
+                    <p></p>
+                     <span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/ustraditions">[ The US Map Tool ]</a></span>
 					</div>
 				</div>
             </li>
@@ -55,7 +59,7 @@
            
             
             
-            <li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions">Int'l Food Traditions<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="#">Int'l Food Traditions<b class="caret"></b></a>
             	<div class="mzr-content drop-three-columns">
 					<div class="wide">
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
@@ -75,6 +79,8 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_asia">South Asia</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a></p>
+                    <p></p>
+                    <span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions">[ The World Map Tool ]</a></span>
                 
                 <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?>
                      </div>
@@ -86,9 +92,10 @@
             
             <!-- For overlay Articles overlay -->
             
-            <li class="mzr-drop"> <a href="/articles" >Learn More<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="#" >Learn More<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns">
                 	<div class="wide">
+                    <span class="special"><a href="/articles">THE LATEST</a></span>
                     <?php foreach($menublocks as $menublock) : ?>
                     <p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p>
                     <?php endforeach; ?>

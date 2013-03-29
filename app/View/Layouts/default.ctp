@@ -127,9 +127,10 @@
     
 
     
-    
+    <div class="visible-desktop">
     	<div class="left-sun"></div>
         <div class="right-sun"></div>
+    </div>
     
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>

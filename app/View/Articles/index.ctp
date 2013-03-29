@@ -9,7 +9,7 @@
 <div class="row">
     <div class="span3">
         <br />
-        <h4>Our Blocks</h4>
+        <p class="gb-heading">Our Blocks</p>
         <?php
             echo "<br>";
             foreach($blocks as $blockskey)
@@ -63,9 +63,28 @@
     
     <!-- For blocks landing page -->
             <div class="span9">
-            	<img class="article-landing polaroid" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
+            	<img class="article-pic" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
                 <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
                 <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
+                 
+                
+                        
+                        <br>
+                <?php
+                foreach($articlelist['Article'] as $articlekey)
+                {
+                    echo "<p>";
+                    echo $this->Html->link( $articlekey['name'], '/articles/'.$articlelist['Block']['slug']."/".$articlekey['slug']);
+                    echo "</p>";                            
+                }
+               
+                // Main div closing
+                echo "</div>";
+            
+					 
+            ?>    
+                
+                
             </div>
     <?php
         }

@@ -58,6 +58,22 @@ class ArticlesController extends AppController {
 				'Article.slug' => $slug
 			)
 		));
+		
+		// Get article list find by block
+		$articlelist = $this->Article->find('all', array(
+			'recursive' => 0,
+			'fields' => array(
+				'Article.name',
+				'Article.slug',
+				'Block.name',
+				'Block.slug'
+			),
+			//'conditions' => array(
+//				'User.slug' => $subDomain
+//			)
+		));
+		
+		
 		if (empty($article)) {
 			$this->Session->setFlash('Invalid Article');
 			$this->redirect(array('action' => 'index'));

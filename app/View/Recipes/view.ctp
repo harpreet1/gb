@@ -6,12 +6,13 @@
     </a>
 </div>
    
-   <br />
-    <h4>Our Recipes</h4>
-  <br />   
+  
+    <h3 class="gb-heading">Our Recipes</h3>
+    <hr class="recipe-divider" />
+ 
 		
 		<?php
-			echo "<br>";
+			
 			foreach($recipelist as $recipekey)
 			{
 				echo '<div class="recipe-button ">';
@@ -24,30 +25,39 @@
 	</div>
 
 	<div class="span6">
-		<h2 class="recipe-title"><?php echo $recipe['Recipe']['name']; ?></h2>
+		<h2 class="gb-heading"><?php echo $recipe['Recipe']['name']; ?></h2>
+        <hr class="recipe-divider" />
 		<!-- <? //echo $recipe['Recipe']['slug']?>-1.jpg"  /> -->
-		<p class="recipe-description"> <?php echo $recipe['Recipe']['description']; ?> </p>
-		<h4>Ingredients</h4>
+		<span class="recipe-description"> <?php echo $recipe['Recipe']['description']; ?> </span>
+		<p class="gb-heading">Ingredients</p>
 		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
 		<br />
-		<h4>Directions</h4>
+		<p class="gb-heading">Directions</p>
 		<p><?php echo $recipe['Recipe']['preparation']; ?></p>
 		<br />
-        <h4>Comments</h4>
-        <p><?php echo $recipe['Recipe']['comment']; ?></p>
-		<br />
-        <h4>Tags</h4>
-         <p><?php echo $recipe['Recipe']['tags']; ?></p>
-		
-		<br />
-        <br />
-        <h4>Attribution</h4>
-         <p><?php echo $recipe['Recipe']['attribution']; ?></p>
+        
+        <?php if(!empty($recipe['Recipe']['comment'])) : ?>
+			<p class="gb-heading">Comments</p>
+        	<p><?php echo $recipe['Recipe']['comment']; ?></p>
+			<br />
+        <?php endif ; ?>
+        
+         <?php if(!empty($recipe['Recipe']['tags'])) : ?>
+        	<p class="gb-heading">Tags</p>
+         	<p><?php echo $recipe['Recipe']['tags']; ?></p>
+        	<br />
+         <?php endif ; ?>  
+            
+         <?php if(!empty($recipe['Recipe']['attribution'])) : ?>
+			<p class="gb-heading">Acknowledgements</p>
+			<p><?php echo $recipe['Recipe']['attribution']; ?></p>
+          <?php endif ; ?>    
+            
 	</div>
 
 	<div class="span3">
-		<img class="recipe-pic border" src="/img/recipes/image_1/<? echo $recipe['Recipe']['image_1']?>"  />
+		<img class="recipe-pic" src="/img/recipes/image_1/<? echo $recipe['Recipe']['image_1']?>"  />
 		<br />
 		<br />
 		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>

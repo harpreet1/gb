@@ -34,7 +34,7 @@
      // Welcome
      $(function() {
      
-        $('#welcome').on('hover', function(e) {
+        $('#welcome').on('click', function(e) {
             e.preventDefault();
             $('#welcome_content').bPopup();
     });
@@ -62,9 +62,11 @@
                 <li class="gb-account"><a href="/members/login">LOG IN</a></li>
             </ul>
             </div>
-        <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" /> <a href="#" id="welcome">
-            <div class="title-description">A new way to learn about, shop for, prepare and enjoy foods of all kinds..</div>
-            </a> </div>
+        <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" /> 
+            <div class="title-description center">A new way to learn about, shop for, prepare and enjoy foods of all kinds..
+            <a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a> 
+            </div>
+         </div>
         
         <!-- Element to pop up -->
         
