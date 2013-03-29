@@ -4,7 +4,7 @@
         
         
         <div style="margin-bottom:20px;margin-left:0px;">
-			<img style="width:235px" src="/img/us-traditions/<?php echo ($ustradition['Ustradition']['logo_image']); ?>" />
+			<img style="width:235px" src="/img/us-traditions/labels/<?php echo ($ustradition['Ustradition']['logo_image']); ?>" />
 		</div>
         
         <h3><?php echo h($ustradition['Ustradition']['name']); ?></h3>
