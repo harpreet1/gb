@@ -403,6 +403,11 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	letter-spacing: 0px;
 }
 
+.gb-heading.blocks {
+	font-size:19px;
+}
+
+
 .btn-gb {
 	padding:10px;
 }
