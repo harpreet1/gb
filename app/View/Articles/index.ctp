@@ -9,7 +9,7 @@
 <div class="row">
     <div class="span3">
         <br />
-        <p class="gb-heading">Our Blocks</p>
+        <p class="gb-heading">Magazine Sections</p>
         <?php
             echo "<br>";
             foreach($blocks as $blockskey)
