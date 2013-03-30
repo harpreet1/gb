@@ -95,7 +95,8 @@
             <li class="mzr-drop"> <a href="#" >Learn More<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns">
                 	<div class="wide">
-                    <span class="special"><a href="/articles">THE LATEST</a></span>
+                    <span class="special"><a href="/articles">THE LATEST</a></span><br />
+                    <span class="special">MAGAZINE SECTIONS:</span><br />
                     <?php foreach($menublocks as $menublock) : ?>
                     <p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p>
                     <?php endforeach; ?>
