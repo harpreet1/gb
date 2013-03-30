@@ -16,7 +16,7 @@
 	<div id="upper-content">
 		<div id="headlines" class="row">
 			<div class="headline-1 span6">
-				<div> <a href=""> Gift Assortments & Baskets </a>
+				<div> <a href="">Unique Gift Ideas</a>
 					</h2>
 				</div>
 			</div>
