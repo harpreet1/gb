@@ -14,6 +14,7 @@
 						<?php foreach($menucategories as $menucategory) : ?>
 						<p><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></p>
 						<?php endforeach; ?>
+                        <p><a href="/categories">Stop by our"Pantry"</a>
 					</div>
 				</div>
             </li>
@@ -88,7 +89,13 @@
             </li>
             
             
-            <li><?php echo $this->Html->link('Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
+            <li class="mzr-drop"> <a href="/recipes">Recipes<b class="caret"></b></a>
+				<div class="mzr-content drop-two-columns">
+                	<div class="wide">
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">All Gourmet Basket Recipes</a></p>
+            		</div>
+                </div>
+            </li>
             
             <!-- For overlay Articles overlay -->
             

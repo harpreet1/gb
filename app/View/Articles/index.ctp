@@ -14,6 +14,8 @@
             echo "<br>";
             foreach($blocks as $blockskey)
             {
+				//print_r($blockskey);
+				//die;
                 echo '<div class="gb-heading"  style="font-size:120%; color:#000000">';
                 echo $this->Html->link($blockskey['Block']['name'], '#', array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onclick' => 'overlay('.$blockskey['Block']['id'].')'));
                 ?>
@@ -95,7 +97,7 @@
         $('.art-list').hide();
         var position = $(".basic-info-"+arg).position(); // Grabs the position
         var topPos = parseInt(position.top);
-        var leftPos = parseInt(position.left) + 110;
+        var leftPos = parseInt(position.left) + 175;
         $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
     }
     $(".close-x").click(function () { $(this).parent().hide(); });

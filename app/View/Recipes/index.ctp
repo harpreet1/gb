@@ -9,7 +9,7 @@
     </div>
         
     <div class="span6 center">  
-		<h2 class="gb-heading">Our Recipes</h3>
+		<h2 class="gb-heading"><?php echo $user['User']['name']; ?> Recipes</h3>
     </div>
     
 </div>
