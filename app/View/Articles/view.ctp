@@ -1,9 +1,8 @@
-
-	<script>
-		$(document).ready(function() {
-			$('.article').columnize({ columns: 2 });
-		});
-	</script>
+<script>
+	$(document).ready(function() {
+		$('.article').columnize({ columns: 2 });
+	});
+</script>
 
 <h1><?php echo $article['Article']['name']; ?></h1>
 

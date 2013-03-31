@@ -1,4 +1,4 @@
-<style>             .close-x{float: right;}
+ <style>             .close-x{float: right;}
     .art-list{
                 background-color: white;
                 border: 1px solid;
@@ -40,8 +40,8 @@
     
     <!-- For Articles content -->
         <div class="span6">
-                <h3 class="recipe-name"><?php echo $article['Article']['name']; ?></h3>
-                <p class="recipe-description"> <?php echo $article['Article']['body']; ?> </p>
+                <h2 class="gb-heading"><?php echo $article['Article']['name']; ?></h3>
+                <p class="article-description"> <?php echo $article['Article']['body']; ?> </p>
         </div>
 
         <div class="span3">
