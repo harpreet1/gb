@@ -1,15 +1,8 @@
- <style>             .close-x{float: right;}
-    .art-list{
-                background-color: white;
-                border: 1px solid;
-                width: 200px;
-                padding: 10px;
-            }
-</style>
+
 <div class="row">
     <div class="span3">
         <br />
-        <p class="gb-heading"">Magazine Sections</p>
+        <p class="gb-heading">Magazine Sections</p>
         <?php
             echo "<br>";
             foreach($blocks as $blockskey)
@@ -17,7 +10,7 @@
 				//print_r($blockskey);
 				//die;
                 echo '<div class="gb-heading"  style="font-size:120%; color:#000000">';
-                echo $this->Html->link($blockskey['Block']['name'], '#', array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onclick' => 'overlay('.$blockskey['Block']['id'].')'));
+                echo $this->Html->link($blockskey['Block']['name'], '#', array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onmouseover' => 'overlay('.$blockskey['Block']['id'].')'));
                 ?>
                  <div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?=$blockskey['Block']['id']?>">
                         <a href="javascript:void(0);" class="close-x">[ x ]</a>

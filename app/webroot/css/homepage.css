@@ -352,6 +352,12 @@ div.pic-link-title {
 .navbar .nav > li > a:hover {
 	color:#FFC;
 }
+
+li.mzr-drop>a>b.caret {
+	vertical-align: middle;
+	margin-left:3px;
+	
+}
 /** Mega Menu **/
 
 .meganizr {

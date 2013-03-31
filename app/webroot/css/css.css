@@ -209,6 +209,12 @@ img.frame   {
 	text-shadow: none;
 }
 
+li.mzr-drop>a>b.caret {
+	vertical-align: middle;
+	margin-left:3px;
+	
+}
+
 span.special a {
 	font-weight: bold;
 	color:#930;
@@ -1788,6 +1794,22 @@ h2.gb-heading hr {
 	padding:35px;
 }
 
+
+/** Temp Article Hover JS **/
+
+ .close-x{float: right;}
+ .art-list{
+	background-color: white;
+	width: 280px;
+	padding: 10px;
+	border: 1px solid #E1E1E1;
+	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+            }
 
 /* Large desktop */
 @media (min-width: 1200px) {  }
