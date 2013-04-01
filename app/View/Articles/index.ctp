@@ -77,20 +77,21 @@
             <div class="span6">
             
 
-                <h2 class="gb-heading">
+                <h2 class="gb-heading paragraph">
                 
                 <?php echo $article['Article']['name']; ?>
+                <? echo $article['Article']['image_1']?>
                 </h3>
                 <p class="article-description"> <?php echo $article['Article']['body']; ?> </p>
             </div>
-            <div class="span2" style="width:200px;"><img class="article-pic border" src="/img/articles/image_1/<? echo $article['Article']['image_1']?>"  /> <br />
+            <div class="span2" style="width:200px;"><img class="article-pic border" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /> <br />
                 <br />
                 <?php if(!empty($recipe['Article']['image_2'])) : ?>
-                <img class="article-pic border" src="/img/articles/image_2/<? echo $article['Article']['image_2'] ?>" />
+                <img class="article-pic border" src="/img/articles/image_2/<?php echo $article['Article']['image_2'] ?>" />
                 <?php endif ; ?>
                 <br />
                 <?php if(!empty($recipe['Article']['image_3'])) : ?>
-                <img class="article-pic border" src="/img/articles/image_3/<? echo $recipe['Article']['image_3']?>"  />
+                <img class="article-pic border" src="/img/articles/image_3/<?php echo $recipe['Article']['image_3']?>"  />
                 <?php endif ; ?>
                 <br />
             </div>
@@ -100,12 +101,32 @@
         </div>
 </div>
 <script>
-    function overlay(arg){
-        $('.art-list').hide();
-        var position = $(".basic-info-"+arg).position(); // Grabs the position
+    //function overlay(arg){
+//        $('.art-list').hide();
+//        var position = $(".basic-info-"+arg).position(); // Grabs the position
+//        var topPos = parseInt(position.top);
+//        var leftPos = parseInt(position.left) + 175;
+//        $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
+//    }
+//    $(".close-x").click(function () { $(this).parent().hide(); });
+	
+	
+$(".art-list").hover( 
+		function(arg) { 
+		
+		var position = $(".basic-info-"+arg).position(); // Grabs the position
         var topPos = parseInt(position.top);
         var leftPos = parseInt(position.left) + 175;
         $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
-    }
-    $(".close-x").click(function () { $(this).parent().hide(); });
+				
+		$(".close-x").show();	
+		},
+		function() { 
+		$(".close-x").hide();		
+	});	
+	
+	
+	
+	
+	
 </script> 

@@ -19,7 +19,7 @@
 				</div>
             </li>
             
-            <li class="mzr-drop"> <a href="#" >Vendor Shoppes<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="#" >Vendor Shops<b class="caret"></b></a>
                 <div class="mzr-content drop-three-columns">
 					<div class="wide">
                     <?php foreach($menuvendors as $menuvendor) : ?>

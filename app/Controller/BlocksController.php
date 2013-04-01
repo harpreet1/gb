@@ -30,9 +30,7 @@ class BlocksController extends AppController {
 			}
 		}
 		
-		$priorities = $this->Block->priorities();
-		$authors = $this->Block->authors();
-		$this->set(compact('priorities','authors'));
+		
 		
 	}
 		
@@ -58,6 +56,7 @@ class BlocksController extends AppController {
 		} else {
 			$this->request->data = $this->Block->read(null, $id);
 		}
+		
 	
 		//$priorities = $this->Test->priorities();
 		//$authors = $this->Test->authors();

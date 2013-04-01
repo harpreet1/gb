@@ -18,8 +18,8 @@ del{color:#900;text-decoration:line-through;}
 cite{border-bottom:1px dashed #36C;}
 abbr,acronym{border-bottom:1px dotted #ccc;cursor:help}
 
-.gb-heading {
-	font-size:24px;
+.section-heading {
+	font-size:21px;
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
 	margin-top:20px;
