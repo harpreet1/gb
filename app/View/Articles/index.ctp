@@ -1,89 +1,103 @@
-
 <div class="row">
     <div class="span3">
-        <br />
-        <p class="gb-heading">Magazine Sections</p>
-        <?php
-            echo "<br>";
-            foreach($blocks as $blockskey)
-            {
-				//print_r($blockskey);
-				//die;
-                echo '<div class="gb-heading"  style="font-size:120%; color:#000000">';
-                echo $this->Html->link($blockskey['Block']['name'], '#', array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onmouseover' => 'overlay('.$blockskey['Block']['id'].')'));
-                ?>
-                 <div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?=$blockskey['Block']['id']?>">
-                        <a href="javascript:void(0);" class="close-x">[ x ]</a>
-                        <br>
-                <?php
-                foreach($blockskey['Article'] as $articlekey)
+    <br />
+    <p class="gb-heading">Magazine Sections</p>
+    <?php
+                echo "<br>";
+                foreach($blocks as $blockskey)
                 {
-                    echo "<p>";
-                    echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
-                    echo "</p>";                            
+                    
+                    echo '<div class="gb-heading" style="font-size:120%;">';
+                    echo $this->Html->link($blockskey['Block']['name'], '/articles/'.$blockskey['Block']['slug'], array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onmouseover' => 'overlay('.$blockskey['Block']['id'].')'));
+                    ?>
+    <div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?=$blockskey['Block']['id']?>"> <a href="#" class="close-x">[ x ]</a> <br>
+        <?php
+                    foreach($blockskey['Article'] as $articlekey)
+                    {
+                        echo "<p>";
+                        echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
+                        echo "</p>";                            
+                    }
+                    echo "</div>";
+                    // Main div closing
+                    echo "</div>";
                 }
-                echo "</div>";
-                // Main div closing
-                echo "</div>";
-            }
-        ?>
+            ?>
+            
+            <hr />
+        <?php if(!isset($article['Article'])){ ?>
+
+
+
+<!-- FOR BLOCKS LANDING PAGE -->
+        
+        <?php $trigger = $article['Block']['id']; ?>
+        <p class="gb-heading">Articles in this Section:</p>
+        
+        <?php foreach($blocks as $blockskey) {
+                        
+        	if ($trigger == ($blockskey['Block']['id'])) : ?>
+        
+        <div>
+        <?php //echo $blockskey['Block']['id']?>
+        <?php
+                            foreach($blockskey['Article'] as $articlekey)
+                            {
+                                echo "<p>";
+                                echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
+                                echo "</p>";                            
+                            }
+                            //echo "</div>";
+                            // Main div closing
+                            echo "</div>";
+							
+						endif;	
+					}
+					
+				?>
     </div>
+    
+    
+    <div class="span9"> <img class="article-landing-pic" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
+        <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
+        <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
+        <br />
+    </div>
+    
+    
 
-    <?php if(isset($article['Article'])){ ?>
+
+<!-- FOR ARTICLE CONTENT -->
     
+    <?php }else{ ?>
+   
     
-    
-    <!-- For Articles content -->
-        <div class="span6">
-                <h2 class="gb-heading"><?php echo $article['Article']['name']; ?></h3>
+    </div>
+    	<div class="span9">
+            <div class="span6">
+            
+
+                <h2 class="gb-heading">
+                
+                <?php echo $article['Article']['name']; ?>
+                </h3>
                 <p class="article-description"> <?php echo $article['Article']['body']; ?> </p>
-        </div>
-
-        <div class="span3">
-                <img class="article-pic border" src="/img/articles/image_1/<? echo $article['Article']['image_1']?>"  />
-                <br />
+            </div>
+            <div class="span2" style="width:200px;"><img class="article-pic border" src="/img/articles/image_1/<? echo $article['Article']['image_1']?>"  /> <br />
                 <br />
                 <?php if(!empty($recipe['Article']['image_2'])) : ?>
-                        <img class="article-pic border" src="/img/articles/image_2/<? echo $article['Article']['image_2'] ?>" />
+                <img class="article-pic border" src="/img/articles/image_2/<? echo $article['Article']['image_2'] ?>" />
                 <?php endif ; ?>
-                <!--<?php //echo $this->Html->image('/img/recipes/thumb-' . $recipe['Recipe']['slug'] . '-2.jpg'); ?>-->
                 <br />
                 <?php if(!empty($recipe['Article']['image_3'])) : ?>
-                        <img class="article-pic border" src="/img/articles/image_3/<? echo $recipe['Article']['image_3']?>"  />
+                <img class="article-pic border" src="/img/articles/image_3/<? echo $recipe['Article']['image_3']?>"  />
                 <?php endif ; ?>
                 <br />
-        </div>
-        
-    <?php }else{ ?>
-    
-    <!-- For blocks landing page -->
-            <div class="span9">
-            	<img class="article-pic" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
-                <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
-                <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
-                 
-                
-                        
-                        <br>
-                <?php
-                foreach($articlelist['Article'] as $articlekey)
-                {
-                    echo "<p>";
-                    echo $this->Html->link( $articlekey['name'], '/articles/'.$articlelist['Block']['slug']."/".$articlekey['slug']);
-                    echo "</p>";                            
-                }
-               
-                // Main div closing
-                echo "</div>";
-            
-					 
-            ?>    
-                
-                
             </div>
-    <?php
-        }
-    ?>
+        <?php
+            }
+        ?>
+        </div>
 </div>
 <script>
     function overlay(arg){
@@ -94,4 +108,4 @@
         $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
     }
     $(".close-x").click(function () { $(this).parent().hide(); });
-</script>
+</script> 

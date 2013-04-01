@@ -1636,7 +1636,7 @@ hr.recipe-divider {
 	border: 1px #CCC solid;
 }
 
-img.article-pic {
+img.article-landing-pic {
 	width:315px;
 	float:right;
 	margin-top:20px;
@@ -1650,6 +1650,10 @@ img.article-pic {
 
 }
 
+.gb-heading.article {
+	color:#C00;
+	font-size:120%;
+}
 	
 	/** Bootstrap Edit **/
 	

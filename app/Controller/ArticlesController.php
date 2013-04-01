@@ -3,6 +3,7 @@ App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
 	public $uses = array('Article','Block');
+	
 ////////////////////////////////////////////////////////////
 
 	public function index($block = null, $slug = null) {
