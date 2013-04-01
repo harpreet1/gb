@@ -77,10 +77,10 @@
             <div class="span6">
             
 
-                <h2 class="gb-heading paragraph">
+                <h2 class="gb-heading">
                 
                 <?php echo $article['Article']['name']; ?>
-                <? echo $article['Article']['image_1']?>
+            
                 </h3>
                 <p class="article-description"> <?php echo $article['Article']['body']; ?> </p>
             </div>
