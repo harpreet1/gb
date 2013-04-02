@@ -132,7 +132,6 @@ class CartComponent extends Component {
 			$order['subtotal'] = sprintf('%.2f', $cartTotal);
 			$order['quantity'] = $cartQuantity;
 			$order['weight'] = $cartWeight;
-			$order['sessionid'] = $this->Session->id();
 
 			$this->Session->write('Shop.Order', $order);
 
