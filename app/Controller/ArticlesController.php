@@ -3,6 +3,7 @@ App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
 	public $uses = array('Article','Block');
+	   
 	
 ////////////////////////////////////////////////////////////
 
@@ -49,6 +50,11 @@ class ArticlesController extends AppController {
 			'recursive' => 2,
 		));
 		$this->set(compact('blocks'));
+		
+		//$this->set('articles', $this->paginate());
+		
+		$result = $this->paginate();
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -80,6 +86,9 @@ class ArticlesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set(compact('article'));
+		
+		//$result = $this->paginate();
+		
 	}
 
 ////////////////////////////////////////////////////////////

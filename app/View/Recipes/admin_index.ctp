@@ -26,13 +26,16 @@ $(document).ready(function() {
     	<?php echo $this->Form->create('Recipe', array()); ?>
 		<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
         <?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
+        <?php echo $this->Form->input('filter', array(
+			'label' => false, 
+			'class' => 'span2',
+			'options' => array( 
+				'name' => 'Vendors'
+				),
+			'selected' => $all['filter']
+		)); ?>
     
     </div>
-    
-    <div class="span2">
-		<?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
-	</div>
-
 
 	<div class="span2">
 		<?php echo $this->Form->input('filter', array(

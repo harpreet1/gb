@@ -1,4 +1,4 @@
-<h2>Brands</h2>
+<h2>Blocks</h2>
 
 <table cellpadding="0" cellspacing="0">
 	<tr>

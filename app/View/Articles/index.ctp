@@ -98,6 +98,8 @@
         ?>
         </div>
 </div>
+
+
 <script>
     function overlay(arg){
         $('.art-list').hide();

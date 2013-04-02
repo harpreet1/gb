@@ -51,6 +51,7 @@ class RecipesController extends AppController {
 		$this->set(compact('recipes'));
 	}
 
+
 ////////////////////////////////////////////////////////////
 
 	public function all() {
@@ -243,12 +244,11 @@ class RecipesController extends AppController {
 		}
 
 		$all = array(
-			'user_id' => '',
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''
 		);
-
+		
 
 		if($this->Session->check('Recipe')) {
 			$all = $this->Session->read('Recipe');
@@ -266,7 +266,7 @@ class RecipesController extends AppController {
 				'Ustradition',
 			),
 			'conditions' => $all['conditions'],
-			'limit' => 50,
+			'limit' => 15,
 
 			'fields' => array(
 				'Recipe.*',
