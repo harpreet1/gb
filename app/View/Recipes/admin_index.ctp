@@ -28,6 +28,11 @@ $(document).ready(function() {
         <?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
     
     </div>
+    
+    <div class="span2">
+		<?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
+	</div>
+
 
 	<div class="span2">
 		<?php echo $this->Form->input('filter', array(
@@ -35,7 +40,7 @@ $(document).ready(function() {
 			'class' => 'span2',
 			'options' => array(
 				'name' => 'Name',
-				'ingredients' => 'Ingredients',
+				'ingredients' => 'Ingredients'
 			),
 			'selected' => $all['filter']
 		)); ?>
