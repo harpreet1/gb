@@ -60,6 +60,6 @@ $(document).ready(function(){
 			});
 
 		
-
-
+// Prepend img in Article div
+	$('#theDiv').prepend('<img id="theImg" src="theImg.png" />')
 });

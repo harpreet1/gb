@@ -25,3 +25,11 @@ abbr,acronym{border-bottom:1px dotted #ccc;cursor:help}
 	margin-top:20px;
 
 }
+
+.section-subheading {
+	font-size:18px;
+	font-family: 'Oregano', cursive;
+	color:#C00;
+	margin-top:20px;
+
+}

@@ -58,7 +58,7 @@
     </div>
     
     
-    <div class="span9"> <img class="article-landing-pic" src="/img/article-categories/<?php echo $article['Block']['image']; ?>" />
+    <div class="span9"> 
         <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
         <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
         <br />
@@ -73,19 +73,14 @@
    
     
     </div>
-    	<div class="span9">
-            <div class="span6">
-            
+    	<div class="span9 article">
 
-                <h2 class="gb-heading">
-                
-                <?php echo $article['Article']['name']; ?>
-            
-                </h3>
-                <p class="article-description"> <?php echo $article['Article']['body']; ?> </p>
-            </div>
-            <div class="span2" style="width:200px;"><img class="article-pic border" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /> <br />
-                <br />
+                <h2 class="gb-heading"><?php echo $article['Article']['name']; ?></h2>
+                <div class="article-body">
+                    <img class="article-pic border" style="float:right;" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /> 
+                     <?php echo $article['Article']['body']; ?>
+                </div>
+              
                 <?php if(!empty($recipe['Article']['image_2'])) : ?>
                 <img class="article-pic border" src="/img/articles/image_2/<?php echo $article['Article']['image_2'] ?>" />
                 <?php endif ; ?>
@@ -94,37 +89,37 @@
                 <img class="article-pic border" src="/img/articles/image_3/<?php echo $recipe['Article']['image_3']?>"  />
                 <?php endif ; ?>
                 <br />
-            </div>
+           
         <?php
             }
         ?>
         </div>
 </div>
 <script>
-    //function overlay(arg){
-//        $('.art-list').hide();
-//        var position = $(".basic-info-"+arg).position(); // Grabs the position
-//        var topPos = parseInt(position.top);
-//        var leftPos = parseInt(position.left) + 175;
-//        $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
-//    }
-//    $(".close-x").click(function () { $(this).parent().hide(); });
-	
-	
-$(".art-list").hover( 
-		function(arg) { 
-		
-		var position = $(".basic-info-"+arg).position(); // Grabs the position
+    function overlay(arg){
+        $('.art-list').hide();
+        var position = $(".basic-info-"+arg).position(); // Grabs the position
         var topPos = parseInt(position.top);
         var leftPos = parseInt(position.left) + 175;
         $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
-				
-		$(".close-x").show();	
-		},
-		function() { 
-		$(".close-x").hide();		
-	});	
+    }
+    $(".close-x").click(function () { $(this).parent().hide(); });
 	
+//	
+//$(".art-list").hover( 
+//		function(arg) { 
+//		
+//		var position = $(".basic-info-"+arg).position(); // Grabs the position
+//        var topPos = parseInt(position.top);
+//        var leftPos = parseInt(position.left) + 175;
+//        $("#populate-overlay-"+arg).css( { position: "absolute", left: leftPos, top: topPos } ).show();
+//				
+//		$(".close-x").show();	
+//		},
+//		function() { 
+//		$(".close-x").hide();		
+//	});	
+//	
 	
 	
 	

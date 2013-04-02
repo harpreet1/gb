@@ -85,7 +85,13 @@ class ArticlesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
-		$this->Article->recursive = 0;
+		$article = $this->Article->find('first', array(
+				'order' => array(
+					'Article.id' => 'DESC'
+				)
+			));
+			
+		
 		$this->set('articles', $this->paginate());
 	}
 

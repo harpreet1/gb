@@ -33,7 +33,6 @@
 	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
 
 	Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
-	
 	// Article landing page routing
 	Router::connect('/articles/:block/*', array('controller' => 'articles', 'action' => 'index'), array('pass' => array('block','slug')));
 
