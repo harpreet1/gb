@@ -153,9 +153,9 @@ $(document).ready(function(){
 
 <strong>Items: <strong>$<?php echo $shop['Order']['total']; ?></strong>
 <br />
-<strong>Shipping: <?php echo $shop['Totalship']; ?><strong>
+<strong>Shipping: <?php // echo $shop['Totalship']; ?><strong>
 <br />
-<strong>Order Total: <?php echo $shop['Order']['total'] + $shop['Totalship']; ?><strong>
+<strong>Order Total: <?php echo $shop['Order']['total']; // + $shop['Totalship']; ?><strong>
 <br />
 
 <hr>
