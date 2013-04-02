@@ -85,8 +85,8 @@ Shopping Cart is empty
 			<div class="span1"><?php echo $user['zip']; ?></div>
 			<div class="span1"><?php echo $user['totalquantity']; ?></div>
 			<div class="span1"><?php echo $user['totalweight']; ?></div>
-			<div class="span1">$<?php echo $user['totalprice']; ?></div>
-			<div class="span1">$<?php echo $user['totalshipping']; ?></div>
+			<div class="span1">$<?php echo $user['subtotal']; ?></div>
+			<div class="span1">$<?php echo $user['shipping']; ?></div>
 		</div>
 
 		<?php endforeach; ?>
@@ -99,7 +99,7 @@ Shopping Cart is empty
 			<div class="span6">Totals: </div>
 			<div class="span1"><?php echo $shop['Order']['quantity']; ?></div>
 			<div class="span1"><?php echo $shop['Order']['weight']; ?></div>
-			<div class="span1">$<?php echo $shop['Order']['total']; ?></div>
+			<div class="span1">$<?php echo $shop['Order']['subtotal']; ?></div>
 		</div>
 
 		<div class="row">
@@ -111,13 +111,13 @@ Shopping Cart is empty
 
 
 	<div class="span2">
-		Subtotal: <span class="normal">$<?php echo $shop['Order']['total']; ?></span>
+		Subtotal: <span class="normal">$<?php echo $shop['Order']['subtotal']; ?></span>
 		<br />
 		<br />
 		Sales Tax: <span class="normal">N/A</span>
 		<br />
 		<br />
-		Shipping: <span class="normal">N/A</span>
+		Shipping: <span class="normal">$<?php echo $shop['Order']['shipping']; ?></span>
 		<br />
 		<br />
 		Order Total: <span class="red">$<?php echo $shop['Order']['total']; ?></span>
