@@ -57,7 +57,7 @@
 <br />
 <br />
 
-<?php echo $this->Html->image('brands/image/' . $block['Block']['image']); ?>
+<?php echo $this->Html->image('blocks/image/' . $block['Block']['image']); ?>
 
 <br />
 
@@ -66,7 +66,7 @@
 <br />
 <br />
 
-<?php echo $this->Form->create('Block', array('type' => 'file', 'url' => array('controller' => 'brands', 'action' => 'view', 'admin' => true)));?>
+<?php echo $this->Form->create('Block', array('type' => 'file', 'url' => array('controller' => 'blocks', 'action' => 'view', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $block['Block']['id'])); ?>
 <?php echo $this->Form->hidden('slug', array('value' => $block['Block']['slug'])); ?>
 <table class="table-striped table-bordered table-condensed">

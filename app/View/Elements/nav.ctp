@@ -8,7 +8,7 @@
             
             <!-- 4 Columns Mega Dropdown --> 
             <!-- Portfolio -->
-            <li class="mzr-drop"> <a href="/categories">Food Categories<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Food Categories<b class="caret"></b></a>
                 <div class="mzr-content drop-three-columns">
 					<div class="wide">
 						<?php foreach($menucategories as $menucategory) : ?>

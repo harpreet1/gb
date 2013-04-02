@@ -59,6 +59,8 @@
     
     
     <div class="span9"> 
+    	<img class="article-pic border" style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  /> 
+    
         <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
         <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
         <br />
@@ -76,6 +78,7 @@
     	<div class="span9 article">
 
                 <h2 class="gb-heading"><?php echo $article['Article']['name']; ?></h2>
+                <hr />
                 <div class="article-body">
                     <img class="article-pic border" style="float:right;" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /> 
                      <?php echo $article['Article']['body']; ?>
