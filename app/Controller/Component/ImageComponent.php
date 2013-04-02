@@ -2,8 +2,8 @@
 class ImageComponent extends Component {
 
 	public $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
-	public $min_filesize = 5000;
-	public $max_filesize = 20000000;
+	public $min_filesize = 4000;
+	public $max_filesize = 1500000;
 
 ////////////////////////////////////////////////////////////
 

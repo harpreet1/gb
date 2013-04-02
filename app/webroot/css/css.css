@@ -761,6 +761,7 @@ h3.cat-title {
 	color: #3F9179;
 	font-size:19px;
 	text-align:center;
+	line-height:21px;
 }
 
 h3.cat-list {
@@ -770,8 +771,10 @@ h3.cat-list {
 	}
 
 .well-stocked-pantry {
+	font-family: 'Oregano', cursive;
+	font-size: 21px;
+	letter-spacing: 1px;
 	text-align:center;
-	font-weight:bold;
 	color:#FFF;
 }
 
