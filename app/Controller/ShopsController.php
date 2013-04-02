@@ -109,14 +109,6 @@ class ShopsController extends AppController {
 						);
 					}
 
-					$shippingchecks['User'][$d['id']]['id'] = $d['id'];
-					$shippingchecks['User'][$d['id']]['name'] = $d['name'];
-					$shippingchecks['User'][$d['id']]['totalprice'] = $d['totalprice'];
-					$shippingchecks['User'][$d['id']]['totalquantity'] = $d['totalquantity'];
-					$shippingchecks['User'][$d['id']]['totalweight'] = $d['totalweight'];
-					$shippingchecks['User'][$d['id']]['ShipFromZip'] = $d['zip'];
-					$shippingchecks['User'][$d['id']]['ShipToZip'] = $order['shipping_zip'];
-					$shippingchecks['User'][$d['id']]['Weight'] = $d['totalweight'];
 					$i++;
 				}
 
@@ -136,11 +128,7 @@ class ShopsController extends AppController {
 				}
 
 				$this->Session->write('Shop.Shipping', $shipping);
-				// $this->Session->write('Shop.Shippingtotal', $total);
-				$this->Session->write('Shop.Shippingchecks', $shippingchecks);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
-
-				$this->Session->write('Shop.Totalship', $totalship);
 
 				$this->redirect(array('action' => 'review'));
 			} else {
@@ -232,7 +220,6 @@ class ShopsController extends AppController {
 				}
 			}
 
-			$this->Session->write('Shop.Totalship', $totalShip);
 			$shop = $this->Session->read('Shop');
 
 		}
@@ -275,9 +262,9 @@ class ShopsController extends AppController {
 				$o['Order'] = $shop['Order'];
 				$o['Order']['subtotal'] = $shop['Order']['subtotal'];
 
-				$o['Order']['shipping'] = $shop['Totalship'];
+				// $o['Order']['shipping'] = $shop['Totalship']; ??????????
 
-				$o['Order']['total'] = $shop['Order']['total'] + $shop['Totalship'];
+				$o['Order']['total'] = $shop['Order']['total']; // + $shop['Totalship']; ???????????
 				$o['Order']['weight'] = $shop['Order']['weight'];
 
 				$o['Order']['order_status_id'] = 1;

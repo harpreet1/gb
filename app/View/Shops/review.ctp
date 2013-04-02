@@ -127,12 +127,24 @@ $(document).ready(function(){
 <?php echo $this->Form->create('Ship'); ?>
 
 <?php foreach ($shop['Shipping'] as $key => $value): ?>
+
+<?php if(count($value) > 1): ?>
+
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 <?php $optionship = array(); ?>
 <?php foreach ($value as $ship): ?>
 <?php $optionship[$ship['ServiceCode']] = $ship['ServiceName']; ?>
 <?php endforeach; ?>
 <?php echo $this->Form->input('rating_' . $shop['Users'][$key]['id'], array('type' => 'radio', 'legend' => false, 'options' => $optionship));?>
+<br />
+
+<?php else: ?>
+<strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
+<?php foreach ($value as $ship): ?>
+<?php echo $ship['ServiceName']; ?>: $<?php echo $ship['TotalCharges']; ?><br />
+<?php endforeach; ?>
+
+<?php endif; ?>
 <br />
 <?php endforeach; ?>
 
@@ -141,9 +153,9 @@ $(document).ready(function(){
 
 <strong>Items: <strong>$<?php echo $shop['Order']['total']; ?></strong>
 <br />
-<strong>Shipping: <?php echo $shop['Totalship']; ?><strong>
+<strong>Shipping: <?php // echo $shop['Totalship']; ?><strong>
 <br />
-<strong>Order Total: <?php echo $shop['Order']['total'] + $shop['Totalship']; ?><strong>
+<strong>Order Total: <?php echo $shop['Order']['total']; // + $shop['Totalship']; ?><strong>
 <br />
 
 <hr>
