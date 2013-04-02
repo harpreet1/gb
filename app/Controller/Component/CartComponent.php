@@ -82,7 +82,6 @@ class CartComponent extends Component {
 		$this->Session->delete('Shop.Users');
 		$this->Session->delete('Shop.Shipping');
 		$this->Session->delete('Shop.Shippingtotal');
-		$this->Session->delete('Shop.Shippingchecks');
 
 		$property = array();
 		$users = $shop['Users'];
