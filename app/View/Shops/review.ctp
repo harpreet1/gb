@@ -85,7 +85,7 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 	<div class="span8"><strong>Totals</strong></div>
 	<div class="span1"><strong><?php echo $shop['Order']['weight']; ?></strong></div>
 	<div class="span1 offset1"><strong><?php echo $shop['Order']['quantity']; ?></strong></div>
-	<div class="span1"><strong>$<?php echo $shop['Order']['total']; ?></strong></div>
+	<div class="span1"><strong>$<?php echo $shop['Order']['subtotal']; ?></strong></div>
 </div>
 
 <br />
@@ -97,7 +97,7 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 Zip Code: <?php echo $shop['Users'][$key]['zip']; ?><br />
-Item Total Price: <?php echo $shop['Users'][$key]['totalprice']; ?><br />
+Subtotal: <?php echo $shop['Users'][$key]['subtotal']; ?><br />
 Total Quantity: <?php echo $shop['Users'][$key]['totalquantity']; ?><br />
 Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
 <?php foreach ($value as $ship): ?>
@@ -151,11 +151,11 @@ $(document).ready(function(){
 <?php //echo $this->Form->button('Change Shipping Method', array('class' => 'btn', 'ecape' => false)); ?>
 <?php echo $this->Form->end(); ?>
 
-<strong>Items: <strong>$<?php echo $shop['Order']['total']; ?></strong>
+<strong>Subtotal: <strong>$<?php echo $shop['Order']['subtotal']; ?></strong>
 <br />
-<strong>Shipping: <?php // echo $shop['Totalship']; ?><strong>
+<strong>Shipping: <?php echo $shop['Order']['shipping']; ?><strong>
 <br />
-<strong>Order Total: <?php echo $shop['Order']['total']; // + $shop['Totalship']; ?><strong>
+<strong>Order Total: <?php echo $shop['Order']['total']; ?><strong>
 <br />
 
 <hr>

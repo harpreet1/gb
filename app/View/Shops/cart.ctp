@@ -85,8 +85,8 @@ Shopping Cart is empty
 			<div class="span1"><?php echo $user['zip']; ?></div>
 			<div class="span1"><?php echo $user['totalquantity']; ?></div>
 			<div class="span1"><?php echo $user['totalweight']; ?></div>
-			<div class="span1">$<?php echo $user['totalprice']; ?></div>
-			<div class="span1">$<?php echo $user['totalshipping']; ?></div>
+			<div class="span1">$<?php echo $user['subtotal']; ?></div>
+			<div class="span1">$<?php echo $user['shipping']; ?></div>
 		</div>
 
 		<?php endforeach; ?>

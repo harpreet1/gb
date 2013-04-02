@@ -105,7 +105,7 @@ class ShopsController extends AppController {
 						$shipping[$d['id']][0] = array(
 							'ServiceCode' => '1',
 							'ServiceName' => 'Flat',
-							'TotalCharges' => $d['totalshipping']
+							'TotalCharges' => $d['shipping']
 						);
 					}
 
@@ -122,13 +122,18 @@ class ShopsController extends AppController {
 				// 	}
 				// }
 
-				$totalship = 0;
+				$shippingtotal = 0;
 				foreach ($shipping as $ship) {
-					$totalship += $ship[0]['TotalCharges'];
+					$shippingtotal += $ship[0]['TotalCharges'];
 				}
+				$shippingtotal = sprintf('%.2f', $shippingtotal);
+
+				$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
 
 				$this->Session->write('Shop.Shipping', $shipping);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
+
+				$this->Session->write('Shop.Order.shipping', $shippingtotal);
 
 				$this->redirect(array('action' => 'review'));
 			} else {
@@ -210,17 +215,29 @@ class ShopsController extends AppController {
 
 		if ($this->request->is('post') && isset($this->request->data['Ship'])) {
 
-			$totalShip = 0;
-			foreach($this->request->data['Ship'] as $key => $value) {
-				$userId = str_replace('rating_', '', $key);
-				foreach($shop['Shipping'][$userId] as $k => $v) {
-					if($v['ServiceCode'] == $value) {
-						$totalShip += $v['TotalCharges'];
-					}
-				}
-			}
+			$shippingtotal = 0;
 
-			$shop = $this->Session->read('Shop');
+			// debug(str_replace('rating_', '', key($this->request->data['Ship'])));
+			// // $userId = str_replace('rating_', '', $key);
+
+			// foreach($shop['Shipping'] as $k => $v) {
+			// 	debug($k);
+			// 	debug($v);
+			// 	// debug($this->request->data['Ship']);
+			// }
+
+			// die;
+
+			// foreach($this->request->data['Ship'] as $key => $value) {
+			// 	$userId = str_replace('rating_', '', $key);
+			// 	foreach($shop['Shipping'][$userId] as $k => $v) {
+			// 		if($v['ServiceCode'] == $value) {
+			// 			$totalShip += $v['TotalCharges'];
+			// 		}
+			// 	}
+			// }
+
+			$this->redirect(array('action' => 'review'));
 
 		}
 
@@ -251,10 +268,10 @@ class ShopsController extends AppController {
 					$o['OrderUser'][$i]['user_id'] = $u['id'];
 					$o['OrderUser'][$i]['name'] = $u['name'];
 					$o['OrderUser'][$i]['quantity'] = $u['totalquantity'];
-					$o['OrderUser'][$i]['subtotal'] = $u['totalprice'];
+					$o['OrderUser'][$i]['subtotal'] = $u['price'];
 					$o['OrderUser'][$i]['weight'] = $u['totalweight'];
 					$o['OrderUser'][$i]['tax'] = 0;
-					$o['OrderUser'][$i]['shipping'] = $u['totalshipping'];
+					$o['OrderUser'][$i]['shipping'] = $u['shipping'];
 					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}
