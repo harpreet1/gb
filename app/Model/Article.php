@@ -67,7 +67,10 @@ class Article extends AppModel {
 			'0' => 'Free',
 			'1' => 'International Traditions',
 			'2' => 'US Traditions',
-			'3' => 'Hot Food & Beverage Trends'
+			'3' => 'Hot Food & Beverage Trends',
+			'4' => 'Categories',
+			'5' => 'World Pantries',
+			'6' => 'Special Ingredients',
 		);
 		return $groups;
 	}
