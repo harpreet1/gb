@@ -159,7 +159,11 @@ class ArticlesController extends AppController {
 		}
 		// Getting records of articles
 		$blocks = $this->Article->Block->find('list');
-		$this->set(compact('blocks'));
+		
+		// Article Groups
+		$groups = $this->Article->groups();
+		
+		$this->set(compact('blocks','groups'));
 	}
 
 ////////////////////////////////////////////////////////////
