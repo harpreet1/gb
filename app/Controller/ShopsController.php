@@ -101,7 +101,10 @@ class ShopsController extends AppController {
 					$data['Weight'] = $user['weight'];
 
 					if($user['flat_shipping'] != 1) {
-						$shipping[$user['id']] = $this->_ups($data);
+						$ups = $this->_ups($data);
+						$shipping[$user['id']] = $ups;
+						// $this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $ups[0]['TotalCharges']);
+						// $this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $ups[0]['ServiceName']);
 					} else {
 						$shipping[$user['id']][0] = array(
 							'ServiceCode' => '1',

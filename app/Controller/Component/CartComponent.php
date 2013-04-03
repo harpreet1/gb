@@ -109,14 +109,16 @@ class CartComponent extends Component {
 
 					if($user['ship_determinant'] == 0) {
 						$user['shipping'] = $this->calculateFlatShippingPrice($user);
+						$user['shipping_service'] = 'Flat_Price';
 					}
 					if($user['ship_determinant'] == 1) {
-						$user['shipping'] = $this->calculateFlatShippingBox($user);
+						$user['shipping'] = $this->calculateFlatShippingQuantity($user);
+						$user['shipping_service'] = 'Flat_Quantity';
 					}
-
 
 				} else {
 					$user['shipping'] = 0;
+					$user['shipping_service'] = '';
 				}
 
 				$user['subtotal'] = sprintf('%.2f', $user['subtotal']);
@@ -156,11 +158,11 @@ class CartComponent extends Component {
 
 	protected function calculateFlatShippingPrice($user) {
 		if (($user['flat_ship_level_1_low'] <= $user['subtotal']) && ($user['flat_ship_level_1_high'] >= $user['subtotal'])) {
-			return $user['flat_ship_level_1_subtotal'];
+			return $user['flat_ship_level_1_price'];
 		} elseif (($user['flat_ship_level_2_low'] <= $user['subtotal']) && ($user['flat_ship_level_2_high'] >= $user['subtotal'])) {
-			return $user['flat_ship_level_2_subtotal'];
+			return $user['flat_ship_level_2_price'];
 		} elseif (($user['flat_ship_level_3_low'] <= $user['subtotal']) && ($user['flat_ship_level_3_high'] >= $user['subtotal'])) {
-			return $user['flat_ship_level_3_subtotal'];
+			return $user['flat_ship_level_3_price'];
 		} elseif (($user['flat_ship_level_4_low'] <= $user['subtotal']) && ($user['flat_ship_level_4_high'] >= $user['subtotal'])) {
 			return $user['flat_ship_level_4_price'];
 		} else {
@@ -170,7 +172,7 @@ class CartComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	protected function calculateFlatShippingBox($user) {
+	protected function calculateFlatShippingQuantity($user) {
 		if (($user['flat_ship_level_1_low'] <= $user['quantity']) && ($user['flat_ship_level_1_high'] >= $user['quantity'])) {
 			return $user['flat_ship_level_1_price'];
 		} elseif (($user['flat_ship_level_2_low'] <= $user['quantity']) && ($user['flat_ship_level_2_high'] >= $user['quantity'])) {
