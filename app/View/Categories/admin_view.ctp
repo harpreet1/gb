@@ -27,7 +27,7 @@
 			<?php echo h($category['Category']['image']); ?>
 			<br />
 			<br />
-			<?php echo $this->Html->image('categories/image/' . $category['Category']['image']); ?>
+			<?php //echo $this->Html->image('categories/image/' . $category['Category']['image']); ?>
 		</td>
 	</tr>
 	<tr>
@@ -50,15 +50,6 @@
 		<td>Image 5</td>
 		<td><?php echo h($category['Category']['image_5']); ?></td>
 	</tr>
-	<tr>
-		<td>Subcategory Count</td>
-		<td><?php echo h($category['Category']['subcategory_count']); ?></td>
-	</tr>
-	<tr>
-		<td>Product Count</td>
-		<td><?php echo $category['Category']['product_count']; ?></td>
-	</tr>
-	<tr>
 		<td>Created</td>
 		<td><?php echo h($category['Category']['created']); ?></td>
 	</tr>
@@ -193,7 +184,7 @@
 		<th>subcategory_id</th>
 		<th>subsubcategory_id</th>
 		<th>vendor_sku</th>
-		<th>brand</th>
+		<?php /*?><th>brand</th><?php */?>
 		<th>name</th>
 		<th>slug</th>
 		<th>image</th>
@@ -228,7 +219,7 @@
 		<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?></td>
 		<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?></td>
 		<td><?php echo h($product['Product']['vendor_sku']); ?></td>
-		<td><?php echo h($product['Product']['brand']); ?></td>
+		<?php /*?><td><?php echo h($product['Product']['brand']); ?></td><?php */?>
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>

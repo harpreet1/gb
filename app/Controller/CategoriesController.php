@@ -263,6 +263,7 @@ class CategoriesController extends AppController {
 				'Category',
 				'Subcategory',
 				'Subsubcategory',
+				'Brand',
 			),
 			'conditions' => array(
 				'Product.category_id' => $id
