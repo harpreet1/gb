@@ -17,6 +17,7 @@
 
 <?php echo $this->Form->create('Article'); ?>
 <?php echo $this->Form->input('id'); ?>
+<?php echo $this->Form->input('prefix'); ?>
 <?php echo $this->Form->input('name'); ?>
 <?php 
 // Add select box with blocks name
