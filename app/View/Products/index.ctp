@@ -35,6 +35,9 @@
 				.navList li a {
 					<?php echo $user['User']['awning_css']; ?>
 				}
+				.navList li ul.listTab li a, .navList li ul.listTab li {
+					background-color:#fff;
+				}
 			</style>
 
 			<div style="clear:both">

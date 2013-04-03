@@ -36,7 +36,7 @@
     
         <h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
         <p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
-        <br />
+        <hr />
         
          <?php $trigger = $article['Block']['id']; ?>
         <p class="gb-heading">Articles in this Section:</p>
@@ -45,7 +45,7 @@
                         
         	if ($trigger == ($blockskey['Block']['id'])) : ?>
         
-        <div class="span6">
+        
         
         <?php
                             foreach($blockskey['Article'] as $articlekey)
@@ -64,7 +64,7 @@
 					}
 					
 				?>
-    	</div>
+    	
     
 </div>                    
         
