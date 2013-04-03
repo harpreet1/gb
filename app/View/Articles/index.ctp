@@ -51,7 +51,7 @@
                             foreach($blockskey['Article'] as $articlekey)
                             {
                                 echo "<p><span class='prefix'>";
-								echo $articlekey['prefix'] . ' - ';
+								echo $articlekey['prefix'] . ': ';
 								 echo "</span>";  
                                 echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
                                 echo "</p>";                            

@@ -1532,7 +1532,8 @@ img.article-landing-pic {
 	font-size: 120%;
 }
 .prefix {
-	font-size: 11px;
+	font-family: 'Oregano', cursive;
+	font-size: 18px;
 	color: #999;
 }
 /** Bootstrap Edit **/
