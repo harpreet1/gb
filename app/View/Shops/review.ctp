@@ -93,14 +93,14 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 
 <hr>
 
-<?php foreach ($shop['Shipping'] as $key => $value): ?>
+<?php foreach ($shop['Users'] as $key => $value): ?>
 
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 Zip Code: <?php echo $shop['Users'][$key]['zip']; ?><br />
 Subtotal: <?php echo $shop['Users'][$key]['subtotal']; ?><br />
 Total Quantity: <?php echo $shop['Users'][$key]['quantity']; ?><br />
 Weight: <?php echo $shop['Users'][$key]['weight']; ?> LBS<br />
-<?php foreach ($value as $ship): ?>
+<?php foreach ($value['Shippingfees'] as $ship): ?>
 <div class="row">
 <div class="span1"><?php echo $ship['ServiceCode']; ?></div>
 <div class="span3"><?php echo $ship['ServiceName']; ?></div>
@@ -126,21 +126,21 @@ $(document).ready(function(){
 <br />
 <?php echo $this->Form->create('Ship'); ?>
 
-<?php foreach ($shop['Shipping'] as $key => $value): ?>
+<?php foreach ($shop['Users'] as $key => $value): ?>
 
-<?php if(count($value) > 1): ?>
+<?php if(count($value['Shippingfees']) > 1): ?>
 
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 <?php $optionship = array(); ?>
-<?php foreach ($value as $ship): ?>
-<?php $optionship[$ship['ServiceCode']] = $ship['ServiceName']; ?>
+<?php foreach ($value['Shippingfees'] as $ship): ?>
+<?php $optionship[] = $ship['ServiceName']; ?>
 <?php endforeach; ?>
-<?php echo $this->Form->input('rating_' . $shop['Users'][$key]['id'], array('type' => 'radio', 'legend' => false, 'options' => $optionship));?>
+<?php echo $this->Form->input('rating_' . $shop['Users'][$key]['id'], array('type' => 'radio', 'legend' => false, 'options' => $optionship, 'value' => $shop['Users'][$key]['shipping_selected']));?>
 <br />
 
 <?php else: ?>
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
-<?php foreach ($value as $ship): ?>
+<?php foreach ($value['Shippingfees'] as $ship): ?>
 <?php echo $ship['ServiceName']; ?>: $<?php echo $ship['TotalCharges']; ?><br />
 <?php endforeach; ?>
 

@@ -96,46 +96,43 @@ class ShopsController extends AppController {
 
 				$i = 0;
 				foreach($shop['Users'] as $user) {
+
 					$data['ShipFromZip'] = $user['zip'];
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $user['weight'];
 
 					if($user['flat_shipping'] != 1) {
-						$ups = $this->_ups($data);
-						$shipping[$user['id']] = $ups;
-						// $this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $ups[0]['TotalCharges']);
-						// $this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $ups[0]['ServiceName']);
+						$result = $this->_ups($data);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
 					} else {
-						$shipping[$user['id']][0] = array(
-							'ServiceCode' => '1',
-							'ServiceName' => 'Flat',
-							'TotalCharges' => $user['shipping']
+						$result = array(
+							0 => array(
+								'ServiceCode' => '1',
+								'ServiceName' => 'Flat',
+								'TotalCharges' => $user['shipping']
+							)
 						);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $user['shipping']);
+						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
 					}
 
 					$i++;
 				}
 
-				// $i = 0;
-				// foreach ($shipping as $ship) {
-				// 	foreach ($ship as $k) {
-				// 		$total[$k['ServiceCode']]['ServiceCode'] = $k['ServiceCode'];
-				// 		$total[$k['ServiceCode']]['ServiceName'] = $k['ServiceName'];
-				// 		$total[$k['ServiceCode']]['TotalCharges'] = 0;
-				// 		$i++;
-				// 	}
-				// }
+				$shop = $this->Session->read('Shop');
 
 				$shippingtotal = 0;
-				foreach ($shipping as $ship) {
-					$shippingtotal += $ship[0]['TotalCharges'];
+				foreach($shop['Users'] as $user) {
+					$shippingtotal += $user['Shippingfees'][0]['TotalCharges'];
 				}
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 				$order['shipping'] = $shippingtotal;
 				$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
 
-				$this->Session->write('Shop.Shipping', $shipping);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
 
 				$this->redirect(array('action' => 'review'));
@@ -181,28 +178,27 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	public function charge() {
+	// public function charge() {
 
-		$shop = $this->Session->read('Shop');
-		//debug($shop);
+	// 	$shop = $this->Session->read('Shop');
 
-		$payment = array(
-			'creditcard_number' => '4111111111111111',
-			'creditcard_month' => '12',
-			'creditcard_year' => '12',
-			'creditcard_code' => '123',
-		);
+	// 	$payment = array(
+	// 		'creditcard_number' => '4111111111111111',
+	// 		'creditcard_month' => '12',
+	// 		'creditcard_year' => '12',
+	// 		'creditcard_code' => '123',
+	// 	);
 
-		try {
-			$authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
-			debug($authorizeNet);
-		} catch(Exception $e) {
-			debug($e->getMessage());
-		}
+	// 	try {
+	// 		$authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
+	// 		debug($authorizeNet);
+	// 	} catch(Exception $e) {
+	// 		debug($e->getMessage());
+	// 	}
 
-		die('charge end.');
+	// 	die('charge end.');
 
-	}
+	// }
 
 //////////////////////////////////////////////////
 
@@ -218,27 +214,26 @@ class ShopsController extends AppController {
 
 		if ($this->request->is('post') && isset($this->request->data['Ship'])) {
 
+			foreach($this->request->data['Ship'] as $key => $value) {
+				$userId = str_replace('rating_', '', $key);
+				if($this->Session->check('Shop.Users.' . $userId . '.shipping_selected')) {
+					$this->Session->write('Shop.Users.' . $userId . '.shipping_selected', $value);
+					$this->Session->write('Shop.Users.' . $userId . '.shipping_service', $shop['Users'][$userId]['Shippingfees'][$value]['ServiceName']);
+					$this->Session->write('Shop.Users.' . $userId . '.shipping', $shop['Users'][$userId]['Shippingfees'][$value]['TotalCharges']);
+				}
+			}
+
+			$shop = $this->Session->read('Shop');
 			$shippingtotal = 0;
+			foreach($shop['Users'] as $user) {
+				$shippingtotal += $user['Shippingfees'][$user['shipping_selected']]['TotalCharges'];
+			}
+			$shippingtotal = sprintf('%.2f', $shippingtotal);
 
-			// debug(str_replace('rating_', '', key($this->request->data['Ship'])));
-			// // $userId = str_replace('rating_', '', $key);
+			$order['shipping'] = $shippingtotal;
+			$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
 
-			// foreach($shop['Shipping'] as $k => $v) {
-			// 	debug($k);
-			// 	debug($v);
-			// 	// debug($this->request->data['Ship']);
-			// }
-
-			// die;
-
-			// foreach($this->request->data['Ship'] as $key => $value) {
-			// 	$userId = str_replace('rating_', '', $key);
-			// 	foreach($shop['Shipping'][$userId] as $k => $v) {
-			// 		if($v['ServiceCode'] == $value) {
-			// 			$totalShip += $v['TotalCharges'];
-			// 		}
-			// 	}
-			// }
+			$this->Session->write('Shop.Order', $order + $shop['Order']);
 
 			$this->redirect(array('action' => 'review'));
 
@@ -266,46 +261,30 @@ class ShopsController extends AppController {
 				$o['OrderItem'] = $shop['OrderItem'];
 
 				$i = 0;
-
 				foreach($shop['Users'] as $user) {
+					$o['OrderUser'][$i] = $user;
 					$o['OrderUser'][$i]['user_id'] = $user['id'];
-					$o['OrderUser'][$i]['name'] = $user['name'];
-					$o['OrderUser'][$i]['weight'] = $user['weight'];
-					$o['OrderUser'][$i]['quantity'] = $user['quantity'];
-					$o['OrderUser'][$i]['subtotal'] = $user['subtotal'];
 					$o['OrderUser'][$i]['tax'] = 0;
-					$o['OrderUser'][$i]['shipping'] = $user['shipping'];
 					$o['OrderUser'][$i]['total'] = $user['subtotal'] + $user['shipping'];
 					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}
 
 				$o['Order'] = $shop['Order'];
-				$o['Order']['subtotal'] = $shop['Order']['subtotal'];
-
-				// $o['Order']['shipping'] = $shop['Totalship']; ??????????
-
-				$o['Order']['total'] = $shop['Order']['total']; // + $shop['Totalship']; ???????????
-				$o['Order']['weight'] = $shop['Order']['weight'];
 
 				$o['Order']['order_status_id'] = 1;
-
 				$o['Order']['ip_address'] = $_SERVER['REMOTE_ADDR'];
 				$o['Order']['remotehost'] = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 				$o['Order']['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
 				$save = $this->Order->saveAll($o, array('validate' => 'first'));
 				if($save) {
-
-					$orderId = $this->Order->id;
-
-					$this->sendemails($orderId);
-
+					$this->sendemails($this->Order->id);
 					$this->redirect(array('action' => 'success'));
 				}
 
 			} else {
-				$this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
+				$this->Session->setFlash('The order could not be processed. Please, try again.', 'flash_error');
 			}
 		}
 
@@ -340,8 +319,6 @@ class ShopsController extends AppController {
 				'Order.id' => $id
 			),
 		));
-
-//		debug($order);
 
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
@@ -387,8 +364,6 @@ class ShopsController extends AppController {
 				->viewVars(array('order' => $order, 'vendor' => $vendor, 'vendoritems' => $vendoritems))
 				->send();
 		}
-
-		//die('end');
 
 	}
 

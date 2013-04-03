@@ -75,6 +75,9 @@ Total Quantity: <?php echo $vendor['quantity'];?>
 <br />
 Weight Total: <?php echo $vendor['weight'];?>
 <br />
+
+<br />
+<br />
 Subtotal: $<?php echo $vendor['subtotal'];?>
 <br />
 Shipping: $<?php echo $vendor['shipping'];?>
@@ -85,6 +88,9 @@ Total: $<?php echo $vendor['total'];?>
 
 <br />
 <br />
+
+Shipping Service: $<?php echo $vendor['shipping_service'];?>
+
 <br />
 <br />
 <br />
