@@ -1648,7 +1648,7 @@ img.article-pic {
 	margin-top: 0px;
 	margin-bottom: 20px;
 	padding:5px;
-	width:200px;
+	width:300px;
 	border: 1px #CCC solid;
 	margin-right: 0px;
 	margin-left: 20px;
@@ -1671,6 +1671,11 @@ img.article-landing-pic {
 .gb-heading.article {
 	color:#C00;
 	font-size:120%;
+}
+
+.prefix {
+	font-size:11px;
+	color:#999;
 }
 	
 	/** Bootstrap Edit **/

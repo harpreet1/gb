@@ -42,7 +42,9 @@ class Article extends AppModel {
 		),
 	);
 
-// Relationship of article belongs to block 
+////////////////////////////////////////////////////////////
+
+// Relationship of articles belongs to blocks, groups
 
 	public $belongsTo = array(
             'Block' => array(
@@ -52,7 +54,20 @@ class Article extends AppModel {
                     'fields' => '',
                     'order' => '',
                     'counterCache' => true,
-            )
+            ),
+			
 	);
+	
+	
+////////////////////////////////////////////////////////////
 
+//  Excellent Food Adventures relationships
+	public function groups() {
+		$groups = array(
+			'0' => 'Free',
+			'1' => 'International Traditions',
+			'2' => 'US Traditions',
+		);
+		return $groups;
+	}
 }

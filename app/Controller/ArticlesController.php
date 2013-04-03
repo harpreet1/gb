@@ -12,9 +12,6 @@ class ArticlesController extends AppController {
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
 					'Article.active' => 1,
-				),
-				'order' => array(
-					'Article.created' => 'DESC'
 				)
 			));
 			}
@@ -51,10 +48,8 @@ class ArticlesController extends AppController {
 		));
 		$this->set(compact('blocks'));
 		
-		//$this->set('articles', $this->paginate());
-		
-		$result = $this->paginate();
-
+		$this->set('articles', $this->paginate());
+				
 	}
 
 ////////////////////////////////////////////////////////////
@@ -70,6 +65,7 @@ class ArticlesController extends AppController {
 		$articlelist = $this->Article->find('all', array(
 			'recursive' => 0,
 			'fields' => array(
+				'Article.prefix',
 				'Article.name',
 				'Article.slug',
 				'Block.name',
@@ -185,7 +181,11 @@ class ArticlesController extends AppController {
 		}
 		// Getting records of articles
 		$blocks = $this->Article->Block->find('list');
-		$this->set(compact('blocks'));
+		
+		// Article Groups
+		$groups = $this->Article->groups();
+		
+		$this->set(compact('blocks','groups'));
 	}
 
 ////////////////////////////////////////////////////////////
