@@ -83,8 +83,8 @@ Shopping Cart is empty
 			<div class="span2"><?php echo $user['email']; ?></div>
 			<div class="span1"><?php echo $user['state']; ?></div>
 			<div class="span1"><?php echo $user['zip']; ?></div>
-			<div class="span1"><?php echo $user['totalquantity']; ?></div>
-			<div class="span1"><?php echo $user['totalweight']; ?></div>
+			<div class="span1"><?php echo $user['quantity']; ?></div>
+			<div class="span1"><?php echo $user['weight']; ?></div>
 			<div class="span1">$<?php echo $user['subtotal']; ?></div>
 			<div class="span1">$<?php echo $user['shipping']; ?></div>
 		</div>

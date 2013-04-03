@@ -87,21 +87,21 @@ class CartComponent extends Component {
 		$users = $shop['Users'];
 
 		foreach ($users as & $user) {
+			$user['weight'] = 0;
+			$user['quantity'] = 0;
 			$user['subtotal'] = 0;
-			$user['totalquantity'] = 0;
-			$user['totalweight'] = 0;
 		}
 
 		if (count($shop['OrderItem']) > 0) {
 			foreach ($shop['OrderItem'] as $item) {
-				$cartTotal += $item['subtotal'];
-				$cartQuantity += $item['quantity'];
 				$cartWeight += $item['weight_total'];
+				$cartQuantity += $item['quantity'];
+				$cartTotal += $item['subtotal'];
 				$order_item_count++;
 
+				$users[$item['user_id']]['weight'] += $item['weight_total'];
+				$users[$item['user_id']]['quantity'] += $item['quantity'];
 				$users[$item['user_id']]['subtotal'] += sprintf('%.2f', $item['subtotal']);
-				$users[$item['user_id']]['totalquantity'] += $item['quantity'];
-				$users[$item['user_id']]['totalweight'] += $item['weight_total'];
 			}
 
 			foreach ($users as & $user) {
@@ -121,17 +121,18 @@ class CartComponent extends Component {
 
 				$user['subtotal'] = sprintf('%.2f', $user['subtotal']);
 
-				if($user['totalquantity'] == 0) {
+				if($user['quantity'] == 0) {
 					unset($users[$user['id']]);
 				}
 
 			}
 
-			$order['order_item_count'] = $order_item_count;
-			$order['total'] = sprintf('%.2f', $cartTotal);
-			$order['subtotal'] = sprintf('%.2f', $cartTotal);
-			$order['quantity'] = $cartQuantity;
 			$order['weight'] = $cartWeight;
+			$order['order_item_count'] = $order_item_count;
+			$order['quantity'] = $cartQuantity;
+			$order['subtotal'] = sprintf('%.2f', $cartTotal);
+			$order['shipping'] = 0;
+			$order['total'] = sprintf('%.2f', $cartTotal);
 
 			$this->Session->write('Shop.Order', $order);
 
@@ -170,13 +171,13 @@ class CartComponent extends Component {
 //////////////////////////////////////////////////
 
 	protected function calculateFlatShippingBox($user) {
-		if (($user['flat_ship_level_1_low'] <= $user['totalquantity']) && ($user['flat_ship_level_1_high'] >= $user['totalquantity'])) {
+		if (($user['flat_ship_level_1_low'] <= $user['quantity']) && ($user['flat_ship_level_1_high'] >= $user['quantity'])) {
 			return $user['flat_ship_level_1_price'];
-		} elseif (($user['flat_ship_level_2_low'] <= $user['totalquantity']) && ($user['flat_ship_level_2_high'] >= $user['totalquantity'])) {
+		} elseif (($user['flat_ship_level_2_low'] <= $user['quantity']) && ($user['flat_ship_level_2_high'] >= $user['quantity'])) {
 			return $user['flat_ship_level_2_price'];
-		} elseif (($user['flat_ship_level_3_low'] <= $user['totalquantity']) && ($user['flat_ship_level_3_high'] >= $user['totalquantity'])) {
+		} elseif (($user['flat_ship_level_3_low'] <= $user['quantity']) && ($user['flat_ship_level_3_high'] >= $user['quantity'])) {
 			return $user['flat_ship_level_3_price'];
-		} elseif (($user['flat_ship_level_4_low'] <= $user['totalquantity']) && ($user['flat_ship_level_4_high'] >= $user['totalquantity'])) {
+		} elseif (($user['flat_ship_level_4_low'] <= $user['quantity']) && ($user['flat_ship_level_4_high'] >= $user['quantity'])) {
 			return $user['flat_ship_level_4_price'];
 		} else {
 			return 0;

@@ -90,22 +90,23 @@ class ShopsController extends AppController {
 			$this->loadModel('Order');
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
+
 				$order = $this->request->data['Order'];
 				$order['order_type'] = 'creditcard';
 
 				$i = 0;
-				foreach($shop['Users'] as $d) {
-					$data['ShipFromZip'] = $d['zip'];
+				foreach($shop['Users'] as $user) {
+					$data['ShipFromZip'] = $user['zip'];
 					$data['ShipToZip'] = $order['shipping_zip'];
-					$data['Weight'] = $d['totalweight'];
+					$data['Weight'] = $user['weight'];
 
-					if($d['flat_shipping'] != 1) {
-						$shipping[$d['id']] = $this->_ups($data);
+					if($user['flat_shipping'] != 1) {
+						$shipping[$user['id']] = $this->_ups($data);
 					} else {
-						$shipping[$d['id']][0] = array(
+						$shipping[$user['id']][0] = array(
 							'ServiceCode' => '1',
 							'ServiceName' => 'Flat',
-							'TotalCharges' => $d['shipping']
+							'TotalCharges' => $user['shipping']
 						);
 					}
 
@@ -128,12 +129,11 @@ class ShopsController extends AppController {
 				}
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
+				$order['shipping'] = $shippingtotal;
 				$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
 
 				$this->Session->write('Shop.Shipping', $shipping);
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
-
-				$this->Session->write('Shop.Order.shipping', $shippingtotal);
 
 				$this->redirect(array('action' => 'review'));
 			} else {
@@ -264,14 +264,15 @@ class ShopsController extends AppController {
 
 				$i = 0;
 
-				foreach($shop['Users'] as $u) {
-					$o['OrderUser'][$i]['user_id'] = $u['id'];
-					$o['OrderUser'][$i]['name'] = $u['name'];
-					$o['OrderUser'][$i]['quantity'] = $u['totalquantity'];
-					$o['OrderUser'][$i]['subtotal'] = $u['price'];
-					$o['OrderUser'][$i]['weight'] = $u['totalweight'];
+				foreach($shop['Users'] as $user) {
+					$o['OrderUser'][$i]['user_id'] = $user['id'];
+					$o['OrderUser'][$i]['name'] = $user['name'];
+					$o['OrderUser'][$i]['weight'] = $user['weight'];
+					$o['OrderUser'][$i]['quantity'] = $user['quantity'];
+					$o['OrderUser'][$i]['subtotal'] = $user['subtotal'];
 					$o['OrderUser'][$i]['tax'] = 0;
-					$o['OrderUser'][$i]['shipping'] = $u['shipping'];
+					$o['OrderUser'][$i]['shipping'] = $user['shipping'];
+					$o['OrderUser'][$i]['total'] = $user['subtotal'] + $user['shipping'];
 					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}

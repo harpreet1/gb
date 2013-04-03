@@ -98,8 +98,8 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 <strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 Zip Code: <?php echo $shop['Users'][$key]['zip']; ?><br />
 Subtotal: <?php echo $shop['Users'][$key]['subtotal']; ?><br />
-Total Quantity: <?php echo $shop['Users'][$key]['totalquantity']; ?><br />
-Weight: <?php echo $shop['Users'][$key]['totalweight']; ?> LBS<br />
+Total Quantity: <?php echo $shop['Users'][$key]['quantity']; ?><br />
+Weight: <?php echo $shop['Users'][$key]['weight']; ?> LBS<br />
 <?php foreach ($value as $ship): ?>
 <div class="row">
 <div class="span1"><?php echo $ship['ServiceCode']; ?></div>
