@@ -401,13 +401,19 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 }
 
 h2.product-name {
-	font-size: 15px;
+	font-size: 21px;
+	font-family: 'Oregano', cursive;
+	color: #3F9179;
 }
 
 .product-name a, div.price {
 	font-size:11px;
 	text-decoration:none;
 	
+}
+
+.product-label {
+	font-weight:bold;
 }
 
 div.product-name, div.product-name p, div.product-name a {

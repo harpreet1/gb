@@ -75,6 +75,7 @@
    
     
     </div>
+    
     	<div class="span9 article">
 
                 <h2 class="gb-heading"><?php echo $article['Article']['name']; ?></h2>
@@ -96,6 +97,19 @@
         <?php
             }
         ?>
+        
+<div class="row">
+				<div class="span12">
+
+			<?php echo $this->element('pagination-counter'); ?>
+
+			<?php echo $this->element('pagination'); ?>
+
+				</div>
+
+			</div>        
+        
+        
         </div>
 </div>
 

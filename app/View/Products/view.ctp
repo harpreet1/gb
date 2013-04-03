@@ -359,27 +359,35 @@
 
 
 				<?php if(!empty($product['Product']['ingredients'])) : ?>
-					<p>Ingredients: <?php echo $product['Product']['ingredients']; ?></p>
-				<?php endif; ?>
+					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
+                <br />
 				
-				<br />
-				<br />
+				<?php endif; ?>
+                
+                <span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
+                <br />
+				
+				
 				
 				<?php if(!empty($product['Product']['country'])) : ?>
+               
 				Made in&nbsp;<?php echo $product['Product']['country']; ?>
+                
 				<?php endif; ?>
 				
-				<br />
-				<br />
+				
+				<?php if(!empty($product['Product']['stock'])) : ?>
+                
 				
 				Stock: <?php echo $product['Product']['stock']; ?>
+                <br />
+				<br />
 
+				<?php endif; ?>
 				<br />
 				<br />
-
-				$<?php echo $product['Product']['price']; ?>
-
-				<br />
+				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
+				
 
 				<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
 					<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>

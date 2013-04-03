@@ -87,8 +87,6 @@ class ArticlesController extends AppController {
 		}
 		$this->set(compact('article'));
 		
-		//$result = $this->paginate();
-		
 	}
 
 ////////////////////////////////////////////////////////////
