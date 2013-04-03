@@ -109,19 +109,18 @@ class CartComponent extends Component {
 
 					if($user['ship_determinant'] == 0) {
 						$user['shipping'] = $this->calculateFlatShippingPrice($user);
-						$user['shipping_service'] = 'Flat_Price';
 					}
 					if($user['ship_determinant'] == 1) {
 						$user['shipping'] = $this->calculateFlatShippingQuantity($user);
-						$user['shipping_service'] = 'Flat_Quantity';
 					}
 
 				} else {
 					$user['shipping'] = 0;
-					$user['shipping_service'] = '';
 				}
 
 				$user['subtotal'] = sprintf('%.2f', $user['subtotal']);
+
+				$user['shipping_selected'] = 0;
 
 				if($user['quantity'] == 0) {
 					unset($users[$user['id']]);
