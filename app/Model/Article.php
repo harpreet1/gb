@@ -67,6 +67,7 @@ class Article extends AppModel {
 			'0' => 'Free',
 			'1' => 'International Traditions',
 			'2' => 'US Traditions',
+			'3' => 'Hot Food & Beverage Trends'
 		);
 		return $groups;
 	}
