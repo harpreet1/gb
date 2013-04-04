@@ -68,8 +68,8 @@ a {
 }
 
 #welcome_content>p {
-	
-	font-size:14px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:15px;
 	line-height:23px;
 }
 
