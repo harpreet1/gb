@@ -72,6 +72,9 @@
         
         <div id="welcome_content">
         
+        
+        
+        
        <h2 style="text-align:center">Welcome to Gourmet Basket – the first-ever World Marketplace and Cultural Cuisine Magazine in one. </h2>
 
 <p>Our slogan <span class="gb-heading welcome">"Become a World Class Foodie"</span> reflects our commitment to help cooks of all kinds, from moms to chefs, novices to professionals, younger to older expand their tastes, techniques and pantries to enjoy the delicious bounties the world has to offer. Whether it’s an exotic spice, or a sophisticated mix, we’re here to not only make it easy for you to find and purchase, but help you select the best ones for your particular culinary need and how to use them, with tips and recipes.
