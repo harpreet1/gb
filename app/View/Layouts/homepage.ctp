@@ -84,7 +84,7 @@
 </p>
 <p>Coming soon will be an interactive component of our site that will be the most fun of all. We will be asking you, our readers and visitors to provide us feedback and your own special tips and recipes to share with us and others who have a passion for discovering the finest, tastiest and healthiest food and drink on the planet. 
 </p>
-<p>So, spend time to stroll through our Shops, glance at our articles, and savor our recipes.  And, come back often to keep up with our changes – we know you’ll be glad you did. 
+<p>So, spend time to stroll through our Shops, glance at our articles, and savour our recipes.  And, come back often to keep up with our changes – we know you’ll be glad you did. 
 </p>
                <!-- <h2>We welcome you to GOURMET BASKET the first-ever virtual ethnic market and interactive cultural cuisine magazine. </h2>
                 <p>Shopping markets today are massive, and now with the variety of dishes from around the world finding their way to your table, buying what you need for a recipe or finding the product can be daunting. At GOURMET BASKET we are taking the "overwhelm" out, while adding in the fun of shopping for foods from around the country and the world. </p>
