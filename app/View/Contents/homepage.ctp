@@ -3,7 +3,7 @@
         <span>+  INTERNATIONAL FOODS  +</span>
         <span>+  REGIONAL & DOMESTIC FOODS  +</span>
         <span>+  CHEF'S TIPS  +</span>
-        <span>+  RECIPES<  +/span>
+        <span>+  RECIPES<  +</span>
         <span>+  ARTICLES  +</span>
         <span>+  PAIRINGS  +</span> 
      
