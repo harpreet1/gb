@@ -1,18 +1,14 @@
 <div id="upper">
-	<div class="ticker-wrap">
+    <div class="marquee">
+        <span>INTERNATIONAL FOODS</span>
+        <span>REGIONAL & DOMESTIC FOODS</span>
+        <span>CHEF'S TIPS</span>
+        <span>RECIPES</span>
+        <span>ARTICLES</span>
+        <span>PAIRINGS</span>    
+    </div>
 
-		<!-- <marquee loop="3" behavior="slide" direction="left" width="1400"><h2>START Lorem ipsum dolor sit amet END</h2></marquee> -->
-
-		<ul id="ticker01">
-        	<li class="ticker-tape"><!--<img src="img/homepage/ticker/international.png" width="976" height="52" alt=""/>--></li>
-			<li class="ticker-tape">INTERNATIONAL FOODS<!--<img src="img/homepage/ticker/international.png" width="976" height="52" alt=""/>--></li>
-			<li class="ticker-tape">REGIONAL & DOMESTIC FOODS<!--<img src="img/homepage/ticker/regional.png"  width="687" height="52" alt=""/>--></li>
-			<li class="ticker-tape">CHEF'S TIPS<!--<img src="img/homepage/ticker/chefs-tips.png"  width="976" height="52" alt=""/>--></li>
-			<li class="ticker-tape">RECIPES<!--<img src="img/homepage/ticker/recipes.png"  width="976" height="52" alt=""/>--></li>
-			<li class="ticker-tape">ARTICLES<!--<img src="img/homepage/ticker/articles.png"  width="976" height="52" alt=""/>--></li>
-			<li class="ticker-tape">PAIRINGS<!--<img src="img/homepage/ticker/pairings.png"  width="976" height="52" alt=""/>--></li>
-		</ul>
-	</div>
+	
 
 	<div id="upper-content">
 		<div id="headlines" class="row">

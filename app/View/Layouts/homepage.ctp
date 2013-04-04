@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.li-scroller.1.0.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.marquee.min.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js')); ?>
 <?php //echo $this->App->js(); ?>
 <?php //echo $this->fetch('meta'); ?>
 <?php //echo $this->fetch('css'); ?>
@@ -104,7 +104,25 @@
 <script>
 
 // Ticker
-$("ul#ticker01").liScroll({travelocity: 0.10});
+
+/**
+ * Example of starting a plugin with options.
+ * I am just passing all the default options
+ * so you can just start the plugin using $('.marquee').marquee();
+*/
+$('.marquee').marquee({
+	//speed in milliseconds of the marquee
+	speed: 8000,
+	//gap in pixels between the tickers
+	gap: 50,
+	//gap in pixels between the tickers
+	delayBeforeStart: 0,
+	//'left' or 'right'
+	direction: 'left'
+});
+
+
+//$("ul#ticker01").liScroll({travelocity: 0.10});
 
 </script>
 </body>
