@@ -66,6 +66,11 @@ a {
 	
 }
 
+#welcome_content>p {
+	
+	font-size:14px;
+	line-height:23px;
+}
 
 #gb-title { margin-top: 10px; }
  
