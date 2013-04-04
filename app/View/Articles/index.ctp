@@ -99,9 +99,11 @@
 
  			?>
     </div>
-</div>
+
+
 <?php	}
 		?>
+        
 <?php }else{ ?>
 
 <!-- FOR ARTICLE CONTENT -->
