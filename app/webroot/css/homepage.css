@@ -69,6 +69,7 @@ a {
 
 #welcome_content>p {
 	font-family: 'Ubuntu', sans-serif;
+	color:#3a3a3a;
 	font-size:15px;
 	line-height:23px;
 }
@@ -194,19 +195,30 @@ li.gb-account a {
  
 /** TICKER **/
 .ticker-wrap {
-	height: 80px;
+	height: 80px;;
 	position: absolute;
 	top: 515px; }
  
 /* liScroll styles */
 .tickercontainer {
 	margin: 0; /* the outer div with the black border */
-	overflow: hidden;
+	/*overflow: hidden;*/
 	padding: 0; }
  
-	.tickercontainer .mask {
+.tickercontainer .mask {
 		position: relative; /* that serves as a mask. so you get a sort of padding both left and right */
 		width: 1200px; /**overflow: hidden;**/ }
+ 
+ul#ticker01 li.ticker-tape {
+	padding-right:400px;
+	height:70px;
+	color: #fff;
+	font-size:50px;
+	font-family: Oregano, cursive;
+	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1); 
+}
+ 
+ 
  
 ul.newsticker {
 	font: bold 10px Verdana; /**left: 1000px;**/
@@ -217,8 +229,8 @@ ul.newsticker {
  
 	ul.newsticker li {
 		float: left; /* important: display inline gives incorrect results when you check for elem's width */
-		margin: 0;
-		padding: 0; }
+		/*margin: 0;
+		padding: 0;*/ }
   
  
 /** Headlines **/
