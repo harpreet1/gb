@@ -14,7 +14,11 @@ class ContentsController extends AppController {
 		$this->set(compact('contents'));
 
 		$blocks = ClassRegistry::init('Block')->find('all');
+		
+		
 		$this->set(compact('blocks'));
+		
+		
 
 		$this->layout = 'homepage';
 
