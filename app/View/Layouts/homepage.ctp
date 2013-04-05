@@ -73,10 +73,27 @@
         
         <div id="welcome_content">
         
+
+
+
+
+<h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the first-ever World Marketplace and Cultural Cuisine Magazine in one.</h2>
+<p>>Our slogan &ldquo;Become a World Class &ldquo;Foodie&rdquo; reflects our commitment to help cooks of all kinds, from moms to chefs, novices to professionals, younger to older expand their tastes, techniques and pantries to enjoy the delicious bounties the world has to offer. Whether it&rsquo;s an exotic spice, or a sophisticated mix, we&rsquo;re here to not only make it easy for you to find and purchase, but also help you select the best items for your particular culinary need and how to use them through cooling tips and fine recipes.</p>
+<p>We are a dynamically evolving site and will continue to source new and exciting vendors, add more products, compile more recipes, and write more articles and explore more and more of the world&rsquo;s delicious foods. We are constantly on the lookout for vendors with unique, terrific and sometimes hard-to-find products. We choose products made with pure and fresh ingredients - that are unsullied by chemicals and artificial preservatives &ndash; made by people who are guided by a desire to change our collective eating habits to promote healthy lifestyles. All this with the added benefit of being able to enjoy authentic culinary treasures from across the nation and around the world, from Akron to Austria, Kentucky to Ketchikan and Tierra del Fuego to Thailand.</p>
+<p>Coming soon will be an interactive component of our site that will be the most fun of all. We will be asking you, our readers and visitors, to provide us feedback and your own special tips and recipes to share with us and others who have a passion for discovering the finest, tastiest and healthiest food and drink on the planet.</p>
+
+<p>So, spend time strolling through our Shops, glancing at our articles, and savoring our recipes.&nbsp; And, come back often to keep up with our changes &ndash; we know you&rsquo;ll be glad you did.&nbsp;</p>
+
+
+
+
+
+
+
+
         
         
-        
-       <h2 style="text-align:center">Welcome to Gourmet Basket – the first-ever World Marketplace and Cultural Cuisine Magazine in one. </h2>
+     <!--  <h2 style="text-align:center">Welcome to Gourmet Basket – the first-ever World Marketplace and Cultural Cuisine Magazine in one. </h2>
 
 <p>Our slogan <span class="gb-heading welcome">"Become a World Class Foodie"</span> reflects our commitment to help cooks of all kinds - from moms to chefs, novices to professionals, younger to older - to expand their tastes, techniques and pantries to enjoy the delicious bounties the world has to offer. Whether it’s an exotic spice, or a sophisticated mix, we’re here to not only make it easy for you to find and purchase, but help you select the best ones for your particular culinary need and how to use them, with tips and recipes.
 </p>
@@ -85,7 +102,7 @@
 <p>Coming soon will be an interactive component of our site that will be the most fun of all. We will be asking you, our readers and visitors to provide us feedback and your own special tips and recipes to share with us and others who have a passion for discovering the finest, tastiest and healthiest food and drink on the planet. 
 </p>
 <p>So, spend time to stroll through our Shops, glance at our articles, and savour our recipes.  And, come back often to keep up with our changes – we know you’ll be glad you did. 
-</p>
+</p>-->
                <!-- <h2>We welcome you to GOURMET BASKET the first-ever virtual ethnic market and interactive cultural cuisine magazine. </h2>
                 <p>Shopping markets today are massive, and now with the variety of dishes from around the world finding their way to your table, buying what you need for a recipe or finding the product can be daunting. At GOURMET BASKET we are taking the "overwhelm" out, while adding in the fun of shopping for foods from around the country and the world. </p>
                 <p>Supermarkets from each nationality of the population are popping up all over the country. They all offer the ability to lose yourself in another culture while perusing the aisles and exploring the ethnic flavors from around the globe.  These Hispanic, Asian, middle eastern, culinary shopping meccas, while stimulating and inspirational, can be overwhelming with so many choices of unfamiliar ingredients lining the shelves.  Often it ends in your walking out with nothing, wishing you knew name of the dish you’d had once, or one of the recipes from that country. </p>
