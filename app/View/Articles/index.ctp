@@ -34,6 +34,7 @@
         <hr />
         <?php $trigger = $article['Block']['id']; ?>
         <p class="gb-heading">Articles in this Section:</p>
+        
         <?php if (($article['Block']['id']) == 1) { ?>
         
         <p class="section-subheading black air10 btn">INTERNATIONAL CULINARY TRADITIONS </p>
@@ -90,7 +91,7 @@
         <?php
 				foreach($blockskey['Article'] as $articlekey)
 					if ($articlekey['active'] == 1) {
-						{	
+						{
 							echo "<p><span class='prefix'>";
 							
 							if (!empty($articlekey['prefix'])) {
@@ -121,7 +122,11 @@
 
 <div class="span9 article">
 
-    <h2 class="gb-heading"><?php echo $article['Article']['prefix']; ?> : <?php echo $article['Article']['name']; ?></h2>
+    <h2 class="gb-heading">
+	<?php if (!empty($article['Article']['prefix'])) {
+	 			echo $article['Article']['prefix']; ?> : <?php
+			} ?>
+	<?php echo $article['Article']['name']; ?></h2>
     <hr />
     <div class="article-body"> <img class="article-pic border" style="float:right;" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /> <?php echo $article['Article']['body']; ?>
     </div>
