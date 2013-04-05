@@ -27,7 +27,7 @@
 				<div></div>
 			</div>
 
-			<div class="headline-3 span6">
+			<!--<div class="headline-3 span6">
 				<div>
 					<h2> <a href=""> Tips from Chefs! </a> </h2>
 				</div>
@@ -38,7 +38,7 @@
 					<h2> <a href=""> Pairing Ideas! </a> </h2>
 				</div>
 			</div>
-
+-->
 			<div class="front-page-pic-link"> <img src="/img/homepage/lil-star.png" width="36" height= "23" style="float:left" />
 				<div class="pic-link-title"><a href="">Sriracha Flying Rooster Chocolate Truffles - $9.85-$24.95</a></div>
 				<img src="/img/homepage/lil-star.png" width="36" height="23" style="float:left" />
