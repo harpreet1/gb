@@ -168,10 +168,10 @@
                     <?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic')); endif ?>
                     </div>
                      <div class="span4 air">
-                    <?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_6'], array('class' =>'vendor-pic')); endif ?>
+                    <?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' =>'vendor-pic')); endif ?>
                     </div>
                      <div class="span4 air">
-                    <?php if(!empty($user['User']['image_7'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_7'], array('class' =>'vendor-pic')); endif ?>
+                    <?php if(!empty($user['User']['image_7'])) : echo $this->Html->image('users/image_7/' . $user['User']['image_7'], array('class' =>'vendor-pic')); endif ?>
                     </div>
                 </div>
         
