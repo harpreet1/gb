@@ -202,7 +202,6 @@
                   
 				</div>
 				
-				
 
 				<hr />
 				<h3>CUSTOMER SERVICE</h3>
@@ -216,6 +215,7 @@
 				<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
 				<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
 				<?php echo $this->Form->input('shop_signature'); ?>
+                <?php echo $this->Form->input('min_purchase', array('label' =>'Minimum Purchase','class' => 'span1')); ?>
 	
 			</div>
             
