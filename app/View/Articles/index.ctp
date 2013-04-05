@@ -13,9 +13,9 @@
         <?php
                     			foreach($blockskey['Article'] as $articlekey) {
 									if ($articlekey['active'] == 1) {
-									echo "<p>";
-									echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
-									echo "</p>";
+										echo "<p>";
+										echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
+										echo "</p>";
 									}
  								}
 						echo "</div>";
@@ -89,13 +89,18 @@
         	if ($trigger == ($blockskey['Block']['id'])) : ?>
         <?php
 				foreach($blockskey['Article'] as $articlekey)
-				{
-					echo "<p><span class='prefix'>";
-					echo $articlekey['prefix'] . ' : &nbsp;&nbsp;';
-					 echo "</span>";  
-					echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
-					echo "</p>";                            
-				}
+					if ($articlekey['active'] == 1) {
+						{	
+							echo "<p><span class='prefix'>";
+							
+							if (!empty($articlekey['prefix'])) {
+								echo $articlekey['prefix'] . ' : &nbsp;&nbsp;';
+							}
+							echo "</span>";  
+							echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
+							echo "</p>";                            
+						}
+					}
 				//echo "</div>";
 				// Main div closing
 				echo "</div>";
