@@ -12,9 +12,11 @@
     <div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?=$blockskey['Block']['id']?>"> <a href="#" class="close-x">[ x ]</a> <br>
         <?php
                     			foreach($blockskey['Article'] as $articlekey) {
-								echo "<p>";
-								echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
-								echo "</p>";                            
+									if ($articlekey['active'] == 1) {
+									echo "<p>";
+									echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug']);
+									echo "</p>";
+									}
  								}
 						echo "</div>";
                     // Main div closing
