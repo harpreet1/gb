@@ -369,9 +369,19 @@ div.product-name, div.product-name p, div.product-name a {
 .popover-content {
 	font-weight: normal;
 	font-size: 12.5px;
+	padding:20px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f1e5)); /* Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, #ffffff, #f7f1e5); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image:    -moz-linear-gradient(top, #ffffff, #f7f1e5); /* Firefox 3.6-15 */
+	background-image:      -o-linear-gradient(top, #ffffff, #f7f1e5);; /* Opera 11.10-12.00 */
+	background-image:         linear-gradient(to bottom, #ffffff, #f7f1e5); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+	
+	
+	
 }
 .popover-content p {
 	margin-bottom: 15px;
+	font-weight:bold;
 }
 div.price {
 	margin-top: 44px;
