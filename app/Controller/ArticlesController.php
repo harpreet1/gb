@@ -3,11 +3,12 @@ App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
 	public $uses = array('Article','Block');
-	   
-	
+
+
 ////////////////////////////////////////////////////////////
 
 	public function index($block = null, $slug = null) {
+
 		if(empty($slug) && empty($block)){
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
@@ -39,17 +40,17 @@ class ArticlesController extends AppController {
 				)
 			));
 		}
-		
+
 		$this->set(compact('article'));
 		//pr($article); exit;
-		
+
 		$blocks = $this->Block->find('all', array(
 			'recursive' => 2,
 		));
 		$this->set(compact('blocks'));
-		
+
 		$this->set('articles', $this->paginate());
-				
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -60,7 +61,7 @@ class ArticlesController extends AppController {
 				'Article.slug' => $slug
 			)
 		));
-		
+
 		// Get article list find by block
 		$articlelist = $this->Article->find('all', array(
 			'recursive' => 0,
@@ -75,14 +76,14 @@ class ArticlesController extends AppController {
 //				'User.slug' => $subDomain
 //			)
 		));
-		
-		
+
+
 		if (empty($article)) {
 			$this->Session->setFlash('Invalid Article');
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set(compact('article'));
-		
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -91,11 +92,11 @@ class ArticlesController extends AppController {
 		$this->paginate = array(
 			'recursive' => 0,
 			'order' => array(
-				
+
 				'Article.modified' => 'DESC',
-				
+
 			),
-			
+
 		);
 		$this->set('articles', $this->paginate());
 	}
@@ -159,10 +160,10 @@ class ArticlesController extends AppController {
 		}
 		// Getting records of articles
 		$blocks = $this->Article->Block->find('list');
-		
+
 		// Article Groups
 		$groups = $this->Article->groups();
-		
+
 		$this->set(compact('blocks','groups'));
 	}
 
@@ -185,10 +186,10 @@ class ArticlesController extends AppController {
 		}
 		// Getting records of articles
 		$blocks = $this->Article->Block->find('list');
-		
+
 		// Article Groups
 		$groups = $this->Article->groups();
-		
+
 		$this->set(compact('blocks','groups'));
 	}
 
