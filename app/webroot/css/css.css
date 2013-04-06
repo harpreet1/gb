@@ -74,7 +74,7 @@ img.frame {
 .span3 .vendor-logo {
 	/*color:#5d996d;*/
 	font-family: 'Oregano', cursive;
-	font-size: 19px;
+	font-size: 16px;
 	letter-spacing: 1px;
 }
 .quote {
@@ -784,7 +784,7 @@ div.span8>div.awning>img {
 }
 .category-summary, .tradition-summary, #subcat-menu {
 	
-	/*width: 385px;*/
+	width: 195px;
 	margin-top: 15px;
 	margin-bottom: 30px;
 	/*margin-left: 182px;*/
