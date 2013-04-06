@@ -2,22 +2,23 @@
 
 	<div class="span3">
     
-    <h3><?php echo $category['Category']['name'] ?></h3>
+    <h3 class="gb-heading uppercase"><?php echo $category['Category']['name'] ?></h3>
+    <hr />
 
 	
-		<strong>CATEGORY</strong>
+		<span class="section-subheading">CATEGORY</span>
 		<br />
-		-- <?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?>
+		• <?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?>
 		<br />
 
 		<?php if(!empty($subcategories)) : ?>
 
 			<br />
-			<strong>SUB CATEGORIES</strong>
+			<span class="section-subheading">SUB CATEGORIES</span>
 			<br />
 
 			<?php foreach ($subcategories as $subcategories1): ?>
-				--- <?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
+				•• <?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
 				<br />
 			<?php endforeach; ?>
 
@@ -26,11 +27,11 @@
 		<?php if(!empty($subsubcategories)) : ?>
 
 			<br />
-			<strong>SUB SUB CATEGORIES</strong>
+			<span class="section-subheading">SUB SUB CATEGORIES</span>
 			<br />
 
 			<?php foreach ($subsubcategories as $subsubcategories1): ?>
-				---- <?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
+				••• <?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
 				<br />
 			<?php endforeach; ?>
 
@@ -48,6 +49,8 @@
 	</div>
 
 	<div class="span9">
+    
+    
     
     
         <ul class="breadcrumb categories">
@@ -72,7 +75,23 @@
         
         </ul>
         
-        
+        <h3 class="gb-heading dark">
+    
+    <?php 
+		if(!empty($subsubcategory)) :
+			echo $subsubcategory['Subsubcategory']['name']; 
+				
+		elseif (!empty($subcategory)) :
+			echo $subcategory['Subcategory']['name'];
+				
+		elseif 	(!empty($category)) :
+			echo $category['Category']['name'];	
+				
+		endif;
+	
+	?>
+    
+    </h3>
     
     
 

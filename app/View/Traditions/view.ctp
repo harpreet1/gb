@@ -18,7 +18,8 @@
 			</ul>
 		</div>
 
-		<div class="tradition-summary"><strong><?php echo h($tradition['Tradition']['name']); ?>: </strong>
+		<div class="tradition-summary">
+        <span class="gb-heading"><?php echo h($tradition['Tradition']['name']); ?>: </span>
 			<?php echo $this->Text->truncate($tradition['Tradition']['summary'],140,	array('ellipsis' => '...','exact' => 'false')); ?>
 
 		</div>

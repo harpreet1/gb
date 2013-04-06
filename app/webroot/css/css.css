@@ -389,8 +389,12 @@ div.brand {
 	margin-right: 10px;
 	text-align: center;
 	font-size: 11px;
+	
+}
+div.brand a {
 	color: #CCC;
 }
+
 div.brand-search {
 	text-align: left;
 	font-size: 11px;
@@ -744,8 +748,8 @@ div.span8>div.awning>img {
 }
 /** CATEGORY NAV MENU **/
 
-#subcat-menu {
-	/*float: left;*/
+/*#subcat-menu {
+	
 	width: 270px;
 	padding: 15px;
 	margin-bottom: 10px;
@@ -756,6 +760,8 @@ div.span8>div.awning>img {
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 }
+*/
+
 #subcat-menu a {
 	font-size: 89%;
 }
@@ -768,18 +774,25 @@ div.span8>div.awning>img {
 	background-color: white;
 	line-height: 20px;
 }
-.category-summary {
-	letter-spacing: 1px;
+.category-summary, .tradition-summary, #subcat-menu {
+	
 	/*width: 385px;*/
+	margin-top: 15px;
 	margin-bottom: 30px;
 	/*margin-left: 182px;*/
-	color: #fff;
+	border:#649d78 2px solid;
+	color: #3a3a3a;
 	text-align: left;
-	background-color: #649d78;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	padding: 30px;
+	padding: 20px;
+	 background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f1e5), to(#ffffff)); /* Chrome, Safari 4+ */
+	 background-image: -webkit-linear-gradient(top, #f7f1e5, #ffffff); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	 background-image:    -moz-linear-gradient(top, #f7f1e5, #ffffff); /* Firefox 3.6-15 */
+	 background-image:      -o-linear-gradient(top, #f7f1e5, #ffffff);; /* Opera 11.10-12.00 */
+	 background-image:         linear-gradient(to bottom, #f7f1e5, #ffffff); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+	
 }
 .tradition-images {
 	float: left;
@@ -801,17 +814,6 @@ img.recipe-pic {
 .category-pic, .intl-image {
 	width: 290px;
 	padding: 10px;
-}
-.tradition-summary {
-	margin-top: 10px;
-	margin-bottom: 20px;
-	color: #fff;
-	text-align: left;
-	background-color: #649d78;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	padding: 30px;
 }
 user agent stylesheet  .top-product-block {
 	margin-left: 40px;
@@ -1618,6 +1620,11 @@ h2.gb-heading {
 h2.gb-heading hr {
 	margin: 0px;
 }
+
+.gb-heading.dark {
+	color:#3a3a3a;
+}
+
 .section-heading {
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
@@ -1637,9 +1644,15 @@ h2.gb-heading hr {
 	padding:13px;
 	margin-top: 0px;
 	margin-bottom:10px;
-	cursor:default;
-	
+	cursor:default;	
 }
+
+.gb-heading.uppercase {
+	text-transform:uppercase;
+	line-height:24px;
+	margin-bottom:15px;
+}
+
 
 #story_content, #policy_content, #welcome_content {
 	-webkit-border-radius: 12px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */

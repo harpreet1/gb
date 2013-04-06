@@ -7,14 +7,12 @@
 			<img style="width:235px" src="/img/us-traditions/labels/<?php echo ($ustradition['Ustradition']['logo_image']); ?>" />
 		</div>
         
-        <h3><?php echo h($ustradition['Ustradition']['name']); ?></h3>
-
         
         
         <div id="subcat-menu">
             <div> <?php echo $ustradition['Ustradition']['summary']; ?> </div>
             <?php foreach ($ustraditions as $tradition): ?>
-            <?php echo $this->Html->link($tradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', 'slug' => $tradition['Ustradition']['slug'])); ?><br />
+            	<?php echo $this->Html->link($tradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', 'slug' => $tradition['Ustradition']['slug'])); ?><br />
             <?php endforeach; ?>
         </div>
     </div>
