@@ -15,6 +15,8 @@ $config = array(
 		'AUTHORIZENET_API_URL' => 'https://test.authorize.net/gateway/transact.dll',
 		'AUTHORIZENET_API_LOGIN' => '',
 		'AUTHORIZENET_API_TRANSACTION_KEY' => '',
+		'NMI_gatewayURL' => 'https://secure.networkmerchants.com/api/v2/three-step',
+		'NMI_APIKey' => '',
 	)
 );
 

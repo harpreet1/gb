@@ -160,66 +160,92 @@ $(document).ready(function(){
 
 <hr>
 
+<?php if($ccform): ?>
+
 <h4>Payment Method</h4>
 <br />
 <br />
 
-<?php echo $this->Form->create('Order'); ?>
+<form action="<?php echo $formURL;?>" method="POST">
 <div id="ccbox">
 	Credit Card Type.
 </div>
 
-<?php echo $this->Form->input('creditcard_number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
+<?php //echo $this->Form->input('billing-cc-number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
+
+billing-cc-number
+<br />
+<input type="text" name="billing-cc-number" value="">
 
 <div class="row">
 	<div class="span2">
-		<?php echo $this->Form->input('creditcard_month', array(
-			'label' => 'Expiration Month',
-			'class' => 'span2',
-			'options' => array(
-				'01' => '01 - January',
-				'02' => '02 - February',
-				'03' => '03 - March',
-				'04' => '04 - April',
-				'05' => '05 - May',
-				'06' => '06 - June',
-				'07' => '07 - July',
-				'08' => '08 - August',
-				'09' => '09 - September',
-				'10' => '10 - October',
-				'11' => '11 - November',
-				'12' => '12 - December'
-			)
-		)); ?>
+		billing-cc-exp
+		<br />
+		<input type ="text" name="billing-cc-exp" value="">
+		<?php
+
+			//echo $this->Form->input('billing-cc-exp', array(
+			//'label' => 'Expiration ',
+			//'class' => 'span2',
+			// 'options' => array(
+			// 	'01' => '01 - January',
+			// 	'02' => '02 - February',
+			// 	'03' => '03 - March',
+			// 	'04' => '04 - April',
+			// 	'05' => '05 - May',
+			// 	'06' => '06 - June',
+			// 	'07' => '07 - July',
+			// 	'08' => '08 - August',
+			// 	'09' => '09 - September',
+			// 	'10' => '10 - October',
+			// 	'11' => '11 - November',
+			// 	'12' => '12 - December'
+			// )
+		//)); ?>
 	</div>
 	<div class="span2">
-		<?php echo $this->Form->input('creditcard_year', array(
-			'label' => 'Expiration Year',
-			'class' => 'span2',
-			'options' => array(
-				'13' => '2013',
-				'14' => '2014',
-				'15' => '2015',
-				'16' => '2016',
-				'17' => '2017',
-				'18' => '2018',
-				'19' => '2019',
-				'20' => '2020',
-				'21' => '2021',
-				'22' => '2022',
-			)
-		));?>
+		<?php //echo $this->Form->input('creditcard_year', array(
+			// 'label' => 'Expiration Year',
+			// 'class' => 'span2',
+			// 'options' => array(
+			// 	'13' => '2013',
+			// 	'14' => '2014',
+			// 	'15' => '2015',
+			// 	'16' => '2016',
+			// 	'17' => '2017',
+			// 	'18' => '2018',
+			// 	'19' => '2019',
+			// 	'20' => '2020',
+			// 	'21' => '2021',
+			// 	'22' => '2022',
+			// )
+		//));?>
 	</div>
 </div>
 
-<?php echo $this->Form->input('creditcard_code', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
+<?php //echo $this->Form->input('cvv', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
+
+cvv
+<br />
+<input type="text" name="cvv">
 
 <br />
 <br />
 
-<?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Submit Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
+<?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Finalize Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
 
 <?php echo $this->Form->end(); ?>
+
+<?php else: ?>
+
+<?php echo $this->Form->create('Order'); ?>
+<?php echo $this->Form->hidden('formURL', array('value' => 1)); ?>
+<?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Continue', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
+
+<?php echo $this->Form->end(); ?>
+
+
+<?php endif; ?>
 
 <br />
 <br />

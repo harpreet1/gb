@@ -1,8 +1,8 @@
 <?php
 
 // API Setup perameters
-$gatewayURL = 'https://secure.networkmerchants.com/api/three_step_v2';
-$APIKey = '1234567890';
+$gatewayURL = 'https://secure.networkmerchants.com/api/v2/three-step';
+$APIKey = '';
 
 // If there is no POST data or a token-id, print the initial shopping cart form to get ready for Step One.
 if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
@@ -53,7 +53,7 @@ print '
 </html>
 
 ';
-}else if (!empty($_POST['DO_STEP_1'])) {
+} else if (!empty($_POST['DO_STEP_1'])) {
 
 // Initiate Step One: Now that we've collected the non-sensitive payment information, we can combine other order information and build the XML format.
 $xmlRequest = new DOMDocument('1.0','UTF-8');
@@ -68,7 +68,7 @@ appendXmlNode($xmlSale, 'amount', '12.00');
 appendXmlNode($xmlSale, 'ip-address', $_SERVER["REMOTE_ADDR"]);
 //appendXmlNode($xmlSale, 'processor-id' , 'processor-a');
 appendXmlNode($xmlSale, 'currency', 'USD');
-appendXmlNode($xmlSale, 'dup-seconds' , '2');
+// appendXmlNode($xmlSale, 'dup-seconds' , '2');
 
 // Some additonal fields may have been previously decided by user
 appendXmlNode($xmlSale, 'order-id', '1234');
@@ -85,7 +85,6 @@ appendXmlNode($xmlSale, 'shipping-amount' , '0.00');
 	 appendXmlNode($xmlAdd, 'customer-vault-id' ,411);
 	 $xmlSale->appendChild($xmlAdd);
 }*/
-
 
 // Set the Billing and Shipping from what was collected on initial shopping cart form
 $xmlBillingAddress = $xmlRequest->createElement('billing');
@@ -105,7 +104,6 @@ appendXmlNode($xmlBillingAddress,'address2', $_POST['billing-address-address2'])
 appendXmlNode($xmlBillingAddress,'fax', $_POST['billing-address-fax']);
 $xmlSale->appendChild($xmlBillingAddress);
 
-
 $xmlShippingAddress = $xmlRequest->createElement('shipping');
 appendXmlNode($xmlShippingAddress,'first-name', $_POST['shipping-address-first-name']);
 appendXmlNode($xmlShippingAddress,'last-name', $_POST['shipping-address-last-name']);
@@ -119,7 +117,6 @@ appendXmlNode($xmlShippingAddress,'company', $_POST['shipping-address-company'])
 appendXmlNode($xmlShippingAddress,'address2', $_POST['shipping-address-address2']);
 appendXmlNode($xmlShippingAddress,'fax', $_POST['shipping-address-fax']);
 $xmlSale->appendChild($xmlShippingAddress);
-
 
 // Products already chosen by user
 $xmlProduct = $xmlRequest->createElement('product');
@@ -160,13 +157,16 @@ $xmlSale->appendChild($xmlProduct);
 
 $xmlRequest->appendChild($xmlSale);
 
+print_r($xmlRequest);
+die;
+
 // Process Step One: Submit all transaction details to the Payment Gateway except the customer's sensitive payment information.
 // The Payment Gateway will return a variable form-url.
 $data = sendXMLviaCurl($xmlRequest,$gatewayURL);
 
 // Parse Step One's XML response
 $gwResponse = @new SimpleXMLElement($data);
-if ((string)$gwResponse->result ==1 ) {
+if ((string)$gwResponse->result == 1 ) {
 	// The form url for used in Step Two below
 	$formURL = $gwResponse->{'form-url'};
 } else {
@@ -176,7 +176,6 @@ if ((string)$gwResponse->result ==1 ) {
 // Initiate Step Two: Create an HTML form that collects the customer's sensitive payment information
 // and use the form-url that the Payment Gateway returns as the submit action in that form.
 print '  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-
 
 print '
 
@@ -217,10 +216,8 @@ appendXmlNode($xmlCompleteTransaction,'api-key',$APIKey);
 appendXmlNode($xmlCompleteTransaction,'token-id',$tokenId);
 $xmlRequest->appendChild($xmlCompleteTransaction);
 
-
 // Process Step Three
 $data = sendXMLviaCurl($xmlRequest,$gatewayURL);
-
 
 $gwResponse = @new SimpleXMLElement((string)$data);
 print '  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
@@ -252,47 +249,40 @@ if ((string)$gwResponse->result == 1 ) {
 }
 print "</body></html>";
 
-
-
 } else {
-print "ERROR IN SCRIPT<BR>";
+	print "ERROR IN SCRIPT<BR>";
 }
 
 
 function sendXMLviaCurl($xmlRequest,$gatewayURL) {
-// helper function demonstrating how to send the xml with curl
+	// helper function demonstrating how to send the xml with curl
+	$ch = curl_init(); // Initialize curl handle
+	curl_setopt($ch, CURLOPT_URL, $gatewayURL); // Set POST URL
 
+	$headers = array();
+	$headers[] = "Content-type: text/xml";
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // Add http headers to let it know we're sending XML
+	$xmlString = $xmlRequest->saveXML();
+	curl_setopt($ch, CURLOPT_FAILONERROR, 1); // Fail on errors
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // Allow redirects
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return into a variable
+	curl_setopt($ch, CURLOPT_PORT, 443); // Set the port number
+	curl_setopt($ch, CURLOPT_TIMEOUT, 15); // Times out after 15s
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
-$ch = curl_init(); // Initialize curl handle
-curl_setopt($ch, CURLOPT_URL, $gatewayURL); // Set POST URL
+	// This should be unset in production use. With it on, it forces the ssl cert to be valid
+	// before sending info.
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-$headers = array();
-$headers[] = "Content-type: text/xml";
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // Add http headers to let it know we're sending XML
-$xmlString = $xmlRequest->saveXML();
-curl_setopt($ch, CURLOPT_FAILONERROR, 1); // Fail on errors
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // Allow redirects
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return into a variable
-curl_setopt($ch, CURLOPT_PORT, 443); // Set the port number
-curl_setopt($ch, CURLOPT_TIMEOUT, 15); // Times out after 15s
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
+	if (!($data = curl_exec($ch))) {
+		print  "curl error =>" .curl_error($ch) ."\n";
+		throw New Exception(" CURL ERROR :" . curl_error($ch));
+	}
+	curl_close($ch);
 
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-
-
-// This should be unset in production use. With it on, it forces the ssl cert to be valid
-// before sending info.
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-if (!($data = curl_exec($ch))) {
-	print  "curl error =>" .curl_error($ch) ."\n";
-	throw New Exception(" CURL ERROR :" . curl_error($ch));
-
-}
-curl_close($ch);
-
-return $data;
+	return $data;
 }
 
 // Helper function to make building xml dom easier

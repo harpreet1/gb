@@ -239,24 +239,69 @@ class ShopsController extends AppController {
 
 		}
 
-		if ($this->request->is('post') && isset($this->request->data['Order'])) {
+		$ccform = false;
+		$formURL = null;
+
+		if ($this->request->is('post') && isset($this->request->data['Order']['formURL'])) {
+			try {
+				// $authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
+				$formURL = $this->Shop->getFormUrl($shop);
+			} catch(Exception $e) {
+				$this->Session->setFlash($e->getMessage());
+				$this->redirect(array('action' => 'review'));
+			}
+			$ccform = true;
+
+		}
+
+		if (isset($this->request->query['token-id'])) {
+
+			$gatewayURL = Configure::read('Settings.NMI_gatewayURL');
+			$APIKey = Configure::read('Settings.NMI_APIKey');
+
+			$tokenId = $this->request->query['token-id'];
+			$xmlRequest = new DOMDocument('1.0','UTF-8');
+			$xmlRequest->formatOutput = true;
+			$xmlCompleteTransaction = $xmlRequest->createElement('complete-action');
+			$this->Shop->appendXmlNode($xmlCompleteTransaction,'api-key', $APIKey);
+			$this->Shop->appendXmlNode($xmlCompleteTransaction,'token-id', $tokenId);
+			$xmlRequest->appendChild($xmlCompleteTransaction);
+
+			// Process Step Three
+			$data = $this->Shop->sendXMLviaCurl($xmlRequest, $gatewayURL);
+
+			$gwResponse = @new SimpleXMLElement((string)$data);
+
+			if ((string)$gwResponse->result == 1 ) {
+				// print " <p><h3> Transaction was Approved, XML response was:</h3></p>\n";
+				// print '<pre>' . (htmlentities($data)) . '</pre>';
+
+			} elseif((string)$gwResponse->result == 2)  {
+				print " <p><h3> Transaction was Declined.</h3>\n";
+				print " Decline Description : " . (string)$gwResponse->{'result-text'} ." </p>";
+				print " <p><h3>XML response was:</h3></p>\n";
+				print '<pre>' . (htmlentities($data)) . '</pre>';
+				die;
+			} else {
+				print " <p><h3> Transaction caused an Error.</h3>\n";
+				print " Error Description: " . (string)$gwResponse->{'result-text'} ." </p>";
+				print " <p><h3>XML response was:</h3></p>\n";
+				print '<pre>' . (htmlentities($data)) . '</pre>';
+				die;
+			}
+
+
 			$this->loadModel('Order');
+
 			$this->Order->set($this->request->data);
 			if($this->Order->validates()) {
 
-				$payment = array(
-					'creditcard_number' => $this->request->data['Order']['creditcard_number'],
-					'creditcard_month' => $this->request->data['Order']['creditcard_month'],
-					'creditcard_year' => $this->request->data['Order']['creditcard_year'],
-					'creditcard_code' => $this->request->data['Order']['creditcard_code'],
-				);
-
-				try {
-					$authorizeNet = $this->AuthorizeNet->charge($shop['Order'], $payment);
-				} catch(Exception $e) {
-					$this->Session->setFlash($e->getMessage());
-					$this->redirect(array('action' => 'review'));
-				}
+				// $payment = array(
+				// 	'creditcard_number' => $this->request->data['Order']['creditcard_number'],
+				// 	'creditcard_month' => $this->request->data['Order']['creditcard_month'],
+				// 	'creditcard_year' => $this->request->data['Order']['creditcard_year'],
+				// 	'creditcard_code' => $this->request->data['Order']['creditcard_code'],
+				// );
 
 				$o['OrderItem'] = $shop['OrderItem'];
 
@@ -288,7 +333,7 @@ class ShopsController extends AppController {
 			}
 		}
 
-		$this->set(compact('shop'));
+		$this->set(compact('shop', 'ccform', 'formURL'));
 
 	}
 
