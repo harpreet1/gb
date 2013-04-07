@@ -88,6 +88,34 @@ class ArticlesController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_index() {
+		
+		if ($this->request->is('post')) {
+
+			if(!empty($this->request->data['Article']['name'])) {
+				$filter = $this->request->data['Article']['filter'];
+				$this->Session->write('Article.filter', $filter);
+				$name = $this->request->data['Article']['name'];
+				$this->Session->write('Article.name', $name);
+				$conditions[] = array(
+					'Article.' . $filter . ' LIKE' => '%' . $name . '%'
+				);
+			} else {
+				$this->Session->write('Article.filter', '');
+				$this->Session->write('Article.name', '');
+			}
+
+			$this->Session->write('Article.conditions', $conditions);
+			$this->redirect(array('action' => 'index'));
+
+		}
+
+		$all = array(
+			'name' => '',
+			'filter' => '',
+			'conditions' => ''
+		);
+
+		
 		$this->paginate = array(
 			'recursive' => 0,
 			'order' => array(

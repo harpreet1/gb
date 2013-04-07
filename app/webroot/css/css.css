@@ -823,6 +823,15 @@ img.recipe-pic {
 	width: 290px;
 	padding: 10px;
 }
+
+.category-pic-small {
+	width: 75px;
+	padding-left: 20px;
+}
+
+
+
+
 user agent stylesheet  .top-product-block {
 	margin-left: 40px;
 }
@@ -1631,7 +1640,10 @@ h2.gb-heading hr {
 
 .gb-heading.dark {
 	color:#3a3a3a;
+	margin-left:40px;
 }
+
+
 
 .section-heading {
 	font-family: 'Oregano', cursive;
@@ -1660,6 +1672,8 @@ h2.gb-heading hr {
 	line-height:24px;
 	margin-bottom:15px;
 }
+
+.gb-heading.uppercase 
 
 
 #story_content, #policy_content, #welcome_content {

@@ -74,4 +74,16 @@ class Article extends AppModel {
 		);
 		return $groups;
 	}
+	
+////////////////////////////////////////////////////////////
+
+	public function findList() {
+		return $this->find('list', array(
+			'order' => array(
+				'Article.name' => 'ASC'
+			)
+		));
+	}
+	
+	
 }

@@ -5,6 +5,7 @@
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
+        <th><?php echo $this->Paginator->sort('block_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('body'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -16,6 +17,7 @@
 		<td><div class="limit"><?php echo ($article['Article']['id']); ?></div></td>
 		<td><?php echo ($article['Article']['name']); ?></td>
 		<td><?php echo ($article['Article']['slug']); ?></td>
+        <td><?php echo ($article['Article']['block_id']); ?></td>
 		<td><div class="limit"><?php echo ($article['Article']['body']); ?></div></td>
 		<td><a href="/admin/articles/switch/active/<?php echo $article['Article']['id']; ?>" class="status"><img src="/img/icon_<?php echo $article['Article']['active']; ?>.png" alt="" /></a></td>
 		<td><?php echo ($article['Article']['created']); ?></td>

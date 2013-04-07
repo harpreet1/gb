@@ -2,8 +2,16 @@
 
 	<div class="span3">
     
-    <h3 class="gb-heading uppercase"><?php echo $category['Category']['name'] ?></h3>
-    <hr />
+    <h3 class="gb-heading uppercase"><?php echo $category['Category']['name'] ?>
+    <?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
+    </h3>
+  
+    
+    <div class="category-summary">
+		<?php echo $category['Category']['summary'] ?>
+         <a href="#" id="story">Read more of this story...</a>
+	</div>    
+
 
 	
 		<span class="section-subheading">CATEGORY</span>
@@ -36,14 +44,6 @@
 			<?php endforeach; ?>
 
 		<?php endif; ?>
-        
-        
-        
-        
-		<div class="category-summary">
-			<?php echo $category['Category']['summary'] ?>
-		</div>    
-        
         
 
 	</div>
@@ -93,7 +93,8 @@
     
     </h3>
     
-    
+ 
+               
 
 		<div class="cat-product-block">
 			
@@ -158,36 +159,38 @@
 
 
 
+   <!-- Category Story -->
+<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
 
-
-<div class="row">
-
-	
-
-	<div class="span8 air">
-        <h2><?php echo $category['Category']['name'] ?></h2>
-        <hr />
-            <?php echo $category['Category']['article'] ?>  
-	</div>
     
-    <div class="span4 air">
-        <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-    </div>
+        <div class="span8 air">
+            <h2 class="gb-heading"><?php echo $category['Category']['name'] ?>
+           <?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic')); ?>) ?>
+           </h2>
+            <hr />
+                <?php echo $category['Category']['article'] ?>  
+        </div>
+        
+        <div class="span4 air">
+            <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+        </div>
+        
+        <div class="span4 air">
+            <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+        </div>
     
-    <div class="span4 air">
-        <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-    </div>
-
-    <div class="span4 air">
-        <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-    </div>
-
-    <div class="span4 air">
-        <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-    </div>
-
-    <div class="span4 air">
-        <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-    </div>
-
+        <div class="span4 air">
+            <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+        </div>
+    
+        <div class="span4 air">
+            <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+        </div>
+    
+        <div class="span4 air">
+            <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
+        </div>
+    
+   
+    
 </div>

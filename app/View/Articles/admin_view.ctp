@@ -7,11 +7,9 @@
     </tr>
     <tr>
 	<td>Parent Block</td>
-<?php if(isset($article['Block'])){ ?>
-	<td><?php echo $this->Html->link($article['Block']['name'], array('controller' => 'blocks', 'action' => 'view', $article['Block']['id'])); ?></td>
-<?php } else{ ?>
-<td>Not selected</td>
-<?php }?>
+
+	<td><?php echo $article['Article']['block_id']; ?></td>
+
     </tr>
     <tr>
         <td>Name</td>
