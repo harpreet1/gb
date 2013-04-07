@@ -165,7 +165,7 @@
     
         <div class="span8 air">
             <h2 class="gb-heading"><?php echo $category['Category']['name'] ?>
-           <?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic')); ?>) ?>
+           <?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
            </h2>
             <hr />
                 <?php echo $category['Category']['article'] ?>  
