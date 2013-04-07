@@ -24,6 +24,13 @@
 	<div class= "span4">
 
 		<?php echo $this->Form->create('Recipe'); ?>
+        <br />
+		<br />
+
+        <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+        <br />
+		<br />
+
 		<?php echo $this->Form->input('id',array(
 			'readonly' => 'readonly')); ?>
 
@@ -44,7 +51,7 @@
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />
-		<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+		
 		<?php echo $this->Form->end(); ?>
 
 

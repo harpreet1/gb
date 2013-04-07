@@ -84,8 +84,8 @@
          
             $('#story').on('click', function(e) {
                 e.preventDefault();
-                $('#story_content').bPopup();
-
+                $('#story_content').bPopup()
+				
             });
 
         });
