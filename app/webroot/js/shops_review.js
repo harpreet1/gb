@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-	cardtype($('#OrderCreditcardNumber').val());
+	// cardtype($('#OrderCreditcardNumber').val());
 
-	$('#OrderCreditcardNumber').keyup(function() {
-		cardtype($('#OrderCreditcardNumber').val());
-	});
+	// $('#OrderCreditcardNumber').keyup(function() {
+	// cardtype($('#OrderCreditcardNumber').val());
+	// });
 
 	function cardtype(num) {
 
@@ -27,7 +27,7 @@ $(document).ready(function(){
 			$('#ccbox').css('background-position', '0 0');
 		}
 
-		return true;
+		// return true;
 
 	}
 
