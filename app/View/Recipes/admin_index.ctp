@@ -17,25 +17,29 @@ $(document).ready(function() {
 });
 </script>
 
+
+
+
+
+
+
+
+
+
 <h2>Recipes</h2>
 
 <div class="row">
 
-	<div class="span2">
-    
-    	<?php echo $this->Form->create('Recipe', array()); ?>
-		<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
-        <?php //echo $this->Form->input('user_id', array('label' => false, 'class' => 'span2', 'empty' => 'Vendor', 'selected' => $all['user_id'])); ?>
-        <?php echo $this->Form->input('filter', array(
-			'label' => false, 
-			'class' => 'span2',
-			'options' => array( 
-				'name' => 'Vendors'
-				),
-			'selected' => $all['filter']
+	<?php echo $this->Form->create('Recipe', array()); ?>
+	<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
+
+	<div class="span3">
+		<?php echo $this->Form->input('user_id', array(
+			'label' => false,
+			'empty' => '',
+			'selected' => $all['user_id']
 		)); ?>
-    
-    </div>
+	</div>
 
 	<div class="span2">
 		<?php echo $this->Form->input('filter', array(
@@ -43,7 +47,6 @@ $(document).ready(function() {
 			'class' => 'span2',
 			'options' => array(
 				'name' => 'Name',
-				'ingredients' => 'Ingredients'
 			),
 			'selected' => $all['filter']
 		)); ?>
@@ -51,7 +54,12 @@ $(document).ready(function() {
 	</div>
 
 	<div class="span2">
-		<?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'span2', 'value' => $all['name'])); ?>
+		<?php echo $this->Form->input('name', array(
+		'label' => false,
+		'id' => false,
+		'class' => 'span2',
+		'required'=> false,
+		'value' => $all['name'])); ?>
 
 	</div>
 
@@ -67,9 +75,6 @@ $(document).ready(function() {
 </div>
 
 <br />
-
-
-
 
 
 

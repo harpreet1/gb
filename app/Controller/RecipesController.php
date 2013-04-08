@@ -221,9 +221,18 @@ class RecipesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function admin_index() {
+public function admin_index() {
 
 		if ($this->request->is('post')) {
+
+			if(!empty($this->request->data['Recipe']['user_id'])) {
+				$conditions[] = array(
+					'Recipe.user_id' => $this->request->data['Recipe']['user_id']
+				);
+				$this->Session->write('Recipe.user_id', $this->request->data['Recipe']['user_id']);
+			} else {
+				$this->Session->write('Recipe.user_id', '');
+			}
 
 			if(!empty($this->request->data['Recipe']['name'])) {
 				$filter = $this->request->data['Recipe']['filter'];
@@ -244,11 +253,11 @@ class RecipesController extends AppController {
 		}
 
 		$all = array(
+			'user_id' => '',
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''
 		);
-		
 
 		if($this->Session->check('Recipe')) {
 			$all = $this->Session->read('Recipe');
@@ -258,7 +267,7 @@ class RecipesController extends AppController {
 
 
 		$this->paginate = array(
-			'recursive' => -1,
+			'recursive' => 0,
 			'contain' => array(
 				'User',
 				'Recipescategory',
@@ -267,7 +276,7 @@ class RecipesController extends AppController {
 			),
 			'conditions' => $all['conditions'],
 			'limit' => 15,
-
+			
 			'fields' => array(
 				'Recipe.*',
 				'User.id',
@@ -279,15 +288,31 @@ class RecipesController extends AppController {
 				'Ustradition.id',
 				'Ustradition.name',
 			),
+
 			'order' => array(
 				'Recipe.modified' => 'DESC',
 			),
 			'paramType' => 'querystring',
 		);
-		$recipes = $this->paginate('Recipe');
 
+		$recipes = $this->paginate();
 		$this->set(compact('recipes'));
+
+		$users = $this->Recipe->User->find('list', array(
+			'conditions' => array(
+				'User.active' => 1,
+				'User.level' => 'vendor',
+			),
+		
+			'order' => array(
+				'User.name' => 'ASC'
+			)
+		));
+		
+		$this->set(compact('users'));
+
 	}
+
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
