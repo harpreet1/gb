@@ -8,7 +8,11 @@
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($order['Order']['name']); ?>
+			<?php echo h($order['Order']['first_name']); ?>
+			&nbsp;
+		</dd>
+        <dd>
+			<?php echo h($order['Order']['last_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Email'); ?></dt>
@@ -36,11 +40,11 @@
 			<?php echo h($order['Order']['total']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Status'); ?></dt>
+		<?php /*?><dt><?php echo __('Status'); ?></dt>
 		<dd>
 			<?php echo h($order['Order']['status']); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */?>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($order['Order']['created']); ?>
