@@ -91,6 +91,8 @@ Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
 <br />
 <br />
 
+<?php if(!$ccform): ?>
+
 <hr>
 
 <?php foreach ($shop['Users'] as $key => $value): ?>
@@ -150,6 +152,8 @@ $(document).ready(function(){
 
 <?php //echo $this->Form->button('Change Shipping Method', array('class' => 'btn', 'ecape' => false)); ?>
 <?php echo $this->Form->end(); ?>
+
+<?php endif; ?>
 
 <strong>Subtotal: <strong>$<?php echo $shop['Order']['subtotal']; ?></strong>
 <br />
