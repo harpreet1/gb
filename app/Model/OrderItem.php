@@ -62,7 +62,8 @@ class OrderItem extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+		'Product'
 	);
 
 ////////////////////////////////////////////////////////////
