@@ -3,13 +3,14 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('first_name');?></th>
+            <th><?php echo $this->Paginator->sort('last_name');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
 			<th><?php echo $this->Paginator->sort('subtotal');?></th>
 			<th><?php echo $this->Paginator->sort('tax');?></th>
 			<th><?php echo $this->Paginator->sort('shipping');?></th>
 			<th><?php echo $this->Paginator->sort('total');?></th>
-			<th><?php echo $this->Paginator->sort('status');?></th>
+			<?php /*?><th><?php echo $this->Paginator->sort('status');?></th><?php */?>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
@@ -18,13 +19,14 @@
 	foreach ($orders as $order): ?>
 	<tr>
 		<td><?php echo h($order['Order']['id']); ?>&nbsp;</td>
-		<td><?php echo h($order['Order']['name']); ?>&nbsp;</td>
+		<td><?php echo h($order['Order']['first_name']); ?>&nbsp;</td>
+        <td><?php echo h($order['Order']['last_name']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['email']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['subtotal']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['tax']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['shipping']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['total']); ?>&nbsp;</td>
-		<td><?php echo h($order['Order']['status']); ?>&nbsp;</td>
+		<?php /*?><td><?php echo h($order['Order']['status']); ?>&nbsp;</td><?php */?>
 		<td><?php echo h($order['Order']['created']); ?>&nbsp;</td>
 		<td><?php echo h($order['Order']['modified']); ?>&nbsp;</td>
 		<td class="actions">
