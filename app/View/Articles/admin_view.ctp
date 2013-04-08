@@ -21,7 +21,7 @@
     </tr>
     <tr>
         <td>Body</td>
-        <td><?php echo $article['Article']['body']; ?></td>
+        <td><div class="limit"><?php echo $article['Article']['body']; ?></div></td>
     </tr>
     <tr>
         <td>Active</td>
