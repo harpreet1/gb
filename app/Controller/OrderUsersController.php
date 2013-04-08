@@ -179,7 +179,13 @@ class OrderUsersController extends AppController {
 		$this->set(compact('orderUser'));
 
 		$orderItems = ClassRegistry::init('OrderItem')->find('all', array(
-			'recursive' => -1,
+			'contain' => array(
+				'Product'
+			),
+			'fields' => array(
+				'Product.image',
+				'OrderItem.*'
+			),
 			'conditions' => array(
 				'OrderItem.order_id' => $orderUser['Order']['id'],
 				'OrderItem.user_id' => $this->Auth->user('id')
@@ -187,6 +193,18 @@ class OrderUsersController extends AppController {
 		));
 		// print_r($orderItems);
 		$this->set(compact('orderItems'));
+
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->OrderUser->save($this->request->data)) {
+				$this->Session->setFlash('The order user has been saved');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The order user could not be saved. Please, try again.');
+			}
+		} else {
+			$options = array('conditions' => array('OrderUser.id' => $id));
+			$this->request->data = $this->OrderUser->find('first', $options);
+		}
 
 	}
 
@@ -215,13 +233,13 @@ class OrderUsersController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->OrderUser->save($this->request->data)) {
-				$this->Session->setFlash(__('The order user has been saved'));
+				$this->Session->setFlash('The order user has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The order user could not be saved. Please, try again.'));
+				$this->Session->setFlash('The order user could not be saved. Please, try again.');
 			}
 		} else {
-			$options = array('conditions' => array('OrderUser.' . $this->OrderUser->primaryKey => $id));
+			$options = array('conditions' => array('OrderUser.id' => $id));
 			$this->request->data = $this->OrderUser->find('first', $options);
 		}
 		$orders = $this->OrderUser->Order->find('list');

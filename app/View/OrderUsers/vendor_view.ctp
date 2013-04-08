@@ -59,6 +59,71 @@
 <br />
 <br />
 
+<h2>Order</h2>
+
+<table class="table-striped table-bordered table-condensed table-hover">
+	<tr>
+		<td>First Name</td>
+		<td><?php echo h($orderUser['Order']['first_name']); ?></td>
+	</tr>
+	<tr>
+		<td>First Name</td>
+		<td><?php echo h($orderUser['Order']['first_name']); ?></td>
+	</tr>
+	<tr>
+		<td>Last Name</td>
+		<td><?php echo h($orderUser['Order']['last_name']); ?></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><?php echo h($orderUser['Order']['email']); ?></td>
+	</tr>
+	<tr>
+		<td>Phone</td>
+		<td><?php echo h($orderUser['Order']['phone']); ?></td>
+	</tr>
+	<tr>
+		<td>Billing Address</td>
+		<td><?php echo h($orderUser['Order']['billing_address']); ?></td>
+	</tr>
+</table>
+
+<br />
+
+<h2>Edit Order</h2>
+<?php echo $this->Form->create('OrderUser'); ?>
+<?php echo $this->Form->input('id'); ?>
+<?php echo $this->Form->input('tracking_number'); ?>
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
+
+<br />
+
+<h2>Order Items</h2>
+
+<table class="table-striped table-bordered table-condensed table-hover">
+	<thead>
+		<td>Product Image</td>
+		<td>Product Name</td>
+		<td>Product Price</td>
+		<td>Product Quantity</td>
+		<td>Product Subtotal</td>
+	</thead>
+	<?php foreach($orderItems as $orderItem): ?>
+	<tr>
+		<td><?php echo $this->Html->image('products/image/' . $orderItem['Product']['image'], array('class' => 'px60')); ?></td>
+		<td><?php echo h($orderItem['OrderItem']['name']); ?></td>
+		<td>$<?php echo h($orderItem['OrderItem']['price']); ?></td>
+		<td><?php echo h($orderItem['OrderItem']['quantity']); ?></td>
+		<td>$<?php echo h($orderItem['OrderItem']['subtotal']); ?></td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+
+<br />
+<br />
+
+
 <?php debug($orderUser); ?>
 
 <br />
