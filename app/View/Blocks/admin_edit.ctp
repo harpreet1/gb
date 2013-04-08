@@ -20,7 +20,7 @@
 echo $this->Form->input('id');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
-echo $this->Form->input('subtitle');
+echo $this->Form->input('subtitle', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('description');
 echo $this->Form->input('writeup', array('rows' => 20, 'class' => 'input-xxlarge'));
 echo $this->Form->input('link');
