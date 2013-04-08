@@ -105,7 +105,12 @@
                     <span class="special"><a href="/articles">THE LATEST</a></span><br />
                     <span class="special">MAGAZINE SECTIONS:</span><br />
                     <?php foreach($menublocks as $menublock) : ?>
-                    <p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p>
+                    <?php /*?><p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p><?php */?>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
+                    <?php echo  $menublock['Block']['name'] ; ?>
+                    
+                       </a></p>
+                    
                     <?php endforeach; ?>
                      </div>
                 </div>
