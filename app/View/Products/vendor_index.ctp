@@ -16,7 +16,7 @@
 		<th><?php echo $this->Paginator->sort('subcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('subsubcategory_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('vendor_sku'); ?></th>
-		<th><?php echo $this->Paginator->sort('brand'); ?></th>
+		<th><?php //echo $this->Paginator->sort('brand'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
@@ -53,7 +53,7 @@
 		<td><?php echo $product['Subcategory']['name']; ?></td>
 		<td><?php echo $product['Subsubcategory']['name']; ?></td>
 		<td><?php echo h($product['Product']['vendor_sku']); ?></td>
-		<td><?php echo h($product['Product']['brand']); ?></td>
+		<td><?php //echo h($product['Product']['brand']); ?></td>
 		<td><?php echo h($product['Product']['name']); ?></td>
 		<td><?php echo h($product['Product']['slug']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
