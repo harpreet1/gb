@@ -150,7 +150,7 @@ class ArticlesController extends AppController {
 				$this->Article->id = $this->request->data['Article']['id'];
 				$this->Article->saveField($type, $image);
 				$uploadedfile = $targetdir . '/' . $image;
-				$this->Image->resample($uploadedfile, IMAGES . '/articles/' . $type . '/', $image);
+				//$this->Image->resample($uploadedfile, IMAGES . '/articles/' . $type . '/', $image);
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
 			}
 

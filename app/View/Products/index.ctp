@@ -183,10 +183,7 @@
         
         
         <?php endif; ?>        
-        
-        
-        
-        
+               
 
 		<ul class="navList">
 					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
@@ -196,8 +193,6 @@
 		<!--<ul class="navList">
 					<li><a href="#vendor-unit">Our Regions</a></li>
 		</ul>-->
-
-		
 
 		</div>
         
@@ -210,19 +205,13 @@
         
         <!--<span><img class="hand" src="/img/global/hand.png" width="40px"/></span>-->
         </div>
-        
-        
-      
+              
             <!-- Element to pop up -->
             <div id="policy_content"><div class="gb-heading center">Customer Satisfaction, Shipping and Return Policy<hr /></div>
 				<div class="pad"><?php echo ($vendor_policy); ?>
 				</div>
 			</div>
             
-        
-        
-        
-
 
 		<?php if(!empty($category['Category']['image_1'])) :
 					echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
@@ -256,13 +245,9 @@
 
 	
 	<div class="span8" style="width:690px;margin-left:0px;">
-    
-    
-
 
 		<ul class="breadcrumb vendor-index">
 
-		
 				<li><?php //echo $user['User']['name']; ?></li>
 			
 			<div style="float:right">

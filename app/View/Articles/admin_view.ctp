@@ -93,11 +93,37 @@
 <br />
 <br />
 
+
+<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+<br />
+<a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h3>Actions</h3>
 
 <br />
 
 <?php echo $this->Html->link('Edit Article', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn')); ?>
+
+
+
+
+
 
 <br />
 <br />
