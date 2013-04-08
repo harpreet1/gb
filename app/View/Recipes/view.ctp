@@ -5,9 +5,12 @@
     	<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
     </a>
 </div>
-   
   
-    <h3 class="gb-heading">Our Recipes</h3>
+  
+    <h3 class="gb-heading center">
+    <?php echo $user['User']['name']; ?></h3>
+    
+    <div class="section-subheading">Our Recipes</div>
     
     <hr class="recipe-divider" />
  
