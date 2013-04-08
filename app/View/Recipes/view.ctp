@@ -30,8 +30,8 @@
 	<div class="span6">
 		<h2 class="gb-heading"><?php echo $recipe['Recipe']['name']; ?></h2>
         <hr class="recipe-divider" />
-		<!-- <? //echo $recipe['Recipe']['slug']?>-1.jpg"  /> -->
-		<span class="recipe-description"> <?php echo $recipe['Recipe']['description']; ?> </span>
+		<? //echo $recipe['Recipe']['slug']?>
+		<span class="section-subheading"> <?php echo $recipe['Recipe']['description']; ?> </span>
 		<p class="gb-heading">Ingredients</p>
 		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
