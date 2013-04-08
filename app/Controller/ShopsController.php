@@ -308,6 +308,7 @@ class ShopsController extends AppController {
 				$i = 0;
 				foreach($shop['Users'] as $user) {
 					$o['OrderUser'][$i] = $user;
+					$o['OrderUser'][$i]['id'] = null;
 					$o['OrderUser'][$i]['user_id'] = $user['id'];
 					$o['OrderUser'][$i]['tax'] = 0;
 					$o['OrderUser'][$i]['total'] = $user['subtotal'] + $user['shipping'];
