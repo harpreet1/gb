@@ -38,7 +38,15 @@ $(document).ready(function() {
 	<?php echo $this->Form->hidden('search', array('value' => 1)); ?>
 
 	<div class="span2">
-		<?php echo $this->Form->input('active', array('label' => false, 'class' => 'span2', 'empty' => 'All Status', 'options' => array(1 => 'Active', 0 => 'Inactive'), 'selected' => $all['active'])); ?>
+		<?php echo $this->Form->input('active', array(
+			'label' => false,
+			'class' => 'span2',
+			'empty' => 'All Status',
+			'options' => array(
+				1 => 'Active',
+				//2 => 'Show',
+			    0 => 'Inactive'),
+					'selected' => $all['active'])); ?>
 	</div>
 
 	<div class="span2">
@@ -54,11 +62,11 @@ $(document).ready(function() {
 
 	</div>
 
-	<div class="span2">
+	<div class="span3">
 		<?php echo $this->Form->input('name', array(
 		'label' => false,
 		'id' => false,
-		'class' => 'span2',
+		'class' => 'span3',
 		'required'=> false,
 		'value' => $all['name'])); ?>
 

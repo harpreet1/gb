@@ -111,7 +111,7 @@ class User extends AppModel {
 			),
 			'conditions' => array(
 				'User.level' => 'vendor',
-				'User.active' => 1,
+				'User.show' => 1,
 				'User.slug' => $subDomain,
 			)
 		));
@@ -133,7 +133,7 @@ class User extends AppModel {
 			),
 			'conditions' => array(
 				'User.level' => 'vendor',
-				'User.active' => 1,
+				'User.show' => 1,
 				'User.product_count >' => 0,
 			),
 			'order' => array(

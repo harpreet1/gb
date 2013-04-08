@@ -48,13 +48,15 @@
 
 
                 <p> <span class="prefix">Japan : </span><a href="/articles/excellent-food-adventures/japan-food-as-art" class="gb-heading article">Japan - Food As Art</a> </p>
-                <p> <span class="prefix">Southeast Asia : </span><a href="/articles/excellent-food-adventures/southeast-asia-the-cross-cultural-table" class="gb-heading article">Southeast Asia - the Cross Cultural Table </a> </p>
+                
                 <p> <span class="prefix">The Mediterranean : </span><a href="/articles/excellent-food-adventures/meals-along-the-mediterrean" class="gb-heading article">Meals Along the Mediterrean </a> </p>
-                            <p> <span class="prefix">Mexico : </span><a href="/articles/excellent-food-adventures/the-a-maize-ing-foods-of-mexico-and-central-america" class="gb-heading article">The A"Maize&amp;quot;-ing Foods of Mexico and Central America </a> </p>
+                            <p> <span class="prefix">Mexico : </span><a href="/articles/excellent-food-adventures/the-a-maize-ing-foods-of-mexico-and-central-america" class="gb-heading article">The A "Maize"-ing Foods of Mexico and Central America </a> </p>
 
                 <p> <span class="prefix">Middle East : </span><a href="/articles/excellent-food-adventures/never-strangers-amongst-food" class="gb-heading article">Never Strangers Amongst Food - Eating in the Middle East</a> </p>
-                <p> <span class="prefix">Oceania : </span><a href="/articles/excellent-food-adventures/cuisines-of-tropical-oceania" class="gb-heading article">Cusines of Tropical Oceania</a> </p>
                 <p> <span class="prefix">North Africa : </span><a href="/articles/excellent-food-adventures/savory-flavors-of-north-africa" class="gb-heading article">North Africa: Savory and Sophisticated Flavors </a> </p>
+
+                <p> <span class="prefix">Oceania : </span><a href="/articles/excellent-food-adventures/cuisines-of-tropical-oceania" class="gb-heading article">Cusines of Tropical Oceania</a> </p>
+                <p> <span class="prefix">Southeast Asia : </span><a href="/articles/excellent-food-adventures/southeast-asia-the-cross-cultural-table" class="gb-heading article">Southeast Asia - the Cross Cultural Table </a> </p>
                 <p> <span class="prefix">South America : </span><a href="/articles/excellent-food-adventures/south-america-gauchos-grains-and-gourmet-foods" class="gb-heading article">South America - Gaúchos, Grains and Gourmet Foods</a> </p>
                  <p> <span class="prefix">South Asia : </span><a href="/articles/excellent-food-adventures/ghee-ful-about-south-asia" class="gb-heading article">Ghee-ful about South Asia</a> </p>
                 <p> <span class="prefix">Scandinavia : </span><a href="/articles/excellent-food-adventures/scandinavia-home-of-the-new-nordic-cuisine" class="gb-heading article">Home of the"New Nordic Cuisine"</a> </p>
