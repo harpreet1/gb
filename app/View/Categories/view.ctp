@@ -1,13 +1,13 @@
 <div class="row">
 
-	<div class="span3">
+	<div class="span3" style="width:240px;">
     
     <h3 class="gb-heading uppercase"><?php echo $category['Category']['name'] ?>
-    <?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
+    
     </h3>
   
-    
-    <div class="category-summary">
+    <?php echo $category['Category']['quote'] ?>
+    <div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
          <a href="#" id="story">Read more of this story...</a>
 	</div>    

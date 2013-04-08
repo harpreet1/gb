@@ -214,7 +214,7 @@
         
       
             <!-- Element to pop up -->
-            <div id="policy_content">Customer Satisfaction, Shipping and Return Policy
+            <div id="policy_content"><div class="gb-heading center">Customer Satisfaction, Shipping and Return Policy<hr /></div>
 				<div class="pad"><?php echo ($vendor_policy); ?>
 				</div>
 			</div>

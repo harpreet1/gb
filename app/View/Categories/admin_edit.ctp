@@ -28,11 +28,12 @@
 		<?php echo $this->Form->input('name'); ?>
 	
 		<?php echo $this->Form->input('slug'); ?>
-	
+        <?php echo $this->Form->input('quote', array('rows' => 5, 'class' => '4span')); ?>
+        <?php echo $this->Form->input('summary', array('rows' => 5, 'class' => '4span')); ?>	
 		<?php echo $this->Form->input('article', array('rows' => 20, 'class' => '4span')); ?>
 	
 	
-		<?php echo $this->Form->input('summary'); ?>
+		
 			
 	<br />
 	<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>

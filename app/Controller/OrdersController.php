@@ -6,8 +6,16 @@ class OrdersController extends AppController {
 
 	public function admin_index() {
 		$this->Order->recursive = 0;
+		
+		$this->paginate = array(
+			'recursive' => -1,
+			'order' => array(
+				'Order.id' => 'DESC',
+			)
+		);
 		$this->set('orders', $this->paginate());
 	}
+////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
 		$this->Order->id = $id;
@@ -18,6 +26,8 @@ class OrdersController extends AppController {
 			'recursive' => 1,
 			'conditions' => array('Order.id' => $id)
 		));
+		
+
 		$this->set(compact('order'));
 	}
 
@@ -65,6 +75,13 @@ class OrdersController extends AppController {
 
 	public function vendor_index() {
 		$this->Order->recursive = 0;
+		
+		$this->paginate = array(
+			'recursive' => -1,
+			'order' => array(
+				'Order.id' => 'DESC',
+			)
+		);
 		$this->set('orders', $this->paginate());
 	}
 ////////////////////////////////////////////////////////////
