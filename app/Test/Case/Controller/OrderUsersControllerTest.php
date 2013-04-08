@@ -15,17 +15,103 @@ class OrderUsersControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.order_user',
 		'app.order',
+		'app.order_status',
+		'app.order_history',
 		'app.order_item',
 		'app.user',
+		'app.tax',
+		'app.approval',
 		'app.product',
 		'app.category',
 		'app.subcategory',
 		'app.recipe',
-		'app.subsubcategory',
+		'app.recipescategory',
+		'app.tradition',
 		'app.ustradition',
-		'app.nutrition',
+		'app.subsubcategory',
+		'app.brand',
 		'app.tag',
 		'app.products_tag'
 	);
+
+/**
+ * testIndex method
+ *
+ * @return void
+ */
+	public function testIndex() {
+	}
+
+/**
+ * testView method
+ *
+ * @return void
+ */
+	public function testView() {
+	}
+
+/**
+ * testAdd method
+ *
+ * @return void
+ */
+	public function testAdd() {
+	}
+
+/**
+ * testEdit method
+ *
+ * @return void
+ */
+	public function testEdit() {
+	}
+
+/**
+ * testDelete method
+ *
+ * @return void
+ */
+	public function testDelete() {
+	}
+
+/**
+ * testAdminIndex method
+ *
+ * @return void
+ */
+	public function testAdminIndex() {
+	}
+
+/**
+ * testAdminView method
+ *
+ * @return void
+ */
+	public function testAdminView() {
+	}
+
+/**
+ * testAdminAdd method
+ *
+ * @return void
+ */
+	public function testAdminAdd() {
+	}
+
+/**
+ * testAdminEdit method
+ *
+ * @return void
+ */
+	public function testAdminEdit() {
+	}
+
+/**
+ * testAdminDelete method
+ *
+ * @return void
+ */
+	public function testAdminDelete() {
+	}
 
 }
