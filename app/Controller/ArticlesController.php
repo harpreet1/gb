@@ -2,9 +2,6 @@
 App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
 
-	public $uses = array('Article','Block');
-
-
 ////////////////////////////////////////////////////////////
 
 	public function index($block = null, $slug = null) {
@@ -15,9 +12,8 @@ class ArticlesController extends AppController {
 					'Article.active' => 1,
 				)
 			));
-			}
-		elseif(empty($slug) && $block != null){
-			$article = $this->Block->find('first', array(
+		} elseif(empty($slug) && $block != null){
+			$article = $this->Article->Block->find('first', array(
 				'recursive' => -1,
 				'conditions' => array(
 					'Block.slug' => $block
@@ -31,8 +27,7 @@ class ArticlesController extends AppController {
 					'Block.slug'
 				)
 			));
-		}
-		else{
+		} else {
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
 					'Article.active' => 1,
@@ -42,9 +37,8 @@ class ArticlesController extends AppController {
 		}
 
 		$this->set(compact('article'));
-		//pr($article); exit;
 
-		$blocks = $this->Block->find('all', array(
+		$blocks = $this->Article->Block->find('all', array(
 			'recursive' => 2,
 		));
 		$this->set(compact('blocks'));
@@ -88,9 +82,26 @@ class ArticlesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function admin_reset() {
+		$this->Session->delete('Article');
+
+		$this->redirect(array('action' => 'index'));
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function admin_index() {
-		
+
 		if ($this->request->is('post')) {
+
+			if(!empty($this->request->data['Article']['block_id'])) {
+				$conditions[] = array(
+					'Article.block_id' => $this->request->data['Article']['block_id']
+				);
+				$this->Session->write('Article.block_id', $this->request->data['Article']['block_id']);
+			} else {
+				$this->Session->write('Article.block_id', '');
+			}
 
 			if(!empty($this->request->data['Article']['name'])) {
 				$filter = $this->request->data['Article']['filter'];
@@ -111,22 +122,33 @@ class ArticlesController extends AppController {
 		}
 
 		$all = array(
+			'block_id' => '',
 			'name' => '',
 			'filter' => '',
 			'conditions' => ''
 		);
 
-		
+		if($this->Session->check('Article')) {
+			$all = $this->Session->read('Article');
+		}
+
+		$this->set(compact('all'));
+
+
 		$this->paginate = array(
 			'recursive' => 0,
+			'conditions' => $all['conditions'],
 			'order' => array(
-
 				'Article.modified' => 'DESC',
-
-			),
-
+			)
 		);
-		$this->set('articles', $this->paginate());
+
+		$articles = $this->paginate();
+		$this->set(compact('articles'));
+
+		$blocks = $this->Article->Block->find('list');
+		$this->set(compact('blocks'));
+
 	}
 
 ////////////////////////////////////////////////////////////
