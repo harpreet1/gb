@@ -66,7 +66,7 @@
 
 		<div class="tab-pane active" id="intl">
 		
-			<h4 class="gb-heading">INTERNATIONAL CULINARY TRADITIONS</strong></h4>
+			<p class="gb-heading">INTERNATIONAL CULINARY TRADITIONS</strong></p>
             
                 <p><span class="prefix">British Isles : </span><a href="/articles/excellent-food-adventures/fabulous-foods-across-the-pond" class="gb-heading article">Fabulous Foods Across the Pond - the British Isles </a> </p>
                 <p> <span class="prefix">The Caribbean : </span><a href="/articles/excellent-food-adventures/the-caribbean-a-culinary-palette-of-tastes-textures-and-flavors" class="gb-heading article">The Caribbean - A Culinary Palette of Tastes, Textures and Flavors</a> </p>
@@ -91,7 +91,7 @@
     
 		<div class="tab-pane" id="us">   
                  
-			<h4 class="gb-heading">US REGIONAL CULINARY TRADITIONS</h4>>
+			<p class="gb-heading">US REGIONAL CULINARY TRADITIONS</p>>
 			
 				</p>
 				<p> <span class="prefix">Amish : </span><a href="/articles/excellent-food-adventures/foods-from-a-simple-life" class="gb-heading article">Amish Cooking - Foods From a Simple Life</a> </p>

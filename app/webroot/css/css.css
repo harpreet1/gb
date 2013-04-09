@@ -1693,6 +1693,12 @@ h2.gb-heading hr {
 	color: #C00;
 	margin-top: 20px;
 	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
+#myTab .section-subheading {
+	margin-bottom:0;
+	font-size:20px;
 }
 
 .section-subheading.black {

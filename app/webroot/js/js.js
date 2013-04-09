@@ -51,12 +51,12 @@ $(document).ready(function(){
   		
 		$('.navList li').hover(function() { 
 		//$('.navList ul').css('background-color','fff');
-		$(this).find('a').stop().animate({'width' : "225"});
+		$(this).find('a').stop();
    		$(this).find('ul:first').css({visibility : "visible", display : "none"}).show(400);
     
   		}, function() {
     		$(this).find('ul:first').css({visibility : "hidden"}).hide(400);
-   			$(this).find('a').stop().animate({'width' : "225"});
+   			$(this).find('a').stop();
 			});
 
 		

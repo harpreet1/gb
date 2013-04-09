@@ -31,29 +31,29 @@
 		<h2 class="gb-heading"><?php echo $recipe['Recipe']['name']; ?></h2>
         <hr class="recipe-divider" />
 		<? //echo $recipe['Recipe']['slug']?>
-		<span class="section-subheading"> <?php echo $recipe['Recipe']['description']; ?> </span>
-		<p class="gb-heading">Ingredients</p>
+		<p><?php echo $recipe['Recipe']['description']; ?> </p>
+		<p class="section-subheading">Ingredients</p>
 		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
-		<br />
-		<p class="gb-heading">Directions</p>
+		
+		<p class="section-subheading">Directions</p>
 		<p><?php echo $recipe['Recipe']['preparation']; ?></p>
-		<br />
+		
         
         <?php if(!empty($recipe['Recipe']['comment'])) : ?>
-			<p class="gb-heading">Comments</p>
+			<p class="section-subheading">Comments</p>
         	<p><?php echo $recipe['Recipe']['comment']; ?></p>
-			<br />
+			
         <?php endif ; ?>
         
          <?php if(!empty($recipe['Recipe']['tags'])) : ?>
-        	<p class="gb-heading">Tags</p>
+        	<p class="section-subheading">Tags</p>
          	<p><?php echo $recipe['Recipe']['tags']; ?></p>
         	<br />
          <?php endif ; ?>  
             
          <?php if(!empty($recipe['Recipe']['attribution'])) : ?>
-			<p class="gb-heading">Acknowledgements</p>
+			<p class="section-subheading">Acknowledgements</p>
 			<p><?php echo $recipe['Recipe']['attribution']; ?></p>
           <?php endif ; ?>    
             
