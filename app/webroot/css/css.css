@@ -1372,8 +1372,8 @@ ul.navList, .navList li, .navList li a:hover {
 	box-shadow: 3px 3px 5px #283958;
 }
 .listTab {
-	width: 500px;
-	height: 300px;
+	width: 220px;
+	/*height: 300px;*/
 	z-index: 100;
 }
 .navList .listTab li {
@@ -1396,6 +1396,15 @@ ul.navList, .navList li, .navList li a:hover {
 .navList li:hover ul, .navList li li:hover ul, .navList li li li:hover ul, .navList li li li li:hover ul {
 	display: block;
 }
+
+li.in1 a {
+	padding-left:40px;
+	width:190px;
+	
+}
+
+
+
 .byline {
 	font-size: 12px;
 }
@@ -1536,6 +1545,24 @@ img.article-pic {
 	margin-right: 0px;
 	margin-left: 20px;
 }
+
+.article-tabs {
+	margin-bottom: 30px;
+}
+
+.article-tabs .tab-pane h4.gb-heading,
+div.tab-content article-tabs>div>h4.gb-heading{
+	margin-bottom: 20px;
+}
+
+.xtra-images {
+	margin-top:30px;
+}
+
+.xtra-images img {
+	margin-left: 0px;
+}
+
 img.article-landing-pic {
 	width: 315px;
 	float: right;
@@ -1562,7 +1589,13 @@ img.article-landing-pic {
 .air10 {
 	margin-top:10px;
 }
+.air20 {
+	margin-top:20px;
+}
 
+.air30 {
+	margin-top:30px;
+}
 
 /** Bootstrap Edit **/
 	
@@ -1659,6 +1692,7 @@ h2.gb-heading hr {
 	font-family: 'Oregano', cursive;
 	color: #C00;
 	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .section-subheading.black {

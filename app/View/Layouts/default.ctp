@@ -16,7 +16,7 @@
 
 <!------ CSS ------>   
 
-<style>  
+<?php /*?><style>  
 
 .btn-gb {
 	<?php echo $user['User']['awning_css']; ?>
@@ -27,7 +27,7 @@
 }
 
 </style>    
-
+<?php */?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <?php echo $this->Html->script(array('bootstrap.min.js','less-1.3.3.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>

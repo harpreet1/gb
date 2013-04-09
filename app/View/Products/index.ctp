@@ -44,17 +44,18 @@
 
 			<?php if(!empty($usercategories)) : ?>
 
-			<ul class="navList">
-					<li><a href="#">Our Products</a>
-                    
+			
+					<!-- <li> --><a href="#">Our Products</a>
+             <ul class="navList">       
 						<!-- This is the sub nav -->
-						<ul class="listTab">
-							<?php foreach ($usercategories as $usercategory): ?><li>
-							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-							</li>
+						<!-- <ul class="listTab"> -->
+							<?php foreach ($usercategories as $usercategory): ?>
+							<!-- <li> -->
+							<li class="in1"><?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?></li>
+							<!-- </li> -->
 							<?php endforeach; ?>
-                        </ul>
-                    </li>
+                        <!-- </ul> -->
+                    <!-- </li> -->
 			<?php endif; ?>
 
 			</ul>
@@ -289,6 +290,7 @@
             	<div id="awning-text"><?php echo $user['User']['name']; ?></div>
             
             </div>
+            
 
 		<div class="top-product-block">
 
