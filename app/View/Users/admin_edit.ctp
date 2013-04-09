@@ -11,9 +11,8 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "styleselect,bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-		theme_advanced_resizing : true,
-	});
+		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
+		theme_advanced_resizing : true,	});
 </script>
 
 <script>
