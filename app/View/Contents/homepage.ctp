@@ -58,10 +58,12 @@
 		<div class="carousel-inner">
 		<?php $active = 'active'; ?>
 		<?php foreach($contents as $content) : ?>
+        
+        <?php if (($content['Content']['active']) == 1) : ?>
 
 			<div class="item <?php echo $active; ?>">
 
-				<?php echo $this->Html->image('homepage/' . $content['Content']['image']); ?>
+				<?php echo $this->Html->image('homepage/sliders/' . $content['Content']['image']); ?>
 
 				<div class="carousel-caption">
 					<h1><?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?></h1>
@@ -70,6 +72,8 @@
 
 				</div>
 			</div>
+        <?php endif ; ?>    
+            
 		<?php $active = ''; ?>
 		<?php endforeach; ?>
 

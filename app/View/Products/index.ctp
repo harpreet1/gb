@@ -45,7 +45,7 @@
 			<?php if(!empty($usercategories)) : ?>
 
 			
-					<!-- <li> --><a href="#">Our Products</a>
+					<!-- <li> --><a class="gb-heading" href="#">Our Products</a>
              <ul class="navList">       
 						<!-- This is the sub nav -->
 						<!-- <ul class="listTab"> -->
@@ -100,6 +100,7 @@
 </ul>
 
 		</div>
+        <br />
 
 		<ul class="navList">
 					<li><a href="#" id="story">Our Story</a></li>
