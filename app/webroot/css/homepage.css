@@ -161,7 +161,8 @@ li.gb-account a {
 	
 .carousel-control {
 	top:50%;
-	 } 
+	line-height: 26px;
+ } 
 
 .carousel-control.left {
 	left:-55px; 
