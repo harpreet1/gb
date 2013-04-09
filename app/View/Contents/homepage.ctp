@@ -14,7 +14,7 @@
 
 	<div id="upper-content">
 		<div id="headlines" class="row">
-			<div class="headline-1 span6">
+			<!--<div class="headline-1 span6">
 				<div> <a href="">Unique Gift Ideas</a>
 					</h2>
 				</div>
@@ -25,7 +25,7 @@
 					<h2> <a href="http://gourmetdev.com/blog/2012/07/11/beverage-trends-2012"> News on Trends! </a> </h2>
 				</div>
 				<div></div>
-			</div>
+			</div>-->
 
 			<!--<div class="headline-3 span6">
 				<div>
@@ -83,7 +83,7 @@
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
 
-
+	<div class="center explain gb-heading">ARTICLE CATEGORIES</div>
 
 	<?php //debug($blocks); ?>
 

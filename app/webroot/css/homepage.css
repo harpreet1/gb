@@ -139,7 +139,7 @@ li.gb-account a {
 	 }
  
 #upper {
-	height: 250px;
+	height: 182px;
 	margin: 0px;
 	padding: 0px; }
  
@@ -148,8 +148,10 @@ li.gb-account a {
 	position: relative; }
 	
 .carousel {
-	margin-bottom:30px;
+	margin-bottom:20px;
 }
+
+
 
 .carousel-inner {  }
  
@@ -162,7 +164,7 @@ li.gb-account a {
 .carousel-control {
 	top:50%;
 	line-height: 26px;
-
+fgb
  } 
 
 .carousel-control.left {
@@ -214,7 +216,7 @@ li.gb-account a {
 
 .marquee, .marquee-with-options {
 	position: absolute;
-	top: 515px;
+	top: 456px;
 	width:83%;
 	height:100px;
 	overflow: hidden;
@@ -477,6 +479,11 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 
 .gb-heading.blocks {
 	font-size:19px;
+}
+
+.explain {
+	font-size:20px;
+	padding-bottom:20px;
 }
 
 .section-subheading {
