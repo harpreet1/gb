@@ -328,18 +328,19 @@ div.pic-link-title {
 	position: relative;
 	z-index: 200; }
  
-	.shop-now a {
-		color: #fff;
-		font-size: 90%; /* [disabled]font-weight: bold; */
-		padding: 5px 5px;
-		text-decoration: none;
-		width: 100px; }
- 
+.shop-now a {
+	color: #fff;
+	font-size: 90%; /* [disabled]font-weight: bold; */
+	padding: 5px 5px;
+	text-decoration: none;
+	width: 100px; }
+
 .carousel-caption {
 	color: #fff;
 	font-size: 14px;
+	background:none;
 	left: 20px;
-	line-height: 20px;
+	line-height: 22px;
 	position: absolute;
 	top: 10px;
 	width: 300px; }
