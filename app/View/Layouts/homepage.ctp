@@ -79,16 +79,15 @@
 
 
 
-<h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the first-ever World Marketplace and Cultural Cuisine Magazine in one.</h2>
+<h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
 
-<p>Our slogan &ldquo;Become a World Class &ldquo;Foodie&rdquo; reflects our commitment to help cooks of all kinds from moms to chefs, novices to professionals and younger to older expand their tastes, techniques and pantries to enjoy the delicious bounties the world has to offer. Whether it&rsquo;s an exotic spice or a sophisticated mix, we&rsquo;re here to make it easy for you to find and purchase food items, to help you select the best items for your particular culinary need and to how to use them through cooking tips and fine recipes.</p>
+<p>Our slogan &ldquo;Become a World Class &ldquo;Foodie&rdquo; reflects our commitment to help cooks of all kinds, from Moms to chefs, novices to professionals and young to old, expand their tastes, techniques, and pantries to enjoy the delicious bounties the world has to offer. Whether it&rsquo;s an exotic spice or a sophisticated mix, we&rsquo;re here to make it easy for you to find and purchase food and food ingredients, to help you select the best items for your particular culinary needs, and to inform you how to use them through cooking tips and fine recipes.</p>
 
-<p>We are a dynamically evolving site and will continue to source new and exciting vendors, add more products, compile more recipes, write more articles, and explore more and more of the world&rsquo;s delicious foods. We are constantly on the lookout for vendors with unique, terrific and often hard-to-find products. We choose products made with pure and fresh ingredients that are unsullied by chemicals and artificial preservatives and developed and made by people who are guided by a desire to change our collective eating habits to promote healthy lifestyles. All this with the added benefit of being able to enjoy authentic culinary treasures from across the nation and around the world from Akron to Austria, Kentucky to Ketchikan and Tierra del Fuego to Thailand.</p>
-<p>Coming soon will be an interactive component of our site that will be the most fun of all. We will be asking you, our readers and visitors, to provide us feedback and your own special tips and recipes to share with us and others who have a passion for discovering the finest, tastiest and healthiest food and drink on the planet.</p>
+<p>We are a dynamically evolving site and will continue to source new and exciting vendors, add more products, compile more recipes, write more articles, and explore more and more of the world&rsquo;s delicious foods. We are constantly on the lookout for vendors with unique, terrific and hard-to-find products. We choose products made with pure and fresh ingredients, that are unsullied by chemicals and artificial preservatives, and developed and produced by people who are guided by a desire to change our collective eating habits to promote healthy lifestyles. All this with the added benefit of being able to enjoy authentic culinary treasures from across the nation and around the world from Akron to Austria, Kentucky to Ketchikan and Tierra del Fuego to Thailand.</p>
+<p>Coming soon will be an interactive component of our site that will be the most fun of all. We will be asking you, our readers and visitors, to provide us feedback and your own special tips and recipes to share with us and others who have a passion for discovering the finest, most tastyt, and healthiest food and drink on the planet.</p>
 
-<p>So, spend time strolling through our Shops, glancing at our articles, and savoring our recipes.&nbsp; And, come back often to keep up with our changes &ndash; we know you&rsquo;ll be glad you did.&nbsp;</p>
-
-        
+<p>So, spend time strolling through our Shops, learning from our articles, and savoring our recipes.&nbsp; And, come back often to keep up with our changes &ndash; we know you&rsquo;ll be glad you did.</p>
+       
         
      <!--  <h2 style="text-align:center">Welcome to Gourmet Basket – the first-ever World Marketplace and Cultural Cuisine Magazine in one. </h2>
 
