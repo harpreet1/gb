@@ -86,11 +86,15 @@ img.frame {
 	padding-top: 10px;
 	padding-bottom: 1px;/*font-style:italic;*/
 }
+
+.breadcrumb {
+	background-color: #f7f1e5;
+}
 .breadcrumb.vendor-index {
-	background-color: whiteSmoke;
+	background-color: f7f1e5;
 }
 .breadcrumb li a {
-	color: #fff;
+	color: #3F9179;
 }
 .breadcrumb li.active {
 	color: #000;
@@ -1694,6 +1698,12 @@ h2.gb-heading hr {
 	margin-top: 20px;
 	margin-bottom: 10px;
 	letter-spacing: 1px;
+}
+
+.vendor-category {
+	margin-top:10px;
+	margin-bottom:0px;
+	padding:0px;
 }
 
 #myTab .section-subheading {

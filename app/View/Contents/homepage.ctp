@@ -83,7 +83,7 @@
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
 
-	<div class="center explain gb-heading">ARTICLE CATEGORIES</div>
+	<div class="center explain gb-heading">ARTICLE & BLOG CATEGORIES</div>
 
 	<?php //debug($blocks); ?>
 

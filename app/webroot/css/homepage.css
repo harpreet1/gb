@@ -478,8 +478,7 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 .issue {
 	font-size:18px;
 	color:#fff;
-	position:absolute;
-	top:375px;
+	text-align: right;
 }
 
 .gb-heading.welcome {
