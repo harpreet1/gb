@@ -8,7 +8,9 @@ body {
 .container,
 .navbar-static-top .container,
 .navbar-fixed-top .container,
-.navbar-fixed-bottom .container { width: 960px; }
+.navbar-fixed-bottom .container { 
+	width: 960px;
+	}
  
 .span4 {
 	background-color: #FFF;
@@ -472,6 +474,13 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	font-size:13px;
 	letter-spacing: 0px;
 }
+ 
+.issue {
+	font-size:18px;
+	color:#fff;
+	position:absolute;
+	top:375px;
+}
 
 .gb-heading.welcome {
 	font-size:20px;
@@ -482,6 +491,7 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 }
 
 .explain {
+	
 	font-size:20px;
 	padding-bottom:20px;
 }
