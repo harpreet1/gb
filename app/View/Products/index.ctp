@@ -271,10 +271,10 @@
                 
                 <?php //echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 
-					<?php if(!empty($subcategory)) : ?>&nbsp;&nbsp;
+					<?php if(!empty($subcategory)) : ?>&nbsp;/&nbsp;
 				<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
                 <?php endif; ?>&nbsp;
-				<?php if(!empty($subsubcategory)) : ?>&nbsp;&nbsp;
+				<?php if(!empty($subsubcategory)) : ?>&nbsp;/&nbsp;
 					<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
                 <?php endif; ?>
 			</div>
