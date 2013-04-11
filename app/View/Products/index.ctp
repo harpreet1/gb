@@ -239,26 +239,7 @@
                         echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
                     endif ?>
     
-            <?php if(!empty($user['User']['image_2'])) :
-                        echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid'));
-                    endif ?>
-    
-            <?php if(!empty($user['User']['image_3'])) :
-                        echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid'));
-                    endif ?>
-    
-            <?php if(!empty($user['User']['image_4'])) :
-                    echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid'));
-                    endif ?>
-    
-            <?php if(!empty($user['User']['image_5'])) :
-                echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid'));
-                    endif ?>
-    
-            <?php if(!empty($user['User']['image_6'])) :
-                    echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid'));
-                    endif ?>
-    
+            
     
             <?php endif; ?>
 		</div>
