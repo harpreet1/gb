@@ -44,7 +44,7 @@
 			<?php if(!empty($usercategories)) : ?>
 
 			<ul class="navList">
-					<li><a href="#">Our Products</a></li>
+					<span class="section-subheading">>Our Products</span></li>
             </ul>        
 						
 						<ul>
@@ -99,6 +99,7 @@
 </ul>
 
 		</div>
+        <hr />
 
 		<ul class="navList">
 					<li><a href="#" id="story">Our Story</a></li>
@@ -267,6 +268,8 @@
 			
 			<div style="float:right">
 				Your path:&nbsp;
+                
+                <?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 
 					<?php if(!empty($subcategory)) : ?>&nbsp;&nbsp;
 				<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
