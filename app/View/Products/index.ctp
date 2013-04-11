@@ -239,7 +239,11 @@
                         echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
                     endif ?>
     
-            
+            <?php if(!empty($user['User']['image_2'])) :
+                        echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+          
     
             <?php endif; ?>
 		</div>
