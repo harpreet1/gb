@@ -108,6 +108,11 @@ img.frame {
 .breadcrumb.categories li {
 	text-shadow: none;
 }
+
+.breadcrumb.categories li  a{
+	color:#fff;
+}
+
 .cat-product-block {
 	margin-left: 38px;
 }
@@ -1704,6 +1709,7 @@ h2.gb-heading hr {
 	margin-top:10px;
 	margin-bottom:0px;
 	padding:0px;
+	padding-left:36px;
 }
 
 #myTab .section-subheading {
