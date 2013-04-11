@@ -102,10 +102,9 @@ a {
 	position:relative;
 	}
 
-#welcome {
-	position:absolute;
-	top:0px;
-	left:256px;
+.welcome-link {
+	margin:auto;
+	width:76px;
 }
  
 #account {
@@ -478,7 +477,8 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 .issue {
 	font-size:18px;
 	color:#fff;
-	text-align: right;
+	text-align: center;
+	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1); 
 }
 
 .gb-heading.welcome {

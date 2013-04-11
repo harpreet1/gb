@@ -80,6 +80,12 @@ img.frame {
 	font-size: 16px;
 	letter-spacing: 1px;
 }
+
+.vendor-logo .name {
+	font-size:21px;
+	margin-top:10px;
+}
+
 .quote {
 	color: #3f9179;
 	padding-right: 35px;
@@ -93,8 +99,12 @@ img.frame {
 .breadcrumb.vendor-index {
 	background-color: f7f1e5;
 }
+
+.breadcrumb li  {
+	text-shadow:none;
+}
 .breadcrumb li a {
-	color: #3F9179;
+	color: #3a3a3a;
 }
 .breadcrumb li.active {
 	color: #000;
@@ -859,7 +869,6 @@ img.vendor-article-logo {
 	position: relative;
 	font-family: 'Oregano', cursive;
 	letter-spacing: 1px;
-	font-size: 100%;
 	width: 500px;
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -885,7 +894,7 @@ img.vendor-article-logo {
 	margin-top: 10px;
 }
 blockquote p {
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: bold;
 	line-height: 19px;
 }
@@ -899,7 +908,8 @@ blockquote p {
 .signature {
 	margin-top: 5px;
 	text-align: right;
-	font-weight: bold;
+	font-size: 17px;
+
 }
 blockquote {
 	border: none;
@@ -909,8 +919,8 @@ blockquote::before {
 	background: url(../img/global/quote-start.png) left top no-repeat;
 	content: '';
 	position: absolute;
-	top: -19px;
-	left: -19px;
+	top: 11px;
+	left: 11px;
 	width: 37px;
 	height: 37px;
 }
@@ -918,13 +928,19 @@ blockquote::after {
 	background: url(../img/global/quote-end.png) right bottom no-repeat;
 	content: '';
 	position: absolute;
-	bottom: -19px;
-	right: -19px;
+	bottom: 11px;
+	right: 11px;
 	width: 37px;
 	height: 37px;
 }
 .vendor-pic, img.vendor-pic {
 	width: 280px;
+}
+
+
+.vendor-sidebar-pics img{
+	width: 260px;
+	margin-bottom:20px;
 }
 /** Product Image Viewer **/
 
@@ -1705,6 +1721,15 @@ h2.gb-heading hr {
 	letter-spacing: 1px;
 }
 
+.gb-nav {
+	font-size: 18px;
+	font-family: 'Oregano', cursive;
+	color: #C00;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	letter-spacing: 1px;
+}
+
 .vendor-category {
 	margin-top:10px;
 	margin-bottom:0px;
@@ -1751,6 +1776,17 @@ h2.gb-heading hr {
 #policy_content {
 	display: none;
 }
+
+#policy_content  .policy-heading {
+	font-size: 24px;
+	font-family: 'Oregano', cursive;
+	text-align:center;
+	color: #C00;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
 #policy_content .pad {
 	height: 500px;
 	overflow-y: scroll;
@@ -1759,6 +1795,8 @@ h2.gb-heading hr {
 	padding: 35px;
 	padding-top:0px;
 }
+
+
 
 /** Temp Article Hover JS **/
 

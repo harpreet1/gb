@@ -88,6 +88,22 @@ $(document).ready(function(){
 
 <div class="row">
 
+		<div class="span3">
+			<?php echo $this->Form->input('aux_category_id_1', array('empty' => '-')); ?>
+		</div>
+		<div class="span3">
+			<?php echo $this->Form->input('aux_category_id_2', array('empty' => '-')); ?>
+		</div>
+		<div class="span3">
+			<?php echo $this->Form->input('aux_category_id_3', array('empty' => '-')); ?>
+		</div>
+
+</div>
+
+
+
+<div class="row">
+
 	<div class="span3">
 		<?php echo $this->Form->input('slug'); ?>
 	</div>

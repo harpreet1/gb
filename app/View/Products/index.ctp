@@ -4,16 +4,20 @@
     
 		<div>
         
-		<?php if(!empty($user)) : ?>
+		<?php /*?><?php if(!empty($user)) : ?><?php */?>
+        
 			<div class="vendor-logo">
                 <a href="/">
                 <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
                 </a>
+                
+                <div class="name"><?php echo $user['User']['name']; ?></div>
                 <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
 
-
-			<p class="section-subheading"><?php if(!empty($category)) : ?><br />- -
+			<a class="gb-nav" href="/">All Our Products</a>
+			
+			<p class="gb-nav "><?php if(!empty($category)) : ?><br />- -
 
 				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 			<?php endif; ?>
@@ -38,15 +42,13 @@
 					background-color:#fff;
 				}
 			</style>
+            
+            
 
 			<div style="clear:both">
 
 			<?php if(!empty($usercategories)) : ?>
 
-			<ul class="navList">
-					<span class="section-subheading">>Our Products</span></li>
-            </ul>        
-						
 						<ul>
 							<?php foreach ($usercategories as $usercategory): ?>
 							<li><span class="section-subheading">
@@ -66,6 +68,10 @@
 						<?php //debug($usersubcategories); ?>
 
 						<?php if(!empty($usersubcategories)) : ?>
+                        
+           
+					
+            
 
 				<ul class="navList">
 					<li><a href="#">Our Subcategories</a>
@@ -85,7 +91,7 @@
 			<div style="clear:both">
 
 		<?php if(!empty($usersubsubcategories)) : ?>
-
+       
 			<ul class="navList">
 					<li><a href="#">Our Sub Sub Categories</a>
 						<!-- This is the sub nav -->
@@ -151,7 +157,7 @@
         
                 </div>
                 
-        
+        <!-- Vendor Story Pics -->
                 <div class="span4">
                     <div class="span4 air">
                     <?php if(!empty($user['User']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); endif ?>
@@ -183,7 +189,7 @@
         </div>
         
         
-        <?php endif; ?>        
+     
         
         
         
@@ -204,10 +210,10 @@
         
         
         <div>
-       <?php $vendor_policy = $user['User']['shipping_policy']; ?>
-       <br />
+			<?php $vendor_policy = $user['User']['shipping_policy']; ?>
+			<br />
        
-        <a href="#" id="policies" class="btn btn-gb">SHIPPING & CUSTOMER SERVICE</a>
+        	<a href="#" id="policies" class="btn btn-gb">SHIPPING & CUSTOMER SERVICE</a>
         
         <!--<span><img class="hand" src="/img/global/hand.png" width="40px"/></span>-->
         </div>
@@ -215,45 +221,49 @@
         
       
             <!-- Element to pop up -->
-            <div id="policy_content">Customer Satisfaction, Shipping and Return Policy
+            <div id="policy_content">
+            <div class="policy-heading ">Customer Satisfaction, Shipping and Return Policy</div>
+             <hr />
 				<div class="pad"><?php echo ($vendor_policy); ?>
 				</div>
 			</div>
+            <br />
+           
             
+        <!-- Vendor Sidebar Pics -->
         
-        
-        
+        <div class="vendor-sidebar-pics">
 
 
-		<?php if(!empty($category['Category']['image_1'])) :
-					echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
-				endif ?>
+			<?php if(!empty($user['User']['image_1'])) :
+                        echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+            <?php if(!empty($user['User']['image_2'])) :
+                        echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+            <?php if(!empty($user['User']['image_3'])) :
+                        echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+            <?php if(!empty($user['User']['image_4'])) :
+                    echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+            <?php if(!empty($user['User']['image_5'])) :
+                echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+            <?php if(!empty($user['User']['image_6'])) :
+                    echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid'));
+                    endif ?>
+    
+    
+            <?php endif; ?>
+		</div>
 
-		<?php if(!empty($category['Category']['image_2'])) :
-					echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' => 'img-polaroid'));
-				endif ?>
-
-		<?php if(!empty($category['Category']['image_3'])) :
-					echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' => 'img-polaroid'));
-				endif ?>
-
-		<?php if(!empty($category['Category']['image_4'])) :
-				echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' => 'img-polaroid'));
-				endif ?>
-
-		<?php if(!empty($category['Category']['image_5'])) :
-			echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' => 'img-polaroid'));
-				endif ?>
-
-		<?php if(!empty($category['Category']['image_6'])) :
-				echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' => 'img-polaroid'));
-				endif ?>
-
-
-		<?php endif; ?>
-	</div>
-
-
+</div>
 
 	
 	<div class="span8" style="width:690px;margin-left:0px;">
@@ -261,7 +271,7 @@
     
 
 
-		<ul class="breadcrumb vendor-index">
+		<?php /*?><ul class="breadcrumb vendor-index">
 
 		
 				<li><?php //echo $user['User']['name']; ?></li>
@@ -280,7 +290,7 @@
 			</div>
 				
 				
-		</ul>
+		</ul><?php */?>
 		
 
     

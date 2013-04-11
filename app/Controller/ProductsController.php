@@ -176,6 +176,115 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function view($id = null) {
+
+		$subDomain = $this->_getSubDomain();
+
+		if($subDomain != 'www') {
+			$user = $this->Product->User->getBySubdomain($subDomain);
+
+			$usercategories = $this->Product->find('all', array(
+				'contain' => array('Category'),
+				'fields' => array(
+					'Category.name',
+					'Category.slug'
+				),
+				'conditions' => array(
+					'Product.active' => 1,
+					'Product.user_id' => $user['User']['id']
+				),
+				'group' => array(
+					'Product.category_id'
+				),
+				'order' => array(
+					'Category.name' => 'ASC'
+				),
+			));
+
+		} else{
+			$user = array();
+			$usercategories = null;
+		}
+		$this->set(compact('user', 'usercategories'));
+
+		$product = $this->Product->find('first', array(
+			'recursive' => -1,
+			'contain' => array(
+				'Category',
+				'Subcategory',
+				'Subsubcategory',
+				'Brand'
+			),
+			'conditions' => array(
+				'Product.id' => $id,
+				'Product.active' => 1,
+			)
+		));
+		if (empty($product)) {
+			$this->redirect(array('action' => 'index'), 301);
+		}
+
+		$this->Product->updateAll(
+			array(
+				'Product.viewed' => 'Product.viewed + 1',
+				'Product.last_viewed' => 'NOW()',
+			),
+			array('Product.id' => $product['Product']['id'])
+		);
+
+
+		if(!empty($product['Product']['related_products'])) {
+
+			$related_products_ids = $product['Product']['related_products'];
+
+			$related_products = $this->Product->find('all', array(
+				'recursive' => -1,
+			//	'contain' => array(
+			//		'Category',
+			//		'Subcategory',
+			//		'Subsubcategory'
+			//	),
+				'conditions' => array(
+					'Product.id' => $related_products_ids,
+					'Product.active' => 1,
+				)
+			));
+
+		} else {
+			$related_products = array();
+		}
+		$this->set(compact('related_products'));
+
+		$attributes = array();
+		foreach($product['Product'] as $key => $value) {
+			if($value == 1 && (substr($key, 0, 5) == 'attr_')) {
+				$attributes[substr($key, 5)] = $value;
+			}
+		}
+		$this->set(compact('attributes'));
+
+		$nuts = array();
+		foreach($product['Product'] as $nkey => $nvalue) {
+			if((substr($nkey, 0, 4) == 'nut_')) {
+				if(!empty($nvalue) || $nkey == 'nut_vitamin_a' || $nkey == 'nut_vitamin_c' || $nkey == 'nut_calcium' || $nkey == 'nut_iron') {
+					// if(!empty($nvalue)) {
+						$nuts[substr($nkey, 4)] = $nvalue;
+					// }
+				}
+			}
+		}
+		// debug($nuts);
+
+		$this->set(compact('nuts'));
+
+		$this->set(compact('product'));
+		$title_for_layout = $product['Product']['name'] . ' :: GB';
+		$this->set(compact('title_for_layout'));
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function category($slug) {
 
 		$subDomain = $this->_getSubDomain();
@@ -363,115 +472,6 @@ class ProductsController extends AppController {
 		$this->set(compact('user', 'category',  'subcategory', 'subsubcategory', 'products'));
 
 		$this->render('index');
-	}
-
-////////////////////////////////////////////////////////////
-
-	public function view($id = null) {
-
-		$subDomain = $this->_getSubDomain();
-
-		if($subDomain != 'www') {
-			$user = $this->Product->User->getBySubdomain($subDomain);
-
-			$usercategories = $this->Product->find('all', array(
-				'contain' => array('Category'),
-				'fields' => array(
-					'Category.name',
-					'Category.slug'
-				),
-				'conditions' => array(
-					'Product.active' => 1,
-					'Product.user_id' => $user['User']['id']
-				),
-				'group' => array(
-					'Product.category_id'
-				),
-				'order' => array(
-					'Category.name' => 'ASC'
-				),
-			));
-
-		} else{
-			$user = array();
-			$usercategories = null;
-		}
-		$this->set(compact('user', 'usercategories'));
-
-		$product = $this->Product->find('first', array(
-			'recursive' => -1,
-			'contain' => array(
-				'Category',
-				'Subcategory',
-				'Subsubcategory',
-				'Brand'
-			),
-			'conditions' => array(
-				'Product.id' => $id,
-				'Product.active' => 1,
-			)
-		));
-		if (empty($product)) {
-			$this->redirect(array('action' => 'index'), 301);
-		}
-
-		$this->Product->updateAll(
-			array(
-				'Product.viewed' => 'Product.viewed + 1',
-				'Product.last_viewed' => 'NOW()',
-			),
-			array('Product.id' => $product['Product']['id'])
-		);
-
-
-		if(!empty($product['Product']['related_products'])) {
-
-			$related_products_ids = $product['Product']['related_products'];
-
-			$related_products = $this->Product->find('all', array(
-				'recursive' => -1,
-			//	'contain' => array(
-			//		'Category',
-			//		'Subcategory',
-			//		'Subsubcategory'
-			//	),
-				'conditions' => array(
-					'Product.id' => $related_products_ids,
-					'Product.active' => 1,
-				)
-			));
-
-		} else {
-			$related_products = array();
-		}
-		$this->set(compact('related_products'));
-
-		$attributes = array();
-		foreach($product['Product'] as $key => $value) {
-			if($value == 1 && (substr($key, 0, 5) == 'attr_')) {
-				$attributes[substr($key, 5)] = $value;
-			}
-		}
-		$this->set(compact('attributes'));
-
-		$nuts = array();
-		foreach($product['Product'] as $nkey => $nvalue) {
-			if((substr($nkey, 0, 4) == 'nut_')) {
-				if(!empty($nvalue) || $nkey == 'nut_vitamin_a' || $nkey == 'nut_vitamin_c' || $nkey == 'nut_calcium' || $nkey == 'nut_iron') {
-					// if(!empty($nvalue)) {
-						$nuts[substr($nkey, 4)] = $nvalue;
-					// }
-				}
-			}
-		}
-		// debug($nuts);
-
-		$this->set(compact('nuts'));
-
-		$this->set(compact('product'));
-		$title_for_layout = $product['Product']['name'] . ' :: GB';
-		$this->set(compact('title_for_layout'));
-
 	}
 
 ////////////////////////////////////////////////////////////
@@ -1084,6 +1084,25 @@ class ProductsController extends AppController {
 		$subcategories = $this->Product->Subcategory->findChain();
 
 		$subsubcategories = $this->Product->Subsubcategory->findChain();
+		
+		$aux_categories_1 = $this->Product->Category->find('list', array(
+			'fields' => array(
+				'Category.id',
+				'Category.name',
+			),
+			
+			'order' => array(
+				'Category.name' => 'ASC'
+			),
+		));
+		
+		
+		
+		
+		$aux_categories_2 = $this->Product->Category->findList();
+		
+		$aux_categories_3 = $this->Product->Category->findList();
+
 
 		$traditions = ClassRegistry::init('Tradition')->find('list', array(
 			'recursive' => -1,
@@ -1108,7 +1127,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups','aux_categories_1','aux_categories_1','aux_categories_1'));
 		
 	}
 
