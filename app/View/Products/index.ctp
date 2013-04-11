@@ -19,11 +19,11 @@
 			<?php endif; ?>
 
 			<?php if(!empty($subcategory)) : ?>
-				<br />- - -<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
+				<br />- - - -<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
 			<?php endif; ?></li>
 
 			<?php if(!empty($subsubcategory)) : ?>
-			<br />- - - - -<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
+			<br />- - - - - - -<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
 			<?php endif; ?>
 			
 			</p>
@@ -49,8 +49,8 @@
 						
 						<ul>
 							<?php foreach ($usercategories as $usercategory): ?>
-							<li>
-							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
+							<li><span class="section-subheading">
+							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?></span>
 							</li>
 							<?php endforeach; ?>
                         </ul>
