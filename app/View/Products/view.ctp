@@ -5,21 +5,25 @@
 	<div class="span3">
 		<?php if(!empty($user)) : ?>
         <a href="/">
-        <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-        </a>
-			<h5><?php echo $user['User']['name']; ?></h5>
+        <div class="vendor-logo">
+                <a href="/">
+                <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+                </a>
+                
+                <div class="name"><?php echo $user['User']['name']; ?></div>
+                <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
+			</div>
 
-			<p><?php echo $user['User']['shop_quote']; ?></p>
+				<?php //if(!empty($usercategories)) : ?>
 
-				<?php if(!empty($usercategories)) : ?>
+					<a class="gb-nav" href="/">All Our Products</a>
 
-					<br />
-					<h6>Food Categories</h6>
+					<p class="gb-nav"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
-					<?php foreach ($usercategories as $usercategory): ?>
-						<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?>
-					<br />
-					<?php endforeach; ?>
+				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
+                
+			<?php //endif; ?>
+
 					<br />
 				<?php endif; ?>
                 

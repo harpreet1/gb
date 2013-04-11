@@ -74,6 +74,7 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		
 	);
 
 ////////////////////////////////////////////////////////////
@@ -143,8 +144,5 @@ class User extends AppModel {
 
 		return $menuvendors;
 	}
-
-////////////////////////////////////////////////////////////
-
 
 }
