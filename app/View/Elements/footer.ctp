@@ -13,6 +13,7 @@
                 	<ul>
                     	<li><a href="">ABOUT</a></li>
                     	<li><a href="">FAQ</a></li>
+                        <li><a href="">TERMS OF USE</a></li>
                     	<li>three</li>
                     </ul>
                 
@@ -21,18 +22,14 @@
 				<div class="span4">
                 	<ul>
                     	<li><a href="">SHIPPING</a></li>
-                    	<li>two</li>
-                    	<li>three</li>
-                    	<li>four</li>
-                    	<li>five</li>
+                    	<li><a href="">BECOME A VENDOR</a></li>
                     </ul>
 				</div>
 				
 				<div class="span4">
                 	<ul>
                     	<li><a href="mailto:support@thegourmetbasket.net">CONTACT</a></li>
-                    	<li>two</li>
-                    	<li>three</li>
+                    
                     </ul>
 				</div>
 				
