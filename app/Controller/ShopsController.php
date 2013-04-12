@@ -6,6 +6,7 @@ class ShopsController extends AppController {
 
 	public $components = array(
 		'Cart',
+		'Usps',
 		'Ups',
 		'Fedex',
 		'AuthorizeNet'
@@ -102,7 +103,9 @@ class ShopsController extends AppController {
 					$data['Weight'] = $user['weight'];
 
 					if($user['flat_shipping'] != 1) {
-						$result = $this->_ups($data);
+						// $result = $this->_usps($data);
+						// $result = $this->_ups($data);
+						$result = $this->_fedex($data);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
@@ -151,6 +154,19 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
+	protected function _usps($data) {
+		$usps = $this->Usps->getRate(array(
+			'ShipFromZip' => $data['ShipFromZip'],
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => $data['ShipToZip'],
+			'ShipToCountry' => 'US',
+			'Weight' => $data['Weight'],
+		));
+		return $usps;
+	}
+
+//////////////////////////////////////////////////
+
 	protected function _ups($data) {
 		$ups = $this->Ups->getRate(array(
 			'ShipFromZip' => $data['ShipFromZip'],
@@ -164,14 +180,13 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	protected function _fedex() {
-
+	protected function _fedex($data) {
 		$fedex = $this->Fedex->getRate(array(
-			'ShipFromZip' => 91367,
+			'ShipFromZip' => $data['ShipFromZip'],
 			'ShipFromCountry' => 'US',
-			'ShipToZip' => 91367,
+			'ShipToZip' => $data['ShipToZip'],
 			'ShipToCountry' => 'US',
-			'Weight' => 1,
+			'Weight' => $data['Weight'],
 		));
 		return $fedex;
 	}
