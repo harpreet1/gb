@@ -171,12 +171,7 @@
 	</div>
     
 		<?php echo $this->element('footer'); ?>
-    	<div class="row">yrthrthf
-        
-
-		&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
-		
-        </div>
+    	
 	</div>
     
     
