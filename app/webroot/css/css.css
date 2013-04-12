@@ -189,10 +189,25 @@ li.mzr-drop>a>b.caret {
 	vertical-align: middle;
 	margin-left: 3px;
 }
-span.special a {
-	font-weight: bold;
-	color: #930;
+
+.mzr-content p.special {
+	margin-bottom:5px;
 }
+
+p.special a, span.special a {
+	font-weight: bold;
+	color:#930;
+	font-size: 14px;
+}
+
+
+span.special.nolink {
+	font-weight: bold;
+	color: #3F9179;
+	font-family: 'Oregano', cursive;
+	font-size: 16px;
+}
+
 .caret {
 	vertical-align: middle;
 	border-top: 4px solid white;
@@ -234,11 +249,6 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	padding-bottom: 0;
 	padding-left: 20px;
 }
-#footer {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	border-top: 1px #DDD solid;
-}
 .f10 {
 	font-size: 10px;
 }
@@ -260,7 +270,7 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 }
 #flash_msg {
 	position: absolute;
-	top: 10px;
+	top: 10px;terx
 	right: 10px;
 	z-index: 10000;
 }
@@ -280,6 +290,20 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 .cake-sql-log caption {
 	color: #666;
 }
+
+#footer {
+	width:1003px;
+	margin:auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px #DDD solid;
+	background-color:#3a3a3a;
+	color:#fff;
+}
+
+
+
+
 /** VENDOR PRODUCT DISPLAY **/
 
 
@@ -1796,7 +1820,10 @@ h2.gb-heading hr {
 	padding-top:0px;
 }
 
-
+.disclaimer {
+	font-weight:bold;
+	color:#900;
+}
 
 /** Temp Article Hover JS **/
 
