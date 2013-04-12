@@ -4,6 +4,7 @@ $config = array(
 	'Settings' => array(
 		'DOMAIN' => 'gourmetdev.com',
 		'ADMIN_EMAIL' => '',
+		'USPS_USERID' => '',
 		'UPS_MODE' => 'test',
 		'UPS_ACCESSKEY' => '',
 		'UPS_USERID' => '',

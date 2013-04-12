@@ -74,7 +74,7 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		
+
 	);
 
 ////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ class User extends AppModel {
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
-	    return true;
+		return true;
 	}
 
 ////////////////////////////////////////////////////////////
@@ -141,8 +141,9 @@ class User extends AppModel {
 				'User.name' => 'ASC'
 			),
 		));
-
 		return $menuvendors;
 	}
+
+////////////////////////////////////////////////////////////
 
 }
