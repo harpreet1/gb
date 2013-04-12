@@ -53,7 +53,7 @@ class UspsComponent extends Component {
 
 		$request = 'API=RateV4&XML=' . urlencode($xml);
 
-		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . $request;
+		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?' . $request;
 
 		debug($url);
 
