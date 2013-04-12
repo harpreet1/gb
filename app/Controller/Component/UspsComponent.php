@@ -4,27 +4,7 @@ class UspsComponent extends Component {
 ////////////////////////////////////////////////////////////
 
 	public $defaults = array(
-		'ShipperZip' => '94901',
-		'ShipperCountry' => 'US',
-		'ShipFromZip' => '94901',
-		'ShipFromCountry' => 'US',
-		'ShipToZip' => '',
-		'ShipToCountry' => 'US',
 
-		'ShipperNumber' => '01',
-		'PickupType' => '01',
-		'PackagingType' => '02',
-
-		'DimensionsUnit' => 'IN',
-
-		'DimensionsLength' => '8',
-		'DimensionsHeight' => '8',
-		'DimensionsWidth' => '8',
-
-		'WeightUnit' => 'LBS',
-		'Weight' => '1',
-
-		'Service' => '03'
 	);
 
 ////////////////////////////////////////////////////////////
@@ -49,25 +29,26 @@ class UspsComponent extends Component {
 
 		$xml = $this->buildRequest($data);
 
-		print_r($xml);
-		die;
+		debug($xml);
 
 		$request = 'API=RateV4&XML=' . urlencode($xml);
 
-		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . $request;
+		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?' . $request;
+
+		debug($url);
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 		$res = $httpSocket->get($url);
 
-		// debug($res);
+		debug($res);
 
 		App::uses('Xml', 'Utility');
 		$response = Xml::toArray(Xml::build($res));
 		$formattedResponse = $this->formatResponse($response);
 
-		// debug($formattedResponse);
-		// die('111');
+		debug($formattedResponse);
+		die('under contstruction');
 
 		if (!empty($formattedResponse)) {
 			return $formattedResponse;
@@ -94,10 +75,10 @@ class UspsComponent extends Component {
 		$xml .=	'		<Pounds>' . $pounds . '</Pounds>';
 		$xml .=	'		<Ounces>' . $ounces . '</Ounces>';
 		$xml .=	'		<Container>REGULAR</Container>';
-		$xml .=	'		<Size>1</Size>';
-		$xml .= '		<Width>1</Width>';
-		$xml .= '		<Length>1</Length>';
-		$xml .= '		<Height>1</Height>';
+		$xml .=	'		<Size>5</Size>';
+		$xml .= '		<Width>5</Width>';
+		$xml .= '		<Length>5</Length>';
+		$xml .= '		<Height>5</Height>';
 		$xml .= '		<Girth>' . (round(((float)1 + (float)1 * 2 + 1 * 2), 1)) . '</Girth>';
 		$xml .=	'		<Machinable>false</Machinable>';
 		$xml .=	'	</Package>';
