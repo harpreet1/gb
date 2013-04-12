@@ -13,7 +13,7 @@ class ProductsController extends AppController {
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
-		$yesterday = date("Y-m-d H:i:s", strtotime("-1 day"));
+		$yesterday = date('Y-m-d H:i:s', strtotime('-1 day'));
 
 		// print_r($yesterday);
 		// die;
@@ -162,7 +162,7 @@ class ProductsController extends AppController {
 			'conditions' => $conditions
 		);
 		$products = $this->paginate('Product');
-		
+
 		$displaygroups = $this->Product->displaygroups();
 
 		$this->set(compact('products','displaygroups'));
@@ -201,7 +201,7 @@ class ProductsController extends AppController {
 				),
 			));
 
-		} else{
+		} else {
 			$user = array();
 			$usercategories = null;
 		}
@@ -844,7 +844,7 @@ class ProductsController extends AppController {
 				'User.active' => 'DESC',
 				'User.name' => 'ASC',
 				'Product.displaygroup' => 'DESC',
-			), 
+			),
 			'group' => array(
 				'Product.user_id',
 			),
@@ -876,7 +876,7 @@ class ProductsController extends AppController {
 
 		$countries = $this->Product->countries();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands','countries','displaygroups'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'ustraditions', 'brands', 'countries', 'displaygroups'));
 
 	}
 
@@ -919,8 +919,6 @@ class ProductsController extends AppController {
 			)
 		));
 
-
-		
 		$this->set(compact('product'));
 
 	}
@@ -989,7 +987,6 @@ class ProductsController extends AppController {
 				'Tradition.name' => 'ASC'
 			)
 		));
-		
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
@@ -1083,7 +1080,7 @@ class ProductsController extends AppController {
 
 		$subcategories = $this->Product->Subcategory->findChain();
 
-		$subsubcategories = $this->Product->Subsubcategory->findChain();		
+		$subsubcategories = $this->Product->Subsubcategory->findChain();
 
 		$traditions = ClassRegistry::init('Tradition')->find('list', array(
 			'recursive' => -1,
@@ -1099,13 +1096,13 @@ class ProductsController extends AppController {
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
 
 		$auxcategories = $this->Product->auxcategories();
-		
+
 		//$aux_2_categories = $this->Product->aux_2_categories();
-		
+
 		//$aux_2_categories = $this->Product->auxcategories();
-		
+
 		//$aux_3_categories = $this->Product->auxcategories();
-		
+
 		$displaygroups = $this->Product->displaygroups();
 
 		$brands = $this->Product->Brand->findList();
@@ -1114,8 +1111,8 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups','auxcategories'));
-		
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups', 'auxcategories'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -1137,7 +1134,3 @@ class ProductsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 }
-
-
-
-
