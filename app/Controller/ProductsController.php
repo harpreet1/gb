@@ -1083,26 +1083,7 @@ class ProductsController extends AppController {
 
 		$subcategories = $this->Product->Subcategory->findChain();
 
-		$subsubcategories = $this->Product->Subsubcategory->findChain();
-		
-		$aux_categories_1 = $this->Product->Category->find('list', array(
-			'fields' => array(
-				'Category.id',
-				'Category.name',
-			),
-			
-			'order' => array(
-				'Category.name' => 'ASC'
-			),
-		));
-		
-		
-		
-		
-		$aux_categories_2 = $this->Product->Category->findList();
-		
-		$aux_categories_3 = $this->Product->Category->findList();
-
+		$subsubcategories = $this->Product->Subsubcategory->findChain();		
 
 		$traditions = ClassRegistry::init('Tradition')->find('list', array(
 			'recursive' => -1,
@@ -1117,7 +1098,13 @@ class ProductsController extends AppController {
 
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
 
-		$ustraditions = $this->Product->Ustradition->findList();
+		$auxcategories = $this->Product->auxcategories();
+		
+		//$aux_2_categories = $this->Product->aux_2_categories();
+		
+		//$aux_2_categories = $this->Product->auxcategories();
+		
+		//$aux_3_categories = $this->Product->auxcategories();
 		
 		$displaygroups = $this->Product->displaygroups();
 
@@ -1127,7 +1114,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups','aux_categories_1','aux_categories_1','aux_categories_1'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions','brands', 'countries', 'creations', 'displaygroups','auxcategories'));
 		
 	}
 
