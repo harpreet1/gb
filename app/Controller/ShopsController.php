@@ -131,7 +131,7 @@ class ShopsController extends AppController {
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 				$order['shipping'] = $shippingtotal;
-				$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
+				$order['total'] = sprintf('%.2f', $shop['Order']['subtotal'] + $shippingtotal);
 
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
 
@@ -231,7 +231,7 @@ class ShopsController extends AppController {
 			$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 			$order['shipping'] = $shippingtotal;
-			$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
+			$order['total'] = sprintf('%.2f', $shop['Order']['subtotal'] + $shippingtotal);
 
 			$this->Session->write('Shop.Order', $order + $shop['Order']);
 
