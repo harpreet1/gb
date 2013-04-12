@@ -11,18 +11,16 @@
 				<div class="span4">
                 
                 	<ul>
-                    	<li>ABOUT</li>
-                    	<li>two</li>
+                    	<li><a href="">ABOUT</a></li>
+                    	<li><a href="">FAQ</a></li>
                     	<li>three</li>
-                    	<li>four</li>
-                    	<li>five</li>
                     </ul>
                 
 				</div>
 				
 				<div class="span4">
                 	<ul>
-                    	<li>one</li>
+                    	<li><a href="">SHIPPING</a></li>
                     	<li>two</li>
                     	<li>three</li>
                     	<li>four</li>
@@ -32,11 +30,9 @@
 				
 				<div class="span4">
                 	<ul>
-                    	<li>one</li>
+                    	<li><a href="mailto:support@thegourmetbasket.net">CONTACT</a></li>
                     	<li>two</li>
                     	<li>three</li>
-                    	<li>four</li>
-                    	<li>five</li>
                     </ul>
 				</div>
 				
