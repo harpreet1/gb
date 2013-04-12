@@ -102,8 +102,8 @@
             <li class="mzr-drop"> <a href="#" >Learn More<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns">
                 	<div class="wide">
-                    <span class="special"><a href="/articles">THE LATEST</a></span><br />
-                    <span class="special">MAGAZINE SECTIONS:</span><br />
+                    <p class="special"><a href="/articles">THE LATEST</a></p>
+                    <span class="special nolink">MAGAZINE SECTIONS:</span>
                     <?php foreach($menublocks as $menublock) : ?>
                     <?php /*?><p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p><?php */?>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">

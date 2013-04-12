@@ -158,7 +158,7 @@
 
 
 	<div class="container content">
-        
+       
         <div class="visible-desktop">
             <div class="left-sun"></div>
             <div class="right-sun"></div>
@@ -166,16 +166,23 @@
         
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
-
+        
+ 		
 	</div>
     
-    <div class="row">
-    	<div class="span12">
+		<?php echo $this->element('footer'); ?>
+    	<div class="row">yrthrthf
+        
 
 		&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
 		
         </div>
 	</div>
+    
+    
+    
+    
+    
 
 </div><!-- end outer wrapper -->
 
