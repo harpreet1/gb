@@ -49,25 +49,26 @@ class UspsComponent extends Component {
 
 		$xml = $this->buildRequest($data);
 
-		print_r($xml);
-		die;
+		debug($xml);
 
 		$request = 'API=RateV4&XML=' . urlencode($xml);
 
 		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . $request;
 
+		debug($url);
+
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 		$res = $httpSocket->get($url);
 
-		// debug($res);
+		debug($res);
 
 		App::uses('Xml', 'Utility');
 		$response = Xml::toArray(Xml::build($res));
 		$formattedResponse = $this->formatResponse($response);
 
-		// debug($formattedResponse);
-		// die('111');
+		debug($formattedResponse);
+		die('under contstruction');
 
 		if (!empty($formattedResponse)) {
 			return $formattedResponse;
