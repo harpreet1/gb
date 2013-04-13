@@ -68,8 +68,6 @@ class UspsComponent extends Component {
 		$ounces = round(16 * ($weight - $pounds), 2); // max 5 digits
 
 		$xml  = '<Verify&XML USERID="'.Configure::read('Settings.USPS_USERID').'">';
-
-		print_r(Settings.USPS_USERID);
 		$xml .= '	<Package ID="1">';
 		$xml .=	'		<Service>ALL</Service>';
 		$xml .=	'		<ZipOrigination>' . substr($this->defaults['ShipFromZip'], 0, 5) . '</ZipOrigination>';
