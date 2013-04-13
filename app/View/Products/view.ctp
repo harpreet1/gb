@@ -18,7 +18,7 @@
 
 					<a class="gb-nav" href="/">All Our Products</a>
 
-					<p class="gb-nav"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
+					<p class="gb-nav small"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
 				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
                 
@@ -449,7 +449,7 @@
 			<?php endif; ?>
 
 			<br />
-
+<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" />
 
 			<br />
 			<br />

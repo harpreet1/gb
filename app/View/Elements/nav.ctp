@@ -9,7 +9,7 @@
             <!-- 4 Columns Mega Dropdown --> 
             <!-- Portfolio -->
             <li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Food Categories<b class="caret"></b></a>
-                <div class="mzr-content drop-three-columns">
+                <div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 						<?php foreach($menucategories as $menucategory) : ?>
 						<p><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></p>
@@ -20,7 +20,7 @@
             </li>
             
             <li class="mzr-drop"> <a href="#" >Vendor Shops<b class="caret"></b></a>
-                <div class="mzr-content drop-three-columns">
+                <div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
                     <?php foreach($menuvendors as $menuvendor) : ?>
                     <p><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></p>
@@ -32,7 +32,7 @@
 
             <li class="mzr-drop">
             	<a href="#">US Traditions<b class="caret"></b></a>
-                <div class="mzr-content drop-three-columns">
+                <div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
                     <?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
                     <!--<li><?php //echo $this->Html->link($menu_ustradition['Ustradition']['name'], array('controller' => 'ustraditions', 'action' => 'view', $menu_ustradition['Ustradition']['slug'])); ?></li>-->
@@ -61,7 +61,7 @@
             
             
             <li class="mzr-drop"> <a href="#">Int'l Food Traditions<b class="caret"></b></a>
-            	<div class="mzr-content drop-three-columns">
+            	<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/northern_europe">British Isles &amp; Ireland</a></p>
@@ -90,7 +90,7 @@
             
             
             <li class="mzr-drop"> <a href="/recipes">Recipes<b class="caret"></b></a>
-				<div class="mzr-content drop-two-columns">
+				<div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
 						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">All Gourmet Basket Recipes</a></p>
             		</div>
@@ -100,7 +100,7 @@
             <!-- For overlay Articles overlay -->
             
             <li class="mzr-drop"> <a href="#" >Learn More<b class="caret"></b></a>
-                <div class="mzr-content drop-two-columns">
+                <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
                     <span class="special nolink">MAGAZINE SECTIONS:</span>
