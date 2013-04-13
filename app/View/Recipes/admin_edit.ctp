@@ -40,8 +40,8 @@
 		<?php echo $this->Form->input('slug'); ?>
 		<?php echo $this->Form->input('attribution',array('class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('ingredients', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('preparation', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('ingredients', array('rows' => 30, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('preparation', array('rows' => 30, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('tags'); ?>
 		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
