@@ -99,7 +99,7 @@
             
             <!-- For overlay Articles overlay -->
             
-            <li class="mzr-drop"> <a href="#" >Learn More<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="#" >The Magazine<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
