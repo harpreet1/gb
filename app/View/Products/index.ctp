@@ -385,7 +385,7 @@
 
 			<?php echo $this->element('pagination-counter'); ?>
 
-			<?php echo $this->element('pagination'); ?>
+			<div class="pagination"><?php echo $this->element('pagination'); ?></div>
 
 				</div>
 

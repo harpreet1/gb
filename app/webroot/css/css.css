@@ -396,7 +396,14 @@ h2.product-name {
 	text-decoration: none;
 }
 .product-label {
-	font-weight: bold;
+	font-weight: 600;
+}
+
+.minimum {
+	font-style:italic;
+	font-size:11px;
+	color:#C00;
+	font-weight: 600;
 }
 div.product-name, div.product-name p, div.product-name a {
 	line-height: 14px;
@@ -640,7 +647,9 @@ div.navigation div.top {
 div.navigation div.bottom {
 	margin-top: 12px;
 }
-/*
+
+
+
 div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
 	display: block;
 	float: left;
@@ -661,7 +670,7 @@ div.pagination span.current {
 div.pagination span.ellipsis {
 	border: none;
 	padding: 5px 0 3px 2px;
-}*/
+}
 
 
 /** Pantry ( Categories) **/

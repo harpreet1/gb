@@ -153,7 +153,7 @@ class ProductsController extends AppController {
 				'Product.displaygroup',
 				'User.slug'
 			),
-			'limit' => 40,
+			'limit' => 20,
 			'order' => array(
 				//'Product.displaygroup' => 'ASC',
 				'Product.name' => 'ASC'
