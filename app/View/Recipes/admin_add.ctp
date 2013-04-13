@@ -56,8 +56,8 @@
 	<div class="span6">
 	
 		<?php
-		echo $this->Form->input('ingredients', array('rows' => 15, 'class' => 'input-gb-large'));
-		echo $this->Form->input('preparation', array('rows' => 15, 'class' => 'input-gb-large')); ?>
+		echo $this->Form->input('ingredients', array('rows' => 30, 'class' => 'input-gb-large'));
+		echo $this->Form->input('preparation', array('rows' => 30, 'class' => 'input-gb-large')); ?>
 	</div>
 </div>
 

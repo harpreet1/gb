@@ -38,25 +38,10 @@
 </table>
 
 <br />
-<br />
 
-<?php echo $this->Html->image('articles/image_1/' . $article['Article']['image_1']); ?>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('articles/image_2/' . $article['Article']['image_2']); ?>
-
-<br />
-<br />
-
-<?php echo $this->Html->image('articles/image_3/' . $article['Article']['image_3']); ?>
-
-<br />
-<br />
 
 <span class="label label-warning">
- &nbsp; Image : no watermark, square image size </span>
+ &nbsp; Image : no watermark </span>
 
 <br />
 <br />
@@ -78,6 +63,9 @@
 				'image_1' => 'image 1',
 				'image_2' => 'image 2',
 				'image_3' => 'image 3',
+				'image_4' => 'image 4',
+				'image_5' => 'image 5',
+				'image_6' => 'image 6',
 			))); ?>
 
 			</td>
@@ -93,15 +81,68 @@
 <br />
 <br />
 
+<?php if(!empty($article['Article']['image_1'])) : ?>
+	<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+    
+<?php endif; ?>
 
-<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
 <br />
-<a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<br />
+
+
+<?php if(!empty($article['Article']['image_2'])) : ?>
+	<?php echo $this->Html->image('articles/image_2/'. $article['Article']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_2']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_2']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+    
+<?php endif; ?>
 
 <br />
 <br />
 
+<?php if(!empty($article['Article']['image_3'])) : ?>
+	<?php echo $this->Html->image('articles/image_3/'. $article['Article']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_3']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_3']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+    
+<?php endif; ?>
 
+<br />
+<br />
+
+<?php if(!empty($article['Article']['image_4'])) : ?>
+	<?php echo $this->Html->image('articles/image_4/'. $article['Article']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+    
+<?php endif; ?>
+
+<br />
+<br />
+
+<?php if(!empty($article['Article']['image_5'])) : ?>
+	<?php echo $this->Html->image('articles/image_5/'. $article['Article']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_5']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_5']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+    
+<?php endif; ?>
+
+<?php if(!empty($article['Article']['image_6'])) : ?>
+	<?php echo $this->Html->image('articles/image_6/'. $article['Article']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
+    <br />
+    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+ 
+<br />
+<br />
+   
+<?php endif; ?>
+
+
+
+<br />
+<br />
 
 
 
