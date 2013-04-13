@@ -16,7 +16,7 @@
 
 <!------ CSS ------>   
 
-<?php /*?><style>  
+<style>  
 
 .btn-gb {
 	<?php echo $user['User']['awning_css']; ?>
@@ -27,10 +27,10 @@
 }
 
 </style>    
-<?php */?>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','less-1.3.3.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
 
 <?php //echo $this->Html->css('bootstrap.less?','stylesheet/less') ?>
 
@@ -96,6 +96,39 @@
 
 	</script>    
 
+    <script type="text/javascript">    
+    $(function(){
+    	// BUTTONS
+    	$('.fg-button').hover(
+    		function(){ $(this).removeClass('ui-state-default').addClass('ui-state-focus'); },
+    		function(){ $(this).removeClass('ui-state-focus').addClass('ui-state-default'); }
+    	);
+    	
+    	// MENUS    	
+		$('#flat').menu({ 
+			content: $('#flat').next().html(), // grab content from this page
+			showSpeed: 400 
+		});
+		
+		$('#hierarchy').menu({
+			content: $('#hierarchy').next().html(),
+			crumbDefaultText: ' '
+		});
+		
+		$('#hierarchybreadcrumb').menu({
+			content: $('#hierarchybreadcrumb').next().html(),
+			backLink: false
+		});
+		
+		// or from an external source
+		$.get('menuContent.html', function(data){ // grab content from another page
+			$('#flyout').menu({ content: data, flyOut: true });
+		});
+    });
+    </script>
+
+
+
 </head>
 <body>
 
@@ -125,7 +158,7 @@
 
 
 	<div class="container content">
-        
+       
         <div class="visible-desktop">
             <div class="left-sun"></div>
             <div class="right-sun"></div>
@@ -133,16 +166,18 @@
         
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
-
+        
+ 		
 	</div>
     
-    <div class="row">
-    	<div class="span12">
-
-		&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
-		
-        </div>
+		<?php echo $this->element('footer'); ?>
+    	
 	</div>
+    
+    
+    
+    
+    
 
 </div><!-- end outer wrapper -->
 

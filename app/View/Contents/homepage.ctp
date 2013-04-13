@@ -1,6 +1,6 @@
 <div id="upper">
     <div class="marquee">
-        <span>+  INTERNATIONAL FOODS  +</span>
+        <span><a href="">+  INTERNATIONAL FOODS  +</a></span>
         <span>+  REGIONAL & DOMESTIC FOODS  +</span>
         <span>+  CHEF'S TIPS  +</span>
         <span>+  RECIPES  +</span>

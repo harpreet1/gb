@@ -34,6 +34,21 @@
 <?php if(!empty($article['Article']['image_3'])) : ?>
 	<?php echo $this->Html->image('articles/image_3/' .$article['Article']['image_3']); ?>
 <?php endif ; ?>
+<br />
+<br />
+<?php if(!empty($article['Article']['image_4'])) : ?>
+	<?php echo $this->Html->image('articles/image_4/' .$article['Article']['image_4']); ?>
+<?php endif ; ?>
+<br />
+<br />
+<?php if(!empty($article['Article']['image_5'])) : ?>
+	<?php echo $this->Html->image('articles/image_5/' .$article['Article']['image_5']); ?>
+<?php endif ; ?>
+<br />
+<br />
+<?php if(!empty($article['Article']['image_6'])) : ?>
+	<?php echo $this->Html->image('articles/image_6/' .$article['Article']['image_6']); ?>
+<?php endif ; ?>
 
 </div>
 </div>

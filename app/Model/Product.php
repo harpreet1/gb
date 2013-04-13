@@ -168,6 +168,61 @@ class Product extends AppModel {
 		return $displaygroups;
 	}
 	
-/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+	public function auxcategories() {
+		
+		$auxcategories = array(
+			'Accessories' => 'Accessories',
+			'Appetizers' => 'Appetizers',
+			'Bakery' => 'Bakery',
+			'Beverages' => 'Beverages',
+			'Books' => 'Books',
+			'Chocolates' => 'Chocolates',
+			'Coffee' => 'Coffee',
+			'Condiments' => 'Condiments',
+			'Confections' => 'Confections',
+			'Dairy' => 'Dairy',
+			'Desserts' => 'Desserts',
+			'Fish & Seafood' => 'Fish & Seafood',
+			'Fruits' => 'Fruits',
+			'Grains & Cereals' => 'Grains & Cereals',
+			'Herbs and Spices' => 'Herbs and Spices',
+			'Jams & Syrups' => 'Jams & Syrups',
+			'Legumes & Beans' => 'Legumes & Beans',
+			'Lifestyle Products' => 'Lifestyle Products',
+			'Meats & Poultry' => 'Meats & Poultry',
+			'Nuts & Seeds' => 'Nuts & Seeds',
+			'Oils & Vinegars' => 'Oils & Vinegars',
+			'Pasta & Noodles' => 'Pasta & Noodles',
+			'Rice' => 'Rice',
+			'Sauces & Marinades' => 'Sauces & Marinades',
+			'Snacks' => 'Snacks',
+			'Soups & Prepared Foods' => 'Soups & Prepared Foods',
+			'Teas' => 'Teas',
+			'Vegetables & Potatoes' => 'Vegetables & Potatoes',
+		);
+		
+		
+	//	$aux_2_categories = $auxcategories;
+	//	$aux_3_categories = $auxcategories;
+		
+		return $auxcategories;
+		
+		$aux_2_categories = $auxcategories;
+	//	$aux_3_categories = $auxcategories;
+		//return $auxonecategories;
+		//return $aux_2_categories;
+		//return $aux_3_categories;
+		
+		
+		
+	}
+	
+	//$auxonecategories = $auxcategories;
+	
+	
+	
+
 
 }

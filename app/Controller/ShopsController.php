@@ -6,6 +6,7 @@ class ShopsController extends AppController {
 
 	public $components = array(
 		'Cart',
+		'Usps',
 		'Ups',
 		'Fedex',
 		'AuthorizeNet'
@@ -102,10 +103,15 @@ class ShopsController extends AppController {
 					$data['Weight'] = $user['weight'];
 
 					if($user['flat_shipping'] != 1) {
-						$result = $this->_ups($data);
-						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
-						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
-						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+
+						$shipping_companies = array('usps', 'ups', 'fedex');
+						if (in_array($user['shipping_method'], $shipping_companies)) {
+							$result = $this->$user['shipping_method']($data);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+						}
+
 					} else {
 						$result = array(
 							0 => array(
@@ -131,7 +137,7 @@ class ShopsController extends AppController {
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 				$order['shipping'] = $shippingtotal;
-				$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
+				$order['total'] = sprintf('%.2f', $shop['Order']['subtotal'] + $shippingtotal);
 
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
 
@@ -151,7 +157,20 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	protected function _ups($data) {
+	protected function usps($data) {
+		$usps = $this->Usps->getRate(array(
+			'ShipFromZip' => $data['ShipFromZip'],
+			'ShipFromCountry' => 'US',
+			'ShipToZip' => $data['ShipToZip'],
+			'ShipToCountry' => 'US',
+			'Weight' => $data['Weight'],
+		));
+		return $usps;
+	}
+
+//////////////////////////////////////////////////
+
+	protected function ups($data) {
 		$ups = $this->Ups->getRate(array(
 			'ShipFromZip' => $data['ShipFromZip'],
 			'ShipFromCountry' => 'US',
@@ -164,14 +183,13 @@ class ShopsController extends AppController {
 
 //////////////////////////////////////////////////
 
-	protected function _fedex() {
-
+	protected function fedex($data) {
 		$fedex = $this->Fedex->getRate(array(
-			'ShipFromZip' => 91367,
+			'ShipFromZip' => $data['ShipFromZip'],
 			'ShipFromCountry' => 'US',
-			'ShipToZip' => 91367,
+			'ShipToZip' => $data['ShipToZip'],
 			'ShipToCountry' => 'US',
-			'Weight' => 1,
+			'Weight' => $data['Weight'],
 		));
 		return $fedex;
 	}
@@ -231,7 +249,7 @@ class ShopsController extends AppController {
 			$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 			$order['shipping'] = $shippingtotal;
-			$order['total'] = $shop['Order']['subtotal'] + $shippingtotal;
+			$order['total'] = sprintf('%.2f', $shop['Order']['subtotal'] + $shippingtotal);
 
 			$this->Session->write('Shop.Order', $order + $shop['Order']);
 

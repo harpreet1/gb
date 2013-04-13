@@ -102,10 +102,9 @@ a {
 	position:relative;
 	}
 
-#welcome {
-	position:absolute;
-	top:0px;
-	left:256px;
+.welcome-link {
+	margin:auto;
+	width:76px;
 }
  
 #account {
@@ -236,6 +235,11 @@ fgb
 
 .marquee span {
 	padding-right:400px;
+}
+
+.marquee span a{
+	color:#fff;
+	text-decoration:none;
 }
 
 .ticker-wrap {
@@ -478,7 +482,8 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 .issue {
 	font-size:18px;
 	color:#fff;
-	text-align: right;
+	text-align: center;
+	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1); 
 }
 
 .gb-heading.welcome {
@@ -508,4 +513,40 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 
 .center {
 	text-align:center;
+}
+
+.popover-content {
+	font-weight: normal;
+	font-size: 13px;
+	padding:20px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#BFDAD2)); /* Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, #ffffff, #BFDAD2); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image:    -moz-linear-gradient(top, #ffffff, #BFDAD2); /* Firefox 3.6-15 */
+	background-image:      -o-linear-gradient(top, #ffffff, #BFDAD2);; /* Opera 11.10-12.00 */
+	background-image:         linear-gradient(to bottom, #ffffff, #BFDAD2); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+	
+	
+}
+
+.meganizr > li > div.popover-content, .meganizr > li > ul {
+	border: #aaa6a6 5px solid;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+
+}
+
+.mzr-content p {
+	font-weight:600;
+	
+}
+.mzr-content p a {
+	color:#C00;
+}
+
+.meganizr > li > div {
+	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	
 }
