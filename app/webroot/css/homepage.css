@@ -529,17 +529,24 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 }
 
 .meganizr > li > div.popover-content, .meganizr > li > ul {
-	border: #c2c2c2 5px solid;
-/*	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
--moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
--webkit-border-radius: 3px;
-*/}
+	border: #aaa6a6 5px solid;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
 
-.mzr-content  {
-	
+}
+
+.mzr-content p {
+	font-weight:600;
 	
 }
-.mzr-content  a {
+.mzr-content p a {
 	color:#C00;
+}
+
+.meganizr > li > div {
+	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+	
 }

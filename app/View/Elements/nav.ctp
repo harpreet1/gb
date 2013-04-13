@@ -104,12 +104,14 @@
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
                     <span class="special nolink">MAGAZINE SECTIONS:</span>
-                    <?php foreach($menublocks as $menublock) : ?>
-                    <?php /*?><p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p><?php */?>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
-                    <?php echo  $menublock['Block']['name'] ; ?>
-                    
-                       </a></p>
+                    <ul>
+                        
+                        <?php foreach($menublocks as $menublock) : ?>
+                        <?php /*?><p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p><?php */?>
+                        <li><p>-<a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
+                        <?php echo  $menublock['Block']['name'] ; ?>
+                        
+                           </a></p></li>
                     
                     <?php endforeach; ?>
                      </div>
