@@ -6,7 +6,7 @@
 
 <!-- Meganizr Menu Styles -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]><link href="css/meganizr-ie.css" rel="stylesheet" type="text/css"><![endif]-->
@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.marquee.min.js','jquery.pause.min.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.marquee.min.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js')); ?>
 <?php //echo $this->App->js(); ?>
 <?php //echo $this->fetch('meta'); ?>
 <?php //echo $this->fetch('css'); ?>
@@ -63,13 +63,14 @@
                 <li class="gb-account"><a href="/members/login">LOG IN</a></li>
             </ul>
             </div>
-        <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" /> 
-         <div class="issue gb-heading">April - May 2013</div>
-            <div class="title-description center">A new way to learn about, shop for, prepare and enjoy foods of all kinds.</div>
-             <div class="welcome-link"><a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a></div>
+        <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" />
+        	<a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a> 
+            <div class="title-description center">A new way to learn about, shop for, prepare and enjoy foods of all kinds.
+            <a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a> 
+            </div>
          </div>
          
-        
+         <div class="issue gb-heading">April - May 2013</div>
         
         <!-- Element to pop up -->
         
@@ -81,6 +82,13 @@
 
 <h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
 
+<ul>
+<li>Come stroll through the food markets of the world!</li>
+<li>If you feel like...</li>
+<li>Take a culinary....</li>
+
+<li>
+<ul>
 <p>Our slogan &ldquo;Become a World Class &ldquo;Foodie&rdquo; reflects our commitment to help cooks of all kinds, from Moms to chefs, novices to professionals and young to old, expand their tastes, techniques, and pantries to enjoy the delicious bounties the world has to offer. Whether it&rsquo;s an exotic spice or a sophisticated mix, we&rsquo;re here to make it easy for you to find and purchase food and food ingredients, to help you select the best items for your particular culinary needs, and to inform you how to use them through cooking tips and fine recipes.</p>
 
 <p>We are a dynamically evolving site and will continue to source new and exciting vendors, add more products, compile more recipes, write more articles, and explore more and more of the world&rsquo;s delicious foods. We are constantly on the lookout for vendors with unique, terrific and hard-to-find products. We choose products made with pure and fresh ingredients, that are unsullied by chemicals and artificial preservatives, and developed and produced by people who are guided by a desire to change our collective eating habits to promote healthy lifestyles. All this with the added benefit of being able to enjoy authentic culinary treasures from across the nation and around the world from Akron to Austria, Kentucky to Ketchikan and Tierra del Fuego to Thailand.</p>
@@ -131,8 +139,7 @@ $('.marquee').marquee({
 	//gap in pixels between the tickers
 	delayBeforeStart: 0,
 	//'left' or 'right'
-	direction: 'left',
-	pauseOnHover: true
+	direction: 'left'
 });
 
 
