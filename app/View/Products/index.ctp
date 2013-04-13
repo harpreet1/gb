@@ -51,7 +51,7 @@
 
 						<ul>
 							<?php foreach ($usercategories as $usercategory): ?>
-							<li><span class="section-subheading">
+							<li><span class="section-subheading small">
 							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?></span>
 							</li>
 							<?php endforeach; ?>

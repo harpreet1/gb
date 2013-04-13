@@ -237,6 +237,11 @@ fgb
 	padding-right:400px;
 }
 
+.marquee span a{
+	color:#fff;
+	text-decoration:none;
+}
+
 .ticker-wrap {
 	height: 80px;;
 	position: absolute;
@@ -508,4 +513,30 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 
 .center {
 	text-align:center;
+}
+
+.popover-content {
+	font-weight: normal;
+	font-size: 13px;
+	padding:20px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#BFDAD2)); /* Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, #ffffff, #BFDAD2); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image:    -moz-linear-gradient(top, #ffffff, #BFDAD2); /* Firefox 3.6-15 */
+	background-image:      -o-linear-gradient(top, #ffffff, #BFDAD2);; /* Opera 11.10-12.00 */
+	background-image:         linear-gradient(to bottom, #ffffff, #BFDAD2); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+	
+	
+}
+
+.meganizr > li > div.popover-content, .meganizr > li > ul {
+	border: #3a3a3a 5px solid;
+	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+-webkit-border-radius: 3px;
+}
+
+.mzr-content  {
+	font-family: 'Oregano', cursive;
+	font-size:17px;
 }
