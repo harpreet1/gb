@@ -672,6 +672,10 @@ div.pagination span.ellipsis {
 	padding: 5px 0 3px 2px;
 }
 
+div.pagination .disabled {
+	display:none;
+}
+
 
 /** Pantry ( Categories) **/
 
