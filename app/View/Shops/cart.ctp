@@ -63,9 +63,9 @@ Shopping Cart is empty
 
 		<div class="row">
 			<div class="span2">Name</div>
-			<div class="span2">Email</div>
-			<div class="span1">State</div>
-			<div class="span1">Zip</div>
+			<div class="span2" style="width:180px;">Email</div>
+			<div class="span1" style="width:30px;">State</div>
+			<div class="span1" style="width:40px;">Zip</div>
 			<div class="span1">Quantity</div>
 			<div class="span1">Weight</div>
 			<div class="span1">Price</div>
@@ -80,9 +80,9 @@ Shopping Cart is empty
 
 		<div class="row">
 			<div class="span2"><?php echo $user['name']; ?></div>
-			<div class="span2"><?php echo $user['email']; ?></div>
-			<div class="span1"><?php echo $user['state']; ?></div>
-			<div class="span1"><?php echo $user['zip']; ?></div>
+			<div class="span2"style="width:180px;"><?php echo $user['email']; ?></div>
+			<div class="span1"style="width:30px;"><?php echo $user['state']; ?></div>
+			<div class="span1"style="width:40px;"><?php echo $user['zip']; ?></div>
 			<div class="span1"><?php echo $user['quantity']; ?></div>
 			<div class="span1"><?php echo $user['weight']; ?></div>
 			<div class="span1">$<?php echo $user['subtotal']; ?></div>
@@ -96,7 +96,7 @@ Shopping Cart is empty
 		</div>
 
 		<div class="row">
-			<div class="span6">Totals: </div>
+			<div class="span6"style="width:450px;">Totals: </div>
 			<div class="span1"><?php echo $shop['Order']['quantity']; ?></div>
 			<div class="span1"><?php echo $shop['Order']['weight']; ?></div>
 			<div class="span1">$<?php echo $shop['Order']['subtotal']; ?></div>
