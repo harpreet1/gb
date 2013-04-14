@@ -383,12 +383,10 @@
 			<div class="row">
 				<div class="span12">
 
-			<?php echo $this->element('pagination-counter'); ?>
-
-			<?php echo $this->element('pagination'); ?>
+					<?php echo $this->element('pagination-counter'); ?>
+					<?php echo $this->element('pagination'); ?>
 
 				</div>
-
 			</div>
 
 
