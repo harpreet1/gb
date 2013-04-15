@@ -70,9 +70,24 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		$this->defaults = array_merge((array)$this->defaults, (array)$options);
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function getRate($data = null) {
+
+		$results[0]['ServiceCode'] = 1;
+		$results[0]['ServiceName'] = 'FEDEX 1';
+		$results[0]['TotalCharges'] = 33;
+
+		$results[1]['ServiceCode'] = 2;
+		$results[1]['ServiceName'] = 'FEDEX 2';
+		$results[1]['TotalCharges'] = 44;
+
+		return $results;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function getRate2($data = null) {
 		if ($data['Weight'] < .1) {
 			$data['Weight'] = .1;
 		}
