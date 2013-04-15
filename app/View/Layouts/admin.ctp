@@ -124,6 +124,14 @@
 							<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>
+                    <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><?php echo $this->Html->link('Members', array('controller' => 'members', 'action' => 'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Add Members', array('controller' => 'members', 'action' => 'add', 'admin' => true)); ?></li>
+						</ul>
+					</li>
+
 
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Visitors<b class="caret"></b></a>

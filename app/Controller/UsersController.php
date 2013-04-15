@@ -2,6 +2,7 @@
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
+
 ////////////////////////////////////////////////////////////
 
 	public function beforeFilter() {
@@ -10,7 +11,7 @@ class UsersController extends AppController {
 	}
 
 ////////////////////////////////////////////////////////////
-
+	
 	public function vendors() {
 		$users = $this->User->find('all', array(
 			'recursive' => -1,

@@ -396,7 +396,11 @@
 
 				
 				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
-                <?php echo $this->Form->input(array('class' => 'numeric span1', 'label' => 'Quantity', 'size' => 2, 'value' => 1)); ?>
+                <?php echo $this->Form->input(array('class' => 'loud')); ?>
+                
+                <?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
+                
+                
 				
 
 				<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>

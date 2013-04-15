@@ -28,32 +28,32 @@
 	</div>
 
 	<div class="span6">
-		<h2 class="gb-heading"><?php echo $recipe['Recipe']['name']; ?></h2>
+		<h2 class="gb-heading recipes-heading"><?php echo $recipe['Recipe']['name']; ?></h2>
         <hr class="recipe-divider" />
 		<? //echo $recipe['Recipe']['slug']?>
 		<p><?php echo $recipe['Recipe']['description']; ?> </p>
-		<p class="section-subheading">Ingredients</p>
+		<p class="section-subheading recipes-heading">Ingredients</p>
 		
 			<?php echo $recipe['Recipe']['ingredients']; ?>
 		
-		<p class="section-subheading">Directions</p>
+		<p class="section-subheading recipes-heading">Directions</p>
 		<p><?php echo $recipe['Recipe']['preparation']; ?></p>
 		
         
         <?php if(!empty($recipe['Recipe']['comment'])) : ?>
-			<p class="section-subheading">Comments</p>
+			<p class="section-subheading recipes-heading">Comments</p>
         	<p><?php echo $recipe['Recipe']['comment']; ?></p>
 			
         <?php endif ; ?>
         
          <?php if(!empty($recipe['Recipe']['tags'])) : ?>
-        	<p class="section-subheading">Tags</p>
+        	<p class="section-subheading recipes-heading">Tags</p>
          	<p><?php echo $recipe['Recipe']['tags']; ?></p>
         	<br />
          <?php endif ; ?>  
             
          <?php if(!empty($recipe['Recipe']['attribution'])) : ?>
-			<p class="section-subheading">Acknowledgements</p>
+			<p class="section-subheading recipes-heading">Acknowledgements</p>
 			<p><?php echo $recipe['Recipe']['attribution']; ?></p>
           <?php endif ; ?>    
             
