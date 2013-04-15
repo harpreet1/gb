@@ -1758,6 +1758,11 @@ h2.gb-heading {
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
 }
+
+h2.gb-heading.recipes-heading {
+	margin-top:0px
+}
+
 h2.gb-heading hr {
 	margin: 0px;
 }
@@ -1766,8 +1771,6 @@ h2.gb-heading hr {
 	color:#3a3a3a;
 	margin-left:40px;
 }
-
-
 
 .section-heading {
 	font-family: 'Oregano', cursive;
@@ -1787,6 +1790,13 @@ h2.gb-heading hr {
 
 .section-subheading.small {
 	font-size:17px;
+}
+
+.section-subheading.recipes-heading {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	margin-left:0px;
+	padding-left:0px;
 }
 
 .gb-nav {
