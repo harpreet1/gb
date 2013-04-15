@@ -164,9 +164,10 @@
             <div class="right-sun"></div>
         </div>
         
+        <div id="dialog-info">
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
-        
+        </div>
  		
 	</div>
     
