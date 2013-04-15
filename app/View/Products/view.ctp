@@ -9,7 +9,7 @@
                 <a href="/">
                 <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
                 </a>
-                
+
                 <div class="name"><?php echo $user['User']['name']; ?></div>
                 <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
@@ -21,12 +21,12 @@
 					<p class="gb-nav small"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
 				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
-                
+
 			<?php //endif; ?>
 
 					<br />
 				<?php endif; ?>
-                
+
 		<?php endif; ?>
 	</div>
 
@@ -133,7 +133,7 @@
 					if ($nuts) :
 						$nutrition = 'loaded';
 					endif;
-					
+
 				?>
 
 				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') || ($nutrition == 'loaded')) : ?>nav-tabs"<?php endif; ?>"id="myTab">
@@ -340,10 +340,10 @@
 			</div>
 
 			<div class="span5 product-description">
-            
-           
+
+
 				<?php if(!empty($product['Brand']['description'])) : ?>
-					
+
 					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
 				<span><img class="hand" src="/img/global/hand.png"/></span>
@@ -365,24 +365,24 @@
 				<?php if(!empty($product['Product']['ingredients'])) : ?>
 					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
                 <br />
-				
+
 				<?php endif; ?>
-                
+
                 <span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
                 <br />
-				
-				
-				
+
+
+
 				<?php if(!empty($product['Product']['country'])) : ?>
-               
+
 				Made in&nbsp;<?php echo $product['Product']['country']; ?>
-                
+
 				<?php endif; ?>
-				
-				
+
+
 				<?php if(!empty($product['Product']['stock'])) : ?>
-                
-				
+
+
 				Stock: <?php echo $product['Product']['stock']; ?>
                 <br />
 				<br />
@@ -394,30 +394,24 @@
                     <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
 				<?php endif; ?>
 
-				
 				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
-                <?php echo $this->Form->input(array('class' => 'loud')); ?>
-                
-                <?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
-                
-                
-				
 
 				<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
 					<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 					<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
+
+					Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
+
+					<br />
+
 					<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-gb', 'escape' => false));?>
 				<?php echo $this->Form->end(); ?>
 				<?php else: ?>
 					<?php echo $this->Form->button('<i class="icon-exclamation-sign icon-white"></i> Out of Stock', array('class' => 'btn btn-warning', 'escape' => false));?>
 				<?php endif; ?>
-                
-                
-                
-                
+
 				</div>
 			</div>
-
 
 	<div class="row">
 		<div class="span9">

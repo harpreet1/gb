@@ -32,7 +32,8 @@ class ShopsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$id = $this->request->data['Product']['id'];
-			$product = $this->Cart->add($id, 1);
+			$quantity = $this->request->data['Product']['quantity'];
+			$product = $this->Cart->add($id, $quantity);
 		}
 		if(!empty($product)) {
 			$this->Session->setFlash($product['Product']['name'] . ' was added to your shopping cart.', 'flash_success');
