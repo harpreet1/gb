@@ -19,6 +19,22 @@ class UspsComponent extends Component {
 
 	public function getRate($data = null) {
 
+		$results[0]['ServiceCode'] = 1;
+		$results[0]['ServiceName'] = 'USPS 1';
+		$results[0]['TotalCharges'] = 11;
+
+		$results[1]['ServiceCode'] = 2;
+		$results[1]['ServiceName'] = 'USPS 2';
+		$results[1]['TotalCharges'] = 22;
+
+		return $results;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function getRate2($data = null) {
+
+
 		if ($data['Weight'] < 0.1) {
 			$data['Weight'] = 0.1;
 		}
