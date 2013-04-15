@@ -359,6 +359,10 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	margin-right: 0px;
 	width: 150px;
 }
+
+
+
+
 .content-product {
 	position: relative;
 	float: left;
@@ -1645,6 +1649,14 @@ img.article-pic {
 div.tab-content article-tabs>div>h4.gb-heading{
 	margin-bottom: 20px;
 }
+
+.article-pic-container {
+	float:right;
+}
+
+
+
+
 
 .xtra-images {
 	margin-top:30px;

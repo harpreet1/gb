@@ -81,81 +81,123 @@
 <br />
 <br />
 
-<?php if(!empty($article['Article']['image_1'])) : ?>
-	<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_1']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+<h3>Edit and Submit Picture Details</h3>
+<?php echo $this->Form->create('Article'); ?>
+
+
+
+
+
+
+
+<div class="row">
+
+        <?php if(!empty($article['Article']['image_1'])) : ?>
+        <div class="span4">
+            <div style="height:245px">       
     
-<?php endif; ?>
+            	<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_1']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_1']; ?>&width=300" class="btn">crop 300 x 300</a>
+             </div>   
+            <?php echo $this->Form->input('pic_title_1'); ?>
+            <?php echo $this->Form->input('attrribution_1'); ?>
+            <?php echo $this->Form->input('product_link_1'); ?>
+            <?php echo $this->Form->input('recipe_link_1'); ?>
 
-<br />
-<br />
+         </div>    
+        <?php endif; ?>
+        
+       
 
+		<?php if(!empty($article['Article']['image_2'])) : ?>
+        <div class="span4">
+ 			<div style="height:245px">       
+                <?php echo $this->Html->image('articles/image_2/'. $article['Article']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_2']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_2']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+            </div>    
+            <?php echo $this->Form->input('pic_title_2'); ?>
+            <?php echo $this->Form->input('attrribution_3'); ?>
+            <?php echo $this->Form->input('product_link_2'); ?>
+            <?php echo $this->Form->input('recipe_link_2'); ?>
 
-<?php if(!empty($article['Article']['image_2'])) : ?>
-	<?php echo $this->Html->image('articles/image_2/'. $article['Article']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_2']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_2']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
-    
-<?php endif; ?>
+         </div>       
+        <?php endif; ?>
+        
+        
+		<?php if(!empty($article['Article']['image_3'])) : ?>
+        <div class="span4">  
+ 			<div style="height:245px">       
+                <?php echo $this->Html->image('articles/image_3/'. $article['Article']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_3']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_3']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+             </div>   
+            <?php echo $this->Form->input('pic_title_3'); ?>
+            <?php echo $this->Form->input('attrribution_3'); ?>
+            <?php echo $this->Form->input('product_link_3'); ?>
+            <?php echo $this->Form->input('recipe_link_3'); ?>
 
-<br />
-<br />
+          </div>               
+        <?php endif; ?>
+       
 
-<?php if(!empty($article['Article']['image_3'])) : ?>
-	<?php echo $this->Html->image('articles/image_3/'. $article['Article']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_3']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_3']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
-    
-<?php endif; ?>
+		<?php if(!empty($article['Article']['image_4'])) : ?>
+        <div class="span4">
+ 			<div style="height:245px">       
+                <?php echo $this->Html->image('articles/image_4/'. $article['Article']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+             </div>  
+            <?php echo $this->Form->input('pic_title_4'); ?>
+            <?php echo $this->Form->input('attrribution_4'); ?>
+            <?php echo $this->Form->input('product_link_4'); ?>
+            <?php echo $this->Form->input('recipe_link_4'); ?>
+                
+          </div>         
+        <?php endif; ?>
+        
+        
+		<?php if(!empty($article['Article']['image_5'])) : ?>
+        
+        <div class="span4"> 
+        	<div style="height:245px">       
+				<?php echo $this->Html->image('articles/image_5/'. $article['Article']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_5']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_5']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+                    
+                <?php echo $this->Form->input('pic_title_5'); ?>
+                <?php echo $this->Form->input('attrribution_5'); ?>
+                <?php echo $this->Form->input('product_link_5'); ?>
+                <?php echo $this->Form->input('recipe_link_5'); ?>
+			</div>
+            
+         </div>
+        <?php endif; ?>
+        
+        
+		<?php if(!empty($article['Article']['image_6'])) : ?>
+        <div class="span4">
+			<div style="height:245px">       
+				<?php echo $this->Html->image('articles/image_6/'. $article['Article']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
+                <br /><br />
+                <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
+           	</div>    
+            <?php echo $this->Form->input('pic_title_6'); ?>
+            <?php echo $this->Form->input('attrribution_6'); ?>
+            <?php echo $this->Form->input('product_link_61'); ?>
+            <?php echo $this->Form->input('recipe_link_6'); ?>
 
-<br />
-<br />
+            
+        </div>        
+        <?php endif; ?>
+        
+        
+</div>  
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
-<?php if(!empty($article['Article']['image_4'])) : ?>
-	<?php echo $this->Html->image('articles/image_4/'. $article['Article']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
-    
-<?php endif; ?>
-
-<br />
-<br />
-
-<?php if(!empty($article['Article']['image_5'])) : ?>
-	<?php echo $this->Html->image('articles/image_5/'. $article['Article']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_5']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_5']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
-    
-<?php endif; ?>
-
-<?php if(!empty($article['Article']['image_6'])) : ?>
-	<?php echo $this->Html->image('articles/image_6/'. $article['Article']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
-    <br />
-    <a href="/admin/images/crop?src_dir=products/image_1&src_file=<?php echo $article['Article']['image_4']; ?>&dst_dir=products/image_1&dst_file=<?php echo $article['Article']['image_4']; ?>&width=300&height=300" class="btn">crop 300 x 300</a>
- 
-<br />
-<br />
-   
-<?php endif; ?>
-
-
-
-<br />
-<br />
-
-
-
-
-
-
-
-
-
-
-
-
-<h3>Actions</h3>
+<h3>Other Actions</h3>
 
 <br />
 
