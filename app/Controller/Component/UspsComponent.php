@@ -31,7 +31,7 @@ class UspsComponent extends Component {
 
 		debug($xml);
 
-		$request = 'API=Verify&XML='.urlencode($xml);
+		$request = 'API=RateV4&XML='.urlencode($xml);
 
 		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?' . $request;
 		// http://production.shippingapis.com/ShippingAPITest.dll?API=Verify
@@ -67,7 +67,7 @@ class UspsComponent extends Component {
 		$pounds = floor($weight);
 		$ounces = round(16 * ($weight - $pounds), 2); // max 5 digits
 
-		$xml  = '<Verify&XML USERID="'.Configure::read('Settings.USPS_USERID').'">';
+		$xml  = '<RateV4Request USERID="'.Configure::read('Settings.USPS_USERID').'">';
 		$xml .= '	<Package ID="1">';
 		$xml .=	'		<Service>ALL</Service>';
 		$xml .=	'		<ZipOrigination>' . substr($this->defaults['ShipFromZip'], 0, 5) . '</ZipOrigination>';
@@ -82,7 +82,7 @@ class UspsComponent extends Component {
 		$xml .= '		<Girth>' . (round(((float)1 + (float)1 * 2 + 1 * 2), 1)) . '</Girth>';
 		$xml .=	'		<Machinable>false</Machinable>';
 		$xml .=	'	</Package>';
-		$xml .= '</Verify&XML>';
+		$xml .= '</RateV4Request>';
 
 		return $xml;
 	}
