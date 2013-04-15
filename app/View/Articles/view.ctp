@@ -24,8 +24,28 @@
 <?php if(!empty($article['Article']['image_1'])) : ?>
 	<?php echo $this->Html->image('articles/image_1/' .$article['Article']['image_1']); ?>
 <?php endif ; ?>
+
+<?php if(!empty($article['Article']['pic_title_1'])) : ?>
+	<?php echo $article['Article']['image_1']; ?>
+<?php endif ; ?>
+
+<?php if(!empty($article['Article']['attribution_1'])) : ?>
+	<?php echo $article['Article']['image_1']; ?>
+<?php endif ; ?>
+
+<?php if(!empty($article['Article']['product_link_1'])) : ?>
+	<?php echo $this->Html->link('articles/image_1/' .$article['Article']['image_1']); ?>
+<?php endif ; ?>
+
+<?php if(!empty($article['Article']['recipe_link_1'])) : ?>
+	<?php echo $this->Html->image('articles/image_1/' .$article['Article']['image_1']); ?>
+<?php endif ; ?>
+
+
 <br />
 <br />
+
+
 <?php if(!empty($article['Article']['image_2'])) : ?>
 	<?php echo $this->Html->image('articles/image_2/' .$article['Article']['image_2']); ?>
 <?php endif ; ?>

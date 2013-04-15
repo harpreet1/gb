@@ -63,6 +63,7 @@ class ArticlesController extends AppController {
 				'Article.prefix',
 				'Article.name',
 				'Article.slug',
+				'Article.image_1',
 				'Block.name',
 				'Block.slug'
 			),
@@ -190,6 +191,8 @@ class ArticlesController extends AppController {
 				'Article.id' => $id
 			)
 		));
+		
+		
 		$this->set(compact('article'));
 		$options = array('conditions' => array('Article.id' => $id));
 		$this->set('article', $this->Article->find('first', $options));
@@ -198,26 +201,6 @@ class ArticlesController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->Article->create();
-			if ($this->Article->save($this->request->data)) {
-				$this->Session->setFlash(__('The article has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
-			}
-		}
-		// Getting records of articles
-		$blocks = $this->Article->Block->find('list');
-
-		// Article Groups
-		$groups = $this->Article->groups();
-
-		$this->set(compact('blocks','groups'));
-	}
-
-////////////////////////////////////////////////////////////
 
 	public function admin_edit($id = null) {
 		if (!$this->Article->exists($id)) {
@@ -242,6 +225,28 @@ class ArticlesController extends AppController {
 
 		$this->set(compact('blocks','groups'));
 	}
+
+////////////////////////////////////////////////////////////
+
+	public function admin_add() {
+		if ($this->request->is('post')) {
+			$this->Article->create();
+			if ($this->Article->save($this->request->data)) {
+				$this->Session->setFlash(__('The article has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
+			}
+		}
+		// Getting records of articles
+		$blocks = $this->Article->Block->find('list');
+
+		// Article Groups
+		$groups = $this->Article->groups();
+
+		$this->set(compact('blocks','groups'));
+	}
+
 
 ////////////////////////////////////////////////////////////
 

@@ -153,3 +153,8 @@ input::-webkit-inner-spin-button {
 .horiz-label {
 	padding-top:30px;
 }
+
+/**Admin Pic **/
+.gb {
+	width:250px;
+}

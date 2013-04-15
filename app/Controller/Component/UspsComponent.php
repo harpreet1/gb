@@ -19,6 +19,22 @@ class UspsComponent extends Component {
 
 	public function getRate($data = null) {
 
+		$results[0]['ServiceCode'] = 1;
+		$results[0]['ServiceName'] = 'USPS 1';
+		$results[0]['TotalCharges'] = 11;
+
+		$results[1]['ServiceCode'] = 2;
+		$results[1]['ServiceName'] = 'USPS 2';
+		$results[1]['TotalCharges'] = 22;
+
+		return $results;
+	}
+
+////////////////////////////////////////////////////////////
+
+	public function getRate2($data = null) {
+
+
 		if ($data['Weight'] < 0.1) {
 			$data['Weight'] = 0.1;
 		}
@@ -33,21 +49,32 @@ class UspsComponent extends Component {
 
 		$request = 'API=RateV4&XML='.urlencode($xml);
 
-		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?' . $request;
+		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . $request;
 		// http://production.shippingapis.com/ShippingAPITest.dll?API=Verify
 		debug($url);
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
-		$res = $httpSocket->get($url);
+		$result = $httpSocket->get($url);
 
-		debug($res);
+		debug($result);
 
 		App::uses('Xml', 'Utility');
-		$response = Xml::toArray(Xml::build($res));
-		$formattedResponse = $this->formatResponse($response);
+		$formattedResponse = Xml::toArray(Xml::build($result['body']));
+		// $formattedResponse = $this->formatResponse($response);
+
 
 		debug($formattedResponse);
+
+		$allowed = array(0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 22, 23, 25, 27, 28);
+
+		foreach ($formattedResponse['RateV4Response']['Package']['Postage'] as $key => $value) {
+			if(in_array($value['@CLASSID'], $allowed)) {
+				debug($value);
+			}
+
+		}
+
 		die('under contstruction');
 
 		if (!empty($formattedResponse)) {
@@ -74,8 +101,8 @@ class UspsComponent extends Component {
 		$xml .=	'		<ZipDestination>' . substr($this->defaults['ShipToZip'], 0, 5) .'</ZipDestination>';
 		$xml .=	'		<Pounds>' . $pounds . '</Pounds>';
 		$xml .=	'		<Ounces>' . $ounces . '</Ounces>';
-		$xml .=	'		<Container>REGULAR</Container>';
-		$xml .=	'		<Size>5</Size>';
+		$xml .=	'		<Container>Variable</Container>';
+		$xml .=	'		<Size>Regular</Size>';
 		$xml .= '		<Width>5</Width>';
 		$xml .= '		<Length>5</Length>';
 		$xml .= '		<Height>5</Height>';
