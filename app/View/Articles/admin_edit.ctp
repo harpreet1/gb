@@ -36,106 +36,91 @@ echo $this->Form->input('block_id');
 
 <div class="row">
 
-        
+
+	<?php if($this->Form->value('Article.image_1') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-    
-            	<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] , array('class' => 'gb')); ?>
-                <br /><br />
-                
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_1'); ?>" />
              </div>   
-            <?php echo $this->Form->input('image_1'); ?>
-             <?php echo $this->Form->input('pic_title_1'); ?>
-            <?php echo $this->Form->input('attrribution_1'); ?>
+            <?php echo $this->Form->input('pic_title_1'); ?>
+            <?php echo $this->Form->input('attribution_1'); ?>
             <?php echo $this->Form->input('product_link_1'); ?>
             <?php echo $this->Form->input('recipe_link_1'); ?>
 
-         </div>    
-       
+        </div>  
+	<?php endif; ?>
+                  
         
-       
-
-		<?php if(!empty($article['Article']['image_2'])) : ?>
+	<?php if($this->Form->value('Article.image_2') !== '') : ?>
         <div class="span4">
- 			<div style="height:245px">       
-                <?php echo $this->Html->image('articles/image_2/'. $article['Article']['image_2'] , array('class' => 'gb')); ?>
-                <br /><br />
-               
-            </div>    
+            <div style="height:245px">       
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_2'); ?>" />
+             </div>   
             <?php echo $this->Form->input('pic_title_2'); ?>
-            <?php echo $this->Form->input('attrribution_3'); ?>
+            <?php echo $this->Form->input('attribution_3'); ?>
             <?php echo $this->Form->input('product_link_2'); ?>
             <?php echo $this->Form->input('recipe_link_2'); ?>
 
          </div>       
-        <?php endif; ?>
+	<?php endif; ?>
         
         
-		<?php if(!empty($article['Article']['image_3'])) : ?>
-        <div class="span4">  
- 			<div style="height:245px">       
-                <?php echo $this->Html->image('articles/image_3/'. $article['Article']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
-                <br /><br />
-                
+	<?php if($this->Form->value('Article.image_3') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_3'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_3'); ?>
-            <?php echo $this->Form->input('attrribution_3'); ?>
+            <?php echo $this->Form->input('attribution_3'); ?>
             <?php echo $this->Form->input('product_link_3'); ?>
             <?php echo $this->Form->input('recipe_link_3'); ?>
 
           </div>               
-        <?php endif; ?>
+	<?php endif; ?>
        
 
-		<?php if(!empty($article['Article']['image_4'])) : ?>
+	<?php if($this->Form->value('Article.image_4') !== '') : ?>
         <div class="span4">
- 			<div style="height:245px">       
-                <?php echo $this->Html->image('articles/image_4/'. $article['Article']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
-                <br /><br />
-               
-             </div>  
+            <div style="height:245px">       
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_4'); ?>" />
+             </div>   
             <?php echo $this->Form->input('pic_title_4'); ?>
-            <?php echo $this->Form->input('attrribution_4'); ?>
+            <?php echo $this->Form->input('attribution_4'); ?>
             <?php echo $this->Form->input('product_link_4'); ?>
             <?php echo $this->Form->input('recipe_link_4'); ?>
                 
           </div>         
-        <?php endif; ?>
+	<?php endif; ?>
         
         
-		<?php if(!empty($article['Article']['image_5'])) : ?>
-        
-        <div class="span4"> 
-        	<div style="height:245px">       
-				<?php echo $this->Html->image('articles/image_5/'. $article['Article']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
-                <br /><br />
-               
-                    
+	<?php if($this->Form->value('Article.image_5') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_5'); ?>" />
+             </div>   
                 <?php echo $this->Form->input('pic_title_5'); ?>
-                <?php echo $this->Form->input('attrribution_5'); ?>
+                <?php echo $this->Form->input('attribution_5'); ?>
                 <?php echo $this->Form->input('product_link_5'); ?>
                 <?php echo $this->Form->input('recipe_link_5'); ?>
 			</div>
             
          </div>
-        <?php endif; ?>
+	<?php endif; ?>
         
         
-		<?php if(!empty($article['Article']['image_6'])) : ?>
+	<?php if($this->Form->value('Article.image_6') !== '') : ?>
         <div class="span4">
-			<div style="height:245px">       
-				<?php echo $this->Html->image('articles/image_6/'. $article['Article']['image_6'] . '?date=' . time(), array('class' => 'gb')); ?>
-                <br /><br />
-                
-           	</div>    
+            <div style="height:245px">       
+                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_6'); ?>" />
+             </div>   
             <?php echo $this->Form->input('pic_title_6'); ?>
-            <?php echo $this->Form->input('attrribution_6'); ?>
-            <?php echo $this->Form->input('product_link_61'); ?>
+            <?php echo $this->Form->input('attribution_6'); ?>
+            <?php echo $this->Form->input('product_link_6'); ?>
             <?php echo $this->Form->input('recipe_link_6'); ?>
 
             
         </div>        
-        <?php endif; ?>
+	<?php endif; ?>
         
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>
