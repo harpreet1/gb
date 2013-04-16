@@ -206,6 +206,7 @@ class CartComponent extends Component {
 				'User.id',
 				'User.name',
 				'User.email',
+				'User.phone',
 				'User.zip',
 				'User.state',
 				'User.flat_ship_level_1_low',

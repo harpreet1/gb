@@ -17,7 +17,6 @@ class FedexComponent extends Component {
 	public function getRate($data = null) {
 
 		$xml = $this->buildRequest($data);
-
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 		$response = $httpSocket->post($this->url, $xml);
@@ -105,27 +104,27 @@ class FedexComponent extends Component {
 		$xml .= '				<ns1:PackagingType>YOUR_PACKAGING</ns1:PackagingType>';
 		$xml .= '				<ns1:Shipper>';
 		$xml .= '					<ns1:Contact>';
-		$xml .= '						<ns1:PersonName>BILL CLINTON</ns1:PersonName>';
-		$xml .= '						<ns1:CompanyName>BOSS</ns1:CompanyName>';
-		$xml .= '						<ns1:PhoneNumber>310-333-4444</ns1:PhoneNumber>';
+		$xml .= '						<ns1:PersonName>' . $this->defaults['UserName'] . '</ns1:PersonName>';
+		$xml .= '						<ns1:CompanyName>' . $this->defaults['UserCompany'] . '</ns1:CompanyName>';
+		$xml .= '						<ns1:PhoneNumber>' . $this->defaults['UserPhone'] . '</ns1:PhoneNumber>';
 		$xml .= '					</ns1:Contact>';
 		$xml .= '					<ns1:Address>';
-		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['ShipFromState'] . '</ns1:StateOrProvinceCode>';
-		$xml .= '						<ns1:PostalCode>' . $this->defaults['ShipFromZip'] . '</ns1:PostalCode>';
+		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['UserState'] . '</ns1:StateOrProvinceCode>';
+		$xml .= '						<ns1:PostalCode>' . $this->defaults['UserZipCode'] . '</ns1:PostalCode>';
 		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
 		$xml .= '					</ns1:Address>';
 		$xml .= '				</ns1:Shipper>';
 		$xml .= '				<ns1:Recipient>';
 		$xml .= '					<ns1:Contact>';
-		$xml .= '						<ns1:PersonName>ANDRAS KENDE</ns1:PersonName>';
-		$xml .= '						<ns1:CompanyName>KENDE</ns1:CompanyName>';
-		$xml .= '						<ns1:PhoneNumber>818-888-9999</ns1:PhoneNumber>';
+		$xml .= '						<ns1:PersonName>' . $this->defaults['CustomerFullName'] . '</ns1:PersonName>';
+		$xml .= '						<ns1:CompanyName></ns1:CompanyName>';
+		$xml .= '						<ns1:PhoneNumber>' . $this->defaults['CustomerPhone'] . '</ns1:PhoneNumber>';
 		$xml .= '					</ns1:Contact>';
 		$xml .= '					<ns1:Address>';
-		$xml .= '						<ns1:StreetLines>2454 Wilshire Blvd</ns1:StreetLines>';
-		$xml .= '						<ns1:City>SANTA MONICA</ns1:City>';
-		$xml .= '						<ns1:StateOrProvinceCode>CA</ns1:StateOrProvinceCode>';
-		$xml .= '						<ns1:PostalCode>90403</ns1:PostalCode>';
+		$xml .= '						<ns1:StreetLines>' . $this->defaults['CustomerAddress'] . '</ns1:StreetLines>';
+		$xml .= '						<ns1:City>' . $this->defaults['CustomerCity'] . '</ns1:City>';
+		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['CustomerState'] . '</ns1:StateOrProvinceCode>';
+		$xml .= '						<ns1:PostalCode>' . $this->defaults['CustomerZipCode'] . '</ns1:PostalCode>';
 		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
 		$xml .= '						<ns1:Residential>true</ns1:Residential>';
 		$xml .= '					</ns1:Address>';

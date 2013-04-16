@@ -102,13 +102,27 @@ class ShopsController extends AppController {
 					$data['ShipFromZip'] = $user['zip'];
 					$data['ShipFromState'] = $user['state'];
 					$data['ShipToZip'] = $order['shipping_zip'];
+
 					$data['Weight'] = $user['weight'];
+
+					$data['UserName'] = $user['name'];
+					$data['UserCompany'] = $user['name'];
+					$data['UserPhone'] = $user['phone'];
+
+					$data['CustomerFullName'] = $order['first_name'] . ' ' . $order['last_name'];
+					$data['CustomerPhone'] = $order['phone'];
+					$data['CustomerAddress'] = $order['shipping_address'];
+					$data['CustomerCity'] = $order['shipping_city'];
+					$data['CustomerState'] = $order['shipping_state'];
+					$data['CustomerZipCode'] = $order['shipping_zip'];
 
 					if($user['flat_shipping'] != 1) {
 
 						$shipping_companies = array('usps', 'ups', 'fedex');
 						if (in_array($user['shipping_method'], $shipping_companies)) {
+
 							$result = $this->$user['shipping_method']($data);
+
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
@@ -162,9 +176,7 @@ class ShopsController extends AppController {
 	protected function usps($data) {
 		$usps = $this->Usps->getRate(array(
 			'ShipFromZip' => $data['ShipFromZip'],
-			'ShipFromCountry' => 'US',
 			'ShipToZip' => $data['ShipToZip'],
-			'ShipToCountry' => 'US',
 			'Weight' => $data['Weight'],
 		));
 		return $usps;
@@ -175,9 +187,7 @@ class ShopsController extends AppController {
 	protected function ups($data) {
 		$ups = $this->Ups->getRate(array(
 			'ShipFromZip' => $data['ShipFromZip'],
-			'ShipFromCountry' => 'US',
 			'ShipToZip' => $data['ShipToZip'],
-			'ShipToCountry' => 'US',
 			'Weight' => $data['Weight'],
 		));
 		return $ups;
@@ -186,14 +196,22 @@ class ShopsController extends AppController {
 //////////////////////////////////////////////////
 
 	protected function fedex($data) {
-		$fedex = $this->Fedex->getRate(array(
-			'ShipFromState' => $data['ShipFromState'],
-			'ShipFromZip' => $data['ShipFromZip'],
-			'ShipFromCountry' => 'US',
-			'ShipToZip' => $data['ShipToZip'],
-			'ShipToCountry' => 'US',
+		$data1 = array(
+			'UserState' => $data['ShipFromState'],
+			'UserZipCode' => $data['ShipFromZip'],
+			'ShipToZipCode' => $data['ShipToZip'],
+			'UserName' => $data['UserName'],
+			'UserCompany' => $data['UserCompany'],
+			'UserPhone' => $data['UserPhone'],
+			'CustomerFullName' => $data['CustomerFullName'],
+			'CustomerPhone' => $data['CustomerPhone'],
+			'CustomerAddress' => $data['CustomerAddress'],
+			'CustomerCity' => $data['CustomerCity'],
+			'CustomerState' => $data['CustomerState'],
+			'CustomerZipCode' => $data['CustomerZipCode'],
 			'Weight' => $data['Weight'],
-		));
+		);
+		$fedex = $this->Fedex->getRate($data1);
 		return $fedex;
 	}
 
