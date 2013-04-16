@@ -100,6 +100,7 @@ class ShopsController extends AppController {
 				foreach($shop['Users'] as $user) {
 
 					$data['ShipFromZip'] = $user['zip'];
+					$data['ShipFromState'] = $user['state'];
 					$data['ShipToZip'] = $order['shipping_zip'];
 					$data['Weight'] = $user['weight'];
 
@@ -186,6 +187,7 @@ class ShopsController extends AppController {
 
 	protected function fedex($data) {
 		$fedex = $this->Fedex->getRate(array(
+			'ShipFromState' => $data['ShipFromState'],
 			'ShipFromZip' => $data['ShipFromZip'],
 			'ShipFromCountry' => 'US',
 			'ShipToZip' => $data['ShipToZip'],

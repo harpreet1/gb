@@ -1,70 +1,12 @@
 <?php
 class FedexComponent extends Component {
 
-//////////////////////////////////////////////////
-
-/*
-
-$_['text_title']                               = 'Fedex';
-$_['text_weight']                              = 'Weight:';
-$_['text_eta']                                 = 'Estimated Time:';
-$_['text_europe_first_international_priority'] = 'Europe First International Priority';
-$_['text_fedex_1_day_freight']                 = 'Fedex 1 Day Freight';
-$_['text_fedex_2_day']                         = 'Fedex 2 Day';
-$_['text_fedex_2_day_am']                      = 'Fedex 2 Day AM';
-$_['text_fedex_2_day_freight']                 = 'Fedex 2 Day Freight';
-$_['text_fedex_3_day_freight']                 = 'Fedex 3 Day Freight';
-$_['text_fedex_express_saver']                 = 'Fedex Express Saver';
-$_['text_fedex_first_freight']                 = 'Fedex First Fright';
-$_['text_fedex_freight_economy']               = 'Fedex Fright Economy';
-$_['text_fedex_freight_priority']              = 'Fedex Fright Priority';
-$_['text_fedex_ground']                        = 'Fedex Ground';
-$_['text_first_overnight']                     = 'First Overnight';
-$_['text_ground_home_delivery']                = 'Ground Home Delivery';
-$_['text_international_economy']               = 'International Economy';
-$_['text_international_economy_freight']       = 'International Economy Freight';
-$_['text_international_first']                 = 'International First';
-$_['text_international_priority']              = 'International Priority';
-$_['text_international_priority_freight']      = 'International Priority Freight';
-$_['text_priority_overnight']                  = 'Priority Overnight';
-$_['text_smart_post']                          = 'Smart Post';
-$_['text_standard_overnight']                  = 'Standard Overnight';
-
-*/
-
-//////////////////////////////////////////////////
-
-	public $fedex_dropoff_type = '';
-	public $fedex_packaging_type = '';
+////////////////////////////////////////////////////////////
 
 	//public $url = 'https://gateway.fedex.com/web-services/';
 	public $url = 'https://gatewaybeta.fedex.com/web-services/';
 
-	public $handlingFee  = 0;
-
-	public $defaults     = array(
-		'ShipperZip' => '94901',
-		'ShipperCountry' => 'US',
-		'ShipFromZip' => '94901',
-		'ShipFromCountry' => 'US',
-		'ShipToZip' => '76086',
-		'ShipToCountry' => 'US',
-
-		'ShipperNumber' => '01',
-		'PickupType' => '01',
-		'PackagingType' => '02',
-
-		'DimensionsUnit' => 'IN',
-
-		'DimensionsLength' => '8',
-		'DimensionsHeight' => '8',
-		'DimensionsWidth' => '8',
-
-		'WeightUnit' => 'LBS',
-		'Weight' => '1',
-
-		'Service' => '03'
-	);
+	public $defaults = array();
 
 	public function startup(Controller $controller, $options=array()) {
 		$this->defaults = array_merge((array)$this->defaults, (array)$options);
@@ -74,73 +16,55 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 
 	public function getRate($data = null) {
 
-		$results[0]['ServiceCode'] = 1;
-		$results[0]['ServiceName'] = 'FEDEX 1';
-		$results[0]['TotalCharges'] = 33;
-
-		$results[1]['ServiceCode'] = 2;
-		$results[1]['ServiceName'] = 'FEDEX 2';
-		$results[1]['TotalCharges'] = 44;
-
-		return $results;
-	}
-
-////////////////////////////////////////////////////////////
-
-	public function getRate2($data = null) {
-		if ($data['Weight'] < .1) {
-			$data['Weight'] = .1;
-		}
-
-		$res = $this->request($data);
-		if (!empty($res)) {
-			return $res;
-		}
-		return false;
-	}
-
-//////////////////////////////////////////////////
-
-	protected function request($data = null) {
-		App::uses('Xml', 'Utility');
 		$xml = $this->buildRequest($data);
-		// print_r($xml);
 
-		// die;
-
-		$ch = curl_init($this->url);
-		curl_setopt($ch, CURLOPT_HEADER, 1);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
-
-		$response = curl_exec($ch);
-
-		// debug($response);
-
-		curl_close($ch);
+		App::uses('HttpSocket', 'Network/Http');
+		$httpSocket = new HttpSocket();
+		$response = $httpSocket->post($this->url, $xml);
 
 		$dom = new DOMDocument();
-		$dom->loadXml($response);
+		$dom->loadXml($response['body']);
 
-		// $rate_reply_details = $dom->getElementsByTagName('RateReplyDetails');
+		$results = array();
+		$i = 0;
 
-		// print_r($rate_reply_details);
+		if ($dom->getElementsByTagName('HighestSeverity')->item(0)->nodeValue == 'FAILURE' || $dom->getElementsByTagName('HighestSeverity')->item(0)->nodeValue == 'ERROR') {
+			$error = $dom->getElementsByTagName('HighestSeverity')->item(0)->nodeValue;
+		} else {
+			$rate_reply_details = $dom->getElementsByTagName('RateReplyDetails');
 
-		die('end fedex');
+			foreach ($rate_reply_details as $rate_reply_detail) {
+				$code = strtolower($rate_reply_detail->getElementsByTagName('ServiceType')->item(0)->nodeValue);
+				$total_net_charge = $rate_reply_detail->getElementsByTagName('RatedShipmentDetails')->item(0)->getElementsByTagName('ShipmentRateDetail')->item(0)->getElementsByTagName('TotalNetCharge')->item(0);
+				$cost = $total_net_charge->getElementsByTagName('Amount')->item(0)->nodeValue;
 
+				$results[$i] = array(
+					'ServiceCode'	=> $code,
+					'ServiceName'	=> ucwords(str_replace('_', ' ', $code)),
+					'TotalCharges'	=> $cost,
+				);
+				$i++;
+			}
+		}
 
+		if (!empty($results)) {
+			return $results;
+		}
+		return false;
 
-
-		return $response;
 	}
 
 //////////////////////////////////////////////////
 
-	protected function buildRequest($data=array()) {
+	protected function buildRequest($data = array()) {
+
+		if ($data['Weight'] < 0.1) {
+			$data['Weight'] = 0.1;
+		}
+
+		if ($data['Weight'] > 70) {
+			$data['Weight'] = 70;
+		}
 
 		$this->defaults = array_merge((array)$this->defaults, (array)$data);
 
@@ -186,12 +110,11 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		$xml .= '						<ns1:PhoneNumber>310-333-4444</ns1:PhoneNumber>';
 		$xml .= '					</ns1:Contact>';
 		$xml .= '					<ns1:Address>';
-		$xml .= '						<ns1:StateOrProvinceCode>CA</ns1:StateOrProvinceCode>';
-		$xml .= '						<ns1:PostalCode>91367</ns1:PostalCode>';
+		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['ShipFromState'] . '</ns1:StateOrProvinceCode>';
+		$xml .= '						<ns1:PostalCode>' . $this->defaults['ShipFromZip'] . '</ns1:PostalCode>';
 		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
 		$xml .= '					</ns1:Address>';
 		$xml .= '				</ns1:Shipper>';
-
 		$xml .= '				<ns1:Recipient>';
 		$xml .= '					<ns1:Contact>';
 		$xml .= '						<ns1:PersonName>ANDRAS KENDE</ns1:PersonName>';
@@ -221,7 +144,7 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		$xml .= '					<ns1:GroupPackageCount>1</ns1:GroupPackageCount>';
 		$xml .= '					<ns1:Weight>';
 		$xml .= '						<ns1:Units>LB</ns1:Units>';
-		$xml .= '						<ns1:Value>10</ns1:Value>';
+		$xml .= '						<ns1:Value>' . number_format($this->defaults['Weight'], 2, '.', '') . '</ns1:Value>';
 		$xml .= '					</ns1:Weight>';
 		$xml .= '					<ns1:Dimensions>';
 		$xml .= '						<ns1:Length>20</ns1:Length>';
@@ -238,7 +161,6 @@ $_['text_standard_overnight']                  = 'Standard Overnight';
 		return $xml;
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 }
-
