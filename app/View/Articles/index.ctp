@@ -268,16 +268,16 @@
 
 			<?php if(!empty($article['Article']['product_link_1'])) : ?>
 				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_1'],array(
-					'class' => 'btn btn-mini', 
-					'target' => '_blank'
+					'class' => 'btn btn-mini btn-inverse', 
+					'target' => '_self'
 					)
 				); ?>
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_1'])) : ?>
 				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_1'],array(
-					'class' => 'btn btn-mini', 
-					'target' => '_blank'
+					'class' => 'btn btn-mini btn-inverse', 
+					'target' => '_self'
 					)
 				); ?><br />
 			<?php endif ; ?>
