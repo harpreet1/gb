@@ -237,6 +237,12 @@
 	<hr />
 	
 	<div class="article-body" style="float:right;">
+    
+    
+    
+    
+    
+    
 
 		<div class="article-pic-container">
 			<?php if(!empty($article['Article']['image_1'])) : ?>		
@@ -250,15 +256,22 @@
 			<?php if(!empty($article['Article']['attribution_1'])) : ?>
 				<?php echo $article['Article']['attribution_1']; ?><br />
 			<?php endif ; ?>
-
-
+            
 
 			<?php if(!empty($article['Article']['product_link_1'])) : ?>
-				<?php echo $this->Html->link('A product' .$article['Article']['product_link_1']); ?><br />
+				<?php echo $this->Html->link('A product', $article['Article']['product_link_1'],array(
+					'class' => 'btn btn-mini', 
+					'target' => '_blank'
+					)
+				); ?>
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_1'])) : ?>
-				<?php echo $this->Html->link('A recipe' .$article['Article']['recipe_link_1']); ?><br />
+				<?php echo $this->Html->link('A recipe', $article['Article']['recipe_link_1'],array(
+					'class' => 'btn btn-mini', 
+					'target' => '_blank'
+					)
+				); ?><br />
 			<?php endif ; ?>
 						
 		</div>	
