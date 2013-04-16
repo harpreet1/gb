@@ -84,7 +84,7 @@
 <h3>Edit and Submit Picture Details</h3>
 <?php echo $this->Form->create('Article'); ?>
 
-
+<?php echo $this->Form->hidden('id', array('value' => $article['Article']['id'])); ?>
 
 
 

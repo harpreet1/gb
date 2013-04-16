@@ -1638,7 +1638,7 @@ img.article-pic {
 	width: 250px;
 	border: 1px #CCC solid;
 	margin-right: 0px;
-	margin-left: 20px;
+	
 }
 
 .article-tabs {
@@ -1652,6 +1652,7 @@ div.tab-content article-tabs>div>h4.gb-heading{
 
 .article-pic-container {
 	float:right;
+	margin-left: 20px;
 }
 
 
