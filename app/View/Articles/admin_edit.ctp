@@ -54,7 +54,7 @@ echo $this->Form->input('block_id');
 	<?php if($this->Form->value('Article.image_2') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_2'); ?>" />
+                <img src="/img/articles/image_2/<?php echo $this->Form->value('Article.image_2'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_2'); ?>
             <?php echo $this->Form->input('attribution_3'); ?>
@@ -68,7 +68,7 @@ echo $this->Form->input('block_id');
 	<?php if($this->Form->value('Article.image_3') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_3'); ?>" />
+                <img src="/img/articles/image_3/<?php echo $this->Form->value('Article.image_3'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_3'); ?>
             <?php echo $this->Form->input('attribution_3'); ?>
@@ -82,7 +82,7 @@ echo $this->Form->input('block_id');
 	<?php if($this->Form->value('Article.image_4') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_4'); ?>" />
+                <img src="/img/articles/image_4/<?php echo $this->Form->value('Article.image_4'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_4'); ?>
             <?php echo $this->Form->input('attribution_4'); ?>
@@ -96,7 +96,7 @@ echo $this->Form->input('block_id');
 	<?php if($this->Form->value('Article.image_5') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_5'); ?>" />
+                <img src="/img/articles/image_5/<?php echo $this->Form->value('Article.image_5'); ?>" />
              </div>   
                 <?php echo $this->Form->input('pic_title_5'); ?>
                 <?php echo $this->Form->input('attribution_5'); ?>
@@ -111,7 +111,7 @@ echo $this->Form->input('block_id');
 	<?php if($this->Form->value('Article.image_6') !== '') : ?>
         <div class="span4">
             <div style="height:245px">       
-                <img src="/img/articles/image_1/<?php echo $this->Form->value('Article.image_6'); ?>" />
+                <img src="/img/articles/image_6/<?php echo $this->Form->value('Article.image_6'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_6'); ?>
             <?php echo $this->Form->input('attribution_6'); ?>

@@ -1633,7 +1633,7 @@ hr.recipe-divider {
 }
 img.article-pic {
 	margin-top: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	padding: 5px;
 	width: 250px;
 	border: 1px #CCC solid;
@@ -1653,6 +1653,7 @@ div.tab-content article-tabs>div>h4.gb-heading{
 .article-pic-container {
 	float:right;
 	margin-left: 20px;
+	margin-bottom: 20px;
 }
 
 
