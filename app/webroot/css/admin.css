@@ -56,6 +56,11 @@ td.art-constrain div {
 	max-height: 70px;
 }
 
+.article-img {
+	max-height: 225px;
+}
+
+
 .limit {
 	max-height:120px;
 	overflow-y:scroll;

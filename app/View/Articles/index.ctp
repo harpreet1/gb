@@ -248,17 +248,25 @@
 			<?php if(!empty($article['Article']['image_1'])) : ?>		
 				<img class="article-pic border" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /><br />
 			<?php endif ; ?>
+            
+            <?php if(!empty($article['Article']['attribution_1'])) : ?>
+            	<div class="photo-attr">
+                	<span>Photo:&nbsp;
+						<?php echo $article['Article']['attribution_1']; ?>
+                    </span>
+                </div>
+			<?php endif ; ?>
+
 
 			<?php if(!empty($article['Article']['pic_title_1'])) : ?>
-				<?php echo $article['Article']['pic_title_1']; ?>
+            	<div class="pic-title">
+					<?php echo $article['Article']['pic_title_1']; ?>
+                </div>
 			<?php endif ; ?>
 	
-			<?php if(!empty($article['Article']['attribution_1'])) : ?>&nbsp; - &nbsp;
-				<?php echo $article['Article']['attribution_1']; ?>
-			<?php endif ; ?>
             
 
-			<?php if(!empty($article['Article']['product_link_1'])) : ?><br />
+			<?php if(!empty($article['Article']['product_link_1'])) : ?>
 				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_1'],array(
 					'class' => 'btn btn-mini', 
 					'target' => '_blank'

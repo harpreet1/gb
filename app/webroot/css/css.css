@@ -1630,16 +1630,32 @@ hr.recipe-divider {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	border: 1px #CCC solid;
+
 }
 img.article-pic {
 	margin-top: 0px;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 	padding: 5px;
 	width: 250px;
 	border: 1px #CCC solid;
 	margin-right: 0px;
 	
 }
+.photo-attr {
+	font-size:9px;
+	font-style:italic;
+	height:12px;
+}
+.photo-attr span {
+	float:right;
+}
+
+.pic-title {
+	font-family:'Oregano', cursive;
+	font-size:17px;
+	margin-bottom:6px;
+}
+
 
 .article-tabs {
 	margin-bottom: 30px;
