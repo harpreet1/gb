@@ -70,9 +70,9 @@ class UspsComponent extends Component {
 
 		$weight = ($this->defaults['Weight'] < 0.1 ? 0.1 : $this->defaults['Weight']);
 		$pounds = floor($weight);
-		$ounces = round(16 * ($weight - $pounds), 2); // max 5 digits
+		$ounces = round(16 * ($weight - $pounds), 2);
 
-		$xml  = '<RateV4Request USERID="'.Configure::read('Settings.USPS_USERID').'">';
+		$xml  = '<RateV4Request USERID="' . Configure::read('Settings.USPS_USERID') . '">';
 		$xml .= '	<Package ID="1">';
 		$xml .=	'		<Service>ALL</Service>';
 		$xml .=	'		<ZipOrigination>' . substr($this->defaults['ShipFromZip'], 0, 5) . '</ZipOrigination>';
