@@ -223,7 +223,7 @@ class ArticlesController extends AppController {
 		// Article Groups
 		$groups = $this->Article->groups();
 
-		$this->set(compact('blocks','groups'));
+		$this->set(compact('article','blocks','groups'));
 	}
 
 ////////////////////////////////////////////////////////////
