@@ -223,10 +223,13 @@ span.special.nolink {
 /** Mega Menu **/
 
 .meganizr > li > div.popover-content, .meganizr > li > ul {
-	border: #aaa6a6 5px solid;
+	border: #aaa6a6 2px solid;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
+	-webkit-box-shadow: 0px 0px 7px 0px #3A3A3A;
+	box-shadow: 0px 0px 7px 0px #3A3A3A;
+	
 
 }
 
@@ -1671,7 +1674,7 @@ div.tab-content article-tabs>div>h4.gb-heading{
 
 .article-pic-container,
 .article-pics-container {
-	border: 1px #CCC solid;
+	border: 2px #CCC solid;
 	padding:10px;
 }
 
@@ -1696,37 +1699,39 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	float:right
 	}
 
-.cream-button  {
-  background-color: hsl(45, 100%, 89%) !important;
+.gray-button  {
+  background-color: hsl(0, 0%, 16%) !important;
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f1e5", endColorstr="#fff0c6");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f1e5), to(#fff0c6));
-  background-image: -moz-linear-gradient(top, #f7f1e5, #fff0c6);
-  background-image: -ms-linear-gradient(top, #f7f1e5, #fff0c6);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f1e5), color-stop(100%, #fff0c6));
-  background-image: -webkit-linear-gradient(top, #f7f1e5, #fff0c6);
-  background-image: -o-linear-gradient(top, #f7f1e5, #fff0c6);
-  background-image: linear-gradient(#f7f1e5, #fff0c6);
-  border-color: #fff0c6 #fff0c6 hsl(45, 100%, 86.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#5b5b5b), to(#282828));
+  background-image: -moz-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -ms-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b5b5b), color-stop(100%, #282828));
+  background-image: -webkit-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -o-linear-gradient(top, #5b5b5b, #282828);
+  background-image: linear-gradient(#5b5b5b, #282828);
+  border-color: #282828 #282828 hsl(0, 0%, 11%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
   -webkit-font-smoothing: antialiased;
 }
 
-.cream-button:hover  {
-  background-color: hsl(45, 100%, 89%) !important;
+}
+
+.gray-button:hover  {
+  background-color: hsl(0, 0%, 16%) !important;
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f1e5", endColorstr="#fffdf9");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fff0c6), to(#f7f1e5));
-  background-image: -moz-linear-gradient(top, #fff0c6, #f7f1e5);
-  background-image: -ms-linear-gradient(top, #fff0c6, #f7f1e5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff0c6), color-stop(100%, #f7f1e5));
-  background-image: -webkit-linear-gradient(top, #fff0c6, #f7f1e5);
-  background-image: -o-linear-gradient(top, #fff0c6, #f7f1e5);
-  background-image: linear-gradient(#fff0c6, #f7f1e5);
-  border-color: #fff0c6 #f7f1e5 hsl(45, 100%, 86.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#282828", endColorstr="#5b5b5b");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#282828), to(#5b5b5b));
+  background-image: -moz-linear-gradient(top, #282828, #5b5b5b);
+  background-image: -ms-linear-gradient(top, #282828, #5b5b5b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(100%, #5b5b5b));
+  background-image: -webkit-linear-gradient(top, #282828, #5b5b5b);
+  background-image: -o-linear-gradient(top, #282828, #5b5b5b);
+  background-image: linear-gradient(#282828, #5b5b5b);
+  border-color: #282828 #282828 hsl(0, 0%, 11%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1977,7 +1982,6 @@ h2.gb-heading hr {
 }
 .art-list {
 	background-color: white;
-	width: 280px;
 	padding: 10px;
 	border: 1px solid #E1E1E1;
 	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
@@ -1987,6 +1991,13 @@ h2.gb-heading hr {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
+.art-list p{
+	margin:0px;
+}
+
+
+
+
 
 /* Large desktop */
 @media (min-width: 1200px) {

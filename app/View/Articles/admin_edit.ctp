@@ -80,7 +80,7 @@ echo $this->Form->input('block_id');
        
 
 	<?php if($this->Form->value('Article.image_4') !== '') : ?>
-        <div class="span4">
+        <div class="span4">xxxx
             <div style="height:245px">       
                 <img class="article-img" src="/img/articles/image_4/<?php echo $this->Form->value('Article.image_4'); ?>" />
              </div>   
@@ -94,7 +94,7 @@ echo $this->Form->input('block_id');
         
         
 	<?php if($this->Form->value('Article.image_5') !== '') : ?>
-        <div class="span4">
+        <div class="span4">dfgdfgdfg
             <div style="height:245px">       
                 <img class="article-img" src="/img/articles/image_5/<?php echo $this->Form->value('Article.image_5'); ?>" />
              </div>   
@@ -122,11 +122,11 @@ echo $this->Form->input('block_id');
         </div>        
 	<?php endif; ?>
         
-<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-<?php echo $this->Form->end(); ?>
         
 </div>
 
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 
 
 
