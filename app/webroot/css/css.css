@@ -1996,7 +1996,41 @@ h2.gb-heading hr {
 }
 
 
+/** SHOPPING CART **/
 
+#shopping-cart  h1.gb-heading.cart {
+	margin-top:0px;
+	padding-top:0px;
+}
+
+#shopping-cart .bold {
+	font-weight:bold;
+}
+
+.span3.gb-ship {
+	width: 200px;
+	float:left;
+}
+
+#ship_options {
+	margin-top:20px;
+}
+
+.gb-ship label {
+	font-size:12px;
+}
+
+.shop-drive {
+	
+}
+#ccbox {
+		background: transparent url("/img/cards.png");
+		margin: 0 0 10px 0;
+		padding: 0 0 0 150px;
+		width: 0;
+		height: 23px;
+		overflow: hidden;
+	}
 
 
 /* Large desktop */

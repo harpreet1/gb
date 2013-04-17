@@ -149,3 +149,7 @@
 [16-Apr-2013 00:42:10 America/Los_Angeles] PHP Warning:  pspell_check() [<a href='function.pspell-check'>function.pspell-check</a>]: 0 is not a PSPELL result index in /home/monart5/public_html/gourmetdev/app/webroot/check.php on line 5
 [16-Apr-2013 00:42:10 America/Los_Angeles] PHP Warning:  pspell_suggest() [<a href='function.pspell-suggest'>function.pspell-suggest</a>]: 0 is not a PSPELL result index in /home/monart5/public_html/gourmetdev/app/webroot/check.php on line 6
 [16-Apr-2013 00:42:10 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/monart5/public_html/gourmetdev/app/webroot/check.php on line 7
+[16-Apr-2013 23:32:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
+[16-Apr-2013 23:32:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
+[16-Apr-2013 23:32:47 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
+[16-Apr-2013 23:32:47 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
