@@ -459,7 +459,7 @@
 
 			<?php if(!empty($article['Article']['product_link_1'])) : ?>
 				<?php echo $this->Html->link('Product', $article['Article']['product_link_1'],array(
-					'class' => 'btn btn-mini', 
+					'class' => 'btn cream-button btn-mini', 
 					'target' => '_self'
 					)
 				); ?>
@@ -467,7 +467,7 @@
 
 			<?php if(!empty($article['Article']['recipe_link_1'])) : ?>
 				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_1'],array(
-					'class' => 'btn btn-mini right',
+					'class' => 'cream-button btn-mini right',
 					'target' => '_self'
 					)
 				); ?><br />
