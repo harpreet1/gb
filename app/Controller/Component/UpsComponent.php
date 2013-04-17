@@ -9,12 +9,6 @@ class UpsComponent extends Component {
 	private $url;
 
 	public $defaults = array(
-		'ShipperZip' => '94901',
-		'ShipperCountry' => 'US',
-		'ShipFromZip' => '94901',
-		'ShipFromCountry' => 'US',
-		'ShipToZip' => '',
-		'ShipToCountry' => 'US',
 
 		'ShipperNumber' => '01',
 		'PickupType' => '01',
@@ -107,21 +101,21 @@ class UpsComponent extends Component {
 			<Shipment>
 				<Shipper>
 					<Address>
-						<PostalCode>' . $this->defaults['ShipperZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipperCountry'] . '</CountryCode>
+						<PostalCode>' . $this->defaults['UserZipCode'] . '</PostalCode>
+						<CountryCode>US</CountryCode>
 					</Address>
 					<ShipperNumber>' . $this->defaults['ShipperNumber'] . '</ShipperNumber>
 				</Shipper>
 				<ShipFrom>
 					<Address>
-						<PostalCode>' . $this->defaults['ShipFromZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipFromCountry'] . '</CountryCode>
+						<PostalCode>' . $this->defaults['UserZipCode'] . '</PostalCode>
+						<CountryCode>US</CountryCode>
 					</Address>
 				</ShipFrom>
 				<ShipTo>
 					<Address>
-						<PostalCode>' . $this->defaults['ShipToZip'] . '</PostalCode>
-						<CountryCode>' . $this->defaults['ShipToCountry'] . '</CountryCode>
+						<PostalCode>' . $this->defaults['CustomerZipCode'] . '</PostalCode>
+						<CountryCode>US</CountryCode>
 						<ResidentialAddressIndicator>1</ResidentialAddressIndicator>
 					</Address>
 				</ShipTo>

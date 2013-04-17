@@ -75,8 +75,8 @@ class UspsComponent extends Component {
 		$xml  = '<RateV4Request USERID="' . Configure::read('Settings.USPS_USERID') . '">';
 		$xml .= '	<Package ID="1">';
 		$xml .=	'		<Service>ALL</Service>';
-		$xml .=	'		<ZipOrigination>' . substr($this->defaults['ShipFromZip'], 0, 5) . '</ZipOrigination>';
-		$xml .=	'		<ZipDestination>' . substr($this->defaults['ShipToZip'], 0, 5) .'</ZipDestination>';
+		$xml .=	'		<ZipOrigination>' . substr($this->defaults['UserZipCode'], 0, 5) . '</ZipOrigination>';
+		$xml .=	'		<ZipDestination>' . substr($this->defaults['CustomerZipCode'], 0, 5) .'</ZipDestination>';
 		$xml .=	'		<Pounds>' . $pounds . '</Pounds>';
 		$xml .=	'		<Ounces>' . $ounces . '</Ounces>';
 		$xml .=	'		<Container>Variable</Container>';

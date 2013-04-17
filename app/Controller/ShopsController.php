@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 class ShopsController extends AppController {
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public $components = array(
 		'Cart',
@@ -12,14 +12,14 @@ class ShopsController extends AppController {
 		'AuthorizeNet'
 	);
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->disableCache();
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function clear() {
 		$clear = $this->Cart->clear();
@@ -27,7 +27,7 @@ class ShopsController extends AppController {
 		$this->redirect('/');
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function add() {
 		if ($this->request->is('post')) {
@@ -41,13 +41,13 @@ class ShopsController extends AppController {
 		$this->redirect($this->referer());
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function update() {
 		$this->Cart->update($this->request->data['Product']['id'], 1);
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function remove($id = null) {
 		$product = $this->Cart->remove($id);
@@ -58,7 +58,7 @@ class ShopsController extends AppController {
 	}
 
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function cartupdate() {
 		if ($this->request->is('post')) {
@@ -71,15 +71,14 @@ class ShopsController extends AppController {
 		$this->redirect(array('action' => 'cart'));
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function cart() {
 		$shop = $this->Session->read('Shop');
 		$this->set(compact('shop'));
 	}
 
-//////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////
 
 	public function address() {
 
@@ -99,15 +98,13 @@ class ShopsController extends AppController {
 				$i = 0;
 				foreach($shop['Users'] as $user) {
 
-					$data['ShipFromZip'] = $user['zip'];
-					$data['ShipFromState'] = $user['state'];
-					$data['ShipToZip'] = $order['shipping_zip'];
-
 					$data['Weight'] = $user['weight'];
 
 					$data['UserName'] = $user['name'];
 					$data['UserCompany'] = $user['name'];
 					$data['UserPhone'] = $user['phone'];
+					$data['UserState'] = $user['state'];
+					$data['UserZipCode'] = $user['zip'];
 
 					$data['CustomerFullName'] = $order['first_name'] . ' ' . $order['last_name'];
 					$data['CustomerPhone'] = $order['phone'];
@@ -121,7 +118,8 @@ class ShopsController extends AppController {
 						$shipping_companies = array('usps', 'ups', 'fedex');
 						if (in_array($user['shipping_method'], $shipping_companies)) {
 
-							$result = $this->$user['shipping_method']($data);
+							$shippingMethod = ucfirst($user['shipping_method']);
+							$result = $this->$shippingMethod->getRate($data);
 
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
@@ -171,51 +169,7 @@ class ShopsController extends AppController {
 
 	}
 
-//////////////////////////////////////////////////
-
-	protected function usps($data) {
-		$usps = $this->Usps->getRate(array(
-			'ShipFromZip' => $data['ShipFromZip'],
-			'ShipToZip' => $data['ShipToZip'],
-			'Weight' => $data['Weight'],
-		));
-		return $usps;
-	}
-
-//////////////////////////////////////////////////
-
-	protected function ups($data) {
-		$ups = $this->Ups->getRate(array(
-			'ShipFromZip' => $data['ShipFromZip'],
-			'ShipToZip' => $data['ShipToZip'],
-			'Weight' => $data['Weight'],
-		));
-		return $ups;
-	}
-
-//////////////////////////////////////////////////
-
-	protected function fedex($data) {
-		$data1 = array(
-			'UserState' => $data['ShipFromState'],
-			'UserZipCode' => $data['ShipFromZip'],
-			'ShipToZipCode' => $data['ShipToZip'],
-			'UserName' => $data['UserName'],
-			'UserCompany' => $data['UserCompany'],
-			'UserPhone' => $data['UserPhone'],
-			'CustomerFullName' => $data['CustomerFullName'],
-			'CustomerPhone' => $data['CustomerPhone'],
-			'CustomerAddress' => $data['CustomerAddress'],
-			'CustomerCity' => $data['CustomerCity'],
-			'CustomerState' => $data['CustomerState'],
-			'CustomerZipCode' => $data['CustomerZipCode'],
-			'Weight' => $data['Weight'],
-		);
-		$fedex = $this->Fedex->getRate($data1);
-		return $fedex;
-	}
-
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	// public function charge() {
 
@@ -239,7 +193,7 @@ class ShopsController extends AppController {
 
 	// }
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function review() {
 
@@ -329,7 +283,6 @@ class ShopsController extends AppController {
 				die;
 			}
 
-
 			$this->loadModel('Order');
 
 			$this->Order->set($this->request->data);
@@ -377,7 +330,7 @@ class ShopsController extends AppController {
 
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function sendemails($id) {
 
@@ -452,7 +405,7 @@ class ShopsController extends AppController {
 
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	public function success() {
 		$shop = $this->Session->read('Shop');
@@ -464,6 +417,6 @@ class ShopsController extends AppController {
 		$this->set(compact('shop'));
 	}
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 }
