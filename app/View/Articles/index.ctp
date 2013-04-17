@@ -233,7 +233,7 @@
 	
             
 			<?php if(!empty($article['Article']['product_link_2'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_2'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_2'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -241,7 +241,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_2'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_2'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_2'],array(
 					'class' => 'btn btn-mini btn-inverse right',
 					'target' => '_self'
 					)
@@ -273,7 +273,7 @@
             
 
 			<?php if(!empty($article['Article']['product_link_3'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_3'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_3'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -281,7 +281,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_3'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_3'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_3'],array(
 					'class' => 'btn btn-mini btn-inverse right',
 					'target' => '_self'
 					)
@@ -313,7 +313,7 @@
             
 
 			<?php if(!empty($article['Article']['product_link_4'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_4'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_4'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -321,7 +321,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_4'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_4'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_4'],array(
 					'class' => 'btn btn-mini btn-inverse right',
 					'target' => '_self'
 					)
@@ -352,7 +352,7 @@
             
 
 			<?php if(!empty($article['Article']['product_link_5'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_5'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_5'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -360,7 +360,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_5'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_5'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_5'],array(
 					'class' => 'btn btn-mini btn-inverse right',
 					'target' => '_self'
 					)
@@ -391,7 +391,7 @@
             
 
 			<?php if(!empty($article['Article']['product_link_6'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_6'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_6'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -399,7 +399,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_6'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_6'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_6'],array(
 					'class' => 'btn btn-mini btn-inverse right', 
 					'target' => '_self'
 					)
@@ -458,7 +458,7 @@
             
 
 			<?php if(!empty($article['Article']['product_link_1'])) : ?>
-				<?php echo $this->Html->link('Go to a product!', $article['Article']['product_link_1'],array(
+				<?php echo $this->Html->link('Product', $article['Article']['product_link_1'],array(
 					'class' => 'btn btn-mini btn-inverse', 
 					'target' => '_self'
 					)
@@ -466,7 +466,7 @@
 			<?php endif ; ?>
 
 			<?php if(!empty($article['Article']['recipe_link_1'])) : ?>
-				<?php echo $this->Html->link('Go to a recipe!', $article['Article']['recipe_link_1'],array(
+				<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_1'],array(
 					'class' => 'btn btn-mini btn-inverse right',
 					'target' => '_self'
 					)
