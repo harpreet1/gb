@@ -44,7 +44,7 @@
 	<div class="row">
 		<div class="span3 bold"><span class="bold">VENDOR</div>
 		<div class="span1 bold" style="width:40px">IMAGE</div>
-		<div class="span4 bold">ITEM</div>
+		<div class="span3 bold">ITEM</div>
 		<div class="span1 bold">QTY</div>
 		<div class="span1 bold">WEIGHT</div>
 		<div class="span1 bold">TOTAL WEIGHT</div>
@@ -55,12 +55,19 @@
 	
 	<?php foreach ($shop['OrderItem'] as $item): ?>
 		<div class="row">
-			<div class="span3"><?php echo $shop['Users'][$item['Product']['user_id']]['name']; ?> -&nbsp;<?php echo $shop['Users'][$item['Product']['user_id']]['state']; ?> <?php $shop['Users'][$item['Product']['user_id']]['zip']; ?></div>
+			<div class="span3"><?php echo $shop['Users'][$item['Product']['user_id']]['name']; ?> -&nbsp;<?php echo $shop['Users'][$item['Product']['user_id']]['state']; ?>
+            <?php $shop['Users'][$item['Product']['user_id']]['zip']; ?></div>
+            
 			<div class="span1" style="width:40px"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-			<div class="span4"><strong><?php echo $item['name']; ?></strong></div>
+            
+			<div class="span3"><strong><?php echo $item['name']; ?></strong></div>
+            
 			<div class="span1"><?php echo $item['quantity']; ?></div>
+            
 			<div class="span1"><?php echo $item['weight']; ?></div>
+            
 			<div class="span1"><?php echo $item['weight_total']; ?></div>
+            
 			<div class="span1">$<?php echo $item['price']; ?></div>
 			
 			<div class="span1">$<?php echo $item['subtotal']; ?></div>
@@ -132,6 +139,7 @@
 			<h4>Change Shipping Types</h4>
 			</a>
 		</div>
+        
 		<div id="collapseOne" class="accordion-body collapse">
 			<div class="accordion-inner">
 			
@@ -189,122 +197,108 @@
 	
             
             
-            
-            
-            
-            
-            
 			</div>
 		</div>
-	</div>
-</div>
+
 
 	
-	
-	<div style="clear:both;"></div>
-	
-	<div class="span3 offset10 total-order">
-	
-	<strong>Subtotal: <strong>$<?php echo $shop['Order']['subtotal']; ?></strong>
-	<br />
-	<strong>Shipping: <?php echo $shop['Order']['shipping']; ?><strong>
-	<br />
-	<strong>Order Total: <?php echo $shop['Order']['total']; ?><strong>
-	<br />
-	
-	</div>
-	
-	
-	<?php if($ccform): ?>
+
+
+
+
+
+
+<?php if($ccform): ?>
+
+<div class="span3 offset10 CC"> <strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
+    <strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+    <strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
+</div>
+
+
+<div class="span3 offset8 cc">
+    <br />
+    <h4>Payment Method</h4>
+    <br />
+    <br />
     
-    <div class="shop-drive">
-	
-	<h4>Payment Method</h4>
-	<br />
-	<br />
-	
-	<form action="<?php echo $formURL;?>" method="POST">
-	<div id="ccbox">
-		Credit Card Type.
-	</div>
-	
-	<?php //echo $this->Form->input('billing-cc-number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
-	
-	billing-cc-number
-	<br />
-	<input type="text" name="billing-cc-number" value="">
-	
-	<div class="row">
-		<div class="span2">
-			billing-cc-exp
-			<br />
-			<input type ="text" name="billing-cc-exp" value="">
-			<?php
-	
-				//echo $this->Form->input('billing-cc-exp', array(
-				//'label' => 'Expiration ',
-				//'class' => 'span2',
-				// 'options' => array(
-				// 	'01' => '01 - January',
-				// 	'02' => '02 - February',
-				// 	'03' => '03 - March',
-				// 	'04' => '04 - April',
-				// 	'05' => '05 - May',
-				// 	'06' => '06 - June',
-				// 	'07' => '07 - July',
-				// 	'08' => '08 - August',
-				// 	'09' => '09 - September',
-				// 	'10' => '10 - October',
-				// 	'11' => '11 - November',
-				// 	'12' => '12 - December'
-				// )
-			//)); ?>
-		</div>
-		<div class="span2">
-			<?php //echo $this->Form->input('creditcard_year', array(
-				// 'label' => 'Expiration Year',
-				// 'class' => 'span2',
-				// 'options' => array(
-				// 	'13' => '2013',
-				// 	'14' => '2014',
-				// 	'15' => '2015',
-				// 	'16' => '2016',
-				// 	'17' => '2017',
-				// 	'18' => '2018',
-				// 	'19' => '2019',
-				// 	'20' => '2020',
-				// 	'21' => '2021',
-				// 	'22' => '2022',
-				// )
-			//));?>
-		</div>
-	</div>
-	
-	<?php //echo $this->Form->input('cvv', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
-	
-	cvv
-	<br />
-	<input type="text" name="cvv">
-	
-	<br />
-	<br />
-	
-	<?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Finalize Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
-	
-	<?php echo $this->Form->end(); ?>
+    <form action="<?php echo $formURL;?>" method="POST">
+    <div id="ccbox"> Credit Card Type. </div>
+    <?php //echo $this->Form->input('billing-cc-number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
+    billing-cc-number <br />
+    <input type="text" name="billing-cc-number" value="">
+    
+    <div class="row">
+        <div class="span2"> billing-cc-exp <br />
+            <input type ="text" name="billing-cc-exp" value="">
+            <?php
+                
+                            echo $this->Form->input('billing-cc-exp', array(
+                            'label' => 'Expiration ',
+                            'class' => 'span2',
+                             'options' => array(
+                             	'01' => '01 - January',
+                             	'02' => '02 - February',
+                             	'03' => '03 - March',
+                             	'04' => '04 - April',
+                             	'05' => '05 - May',
+                             	'06' => '06 - June',
+                             	'07' => '07 - July',
+                             	'08' => '08 - August',
+                             	'09' => '09 - September',
+                             	'10' => '10 - October',
+                             	'11' => '11 - November',
+                             	'12' => '12 - December'
+                             )
+                        )); ?>
+        </div>
+        
+        <div class="span2">
+            <?php echo $this->Form->input('creditcard_year', array(
+                             'label' => 'Expiration Year',
+                             'class' => 'span2',
+                             'options' => array(
+                             	'13' => '2013',
+                             	'14' => '2014',
+                             	'15' => '2015',
+                             	'16' => '2016',
+                             	'17' => '2017',
+                             	'18' => '2018',
+                             	'19' => '2019',
+                             	'20' => '2020',
+                             	'21' => '2021',
+                             	'22' => '2022',
+                             )
+                        ));?>
+        </div>
+    </div>
+    
+    <?php //echo $this->Form->input('cvv', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
+    
+    CVV <br />
+    
+    <input type="text" name="cvv">
+    <br />
+    <br />
+    <?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Finalize Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?> <?php echo $this->Form->end(); ?>
+    
+    <div style="color:red">XXXXX</div>
+    
+    
+    <?php else: ?>
+    <div class="span3 offset10 pre-cc"> <strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
+        <strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+        <strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
+    </div>
+    
+    <div class="span3 offset10 pre-cc submit"> <?php echo $this->Form->create('Order'); ?> <?php echo $this->Form->hidden('formURL', array('value' => 1)); ?> <?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Continue', array('class' => 'btn btn-primary', 'ecape' => false)); ?> <?php echo $this->Form->end(); ?>
+    </div>
+    
+    <?php endif; ?>
+
+
+    </div> 
     
     </div>
-	
-	<?php else: ?>
-	<div class="span2 offset10 shop-drive"><br />
-		<?php echo $this->Form->create('Order'); ?>
-        <?php echo $this->Form->hidden('formURL', array('value' => 1)); ?>
-        <?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Continue', array('class' => 'btn btn-primary', 'ecape' => false)); ?>
-        
-        <?php echo $this->Form->end(); ?>
-	</div>
-	
-	<?php endif; ?>
-
+    
 </div>
-

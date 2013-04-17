@@ -153,3 +153,5 @@
 [16-Apr-2013 23:32:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
 [16-Apr-2013 23:32:47 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
 [16-Apr-2013 23:32:47 America/Los_Angeles] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 170
+[17-Apr-2013 03:26:04 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 288
+[17-Apr-2013 03:26:04 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/monart5/public_html/gourmetdev/app/View/Shops/review.ctp on line 288
