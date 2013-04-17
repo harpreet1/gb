@@ -57,7 +57,7 @@ echo $this->Form->input('block_id');
                 <img class="article-img" src="/img/articles/image_2/<?php echo $this->Form->value('Article.image_2'); ?>" />
              </div>   
             <?php echo $this->Form->input('pic_title_2'); ?>
-            <?php echo $this->Form->input('attribution_3'); ?>
+            <?php echo $this->Form->input('attribution_2'); ?>
             <?php echo $this->Form->input('product_link_2'); ?>
             <?php echo $this->Form->input('recipe_link_2'); ?>
 
