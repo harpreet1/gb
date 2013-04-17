@@ -8,6 +8,7 @@ body {
 h1,h2,h3,h4,h5 {
 	font-family: Oregano, cursive;
 	color:#3f9179;
+	font-weight:normal;
 }
 
 h3 {
