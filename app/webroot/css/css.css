@@ -1636,11 +1636,13 @@ img.article-pic {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding: 5px;
-	width: 250px;
+	width: 275px;
 	border: 1px #CCC solid;
 	margin-right: 0px;
 	
 }
+
+
 .photo-attr {
 	font-size:9px;
 	font-style:italic;
@@ -1675,8 +1677,18 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	/*margin-bottom: 20px;*/
 }
 
+.article-pics-container {
+	margin-left: 0px;
+	margin-bottom:20px;
+	width:285px;
+	/*margin-bottom: 20px;*/
+}
 
 
+.article-pic-container .right,
+.article-pics-container .right{
+	float:right
+	}
 
 
 .xtra-images {
