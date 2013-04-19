@@ -393,6 +393,15 @@
                     <br />
                     <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
 				<?php endif; ?>
+                                
+				
+                       <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
+                    
+                    <div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
+                    <br />
+				<?php endif; ?>
+                                
+                
 
 				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
 

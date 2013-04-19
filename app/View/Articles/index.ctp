@@ -211,8 +211,15 @@
 
 	<!-- IMAGE 2 -->
 
-		<?php if(!empty($article['Article']['image_2'])) : ?>
-			<div class="article-pics-container">
+		<?php if(!empty($article['Article']['image_2'])) : ?>        
+        
+			<?php if(!empty($article['Article']['attribution_2']) ||  ($article['Article']['pic_title_2'])	||  ($article['Article']['product_link_2'])	 ||   ($article['Article']['product_link_2'])) : ?>
+                <div class="article-pics-container">       
+            <?php else: ?>      
+                <div class="article-pics-container tight">            
+            <?php endif; ?>        
+            
+        
 					<img class="article-pic border" src="/img/articles/image_2/<?php echo $article['Article']['image_2']?>"  /><br />
 			   
 				
@@ -440,11 +447,19 @@
 	
 	
 	
-	
-	
-	
-
-		<div class="article-pic-container">
+	<?php if(!empty($article['Article']['attribution_1']) ||
+		($article['Article']['pic_title_1'])	||
+		($article['Article']['product_link_1'])		|| 
+		($article['Article']['product_link_1'])) : ?>
+    	
+        <div class="article-pic-container">
+    
+	<?php else: ?>      
+		
+        <div class="article-pic-container tight">
+        
+	<?php endif; ?>        
+        
 
 			<?php if(!empty($article['Article']['image_1'])) : ?>		
 				<img class="article-pic border" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /><br />

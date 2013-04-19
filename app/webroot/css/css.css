@@ -913,7 +913,7 @@ img.tradition, img.vendor-pic {
 	padding: 5px;
 }
 img.recipe-pic {
-	border: solid #CCC 3px;
+	border: solid #CCC 2px;
 	padding: 5px;
 	-webkit-box-shadow: 0px 0px 5px #F1F1F1;
 	-moz-box-shadow: 0px 0px 5px #F1F1F1;
@@ -1691,6 +1691,12 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	/*margin-bottom: 20px;*/
 }
 
+.article-pic-container.tight {
+	padding:5px;
+	border: 1px #CCC solid;
+	
+}
+
 .article-pics-container {
 	margin-left: 0px;
 	margin-bottom:20px;
@@ -2038,6 +2044,18 @@ h2.gb-heading hr {
 	}
 
 
+
+/** Info Boxes **/*
+
+.box-gb {
+
+	border:#CCC 1px solid;
+	padding:10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+}
 /* Large desktop */
 @media (min-width: 1200px) {
 }
@@ -2053,3 +2071,5 @@ h2.gb-heading hr {
 /* Landscape phones and down */
 @media (max-width: 480px) {
 }
+
+

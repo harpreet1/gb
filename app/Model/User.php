@@ -98,6 +98,7 @@ class User extends AppModel {
 				'User.slug',
 				'User.shop_quote',
 				'User.min_purchase',
+				'User.mini_shipping_policy',
 				'User.shipping_policy',
 				'User.shop_signature',
 				'User.shop_description',
