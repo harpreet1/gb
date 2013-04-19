@@ -1094,7 +1094,9 @@ class ProductsController extends AppController {
 		));
 
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
-
+		
+		$ustraditions = $this->Product->Ustradition->findList();
+		
 		$auxcategories = $this->Product->auxcategories();
 
 		//$aux_2_categories = $this->Product->aux_2_categories();
