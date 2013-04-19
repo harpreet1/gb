@@ -164,8 +164,10 @@ class ProductsController extends AppController {
 		$products = $this->paginate('Product');
 
 		$displaygroups = $this->Product->displaygroups();
+		
+		//$brands = $this->Product->brands();
 
-		$this->set(compact('products','displaygroups'));
+		$this->set(compact('products','brand','displaygroups'));
 
 		$title = empty($user) ? 'All Products' : $user['User']['name'];
 

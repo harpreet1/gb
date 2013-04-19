@@ -98,10 +98,19 @@
 
 <br />
 
+
+
+<br />
+<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+
+
+
+
+<br />
+<br />
+
 <?php echo $this->Html->link('Edit Article', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn')); ?>
-
-
-
 
 
 

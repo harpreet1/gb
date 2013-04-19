@@ -364,7 +364,7 @@
 
 				<?php if(!empty($product['Product']['ingredients'])) : ?>
 					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
-                <br />
+               
 
 				<?php endif; ?>
 
@@ -376,31 +376,18 @@
 				<?php if(!empty($product['Product']['country'])) : ?>
 
 				Made in&nbsp;<?php echo $product['Product']['country']; ?>
-
+				<br /><br />
 				<?php endif; ?>
 
 
 				<?php if(!empty($product['Product']['stock'])) : ?>
 
-
-				Stock: <?php echo $product['Product']['stock']; ?>
-                <br />
-				<br />
-
-				<?php endif; ?>
-				<br />
-                       <?php if(!empty($user['User']['min_purchase'])) : ?>
+                    Stock: <?php echo $product['Product']['stock']; ?>
                     <br />
-                    <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
+                    <br />
+
 				<?php endif; ?>
-                                
 				
-                       <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
-                    
-                    <div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
-                    <br />
-				<?php endif; ?>
-                                
                 
 
 				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
@@ -418,6 +405,19 @@
 				<?php else: ?>
 					<?php echo $this->Form->button('<i class="icon-exclamation-sign icon-white"></i> Out of Stock', array('class' => 'btn btn-warning', 'escape' => false));?>
 				<?php endif; ?>
+                            
+                       <?php if(!empty($user['User']['min_purchase'])) : ?>
+                    
+                    <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
+				<?php endif; ?>
+                                
+				
+                       <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
+                    
+                    <div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
+                    <br />
+				<?php endif; ?>
+                                
 
 				</div>
 			</div>
