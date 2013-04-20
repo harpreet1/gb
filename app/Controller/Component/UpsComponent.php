@@ -108,13 +108,13 @@ class UpsComponent extends Component {
 				</Shipper>
 				<ShipFrom>
 					<Address>
-						<PostalCode>' . $this->defaults['UserZipCode'] . '</PostalCode>
+						<PostalCode>' . substr($this->defaults['UserZipCode'], 0, 5) . '</PostalCode>
 						<CountryCode>US</CountryCode>
 					</Address>
 				</ShipFrom>
 				<ShipTo>
 					<Address>
-						<PostalCode>' . $this->defaults['CustomerZipCode'] . '</PostalCode>
+						<PostalCode>' . substr($this->defaults['CustomerZipCode'], 0, 5) . '</PostalCode>
 						<CountryCode>US</CountryCode>
 						<ResidentialAddressIndicator>1</ResidentialAddressIndicator>
 					</Address>
@@ -163,7 +163,6 @@ class UpsComponent extends Component {
 		);
 
 		$service_enabled = array(
-			// '01',
 			'02',
 			'12',
 			'03',

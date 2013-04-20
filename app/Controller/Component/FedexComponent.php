@@ -40,13 +40,16 @@ class FedexComponent extends Component {
 				$results[$i] = array(
 					'ServiceCode'	=> $code,
 					'ServiceName'	=> ucwords(str_replace('_', ' ', $code)),
-					'TotalCharges'	=> $cost,
+					'TotalCharges'	=> sprintf('%.2f', $cost),
 				);
 				$i++;
 			}
 		}
 
 		if (!empty($results)) {
+
+			$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
+
 			return $results;
 		}
 		return false;
@@ -77,85 +80,85 @@ class FedexComponent extends Component {
 			$date += 86400;
 		}
 
-		$xml  = '<?xml version="1.0"?>';
-		$xml .= '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://fedex.com/ws/rate/v10">';
-		$xml .= '	<SOAP-ENV:Body>';
-		$xml .= '		<ns1:RateRequest>';
-		$xml .= '			<ns1:WebAuthenticationDetail>';
-		$xml .= '				<ns1:UserCredential>';
-		$xml .= '					<ns1:Key>' . Configure::read('Settings.FEDEX_KEY') . '</ns1:Key>';
-		$xml .= '					<ns1:Password>' . Configure::read('Settings.FEDEX_PASSWORD') . '</ns1:Password>';
-		$xml .= '				</ns1:UserCredential>';
-		$xml .= '			</ns1:WebAuthenticationDetail>';
-		$xml .= '			<ns1:ClientDetail>';
-		$xml .= '				<ns1:AccountNumber>' . Configure::read('Settings.FEDEX_ACCOUNT') . '</ns1:AccountNumber>';
-		$xml .= '				<ns1:MeterNumber>' . Configure::read('Settings.FEDEX_METER') . '</ns1:MeterNumber>';
-		$xml .= '			</ns1:ClientDetail>';
-		$xml .= '			<ns1:Version>';
-		$xml .= '				<ns1:ServiceId>crs</ns1:ServiceId>';
-		$xml .= '				<ns1:Major>10</ns1:Major>';
-		$xml .= '				<ns1:Intermediate>0</ns1:Intermediate>';
-		$xml .= '				<ns1:Minor>0</ns1:Minor>';
-		$xml .= '			</ns1:Version>';
-		$xml .= '			<ns1:ReturnTransitAndCommit>true</ns1:ReturnTransitAndCommit>';
-		$xml .= '			<ns1:RequestedShipment>';
-		$xml .= '				<ns1:ShipTimestamp>' . date('c', $date) . '</ns1:ShipTimestamp>';
-		// $xml .= '				<ns1:DropoffType>' . $this->fedex_dropoff_type . '</ns1:DropoffType>';
-		$xml .= '				<ns1:PackagingType>YOUR_PACKAGING</ns1:PackagingType>';
-		$xml .= '				<ns1:Shipper>';
-		$xml .= '					<ns1:Contact>';
-		$xml .= '						<ns1:PersonName>' . $this->defaults['UserName'] . '</ns1:PersonName>';
-		$xml .= '						<ns1:CompanyName>' . $this->defaults['UserCompany'] . '</ns1:CompanyName>';
-		$xml .= '						<ns1:PhoneNumber>' . $this->defaults['UserPhone'] . '</ns1:PhoneNumber>';
-		$xml .= '					</ns1:Contact>';
-		$xml .= '					<ns1:Address>';
-		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['UserState'] . '</ns1:StateOrProvinceCode>';
-		$xml .= '						<ns1:PostalCode>' . $this->defaults['UserZipCode'] . '</ns1:PostalCode>';
-		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
-		$xml .= '					</ns1:Address>';
-		$xml .= '				</ns1:Shipper>';
-		$xml .= '				<ns1:Recipient>';
-		$xml .= '					<ns1:Contact>';
-		$xml .= '						<ns1:PersonName>' . $this->defaults['CustomerFullName'] . '</ns1:PersonName>';
-		$xml .= '						<ns1:CompanyName></ns1:CompanyName>';
-		$xml .= '						<ns1:PhoneNumber>' . $this->defaults['CustomerPhone'] . '</ns1:PhoneNumber>';
-		$xml .= '					</ns1:Contact>';
-		$xml .= '					<ns1:Address>';
-		$xml .= '						<ns1:StreetLines>' . $this->defaults['CustomerAddress'] . '</ns1:StreetLines>';
-		$xml .= '						<ns1:City>' . $this->defaults['CustomerCity'] . '</ns1:City>';
-		$xml .= '						<ns1:StateOrProvinceCode>' . $this->defaults['CustomerState'] . '</ns1:StateOrProvinceCode>';
-		$xml .= '						<ns1:PostalCode>' . $this->defaults['CustomerZipCode'] . '</ns1:PostalCode>';
-		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
-		$xml .= '						<ns1:Residential>true</ns1:Residential>';
-		$xml .= '					</ns1:Address>';
-		$xml .= '				</ns1:Recipient>';
-		$xml .= '				<ns1:ShippingChargesPayment>';
-		$xml .= '					<ns1:PaymentType>SENDER</ns1:PaymentType>';
-		$xml .= '					<ns1:Payor>';
-		$xml .= '						<ns1:AccountNumber>' . Configure::read('Settings.FEDEX_ACCOUNT') . '</ns1:AccountNumber>';
-		$xml .= '						<ns1:CountryCode>US</ns1:CountryCode>';
-		$xml .= '					</ns1:Payor>';
-		$xml .= '				</ns1:ShippingChargesPayment>';
-		$xml .= '				<ns1:RateRequestTypes>LIST</ns1:RateRequestTypes>';
-		$xml .= '				<ns1:PackageCount>1</ns1:PackageCount>';
-		$xml .= '				<ns1:RequestedPackageLineItems>';
-		$xml .= '					<ns1:SequenceNumber>1</ns1:SequenceNumber>';
-		$xml .= '					<ns1:GroupPackageCount>1</ns1:GroupPackageCount>';
-		$xml .= '					<ns1:Weight>';
-		$xml .= '						<ns1:Units>LB</ns1:Units>';
-		$xml .= '						<ns1:Value>' . number_format($this->defaults['Weight'], 2, '.', '') . '</ns1:Value>';
-		$xml .= '					</ns1:Weight>';
-		$xml .= '					<ns1:Dimensions>';
-		$xml .= '						<ns1:Length>20</ns1:Length>';
-		$xml .= '						<ns1:Width>20</ns1:Width>';
-		$xml .= '						<ns1:Height>10</ns1:Height>';
-		$xml .= '						<ns1:Units>IN</ns1:Units>';
-		$xml .= '					</ns1:Dimensions>';
-		$xml .= '				</ns1:RequestedPackageLineItems>';
-		$xml .= '			</ns1:RequestedShipment>';
-		$xml .= '		</ns1:RateRequest>';
-		$xml .= '	</SOAP-ENV:Body>';
-		$xml .= '</SOAP-ENV:Envelope>';
+		$xml = '<?xml version="1.0"?>
+		<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://fedex.com/ws/rate/v10">
+			<SOAP-ENV:Body>
+				<ns1:RateRequest>
+					<ns1:WebAuthenticationDetail>
+						<ns1:UserCredential>
+							<ns1:Key>' . Configure::read('Settings.FEDEX_KEY') . '</ns1:Key>
+							<ns1:Password>' . Configure::read('Settings.FEDEX_PASSWORD') . '</ns1:Password>
+						</ns1:UserCredential>
+					</ns1:WebAuthenticationDetail>
+					<ns1:ClientDetail>
+						<ns1:AccountNumber>' . Configure::read('Settings.FEDEX_ACCOUNT') . '</ns1:AccountNumber>
+						<ns1:MeterNumber>' . Configure::read('Settings.FEDEX_METER') . '</ns1:MeterNumber>
+					</ns1:ClientDetail>
+					<ns1:Version>
+						<ns1:ServiceId>crs</ns1:ServiceId>
+						<ns1:Major>10</ns1:Major>
+						<ns1:Intermediate>0</ns1:Intermediate>
+						<ns1:Minor>0</ns1:Minor>
+					</ns1:Version>
+					<ns1:ReturnTransitAndCommit>true</ns1:ReturnTransitAndCommit>
+					<ns1:RequestedShipment>
+						<ns1:ShipTimestamp>' . date('c', $date) . '</ns1:ShipTimestamp>
+						<ns1:DropoffType>REGULAR_PICKUP</ns1:DropoffType>
+						<ns1:PackagingType>YOUR_PACKAGING</ns1:PackagingType>
+						<ns1:Shipper>
+							<ns1:Contact>
+								<ns1:PersonName>' . $this->defaults['UserName'] . '</ns1:PersonName>
+								<ns1:CompanyName>' . $this->defaults['UserCompany'] . '</ns1:CompanyName>
+								<ns1:PhoneNumber>' . $this->defaults['UserPhone'] . '</ns1:PhoneNumber>
+							</ns1:Contact>
+							<ns1:Address>
+								<ns1:StateOrProvinceCode>' . $this->defaults['UserState'] . '</ns1:StateOrProvinceCode>
+								<ns1:PostalCode>' . substr($this->defaults['UserZipCode'], 0, 5) . '</ns1:PostalCode>
+								<ns1:CountryCode>US</ns1:CountryCode>
+							</ns1:Address>
+						</ns1:Shipper>
+						<ns1:Recipient>
+							<ns1:Contact>
+								<ns1:PersonName>' . $this->defaults['CustomerFullName'] . '</ns1:PersonName>
+								<ns1:CompanyName></ns1:CompanyName>
+								<ns1:PhoneNumber>' . $this->defaults['CustomerPhone'] . '</ns1:PhoneNumber>
+							</ns1:Contact>
+							<ns1:Address>
+								<ns1:StreetLines>' . $this->defaults['CustomerAddress'] . '</ns1:StreetLines>
+								<ns1:City>' . $this->defaults['CustomerCity'] . '</ns1:City>
+								<ns1:StateOrProvinceCode>' . $this->defaults['CustomerState'] . '</ns1:StateOrProvinceCode>
+								<ns1:PostalCode>' . substr($this->defaults['CustomerZipCode'], 0, 5) . '</ns1:PostalCode>
+								<ns1:CountryCode>US</ns1:CountryCode>
+								<ns1:Residential>true</ns1:Residential>
+							</ns1:Address>
+						</ns1:Recipient>
+						<ns1:ShippingChargesPayment>
+							<ns1:PaymentType>SENDER</ns1:PaymentType>
+							<ns1:Payor>
+								<ns1:AccountNumber>' . Configure::read('Settings.FEDEX_ACCOUNT') . '</ns1:AccountNumber>
+								<ns1:CountryCode>US</ns1:CountryCode>
+							</ns1:Payor>
+						</ns1:ShippingChargesPayment>
+						<ns1:RateRequestTypes>LIST</ns1:RateRequestTypes>
+						<ns1:PackageCount>1</ns1:PackageCount>
+						<ns1:RequestedPackageLineItems>
+							<ns1:SequenceNumber>1</ns1:SequenceNumber>
+							<ns1:GroupPackageCount>1</ns1:GroupPackageCount>
+							<ns1:Weight>
+								<ns1:Units>LB</ns1:Units>
+								<ns1:Value>' . number_format($this->defaults['Weight'], 2, '.', '') . '</ns1:Value>
+							</ns1:Weight>
+							<ns1:Dimensions>
+								<ns1:Length>10</ns1:Length>
+								<ns1:Width>10</ns1:Width>
+								<ns1:Height>10</ns1:Height>
+								<ns1:Units>IN</ns1:Units>
+							</ns1:Dimensions>
+						</ns1:RequestedPackageLineItems>
+					</ns1:RequestedShipment>
+				</ns1:RateRequest>
+			</SOAP-ENV:Body>
+		</SOAP-ENV:Envelope>';
 
 		return $xml;
 	}
