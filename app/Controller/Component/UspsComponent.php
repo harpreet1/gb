@@ -16,20 +16,15 @@ class UspsComponent extends Component {
 	public function getRate($data = null) {
 
 		$xml = $this->buildRequest($data);
-		// debug($xml);
 
 		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . 'API=RateV4&XML=' . urlencode($xml);
-		// debug($url);
 
 		$response = @file_get_contents($url);
-		// debug($response);
 
 		$response = str_replace('&amp;lt;sup&amp;gt;&amp;amp;reg;&amp;lt;/sup&amp;gt;', '', $response);
-		// debug($response);
 
 		App::uses('Xml', 'Utility');
 		$formattedResponse = Xml::toArray(Xml::build($response));
-		// debug($formattedResponse);
 
 		$serviceAllowed = array(0, 1, 3, 4);
 
@@ -41,13 +36,16 @@ class UspsComponent extends Component {
 				if(in_array($value['@CLASSID'], $serviceAllowed)) {
 					$results[$i]['ServiceCode'] = $value['@CLASSID'];
 					$results[$i]['ServiceName'] = $value['MailService'];
-					$results[$i]['TotalCharges'] = $value['Rate'];
+					$results[$i]['TotalCharges'] = sprintf('%.2f', $value['Rate']);
 					$i++;
 				}
 			}
 		}
 
 		if (!empty($results)) {
+
+			$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
+
 			return $results;
 		}
 		return false;
@@ -72,22 +70,22 @@ class UspsComponent extends Component {
 		$pounds = floor($weight);
 		$ounces = round(16 * ($weight - $pounds), 2);
 
-		$xml  = '<RateV4Request USERID="' . Configure::read('Settings.USPS_USERID') . '">';
-		$xml .= '	<Package ID="1">';
-		$xml .=	'		<Service>ALL</Service>';
-		$xml .=	'		<ZipOrigination>' . substr($this->defaults['UserZipCode'], 0, 5) . '</ZipOrigination>';
-		$xml .=	'		<ZipDestination>' . substr($this->defaults['CustomerZipCode'], 0, 5) .'</ZipDestination>';
-		$xml .=	'		<Pounds>' . $pounds . '</Pounds>';
-		$xml .=	'		<Ounces>' . $ounces . '</Ounces>';
-		$xml .=	'		<Container>Variable</Container>';
-		$xml .=	'		<Size>Regular</Size>';
-		$xml .= '		<Width>5</Width>';
-		$xml .= '		<Length>5</Length>';
-		$xml .= '		<Height>5</Height>';
-		$xml .= '		<Girth>' . (round(((float)1 + (float)1 * 2 + 1 * 2), 1)) . '</Girth>';
-		$xml .=	'		<Machinable>false</Machinable>';
-		$xml .=	'	</Package>';
-		$xml .= '</RateV4Request>';
+		$xml = '<RateV4Request USERID="' . Configure::read('Settings.USPS_USERID') . '">
+			<Package ID="1">
+				<Service>ALL</Service>
+				<ZipOrigination>' . substr($this->defaults['UserZipCode'], 0, 5) . '</ZipOrigination>
+				<ZipDestination>' . substr($this->defaults['CustomerZipCode'], 0, 5) .'</ZipDestination>
+				<Pounds>' . $pounds . '</Pounds>
+				<Ounces>' . $ounces . '</Ounces>
+				<Container>Variable</Container>
+				<Size>Regular</Size>
+				<Width>5</Width>
+				<Length>5</Length>
+				<Height>5</Height>
+				<Girth>' . (round(((float)1 + (float)1 * 2 + 1 * 2), 1)) . '</Girth>
+				<Machinable>false</Machinable>
+			</Package>
+		</RateV4Request>';
 
 		return $xml;
 	}
