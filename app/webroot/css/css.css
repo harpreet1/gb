@@ -557,6 +557,10 @@ div.brand-search {
 	
 }
 
+.purchase-block input.span1 {
+	width:25px;
+}
+
 form#ProductViewForm {
 	margin-bottom:0px;
 }
