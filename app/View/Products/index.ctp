@@ -12,6 +12,8 @@
                 </a>
                 
                 <div class="name"><?php echo $user['User']['name']; ?></div>
+                <div class="plain"><?php echo $user['User']['city']; ?>, <?php echo $user['User']['state']; ?></div>
+                
                 <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
 

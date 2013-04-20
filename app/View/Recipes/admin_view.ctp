@@ -136,9 +136,38 @@
 <br />
 <br />
 
-<h3>Actions</h3>
+<h3>Edit and Submit Picture Details</h3>
+<?php echo $this->Form->create('Recipe'); ?>
+
+<?php echo $this->Form->hidden('id', array('value' => $recipe['Recipe']['id'])); ?>
+
+
+
+
+
+  
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
+
+<h3>Other Actions</h3>
+
+<br />
+
+
+
+<br />
+<?php echo $this->Html->image('recipes/image_1/'. $recipe['Recipe']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+
+
+
+
+<br />
+<br />
 
 <?php echo $this->Html->link('Edit Recipe', array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn')); ?>
+
+
 
 <br />
 <br />
@@ -147,4 +176,3 @@
 
 <br />
 <br />
-

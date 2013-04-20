@@ -120,7 +120,16 @@
             
             <?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
             
-            <li><?php echo $this->Html->link('Cart', array('controller' => 'shops', 'action' => 'cart')); ?></li>
+           <?php /*?> <li class='btn btn-gb'><?php echo $this->Html->link('CART', array( 'controller' => 'shops', 'action' => 'cart')); ?></li>
+            <?php */?>
+            
+             <li class="cart">
+                 <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart">
+                 <button class="btn btn-gb" type="submit"><i class="icon-shopping-cart icon-white"></i>GO TO CART</button>
+                 </a>
+             </li>
+            
+            
         </ul>
 </div>
 </div>

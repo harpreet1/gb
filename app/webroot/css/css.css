@@ -96,6 +96,15 @@ img.frame {
 	margin-top:10px;
 }
 
+.vendor-logo .plain {
+	color: #444;
+	font-family: 'Open Sans', verdana, arial, sans-serif;
+	/*font-family: "Mako", sans-serif;*/
+	font-size: 13px;
+	letter-spacing:0px;
+
+}
+
 .quote {
 	color: #3f9179;
 	padding-right: 35px;
@@ -265,6 +274,24 @@ ul.meganizr > li > a {
 ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	color: #97c199;
 }
+
+ul.meganizr >li.btn.btn-gb {
+	height:27px;
+	
+}
+
+ul.meganizr >li.cart > a {
+	padding-left:10px;
+	padding-top:0px;
+	line-height:33px;
+}
+
+
+.btn.btn-gb.cart {
+	line-height:17px;
+	margin-top: 6px;
+}
+
 #outer-wrapper {
 	margin: 0px;
 	padding: 0px;
@@ -516,6 +543,25 @@ div.brand-search {
 .product-description .hand {
 	width: 45px;
 }
+
+.purchase-block {
+	width:120px;
+	float:right;
+	margin-left:15px;
+	margin-bottom:15px;
+}
+
+.product-price {
+	font-size:18px;
+	padding-bottom:5px;
+	
+}
+
+form#ProductViewForm {
+	margin-bottom:0px;
+}
+
+
 /** PRODUCT SLIDESHOW **/
 
 div.slideshow-container {
@@ -1404,6 +1450,13 @@ table {
 .nav-tabs li {
 	font-size: 10px;
 }
+
+.tab-pane {
+	padding:10px;
+}
+
+
+
 /*Column */
 .column * {
 	padding-right: 20px;

@@ -151,7 +151,7 @@ class ProductsController extends AppController {
 				'Product.brand_id',
 				'Product.brand_name',
 				'Product.displaygroup',
-				'User.slug'
+				'User.slug'				
 			),
 			'limit' => 20,
 			'order' => array(

@@ -113,10 +113,12 @@
 				</div>
 
 				<?php
+					$ingredients = 'unloaded';
 					$description = 'unloaded';
 					$serv = 'unloaded';
 					$recipes = 'unloaded';
 					$nutrition = 'unloaded';
+									
 
 					if(!empty($product['Product']['generic_description'])) :
 						$description = 'loaded';
@@ -138,19 +140,28 @@
 
 				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') || ($nutrition == 'loaded')) : ?>nav-tabs"<?php endif; ?>"id="myTab">
 
+					<?php if(!empty($product['Product']['ingredients'])) : ?>
+						<li class="active"><a href="#ingredients" data-toggle="tab">Ingredients</a></li>
+					<?php $ingredients = 'loaded';
+					endif;?>
 
-					<?php if(!empty($product['Product']['generic_description'])) : ?>
-					<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
+
+					<?php if(!empty($product['Product']['generic_description'])) : 
+							if ($ingredients == 'loaded') : ?>
+							<li><a href="#more" data-toggle="tab">More...</a></li>
+                        <?php else : ?> 
+                        	<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
+                        <?php endif;?>
 					<?php $description = 'loaded';
 					endif;?>
 
 
 					<?php if(!empty($product['Product']['serving_suggestions'])) :
 							if ($description == 'loaded') : ?>
-					<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
-							<?php else : ?>
+							<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
+						<?php else : ?>
 					<li class="active"><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
-							<?php endif;?>
+						<?php endif;?>
 					<?php $serv = 'loaded';
 					endif;?>
 
@@ -180,12 +191,25 @@
 					$value = '';
 					$value2 = '';
 					$value3 = '';
+					$value4 = '';
 				?>
 
 				<div class="tab-content">
 
+					<?php if(!empty($product['Product']['ingredients'])) : ?>
+						<div class="tab-pane active" id="ingredients">
+					<?php	echo ($product['Product']['ingredients']); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php if (($description == 'unloaded') && ($serv == 'loaded')) :
+										$value = 'active';
+								endif; ?>
+
+
+
 					<?php if(!empty($product['Product']['generic_description'])) : ?>
-						<div class="tab-pane active" id="more">
+						<div class="tab-pane" id="more">
 					<?php	echo ($product['Product']['generic_description']); ?>
 						</div>
 					<?php endif; ?>
@@ -340,6 +364,31 @@
 			</div>
 
 			<div class="span5 product-description">
+            
+					<div class="purchase-block">
+
+                        <div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
+                        
+                        <?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
+                            <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
+                            <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
+                        </div>
+                            Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
+                       
+                           
+                        
+                            <?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-inverse', 'escape' => false));?>
+                        <?php echo $this->Form->end(); ?>
+                        <?php else: ?>
+                            <?php echo $this->Form->button('<i class="icon-exclamation-sign icon-white"></i> Out of Stock', array('class' => 'btn btn-warning', 'escape' => false));?>
+                        <?php endif; ?>
+                        
+                    
+					</div>
+            
+            
+            
+            
 
 
 				<?php if(!empty($product['Brand']['description'])) : ?>
@@ -362,12 +411,12 @@
 				<p><?php echo $product['Product']['long_description']; ?></p>
 
 
-				<?php if(!empty($product['Product']['ingredients'])) : ?>
+				<?php /*?><?php if(!empty($product['Product']['ingredients'])) : ?>
 					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
                
 
 				<?php endif; ?>
-
+<?php */?>
                 <span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
                 <br />
 
@@ -388,23 +437,7 @@
 
 				<?php endif; ?>
 				
-                
-
-				<p><span class="product-label">Price: </span>$<?php echo $product['Product']['price']; ?></p>
-
-				<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
-					<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
-					<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
-
-					Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
-
-					<br />
-
-					<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-gb', 'escape' => false));?>
-				<?php echo $this->Form->end(); ?>
-				<?php else: ?>
-					<?php echo $this->Form->button('<i class="icon-exclamation-sign icon-white"></i> Out of Stock', array('class' => 'btn btn-warning', 'escape' => false));?>
-				<?php endif; ?>
+         
                             
                        <?php if(!empty($user['User']['min_purchase'])) : ?>
                     

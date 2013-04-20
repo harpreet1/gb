@@ -95,6 +95,8 @@ class User extends AppModel {
 			'fields' => array(
 				'User.id',
 				'User.name',
+				'User.city',
+				'User.state',
 				'User.slug',
 				'User.shop_quote',
 				'User.min_purchase',
