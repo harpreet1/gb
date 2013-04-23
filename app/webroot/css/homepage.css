@@ -157,7 +157,7 @@ li.gb-account a {
 	 }
  
 #upper {
-	height: 182px;
+	height: 90px;
 	margin: 0px;
 	padding: 0px; }
  
@@ -245,7 +245,7 @@ fgb
 .js-marquee {
 	margin-top:20px;
 	color: #fff;
-	font-size:50px;
+	font-size:35px;
 	font-family: Oregano, cursive;
 	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1); 
 }
