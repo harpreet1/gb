@@ -12,12 +12,12 @@ class Product extends AppModel {
 				'allowEmpty' => false,
 				'required' => true,
 			),
-			// 'rule2' => array(
-			// 	'rule' => array('isUnique'),
-			// 	'message' => 'name already exists',
-			// 	'allowEmpty' => false,
-			// 	'required' => true,
-			// ),
+//			'rule2' => array(
+//				'rule' => array('isUnique'),
+//				'message' => 'name already exists',
+//				'allowEmpty' => false,
+//				'required' => true,
+//			),
 		),
 		'slug' => array(
 			'rule1' => array(
@@ -26,16 +26,16 @@ class Product extends AppModel {
 				'allowEmpty' => false,
 				'required' => true,
 			),
-			// 'rule2' => array(
-			// 	'rule' => array('isUnique'),
-			// 	'message' => 'slug already exists',
-			// 	'allowEmpty' => false,
-			// 	'required' => true,
-			// ),
+//			'rule2' => array(
+//				'rule' => array('isUnique'),
+//				'message' => 'slug already exists',
+//				'allowEmpty' => false,
+//				'required' => true,
+//			),
 			'rule3' => array(
 				'rule' => '/^[a-z0-9-]{3,}$/',
 				'message' => 'Only letters and integers, min 3 characters'
-			),
+			)
 		),
 		'price_wholesale' => array(
 			'rule1' => array(
@@ -135,12 +135,13 @@ class Product extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
+		
 	);
 
 ///////////////////////////////////////////////////////////////////
 
 	public function displaygroups() {
-
+		
 		$displaygroups = array(
 			'1' => '1',
 			'2' => '2',
@@ -165,57 +166,62 @@ class Product extends AppModel {
 		);
 		return $displaygroups;
 	}
-
+	
 ///////////////////////////////////////////////////////////////////
 
 	public function auxcategories() {
-
+		
 		$auxcategories = array(
-			1 => 'Accessories',
-			2 => 'Appetizers',
-			3 => 'Bakery',
-			4 => 'Beverages',
-			5 => 'Books',
-			6 => 'Chocolates',
-			7 => 'Coffee',
-			8 => 'Condiments',
-			9 => 'Confections',
-			10 => 'Dairy',
-			11 => 'Desserts',
-			12 => 'Fish & Seafood',
-			13 => 'Fruits',
-			14 => 'Grains & Cereals',
-			15 => 'Herbs and Spices',
-			16 => 'Jams & Syrups',
-			17 => 'Legumes & Beans',
-			18 => 'Lifestyle Products',
-			19 => 'Meats & Poultry',
-			20 => 'Nuts & Seeds',
-			21 => 'Oils & Vinegars',
-			22 => 'Pasta & Noodles',
-			23 => 'Rice',
-			24 => 'Sauces & Marinades',
-			25 => 'Snacks',
-			26 => 'Soups & Prepared Foods',
-			27 => 'Teas',
-			28 => 'Vegetables & Potatoes',
+			'Accessories' => 'Accessories',
+			'Appetizers' => 'Appetizers',
+			'Bakery' => 'Bakery',
+			'Beverages' => 'Beverages',
+			'Books' => 'Books',
+			'Chocolates' => 'Chocolates',
+			'Coffee' => 'Coffee',
+			'Condiments' => 'Condiments',
+			'Confections' => 'Confections',
+			'Dairy' => 'Dairy',
+			'Desserts' => 'Desserts',
+			'Fish & Seafood' => 'Fish & Seafood',
+			'Fruits' => 'Fruits',
+			'Grains & Cereals' => 'Grains & Cereals',
+			'Herbs and Spices' => 'Herbs and Spices',
+			'Jams & Syrups' => 'Jams & Syrups',
+			'Legumes & Beans' => 'Legumes & Beans',
+			'Lifestyle Products' => 'Lifestyle Products',
+			'Meats & Poultry' => 'Meats & Poultry',
+			'Nuts & Seeds' => 'Nuts & Seeds',
+			'Oils & Vinegars' => 'Oils & Vinegars',
+			'Pasta & Noodles' => 'Pasta & Noodles',
+			'Rice' => 'Rice',
+			'Sauces & Marinades' => 'Sauces & Marinades',
+			'Snacks' => 'Snacks',
+			'Soups & Prepared Foods' => 'Soups & Prepared Foods',
+			'Teas' => 'Teas',
+			'Vegetables & Potatoes' => 'Vegetables & Potatoes',
 		);
-
-		asort($auxcategories);
-
-		// $aux_2_categories = $auxcategories;
-		// $aux_3_categories = $auxcategories;
-
-		// $aux_2_categories = $auxcategories;
-		// $aux_3_categories = $auxcategories;
+		
+		
+	//	$aux_2_categories = $auxcategories;
+	//	$aux_3_categories = $auxcategories;
+		
+		return $auxcategories;
+		
+		$aux_2_categories = $auxcategories;
+	//	$aux_3_categories = $auxcategories;
 		//return $auxonecategories;
 		//return $aux_2_categories;
 		//return $aux_3_categories;
-
-		return $auxcategories;
-
+		
+		
+		
 	}
+	
+	//$auxonecategories = $auxcategories;
+	
+	
+	
 
-////////////////////////////////////////////////////////////
 
 }
