@@ -51,7 +51,6 @@ class RecipesController extends AppController {
 		$this->set(compact('recipes'));
 	}
 
-
 ////////////////////////////////////////////////////////////
 
 	public function all() {
@@ -78,7 +77,6 @@ class RecipesController extends AppController {
 			)
 		));
 		$this->set(compact('recipescategories','traditions','ustraditions'));
-
 
 		$vendors = $this->Recipe->find('list', array(
 			'recursive' => 1,
@@ -117,7 +115,6 @@ class RecipesController extends AppController {
 			$recipescategory_selected = '';
 		}
 		$this->set(compact('recipescategory_selected'));
-
 
 		if(isset($this->params['named']['vendor']) ) {
 
@@ -265,7 +262,6 @@ public function admin_index() {
 
 		$this->set(compact('all'));
 
-
 		$this->paginate = array(
 			'recursive' => 0,
 			'contain' => array(
@@ -276,7 +272,7 @@ public function admin_index() {
 			),
 			'conditions' => $all['conditions'],
 			'limit' => 15,
-			
+
 			'fields' => array(
 				'Recipe.*',
 				'User.id',
@@ -303,12 +299,12 @@ public function admin_index() {
 				'User.show' => 1,
 				'User.level' => 'vendor',
 			),
-		
+
 			'order' => array(
 				'User.name' => 'ASC'
 			)
 		));
-		
+
 		$this->set(compact('users'));
 
 	}
@@ -316,7 +312,6 @@ public function admin_index() {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
-
 
 		if (isset($this->request->data['Recipe']['image_type'])) {
 
@@ -345,7 +340,7 @@ public function admin_index() {
 
 		$this->Recipe->id = $id;
 		if (!$this->Recipe->exists()) {
-			throw new NotFoundException(__('Invalid recipe'));
+			throw new NotFoundException('Invalid recipe');
 		}
 
 		$recipe = $this->Recipe->find('first', array(
@@ -368,12 +363,13 @@ public function admin_index() {
 		if ($this->request->is('post')) {
 			$this->Recipe->create();
 			if ($this->Recipe->save($this->request->data)) {
-				$this->Session->setFlash(__('The recipe has been saved'));
+				$this->Session->setFlash('The recipe has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The recipe could not be saved. Please, try again.'));
+				$this->Session->setFlash('The recipe could not be saved. Please, try again.');
 			}
 		}
+
 		$users = $this->Recipe->User->find('list', array(
 			'conditions' => array(
 				'User.active' => 1,
@@ -383,6 +379,7 @@ public function admin_index() {
 				'User.name' => 'ASC'
 			)
 		));
+
 		$recipescategories = $this->Recipe->Recipescategory->find('list', array(
 			'order' => array(
 				'Recipescategory.name' => 'ASC'
@@ -394,13 +391,14 @@ public function admin_index() {
 				'Tradition.name' => 'ASC'
 			)
 		));
+
 		$ustraditions = $this->Recipe->Ustradition->find('list', array(
 			'order' => array(
 				'Ustradition.name' => 'ASC'
 			)
 		));
 
-		$this->set(compact('users', 'recipescategories','traditions','ustraditions'));
+		$this->set(compact('users', 'recipescategories', 'traditions', 'ustraditions'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -420,6 +418,7 @@ public function admin_index() {
 		} else {
 			$this->request->data = $this->Recipe->read(null, $id);
 		}
+
 		$users = $this->Recipe->User->find('list', array(
 			'conditions' => array(
 				'User.active' => 1,
@@ -429,6 +428,7 @@ public function admin_index() {
 				'User.name' => 'ASC'
 			)
 		));
+
 		$recipescategories = $this->Recipe->Recipescategory->find('list', array(
 			'order' => array(
 				'Recipescategory.name' => 'ASC'
@@ -447,8 +447,7 @@ public function admin_index() {
 			)
 		));
 
-
-		$this->set(compact('users', 'recipescategories','traditions','ustraditions'));
+		$this->set(compact('users', 'recipescategories', 'traditions', 'ustraditions'));
 	}
 
 ////////////////////////////////////////////////////////////
@@ -456,7 +455,7 @@ public function admin_index() {
 	public function admin_delete($id = null) {
 		$this->Recipe->id = $id;
 		if (!$this->Recipe->exists()) {
-			throw new NotFoundException(__('Invalid recipe'));
+			throw new NotFoundException('Invalid recipe');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Recipe->delete()) {
