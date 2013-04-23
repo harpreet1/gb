@@ -140,7 +140,10 @@ class ProductsController extends AppController {
 		}
 
 		$this->paginate = array(
-			'contain' => array('User'),
+			'contain' => array(
+				'User',
+				'Brand'
+			),
 			'recursive' => -1,
 			'fields' => array(
 				'Product.id',
@@ -148,10 +151,8 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand_id',
-				'Product.brand_name',
-				'Product.displaygroup',
-				'User.slug'				
+				'User.slug',
+				'Brand.name',
 			),
 			'limit' => 20,
 			'order' => array(
@@ -164,7 +165,7 @@ class ProductsController extends AppController {
 		$products = $this->paginate('Product');
 
 		$displaygroups = $this->Product->displaygroups();
-		
+
 		//$brands = $this->Product->brands();
 
 		$this->set(compact('products','brand','displaygroups'));
@@ -493,10 +494,12 @@ class ProductsController extends AppController {
 			);
 			foreach($terms as $term) {
 				//$terms1[] = preg_replace('/[^a-zA-Z0-9]/', '', $term);
+				$term = strtolower($term);
 				$conditions[] = array(
 					'OR' => array(
 						'Product.name LIKE' => '%' . $term . '%',
 						'Brand.name LIKE' => '%' . $term . '%',
+						'Category.name LIKE' => '%' . $term . '%',
 					)
 				);
 			}
@@ -504,7 +507,8 @@ class ProductsController extends AppController {
 				'recursive' => -1,
 				'contain' => array(
 					'User',
-					'Brand'
+					'Brand',
+					'Category'
 				),
 				'fields' => array(
 					'Product.id',
@@ -911,11 +915,18 @@ class ProductsController extends AppController {
 		}
 
 		if (!$this->Product->exists($id)) {
-			throw new NotFoundException(__('Invalid product'));
+			throw new NotFoundException('Invalid product');
 		}
 
 		$product = $this->Product->find('first', array(
 			'recursive' => 0,
+			'contain' => array(
+				'User',
+				'Brand',
+				'Category',
+				'Subcategory',
+				'Subsubcategory',
+			),
 			'conditions' => array(
 				'Product.id' => $id
 			)
@@ -1096,9 +1107,9 @@ class ProductsController extends AppController {
 		));
 
 		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
-		
+
 		$ustraditions = $this->Product->Ustradition->findList();
-		
+
 		$auxcategories = $this->Product->auxcategories();
 
 		//$aux_2_categories = $this->Product->aux_2_categories();

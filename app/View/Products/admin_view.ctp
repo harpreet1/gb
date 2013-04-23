@@ -1,15 +1,9 @@
-<div class="products view">
-<h2><?php  echo __('Product'); ?></h2>
+<h2>Admin Product View</h2>
 
-<dl>
-
-<dt>Name</dt>
-<dd>
 <h3><?php echo h($product['Product']['name']); ?></h3>
-</dd>
 
-</dl>
-
+<br />
+<br />
 
 <?php echo $this->Html->image('products/image/' . $product['Product']['image'] . '?date=' . time()); ?>
 
@@ -21,12 +15,7 @@
 <br />
 <br />
 
-<div class="row">
-<div class="span5">
-
-<span class="label label-warning">
-  Image : no watermark, square image size
-</span>
+<span class="label label-warning"> Image : no watermark, square image size </span>
 
 <br />
 <br />
@@ -34,7 +23,7 @@
 <?php echo $this->Form->create('Product', array('type' => 'file', 'url' => array('controller' => 'products', 'action' => 'view', 'admin' => true)));?>
 <?php echo $this->Form->hidden('id', array('value' => $product['Product']['id'])); ?>
 
-<table class="table table-striped table-bordered table-condensed">
+<table class="table-striped table-bordered table-condensed table-hover">
 	<tbody>
 		<tr>
 			<td>Upload Image</td>
@@ -62,8 +51,6 @@
 	</tbody>
 </table>
 <?php echo $this->Form->end(); ?>
-</div>
-</div>
 
 <br />
 <br />
@@ -113,70 +100,62 @@
 <br />
 
 <?php echo $this->Form->end(); ?>
-</div>
-</div>
 
 <br />
 <br />
 
-
-
-
-
-
-<dl>
-<dt><?php echo __('Id'); ?></dt>
-<dd>
-<?php echo h($product['Product']['id']); ?>
-</dd>
-<dt><?php echo __('User'); ?></dt>
-<dd>
-<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
-</dd>
-<dt><?php echo __('Category'); ?></dt>
-<dd>
-<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-</dd>
-<dt><?php echo __('Subcategory'); ?></dt>
-<dd>
-<?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
-</dd>
-<dt><?php echo __('Subsubcategory'); ?></dt>
-<dd>
-<?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
-</dd>
-<dt><?php echo __('Upc'); ?></dt>
-<dd>
-<?php echo h($product['Product']['upc']); ?>
-</dd>
-<dt><?php echo __('Vendor Sku'); ?></dt>
-<dd>
-<?php echo h($product['Product']['vendor_sku']); ?>
-</dd>
-<dt><?php echo __('Brand'); ?></dt>
-<dd>
-<?php echo h($product['Product']['brand']); ?>
-</dd>
-<dt>Slug</dt>
-<dd>
-<?php echo h($product['Product']['slug']); ?>
-</dd>
-<dt><?php echo __('Description'); ?></dt>
-<dd>
-<?php echo h($product['Product']['description']); ?>
-</dd>
-<dt><?php echo __('Long Description'); ?></dt>
-<dd>
-<?php echo h($product['Product']['long_description']); ?>
-</dd>
-<dt><?php echo __('Tags'); ?></dt>
-<dd>
-<?php echo h($product['Product']['tags']); ?>
-</dd>
-
-</dl>
-
-</div>
+<table class="table table-striped table-bordered table-condensed table-hover">
+	<tr>
+	<td><?php echo __('Id'); ?></td>
+	<td><?php echo h($product['Product']['id']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('User'); ?></td>
+	<td><?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Category'); ?></td>
+	<td><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Subcategory'); ?></td>
+	<td><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'subcategories', 'action' => 'view', $product['Subcategory']['id'])); ?>
+	</td>
+	</tr>
+	<tr>
+	<td><?php echo __('Subsubcategory'); ?></td>
+	<td><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'subsubcategories', 'action' => 'view', $product['Subsubcategory']['id'])); ?>
+	</td>
+	</tr>
+	<tr>
+	<td><?php echo __('Upc'); ?></td>
+	<td><?php echo h($product['Product']['upc']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Vendor Sku'); ?></td>
+	<td><?php echo h($product['Product']['vendor_sku']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Brand'); ?></td>
+	<td><?php echo h($product['Brand']['name']); ?></td>
+	</tr>
+	<tr>
+	<td>Slug</td>
+	<td><?php echo h($product['Product']['slug']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Description'); ?></td>
+	<td><?php echo h($product['Product']['description']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Long Description'); ?></td>
+	<td><?php echo h($product['Product']['long_description']); ?></td>
+	</tr>
+	<tr>
+	<td><?php echo __('Tags'); ?></td>
+	<td><?php echo h($product['Product']['tags']); ?></td>
+	</tr>
+</table>
 
 <br />
 <br />
@@ -194,7 +173,7 @@
 <div class="related">
 	<h3><?php echo __('Related Tags'); ?></h3>
 	<?php if (!empty($product['Tag'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th>Name</th>
@@ -219,18 +198,12 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
 
 <br />
 <br />
 
-<hr>
+<?php //echo $this->Html->link('New Tag', array('controller' => 'tags', 'action' => 'add')); ?>
 
 <br />
 <br />
