@@ -125,7 +125,7 @@
             
              <li class="cart">
                  <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart">
-                 <button class="btn btn-gb" type="submit"><i class="icon-shopping-cart icon-white"></i>GO TO CART</button>
+                 <button class="btn btn-global" type="submit"><i class="icon-shopping-cart icon-white"></i>GO TO CART</button>
                  </a>
              </li>
             

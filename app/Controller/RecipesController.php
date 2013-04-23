@@ -335,7 +335,7 @@ public function admin_index() {
 				$this->Recipe->id = $this->request->data['Recipe']['id'];
 				$this->Recipe->saveField($type, $image);
 				$uploadedfile = $targetdir . '/' . $image;
-				$this->Image->resample($uploadedfile, IMAGES . '/recipes/' . $type . '/', $image, 400, 400, 1, 0);
+				//$this->Image->resample($uploadedfile, IMAGES . '/recipes/' . $type . '/', $image, 400, 400, 1, 0);
 				//$this->Image->resample($uploadedfile, IMAGES . '/user_image/', $image, 200, 200, 1, 0);
 			}
 
