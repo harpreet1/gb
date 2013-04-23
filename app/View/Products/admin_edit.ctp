@@ -55,7 +55,7 @@ $(document).ready(function(){
 	<div class="span3">
 		<?php echo $this->Form->input('user_id'); ?>
 	</div>
-    
+
     <div class="span3 offset3">
 			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		</div>
@@ -89,18 +89,16 @@ $(document).ready(function(){
 <div class="row">
 
 		<div class="span3">
-			<?php echo $this->Form->input('auxcategory', array('label' => 'Aux Category 1','empty' => '--')); ?>
+			<?php echo $this->Form->input('auxcategory_1', array('label' => 'Aux Category 1', 'options' => $auxcategories, 'empty' => '')); ?>
 		</div>
 		<div class="span3">
-			<?php //echo $this->Form->input('aux_2_category', array('empty' => 'Aux Category 2','empty' => '--')); ?>
+			<?php echo $this->Form->input('auxcategory_2', array('empty' => 'Aux Category 2', 'options' => $auxcategories, 'empty' => '')); ?>
 		</div>
 		<div class="span3">
-			<?php //echo $this->Form->input('auxcategory_3', array('empty' => 'Aux Category 3','empty' => '--')); ?>
+			<?php echo $this->Form->input('auxcategory_3', array('empty' => 'Aux Category 3', 'options' => $auxcategories, 'empty' => '')); ?>
 		</div>
 
 </div>
-
-
 
 <div class="row">
 
@@ -130,7 +128,6 @@ $(document).ready(function(){
 	<div class="span2">
 		<?php echo $this->Form->input('displaygroup', array('label' => 'Display Group Priority','empty' => '--')); ?>
 	</div>
-
 
 </div>
 
@@ -235,11 +232,11 @@ $(document).ready(function(){
         <?php echo $this->Form->input('length', array('class' => 'span1','label' => 'Depth / Diameter'));?>
 		<br />
 		<br />
-        <h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
-        <?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
-        <?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
+		<h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
+		<?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
+		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
  		<br />
-		<br />       
+		<br />
 		<?php echo $this->Form->input('related_products'); ?>
 	</div>
 
@@ -253,11 +250,10 @@ $(document).ready(function(){
 	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_serv_size', array('class' => 'span1','label' => 'Serving Size')); ?>
 	</div>
-    	<div class="span2 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_serv_per_container', array('class' => 'span1','label' => 'Servings per Container')); ?>
 	</div>
 
-	
 </div>
 
 <div class="row">
@@ -271,13 +267,13 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1','label' => 'Total Fat')); ?>
 	</div>
-    	<div class="span2 nutrition">
+		<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_total_fat_p', array('class' => 'span1','label' => '% Total Fat')); ?>
 	</div>
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1','label' => 'Sat Fat')); ?>
 	</div>
-    <div class="span2 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_saturated_fat_p', array('class' => 'span1','label' => '% Sat Fat')); ?>
 	</div>
 	<div class="span1 nutrition">
@@ -309,7 +305,6 @@ $(document).ready(function(){
 
 </div>
 
-
 <div class="row">
 
 	<div class="span1 nutrition">
@@ -319,7 +314,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
 	</div>
 
-    
+
 </div>
 
 <div class="row">
@@ -361,7 +356,7 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span4">
-		
+
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
 
