@@ -284,6 +284,95 @@
 			</div>-->
 		</div>
 	</div>
+    
+    
+<div class="row">
+
+
+	<?php if($this->Form->value('User.image_1') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_1/<?php echo $this->Form->value('User.image_1'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_1', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_1', array('class' => 'span4')); ?>
+           
+
+        </div>  
+	<?php endif; ?>
+                  
+        
+	<?php if($this->Form->value('User.image_2') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_2/<?php echo $this->Form->value('User.image_2'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_2', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_2', array('class' => 'span4')); ?>
+           
+         </div>       
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('User.image_3') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_3/<?php echo $this->Form->value('User.image_3'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_3', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_3', array('class' => 'span4')); ?>
+           
+
+          </div>               
+	<?php endif; ?>
+       
+
+	<?php if($this->Form->value('User.image_4') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_4/<?php echo $this->Form->value('User.image_4'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_4', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_4', array('class' => 'span4')); ?>
+            
+          </div>         
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('User.image_5') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_5/<?php echo $this->Form->value('User.image_5'); ?>" />
+             </div>   
+                <?php echo $this->Form->input('pic_title_5', array('class' => 'span4')); ?>
+                <?php echo $this->Form->input('attr_5', array('class' => 'span4')); ?>
+              
+			</div>
+            
+         </div>    
+   <?php endif; ?>
+   
+   <?php if($this->Form->value('User.image_6') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/Users/image_6/<?php echo $this->Form->value('User.image_6'); ?>" />
+             </div>   
+                <?php echo $this->Form->input('pic_title_6', array('class' => 'span4')); ?>
+                <?php echo $this->Form->input('attr_6', array('class' => 'span4')); ?>
+              
+			</div>
+            
+         </div>    
+   <?php endif; ?>
+         
+    
+ <br />   
+    
+<br />  
+    
+    
+    
+    
 	<div class="row">
 		<div class="span12">
 	

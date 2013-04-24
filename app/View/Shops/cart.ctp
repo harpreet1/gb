@@ -67,7 +67,7 @@ Shopping Cart is empty
 			<div class="span1" style="width:30px;">State</div>
 			<div class="span1" style="width:40px;">Zip</div>
 			<div class="span1 qty">Qty</div>
-			<div class="span1">Weight</div>
+			<div class="span1 weight">Weight</div>
 			<div class="span1">Price</div>
 			<div class="span1 shipping">Shipping</div>
 		</div>
@@ -84,7 +84,7 @@ Shopping Cart is empty
 			<div class="span1"style="width:30px;"><?php echo $user['state']; ?></div>
 			<div class="span1"style="width:40px;"><?php echo $user['zip']; ?></div>
 			<div class="span1 qty"><?php echo $user['quantity']; ?></div>
-			<div class="span1"><?php echo $user['weight']; ?></div>
+			<div class="span1 weight"><?php echo $user['weight']; ?></div>
 			<div class="span1">$<?php echo $user['subtotal']; ?></div>
 			<div class="span1 shipping">
             	<?php if (($user['shipping']) == 0) :

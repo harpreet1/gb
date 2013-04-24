@@ -1731,7 +1731,6 @@ img.article-pic {
 	
 }
 
-
 .photo-attr {
 	font-size:9px;
 	font-style:italic;
@@ -1989,6 +1988,10 @@ h2.gb-heading hr {
 	padding-left:0px;
 }
 
+.pages h3.section-subheading{
+	line-height:25px;
+}
+
 .gb-nav {
 	font-size: 18px;
 	font-family: 'Oregano', cursive;
@@ -2128,6 +2131,9 @@ h2.gb-heading hr {
 
 .shipping {
 	width:100px;
+}
+.weight {
+	width:40px;
 }
 
 .qty {
