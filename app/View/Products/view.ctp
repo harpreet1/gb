@@ -18,14 +18,15 @@
 
 					<a class="gb-nav" href="/">All Our Products</a>
 
-					<p class="gb-nav small"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
+					<p class="gb-nav small">
+					<?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
-				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
+						<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
 
-			<?php //endif; ?>
+				<?php //endif; ?>
 
 					<br />
-				<?php endif; ?>
+					<?php endif; ?>
 
 		<?php endif; ?>
 	</div>
@@ -369,27 +370,21 @@
 
                         <div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
                         
-                        <?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
-                            <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
-                            <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
-                        </div>
-                            Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
-                       
-                           
-                        
+                            
+                                <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
+                                <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
+                                
+							<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
+								Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
                             <?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-inverse', 'escape' => false));?>
-                        <?php echo $this->Form->end(); ?>
-                        <?php else: ?>
-                            <?php echo $this->Form->button('<i class="icon-exclamation-sign icon-white"></i> Out of Stock', array('class' => 'btn btn-warning', 'escape' => false));?>
-                        <?php endif; ?>
-                        
+                            <?php else: ?>
+                            	<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
+                        	<?php endif; ?>
+                            
+							<?php echo $this->Form->end(); ?>
+                   		</div> 
                     
 					</div>
-            
-            
-            
-            
-
 
 				<?php if(!empty($product['Brand']['description'])) : ?>
 

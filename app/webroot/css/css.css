@@ -112,6 +112,11 @@ img.frame {
 	padding-bottom: 1px;/*font-style:italic;*/
 }
 
+.cat-quote {
+	color: #3f9179;
+	font-size:12px;
+}
+
 .breadcrumb {
 	background-color: #f7f1e5;
 }
@@ -431,6 +436,7 @@ h2.product-name {
 	font-size: 21px;
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
+	line-height: 25px;
 }
 .product-name a, div.price {
 	font-size: 11px;
@@ -518,6 +524,7 @@ div.brand {
 	margin-right: 10px;
 	text-align: center;
 	font-size: 11px;
+	color:#888;
 	
 }
 div.brand a {
@@ -959,7 +966,7 @@ div.span8>div.awning>img {
 }
 img.tradition, img.vendor-pic {
 	width: 300px;
-	border: solid #CCC 3px;
+	border: solid #CCC 2px;
 	padding: 5px;
 }
 img.recipe-pic {
@@ -1291,6 +1298,30 @@ html[xmlns] .slides {
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
 	-webkit-font-smoothing: antialiased;
 }
+
+.btn-global {
+	color: #FFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #49AFCD;
+	background-image: -moz-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3F9179), to(#2F6F5C));
+	background-image: -webkit-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: -o-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: linear-gradient(to bottom, #3F9179, #2F6F5C);
+	background-repeat: repeat-x;
+	border-color: #2F96B4 #2F96B4 #1F6377;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-global:hover
+{
+	background-color: #2F6F5C;
+	color:#fff;
+}
+
+
 /** Attribute icons **/
 
 .attr-icon-set {
@@ -1705,7 +1736,6 @@ img.article-pic {
 	
 }
 
-
 .photo-attr {
 	font-size:9px;
 	font-style:italic;
@@ -1963,6 +1993,10 @@ h2.gb-heading hr {
 	padding-left:0px;
 }
 
+.pages h3.section-subheading{
+	line-height:25px;
+}
+
 .gb-nav {
 	font-size: 18px;
 	font-family: 'Oregano', cursive;
@@ -1997,6 +2031,15 @@ h2.gb-heading hr {
 	line-height:24px;
 	margin-bottom:15px;
 	vertical-align:top;
+}
+
+h3.gb-heading.uppercase.category {
+	margin-bottom:0px;
+}
+
+hr.category {
+	margin-bottom:5px;
+	margin-top:5px;
 }
 
 
@@ -2100,7 +2143,16 @@ h2.gb-heading hr {
 		overflow: hidden;
 	}
 
+.shipping {
+	width:100px;
+}
+.weight {
+	width:40px;
+}
 
+.qty {
+	width:30px;
+}
 
 /** Info Boxes **/*
 

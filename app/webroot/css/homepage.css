@@ -157,7 +157,7 @@ li.gb-account a {
 	 }
  
 #upper {
-	height: 182px;
+	height: 90px;
 	margin: 0px;
 	padding: 0px; }
  
@@ -245,7 +245,7 @@ fgb
 .js-marquee {
 	margin-top:20px;
 	color: #fff;
-	font-size:50px;
+	font-size:35px;
 	font-family: Oregano, cursive;
 	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1); 
 }
@@ -569,5 +569,34 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
 	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
 	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
-	
+}
+
+
+ul.meganizr >li.cart > a {
+	padding-left: 10px;
+	padding-top: 0px;
+	line-height: 31px;
+
+}
+
+.btn-global {
+	color: #FFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #49AFCD;
+	background-image: -moz-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3F9179), to(#2F6F5C));
+	background-image: -webkit-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: -o-linear-gradient(top, #3F9179, #2F6F5C);
+	background-image: linear-gradient(to bottom, #3F9179, #2F6F5C);
+	background-repeat: repeat-x;
+	border-color: #2F96B4 #2F96B4 #1F6377;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-global:hover
+{
+	background-color: #2F6F5C;
+	color:#fff;
 }

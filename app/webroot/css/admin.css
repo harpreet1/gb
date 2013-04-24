@@ -56,7 +56,11 @@ td.art-constrain div {
 	max-height: 70px;
 }
 
-.article-img {
+.article-img, img.user-img {
+	max-height:280px;
+}
+
+ {
 	max-height: 225px;
 }
 
