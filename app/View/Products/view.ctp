@@ -18,14 +18,15 @@
 
 					<a class="gb-nav" href="/">All Our Products</a>
 
-					<p class="gb-nav small"><?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
+					<p class="gb-nav small">
+					<?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
-				<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
+						<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
 
-			<?php //endif; ?>
+				<?php //endif; ?>
 
 					<br />
-				<?php endif; ?>
+					<?php endif; ?>
 
 		<?php endif; ?>
 	</div>
