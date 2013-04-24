@@ -187,11 +187,11 @@ class ProductsController extends AppController {
 			$user = $this->Product->User->getBySubdomain($subDomain);
 
 			$usercategories = $this->Product->find('all', array(
-				'contain' => array('Category, Brand'),
+				'contain' => array('Category'),
 				'fields' => array(
 					'Category.name',
 					'Category.slug',
-					'Brand.name',
+					//'Brand.name',
 				),
 				'conditions' => array(
 					'Product.active' => 1,
@@ -221,7 +221,7 @@ class ProductsController extends AppController {
 			),
 			
 			'fields' => array(
-				'Brand.name',
+				//'Brand.name',
 			),
 			'conditions' => array(
 				'Product.id' => $id,
