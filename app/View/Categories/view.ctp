@@ -2,11 +2,12 @@
 
 	<div class="span3" style="width:240px;">
     
-    <h3 class="gb-heading uppercase"><?php echo $category['Category']['name'] ?>
+    <h3 class="gb-heading uppercase category"><?php echo $category['Category']['name'] ?>
     
     </h3>
+    <hr class="category"/>
   
-    <?php echo $category['Category']['quote'] ?>
+    <span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
     <div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
          <a href="#" id="story">Read more of this story...</a>

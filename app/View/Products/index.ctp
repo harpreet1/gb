@@ -157,31 +157,55 @@
 
 					</div>
 
-				</div>
+				</div> 
+                
+             
 
 		<!-- Vendor Story Pics -->
 				<div class="span4">
+                
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); endif ?>
+					<?php if(!empty($user['User']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); ?>
+                    <div><?php echo $user['User']['pic_title_1']; ?></div>
+                    <?php echo $user['User']['attr_1']; ?>
+					<?php endif ?>                 
 					</div>
+                    
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); endif ?>
+					<?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); ?>
+                    <div><?php echo $user['User']['pic_title_2']; ?></div>
+                    <?php echo $user['User']['attr_2']; ?>
+					<?php endif ?>
 					</div>
+                    
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); endif ?>
+					<?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); ?>
+                    <div><?php echo $user['User']['pic_title_3']; ?></div>
+                    <?php echo $user['User']['attr_3']; ?>
+					<?php endif ?>
 					</div>
+                    
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); endif ?>
+					<?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_5']; ?></div>
+                    <?php echo $user['User']['attr_4']; ?>
+					<?php endif ?>
 					</div>
+                    
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic')); endif ?>
+					<?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic'));  ?>
+                    <div><?php echo $user['User']['pic_title_5']; ?></div>
+                    <?php echo $user['User']['attr_5']; ?>
+					<?php endif ?>
 					</div>
-					 <div class="span4 air">
-					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_6'], array('class' =>'vendor-pic')); endif ?>
+                    
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
+                    <div><?php echo $user['User']['pic_title_6']; ?></div>
+                    <?php echo $user['User']['attr_1']; ?>
+					<?php endif ?>
 					</div>
-					 <div class="span4 air">
-					<?php if(!empty($user['User']['image_7'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_7'], array('class' =>'vendor-pic')); endif ?>
-					</div>
+			
 				</div>
 
 

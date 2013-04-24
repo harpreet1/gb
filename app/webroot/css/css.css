@@ -112,6 +112,11 @@ img.frame {
 	padding-bottom: 1px;/*font-style:italic;*/
 }
 
+.cat-quote {
+	color: #3f9179;
+	font-size:12px;
+}
+
 .breadcrumb {
 	background-color: #f7f1e5;
 }
@@ -961,7 +966,7 @@ div.span8>div.awning>img {
 }
 img.tradition, img.vendor-pic {
 	width: 300px;
-	border: solid #CCC 3px;
+	border: solid #CCC 2px;
 	padding: 5px;
 }
 img.recipe-pic {
@@ -2026,6 +2031,15 @@ h2.gb-heading hr {
 	line-height:24px;
 	margin-bottom:15px;
 	vertical-align:top;
+}
+
+h3.gb-heading.uppercase.category {
+	margin-bottom:0px;
+}
+
+hr.category {
+	margin-bottom:5px;
+	margin-top:5px;
 }
 
 
