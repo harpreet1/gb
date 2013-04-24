@@ -5,7 +5,7 @@
     <h3 class="gb-heading uppercase category"><?php echo $category['Category']['name'] ?>
     
     </h3>
-    <hr class="category"/>
+    <hr class="category">
   
     <span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
     <div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>

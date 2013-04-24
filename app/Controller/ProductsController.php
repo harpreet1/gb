@@ -463,7 +463,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
-				'Product.brand_name',
+				//'Product.brand_name',
 				'User.slug'
 			),
 			'conditions' => array(
