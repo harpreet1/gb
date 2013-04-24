@@ -519,6 +519,7 @@ div.brand {
 	margin-right: 10px;
 	text-align: center;
 	font-size: 11px;
+	color:#888;
 	
 }
 div.brand a {
@@ -2125,7 +2126,13 @@ h2.gb-heading hr {
 		overflow: hidden;
 	}
 
+.shipping {
+	width:100px;
+}
 
+.qty {
+	width:30px;
+}
 
 /** Info Boxes **/*
 
