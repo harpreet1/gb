@@ -190,7 +190,7 @@
 					</div>
                     
 					<div class="span4 air">
-					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
+					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
                     <div><?php echo $user['User']['pic_title_6']; ?></div>
                     <?php echo $user['User']['attr_1']; ?>
 					<?php endif ?>
