@@ -59,8 +59,9 @@
 			)
 		)
 	);
+	
+	Router::connect('/pages/:slug', array('controller' => 'pages', 'action' => 'index'), array('pass' => array('slug')));
 
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 

@@ -81,15 +81,6 @@
 <br />
 <br />
 
-<h3>Edit and Submit Picture Details</h3>
-<?php echo $this->Form->create('Article'); ?>
-
-<?php echo $this->Form->hidden('id', array('value' => $article['Article']['id'])); ?>
-
-
-
-
-
   
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 <?php echo $this->Form->end(); ?>

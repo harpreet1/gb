@@ -260,6 +260,11 @@ span.special.nolink {
 	color:#a70000;
 }
 
+
+.mzr-content p.nav-special a{
+	color:#3f9179;
+}
+
 .meganizr > li > div {
 	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
 	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
@@ -270,6 +275,12 @@ span.special.nolink {
 	border: none;
 	background: none;
 }
+
+.mzr-content p.nav-special a{
+	color:#3f9179;
+}
+
+
 ul.meganizr >li {
 	border: none;
 }
@@ -290,7 +301,6 @@ ul.meganizr >li.cart > a {
 	padding-top:0px;
 	line-height:33px;
 }
-
 
 .btn.btn-gb.cart {
 	line-height:17px;

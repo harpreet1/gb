@@ -177,7 +177,7 @@
                     
 					<div class="span4 air">
 					<?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); ?>
-					<div><?php echo $user['User']['pic_title_5']; ?></div>
+					<div><?php echo $user['User']['pic_title_4']; ?></div>
                     <?php echo $user['User']['attr_4']; ?>
 					<?php endif ?>
 					</div>
@@ -192,7 +192,7 @@
 					<div class="span4 air">
 					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
                     <div><?php echo $user['User']['pic_title_6']; ?></div>
-                    <?php echo $user['User']['attr_1']; ?>
+                    <?php echo $user['User']['attr_6']; ?>
 					<?php endif ?>
 					</div>
 			

@@ -1,31 +1,27 @@
-<h2>Brands</h2>
+<h2>Pages</h2>
 
 <table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
-		<th><?php echo $this->Paginator->sort('description'); ?></th>
-		<th><?php echo $this->Paginator->sort('summary'); ?></th>
-		<th><?php echo $this->Paginator->sort('article'); ?></th>
-		<th><?php echo $this->Paginator->sort('image'); ?></th>
+		<th><?php echo $this->Paginator->sort('author'); ?></th>
+		<th><?php echo $this->Paginator->sort('body'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 		<th class="actions">Actions</th>
 	</tr>
-	<?php foreach ($brands as $brand): ?>
+	<?php foreach ($pages as $page): ?>
 	<tr>
-		<td><?php echo h($brand['Brand']['id']); ?></td>
-		<td><?php echo h($brand['Brand']['name']); ?></td>
-		<td><?php echo h($brand['Brand']['slug']); ?></td>
-		<td><?php echo ($brand['Brand']['description']); ?></td>
-		<td><?php echo ($brand['Brand']['summary']); ?></td>
-		<td><?php echo ($brand['Brand']['article']); ?></td>
-		<td><?php echo h($brand['Brand']['image']); ?></td>
-		<td><?php echo h($brand['Brand']['created']); ?></td>
-		<td><?php echo h($brand['Brand']['modified']); ?></td>
+		<td><?php echo h($page['Page']['id']); ?></td>
+		<td><?php echo h($page['Page']['name']); ?></td>
+		<td><?php echo h($page['Page']['slug']); ?></td>
+		<td><?php echo ($page['Page']['author']); ?></td>
+		<td><?php echo ($page['Page']['body']); ?></td>
+		<td><?php echo h($page['Page']['created']); ?></td>
+		<td><?php echo h($page['Page']['modified']); ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link('View', array('action' => 'view', $brand['Brand']['id'])); ?>
+			<?php echo $this->Html->link('View', array('action' => 'view', $page['Page']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
