@@ -63,14 +63,14 @@
 		<img class="recipe-pic" src="/img/recipes/image_1/<? echo $recipe['Recipe']['image_1']?>"  />
 		<br />
 		<br />
-		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>
+		<?php //if(!empty($recipe['Recipe']['image_2'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_2/<? echo $recipe['Recipe']['image_2'] ?>" />
-		<?php endif ; ?>
+		<?php //endif ; ?>
 		<!--<?php //echo $this->Html->image('/img/recipes/thumb-' . $recipe['Recipe']['slug'] . '-2.jpg'); ?>-->
 		<br />
-		<?php if(!empty($recipe['Recipe']['image_3'])) : ?>
+		<?php //if(!empty($recipe['Recipe']['image_3'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_3/<? echo $recipe['Recipe']['image_3']?>"  />
-		<?php endif ; ?>
+		<?php //endif ; ?>
 		<br />
 		
 	</div>

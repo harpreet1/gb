@@ -64,7 +64,7 @@
             </ul>
             </div>
          <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" /> 
-         	<div class="issue gb-heading">April - May 2013</div>
+         	<div class="issue gb-heading">May - June 2013</div>
          
             <div class="title-description center">A fresh way to learn about, shop for, prepare and enjoy foods of the world.</div>
              <div class="welcome-link"><a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a></div>

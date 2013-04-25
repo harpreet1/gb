@@ -11,10 +11,11 @@
             <li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Foods<b class="caret"></b></a>
                 <div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
+                     	<p class="nav-special"><a href="/categories">Stop by our "Pantry"</a></p>
 						<?php foreach($menucategories as $menucategory) : ?>
 						<p><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></p>
 						<?php endforeach; ?>
-                        <p><a href="/categories">Stop by our"Pantry"</a>
+                       
 					</div>
 				</div>
             </li>

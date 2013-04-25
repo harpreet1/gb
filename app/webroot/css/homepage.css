@@ -182,7 +182,6 @@ li.gb-account a {
 .carousel-control {
 	top:50%;
 	line-height: 26px;
-fgb
  } 
 
 .carousel-control.left {
@@ -234,7 +233,7 @@ fgb
 
 .marquee, .marquee-with-options {
 	position: absolute;
-	top: 456px;
+	top: 450px;
 	width:83%;
 	height:100px;
 	overflow: hidden;
@@ -468,6 +467,12 @@ li.mzr-drop>a>b.caret {
 	
 	
 }
+
+.mzr-content p.nav-special a{
+	color:#3f9179;
+}
+
+
 .meganizr > li.mzr-drop {
 	border: none;
 }
