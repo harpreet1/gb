@@ -64,16 +64,16 @@
         <?php echo $recipe['Recipe']['attr_1']?>
 		<br />
 		<br />
-		<?php //if(!empty($recipe['Recipe']['image_2'])) : ?>
+		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_2'] ?>" />
             <?php echo $recipe['Recipe']['attr_2']?>
-		<?php //endif ; ?>
-		<!--<?php //echo $this->Html->image('/img/recipes/thumb-' . $recipe['Recipe']['slug'] . '-2.jpg'); ?>-->
+		<?php endif ; ?>
+		
 		<br />
-		<?php //if(!empty($recipe['Recipe']['image_3'])) : ?>
+		<?php if(!empty($recipe['Recipe']['image_3'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_3/<?php echo $recipe['Recipe']['image_3']?>"  />
             <?php echo $recipe['Recipe']['attr_3']?>
-		<?php //endif ; ?>
+		<?php endif ; ?>
 		<br />
 		
 	</div>
