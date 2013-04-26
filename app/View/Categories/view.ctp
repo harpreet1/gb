@@ -15,19 +15,12 @@
 
 
 	
-		<span class="section-subheading">CATEGORY</span>
-		<br />
-		• <?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?>
-		<br />
-
+		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>
+		<p class="gb-heading"><?php echo $category['Category']['name'] ?></p>
+		
 		<?php if(!empty($subcategories)) : ?>
-
-			<br />
-			<span class="section-subheading">SUB CATEGORIES</span>
-			<br />
-
 			<?php foreach ($subcategories as $subcategories1): ?>
-				•• <?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
+				- - - <?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
 				<br />
 			<?php endforeach; ?>
 
@@ -36,11 +29,10 @@
 		<?php if(!empty($subsubcategories)) : ?>
 
 			<br />
-			<span class="section-subheading">SUB SUB CATEGORIES</span>
 			<br />
 
 			<?php foreach ($subsubcategories as $subsubcategories1): ?>
-				••• <?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
+				- - - - -<?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
 				<br />
 			<?php endforeach; ?>
 
