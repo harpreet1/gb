@@ -46,7 +46,49 @@
 		<?php echo $this->Form->input('tags'); ?>
 		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
 		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
-		?>
+		
+        
+        
+        
+<div class="row">
+
+
+	<?php if($this->Form->value('Recipe.image_1') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img class="article-img" src="/img/recipes/image_1/<?php echo $this->Form->value('Recipe.image_1'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('attr_1'); ?>
+        </div>  
+	<?php endif; ?>
+                  
+        
+	<?php if($this->Form->value('Recipe.image_2') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img class="article-img" src="/img/recipes/image_2/<?php echo $this->Form->value('Recipe.image_2'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('attr_2'); ?>
+         </div>       
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('Recipe.image_3') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img class="article-img" src="/img/recipes/image_3/<?php echo $this->Form->value('Recipe.image_3'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('attr_3'); ?>
+          </div>               
+	<?php endif; ?>        
+        
+</div>
+        
+        
+        
+        
+        
+        
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />

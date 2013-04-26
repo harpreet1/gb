@@ -55,15 +55,15 @@
 	</tr>
 	<tr>
 	<td>Image Caption 1</td>
-	<td><?php echo h($recipe['Recipe']['image_caption_1']); ?></td>
+	<td><?php echo h($recipe['Recipe']['attr_1']); ?></td>
 	</tr>
 	<tr>
 	<td>Image Caption 2</td>
-	<td><?php echo h($recipe['Recipe']['image_caption_2']); ?></td>
+	<td><?php echo h($recipe['Recipe']['attr_2']); ?></td>
 	</tr>
 	<tr>
 	<td>Image Caption 3</td>
-	<td><?php echo h($recipe['Recipe']['image_caption_3']); ?></td>
+	<td><?php echo h($recipe['Recipe']['attr_3']); ?></td>
 	</tr>
 	<tr>
 	<td>Active</td>
