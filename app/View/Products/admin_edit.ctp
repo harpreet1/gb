@@ -145,7 +145,9 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span2">
-		<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
+		<?php //echo $this->Form->input('tags', array('class' => '4span')); ?>
+        <?php echo $this->Form->input('tags', array('type' => 'text')); ?>
+		
 		<br />
 		<?php echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
 		<?php echo $this->Form->input('gift_product', array('type' => 'checkbox', 'label' => 'Gift Product'));?>

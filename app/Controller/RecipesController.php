@@ -1,6 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
 class RecipesController extends AppController {
+	
+	var $helpers = array('Tags.TagCloud');
 
 ///////////////////////////////////////////////////////////
 
@@ -454,8 +456,16 @@ public function admin_index() {
 				'Ustradition.name' => 'ASC'
 			)
 		));
+		
+		$tags = $this->Tags->find('list', array(
+			'order' => array(
+				'Tag.name' => 'ASC'
+			)
+		));
+		
+		//$this->set('tags', $this->Recipe->Tagged->find('cloud', array('limit' => 10)));
 
-		$this->set(compact('users', 'recipescategories', 'traditions', 'ustraditions'));
+		$this->set(compact('users', 'recipescategories', 'traditions', 'ustraditions','tags'));
 	}
 
 ////////////////////////////////////////////////////////////

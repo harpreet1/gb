@@ -14,7 +14,7 @@ class AppModel extends Model {
 			'delimiter'  => '~'
 		)
 	);
-
+	
 ////////////////////////////////////////////////////////////
 
 	public function creations($id = null) {

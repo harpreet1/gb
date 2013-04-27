@@ -43,11 +43,29 @@
 		<?php echo $this->Form->input('ingredients', array('rows' => 30, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('preparation', array('rows' => 30, 'class' => 'input-gb-large')); ?>
 		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('tags'); ?>
+
 		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
 		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>
-		
         
+        <br />
+        <br />
+        
+        <?php echo $this->Form->input('Recipe.Tag',array('label'=>'Add a tag', 'type'=>'text'));
+  ?>
+
+        
+                
+        <?php //echo $this->Form->input('tags', array('type' => 'text')); ?>
+		
+        <ul id="tagcloud">
+			<?php echo $this->TagCloud->display($tags, array(
+				'before' => '<li class="fs%size% tag">',
+				'after' => '</li>',
+				'maxSize' => 50,
+				'minSize' => 1));
+			?>
+		</ul>
+
         
         
 <div class="row">
