@@ -1,3 +1,22 @@
+<style>
+	.navList li a {
+		<?php //echo $user['User']['awning_css']; ?>
+	}
+	.navList li ul.listTab li a, .navList li ul.listTab li {
+		background-color:#fff;
+	}
+</style>
+
+<?php if(!empty($user)) : ?>
+
+<style>
+	.vendor-css {
+		<?php echo $user['User']['awning_css']; ?>
+	}
+</style>
+
+
+
 <div class="row">
 
 	<div class="span3" style="width:270px">
@@ -22,69 +41,34 @@
 			<?php if(!empty($category)) : ?><br /><span class="gb-nav"><img src="/img/global/dash-2.png"></span>
 
 				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'])); ?>
+                
+                <?php $cat = $category['Category']['name']?>
+               
+                
 			<?php endif; ?>
 
 			<?php if(!empty($subcategory)) : ?>
-				<br /><span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?>
-			<?php endif; ?></li>
-
-			<?php if(!empty($subsubcategory)) : ?>
-			<br /><span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?>
+				<br /><span class="gb-nav"><img src="/img/global/dash-4.png"></span>
+				<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?>
+                
+                <?php $subcat = $subcategory['Subcategory']['name']?>
+                
 			<?php endif; ?>
 
-			<style>
-				.navList li a {
-					<?php //echo $user['User']['awning_css']; ?>
-				}
-				.navList li ul.listTab li a, .navList li ul.listTab li {
-					background-color:#fff;
-				}
-			</style>
+			<?php if(!empty($subsubcategory)) : ?>
+				<br /><span class="gb-nav"><img src="/img/global/dash-6.png"></span>
+				<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?>
+                
+            	<?php $subsubcat = $subsubcategory['Subsubcategory']['name']?>
+            
+			<?php endif; ?>
+
 
 			<hr />
 
 			<div style="clear:both">
-
-			<?php if(!empty($usercategories)) : ?>
-
-							<?php foreach ($usercategories as $usercategory): ?>
-							<span class="gb-nav"><img src="/img/global/dash-2.png"></span>
-							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
-
-							<?php endforeach; ?>
-
-			<?php endif; ?>
-
-			</div>
-
-			<div style="clear:both">
-
-			<br />
-			<br />
-
-
-
-		<?php if(!empty($subcategories)) : ?>
-
-			subcategories<br  />
-
-			<?php foreach ($subcategories as $subcategory): ?>
-			<span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?><br />
-
-			<?php endforeach; ?>
-
-		<?php endif; ?>
-
-		</div>
-
-		<div style="clear:both">
-
-		<br />
-		<br />
-
-		<?php if(!empty($subsubcategories)) : ?>
-
-			subsubcategories<br  />
+            
+            <?php if(!empty($subsubcategories)) : ?>
 
 			<?php foreach ($subsubcategories as $subsubcategory): ?>
 			<span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $subsubcategory['Category']['slug'], $subsubcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?><br />
@@ -92,25 +76,55 @@
 			<?php endforeach; ?>
 		<?php endif; ?>
 
+           
+
+
+		<?php if(!empty($subcategories)) : ?>
+
+			
+
+			<?php foreach ($subcategories as $subcategory): ?>
+			<span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?><br />
+
+			<?php endforeach; ?>
+
+		<?php endif; ?>
+        
+        
+			<?php if(!empty($usercategories)) : ?>
+
+				<?php foreach ($usercategories as $usercategory): ?>
+                <span class="gb-nav"><img src="/img/global/dash-2.png"></span>
+                <?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
+
+                <?php endforeach; ?>
+
+			<?php endif; ?>
+
+			</div>
+
+			<div style="clear:both">
+        
+        
+        
+
+		</div>
+
+		<div style="clear:both">
+
+
+		
 
 
 		</div>
 		<hr />
 
 		<ul class="navList">
-					<li><a href="#" id="story">Our Story</a></li>
+					<li><a class="vendor-css" href="#" id="story">Our Story</a></li>
 
 		</ul>
 
-		<?php if(!empty($user)) : ?>
-
-				<style>
-						.vendor-css {
-							<?php echo $user['User']['awning_css']; ?>
-						}
-				</style>
-
-
+		
 		<!-- Vendor Story -->
 		<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
 
@@ -201,7 +215,7 @@
 		</div>
 
 		<ul class="navList">
-			<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
+			<li><a class="vendor-css" href="/recipes">Our Recipes</a></li>
 		</ul>
 
 		<!--<ul class="navList">
@@ -257,27 +271,26 @@
 
 
 
-		<?php /*?><ul class="breadcrumb vendor-index">
+		<!--<ul class="breadcrumb vendor-index">
 
 
 				<li><?php //echo $user['User']['name']; ?></li>
 
 			<div style="float:right">
-				Your path:&nbsp;
-
+		
 				<?php //echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
 
-					<?php if(!empty($subcategory)) : ?>&nbsp;/&nbsp;
+				<?php /*?>	<?php if(!empty($subcategory)) : ?>&nbsp;/&nbsp;
 				<?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
 				<?php endif; ?>&nbsp;
 				<?php if(!empty($subsubcategory)) : ?>&nbsp;/&nbsp;
 					<?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
-				<?php endif; ?>
+				<?php endif; ?><?php */?>
 			</div>
 
 
-		</ul><?php */?>
-
+		</ul>
+-->
 
 		<div class="awning">
 
@@ -307,17 +320,22 @@
 			<div class="section-subheading vendor-category">
 
 				<!--Logic to show where we are -->
+                
+            <?php if(!empty($subsubcat)) : ?>
+				<?php echo ($subsubcat); ?>
+            
+			<?php elseif (!empty($subcat)) : ?>
+  				<?php echo ($subcat); ?>
+             
+			<?php elseif (!empty($cat)) : ?>
+      			<?php echo ($cat); ?>
+			<?php endif; ?>
 
-				<?php if(!empty($subsubcategory)) : ?>
-					<?php echo $subsubcategory['Subsubcategory']['name']; ?>
 
-				<?php elseif(!empty($subcategory)) : ?>
-					<?php echo $subcategory['Subcategory']['name']; ?>
+				<?php /*?><?php if(!empty($category)) : ?><br /><span class="gb-nav"><img src="/img/global/dash-2.png"></span>
+				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'])); ?>
+				<?php endif; ?><?php */?>
 
-				<?php  elseif(!empty($category)) : ?>
-					<?php echo $category['Category']['name']; ?>
-
-				<?php endif; ?>
 
 			</div>
 

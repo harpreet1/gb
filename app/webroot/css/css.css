@@ -1046,6 +1046,10 @@ blockquote p {
 	padding-left: 20px;
 	padding-bottom: 25px;
 }
+
+#vendor-article  p.section-heading {
+	font-size: 27px;
+}
 .span12.vendor-block {
 	margin-left: 52px;
 }

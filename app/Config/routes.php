@@ -61,7 +61,7 @@
 		)
 	);
 
-	Router::connect('/eddie/:slug', array('controller' => 'pages', 'action' => 'view'), array('pass' => array('slug')));
+	Router::connect('/info/:slug', array('controller' => 'pages', 'action' => 'view'), array('pass' => array('slug')));
 
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 

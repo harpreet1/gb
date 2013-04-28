@@ -21,6 +21,8 @@
 
 <?php echo $this->Form->input('name', array('class' => 'input-gb-large')); ?>
 
+<?php echo $this->Form->input('slug'); ?>
+
 <?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-gb-large')); ?>
 
 <br />
