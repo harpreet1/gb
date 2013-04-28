@@ -2025,6 +2025,10 @@ h2.gb-heading hr {
 	letter-spacing: 1px;
 }
 
+.gb-nav-container hr {
+	margin: 12px 0;
+}
+
 .vendor-category {
 	margin-top:10px;
 	margin-bottom:0px;

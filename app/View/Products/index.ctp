@@ -21,7 +21,7 @@
 
 	<div class="span3" style="width:270px">
 
-		<div>
+		<div class="gb-nav-container">
 
 		<?php /*?><?php if(!empty($user)) : ?><?php */?>
 
