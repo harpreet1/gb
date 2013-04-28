@@ -194,7 +194,7 @@ class Router {
 			$routeClass !== 'CakeRoute' &&
 			(!class_exists($routeClass) || !is_subclass_of($routeClass, 'CakeRoute'))
 		) {
-			throw new RouterException(__d('cake_dev', 'Route classes must extend CakeRoute'));
+			throw new RouterException(__d('cake_dev', 'Route class not found, or route class is not a subclass of CakeRoute'));
 		}
 		return $routeClass;
 	}
@@ -1093,7 +1093,8 @@ class Router {
  * @return CakeRoute Matching route object.
  */
 	public static function currentRoute() {
-		return self::$_currentRoute[count(self::$_currentRoute) - 1];
+		$count = count(self::$_currentRoute) - 1;
+		return ($count >= 0) ? self::$_currentRoute[$count] : false;
 	}
 
 /**
