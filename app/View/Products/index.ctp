@@ -21,20 +21,16 @@
 
 			<?php if(!empty($category)) : ?><br /><span class="gb-nav"><img src="/img/global/dash-2.png"></span>
 
-				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $category['Category']['slug'])); ?>
+				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'])); ?>
 			<?php endif; ?>
 
 			<?php if(!empty($subcategory)) : ?>
-				<br /><span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $subcategory['Subcategory']['id'])); ?>
+				<br /><span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?>
 			<?php endif; ?></li>
 
 			<?php if(!empty($subsubcategory)) : ?>
-			<br /><span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $subsubcategory['Subsubcategory']['id'])); ?>
+			<br /><span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?>
 			<?php endif; ?>
-
-			
-
-
 
 			<style>
 				.navList li a {
@@ -45,56 +41,58 @@
 				}
 			</style>
 
-
+			<hr />
 
 			<div style="clear:both">
 
 			<?php if(!empty($usercategories)) : ?>
 
-						
 							<?php foreach ($usercategories as $usercategory): ?>
 							<span class="gb-nav"><img src="/img/global/dash-2.png"></span>
-							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $usercategory['Category']['slug'])); ?><br />
-							
+							<?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
+
 							<?php endforeach; ?>
-						
 
-			<?php endif; ?>
-            
-			</div>
-
-			<div style="clear:both">
-
-						<?php //debug($usersubcategories); ?>
-
-						<?php if(!empty($usersubcategories)) : ?>
-				<!--class="navList">-->
-					<!--<li><a href="#">Our Subcategories</a>-->
-						 <!-- This is the sub nav -->
-						<!-- <ul>-->
-							<?php foreach ($usersubcategories as $usersubcategory): ?>
-							<span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($usersubcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $usersubcategory['Subcategory']['id'])); ?><br />
-							
-							<?php endforeach; ?>
 			<?php endif; ?>
 
 			</div>
 
 			<div style="clear:both">
 
-		<?php if(!empty($usersubsubcategories)) : ?>
+			<br />
+			<br />
 
-			<!--class="navList"-->
-					<!--<li><a href="#">Our Sub Sub Categories</a>-->
-						<!-- This is the sub nav !!-->
-						 <!--<ul>--><!-- class="listTab">-->
-						<?php foreach ($usersubsubcategories as $usersubsubcategory): ?>
-						<span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($usersubsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $usersubsubcategory['Subsubcategory']['id'])); ?><br />
-						
-						<?php endforeach; ?>
-						<?php endif; ?>
 
-			
+
+		<?php if(!empty($subcategories)) : ?>
+
+			subcategories<br  />
+
+			<?php foreach ($subcategories as $subcategory): ?>
+			<span class="gb-nav"><img src="/img/global/dash-4.png"></span><?php echo $this->Html->link($subcategory['Subcategory']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'], $subcategory['Subcategory']['slug'])); ?><br />
+
+			<?php endforeach; ?>
+
+		<?php endif; ?>
+
+		</div>
+
+		<div style="clear:both">
+
+		<br />
+		<br />
+
+		<?php if(!empty($subsubcategories)) : ?>
+
+			subsubcategories<br  />
+
+			<?php foreach ($subsubcategories as $subsubcategory): ?>
+			<span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $subsubcategory['Category']['slug'], $subsubcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?><br />
+
+			<?php endforeach; ?>
+		<?php endif; ?>
+
+
 
 		</div>
 		<hr />
@@ -147,83 +145,70 @@
 
 					</div>
 
-				</div> 
-                
-             
-
-		<!-- Vendor Story Pics -->
-				<div class="span4">
-                
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); ?>
-                    <div><?php echo $user['User']['pic_title_1']; ?></div>
-                    <?php echo $user['User']['attr_1']; ?>
-					<?php endif ?>                 
-					</div>
-                    
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); ?>
-                    <div><?php echo $user['User']['pic_title_2']; ?></div>
-                    <?php echo $user['User']['attr_2']; ?>
-					<?php endif ?>
-					</div>
-                    
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); ?>
-                    <div><?php echo $user['User']['pic_title_3']; ?></div>
-                    <?php echo $user['User']['attr_3']; ?>
-					<?php endif ?>
-					</div>
-                    
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); ?>
-					<div><?php echo $user['User']['pic_title_4']; ?></div>
-                    <?php echo $user['User']['attr_4']; ?>
-					<?php endif ?>
-					</div>
-                    
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic'));  ?>
-                    <div><?php echo $user['User']['pic_title_5']; ?></div>
-                    <?php echo $user['User']['attr_5']; ?>
-					<?php endif ?>
-					</div>
-                    
-					<div class="span4 air">
-					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
-                    <div><?php echo $user['User']['pic_title_6']; ?></div>
-                    <?php echo $user['User']['attr_6']; ?>
-					<?php endif ?>
-					</div>
-			
 				</div>
 
 
-			</div>
 
+		<!-- Vendor Story Pics -->
+				<div class="span4">
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_1'])) : echo $this->Html->image('users/image_1/' . $user['User']['image_1'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_1']; ?></div>
+					<?php echo $user['User']['attr_1']; ?>
+					<?php endif ?>
+					</div>
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_2'])) : echo $this->Html->image('users/image_2/' . $user['User']['image_2'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_2']; ?></div>
+					<?php echo $user['User']['attr_2']; ?>
+					<?php endif ?>
+					</div>
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_3'])) : echo $this->Html->image('users/image_3/' . $user['User']['image_3'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_3']; ?></div>
+					<?php echo $user['User']['attr_3']; ?>
+					<?php endif ?>
+					</div>
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_4'])) : echo $this->Html->image('users/image_4/' . $user['User']['image_4'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_4']; ?></div>
+					<?php echo $user['User']['attr_4']; ?>
+					<?php endif ?>
+					</div>
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_5'])) : echo $this->Html->image('users/image_5/' . $user['User']['image_5'], array('class' =>'vendor-pic'));  ?>
+					<div><?php echo $user['User']['pic_title_5']; ?></div>
+					<?php echo $user['User']['attr_5']; ?>
+					<?php endif ?>
+					</div>
+
+					<div class="span4 air">
+					<?php if(!empty($user['User']['image_6'])) : echo $this->Html->image('users/image_6/' . $user['User']['image_6'], array('class' =>'vendor-pic')); ?>
+					<div><?php echo $user['User']['pic_title_6']; ?></div>
+					<?php echo $user['User']['attr_6']; ?>
+					<?php endif ?>
+					</div>
+
+				</div>
+
+			</div>
 
 		</div>
 
-
-
-
-
-
-
-
 		<ul class="navList">
-					<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
-
+			<li><?php echo $this->Html->link('Our Recipes', array('controller' => 'recipes', 'action' => 'index')); ?></li>
 		</ul>
 
 		<!--<ul class="navList">
 					<li><a href="#vendor-unit">Our Regions</a></li>
 		</ul>-->
 
-
-
 		</div>
-
 
 		<div>
 			<?php $vendor_policy = $user['User']['shipping_policy']; ?>
@@ -292,9 +277,6 @@
 
 
 		</ul><?php */?>
-
-
-
 
 
 		<div class="awning">
@@ -383,13 +365,11 @@
 				</div>
 
 				<?php
-				  if (($i % 4) == 0) { echo "</div>\n\n\t\t<div class=\"row product\">\n\n";}
-				  endforeach;
+				if (($i % 4) == 0) {
+					echo "</div>\n\n\t\t<div class=\"row product\">\n\n";
+				}
+				endforeach;
 				?>
-
-
-
-
 
 			</div>
 
@@ -403,8 +383,6 @@
 
 				</div>
 			</div>
-
-
 
 		</div>
 

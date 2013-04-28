@@ -16,7 +16,8 @@
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
 
-	Router::connect('/category/:slug', array('controller' => 'products', 'action' => 'category'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+	// Router::connect('/category/:slug', array('controller' => 'products', 'action' => 'category'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+	Router::connect('/category/*', array('controller' => 'products', 'action' => 'category'), array('routeClass' => 'SubdomainRoute'));
 
 	Router::connect('/subcategory/:slug', array('controller' => 'products', 'action' => 'subcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
@@ -59,7 +60,7 @@
 			)
 		)
 	);
-	
+
 	Router::connect('/pages/:slug', array('controller' => 'pages', 'action' => 'index'), array('pass' => array('slug')));
 
 
@@ -72,7 +73,7 @@
 	//Members - Sign Me Up
 
 	Router::connect('/register', 		 array('controller' => 'members', 'action' => 'register'));
-	
+
 	Router::connect('/activate', array('controller' => 'members', 'action' => 'activate'));
 
 	Router::connect('/activate/:activation_code', array('controller' => 'members', 'action' => 'activate'), array('pass' => 'activation_code'));
