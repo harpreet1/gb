@@ -7,24 +7,25 @@
 		skin: "thebigreason",
 		plugins : "inlinepopups",
 		plugins : "paste",
+		oninit : "setPlainText",
 		// Theme options
 		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
-		theme_advanced_resizing : true,	});
+		theme_advanced_resizing : true,
+	});
 </script>
 
-
-<div class= "row">
-	<div class= "span4">
-		<h2>Admin Edit Page</h2>
-	</div>
-</div>
-
-
+<h2>Admin Edit Page</h2>
 
 <?php echo $this->Form->create('Page'); ?>
+<?php echo $this->Form->input('id'); ?>
+
 <?php echo $this->Form->input('name', array('class' => 'input-gb-large')); ?>
+
+<?php echo $this->Form->input('slug'); ?>
+
 <?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-	
-	
-<?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
-<?php echo $this->Form->end('Save Page'); ?>
+
+<br />
+
+<?php echo $this->Form->button('Save Page', array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>

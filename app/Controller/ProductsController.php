@@ -219,7 +219,7 @@ class ProductsController extends AppController {
 				'Subsubcategory',
 				'Brand'
 			),
-			
+
 			'fields' => array(
 				//'Brand.name',
 			),
@@ -293,24 +293,36 @@ class ProductsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	public function category($slug) {
+	public function category() {
+
+		$args = array_unique(func_get_args());
 
 		$subDomain = $this->_getSubDomain();
-
 		if($subDomain != 'www') {
 			$user = $this->Product->User->getBySubdomain($subDomain);
+			$this->set(compact('user'));
 		}
 
 		$category = $this->Product->Category->find('first', array(
 			'conditions' => array(
-				'Category.slug' => $slug
+				'Category.slug' => $args[0]
 			)
 		));
+		$this->set(compact('category'));
 
-		$usersubcategories =  $this->Product->find('all', array(
-			'contain' => array('Subcategory'),
+		$productconditions = array(
+			'Product.active' => 1,
+			'Product.user_id' => $user['User']['id'],
+			'Product.category_id' => $category['Category']['id'],
+		);
+
+		$subcategories =  $this->Product->find('all', array(
+			'contain' => array(
+				'Subcategory'
+			),
 			'fields' => array(
 				'Subcategory.id',
+				'Subcategory.category_id',
 				'Subcategory.name',
 				'Subcategory.slug'
 			),
@@ -318,6 +330,7 @@ class ProductsController extends AppController {
 				'Product.active' => 1,
 				'Product.user_id' => $user['User']['id'],
 				'Product.category_id' => $category['Category']['id'],
+				'Product.subcategory_id >' => 0,
 			),
 			'group' => array(
 				'Product.subcategory_id'
@@ -326,6 +339,87 @@ class ProductsController extends AppController {
 				'Subcategory.name' => 'ASC'
 			),
 		));
+		$this->set(compact('subcategories'));
+
+		if(isset($args[1])) {
+			$subcategory =  $this->Product->find('first', array(
+				'contain' => array(
+					// 'User',
+					'Subcategory'
+				),
+				'fields' => array(
+					'Subcategory.*'
+				),
+				'conditions' => array(
+					// 'User.active' => 1,
+					'Product.active' => 1,
+					'Product.user_id' => $user['User']['id'],
+					'Product.category_id' => $category['Category']['id'],
+					'Subcategory.category_id' => $category['Category']['id'],
+					'Subcategory.slug' => $args[1]
+				)
+			));
+			$this->set(compact('subcategory'));
+
+			if(!empty($subcategory)) {
+				$productconditions[] = array(
+					'Product.subcategory_id' => $subcategory['Subcategory']['id']
+				);
+			}
+
+			$subsubcategories = $this->Product->find('all', array(
+				'recursive' => -1,
+				'contain' => array(
+					'User',
+					'Category',
+					'Subcategory',
+					'Subsubcategory',
+				),
+				'fields' => array(
+					'Category.*',
+					'Subcategory.*',
+					'Subsubcategory.*',
+				),
+				'conditions' => array(
+					'User.active' => 1,
+					'User.active' => 1,
+					'Product.active' => 1,
+					'Product.user_id' => $user['User']['id'],
+					'Product.category_id' => $category['Category']['id'],
+					'Product.subcategory_id' => $subcategory['Subcategory']['id'],
+					'Product.subsubcategory_id >' => 0,
+					'Subsubcategory.name >' => ''
+				),
+				'group' => array(
+					'Subsubcategory.id'
+				)
+			));
+			$this->set(compact('subsubcategories'));
+		}
+
+		if(isset($args[2])) {
+			$subsubcategory = $this->Product->find('first', array(
+				'contain' => array(
+					'User',
+					'Subsubcategory'
+				),
+				'fields' => array(
+					'Subsubcategory.*',
+				),
+				'conditions' => array(
+					'User.active' => 1,
+					'Product.active' => 1,
+					'Subsubcategory.slug' => $args[2]
+				)
+			));
+			$this->set(compact('subsubcategory'));
+
+			if(!empty($subsubcategory)) {
+				$productconditions[] = array(
+					'Product.subsubcategory_id' => $subsubcategory['Subsubcategory']['id']
+				);
+			}
+		}
 
 		$this->paginate = array(
 			'contain' => array('User'),
@@ -340,148 +434,143 @@ class ProductsController extends AppController {
 				'User.slug'
 			),
 			'limit' => 40,
-			'conditions' => array(
-				'Product.active' => 1,
-				'Product.user_id' => $user['User']['id'],
-				'Product.category_id' => $category['Category']['id'],
-			),
+			'conditions' => $productconditions,
 			'order' => array(
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',
 		);
 		$products = $this->paginate('Product');
-
-		$this->set(compact('user', 'category', 'usersubcategories', 'products'));
-
-		$this->render('index');
-	}
-
-////////////////////////////////////////////////////////////
-
-	public function subcategory($id) {
-
-		$subDomain = $this->_getSubDomain();
-
-		if($subDomain != 'www') {
-			$user = $this->Product->User->getBySubdomain($subDomain);
-		}
-
-		$subcategory = $this->Product->Subcategory->find('first', array(
-			'conditions' => array(
-				'Subcategory.id' => $id
-			)
-		));
-
-		$category = $this->Product->Category->find('first', array(
-			'conditions' => array(
-				'Category.id' => $subcategory['Subcategory']['category_id']
-			)
-		));
-
-		$usersubsubcategories =  $this->Product->find('all', array(
-			'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
-			'fields' => array(
-				'Subsubcategory.name',
-				'Subsubcategory.slug',
-			),
-			'conditions' => array(
-				'Product.active' => 1,
-				'Product.user_id' => $user['User']['id'],
-				'Product.subcategory_id' => $id,
-			),
-			'group' => array(
-				'Product.subsubcategory_id'
-			),
-			'order' => array(
-				'Subsubcategory.name' => 'ASC'
-			),
-		));
-
-		$this->paginate = array(
-			'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
-			'fields' => array(
-				'Product.id',
-				'Product.name',
-				'Product.slug',
-				'Product.image',
-				'Product.price',
-				//'Product.brand_id',
-				//'Brand.name',
-				'User.slug'
-			),
-			'conditions' => array(
-				'Product.active' => 1,
-				'Product.user_id' => $user['User']['id'],
-				'Product.subcategory_id' => $id,
-			),
-			'order' => array(
-				'Subsubcategory.name' => 'ASC'
-			),
-			'paramType' => 'querystring',
-		);
-		$products = $this->paginate('Product');
-
-		$this->set(compact('user', 'category', 'subcategory', 'usersubsubcategories', 'products'));
+		$this->set(compact('products'));
 
 		$this->render('index');
 	}
 
 ////////////////////////////////////////////////////////////
 
-	public function subsubcategory($slug) {
+	// public function subcategory($id) {
 
-		$subDomain = $this->_getSubDomain();
+	// 	$subDomain = $this->_getSubDomain();
 
-		if($subDomain != 'www') {
-			$user = $this->Product->User->getBySubdomain($subDomain);
-		}
+	// 	if($subDomain != 'www') {
+	// 		$user = $this->Product->User->getBySubdomain($subDomain);
+	// 	}
 
-		$subsubcategory = $this->Product->Subsubcategory->find('first', array(
-			'conditions' => array(
-				'Subsubcategory.id' => $slug
-			)
-		));
+	// 	$subcategory = $this->Product->Subcategory->find('first', array(
+	// 		'conditions' => array(
+	// 			'Subcategory.id' => $id
+	// 		)
+	// 	));
 
-		$subcategory = $this->Product->Subcategory->find('first', array(
-			'conditions' => array(
-				'Subcategory.id' => $subsubcategory['Subsubcategory']['subcategory_id']
-			)
-		));
+	// 	$category = $this->Product->Category->find('first', array(
+	// 		'conditions' => array(
+	// 			'Category.id' => $subcategory['Subcategory']['category_id']
+	// 		)
+	// 	));
 
-		$category = $this->Product->Category->find('first', array(
-			'conditions' => array(
-				'Category.id' => $subcategory['Subcategory']['category_id']
-			)
-		));
+	// 	$usersubsubcategories =  $this->Product->find('all', array(
+	// 		'contain' => array('Category', 'Subcategory', 'Subsubcategory'),
+	// 		'fields' => array(
+	// 			'Subsubcategory.name',
+	// 			'Subsubcategory.slug',
+	// 		),
+	// 		'conditions' => array(
+	// 			'Product.active' => 1,
+	// 			'Product.user_id' => $user['User']['id'],
+	// 			'Product.subcategory_id' => $id,
+	// 		),
+	// 		'group' => array(
+	// 			'Product.subsubcategory_id'
+	// 		),
+	// 		'order' => array(
+	// 			'Subsubcategory.name' => 'ASC'
+	// 		),
+	// 	));
 
-		$this->paginate = array(
-			'contain' => array('User'),
-			'fields' => array(
-				'Product.id',
-				'Product.name',
-				'Product.slug',
-				'Product.image',
-				'Product.price',
-				//'Product.brand_name',
-				'User.slug'
-			),
-			'conditions' => array(
-				'Product.active' => 1,
-				'Product.user_id' => $user['User']['id'],
-				'Product.subsubcategory_id' => $slug,
-			),
-			'order' => array(
-				'Product.name' => 'ASC'
-			),
-			'paramType' => 'querystring',
-		);
-		$products = $this->paginate('Product');
+	// 	$this->paginate = array(
+	// 		'contain' => array('User', 'Category', 'Subcategory', 'Subsubcategory'),
+	// 		'fields' => array(
+	// 			'Product.id',
+	// 			'Product.name',
+	// 			'Product.slug',
+	// 			'Product.image',
+	// 			'Product.price',
+	// 			//'Product.brand_id',
+	// 			//'Brand.name',
+	// 			'User.slug'
+	// 		),
+	// 		'conditions' => array(
+	// 			'Product.active' => 1,
+	// 			'Product.user_id' => $user['User']['id'],
+	// 			'Product.subcategory_id' => $id,
+	// 		),
+	// 		'order' => array(
+	// 			'Subsubcategory.name' => 'ASC'
+	// 		),
+	// 		'paramType' => 'querystring',
+	// 	);
+	// 	$products = $this->paginate('Product');
 
-		$this->set(compact('user', 'category',  'subcategory', 'subsubcategory', 'products'));
+	// 	$this->set(compact('user', 'category', 'subcategory', 'usersubsubcategories', 'products'));
 
-		$this->render('index');
-	}
+	// 	$this->render('index');
+	// }
+
+////////////////////////////////////////////////////////////
+
+	// public function subsubcategory($slug) {
+
+	// 	$subDomain = $this->_getSubDomain();
+
+	// 	if($subDomain != 'www') {
+	// 		$user = $this->Product->User->getBySubdomain($subDomain);
+	// 	}
+
+	// 	$subsubcategory = $this->Product->Subsubcategory->find('first', array(
+	// 		'conditions' => array(
+	// 			'Subsubcategory.id' => $slug
+	// 		)
+	// 	));
+
+	// 	$subcategory = $this->Product->Subcategory->find('first', array(
+	// 		'conditions' => array(
+	// 			'Subcategory.id' => $subsubcategory['Subsubcategory']['subcategory_id']
+	// 		)
+	// 	));
+
+	// 	$category = $this->Product->Category->find('first', array(
+	// 		'conditions' => array(
+	// 			'Category.id' => $subcategory['Subcategory']['category_id']
+	// 		)
+	// 	));
+
+	// 	$this->paginate = array(
+	// 		'contain' => array('User'),
+	// 		'fields' => array(
+	// 			'Product.id',
+	// 			'Product.name',
+	// 			'Product.slug',
+	// 			'Product.image',
+	// 			'Product.price',
+	// 			//'Product.brand_name',
+	// 			'User.slug'
+	// 		),
+	// 		'conditions' => array(
+	// 			'Product.active' => 1,
+	// 			'Product.user_id' => $user['User']['id'],
+	// 			'Product.subsubcategory_id' => $slug,
+	// 		),
+	// 		'order' => array(
+	// 			'Product.name' => 'ASC'
+	// 		),
+	// 		'paramType' => 'querystring',
+	// 	);
+	// 	$products = $this->paginate('Product');
+
+	// 	$this->set(compact('user', 'category',  'subcategory', 'subsubcategory', 'products'));
+
+	// 	$this->render('index');
+	// }
 
 ////////////////////////////////////////////////////////////
 

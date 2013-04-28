@@ -10,7 +10,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-
 <?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js')); ?>
 <?php echo $this->fetch('css,http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css'); ?>
 <?php echo $this->fetch('script'); ?>
@@ -57,7 +56,6 @@
 						</ul>
 					</li>
 
-
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -66,7 +64,6 @@
 						</ul>
 					</li>
 
-
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recipes<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -74,15 +71,15 @@
 							<li><?php echo $this->Html->link('Add Recipe', array('controller' => 'recipes', 'action' => 'add', 'admin' => true)); ?></li>
 						</ul>
 					</li>
-                    
-                    <li class="dropdown">
+
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blocks<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Add Block', array('controller' => 'blocks', 'action' => 'add', 'admin' => true)); ?></li>
 						</ul>
 					</li>
-                    					
+
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -101,8 +98,7 @@
 
 						</ul>
 					</li>
-                    
-                  
+
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -124,14 +120,13 @@
 							<li><?php echo $this->Html->link('Blocks', array('controller' => 'blocks', 'action' => 'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>
-                    <li class="dropdown">
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Members', array('controller' => 'members', 'action' => 'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Add Members', array('controller' => 'members', 'action' => 'add', 'admin' => true)); ?></li>
 						</ul>
 					</li>
-
 
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Visitors<b class="caret"></b></a>
@@ -147,10 +142,6 @@
 							<li><?php echo $this->Html->link('Add Client', array('controller' => 'projects', 'action' => 'add', 'admin' => true)); ?></li>
 						</ul>
 					</li>
-
-
-
-
 
 				</ul>
 			</div>
@@ -183,7 +174,7 @@
 	<hr>
 	<br />
 
-	<?php //echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump'); ?>
 
 	<br />
 	<br />

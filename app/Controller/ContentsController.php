@@ -15,11 +15,10 @@ class ContentsController extends AppController {
 
 		$blocks = ClassRegistry::init('Block')->find('all');
 		
+		$pages = ClassRegistry::init('Page')->find('all');
 		
-		$this->set(compact('blocks'));
+		$this->set(compact('blocks','pages'));
 		
-		
-
 		$this->layout = 'homepage';
 
 	}
