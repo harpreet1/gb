@@ -152,28 +152,31 @@
        
         
         
-    
+    			<?php if(!empty($category['Category']['image_1'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-        
+                <?php endif; ?>
+    			<?php if(!empty($category['Category']['image_2'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-        
+         		<?php endif; ?>
+    			<?php if(!empty($category['Category']['image_3'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-        
+         		<?php endif; ?>
+    			<?php if(!empty($category['Category']['image_4'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-        
+         		<?php endif; ?>
+    			<?php if(!empty($category['Category']['image_5'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-            
-          
+         		<?php endif; ?>          
 
 </div>
 
