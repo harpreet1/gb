@@ -61,18 +61,15 @@
 		)
 	);
 
-	Router::connect('/pages/:slug', array('controller' => 'pages', 'action' => 'index'), array('pass' => array('slug')));
-
+	Router::connect('/eddie/:slug', array('controller' => 'pages', 'action' => 'view'), array('pass' => array('slug')));
 
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 
 	Router::connect('/vendor', array('controller' => 'users', 'action' => 'dashboard', 'vendor' => true));
 
-
-
 	//Members - Sign Me Up
 
-	Router::connect('/register', 		 array('controller' => 'members', 'action' => 'register'));
+	Router::connect('/register', array('controller' => 'members', 'action' => 'register'));
 
 	Router::connect('/activate', array('controller' => 'members', 'action' => 'activate'));
 
@@ -85,13 +82,6 @@
 	Router::connect('/login', array('controller' => 'members', 'action' => 'login'));
 
 	Router::connect('/logout', array('controller' => 'members', 'action' => 'logout'));
-
-
-
-
-
-
-
 
 	CakePlugin::routes();
 
