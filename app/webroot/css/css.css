@@ -2066,6 +2066,10 @@ hr.category {
 }
 
 
+.span4.air img.img-polaroid {
+	width:277px;
+}
+
 #story_content, #policy_content, #welcome_content {
 	-webkit-border-radius: 12px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
 	border-radius: 12px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */

@@ -136,7 +136,7 @@
 
 <div class="row">
 
-</div>
+
 
 <!-- Category Story -->
 <div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
@@ -148,25 +148,33 @@
 			<hr />
 				<?php echo $category['Category']['article'] ?>
 		</div>
+        
+       
+        
+        
+    
+                <div class="span4 air">
+                    <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+                </div>
+        
+                <div class="span4 air">
+                    <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+                </div>
+        
+                <div class="span4 air">
+                    <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+                </div>
+        
+                <div class="span4 air">
+                    <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+                </div>
+        
+                <div class="span4 air">
+                    <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+                </div>
+            
+          
 
-		<div class="span4 air">
-			<?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-		</div>
-
-		<div class="span4 air">
-			<?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-		</div>
-
-		<div class="span4 air">
-			<?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-		</div>
-
-		<div class="span4 air">
-			<?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-		</div>
-
-		<div class="span4 air">
-			<?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class' => 'category-pic')); ?>
-		</div>
+</div>
 
 </div>
