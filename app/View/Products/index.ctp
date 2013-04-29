@@ -39,6 +39,8 @@
 
 				<div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
+            
+<hr />
 
 			<a class="gb-nav" href="/">All Our Products</a>
 
@@ -350,11 +352,6 @@
 			<?php elseif (!empty($cat_crumb)) : ?>
       			<?php echo ($cat_crumb); ?>
 			<?php endif; ?>
-
-
-				<?php /*?><?php if(!empty($category)) : ?><br /><span class="gb-nav"><img src="/img/global/dash-2.png"></span>
-				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'])); ?>
-				<?php endif; ?><?php */?>
 
 
 			</div>

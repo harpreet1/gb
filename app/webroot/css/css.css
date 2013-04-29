@@ -2025,6 +2025,10 @@ h2.gb-heading hr {
 	letter-spacing: 1px;
 }
 
+a.gb-nav  {
+	text-decoration:underline;
+}
+
 .gb-nav-container hr {
 	margin: 12px 0;
 }
