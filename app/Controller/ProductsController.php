@@ -358,7 +358,10 @@ class ProductsController extends AppController {
 					'Product.category_id' => $category['Category']['id'],
 					'Subcategory.category_id' => $category['Category']['id'],
 					'Subcategory.slug' => $args[1]
-				)
+				),
+				'order' => array(
+					'Product.displaygroup' => 'ASC'
+				),
 			));
 			$this->set(compact('subcategory'));
 
@@ -438,6 +441,7 @@ class ProductsController extends AppController {
 			'limit' => 40,
 			'conditions' => $productconditions,
 			'order' => array(
+				'Product.displaygroup' => 'ASC',
 				'Product.name' => 'ASC'
 			),
 			'paramType' => 'querystring',

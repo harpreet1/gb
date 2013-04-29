@@ -577,8 +577,11 @@ div.brand-search {
 }
 
 .product-price {
-	font-size:18px;
+	font-size:16px;
 	padding-bottom:5px;
+	border: #CCC solid thin;
+	border-radius:4px;
+	padding:6px;
 	
 }
 
@@ -586,9 +589,19 @@ div.brand-search {
 	width:25px;
 }
 
+.purchase-block .product-price form#ProductViewForm button.btn {
+	font-size:12px;
+	
+}
+
+
+
 form#ProductViewForm {
 	margin-bottom:0px;
+	margin-top:5px;
 }
+
+
 
 
 /** PRODUCT SLIDESHOW **/
