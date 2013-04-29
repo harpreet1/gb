@@ -47,7 +47,7 @@ $subsubcategories = "";
                                        
 					<li><a href="/category/<?php echo $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?></a> <span class="divider">/</span></li>
                     
-                    <?php if(!empty($subcategories)) : ?>
+                    <?php if(empty($subcategories)) : ?>
 					<li><a href="/category/<?php echo $product['Category']['slug']  . '/' .  $product['Subcategory']['slug']; ?>"><?php echo $product['Subcategory']['name']; ?></a><span class="divider">/</span></li>
                     <?php endif; ?>
                     
@@ -57,6 +57,7 @@ $subsubcategories = "";
                     
 					<li class="active"><?php echo $product['Product']['name']; ?></li>
 				</ul>
+            
 
 			</div>
 		</div>

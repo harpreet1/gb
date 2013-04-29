@@ -371,6 +371,8 @@
 					<div class="content-product">
 
 						<div class="content-img">
+                        
+                        	<div class="displaygroup"><?php echo $product['Product']['displaygroup']; ?></div>
 
 							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
 
@@ -397,7 +399,7 @@
 
 						<?php endif; ?>
                         
-                        	<div style="text-align:center;font-size:9px;"><?php echo $product['Product']['displaygroup']; ?></div>
+                        	
 
 					</div>
 
