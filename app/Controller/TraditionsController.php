@@ -73,6 +73,7 @@ class TraditionsController extends AppController {
 				'Product.slug',
 				'Product.description',
 				'Product.price',
+				'Product.displaygroup',
 				'Product.image',
 				//'Product.image_1',
 //				'Product.image_2',
@@ -90,7 +91,10 @@ class TraditionsController extends AppController {
 				"FIND_IN_SET('$traditionid', traditions)"
 			),
 			'limit' => 32,
-			'order' => array('Product.id' => 'DESC')
+			'order' => array(
+				'Product.displaygroup' => 'ASC',
+				'Product.name' => 'ASC'
+				)
 		);
 
 

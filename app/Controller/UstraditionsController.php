@@ -66,6 +66,7 @@ class UstraditionsController extends AppController {
 				'Product.slug',
 				'Product.description',
 				'Product.price',
+				'Product.displaygroup',
 				'Product.image',
 				'Product.category_id',
 				'User.id',
@@ -78,8 +79,9 @@ class UstraditionsController extends AppController {
 				'Product.ustradition_id' => $ustradition_id,
 			),
 			'limit' => 32,
-			'order' => array('
-				Product.id' => 'DESC'
+			'order' => array(
+				'Product.displaygroup' => 'ASC',
+				'Product.name' => 'ASC'
 			)
 		);
 		$products = $this->paginate('Product');
