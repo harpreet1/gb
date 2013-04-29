@@ -72,6 +72,7 @@ class UstraditionsController extends AppController {
 				'User.id',
 				'User.slug',
 				'User.username',
+				'User.name',
 			),
 			'conditions' => array(
 				'Product.active' => 1,
