@@ -13,9 +13,14 @@
 	});
 </script>
 
-<h2>Admin Edit Article!!</h2>
+<h2>Admin Edit Article</h2>
 
 <?php echo $this->Form->create('Article'); ?>
+<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+
+
+<br /><br />
+
 <?php echo $this->Form->input('id'); ?>
 <?php echo $this->Form->input('prefix'); ?>
 <?php echo $this->Form->input('name'); ?>
@@ -125,7 +130,7 @@ echo $this->Form->input('block_id');
         
 </div>
 
-<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
+
 <?php echo $this->Form->end(); ?>
 
 

@@ -64,19 +64,20 @@
 			<?php endif; ?>
 
 
-			<hr />
+<hr />
 
 			<div style="clear:both">
-            
-            <?php if(!empty($subsubcategories)) : ?>
 
-			<?php foreach ($subsubcategories as $subsubcategory): ?>
-			<span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $subsubcategory['Category']['slug'], $subsubcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?><br />
 
-			<?php endforeach; ?>
-		<?php endif; ?>
+			<?php if(!empty($usercategories))  : ?>
 
-           
+				<?php foreach ($usercategories as $usercategory): ?>
+                <span class="gb-nav"><img src="/img/global/dash-2.png"></span>
+                <?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
+
+                <?php endforeach; ?>
+
+			<?php endif; ?>
 
 
 		<?php if(!empty($subcategories)) : ?>
@@ -91,15 +92,20 @@
 		<?php endif; ?>
         
         
-			<?php if(!empty($usercategories)) : ?>
+            
+            
+            
+           <?php if(!empty($subsubcategories)) : ?>
 
-				<?php foreach ($usercategories as $usercategory): ?>
-                <span class="gb-nav"><img src="/img/global/dash-2.png"></span>
-                <?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
+			<?php foreach ($subsubcategories as $subsubcategory): ?>
+			<span class="gb-nav"><img src="/img/global/dash-6.png"></span><?php echo $this->Html->link($subsubcategory['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'category', $subsubcategory['Category']['slug'], $subsubcategory['Subcategory']['slug'], $subsubcategory['Subsubcategory']['slug'])); ?><br />
 
-                <?php endforeach; ?>
+			<?php endforeach; ?>
+		<?php endif; ?>
 
-			<?php endif; ?>
+           
+
+            
 
 			</div>
 
@@ -117,7 +123,7 @@
 
 
 		</div>
-		<hr />
+<hr />
 
 		<ul class="navList">
 					<li><a class="vendor-css" href="#" id="story">Our Story</a></li>
