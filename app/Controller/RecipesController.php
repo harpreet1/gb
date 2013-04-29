@@ -457,11 +457,11 @@ public function admin_index() {
 			)
 		));
 		
-		$tags = $this->Tags->find('list', array(
-			'order' => array(
-				'Tag.name' => 'ASC'
-			)
-		));
+		//$tags = $this->Tags->find('list', array(
+//			'order' => array(
+//				'Tag.name' => 'ASC'
+//			)
+//		));
 		
 		//$this->set('tags', $this->Recipe->Tagged->find('cloud', array('limit' => 10)));
 
