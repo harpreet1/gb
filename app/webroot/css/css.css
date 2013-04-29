@@ -1007,6 +1007,12 @@ img.recipe-pic {
 	-moz-box-shadow: 0px 0px 5px #F1F1F1;
 	box-shadow: 0px 0px 5px #F1F1F1;
 }
+
+.span3.recipe-pic-block {
+	margin-top:50px;
+}
+
+
 .category-pic, .intl-image {
 	width: 290px;
 	padding: 10px;

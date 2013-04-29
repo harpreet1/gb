@@ -59,7 +59,7 @@
             
 	</div>
 
-	<div class="span3">
+	<div class="span3 recipe-pic-block">
 		<img class="recipe-pic" src="/img/recipes/image_1/<?php echo $recipe['Recipe']['image_1']?>"  />
         <?php echo $recipe['Recipe']['attr_1']?>
 		<br />
