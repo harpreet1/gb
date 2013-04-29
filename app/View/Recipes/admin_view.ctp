@@ -97,7 +97,18 @@
 <br />
 <br />
 
-<span class="label label-warning"> &nbsp; Image : no watermark, square image size </span>
+<?php echo $this->Html->image('recipes/image_4/' . $recipe['Recipe']['image_4']); ?>
+
+<br />
+<br />
+
+<?php echo $this->Html->image('recipes/image_5/' . $recipe['Recipe']['image_5']); ?>
+
+<br />
+<br />
+
+
+<span class="label label-warning"> &nbsp; Image : no watermark </span>
 
 <br />
 <br />
@@ -117,6 +128,8 @@
 			'image_1' => 'image 1',
 			'image_2' => 'image 2',
 			'image_3' => 'image 3',
+			'image_4' => 'image 4',
+			'image_5' => 'image 5',
 		))); ?>
 		</td>
 	</tr>

@@ -98,7 +98,27 @@
              </div>   
             <?php echo $this->Form->input('attr_3'); ?>
           </div>               
+	<?php endif; ?>   
+    
+    	<?php if($this->Form->value('Recipe.image_4') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img class="article-img" src="/img/recipes/image_2/<?php echo $this->Form->value('Recipe.image_4'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('attr_4'); ?>
+         </div>       
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('Recipe.image_5') !== '') : ?>
+        <div class="span4">
+            <div style="height:245px">       
+                <img class="article-img" src="/img/recipes/image_3/<?php echo $this->Form->value('Recipe.image_5'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('attr_5'); ?>
+          </div>               
 	<?php endif; ?>        
+    
         
 </div>
         
