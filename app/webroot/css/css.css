@@ -2093,6 +2093,11 @@ hr.category {
 	display: none;
 }
 
+#policy_content hr {
+	margin-bottom:0px;
+}
+
+
 #policy_content  .policy-heading {
 	font-size: 24px;
 	font-family: 'Oregano', cursive;
