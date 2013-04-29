@@ -35,6 +35,12 @@
 			<?php endforeach; ?>
 
 		<?php endif; ?>
+        
+        
+<hr />
+        
+      
+        
 
 	</div>
 

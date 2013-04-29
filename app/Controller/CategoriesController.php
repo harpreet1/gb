@@ -166,6 +166,8 @@ class CategoriesController extends AppController {
 				);
 			//}
 		}
+		
+		
 
 		//debug($productconditions);
 

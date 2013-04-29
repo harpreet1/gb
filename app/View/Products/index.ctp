@@ -117,6 +117,8 @@
 
 				<?php foreach ($usercategories as $usercategory): ?>
                 <span class="gb-nav"><img src="/img/global/dash-2.png"></span>
+                
+                
                 <?php echo $this->Html->link($usercategory['Category']['name'], array('controller' => 'products', 'action' => 'category', $usercategory['Category']['slug'])); ?><br />
 
                 <?php endforeach; ?>
