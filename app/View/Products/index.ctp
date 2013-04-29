@@ -396,6 +396,8 @@
 							<div class="brand"><?php echo $user['User']['name']; ?></div>
 
 						<?php endif; ?>
+                        
+                        	<div style="text-align:center;font-size:9px;"><?php echo $product['Product']['displaygroup']; ?></div>
 
 					</div>
 

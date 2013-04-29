@@ -181,6 +181,7 @@ class CategoriesController extends AppController {
 				'Product.image',
 				'Product.price',
 				'Product.brand_id',
+				'Product.displaygroup',
 				'User.id',
 				'User.name',
 				'User.slug',

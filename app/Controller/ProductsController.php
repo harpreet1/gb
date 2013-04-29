@@ -151,6 +151,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
+				'Product.displaygroup',
 				'User.slug',
 				'Brand.name',
 			),
@@ -430,6 +431,7 @@ class ProductsController extends AppController {
 				'Product.slug',
 				'Product.image',
 				'Product.price',
+				'Product.displaygroup',
 				//'Brand.name',
 				'User.slug'
 			),

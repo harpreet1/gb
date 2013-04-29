@@ -1,6 +1,6 @@
 <?php echo $this->Html->css(array('bootstrap-editable.css'), 'stylesheet', array('inline' => false)); ?>
 
-<?php echo $this->Html->script(array('bootstrap-editable.js'), array('inline' => false)); ?>
+<?php echo $this->Html->script(array('bootstrap-editable.min.js'), array('inline' => false)); ?>
 
 <script>
 $(document).ready(function() {
