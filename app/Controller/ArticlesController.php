@@ -6,6 +6,8 @@ class ArticlesController extends AppController {
 
 	public function index($block = null, $slug = null) {
 
+	echo 213456789;
+
 		if(empty($slug) && empty($block)){
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
@@ -39,11 +41,22 @@ class ArticlesController extends AppController {
 		$this->set(compact('article'));
 
 		$blocks = $this->Article->Block->find('all', array(
-			'recursive' => 2,
+			'recursive' => 1,
+			'fields1' => array(
+				'Block.name',
+				'Block.slug',
+				'Article.name',
+				'Article.slug',
+			),
 		));
+		//debug($blocks);
+		//die;
 		$this->set(compact('blocks'));
 
-		$this->set('articles', $this->paginate());
+
+	//	$articles = $this->paginate();
+	//	print_r($articles);
+	//	$this->set(compact('articles'));
 
 	}
 

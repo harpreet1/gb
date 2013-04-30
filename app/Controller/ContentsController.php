@@ -10,14 +10,23 @@ class ContentsController extends AppController {
 
 	public function homepage() {
 
-		$contents = $this->Content->find('all');
+		$contents = $this->Content->find('all', array(
+			'conditions' => array(
+				'Content.active' => 1,
+				'Content.type' => 'slider'
+			)
+		));
 		$this->set(compact('contents'));
-
-		$blocks = ClassRegistry::init('Block')->find('all');
 		
-		$pages = ClassRegistry::init('Page')->find('all');
+		$welcome = $this->Content->find('first', array(
+			'conditions' => array(
+				'Content.type' => 'welcome'
+			)
+		));
+		$this->set(compact('welcome'));
 		
-		$this->set(compact('blocks','pages'));
+		$blocks = ClassRegistry::init('Block')->find('all');	
+		$this->set(compact('blocks'));
 		
 		$this->layout = 'homepage';
 

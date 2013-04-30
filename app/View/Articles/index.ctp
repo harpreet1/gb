@@ -523,7 +523,7 @@
 
 	
 	
-		<div class="span12"> <?php echo $this->element('pagination-counter'); ?> <?php echo $this->element('pagination'); ?> </div>
+		
 	</div>
 </div>
 
