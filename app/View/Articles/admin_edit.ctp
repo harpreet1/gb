@@ -13,7 +13,7 @@
 				
 		plugins : "AtD",
 		/* the URL to the button image to display */
-		atd_button_url : "atdbuttontr.gif",
+		atd_button_url : "http://thegourmetbasket.net/tiny_mce/plugins/atd/atdbuttontr.gif",
 		/* the URL of your proxy file */
 		atd_rpc_url : "http://thegourmetbasket.net/tiny_mce/plugins/atd/server/proxy.php?url=",   
 
