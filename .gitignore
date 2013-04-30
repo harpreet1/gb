@@ -1,4 +1,6 @@
 .DS_Store
+.profile
+.bash_profile
 dwsync.xml
 app/Config/database.php
 app/Config/settings.php
