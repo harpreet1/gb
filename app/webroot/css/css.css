@@ -1006,6 +1006,10 @@ img.recipe-pic {
 	-webkit-box-shadow: 0px 0px 5px #F1F1F1;
 	-moz-box-shadow: 0px 0px 5px #F1F1F1;
 	box-shadow: 0px 0px 5px #F1F1F1;
+	min-width:220px;
+}
+img.recipe-pic  {
+	
 }
 
 .span3.recipe-pic-block {

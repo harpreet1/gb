@@ -1,12 +1,12 @@
 <div id="upper">
 
 
-<div id="welcome_content">
+	<div id="welcome_content">
             <h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
             <hr />
-            <h3 style="text-align:center">
-            <?php echo($pages['Page']['body']); ?> 
-            
+            <div style="text-align:center">
+				<?php echo $welcome['Content']['body']; ?>
+            </div>
            
         </div>
 
@@ -100,7 +100,7 @@
     
 
 
-	<?php echo $welcome['Content']['body']; ?>
+	
 
 	<div class="row-fluid">
   

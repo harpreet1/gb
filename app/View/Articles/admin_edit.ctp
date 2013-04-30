@@ -10,6 +10,32 @@
 		// Theme options
 		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
 		theme_advanced_resizing : true,
+				
+		plugins : "AtD",
+		/* the URL to the button image to display */
+		atd_button_url : "atdbuttontr.gif",
+		/* the URL of your proxy file */
+		atd_rpc_url : "http://thegourmetbasket.net/tiny_mce/atd-tinymce/server/proxy.php?url=",   
+
+		/* set your API key */
+		atd_rpc_id : "gb-90066-2015",
+		/* edit this file to customize how AtD shows errors */
+		atd_css_url : "css/content.css",
+		/* this list contains the categories of errors we want to show */
+		atd_show_types : "Bias Language,Cliches,Complex Expression,Diacritical Marks,Double Negatives,Hidden Verbs,Jargon Language,Passive voice,Phrases to Avoid,Redundant Expression",
+		/* strings this plugin should ignore */
+		atd_ignore_strings : "AtD,rsmudge",
+		/* enable "Ignore Always" menu item, uses cookies by default. Set atd_ignore_rpc_url to a URL AtD should send ignore requests to. */
+		atd_ignore_enable : "false",
+		/* add the AtD button to the first row of the advanced theme */
+		theme_advanced_buttons1_add : "AtD",
+		
+		
+		
+		
+		
+		
+		
 	});
 </script>
 

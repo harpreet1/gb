@@ -106,7 +106,7 @@
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
-                    <span class="special nolink">MAGAZINE SECTIONS:</span>
+                   <!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
                     <ul>
                         
                         <?php foreach($menublocks as $menublock) : ?>

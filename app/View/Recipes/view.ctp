@@ -61,33 +61,53 @@
 
 	<div class="span3 recipe-pic-block">
 		<img class="recipe-pic" src="/img/recipes/image_1/<?php echo $recipe['Recipe']['image_1']?>"  />
-        <?php echo $recipe['Recipe']['attr_1']?>
+        
+        <?php if(!empty($recipe['Recipe']['attr_1'])) : ?>
+        	<div class="photo-attr">
+				<span><?php echo $recipe['Recipe']['attr_1']?></span>
+			</div>
+        <?php endif ; ?>
 		<br />
-		<br />
+        
 		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_2'] ?>" />
-            <?php echo $recipe['Recipe']['attr_2']?>
-        	<br />
+            <?php if(!empty($recipe['Recipe']['attr_2'])) : ?>
+            <div class="photo-attr">
+				<span><?php echo $recipe['Recipe']['attr_2']?></span>
+			</div>
+             <?php endif ; ?>
 		<?php endif ; ?>
-		
+		<br />
 		
 		<?php if(!empty($recipe['Recipe']['image_3'])) : ?>
-			<img class="recipe-pic border" src="/img/recipes/image_3/<?php echo $recipe['Recipe']['image_3']?>"  />
-            <?php echo $recipe['Recipe']['attr_3']?>
-  			<br />
+			<img class="recipe-pic border" src="/img/recipes/image_3/<?php echo $recipe['Recipe']['image_3'] ?>" />
+            <?php if(!empty($recipe['Recipe']['attr_3'])) : ?>
+            <div class="photo-attr">
+				<span><?php echo $recipe['Recipe']['attr_3']?></span>
+			</div>
+             <?php endif ; ?>
 		<?php endif ; ?>
-        
-        <?php if(!empty($recipe['Recipe']['image_4'])) : ?>
-			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_2'] ?>" />
-            <?php echo $recipe['Recipe']['attr_4']?>
-			<br />
-    		<?php endif ; ?>
-		
+		<br />
+
+		<?php if(!empty($recipe['Recipe']['image_4'])) : ?>
+			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_4'] ?>" />
+            <?php if(!empty($recipe['Recipe']['attr_4'])) : ?>
+            <div class="photo-attr">
+				<span><?php echo $recipe['Recipe']['attr_4']?></span>
+			</div>
+             <?php endif ; ?>
+		<?php endif ; ?>
+		<br />
+
 		<?php if(!empty($recipe['Recipe']['image_5'])) : ?>
-			<img class="recipe-pic border" src="/img/recipes/image_3/<?php echo $recipe['Recipe']['image_3']?>"  />
-            <?php echo $recipe['Recipe']['attr_5']?>
-			<br />
+			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_5'] ?>" />
+            <?php if(!empty($recipe['Recipe']['attr_5'])) : ?>
+            <div class="photo-attr">
+				<span><?php echo $recipe['Recipe']['attr_5']?></span>
+			</div>
+             <?php endif ; ?>
 		<?php endif ; ?>
+		<br />
 
 	
 		
