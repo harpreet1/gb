@@ -144,7 +144,7 @@ $(document).ready(function(){
 		<?php // echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
 	</div>
 
-	<div class="span2">
+	<div class="span3">
 		<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
 		<br />
 		<?php echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
