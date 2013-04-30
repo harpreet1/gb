@@ -140,7 +140,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
 	</div>
 
-	<div class="span5">
+	<div class="span4">
 		<?php // echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
 	</div>
 
@@ -162,7 +162,7 @@ $(document).ready(function(){
 		<div><?php echo $this->Form->input('generic_description', array('rows' => 20, 'class' => '4span')); ?></div>
 	</div>
 
-	<div class="span3">
+	<div class="span3 offset1">
     <h3>Traditions</h3>
 		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected, 'label' => 'International Traditions')); ?>
 		<br />
