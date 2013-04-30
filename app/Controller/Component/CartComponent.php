@@ -78,7 +78,7 @@ class CartComponent extends Component {
 		$cartWeight = 0;
 		$order_item_count = 0;
 
-		$this->Session->delete('Shop.Order');
+		// $this->Session->delete('Shop.Order');
 		$this->Session->delete('Shop.Users');
 		$this->Session->delete('Shop.Shipping');
 		$this->Session->delete('Shop.Shippingtotal');
@@ -135,7 +135,7 @@ class CartComponent extends Component {
 			$order['shipping'] = 0;
 			$order['total'] = sprintf('%.2f', $cartTotal);
 
-			$this->Session->write('Shop.Order', $order);
+			$this->Session->write('Shop.Order', $order + $shop['Order']);
 
 			$this->Session->write('Shop.Users', $users);
 
