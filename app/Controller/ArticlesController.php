@@ -6,8 +6,6 @@ class ArticlesController extends AppController {
 
 	public function index($block = null, $slug = null) {
 
-	echo 213456789;
-
 		if(empty($slug) && empty($block)){
 			$article = $this->Article->find('first', array(
 				'conditions' => array(
