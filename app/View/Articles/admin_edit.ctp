@@ -20,7 +20,8 @@
 		/* set your API key */
 		atd_rpc_id : "gb-90066-2015",
 		/* edit this file to customize how AtD shows errors */
-		atd_css_url : "css/content.css",
+		atd_css_url : "http://thegourmetbasket.net/tiny_mce/atd-tinymce/css/content.css",
+
 		/* this list contains the categories of errors we want to show */
 		atd_show_types : "Bias Language,Cliches,Complex Expression,Diacritical Marks,Double Negatives,Hidden Verbs,Jargon Language,Passive voice,Phrases to Avoid,Redundant Expression",
 		/* strings this plugin should ignore */
