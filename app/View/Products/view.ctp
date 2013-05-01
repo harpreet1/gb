@@ -98,30 +98,7 @@ $subsubcategories = "";
 				</div>
 
 				<div id="carousel" class="flexslider">
-					<ul class="slides">
-						<?php if(!empty($product['Product']['image'])) : ?>
-							<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-
-						<?php if(!empty($product['Product']['image_1'])) : ?>
-							<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-
-						<?php if(!empty($product['Product']['image_2'])) : ?>
-							<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-
-						<?php if(!empty($product['Product']['image_3'])) : ?>
-							<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-
-						<?php if(!empty($product['Product']['image_4'])) : ?>
-							<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
-
-						<?php if(!empty($product['Product']['image_5'])) : ?>
-							<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
-						<?php endif ; ?>
+					 
 					</ul>
 
 				</div>

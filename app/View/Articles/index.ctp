@@ -209,250 +209,75 @@
 		
 <div class="xtra-images"> 
 
-	<!-- IMAGE 2 -->
+	<!-- IMAGEs-->
     
+	<?php $i = 2; ?>
+    <?php $item = 2; ?>
     
-    	<?php $item = 2; ?>
+		<?php while ($item< 6) { ?>
         
-        <?php $image = 'image_' . $item; ?>
-        <?php $attr = 'attribution_' . $item; ?>
-        <?php $title = 'pic_title_' . $item; ?>
-        <?php $linkp = 'product_link_' . $item; ?>
-        <?php $linkr = 'recipe_link_' . $item; ?>
+			<?php $image = 'image_' . $item; ?>
+            <?php $attr = 'attribution_' . $item; ?>
+            <?php $title = 'pic_title_' . $item; ?>
+            <?php $linkp = 'product_link_' . $item; ?>
+            <?php $linkr = 'recipe_link_' . $item; ?>
         
-        
-        <?php 
-		//echo ($image .'<br />'. $attr.'<br />'. $title.'<br />'.$linkp.'<br />'.$linkr );
-		//die ; ?>
-    
-		<?php while ($item< 5) { ?>
-
-    
-
-		<?php if(!empty($article['Article'][$image])) : ?>        
-        
-			<?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
-                <div class="article-pics-container">       
-            <?php else: ?>      
-                <div class="article-pics-container tight">            
-            <?php endif; ?>        
-        
-				<img class="article-pic img-polaroid" src="/img/articles/image_2/<?php echo $article['Article'][$image]?>"  />
-                <br />
-				
-				<?php if(!empty($article['Article'][$attr])) : ?>
-					<div class="photo-attr">
-						<span>Photo:&nbsp;
-							<?php echo $article['Article'][$attr]; ?>
-						</span>
-					</div>
-				<?php endif ; ?>
-			
-				<?php if(!empty($article['Article'][$title])) : ?>
-					<div class="pic-title">
-						<?php echo $article['Article'][$title]; ?>
-					</div>
-				<?php endif ; ?>
-		
-				
-				<?php if(!empty($article['Article'][$linkp])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article'][$linkp],array(
-						'class' => 'btn gray-button btn-mini', 
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-	
-				<?php if(!empty($article['Article'][$linkr])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article'][$linkr],array(
-						'class' => 'btn gray-button btn-mini right',
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-			</div>
-		<?php endif ; ?>
-        
-
-
-            <?php $i++; ?>
+                <?php 
+                //echo ($image.'--'.$attr.'--'.$title.'--'.$linkp.'--'.$linkr );
+                //die ; ?>
             
-		<?php $itemcount++; ?>       
+        
+                <?php if(!empty($article['Article'][$image])) : ?>  
                 
-		<?php } ?>           
+                    <?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
+                        <div class="article-pic-container left">       
+                    <?php else: ?>      
+                        <div class="article-pics-container tight left">            
+                    <?php endif; ?>    
+                        
+                        <img class="article-pic" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
+                
+                        <br />
+                        
+                        <?php if(!empty($article['Article'][$attr])) : ?>
+                            <div class="photo-attr">
+                                <span>Photo:&nbsp;
+                                    <?php echo $article['Article'][$attr]; ?>
+                                </span>
+                            </div>
+                        <?php endif ; ?>
+                    
+                        <?php if(!empty($article['Article'][$title])) : ?>
+                            <div class="pic-title">
+                                <?php echo $article['Article'][$title]; ?>
+                            </div>
+                        <?php endif ; ?>
+                
+                        
+                        <?php if(!empty($article['Article'][$linkp])) : ?>
+                            <?php echo $this->Html->link('Product', $article['Article'][$linkp],array(
+                                'class' => 'btn gray-button btn-mini', 
+                                'target' => '_self'
+                                )
+                            ); ?>
+                        <?php endif ; ?>
+            
+                        <?php if(!empty($article['Article'][$linkr])) : ?>
+                            <?php echo $this->Html->link('Recipe', $article['Article'][$linkr],array(
+                                'class' => 'btn gray-button btn-mini right',
+                                'target' => '_self'
+                                )
+                            ); ?>
+                        <?php endif ; ?>
+                    </div>
+                <?php endif ; ?>
+                
+                    
+                <?php $item++; ?>       
+                        
+                <?php } ?>           
 
         
-        
-        
-        
-        
-        
-
-	<!-- IMAGE 3 -->
-
-		<?php if(!empty($article['Article']['image_3'])) : ?>
-			<div class="article-pics-container">
-					<img class="article-pic img-polaroid" src="/img/articles/image_3/<?php echo $article['Article']['image_3']?>"  /><br />
-				
-				
-				<?php if(!empty($article['Article']['attribution_3'])) : ?>
-					<div class="photo-attr">
-						<span>Photo:&nbsp;
-							<?php echo $article['Article']['attribution_3']; ?>
-						</span>
-					</div>
-				<?php endif ; ?>
-			
-	
-				<?php if(!empty($article['Article']['pic_title_3'])) : ?>
-					<div class="pic-title">
-						<?php echo $article['Article']['pic_title_3']; ?>
-					</div>
-				<?php endif ; ?>
-		
-				
-	
-				<?php if(!empty($article['Article']['product_link_3'])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article']['product_link_3'],array(
-						'class' => 'btn gray-button btn-mini', 
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-	
-				<?php if(!empty($article['Article']['recipe_link_3'])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_3'],array(
-						'class' => 'btn gray-button btn-mini right',
-						'target' => '_self'
-						)
-					); ?>
-			  <?php endif ; ?>
-			</div>
-		<?php endif ; ?>
-
-	<!-- IMAGE 4 -->
-
-		<?php if(!empty($article['Article']['image_4'])) : ?>	
-			<div class="article-pics-container">
-					<img class="article-pic img-polaroid" src="/img/article4/image_4/<?php echo $article['Article']['image_4']?>"  /><br />
-			   
-				
-				<?php if(!empty($article['Article']['attribution_4'])) : ?>
-					<div class="photo-attr">
-						<span>Photo:&nbsp;
-							<?php echo $article['Article']['attribution_4']; ?>
-						</span>
-					</div>
-				<?php endif ; ?>
-	
-	
-				<?php if(!empty($article['Article']['pic_title_4'])) : ?>
-					<div class="pic-title">
-						<?php echo $article['Article']['pic_title_4']; ?>
-					</div>
-				<?php endif ; ?>
-		
-				
-	
-				<?php if(!empty($article['Article']['product_link_4'])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article']['product_link_4'],array(
-						'class' => 'btn gray-button btn-mini', 
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-	
-				<?php if(!empty($article['Article']['recipe_link_4'])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_4'],array(
-						'class' => 'btn gray-button btn-mini right',
-						'target' => '_self'
-						)
-					); ?>
-				 <?php endif ; ?>
-			</div>
-		<?php endif ; ?>
-
-	<!-- IMAGE 5 -->
-
-		<?php if(!empty($article['Article']['image_5'])) : ?>	
-			<div class="article-pics-container">
-					<img class="article-pic img-polaroid" src="/img/article4/image_5/<?php echo $article['Article']['image_5']?>"  /><br />
-				
-				<?php if(!empty($article['Article']['attribution5'])) : ?>
-					<div class="photo-attr">
-						<span>Photo:&nbsp;
-							<?php echo $article['Article']['attribution_5']; ?>
-						</span>
-					</div>
-				<?php endif ; ?>
-
-
-				<?php if(!empty($article['Article']['pic_title_5'])) : ?>
-					<div class="pic-title">
-						<?php echo $article['Article']['pic_title_5']; ?>
-					</div>
-				<?php endif ; ?>
-		
-				
-
-				<?php if(!empty($article['Article']['product_link_5'])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article']['product_link_5'],array(
-						'class' => 'btn gray-button btn-mini btn-inverse', 
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-
-				<?php if(!empty($article['Article']['recipe_link_5'])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_5'],array(
-						'class' => 'btn gray-button btn-mini right',
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-			</div>
-		<?php endif ; ?>
-				
-	<!-- IMAGE 6 -->
-
-		<?php if(!empty($article['Article']['image_6'])) : ?>	
-			<div class="article-pics-container">
-					<img class="article-pic img-polaroid" src="/img/article4/image_6/<?php echo $article['Article']['image_6']?>"  /><br />
-				
-				<?php if(!empty($article['Article']['attribution_6'])) : ?>
-					<div class="photo-attr">
-						<span>Photo:&nbsp;
-							<?php echo $article['Article']['attribution_6']; ?>
-						</span>
-					</div>
-				<?php endif ; ?>
-
-
-				<?php if(!empty($article['Article']['pic_title_6'])) : ?>
-					<div class="pic-title">
-						<?php echo $article['Article']['pic_title_6']; ?>
-					</div>
-				<?php endif ; ?>
-		
-				
-
-				<?php if(!empty($article['Article']['product_link_6'])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article']['product_link_6'],array(
-						'class' => 'btn gray-button btn-mini btn-inverse', 
-						'target' => '_self'
-						)
-					); ?>
-				<?php endif ; ?>
-
-				<?php if(!empty($article['Article']['recipe_link_6'])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_6'],array(
-						'class' => 'btn gray-button btn-mini right', 
-						'target' => '_self'
-						)
-					); ?>
-					<?php endif ; ?>
-			 </div>
-		<?php endif ; ?>
 					 
 	</div>    
 			
