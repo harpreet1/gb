@@ -235,9 +235,9 @@
                         <div class="article-pics-container tight left">            
                     <?php endif; ?>    
                         
-                        <img class="article-pic" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
+                        <img class="article-pic img-polaroid" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
                 
-                        <br />
+                        <br /><br />
                         
                         <?php if(!empty($article['Article'][$attr])) : ?>
                             <div class="photo-attr">
@@ -292,8 +292,8 @@
 
 	<h2 class="gb-heading">
 	<?php if (!empty($article['Article']['prefix'])) {
-				echo $article['Article']['prefix']; ?> : <?php
-			} ?>
+				echo $article['Article']['prefix']; ?> : 
+	<?php } ?>
 			
 	<?php echo $article['Article']['name']; ?></h2>
 	<hr class="article-divide">
@@ -354,8 +354,12 @@
 			<?php endif ; ?>
 						
 		</div>	
-			
 		
+        <?php if(!empty($article['Article']['summary'])) : ?>	
+        <div class="summary">
+			<?php echo $article['Article']['summary']; ?>
+        </div>
+        <?php endif; ?>
 		
 		<?php echo $article['Article']['body']; ?>
 	</div>
