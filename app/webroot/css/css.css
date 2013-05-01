@@ -477,6 +477,7 @@ div.product-name, div.product-name p, div.product-name a {
 }
 .img-polaroid {
 	max-width: 120%;
+	padding:5px;
 }
 .pic-thumbnail {
 	height: 50px;
@@ -1779,8 +1780,9 @@ hr.recipe-divider {
 
 }
 img.article-pic {
-	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-top: 10px;
+	margin-bottom: 18px;
+	margin-left: 20px;
 	width: 265px;
 	margin-right: 0px;
 	
@@ -1816,27 +1818,26 @@ div.tab-content article-tabs>div>h4.gb-heading{
 
 .article-pic-container,
 .article-pics-container {
-	border: 2px #CCC solid;
-	padding:10px;
+	
+	
 }
 
 
 
 .article-pic-container {
 	float:right;
-	margin-left: 20px;
+	
 	/*margin-bottom: 20px;*/
 }
 
 .article-pic-container.tight {
-	padding:5px;
-	border: 1px #CCC solid;
+	padding:0px;
+	
 	
 }
 
 .article-pics-container {
 	margin-left: 0px;
-	margin-bottom:20px;
 	width:265px;
 	/*margin-bottom: 20px;*/
 }
@@ -1991,6 +1992,12 @@ display:none;
 	margin-top: 20px;
 	letter-spacing: 1px;
 }
+
+hr.article-divide {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 .gb-heading {
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
@@ -2023,6 +2030,12 @@ h2.gb-heading hr {
 	letter-spacing: 0px;
 	font-size: 20px;
 }
+.article-body .section-heading {
+	margin-top: 0px;
+}
+
+
+
 .section-subheading {
 	font-size: 18px;
 	font-family: 'Oregano', cursive;

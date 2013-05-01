@@ -89,6 +89,15 @@ a {
 	text-align:justify;
 }
 
+#welcome_content p.section-heading {
+	font-family: 'Oregano', cursive;
+	color:#c00;
+	font-size:25px;
+}
+
+
+
+
 #welcome>img {
 	max-width:none;
 }
@@ -495,11 +504,11 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 /** Headers **/
 .gb-heading {
 	font-family: 'Oregano', cursive;
-	font-weight:bold;
 	color:#C00;
 	font-size:13px;
 	letter-spacing: 0px;
 }
+
  
 .issue {
 	position:absolute;

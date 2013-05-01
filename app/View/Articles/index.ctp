@@ -40,7 +40,7 @@
 
 	<div class="span9">
 		<?php if(!empty($article['Block']['image'])) : ?>
-			<img class="article-pic border" style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  />
+			<img class="article-pic img-polaroid " style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  />
 		<?php endif ; ?>
 		
 		<h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
@@ -91,7 +91,7 @@
 	
 		<div class="tab-pane" id="us">   
 				 
-			<p class="gb-heading">US REGIONAL CULINARY TRADITIONS</p>>
+			<p class="gb-heading">US REGIONAL CULINARY TRADITIONS</p>
 			
 				</p>
 				<p> <span class="prefix">Amish : </span><a href="/articles/excellent-food-adventures/foods-from-a-simple-life" class="gb-heading article">Amish Cooking - Foods From a Simple Life</a> </p>
@@ -220,7 +220,7 @@
             <?php endif; ?>        
             
         
-					<img class="article-pic border" src="/img/articles/image_2/<?php echo $article['Article']['image_2']?>"  /><br />
+					<img class="article-pic img-polaroid" src="/img/articles/image_2/<?php echo $article['Article']['image_2']?>"  /><br />
 			   
 				
 				<?php if(!empty($article['Article']['attribution_2'])) : ?>
@@ -254,7 +254,7 @@
 						'target' => '_self'
 						)
 					); ?>
-				<?php endif ; ?><br />
+				<?php endif ; ?>
 			</div>
 		<?php endif ; ?>
 
@@ -262,7 +262,7 @@
 
 		<?php if(!empty($article['Article']['image_3'])) : ?>
 			<div class="article-pics-container">
-					<img class="article-pic border" src="/img/articles/image_3/<?php echo $article['Article']['image_3']?>"  /><br />
+					<img class="article-pic img-polaroid" src="/img/articles/image_3/<?php echo $article['Article']['image_3']?>"  /><br />
 				
 				
 				<?php if(!empty($article['Article']['attribution_3'])) : ?>
@@ -296,15 +296,15 @@
 						'target' => '_self'
 						)
 					); ?>
-			  <?php endif ; ?><br />
+			  <?php endif ; ?>
 			</div>
 		<?php endif ; ?>
 
 	<!-- IMAGE 4 -->
 
 		<?php if(!empty($article['Article']['image_4'])) : ?>	
-			<div class="article-pics-container">sdsds
-					<img class="article-pic border" src="/img/article4/image_4/<?php echo $article['Article']['image_4']?>"  /><br />
+			<div class="article-pics-container">
+					<img class="article-pic img-polaroid" src="/img/article4/image_4/<?php echo $article['Article']['image_4']?>"  /><br />
 			   
 				
 				<?php if(!empty($article['Article']['attribution_4'])) : ?>
@@ -338,7 +338,7 @@
 						'target' => '_self'
 						)
 					); ?>
-				 <?php endif ; ?><br />
+				 <?php endif ; ?>
 			</div>
 		<?php endif ; ?>
 
@@ -346,7 +346,7 @@
 
 		<?php if(!empty($article['Article']['image_5'])) : ?>	
 			<div class="article-pics-container">
-					<img class="article-pic border" src="/img/article4/image_5/<?php echo $article['Article']['image_5']?>"  /><br />
+					<img class="article-pic img-polaroid" src="/img/article4/image_5/<?php echo $article['Article']['image_5']?>"  /><br />
 				
 				<?php if(!empty($article['Article']['attribution5'])) : ?>
 					<div class="photo-attr">
@@ -379,7 +379,7 @@
 						'target' => '_self'
 						)
 					); ?>
-				<?php endif ; ?><br />
+				<?php endif ; ?>
 			</div>
 		<?php endif ; ?>
 				
@@ -387,7 +387,7 @@
 
 		<?php if(!empty($article['Article']['image_6'])) : ?>	
 			<div class="article-pics-container">
-					<img class="article-pic border" src="/img/article4/image_6/<?php echo $article['Article']['image_6']?>"  /><br />
+					<img class="article-pic img-polaroid" src="/img/article4/image_6/<?php echo $article['Article']['image_6']?>"  /><br />
 				
 				<?php if(!empty($article['Article']['attribution_6'])) : ?>
 					<div class="photo-attr">
@@ -420,7 +420,7 @@
 						'target' => '_self'
 						)
 					); ?>
-					<?php endif ; ?><br />
+					<?php endif ; ?>
 			 </div>
 		<?php endif ; ?>
 					 
@@ -441,7 +441,7 @@
 			} ?>
 			
 	<?php echo $article['Article']['name']; ?></h2>
-	<hr />
+	<hr class="article-divide">
 	
 	<div class="article-body" style="float:right;">
 	
@@ -462,7 +462,7 @@
         
 
 			<?php if(!empty($article['Article']['image_1'])) : ?>		
-				<img class="article-pic border" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /><br />
+				<img class="article-pic img-polaroid" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /><br />
 			<?php endif ; ?>
 			
 			<?php if(!empty($article['Article']['attribution_1'])) : ?>

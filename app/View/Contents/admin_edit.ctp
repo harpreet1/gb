@@ -11,6 +11,10 @@
 		theme_advanced_buttons1 : "styleselect,bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
 		theme_advanced_resizing : true,
 	});
+	
+	// Format phone number script
+function doFormatPhone(A){var B=document.getElementById(A);B.onblur=function(){formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(...)(...)(....)/g,"($1) $2-$3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(...)(...)(....)/g,"($1) $2-$3")+B}break;default:}return A}window.onload=function(){doFormatPhone("phone")};
+	
 </script>
 
 
@@ -25,8 +29,15 @@
 		echo $this->Form->input('body');
 		echo $this->Form->input('image');
 		echo $this->Form->input('link');
-		echo $this->Form->input('type');
-		echo $this->Form->input('active');
+		echo $this->Form->input('type', array(
+			'label' => 'Type',
+			'class' => 'span2',
+			'options' => array(
+				'welcome' => 'Welcome',
+				'slider' => 'Slider',
+			),
+		));
+		echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
