@@ -157,6 +157,7 @@ class ProductsController extends AppController {
 			),
 			'limit' => 20,
 			'order' => array(
+				'Product.featured' => '1',
 				'Product.displaygroup' => 'ASC',
 				'Product.name' => 'ASC'
 			),

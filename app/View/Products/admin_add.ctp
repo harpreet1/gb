@@ -103,8 +103,8 @@ $(document).ready(function(){
 	<div class="span2">
 		<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
 		<br />
-		<?php echo $this->Form->input('featured_product', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
-		<?php echo $this->Form->input('gift_product', array('type' => 'checkbox', 'label' => 'Gift Product'));?>
+		<?php echo $this->Form->input('featured_', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
+		<?php echo $this->Form->input('gift', array('type' => 'checkbox', 'label' => 'Gift Product'));?>
 	</div>
 
 </div>

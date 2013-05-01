@@ -77,6 +77,7 @@ class ContentsController extends AppController {
 			$options = array('conditions' => array('Content.' . $this->Content->primaryKey => $id));
 			$this->request->data = $this->Content->find('first', $options);
 		}
+		
 	}
 
 ////////////////////////////////////////////////////////////
