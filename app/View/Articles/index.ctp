@@ -210,46 +210,61 @@
 <div class="xtra-images"> 
 
 	<!-- IMAGE 2 -->
-
-		<?php if(!empty($article['Article']['image_2'])) : ?>        
+    
+    
+    	<?php $item = 2; ?>
         
-			<?php if(!empty($article['Article']['attribution_2']) ||  ($article['Article']['pic_title_2'])	||  ($article['Article']['product_link_2'])	 ||   ($article['Article']['product_link_2'])) : ?>
+        <?php $image = 'image_' . $item; ?>
+        <?php $attr = 'attribution_' . $item; ?>
+        <?php $title = 'pic_title_' . $item; ?>
+        <?php $linkp = 'product_link_' . $item; ?>
+        <?php $linkr = 'recipe_link_' . $item; ?>
+        
+        
+        <?php 
+		//echo ($image .'<br />'. $attr.'<br />'. $title.'<br />'.$linkp.'<br />'.$linkr );
+		//die ; ?>
+    
+		<?php while ($item< 5) { ?>
+
+    
+
+		<?php if(!empty($article['Article'][$image])) : ?>        
+        
+			<?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
                 <div class="article-pics-container">       
             <?php else: ?>      
                 <div class="article-pics-container tight">            
             <?php endif; ?>        
-            
         
-					<img class="article-pic img-polaroid" src="/img/articles/image_2/<?php echo $article['Article']['image_2']?>"  /><br />
-			   
+				<img class="article-pic img-polaroid" src="/img/articles/image_2/<?php echo $article['Article'][$image]?>"  />
+                <br />
 				
-				<?php if(!empty($article['Article']['attribution_2'])) : ?>
+				<?php if(!empty($article['Article'][$attr])) : ?>
 					<div class="photo-attr">
 						<span>Photo:&nbsp;
-							<?php echo $article['Article']['attribution_2']; ?>
+							<?php echo $article['Article'][$attr]; ?>
 						</span>
 					</div>
 				<?php endif ; ?>
 			
-	
-	
-				<?php if(!empty($article['Article']['pic_title_2'])) : ?>
+				<?php if(!empty($article['Article'][$title])) : ?>
 					<div class="pic-title">
-						<?php echo $article['Article']['pic_title_2']; ?>
+						<?php echo $article['Article'][$title]; ?>
 					</div>
 				<?php endif ; ?>
 		
 				
-				<?php if(!empty($article['Article']['product_link_2'])) : ?>
-					<?php echo $this->Html->link('Product', $article['Article']['product_link_2'],array(
+				<?php if(!empty($article['Article'][$linkp])) : ?>
+					<?php echo $this->Html->link('Product', $article['Article'][$linkp],array(
 						'class' => 'btn gray-button btn-mini', 
 						'target' => '_self'
 						)
 					); ?>
 				<?php endif ; ?>
 	
-				<?php if(!empty($article['Article']['recipe_link_2'])) : ?>
-					<?php echo $this->Html->link('Recipe', $article['Article']['recipe_link_2'],array(
+				<?php if(!empty($article['Article'][$linkr])) : ?>
+					<?php echo $this->Html->link('Recipe', $article['Article'][$linkr],array(
 						'class' => 'btn gray-button btn-mini right',
 						'target' => '_self'
 						)
@@ -257,6 +272,21 @@
 				<?php endif ; ?>
 			</div>
 		<?php endif ; ?>
+        
+
+
+            <?php $i++; ?>
+            
+		<?php $itemcount++; ?>       
+                
+		<?php } ?>           
+
+        
+        
+        
+        
+        
+        
 
 	<!-- IMAGE 3 -->
 

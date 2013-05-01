@@ -1779,11 +1779,10 @@ hr.recipe-divider {
 	border: 1px #CCC solid;
 
 }
+
 img.article-pic {
-	margin-top: 10px;
-	margin-bottom: 18px;
-	margin-left: 20px;
-	width: 265px;
+	
+	max-width: 265px;
 	margin-right: 0px;
 	
 }
@@ -1826,9 +1825,17 @@ div.tab-content article-tabs>div>h4.gb-heading{
 
 .article-pic-container {
 	float:right;
-	
-	/*margin-bottom: 20px;*/
-}
+	margin-top:4px;
+	margin-left:20px;
+	margin-bottom:15px;
+
+	padding: 8px;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}
 
 .article-pic-container.tight {
 	padding:0px;
