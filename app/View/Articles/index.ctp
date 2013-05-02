@@ -1,12 +1,11 @@
-	 
+
 	<?php if(!isset($article['Article'])){ ?>
 	<!-- FOR EXCELLENT ADVENTURES BLOCKS LANDING PAGE -->
-	
-<div class="row">    
+
+<div class="row">
 	<div class="span3"> <br />
 		<p class="gb-heading">Magazine Sections</p>
-	
-	
+
 		<?php // NAVIGATION
 				echo "<br>";
 				foreach($blocks as $blockskey)
@@ -29,45 +28,42 @@
 					echo "</div>";
 				}
 				// END NAVIGATION
-		?>    
-		
-		
-	
+		?>
+
 	</div>
-	
+
 	<div>
-  
 
 	<div class="span9">
 		<?php if(!empty($article['Block']['image'])) : ?>
 			<img class="article-pic img-polaroid " style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  />
 		<?php endif ; ?>
-		
+
 		<h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
 		<p class="article-description"> <?php echo $article['Block']['writeup']; ?> </p>
-		
+
 
 		<?php $trigger = $article['Block']['id']; ?>
 
 		<p class="gb-heading air20">Articles in this Section:</p>
 
 		<?php if (($article['Block']['id']) == 1) { ?>
-		
- 
+
+
 	<ul class="nav nav-tabs" id="myTab">
 		<li class="active"><a href="#intl" data-toggle="tab" class="section-subheading">International</a></li>
 		<li><a href="#us" data-toggle="tab"class="section-subheading">US</a></li>
 		<li><a href="#fusion" data-toggle="tab"class="section-subheading">Fusion Ideas</a></li>
 		<li><a href="#trends" data-toggle="tab"class="section-subheading">Hot Food & Beverage Trends</a></li>
-	   
-	</ul>         
-		
+
+	</ul>
+
 	<div class="tab-content article-tabs">
 
 		<div class="tab-pane active" id="intl">
-		
+
 			<p class="gb-heading">INTERNATIONAL CULINARY TRADITIONS</strong></p>
-			
+
 				<p><span class="prefix">British Isles : </span><a href="/articles/excellent-food-adventures/fabulous-foods-across-the-pond" class="gb-heading article">Fabulous Foods Across the Pond - the British Isles </a> </p>
 				<p> <span class="prefix">The Caribbean : </span><a href="/articles/excellent-food-adventures/the-caribbean-a-culinary-palette-of-tastes-textures-and-flavors" class="gb-heading article">The Caribbean - A Culinary Palette of Tastes, Textures and Flavors</a> </p>
 				<p> <span class="prefix">China : </span><a href="/articles/excellent-food-adventures/china-5000-years-of-dynastic-dining" class="gb-heading article">China - 5000 Years of Dynastic Dining</a> </p>
@@ -75,7 +71,7 @@
 				<p> <span class="prefix">Japan : </span><a href="/articles/excellent-food-adventures/japan-food-as-art" class="gb-heading article">Japan - Food As Art</a> </p>
 				<p> <span class="prefix">The Mediterranean : </span><a href="/articles/excellent-food-adventures/meals-along-the-mediterrean" class="gb-heading article">Meals Along the Mediterrean </a> </p>
 							<p> <span class="prefix">Mexico : </span><a href="/articles/excellent-food-adventures/the-a-maize-ing-foods-of-mexico-and-central-america" class="gb-heading article">The A "Maize"-ing Foods of Mexico and Central America </a> </p>
-				
+
 				<p> <span class="prefix">Middle East : </span><a href="/articles/excellent-food-adventures/never-strangers-amongst-food" class="gb-heading article">Never Strangers Amongst Food - Eating in the Middle East</a> </p>
 				<p> <span class="prefix">North Africa : </span><a href="/articles/excellent-food-adventures/savory-flavors-of-north-africa" class="gb-heading article">North Africa: Savory and Sophisticated Flavors </a> </p>
 				<p> <span class="prefix">Oceania : </span><a href="/articles/excellent-food-adventures/cuisines-of-tropical-oceania" class="gb-heading article">Cusines of Tropical Oceania</a> </p>
@@ -85,14 +81,14 @@
 				<p> <span class="prefix">Scandinavia : </span><a href="/articles/excellent-food-adventures/scandinavia-home-of-the-new-nordic-cuisine" class="gb-heading article">Home of the"New Nordic Cuisine"</a> </p>
 				<p> <span class="prefix">Korea : </span><a href="/articles/excellent-food-adventures/korea-kimchee-and-so-much-more" class="gb-heading article">Korea: Kimchee and So Much More</a> </p>
 				 <p> <span class="prefix">Western Europe : </span><a href="/articles/excellent-food-adventures/breaking-bread-in-western-europe" class="gb-heading article">Breaking Bread in Western Europe </a> </p>
-								
+
 		</div>
-		
-	
-		<div class="tab-pane" id="us">   
-				 
+
+
+		<div class="tab-pane" id="us">
+
 			<p class="gb-heading">US REGIONAL CULINARY TRADITIONS</p>
-			
+
 				</p>
 				<p> <span class="prefix">Amish : </span><a href="/articles/excellent-food-adventures/foods-from-a-simple-life" class="gb-heading article">Amish Cooking - Foods From a Simple Life</a> </p>
 				<p> <span class="prefix">Southern : </span><a href="/articles/excellent-food-adventures/down-home-southern-cooking" class="gb-heading article">Down Home Southern Cooking</a> </p>
@@ -106,24 +102,24 @@
 				<p> <span class="prefix">Southeast : </span><a href="/articles/excellent-food-adventures/southeastern-deliciously-historic-cooking" class="gb-heading article">Southeastern Deliciously Historic Cooking</a> </p>
 				<p> <span class="prefix">Southwest : </span><a href="/articles/excellent-food-adventures/getting-rustic-in-the-southwest" class="gb-heading article">Getting Rustic In the Southwest</a> </p>
 				<p> <span class="prefix">Louisiana : </span><a href="/articles/excellent-food-adventures/cajun-creole-and-french-traditions-of-louisiana" class="gb-heading article">Cajun, Creole and French Traditions of Louisiana</a> </p>
-		
+
 		</div>
-		
-		<div class="tab-pane" id="fusion">  
+
+		<div class="tab-pane" id="fusion">
 			Coming Soon!
 		</div>
-		
-		<div class="tab-pane" id="trends">  
+
+		<div class="tab-pane" id="trends">
 			Coming Soon!
 		</div>
 
 
 	</div>
 
-</div>            
+</div>
 			<br />
 
-	
+
 			<?php }
 
 
@@ -180,8 +176,8 @@
 	<div class="span4">
 		<br />
 		<p class="gb-heading">Magazine Sections</p>
-	
-	
+
+
 		<?php // NAVIGATION
 				echo "<br>";
 				foreach($blocks as $blockskey)
@@ -204,87 +200,81 @@
 					echo "</div>";
 				}
 				// END NAVIGATION
-		?>  
-		
-		
-<div class="xtra-images"> 
+		?>
+
+
+<div class="xtra-images">
 
 	<!-- IMAGEs-->
-    
+
 	<?php $i = 2; ?>
-    <?php $item = 2; ?>
-    
-		<?php while ($item< 6) { ?>
-        
+	<?php $item = 2; ?>
+
+		<?php while ($item < 6) { ?>
+
 			<?php $image = 'image_' . $item; ?>
-            <?php $attr = 'attribution_' . $item; ?>
-            <?php $title = 'pic_title_' . $item; ?>
-            <?php $linkp = 'product_link_' . $item; ?>
-            <?php $linkr = 'recipe_link_' . $item; ?>
-        
-                <?php 
-                //echo ($image.'--'.$attr.'--'.$title.'--'.$linkp.'--'.$linkr );
-                //die ; ?>
-            
-        
-                <?php if(!empty($article['Article'][$image])) : ?>  
-                
-                    <?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
-                        <div class="article-pic-container left">       
-                    <?php else: ?>      
-                        <div class="article-pics-container tight left">            
-                    <?php endif; ?>    
-                        
-                        <img class="article-pic img-polaroid" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
-                
-                        <br /><br />
-                        
-                        <?php if(!empty($article['Article'][$attr])) : ?>
-                            <div class="photo-attr">
-                                <span>Photo:&nbsp;
-                                    <?php echo $article['Article'][$attr]; ?>
-                                </span>
-                            </div>
-                        <?php endif ; ?>
-                    
-                        <?php if(!empty($article['Article'][$title])) : ?>
-                            <div class="pic-title">
-                                <?php echo $article['Article'][$title]; ?>
-                            </div>
-                        <?php endif ; ?>
-                
-                        
-                        <?php if(!empty($article['Article'][$linkp])) : ?>
-                            <?php echo $this->Html->link('Product', $article['Article'][$linkp],array(
-                                'class' => 'btn gray-button btn-mini', 
-                                'target' => '_self'
-                                )
-                            ); ?>
-                        <?php endif ; ?>
-            
-                        <?php if(!empty($article['Article'][$linkr])) : ?>
-                            <?php echo $this->Html->link('Recipe', $article['Article'][$linkr],array(
-                                'class' => 'btn gray-button btn-mini right',
-                                'target' => '_self'
-                                )
-                            ); ?>
-                        <?php endif ; ?>
-                    </div>
-                <?php endif ; ?>
-                
-                    
-                <?php $item++; ?>       
-                        
-                <?php } ?>           
+			<?php $attr = 'attribution_' . $item; ?>
+			<?php $title = 'pic_title_' . $item; ?>
+			<?php $linkp = 'product_link_' . $item; ?>
+			<?php $linkr = 'recipe_link_' . $item; ?>
 
-        
-					 
-	</div>    
-			
+				<?php
+				//echo ($image.'--'.$attr.'--'.$title.'--'.$linkp.'--'.$linkr );
+				//die ; ?>
+
+				<?php if(!empty($article['Article'][$image])) : ?>
+
+					<?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
+						<div class="article-pic-container left">
+					<?php else: ?>
+						<div class="article-pics-container tight left">
+					<?php endif; ?>
+
+						<img class="article-pic img-polaroid" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
+
+						<br /><br />
+
+						<?php if(!empty($article['Article'][$attr])) : ?>
+							<div class="photo-attr">
+								<span>Photo:&nbsp;
+									<?php echo $article['Article'][$attr]; ?>
+								</span>
+							</div>
+						<?php endif ; ?>
+
+						<?php if(!empty($article['Article'][$title])) : ?>
+							<div class="pic-title">
+								<?php echo $article['Article'][$title]; ?>
+							</div>
+						<?php endif ; ?>
+
+						<?php if(!empty($article['Article'][$linkp])) : ?>
+							<?php echo $this->Html->link('Product', $article['Article'][$linkp],array(
+								'class' => 'btn gray-button btn-mini',
+								'target' => '_self'
+								)
+							); ?>
+						<?php endif ; ?>
+
+						<?php if(!empty($article['Article'][$linkr])) : ?>
+							<?php echo $this->Html->link('Recipe', $article['Article'][$linkr],array(
+								'class' => 'btn gray-button btn-mini right',
+								'target' => '_self'
+								)
+							); ?>
+						<?php endif ; ?>
+					</div>
+				<?php endif ; ?>
+
+
+				<?php $item++; ?>
+
+				<?php } ?>
+
+
+	</div>
+
 </div>
-
-
-
 
 
 
@@ -292,34 +282,34 @@
 
 	<h2 class="gb-heading">
 	<?php if (!empty($article['Article']['prefix'])) {
-				echo $article['Article']['prefix']; ?> : 
+				echo $article['Article']['prefix']; ?> :
 	<?php } ?>
-			
+
 	<?php echo $article['Article']['name']; ?></h2>
 	<hr class="article-divide">
-	
+
 	<div class="article-body" style="float:right;">
-	
-	
-	
+
+
+
 	<?php if(!empty($article['Article']['attribution_1']) ||
 		($article['Article']['pic_title_1'])	||
-		($article['Article']['product_link_1'])		|| 
+		($article['Article']['product_link_1'])		||
 		($article['Article']['product_link_1'])) : ?>
-    	
-        <div class="article-pic-container">
-    
-	<?php else: ?>      
-		
-        <div class="article-pic-container tight">
-        
-	<?php endif; ?>        
-        
 
-			<?php if(!empty($article['Article']['image_1'])) : ?>		
+		<div class="article-pic-container">
+
+	<?php else: ?>
+
+		<div class="article-pic-container tight">
+
+	<?php endif; ?>
+
+
+			<?php if(!empty($article['Article']['image_1'])) : ?>
 				<img class="article-pic img-polaroid" src="/img/articles/image_1/<?php echo $article['Article']['image_1']?>"  /><br />
 			<?php endif ; ?>
-			
+
 			<?php if(!empty($article['Article']['attribution_1'])) : ?>
 				<div class="photo-attr">
 					<span>Photo:&nbsp;
@@ -334,12 +324,12 @@
 					<?php echo $article['Article']['pic_title_1']; ?>
 				</div>
 			<?php endif ; ?>
-	
-			
+
+
 
 			<?php if(!empty($article['Article']['product_link_1'])) : ?>
 				<?php echo $this->Html->link('Product', $article['Article']['product_link_1'],array(
-					'class' => 'btn gray-button btn-mini', 
+					'class' => 'btn gray-button btn-mini',
 					'target' => '_self'
 					)
 				); ?>
@@ -352,37 +342,37 @@
 					)
 				); ?><br />
 			<?php endif ; ?>
-						
-		</div>	
-		
-        <?php if(!empty($article['Article']['summary'])) : ?>	
-        <div class="summary">
+
+		</div>
+
+		<?php if(!empty($article['Article']['summary'])) : ?>
+		<div class="summary">
 			<?php echo $article['Article']['summary']; ?>
-        </div>
-        <?php endif; ?>
-		
+		</div>
+		<?php endif; ?>
+
 		<?php echo $article['Article']['body']; ?>
 	</div>
 
-	
+
 	<br />
 	<?php
 			}
 		?>
-		
- 
 
 
 
-</div>	        
-		
+
+
+</div>
+
 <div class="row">
-  
-	
 
-	
-	
-		
+
+
+
+
+
 	</div>
 </div>
 

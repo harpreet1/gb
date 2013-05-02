@@ -1,11 +1,5 @@
 <?php echo $this->Html->script(array('jquery.flexslider-min.js', 'product_view.js'), array('inline' => false)); ?>
 
-<?php  $categories = "";
-
-$subcategories = "";
-$subsubcategories = "";
-?>
-
 <div class="row">
 
 	<div class="span3">
@@ -15,7 +9,7 @@ $subsubcategories = "";
                 <a href="/">
                 <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
                 </a>
-				
+
                 <div class="name"><?php echo $user['User']['name']; ?></div>
                 <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
@@ -27,7 +21,7 @@ $subsubcategories = "";
 					<p class="gb-nav small">
 					<?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
 
-						<a href="/category/<?php echo $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?>
+						<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
 
 				<?php //endif; ?>
 
@@ -44,20 +38,13 @@ $subsubcategories = "";
 
 				<ul class="breadcrumb btn-gb">
 					<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-                                       
-					<li><a href="/category/<?php echo $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?></a> <span class="divider">/</span></li>
-                    
-                    <?php if(empty($subcategories)) : ?>
-					<li><a href="/category/<?php echo $product['Category']['slug']  . '/' .  $product['Subcategory']['slug']; ?>"><?php echo $product['Subcategory']['name']; ?></a><span class="divider">/</span></li>
-                    <?php endif; ?>
-                    
+					<li><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?> <span class="divider">/</span></li>
+					<li><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $product['Subcategory']['id'])); ?> <span class="divider">/</span></li>
 					<?php if(!empty($subsubcategories)) : ?>
-					<li><a href="/category/<?php echo $product['Category']['slug'] . '/' . $product['Subcategory']['slug'] .  '/' . $product['Subsubcategory']['slug']; ?>"><?php echo $product['Subsubcategory']['name']; ?> <span class="divider">/</span></li>                    
+					<li><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 					<?php endif; ?>
-                    
 					<li class="active"><?php echo $product['Product']['name']; ?></li>
 				</ul>
-            
 
 			</div>
 		</div>
@@ -98,7 +85,30 @@ $subsubcategories = "";
 				</div>
 
 				<div id="carousel" class="flexslider">
-					 
+					<ul class="slides">
+						<?php if(!empty($product['Product']['image'])) : ?>
+							<li><?php echo $this->Html->image('products/image/' .$product['Product']['image'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
+
+						<?php if(!empty($product['Product']['image_1'])) : ?>
+							<li><?php echo $this->Html->image('products/image_1/' .$product['Product']['image_1'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
+
+						<?php if(!empty($product['Product']['image_2'])) : ?>
+							<li><?php echo $this->Html->image('products/image_2/' .$product['Product']['image_2'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
+
+						<?php if(!empty($product['Product']['image_3'])) : ?>
+							<li><?php echo $this->Html->image('products/image_3/' .$product['Product']['image_3'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
+
+						<?php if(!empty($product['Product']['image_4'])) : ?>
+							<li><?php echo $this->Html->image('products/image_4/' .$product['Product']['image_4'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
+
+						<?php if(!empty($product['Product']['image_5'])) : ?>
+							<li><?php echo $this->Html->image('products/image_5/' .$product['Product']['image_5'], array('class' => 'pic-thumbnail')); ?></li>
+						<?php endif ; ?>
 					</ul>
 
 				</div>
@@ -422,7 +432,6 @@ $subsubcategories = "";
 
 				<?php endif; ?>
 				
-         
                             
                        <?php if(!empty($user['User']['min_purchase'])) : ?>
                     

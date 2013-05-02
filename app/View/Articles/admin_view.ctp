@@ -1,40 +1,40 @@
 <h2>Article</h2>
 
 <table class="table-striped table-bordered table-condensed table-hover">
-    <tr>
-        <td>Id</td>
-        <td><?php echo $article['Article']['id']; ?></td>
-    </tr>
-    <tr>
+	<tr>
+		<td>Id</td>
+		<td><?php echo $article['Article']['id']; ?></td>
+	</tr>
+	<tr>
 	<td>Parent Block</td>
 
 	<td><?php echo $article['Article']['block_id']; ?></td>
 
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td><?php echo $article['Article']['name']; ?></td>
-    </tr>
-    <tr>
-        <td>Slug</td>
-        <td><?php echo $article['Article']['slug']; ?></td>
-    </tr>
-    <tr>
-        <td>Body</td>
-        <td><div class="limit"><?php echo $article['Article']['body']; ?></div></td>
-    </tr>
-    <tr>
-        <td>Active</td>
-        <td><?php echo $article['Article']['active']; ?></td>
-    </tr>
-    <tr>
-        <td>Created</td>
-        <td><?php echo $article['Article']['created']; ?></td>
-    </tr>
-    <tr>
-        <td>Modified</td>
-        <td><?php echo $article['Article']['modified']; ?></td>
-    </tr>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td><?php echo $article['Article']['name']; ?></td>
+	</tr>
+	<tr>
+		<td>Slug</td>
+		<td><?php echo $article['Article']['slug']; ?></td>
+	</tr>
+	<tr>
+		<td>Body</td>
+		<td><div class="limit"><?php echo $article['Article']['body']; ?></div></td>
+	</tr>
+	<tr>
+		<td>Active</td>
+		<td><?php echo $article['Article']['active']; ?></td>
+	</tr>
+	<tr>
+		<td>Created</td>
+		<td><?php echo $article['Article']['created']; ?></td>
+	</tr>
+	<tr>
+		<td>Modified</td>
+		<td><?php echo $article['Article']['modified']; ?></td>
+	</tr>
 </table>
 
 <br />
@@ -81,29 +81,29 @@
 <br />
 <br />
 
-  
-<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
-<?php echo $this->Form->end(); ?>
+
+<br />
+<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Article',
+	'id' => $article['Article']['id'],
+	'field' => 'image_1',
+	'path' => 'articles/image_1/',
+	'file' => $article['Article']['image_1'],
+)); ?>
+
+<br />
+<br />
 
 <h3>Other Actions</h3>
 
 <br />
 
-
-
-<br />
-<?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
-
-
-
-
-
-<br />
-<br />
-
 <?php echo $this->Html->link('Edit Article', array('action' => 'edit', $article['Article']['id']), array('class' => 'btn')); ?>
-
-
 
 <br />
 <br />
