@@ -2,80 +2,80 @@
 
 <table class="table-striped table-bordered table-condensed">
 	<tr>
-	<td>Id</td>
-	<td><?php echo h($recipe['Recipe']['id']); ?></td>
+		<td>Id</td>
+		<td><?php echo h($recipe['Recipe']['id']); ?></td>
 	</tr>
 	<tr>
-	<td>User</td>
-	<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
+		<td>User</td>
+		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
 	</tr>
 	<tr>
-	<td>Recipescategory</td>
-	<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
+		<td>Recipescategory</td>
+		<td><?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>
 	</tr>
 	<tr>
-	<td>Name</td>
-	<td><?php echo $recipe['Recipe']['name']; ?></td>
+		<td>Name</td>
+		<td><?php echo $recipe['Recipe']['name']; ?></td>
 	</tr>
 	<tr>
-	<td>Slug</td>
-	<td><?php echo $recipe['Recipe']['slug']; ?></td>
+		<td>Slug</td>
+		<td><?php echo $recipe['Recipe']['slug']; ?></td>
 	</tr>
 	<tr>
-	<td>Description</td>
-	<td><?php echo $recipe['Recipe']['description']; ?></td>
+		<td>Description</td>
+		<td><?php echo $recipe['Recipe']['description']; ?></td>
 	</tr>
 	<tr>
-	<td>Tags</td>
-	<td><?php echo $recipe['Recipe']['tags']; ?></td>
+		<td>Tags</td>
+		<td><?php echo $recipe['Recipe']['tags']; ?></td>
 	</tr>
 	<tr>
-	<td>Ingredients</td>
-	<td><?php echo $recipe['Recipe']['ingredients']; ?></td>
+		<td>Ingredients</td>
+		<td><?php echo $recipe['Recipe']['ingredients']; ?></td>
 	</tr>
 	<tr>
-	<td>Preparation</td>
-	<td><?php echo $recipe['Recipe']['preparation']; ?></td>
+		<td>Preparation</td>
+		<td><?php echo $recipe['Recipe']['preparation']; ?></td>
 	</tr>
 	<tr>
-	<td>Comment</td>
-	<td><?php echo $recipe['Recipe']['comment']; ?></td>
+		<td>Comment</td>
+		<td><?php echo $recipe['Recipe']['comment']; ?></td>
 	</tr>
 	<tr>
-	<td>Image 1</td>
-	<td><?php echo h($recipe['Recipe']['image_1']); ?></td>
+		<td>Image 1</td>
+		<td><?php echo h($recipe['Recipe']['image_1']); ?></td>
 	</tr>
 	<tr>
-	<td>Image 2</td>
-	<td><?php echo h($recipe['Recipe']['image_2']); ?></td>
+		<td>Image 2</td>
+		<td><?php echo h($recipe['Recipe']['image_2']); ?></td>
 	</tr>
 	<tr>
-	<td>Image 3</td>
-	<td><?php echo h($recipe['Recipe']['image_3']); ?></td>
+		<td>Image 3</td>
+		<td><?php echo h($recipe['Recipe']['image_3']); ?></td>
 	</tr>
 	<tr>
-	<td>Image Caption 1</td>
-	<td><?php echo h($recipe['Recipe']['attr_1']); ?></td>
+		<td>Image Caption 1</td>
+		<td><?php echo h($recipe['Recipe']['attr_1']); ?></td>
 	</tr>
 	<tr>
-	<td>Image Caption 2</td>
-	<td><?php echo h($recipe['Recipe']['attr_2']); ?></td>
+		<td>Image Caption 2</td>
+		<td><?php echo h($recipe['Recipe']['attr_2']); ?></td>
 	</tr>
 	<tr>
-	<td>Image Caption 3</td>
-	<td><?php echo h($recipe['Recipe']['attr_3']); ?></td>
+		<td>Image Caption 3</td>
+		<td><?php echo h($recipe['Recipe']['attr_3']); ?></td>
 	</tr>
 	<tr>
-	<td>Active</td>
-	<td><?php echo h($recipe['Recipe']['active']); ?></td>
+		<td>Active</td>
+		<td><?php echo h($recipe['Recipe']['active']); ?></td>
 	</tr>
 	<tr>
-	<td>Created</td>
-	<td><?php echo h($recipe['Recipe']['created']); ?></td>
+		<td>Created</td>
+		<td><?php echo h($recipe['Recipe']['created']); ?></td>
 	</tr>
 	<tr>
-	<td>Modified</td>
-	<td><?php echo h($recipe['Recipe']['modified']); ?></td>
+		<td>Modified</td>
+		<td><?php echo h($recipe['Recipe']['modified']); ?></td>
 	</tr>
 </table>
 
@@ -83,6 +83,22 @@
 <br />
 
 <?php echo $this->Html->image('recipes/image_1/' . $recipe['Recipe']['image_1']); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Recipe',
+	'id' => $recipe['Recipe']['id'],
+	'field' => 'image_1',
+	'path' => 'recipes/image_1/',
+	'file' => $recipe['Recipe']['image_1'],
+)); ?>
+
+<br />
+<br />
+
+
 
 <br />
 <br />
