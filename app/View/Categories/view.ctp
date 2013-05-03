@@ -10,7 +10,15 @@
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
-		 <a href="/articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
+        
+        
+        <pre>
+        <?php $home = $this->Html->url('/', true) ?>
+        <?php echo($home) .'articles/the-well-stocked-pantry/'. $category['Category']['slug'] ?>
+        </pre>
+        
+        
+		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
 	</div>
 
 		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>

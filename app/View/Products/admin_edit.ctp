@@ -28,18 +28,32 @@ $(document).ready(function(){
 
 <script>
 	$(function() {
-		$( "#datepicker" ).datepicker();
-		$( "#datepicker" ).datepicker({ changeYear: true });
-		// getter
-		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
-		// setter
-		$( "#datepicker" ).datepicker( "option", "changeYear", true );
-		$( "#datepicker" ).datepicker({ gotoCurrent: true });
-		// getter
-		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
-		// setter
-		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+
+		$('#monthpicker').monthpicker();
+		
 	});
+
+
+		//$(function() {
+	//		$( "#datepicker" ).datepicker();
+	//		$( "#datepicker" ).datepicker({ changeMonth: true,
+	//        	changeYear: true,
+	//        	showButtonPanel: true,
+	//        	dateFormat: 'MM yy' });
+	//			
+	//		// getter
+	////var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+	//		// setter
+	//		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+	//		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+	//		// getter
+	//		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+	//		// setter
+	//		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	//	});
+	//	
+		
+	
   </script>
 
 
@@ -233,7 +247,14 @@ $(document).ready(function(){
 		<br />
 		<h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
 		<?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
-		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
+        <?php echo $this->Form->input('seasonal_stock_range', array('type' => 'select', 'label' => 'Projected Date back in Stock', 'empty' => 'Choose','options' => array(
+                '1' => 'Mid',
+                '2' => 'Early',
+                '3' => 'Late',
+            ))); ?>
+        
+		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'monthpicker', 'label' => false,'class' => 'mceNoEditor')); ?>
+        <?php echo $this->Form->input('seasonal_stock_note'); ?>
  		<br />
 		<br />
 		<?php echo $this->Form->input('related_products'); ?>
