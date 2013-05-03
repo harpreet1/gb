@@ -1855,9 +1855,11 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	float:left;
 }
 
+.article-pic-container.left.fit {
+	width:275px;
+}
 .article-pic-container.tight {
-	padding:0px;
-	
+	padding:0px;	
 	
 }
 

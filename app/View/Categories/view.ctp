@@ -10,7 +10,7 @@
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
-		 <a href="#" id="story">Read more of this story...</a>
+		 <a href="/articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
 	</div>
 
 		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>
@@ -145,7 +145,7 @@
 
 
 <!-- Category Story -->
-<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
+<!--<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
 
 		<div class="span8 air">
 			<h2 class="gb-heading"><?php echo $category['Category']['name'] ?>
@@ -184,6 +184,6 @@
                 </div>
          		<?php endif; ?>          
 
-</div>
+</div>-->
 
 </div>

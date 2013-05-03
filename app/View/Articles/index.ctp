@@ -225,7 +225,7 @@
 				<?php if(!empty($article['Article'][$image])) : ?>
 
 					<?php if(!empty($article['Article'][$title]) ||  ($article['Article'][$linkp])	||  ($article['Article'][$linkr])) : ?>
-						<div class="article-pic-container left">
+						<div class="article-pic-container left fit">
 					<?php else: ?>
 						<div class="article-pics-container tight left">
 					<?php endif; ?>
