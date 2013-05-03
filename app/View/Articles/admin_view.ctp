@@ -82,7 +82,6 @@
 <br />
 
 
-<br />
 <?php echo $this->Html->image('articles/image_1/'. $article['Article']['image_1'] . '?date=' . time(), array('class' => 'gb')); ?>
 
 <br />
@@ -95,6 +94,80 @@
 	'path' => 'articles/image_1/',
 	'file' => $article['Article']['image_1'],
 )); ?>
+
+<br />
+<br />
+
+
+<?php echo $this->Html->image('articles/image_2/'. $article['Article']['image_2'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Article',
+	'id' => $article['Article']['id'],
+	'field' => 'image_2',
+	'path' => 'articles/image_2/',
+	'file' => $article['Article']['image_2'],
+)); ?>
+
+<br />
+<br />
+
+
+<?php echo $this->Html->image('articles/image_3/'. $article['Article']['image_3'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Article',
+	'id' => $article['Article']['id'],
+	'field' => 'image_3',
+	'path' => 'articles/image_3/',
+	'file' => $article['Article']['image_3'],
+)); ?>
+
+<br />
+<br />
+
+
+<?php echo $this->Html->image('articles/image_4/'. $article['Article']['image_4'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Article',
+	'id' => $article['Article']['id'],
+	'field' => 'image_4',
+	'path' => 'articles/image_4/',
+	'file' => $article['Article']['image_4'],
+)); ?>
+
+<br />
+<br />
+
+
+<?php echo $this->Html->image('articles/image_5/'. $article['Article']['image_5'] . '?date=' . time(), array('class' => 'gb')); ?>
+
+<br />
+<br />
+
+<?php echo $this->element('deleteimage', array(
+	'model' => 'Article',
+	'id' => $article['Article']['id'],
+	'field' => 'image_5',
+	'path' => 'articles/image_5/',
+	'file' => $article['Article']['image_5'],
+)); ?>
+
+<br />
+<br />
+
+
+
 
 <br />
 <br />

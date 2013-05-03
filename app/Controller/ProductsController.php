@@ -1141,7 +1141,8 @@ class ProductsController extends AppController {
 				$product1= $this->Product->find('first', array(
 					'recursive' => -1,
 					'conditions' => array(
-						'Product.id' => $this->Product->id
+						'Product.id' => $this->Product->id,
+						'Product.image' => $this->Product->image
 					)
 				));
 				$markup = (($product1['Product']['price'] - $product1['Product']['price_wholesale']) / $product1['Product']['price_wholesale']) * 100;
