@@ -247,7 +247,7 @@ $(document).ready(function(){
 		<br />
 		<h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
 		<?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
-        <?php echo $this->Form->input('seasonal_stock_range', array('type' => 'select', 'label' => 'Projected Date back in Stock', 'empty' => 'Choose','options' => array(
+        <?php echo $this->Form->input('seasonal_stock_range', array('type' => 'select', 'label' => 'ETA', 'empty' => 'Choose','options' => array(
                 '1' => 'Mid',
                 '2' => 'Early',
                 '3' => 'Late',
