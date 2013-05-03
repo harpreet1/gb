@@ -60,11 +60,6 @@ td.art-constrain div {
 	max-height:280px;
 }
 
- {
-	max-height: 225px;
-}
-
-
 .limit {
 	max-height:120px;
 	overflow-y:scroll;
@@ -164,6 +159,7 @@ input::-webkit-inner-spin-button {
 }
 
 /**Admin Pic **/
-.gb {
-	width:250px;
+.gb, .gb img {
+	max-width:250px;
+	max-height: 230px;
 }

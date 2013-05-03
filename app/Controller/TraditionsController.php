@@ -169,6 +169,7 @@ class TraditionsController extends AppController {
 		if (!$this->Tradition->exists($id)) {
 			throw new NotFoundException(__('Invalid tradition'));
 		}
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Tradition->save($this->request->data)) {
 				$this->Session->setFlash(__('The tradition has been saved'));
