@@ -87,7 +87,7 @@ echo $this->Form->input('block_id');
        
 
 	<?php if($this->Form->value('Article.image_4') !== '') : ?>
-        <div class="span4">xxxx
+        <div class="span4">
             <div style="height:245px">       
                 <img class="article-img" src="/img/articles/image_4/<?php echo $this->Form->value('Article.image_4'); ?>" />
              </div>   
