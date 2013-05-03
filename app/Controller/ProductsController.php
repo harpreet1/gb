@@ -1058,13 +1058,13 @@ class ProductsController extends AppController {
 
 			if ($this->Product->save($this->request->data)) {
 
-				$product= $this->Product->find('first', array(
+				$product1= $this->Product->find('first', array(
 					'recursive' => -1,
 					'conditions' => array(
 						'Product.id' => $this->Product->id
 					)
 				));
-				$markup = (($product['Product']['price'] - $product['Product']['price_wholesale']) / $product['Product']['price_wholesale']) * 100;
+				$markup = (($product1['Product']['price'] - $product1['Product']['price_wholesale']) / $product1['Product']['price_wholesale']) * 100;
 				$this->Product->saveField('markup', $markup);
 
 				$this->Session->setFlash('The product has been saved');
@@ -1138,14 +1138,13 @@ class ProductsController extends AppController {
 
 			if ($this->Product->save($this->request->data)) {
 
-				$product= $this->Product->find('first', array(
+				$product1= $this->Product->find('first', array(
 					'recursive' => -1,
 					'conditions' => array(
-						'Product.id' => $this->Product->id,
-						'Product.image' => $this->Product->image
+						'Product.id' => $this->Product->id
 					)
 				));
-				$markup = (($product['Product']['price'] - $product['Product']['price_wholesale']) / $product['Product']['price_wholesale']) * 100;
+				$markup = (($product1['Product']['price'] - $product1['Product']['price_wholesale']) / $product1['Product']['price_wholesale']) * 100;
 				$this->Product->saveField('markup', $markup);
 
 				$this->Session->setFlash('The product has been saved');
