@@ -11,7 +11,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
 
-<?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js','jQuery.mtz.monthpicker')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js', 'admin.js','jquery.mtz.monthpicker')); ?>
 <?php echo $this->fetch('css,http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css'); ?>
 <?php echo $this->fetch('script'); ?>
 </head>
