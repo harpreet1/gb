@@ -14,7 +14,7 @@
 						<li><a href="">ABOUT</a></li>
 						<li><a href="/pages/faq">FAQ</a></li>
 						<li><a href="">TERMS OF USE</a></li>
-						<li>three</li>
+						
 					</ul>
 
 				</div>
