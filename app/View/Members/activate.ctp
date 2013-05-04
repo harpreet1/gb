@@ -1,3 +1,7 @@
+
+<?php echo $this->element('activate', array(), array('plugin' => 'SignMeUp')); ?>
+
+
 <?php /*?><h2>Activate Your Account</h2>
 <p>Please paste your activation code below:</p>
 <?php
@@ -7,7 +11,7 @@ echo $this->Form->end('Activate Account');<?php */?>
 
 
 
-Welcome <?php echo $user['username']; ?>,
+<?php /*?>Welcome <?php echo $user['username']; ?>,
 
 In order to get started please click on the following link to activate your account:
 
@@ -15,4 +19,4 @@ In order to get started please click on the following link to activate your acco
 
 We look forward to seeing you!
 Regards,
-MyDomain.com Staff
+MyDomain.com Staff<?php */?>

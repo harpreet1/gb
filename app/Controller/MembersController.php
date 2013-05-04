@@ -23,9 +23,13 @@ class MembersController extends AppController {
 		$this->SignMeUp->register();
 	}
 
+////////////////////////////////////////////////////////////
+
 	public function activate() {
 		$this->SignMeUp->activate();
 	}
+	
+////////////////////////////////////////////////////////////
 
 	public function forgotten_password() {
 		$this->SignMeUp->forgottenPassword();
@@ -33,8 +37,6 @@ class MembersController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
-	
-	
 
 /**
  * index method
