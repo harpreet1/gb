@@ -2,7 +2,8 @@
 
 body, p, table {
 	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;	
-	font-size:14px;	
+	font-size:14px;
+	text-align:left;
 }
 
 h2 {
@@ -31,7 +32,7 @@ Phone: <?php echo $order['Order']['phone'];?>
 
 
 
-<table width="100%" border="4">
+<table>
     <tr>
         
         <th scope="col">BILLING ADDRESS</th>
@@ -42,20 +43,29 @@ Phone: <?php echo $order['Order']['phone'];?>
         <td><?php echo $order['Order']['billing_address'];?></td>
         <td><?php echo $order['Order']['shipping_address'];?></td>
     </tr>
+    <?php if(!empty($order['Order']['billing_address2'])) :?>
     <tr>
         <td><?php echo $order['Order']['billing_address2'];?></td>
         <td><?php echo $order['Order']['shipping_address2'];?></td>
     </tr>
+    
+    <?php elseif(!empty($order['Order']['shipping_address2']))  : ?>
     <tr>
-        <td><?php echo $order['Order']['billing_city'];?></td>
+        <td><?php echo $order['Order']['billing_address2'];?></td>
+        <td><?php echo $order['Order']['shipping_address2'];?></td>
+    </tr>
+
+    <?php endif; ?>
+    <tr>
+        <td><?php echo $order['Order']['billing_city'];?>,&nbsp;<?php echo $order['Order']['billing_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['billing_zip'];?></td>
         <td><?php echo $order['Order']['shipping_city'];?></td>
     </tr>
     <tr>
-        <td> <?php echo $order['Order']['billing_state'];?></td>
+        <td></td>
         <td> <?php echo $order['Order']['shipping_state'];?></td>
     </tr>
     <tr>
-        <td> <?php echo $order['Order']['billing_zip'];?></td>
+        <td> </td>
         <td> <?php echo $order['Order']['shipping_zip'];?></td>
     </tr>
     <tr>
@@ -69,9 +79,6 @@ Phone: <?php echo $order['Order']['phone'];?>
 Order IP Address: <?php echo $order['Order']['ip_address'];?>
 <br />
 Remote Host: <?php echo $order['Order']['remotehost'];?>
-<br />
-<br />
-
 <br />
 <br />
 
