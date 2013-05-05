@@ -2,7 +2,7 @@
 
 body, p, table {
 	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;	
-	font-size:14px;
+	font-size:12px;
 	text-align:left;
 }
 
@@ -32,7 +32,7 @@ Phone: <?php echo $order['Order']['phone'];?>
 
 
 
-<table>
+<table width="500">
     <tr>
         
         <th scope="col">BILLING ADDRESS</th>
@@ -58,19 +58,7 @@ Phone: <?php echo $order['Order']['phone'];?>
     <?php endif; ?>
     <tr>
         <td><?php echo $order['Order']['billing_city'];?>,&nbsp;<?php echo $order['Order']['billing_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['billing_zip'];?></td>
-        <td><?php echo $order['Order']['shipping_city'];?></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td> <?php echo $order['Order']['shipping_state'];?></td>
-    </tr>
-    <tr>
-        <td> </td>
-        <td> <?php echo $order['Order']['shipping_zip'];?></td>
-    </tr>
-    <tr>
-        <td> <?php echo $order['Order']['billing_address'];?></td>
-        <td> <?php echo $order['Order']['shipping_state'];?></td>
+        <td><?php echo $order['Order']['shipping_city'];?>,&nbsp;<?php echo $order['Order']['shipping_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['shipping_zip'];?></td>
     </tr>
 </table>
 
