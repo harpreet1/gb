@@ -1,45 +1,46 @@
+<style>
+
+body, p, table {
+	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;	
+	font-size:12px;
+	text-align:left;
+}
+
+h2 {
+	font-size:17px;	
+}
+</style>
+<body>
+    <div style="margin-left:30px">
+
+
 <h2>CUSTOMER COPY</h2>
 
-<h2>Shop Order</h2>
 
-Order Id: <?php echo $order['Order']['id'];?>
+Gourmet Basket Order Id:#<?php echo $order['Order']['id'];?>
 <br />
 Created: <?php echo $order['Order']['created'];?>
 <br />
 <br />
 
-<h2>Customer</h2>
+<p>For:</p>
+        Name: <?php echo $order['Order']['first_name'];?>&nbsp;<?php echo $order['Order']['last_name'];?>
+        <br />
+        Email: <?php echo $order['Order']['email'];?>
+        <br />
+        Phone: <?php echo $order['Order']['phone'];?>
+        <br />
+        <br />
+<br />
+<br />
+       For shipment to:
+          <p><?php echo $order['Order']['shipping_address'];?></p>
+	<?php if(!empty($order['Order']['shipping_address2']))  : ?>
+		<p> <?php echo $order['Order']['shipping_address2'];?></td></p>
+    <?php endif; ?>       
+		 <p><?php echo $order['Order']['shipping_city'];?>,&nbsp;<?php echo $order['Order']['shipping_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['shipping_zip'];?></p>
+         
 
-First Name: <?php echo $order['Order']['first_name'];?>
-<br />
-Last Name: <?php echo $order['Order']['last_name'];?>
-<br />
-Email: <?php echo $order['Order']['email'];?>
-<br />
-Phone: <?php echo $order['Order']['phone'];?>
-<br />
-<br />
-Billing Address: <?php echo $order['Order']['billing_address'];?>
-<br />
-Billing Address 2: <?php echo $order['Order']['billing_address2'];?>
-<br />
-Billing City: <?php echo $order['Order']['billing_city'];?>
-<br />
-Billing State: <?php echo $order['Order']['billing_state'];?>
-<br />
-Billing Zip: <?php echo $order['Order']['billing_zip'];?>
-<br />
-<br />
-Shipping Address: <?php echo $order['Order']['shipping_address'];?>
-<br />
-Shipping Address 2: <?php echo $order['Order']['shipping_address2'];?>
-<br />
-Shipping City: <?php echo $order['Order']['shipping_city'];?>
-<br />
-Shipping State: <?php echo $order['Order']['shipping_state'];?>
-<br />
-Shipping Zip: <?php echo $order['Order']['shipping_zip'];?>
-<br />
 <br />
 <br />
 

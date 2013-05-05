@@ -30,26 +30,13 @@ h2 {
         <br />
         <br />
         
-        <table width="600">
-            <tr>
-                <th scope="col">SHIPPING ADDRESS</th>
-            </tr>
-            <tr>
-                <td><?php echo $order['Order']['shipping_address'];?></td>
-            </tr>
-            <tr>
-                <td><?php echo $order['Order']['shipping_address2'];?></td>
-            </tr>
-            
-            <?php if(!empty($order['Order']['shipping_address2']))  : ?>
-            <tr>
-                <td><?php echo $order['Order']['shipping_address2'];?></td>
-            </tr>
-            <?php endif; ?>
-            <tr>
-                <td><?php echo $order['Order']['shipping_city'];?>,&nbsp;<?php echo $order['Order']['shipping_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['shipping_zip'];?></td>
-            </tr>
-        </table>
+       Please ship to:
+          <p><?php echo $order['Order']['shipping_address'];?></p>
+	<?php if(!empty($order['Order']['shipping_address2']))  : ?>
+		<p> <?php echo $order['Order']['shipping_address2'];?></td></p>
+    <?php endif; ?>       
+		 <p><?php echo $order['Order']['shipping_city'];?>,&nbsp;<?php echo $order['Order']['shipping_state'];?>&nbsp;&nbsp;<?php echo $order['Order']['shipping_zip'];?></p>
+         
         
         <br />
         <br />
@@ -101,7 +88,7 @@ h2 {
         <br />
         <br />
         
-        Shipping Service: $<?php echo $vendor['shipping_service'];?>
+        Shipping Service Chosen:$<?php echo $vendor['shipping_service'];?>
         
         <br />
         <br />
