@@ -48,7 +48,7 @@ Phone: <?php echo $order['Order']['phone'];?>
     </tr>
     <tr>
         <td><?php echo $order['Order']['billing_city'];?></td>
-        <td><?php echo $order['Order']['shippingg_city'];?></td>
+        <td><?php echo $order['Order']['shipping_city'];?></td>
     </tr>
     <tr>
         <td> <?php echo $order['Order']['billing_state'];?></td>
@@ -74,32 +74,6 @@ Remote Host: <?php echo $order['Order']['remotehost'];?>
 
 <br />
 <br />
-
-<h2>Order Items</h2>
-
-<table>
-<tr>
-<th>Name</th>
-<th>Product</th>
-<th>Weight</th>
-<th>Weight Total</th>
-<th>Product Price</th>
-<th>Quantity</th>
-<th>Product Subtotal</th>
-</tr>
-<?php echo $order['Order']['first_name'];?>&nbsp;<?php echo $order['Order']['last_name'];?>
-<tr>
-<td><?php echo $orderitem['User']['name']; ?></td>
-<td><?php echo $orderitem['name']; ?></td>
-<td><?php echo $orderitem['weight']; ?></td>
-<td><?php echo $orderitem['weight_total']; ?></td>
-<td>$<?php echo $orderitem['price']; ?></td>
-<td><?php echo $orderitem['quantity']; ?></td>
-<td>$<?php echo $orderitem['subtotal']; ?></td>
-</tr>
-
-</table>
-
 
 
 <h2>Order Items</h2>
