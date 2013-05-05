@@ -1,18 +1,20 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Post Model
+ * Role Model
  *
  * @property Member $Member
  */
-class Post extends AppModel {
+class Role extends AppModel
+{
+    var $actsAs = array('Acl.MemberLinker', 'Containable', 'Acl' => 'requester');
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'title';
+	public $displayField = 'name';
 
 /**
  * Validation rules
@@ -20,29 +22,19 @@ class Post extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'user_id' => array(
+		'name' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'order' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'title' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'content' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -65,17 +57,29 @@ class Post extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
+ * hasMany associations
  *
  * @var array
  */
-	public $belongsTo = array(
+	public $hasMany = array(
 		'Member' => array(
 			'className' => 'Member',
-			'foreignKey' => 'user_id',
+			'foreignKey' => 'role_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
+
+	
+	function parentNode()
+	{
+	    return null;
+	}
 }

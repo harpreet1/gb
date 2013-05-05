@@ -147,7 +147,7 @@ CakePlugin::load('DebugKit');
 
 CakePlugin::load('Utils');
 
-CakePlugin::load('SignMeUp');
+//CakePlugin::load('Acl', array('bootstrap' => true));
 
 //CakePlugin::load('Tags');
 
