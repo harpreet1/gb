@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 <br />
 
-<table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th class="actions">Actions</th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -129,6 +129,8 @@ $(document).ready(function() {
 	</tr>
 	<?php endforeach; ?>
 </table>
+
+<br />
 
 <?php echo $this->element('pagination-counter'); ?>
 

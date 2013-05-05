@@ -181,19 +181,27 @@ class AppController extends Controller {
 		$this->$model->saveField($field, $value);
 
 		if(($model == 'Product' && $field == 'price') || ($model == 'Product' && $field == 'price_wholesale')) {
-
 			$product = $this->$model->find('first', array(
 				'recursive' => -1,
 				'conditions' => array(
 					'Product.id' => $id
 				)
 			));
-
 			$markup = (($product['Product']['price'] - $product['Product']['price_wholesale']) / $product['Product']['price_wholesale']) * 100;
-
 			$this->$model->saveField('markup', $markup);
-
 		}
+
+		if($model == 'OrderUser' && $field == 'shipping_actual') {
+			$orderuser = $this->$model->find('first', array(
+				'recursive' => -1,
+				'conditions' => array(
+					'OrderUser.id' => $id
+				)
+			));
+			$markup = (($orderuser['OrderUser']['shipping'] - $orderuser['OrderUser']['shipping_actual']) / $orderuser['OrderUser']['shipping']) * 100;
+			$this->$model->saveField('shipping_variance', $markup);
+		}
+
 
 		$this->autoRender = false;
 

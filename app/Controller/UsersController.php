@@ -11,7 +11,7 @@ class UsersController extends AppController {
 	}
 
 ////////////////////////////////////////////////////////////
-	
+
 	public function vendors() {
 		$users = $this->User->find('all', array(
 			'recursive' => -1,
@@ -101,24 +101,24 @@ class UsersController extends AppController {
 
 	public function vendor_edit() {
 		$id = $this->Auth->user('id');
-		
-		
+
+
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		
-		
+
+
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->saveAll($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
 				$this->redirect(array('action' => 'edit', $id));
-				
+
 			} else {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}
 		} else {
-			
+
 			$user = $this->User->find('first', array(
 				'contain' => array(
 					'Tax',
@@ -129,13 +129,13 @@ class UsersController extends AppController {
 				),
 			));
 			$this->request->data = $user;
-			
+
 		}
 
 		$states = $this->User->states();
-		
+
 		$this->set(compact('users','taxes','states','approvals'));
-	
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -235,7 +235,7 @@ class UsersController extends AppController {
 				'User.attr_4',
 				'User.attr_5',
 				'User.attr_6',
-											
+
 			),
 			'conditions' => array(
 				'User.active' => 1,

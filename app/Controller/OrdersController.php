@@ -17,14 +17,44 @@ class OrdersController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function admin_view($id = null) {
-		$this->Order->id = $id;
-		if (!$this->Order->exists()) {
+
+		$order = $this->Order->find('first', array(
+			'contain' => array(
+				'OrderUser' => array(
+					'order' => array(
+						'OrderUser.user_id' => 'ASC'
+					),
+					'User' => array(
+						'fields' => array(
+							'User.name',
+							'User.username'
+						)
+					)
+				),
+				'OrderItem' => array(
+					'order' => array(
+						'OrderItem.user_id' => 'ASC'
+					),
+					'User' => array(
+						'fields' => array(
+							'User.name',
+							'User.username'
+						)
+					)
+				),
+				'OrderHistory'=> array(
+					'OrderStatus'
+				),
+			),
+			'conditions' => array(
+				'Order.id' => $id
+			)
+		));
+
+		if (empty($order)) {
 			throw new NotFoundException('Invalid order');
 		}
-		$order = $this->Order->find('first', array(
-			'recursive' => 1,
-			'conditions' => array('Order.id' => $id)
-		));
+
 		$this->set(compact('order'));
 	}
 
