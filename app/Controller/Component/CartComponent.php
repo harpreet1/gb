@@ -135,7 +135,7 @@ class CartComponent extends Component {
 			$order['shipping'] = 0;
 			$order['total'] = sprintf('%.2f', $cartTotal);
 
-			$this->Session->write('Shop.Order', $order + $shop['Order']);
+			$this->Session->write('Shop.Order', $order );//+ $shop['Order']);
 
 			$this->Session->write('Shop.Users', $users);
 
