@@ -10,6 +10,8 @@ $(document).ready(function() {
 		url:   '/admin/orderusers/editable',
 		title: 'shipping_actual',
 		placement: 'right',
+		
+		
 	});
 
 });
@@ -73,15 +75,15 @@ $(document).ready(function() {
 		<th>Shipping Method</th>
 		<th>Shipping Service</th>
 		<th>Weight</th>
-		<th>tax</th>
-		<th>shipping</th>
+		<th>Tax</th>
+		<th style="color:#008000">Shipping</th>
+        <th style="color:blue">Shipping Actual</th>
+		<th style="color:red">Shipping Variance</th>
 		<th>total</th>
 		<th>status</th>
 		<th>Created</th>
 		<th>Modified</th>
-		<th>Shipping Actual</th>
-		<th>Shipping Variance</th>
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th class="actions"></th>
 	</tr>
 	<?php foreach ($order['OrderUser'] as $orderUser): ?>
 		<tr>
@@ -90,13 +92,13 @@ $(document).ready(function() {
 			<td><?php echo $orderUser['shipping_service'];?></td>
 			<td><?php echo $orderUser['weight'];?></td>
 			<td><?php echo $orderUser['tax'];?></td>
-			<td><?php echo $orderUser['shipping'];?></td>
+			<td style="color:#008000"><?php echo $orderUser['shipping'];?></td>
+            <td style="color:blue"><span class="shipping_actual" data-value="<?php echo $orderUser['shipping_actual']; ?>" data-pk="<?php echo $orderUser['id']; ?>"><?php echo $orderUser['shipping_actual']; ?></span></td>
+			<td style="color:red"><?php echo $orderUser['shipping_variance'];?>%</td>
 			<td><?php echo $orderUser['total'];?></td>
 			<td><?php echo $orderUser['status'];?></td>
 			<td><?php echo $orderUser['created'];?></td>
 			<td><?php echo $orderUser['modified'];?></td>
-			<td><span class="shipping_actual" data-value="<?php echo $orderUser['shipping_actual']; ?>" data-pk="<?php echo $orderUser['id']; ?>"><?php echo $orderUser['shipping_actual']; ?></span></td>
-			<td><?php echo $orderUser['shipping_variance'];?></td>
 			<td class="actions">
 				<?php //echo $this->Html->link('View', array('controller' => 'order_items', 'action' => 'view', $orderItem['id']), array('class' => 'btn btn-mini')); ?>
 				<?php //echo $this->Html->link('Edit', array('controller' => 'order_items', 'action' => 'edit', $orderItem['id']), array('class' => 'btn btn-mini')); ?>
@@ -120,7 +122,7 @@ $(document).ready(function() {
 		<th>Price</th>
 		<th>Created</th>
 		<th>Modified</th>
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th class="actions">Actions</th>
 	</tr>
 	<?php foreach ($order['OrderItem'] as $orderItem): ?>
 		<tr>
@@ -152,7 +154,7 @@ $(document).ready(function() {
 		<th>Status</th>
 		<th>Comment</th>
 		<th>Created</th>
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th class="actions"></th>
 	</tr>
 	<?php foreach ($order['OrderHistory'] as $OrderHistory): ?>
 		<tr>
