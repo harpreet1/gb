@@ -249,7 +249,7 @@
 
 						<img class="article-pic img-polaroid" src="/img/articles/<?php echo $image ; ?>/<?php echo $article['Article'][$image]?>"  />
 
-						<br /><br />
+					
 
 						<?php if(!empty($article['Article'][$attr])) : ?>
 							<div class="photo-attr">
