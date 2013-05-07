@@ -166,6 +166,7 @@ class UpsComponent extends Component {
 			'02',
 			'12',
 			'03',
+			'01',
 		);
 
 		$results = array();
