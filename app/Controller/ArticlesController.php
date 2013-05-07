@@ -13,10 +13,15 @@ class ArticlesController extends AppController {
 				)
 			));
 		} elseif(empty($slug) && $block != null){
-			$article = $this->Article->Block->find('first', array(
-				'recursive' => -1,
-				'conditions' => array(
-					'Block.slug' => $block
+			$article = $this->Article->Block->find(
+				'first', array(
+					'recursive' => -1,
+					'order'  => array(
+						'Block.id' => 'ASC'
+					),
+
+					'conditions' => array(
+						'Block.slug' => $block
 				),
 				'fields' => array(
 					'Block.id',
@@ -40,17 +45,29 @@ class ArticlesController extends AppController {
 
 		$blocks = $this->Article->Block->find('all', array(
 			'recursive' => 1,
-			'fields1' => array(
-				'Block.name',
-				'Block.slug',
-				'Article.name',
-				'Article.slug',
+			'contain' => array(
+				'Article' => array(
+					'fields' => array(
+						'active','id','slug','group_id','prefix','name'
+					),
+					'order' => array(
+						'prefix' => 'ASC',
+					),
+				),
 			),
+			
+			'fields' => array(
+				//'Block.name',
+				//'Block.slug',
+				//'Article.name',
+				//'Article.slug',
+				//'Article.prefix'
+			),
+			
 		));
 		//debug($blocks);
 		//die;
 		$this->set(compact('blocks'));
-
 
 	//	$articles = $this->paginate();
 	//	print_r($articles);
