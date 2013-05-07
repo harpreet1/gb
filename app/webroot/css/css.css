@@ -125,7 +125,7 @@ img.frame {
 }
 
 .breadcrumb li  {
-	text-shadow:none;
+	text-shadow:0 0 6px #FFF;
 }
 .breadcrumb li a {
 	color: #3a3a3a;
@@ -2287,6 +2287,10 @@ div.gb-heading>div#populate-overlay-1>p>a,
 
 }
 
+/**jQuery  UI Search **/
+.ui-menu {
+	z-index:500!important;
+}
 
 
 /* Large desktop */

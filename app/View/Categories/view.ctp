@@ -10,14 +10,7 @@
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
-        
-        
-        <pre>
-        <?php $home = $this->Html->url('/', true) ?>
-        <?php echo($home) .'articles/the-well-stocked-pantry/'. $category['Category']['slug'] ?>
-        </pre>
-        
-        
+                
 		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
 	</div>
 
@@ -148,7 +141,25 @@
 
 </div>
 
+
+			<div class="row">
+				<div class="span12">
+
+					<?php echo $this->element('pagination-counter'); ?>
+					<?php echo $this->element('pagination'); ?>
+
+				</div>
+			</div>
+
+
+
+
+
+
+
 <div class="row">
+
+
 
 
 

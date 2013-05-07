@@ -218,10 +218,12 @@ class ProductsController extends AppController {
 				'Category',
 				'Subcategory',
 				'Subsubcategory',
-				'Brand'
-			),
+				'Brand',
+				'User' => array(
+						'fields' => array('image','shipping_policy','mini_shipping_policy','name'),
+				),		
 
-			'fields' => array(
+			//'fields' => array(
 				//'Brand.name',
 			),
 			'conditions' => array(
@@ -282,6 +284,7 @@ class ProductsController extends AppController {
 				}
 			}
 		}
+		
 		// debug($nuts);
 
 		$this->set(compact('nuts'));
