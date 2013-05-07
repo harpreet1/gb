@@ -362,11 +362,6 @@
 
 		</div>
 
-		<?php if(!empty($article['Article']['summary'])) : ?>
-		<div class="summary">
-			<?php echo $article['Article']['summary']; ?>
-		</div>
-		<?php endif; ?>
 
 		<?php echo $article['Article']['body']; ?>
 	</div>
