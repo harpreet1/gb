@@ -38,8 +38,8 @@
 
 				<ul class="breadcrumb btn-gb">
 					<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-					<li><?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?> <span class="divider">/</span></li>
-					<li><?php echo $this->Html->link($product['Subcategory']['name'], array('controller' => 'products', 'action' => 'subcategory', 'slug' => $product['Subcategory']['id'])); ?> <span class="divider">/</span></li>
+					<li><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?></a><span class="divider">/</span></li>
+					<li><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug'] .'/'. $product['Subcategory']['slug']; ?>"><?php echo $product['Subcategory']['name']; ?></a><span class="divider">/</span></li>
 					<?php if(!empty($subsubcategories)) : ?>
 					<li><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 					<?php endif; ?>

@@ -48,7 +48,7 @@ class CategoriesController extends AppController {
 				'Category.*',
 			),
 			'conditions' => array(
-				'Category.slug' => $args[0],
+				'Category.slug' => $args[0]
 			)
 		));
 		//debug($category);
@@ -185,39 +185,16 @@ class CategoriesController extends AppController {
 				'User.id',
 				'User.name',
 				'User.slug',
-				'User.active'
 			),
 			'conditions' => $productconditions
 		));
-	
+		
+// CHECK THIS	
 
-
-		$this->paginate = array(
-			'contain' => array(
-				'User',
-				'Brand'
-			),
-			'recursive' => -1,
-			'fields' => array(
-				'Product.id',
-				'Product.name',
-				'Product.slug',
-				'Product.image',
-				'Product.price',
-				'Product.displaygroup',
-				'User.slug',
-				'User.name',
-				'Brand.name',
-			),
-			'limit' => 20,
-			'order' => array(
-				'Product.displaygroup' => 'ASC',
-				'Product.name' => 'ASC'
-			),
-			
-			
-		);
-		$products = $this->paginate('Product');		
+		//$products = $this->paginate('Product');		
+		
+	//	
+		
 		
 //		debug($products);
 		$this->set(compact('products'));

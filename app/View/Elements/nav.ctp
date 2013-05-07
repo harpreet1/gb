@@ -15,7 +15,9 @@
 					<div class="wide">
                      	<p class="nav-special"><a href="/categories">Stop by our "Pantry"</a></p>
 						<?php foreach($menucategories as $menucategory) : ?>
-						<p><?php echo $this->Html->link($menucategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $menucategory['Category']['slug'])); ?></p>
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN') .'/categories/view/'. $menucategory['Category']['slug']; ?>">
+											   <?php echo $menucategory['Category']['name']; ?></a></p>
+                        
 						<?php endforeach; ?>
                        
 					</div>

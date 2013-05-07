@@ -142,7 +142,7 @@
 </div>
 
 
-			<div class="row">
+<?php /*?>			<div class="row">
 				<div class="span12">
 
 					<?php echo $this->element('pagination-counter'); ?>
@@ -150,7 +150,7 @@
 
 				</div>
 			</div>
-
+<?php */?>
 
 
 
