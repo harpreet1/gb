@@ -221,7 +221,7 @@ class ProductsController extends AppController {
 				'Brand',
 				'User' => array(
 						'fields' => array('image','shipping_policy','mini_shipping_policy','name'),
-				),		
+				),
 
 			//'fields' => array(
 				//'Brand.name',
@@ -284,7 +284,7 @@ class ProductsController extends AppController {
 				}
 			}
 		}
-		
+
 		// debug($nuts);
 
 		$this->set(compact('nuts'));
@@ -1138,6 +1138,8 @@ class ProductsController extends AppController {
 			if(!isset($this->request->data['Product']['subsubcategory_id'])) {
 				$this->request->data['Product']['subsubcategory_id'] = '';
 			}
+
+			$this->request->data['Product']['weight'] = sprintf('%.1f', $this->request->data['Product']['shipping_weight'] / 16);
 
 			if ($this->Product->save($this->request->data)) {
 
