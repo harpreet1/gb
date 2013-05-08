@@ -35,7 +35,7 @@
 		echo $this->Form->input('attribution',array( 'class' => 'input-gb-large'));
 		echo $this->Form->input('description', array('rows' => 10, 'class' => 'input-gb-large'));
 		echo $this->Form->input('comment', array('rows' => 10, 'class' => 'input-gb-large'));
-		echo $this->Form->input('tags',array('class' => 'input-gb-large'));
+		//echo $this->Form->input('tags',array('class' => 'input-gb-large'));
 		//echo $this->Form->input('image_1');
 //		echo $this->Form->input('image_2');
 //		echo $this->Form->input('image_3');

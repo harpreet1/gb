@@ -1871,6 +1871,7 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	
 }
 
+
 .article-pics-container {
 	margin-left: 0px;
 	width:265px;
@@ -1882,6 +1883,13 @@ div.tab-content article-tabs>div>h4.gb-heading{
 .article-pics-container .right{
 	float:right
 	}
+
+.article-pics-container.tight.left {
+	margin-bottom:20px;	
+	
+}
+
+
 
 .gray-button  {
   background-color: hsl(0, 0%, 16%) !important;
