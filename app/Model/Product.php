@@ -119,24 +119,24 @@ class Product extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-	public $hasAndBelongsToMany = array(
-		'Tag' => array(
-			'className' => 'Tag',
-			'joinTable' => 'products_tags',
-			'foreignKey' => 'product_id',
-			'associationForeignKey' => 'tag_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		),
-		
-	);
+//	public $hasAndBelongsToMany = array(
+//		'Tag' => array(
+//			'className' => 'Tag',
+//			'joinTable' => 'products_tags',
+//			'foreignKey' => 'product_id',
+//			'associationForeignKey' => 'tag_id',
+//			'unique' => 'keepExisting',
+//			'conditions' => '',
+//			'fields' => '',
+//			'order' => '',
+//			'limit' => '',
+//			'offset' => '',
+//			'finderQuery' => '',
+//			'deleteQuery' => '',
+//			'insertQuery' => ''
+//		),
+//		
+//	);
 
 ///////////////////////////////////////////////////////////////////
 
