@@ -2,24 +2,24 @@
 App::uses('AppModel', 'Model');
 class Recipe extends AppModel {
 	
-	public $actsAs = array(
-   'Tags.Taggable'
-);
+	//public $actsAs = array(
+//   'Tags.Taggable'
+//);
 
 /**
  * hasAndBelongsToMany associations
  *
  * @var array
  */
-  public $hasAndBelongsToMany = array(
-    'Tag' => array(
-      'className' => 'Tag',
-      'joinTable' => 'tagged',
-      'foreignKey' => 'id',
-      'associationForeignKey' => 'tag_id',
-      'unique' => 'keepExisting',
-    )
-  );
+//  public $hasAndBelongsToMany = array(
+//    'Tag' => array(
+//      'className' => 'Tag',
+//      'joinTable' => 'tagged',
+//      'foreignKey' => 'id',
+//      'associationForeignKey' => 'tag_id',
+//      'unique' => 'keepExisting',
+//    )
+//  );
 
 	
 ////////////////////////////////////////////////////////////

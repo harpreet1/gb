@@ -18,14 +18,6 @@ $(document).ready(function() {
 </script>
 
 
-
-
-
-
-
-
-
-
 <h2>Recipes</h2>
 
 <div class="row">
@@ -88,7 +80,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
-		<th><?php echo $this->Paginator->sort('tags'); ?></th>
+		<th><?php //echo $this->Paginator->sort('tags'); ?></th>
 		<th><?php echo $this->Paginator->sort('ingredients'); ?></th>
 		<th><?php echo $this->Paginator->sort('preparation'); ?></th>
 		<th><?php echo $this->Paginator->sort('comment'); ?></th>
@@ -109,7 +101,7 @@ $(document).ready(function() {
 		<td><?php echo h($recipe['Recipe']['name']); ?></td>
 		<td><?php echo h($recipe['Recipe']['slug']); ?></td>
 		<td><div class="limit"><?php echo ($recipe['Recipe']['description']); ?></div></td>
-		<td><?php echo  ($recipe['Recipe']['tags']); ?></td>
+		<td><?php //echo  ($recipe['Recipe']['tags']); ?></td>
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['ingredients']); ?></div></td>
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['preparation']); ?></div></td>
 		<td><div class="limit"><?php echo  ($recipe['Recipe']['comment']); ?></div></td>

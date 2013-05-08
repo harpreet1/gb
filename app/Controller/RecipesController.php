@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 class RecipesController extends AppController {
 	
-	var $helpers = array('Tags.TagCloud');
+//	var $helpers = array('Tags.TagCloud');
 
 ///////////////////////////////////////////////////////////
 

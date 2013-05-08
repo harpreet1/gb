@@ -36,7 +36,7 @@
 
 	<div class="span9">
 		<?php if(!empty($article['Block']['image'])) : ?>
-			<img class="article-pic img-polaroid " style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  />
+			<img class="article-pic img-polaroid index" style="float:right;" src="/img/blocks/image/<?php echo $article['Block']['image']?>"  />
 		<?php endif ; ?>
 
 		<h3 class="article-name"><?php echo $article['Block']['name']; ?></h3>
