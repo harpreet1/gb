@@ -50,21 +50,21 @@
         <br />
         <br />
         
-        <?php echo $this->Form->input('Recipe.Tag',array('label'=>'Add a tag', 'type'=>'text'));
+        <?php //echo $this->Form->input('Recipe.Tag',array('label'=>'Add a tag', 'type'=>'text'));
   ?>
 
         
                 
-        <?php //echo $this->Form->input('tags', array('type' => 'text')); ?>
+        <?php echo $this->Form->input('tags', array('type' => 'text')); ?>
 		
-        <ul id="tagcloud">
+        <?php /*?><ul id="tagcloud">
 			<?php echo $this->TagCloud->display($tags, array(
 				'before' => '<li class="fs%size% tag">',
 				'after' => '</li>',
 				'maxSize' => 50,
 				'minSize' => 1));
 			?>
-		</ul>
+		</ul><?php */?>
 
         
         

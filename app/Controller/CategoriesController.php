@@ -191,7 +191,7 @@ class CategoriesController extends AppController {
 		
 // CHECK THIS	
 
-		//$products = $this->paginate('Product');		
+		$products = $this->paginate('Product');		
 		
 	//	
 		

@@ -67,7 +67,7 @@
 				<span><?php echo $recipe['Recipe']['attr_1']?></span>
 			</div>
         <?php endif ; ?>
-		<br />
+		<br /><br />
         
 		<?php if(!empty($recipe['Recipe']['image_2'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_2'] ?>" />
@@ -77,7 +77,7 @@
 			</div>
              <?php endif ; ?>
 		<?php endif ; ?>
-		<br />
+		<br /><br />
 		
 		<?php if(!empty($recipe['Recipe']['image_3'])) : ?>
 			<img class="recipe-pic border" src="/img/recipes/image_3/<?php echo $recipe['Recipe']['image_3'] ?>" />
