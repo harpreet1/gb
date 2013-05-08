@@ -166,12 +166,27 @@ class CategoriesController extends AppController {
 				);
 			//}
 		}
-		
-		
 
-		//debug($productconditions);
 
-		$products = $this->Category->Product->find('all', array(
+		// $products = $this->Category->Product->find('all', array(
+		// 	'recursive' => -1,
+		// 	'contain' => array('User'),
+		// 	'fields' => array(
+		// 		'Product.id',
+		// 		'Product.name',
+		// 		'Product.slug',
+		// 		'Product.image',
+		// 		'Product.price',
+		// 		'Product.brand_id',
+		// 		'Product.displaygroup',
+		// 		'User.id',
+		// 		'User.name',
+		// 		'User.slug',
+		// 	),
+		// 	'conditions' => $productconditions
+		// ));
+
+		$this->paginate = array(
 			'recursive' => -1,
 			'contain' => array('User'),
 			'fields' => array(
@@ -186,17 +201,13 @@ class CategoriesController extends AppController {
 				'User.name',
 				'User.slug',
 			),
-			'conditions' => $productconditions
-		));
-		
-// CHECK THIS	
+			'conditions' => $productconditions,
+			'limit' => 20,
+			'paramType' => 'querystring',
+		);
 
-		$products = $this->paginate('Product');		
-		
-	//	
-		
-		
-//		debug($products);
+		$products = $this->paginate('Product');
+
 		$this->set(compact('products'));
 
 	}

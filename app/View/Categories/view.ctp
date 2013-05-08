@@ -10,7 +10,7 @@
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		<?php echo $category['Category']['summary'] ?>
-                
+
 		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
 	</div>
 
@@ -36,12 +36,12 @@
 			<?php endforeach; ?>
 
 		<?php endif; ?>
-        
-        
+
+
 <hr />
-        
-      
-        
+
+
+
 
 	</div>
 
@@ -137,30 +137,25 @@
 			</div>
 		</div>
 
+
+	<div class="row">
+		<div class="span12">
+
+			<?php echo $this->element('pagination-counter'); ?>
+			<?php echo $this->element('pagination'); ?>
+
+		</div>
 	</div>
 
+	</div>
+
+
 </div>
-
-
-<?php /*?>			<div class="row">
-				<div class="span12">
-
-					<?php echo $this->element('pagination-counter'); ?>
-					<?php echo $this->element('pagination'); ?>
-
-				</div>
-			</div>
-<?php */?>
-
-
 
 
 
 
 <div class="row">
-
-
-
 
 
 <!-- Category Story -->
@@ -173,10 +168,10 @@
 			<hr />
 				<?php echo $category['Category']['article'] ?>
 		</div>
-        
-       
-        
-        
+
+
+
+
     			<?php if(!empty($category['Category']['image_1'] )) : ?>
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
@@ -201,7 +196,7 @@
                 <div class="span4 air">
                     <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
                 </div>
-         		<?php endif; ?>          
+         		<?php endif; ?>
 
 </div>-->
 
