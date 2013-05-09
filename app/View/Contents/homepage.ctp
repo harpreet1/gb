@@ -15,12 +15,10 @@
 
 
     <div class="marquee">
-        <span><a href="">+  INTERNATIONAL FOODS  +</a></span>
-        <span>+  REGIONAL & DOMESTIC FOODS  +</span>
-        <span>+  CHEF'S TIPS  +</span>
-        <span>+  RECIPES  +</span>
-        <span>+  ARTICLES  +</span>
-        <span>+  PAIRINGS  +</span> 
+        <span><a href="">+  FEATURED VENDORS  +</a></span>
+        <span>+  FEATURED ARTICLES  +</span>
+        <span>+  FEATURED RECIPES  +</span>
+     
      
            
     </div>
