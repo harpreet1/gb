@@ -3,19 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><?php echo $title_for_layout; ?></title>
-
-
-
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <!--<link href="http://fonts.googleapis.com/css?family=Mako" rel="stylesheet" type="text/css">-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <!--<link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>-->
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->Html->css(array('bootstrap.min.css', 'css.css')); ?>
 
-<?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css','cakephp_tag_cloud.css')); ?>
-
-<!------ CSS ------>   
-
+<!------ CSS for Brands ------>    
 <style>  
 
 .btn-gb {
@@ -23,7 +18,7 @@
 }
 .bkgnd-gb {
 	<?php echo $user['User']['awning_css']; ?>
-	opacity: 0.2;  Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ 
+	opacity: 0.2; /* Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ */
 }
 
 </style>    
@@ -31,12 +26,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js')); ?>
-
-<?php //echo $this->Html->css('bootstrap.less?','stylesheet/less') ?>
-
-
-
-
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
 <?php echo $this->fetch('css'); ?>
@@ -49,16 +38,13 @@
 			$('.js-activated').dropdownHover(true);
 	});
 		
-			
-		//Select Customize
-	  	//$('.selectpicker').selectpicker();
-	
-		
-		 //Columnizer
-		  	$(function(){
-			$('.wide').columnize({width:250});
-			//$('.thin').columnize({width:200});
-		});
+		//Mega Menu
+		// $('#mega-2').dcVerticalMegaMenu({
+//			rowItems: '3',
+//			speed: 'slow',
+//			effect: 'fade',
+//			direction: 'right'
+//		});
 		
 		// Pop Up
 		
@@ -92,21 +78,16 @@
          
             $('#story').on('click', function(e) {
                 e.preventDefault();
-                $('#story_content').bPopup()
-				
+                $('#story_content').bPopup();
+
             });
 
         });
-		
 
     })(jQuery);
 
 
-
 	</script>    
-
-
-
 
 </head>
 <body>
@@ -137,29 +118,27 @@
 
 
 	<div class="container content">
-       
-        <div class="visible-desktop">
-            <div class="left-sun"></div>
-            <div class="right-sun"></div>
-        </div>
-        
-        <div id="dialog-info">
-        <?php echo $this->Session->flash(); ?>
-        <?php echo $this->fetch('content'); ?>
-        </div>
- 		
-	</div>
-    
-		<?php echo $this->element('footer'); ?>
-    	
-	</div>
-    
-    
-    
-    
     
 
-</div><!-- end outer wrapper -->
+    
+    
+    	<div class="left-sun"></div>
+        <div class="right-sun"></div>
+    
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->fetch('content'); ?>
+		<br />
+		<br />
+
+		<br />
+		<br />
+		&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
+		<br />
+		<br />
+
+	</div>
+
+	</div><!-- end outer wrapper -->
 
 	<br />
 	<br />

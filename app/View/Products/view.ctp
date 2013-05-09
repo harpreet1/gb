@@ -493,7 +493,7 @@
 			<?php endif; ?>
 
 			<br />
-<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" />
+			<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" />
 
 			<br />
 			<br />
