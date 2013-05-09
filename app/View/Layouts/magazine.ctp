@@ -32,14 +32,6 @@
         //$('.thin').columnize({width:200});
     });
     
-     // Welcome
-     $(function() {
-     
-        $('#welcome').on('click', function(e) {
-            e.preventDefault();
-            $('#welcome_content').bPopup();
-    });
-});		
 });
 </script>
 </head>
@@ -49,7 +41,7 @@
 
     <div class="container">
     
-        <div id="header-homepage"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
+        <div id="header-magazine"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
             <div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>
             </a>
             <div id="nav-wrapper"> 
@@ -66,10 +58,8 @@
             </ul>
         </div>
         
-        <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" />
-            <div class="issue gb-heading">May - June 2013</div>
-            <div class="title-description center">A fresh way to learn about, shop for, prepare and enjoy foods of the world.</div>
-            <div class="welcome-link"><a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a></div>
+      
+          
         </div>
       
         
@@ -82,29 +72,6 @@
 
 <div id="footer"></div>
 </div>
-<script>
 
-// Ticker
-
-/**
- * Example of starting a plugin with options.
- * I am just passing all the default options
- * so you can just start the plugin using $('.marquee').marquee();
-*/
-$('.marquee').marquee({
-	//speed in milliseconds of the marquee
-	speed: 8000,
-	//gap in pixels between the tickers
-	gap: 50,
-	//gap in pixels between the tickers
-	delayBeforeStart: 0,
-	//'left' or 'right'
-	direction: 'left'
-});
-
-
-//$("ul#ticker01").liScroll({travelocity: 0.10});
-
-</script>
 </body>
 </html>

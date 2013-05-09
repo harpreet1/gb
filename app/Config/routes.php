@@ -13,6 +13,8 @@
 	} else {
 		Router::connect('/', array('controller' => 'contents', 'action' => 'homepage'));
 	}
+	
+	Router::connect('/magazine', array('controller' => 'contents', 'action' => 'magazine'));
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
 

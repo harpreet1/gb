@@ -71,11 +71,12 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/british-isles">British Isles &amp; Ireland</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/china">China and Taiwan</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/central_america">Central America</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern_europe">Eastern and Central Europe</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/japan">Japan</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/korea">Korea</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean_europe">Mediterranean Europe</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico_central_america">Mexico and Central America</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico">Mexico</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle_east">Middle East</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north_america">North America / Canada</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/oceania">Oceania</a></p>
@@ -104,7 +105,7 @@
             
             <!-- For overlay Articles overlay -->
             
-            <li class="mzr-drop"> <a href="#" >The Magazine<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>

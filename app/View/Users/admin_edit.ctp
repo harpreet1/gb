@@ -31,6 +31,13 @@
 	});
   </script>
 
+	<script>  
+  	// Format phone number script
+function doFormatPhone(A){var B=document.getElementById(A);B.onblur=function(){formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(...)(...)(....)/g,"($1) $2-$3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(...)(...)(....)/g,"($1) $2-$3")+B}break;default:}return A}window.onload=function(){doFormatPhone("phone")};
+
+  </script>
+  
+
 <div id="wrapper">
 
 	<div class="title">VENDOR PROFILE</div>

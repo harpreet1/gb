@@ -31,6 +31,25 @@ class ContentsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function magazine() {
+		
+		$magazine_landing= $this->Content->find('first', array(
+			'conditions' => array(
+				'Content.type' => 'magazine'
+			)
+		));
+		$this->set(compact('magazine_landing'));
+		
+		$blocks = ClassRegistry::init('Block')->find('all');	
+		$this->set(compact('blocks'));
+		
+		$this->layout = 'magazine';
+
+	}
+
+////////////////////////////////////////////////////////////
+
+
 	public function index() {
 		$this->Content->recursive = 0;
 		$this->set('contents', $this->paginate());
