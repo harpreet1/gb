@@ -17,10 +17,7 @@
     <div class="marquee">
         <span><a href="">+  FEATURED VENDORS  +</a></span>
         <span>+  FEATURED ARTICLES  +</span>
-        <span>+  FEATURED RECIPES  +</span>
-     
-     
-           
+        <span>+  FEATURED RECIPES  +</span>           
     </div>
 
 	<div id="upper-content">
