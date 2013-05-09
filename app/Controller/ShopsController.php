@@ -114,8 +114,8 @@ class ShopsController extends AppController {
 					$data['CustomerZipCode'] = $order['shipping_zip'];
 
 					if($order['shipping_state'] == $user['state']) {
-						$tax = $user['subtotal'] * 0.10;
-						$totalandtax = $user['subtotal'] * 1.10;
+						$tax = sprintf('%.2f', $user['subtotal'] * ($user['Tax']['total_food_tax_in_state'] / 100));
+						$totalandtax = sprintf('%.2f', $user['subtotal'] + $tax);
 					} else {
 						$tax = 0;
 						$totalandtax = $user['subtotal'];

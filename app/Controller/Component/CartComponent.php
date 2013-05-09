@@ -191,8 +191,8 @@ class CartComponent extends Component {
 
 	protected function getProduct($id) {
 		$product = ClassRegistry::init('Product')->find('first', array(
-			'recursive' => -1,
-			'contain' => array('User'),
+			'recursive' => 1,
+			'contain' => array('User' => array('Tax')),
 			'fields' => array(
 				'Product.id',
 				'Product.user_id',
@@ -231,6 +231,7 @@ class CartComponent extends Component {
 				'Product.id' => $id
 			)
 		));
+
 		if(empty($product)) {
 			return false;
 		} else {
