@@ -113,6 +113,16 @@ class ShopsController extends AppController {
 					$data['CustomerState'] = $order['shipping_state'];
 					$data['CustomerZipCode'] = $order['shipping_zip'];
 
+					if($order['shipping_state'] == $user['state']) {
+						$tax = $user['subtotal'] * 0.10;
+						$totalandtax = $user['subtotal'] * 1.10;
+					} else {
+						$tax = 0;
+						$totalandtax = $user['subtotal'];
+					}
+					$this->Session->write('Shop.Users.' . $user['id'] . '.tax', $tax);
+					$this->Session->write('Shop.Users.' . $user['id'] . '.totalandtax', $totalandtax);
+
 					if($user['flat_shipping'] != 1) {
 
 						$shipping_companies = array('usps', 'ups', 'fedex');
