@@ -120,7 +120,7 @@
             <?php
 			}
 		?>                
-		</div>
+		
 
 		<div class="tab-pane" id="fusion">
 			Coming Soon!

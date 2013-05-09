@@ -12,7 +12,7 @@
 <!--<link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>-->
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
 
-<?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css','cakephp_tag_cloud.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css','cakephp_tag_cloud.css','bootstrap-select.css')); ?>
 
 <!------ CSS ------>   
 
@@ -30,7 +30,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js','jquery.tagsinput')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.1.min.js','jquery.easing.1.3.js','bootstrap-select.js')); ?>
 
 <?php //echo $this->Html->css('bootstrap.less?','stylesheet/less') ?>
 
@@ -39,8 +39,7 @@
 
 <?php echo $this->App->js(); ?>
 <?php echo $this->fetch('meta'); ?>
-<?php echo $this->fetch('css'); ?>
-<?php echo $this->fetch('script'); ?>
+
 
 <script type="text/javascript" src="/t/track.php?id=gourmet"></script>
 	<script>
@@ -48,6 +47,11 @@
 		$(document).ready(function() {
 			$('.js-activated').dropdownHover(true);
 	});
+		
+			
+		//Select Customize
+	  	$('.selectpicker').selectpicker();
+	
 		
 		 //Columnizer
 		  	$(function(){
@@ -92,42 +96,14 @@
             });
 
         });
+		
 
     })(jQuery);
 
 
+
 	</script>    
 
-    <script type="text/javascript">    
-    $(function(){
-    	// BUTTONS
-    	$('.fg-button').hover(
-    		function(){ $(this).removeClass('ui-state-default').addClass('ui-state-focus'); },
-    		function(){ $(this).removeClass('ui-state-focus').addClass('ui-state-default'); }
-    	);
-    	
-    	// MENUS    	
-		$('#flat').menu({ 
-			content: $('#flat').next().html(), // grab content from this page
-			showSpeed: 400 
-		});
-		
-		$('#hierarchy').menu({
-			content: $('#hierarchy').next().html(),
-			crumbDefaultText: ' '
-		});
-		
-		$('#hierarchybreadcrumb').menu({
-			content: $('#hierarchybreadcrumb').next().html(),
-			backLink: false
-		});
-		
-		// or from an external source
-		$.get('menuContent.html', function(data){ // grab content from another page
-			$('#flyout').menu({ content: data, flyOut: true });
-		});
-    });
-    </script>
 
 
 

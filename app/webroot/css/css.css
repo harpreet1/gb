@@ -780,6 +780,14 @@ div.pagination .disabled {
 	display:none;
 }
 
+.pagination-counter {
+	font-style:italic;
+	font-size:11px;
+}
+
+.pagination-block {
+	margin-left:55px;
+}
 
 /** Pantry ( Categories) **/
 

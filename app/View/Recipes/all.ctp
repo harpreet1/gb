@@ -14,8 +14,9 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="span3">
+ 
     <div class="gb-heading dropdown-air">Recipe Categories</div>
-		<?php echo $this->Form->input('recipescategories', array('options' => $recipescategories, 'label' => false,'empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
+		<?php echo $this->Form->input('recipescategories', array('class' => 'selectpicker','data-style'=>'btn-primary','options' => $recipescategories, 'label' => false,'empty' => array('all' => 'All Recipes'), 'default' => $recipescategory_selected)); ?>
 	</div>
 	<div class="span3">
     <div class="gb-heading dropdown-air">Recipe Vendors</div>

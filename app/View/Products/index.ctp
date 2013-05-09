@@ -417,9 +417,9 @@
 			<div style="clear:both" id="vendor-unit"></div>
 
 			<div class="row">
-				<div class="span12">
+				<div class="span12 pagination-block">
 
-					<?php echo $this->element('pagination-counter'); ?>
+					<span class="pagination-counter"<?php echo $this->element('pagination-counter'); ?></span>
 					<?php echo $this->element('pagination'); ?>
 
 				</div>
