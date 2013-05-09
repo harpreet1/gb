@@ -20,7 +20,7 @@
 
 <div id="lower">
 
-	<div class="center explain gb-heading">ARTICLE & BLOG CATEGORIES</div>
+	<div class="center explain gb-heading">MAGAZINE ARTICLE & BLOG CATEGORIES</div>
 
 	<div class="row-fluid">
   
