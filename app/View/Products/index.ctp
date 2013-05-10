@@ -378,7 +378,7 @@
 
 							<div class="product-name">
 								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
-								<?php echo $this->Text->truncate($product['Product']['name'], 37, array('ellipsis' => '...', 'exact' => 'false')); ?>
+								<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
 								</a>
 
 							</div>

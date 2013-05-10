@@ -93,10 +93,11 @@
 	
 	<div class="row">
 	
-	<div class="span3 bold">VENDOR</div>
+	<div class="span2 bold">VENDOR</div>
 	<div class="span2 bold">Ship Zip:</div>
+    <div class="span1 bold">Tax:</div>
 	<div class="span1 bold">Subtotal:</div>
-	<div class="span1 bold">T Qty:</div>
+	<div class="span1 bold">Qty:</div>
 	<div class="span1 bold">Weight: </div>
 
 	
@@ -108,8 +109,9 @@
 	
 	<?php foreach ($shop['Users'] as $key => $value): ?>
 	
-		<div class="span3"><?php echo $shop['Users'][$key]['name']; ?></div>
+		<div class="span2"><?php echo $shop['Users'][$key]['name']; ?></div>
 		<div class="span2"><?php echo $shop['Users'][$key]['zip']; ?></div>
+        <div class="span1">$<?php echo $shop['Users'][$key]['tax']; ?></div>
 		<div class="span1"><?php echo $shop['Users'][$key]['subtotal']; ?></div>
 		<div class="span1"><?php echo $shop['Users'][$key]['quantity']; ?></div>
 		<div class="span1"> <?php echo $shop['Users'][$key]['weight']; ?> LBS</div>
@@ -211,7 +213,9 @@
 <?php if($ccform): ?>
 
 <div class="span3 offset10 CC"> <strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
+
     <strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+     <strong>Shipping: <?php echo $shop['Order']['tax']; ?></strong> <br />
     <strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
 </div>
 
@@ -288,6 +292,7 @@
     <?php else: ?>
     <div class="span3 offset10 pre-cc"> <strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
         <strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+        <strong>Tax: <?php echo $shop['Order']['tax']; ?></strong> <br />
         <strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
     </div>
     

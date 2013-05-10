@@ -115,6 +115,7 @@ img.frame {
 .cat-quote {
 	color: #3f9179;
 	font-size:12px;
+	font-style:italic;
 }
 
 .breadcrumb {

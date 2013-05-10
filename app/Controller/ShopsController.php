@@ -228,6 +228,7 @@ class ShopsController extends AppController {
 
 			$shop = $this->Session->read('Shop');
 			$shippingtotal = 0;
+			
 			foreach($shop['Users'] as $user) {
 				$shippingtotal += $user['Shippingfees'][$user['shipping_selected']]['TotalCharges'];
 			}
