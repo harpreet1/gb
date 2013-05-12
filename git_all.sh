@@ -45,4 +45,3 @@ function git_public_to_private ($url) {
 function git_get_remote_origin () {
     return shell_exec("git config --get remote.origin.url");
 }
- 
