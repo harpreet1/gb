@@ -135,6 +135,11 @@ class ShopsController extends AppController {
 							$shippingMethod = ucfirst($user['shipping_method']);
 							$result = $this->$shippingMethod->getRate($data);
 
+							if(!$result) {
+								$this->Session->setFlash('invalid address...');
+								$this->redirect(array('action' => 'address'));
+							}
+
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);

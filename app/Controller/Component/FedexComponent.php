@@ -47,9 +47,7 @@ class FedexComponent extends Component {
 		}
 
 		if (!empty($results)) {
-
 			$results = Hash::sort($results, '{n}.TotalCharges', 'ASC');
-
 			return $results;
 		}
 		return false;
