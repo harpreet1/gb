@@ -96,6 +96,8 @@ class ShopsController extends AppController {
 				$order['order_type'] = 'creditcard';
 
 				$i = 0;
+				$taxtotal = 0;
+
 				foreach($shop['Users'] as $user) {
 
 					$data['Weight'] = $user['weight'];
@@ -120,6 +122,8 @@ class ShopsController extends AppController {
 						$tax = 0;
 						$totalandtax = $user['subtotal'];
 					}
+					$taxtotal += $tax;
+
 					$this->Session->write('Shop.Users.' . $user['id'] . '.tax', $tax);
 					$this->Session->write('Shop.Users.' . $user['id'] . '.totalandtax', $totalandtax);
 
@@ -161,6 +165,7 @@ class ShopsController extends AppController {
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
 				$order['shipping'] = $shippingtotal;
+				$order['tax'] = sprintf('%.2f', $taxtotal);
 				$order['total'] = sprintf('%.2f', $shop['Order']['subtotal'] + $shippingtotal);
 
 				$this->Session->write('Shop.Order', $order + $shop['Order']);
@@ -228,7 +233,7 @@ class ShopsController extends AppController {
 
 			$shop = $this->Session->read('Shop');
 			$shippingtotal = 0;
-			
+
 			foreach($shop['Users'] as $user) {
 				$shippingtotal += $user['Shippingfees'][$user['shipping_selected']]['TotalCharges'];
 			}
