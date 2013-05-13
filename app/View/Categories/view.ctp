@@ -6,36 +6,77 @@
 
 	</h3>
 	<hr class="category">
+	
+	
+	<?php 
+	$cat_crumb ="";
+	$subcat_crumb ="";
+	$subsubcat_crumb ="";
+	?>
+
 
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
+    
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
+	
+	
 		<?php echo $category['Category']['summary'] ?>
+
 
 		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
 	</div>
 
+
+
 		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>
+		
+		
 		<p class="gb-heading"><?php echo $category['Category']['name'] ?></p>
 
+
+
+
 		<?php if(!empty($subcategories)) : ?>
+        	
+            
 			<?php foreach ($subcategories as $subcategories1): ?>
-				- - - <?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
+            
+            	<?php $subcat_crumb = $subcategories1['Subcategory']['name']?>
+            	
+				<img src="/img/global/dash-2.png"><?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
 				<br />
+                
+                
+                
+                    
+            <?php if(!empty($subsubcategories)) : ?>
+            
+                <?php foreach ($subsubcategories as $subsubcategories1): ?>
+                
+					<?php $subsubcat_crumb = $subsubcategories1['Subsubcategory']['name']?>
+                    
+                    <?php //if ($subsubcat_crumb !== $subsubcategories1['Subsubcategory']['name']) : ?>
+                    
+                        <img src="/img/global/dash-4.png"><?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
+                        <br />
+                        
+                     <?php //endif; ?>  
+                      
+                <?php endforeach; ?>
+    
+            <?php endif; ?>
+                    
+                    
+                
+                
+                
+                
+                
 			<?php endforeach; ?>
 
 		<?php endif; ?>
+        
 
-		<?php if(!empty($subsubcategories)) : ?>
-
-			<br />
-			<br />
-
-			<?php foreach ($subsubcategories as $subsubcategories1): ?>
-				- - - - -<?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
-				<br />
-			<?php endforeach; ?>
-
-		<?php endif; ?>
 
 
 <hr />
@@ -172,31 +213,31 @@
 
 
 
-    			<?php if(!empty($category['Category']['image_1'] )) : ?>
-                <div class="span4 air">
-                    <?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
-                </div>
-                <?php endif; ?>
-    			<?php if(!empty($category['Category']['image_2'] )) : ?>
-                <div class="span4 air">
-                    <?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
-                </div>
-         		<?php endif; ?>
-    			<?php if(!empty($category['Category']['image_3'] )) : ?>
-                <div class="span4 air">
-                    <?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
-                </div>
-         		<?php endif; ?>
-    			<?php if(!empty($category['Category']['image_4'] )) : ?>
-                <div class="span4 air">
-                    <?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
-                </div>
-         		<?php endif; ?>
-    			<?php if(!empty($category['Category']['image_5'] )) : ?>
-                <div class="span4 air">
-                    <?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
-                </div>
-         		<?php endif; ?>
+				<?php if(!empty($category['Category']['image_1'] )) : ?>
+				<div class="span4 air">
+					<?php echo $this->Html->image('categories/image_1/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+				</div>
+				<?php endif; ?>
+				<?php if(!empty($category['Category']['image_2'] )) : ?>
+				<div class="span4 air">
+					<?php echo $this->Html->image('categories/image_2/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+				</div>
+				<?php endif; ?>
+				<?php if(!empty($category['Category']['image_3'] )) : ?>
+				<div class="span4 air">
+					<?php echo $this->Html->image('categories/image_3/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+				</div>
+				<?php endif; ?>
+				<?php if(!empty($category['Category']['image_4'] )) : ?>
+				<div class="span4 air">
+					<?php echo $this->Html->image('categories/image_4/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+				</div>
+				<?php endif; ?>
+				<?php if(!empty($category['Category']['image_5'] )) : ?>
+				<div class="span4 air">
+					<?php echo $this->Html->image('categories/image_5/' . $category['Category']['slug'] .'.jpg', array('class'=>'img-polaroid')); ?>
+				</div>
+				<?php endif; ?>
 
 </div>-->
 
