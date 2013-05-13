@@ -318,8 +318,8 @@ class ShopsController extends AppController {
 					$o['OrderUser'][$i] = $user;
 					$o['OrderUser'][$i]['id'] = null;
 					$o['OrderUser'][$i]['user_id'] = $user['id'];
-					$o['OrderUser'][$i]['tax'] = 0;
-					$o['OrderUser'][$i]['total'] = $user['subtotal'] + $user['shipping'];
+					$o['OrderUser'][$i]['tax'] = $user['tax'];
+					$o['OrderUser'][$i]['total'] = $user['subtotal'] + $user['tax'] + $user['shipping'];
 					$o['OrderUser'][$i]['status'] = 'new order';
 					$i++;
 				}
