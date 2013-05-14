@@ -2075,6 +2075,11 @@ h2.gb-heading hr {
 	margin-left:40px;
 }
 
+.gb-heading.red {
+	color:#C00;
+	margin-left:40px;
+}
+
 .section-heading {
 	font-family: 'Oregano', cursive;
 	color: #3F9179;

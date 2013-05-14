@@ -7,11 +7,6 @@
 	</h3>
 	<hr class="category">
 	
-	
-	<?php 
-	$already ="";
-	?>
-
 
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	
@@ -29,37 +24,35 @@
 		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>
 		
 		
-		<p class="gb-heading"><?php echo $category['Category']['name'] ?></p>
+		<p class="gb-heading"><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></p>
 
 
 
 
 		<?php if(!empty($subcategories)) : ?>
 			
-			
 			<?php foreach ($subcategories as $subcategories1): ?>
-				
-				<img src="/img/global/dash-2.png"><?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
-				
-				<br />
-				
-				<?php if(!empty($subsubcategories)) : ?>
-				
-					<?php foreach ($subsubcategories as $subsubcategories1): ?>
+
+					<img src="/img/global/dash-2.png"><?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
 					
-						<?php if ($already !== $subsubcategories1['Subsubcategory']['name']) : ?>
-													
-								<img src="/img/global/dash-4.png"><?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
-								<br />
-								
-						<?php endif; ?>  
+					<br />
+
+					<?php if(!empty($subsubcategories)) : ?>
+
+						<?php foreach ($subsubcategories as $subsubcategories1): ?>
+
+							<?php $thisparent = ($subcategories1['Subcategory']['slug']) ;?>
 						 
-						  <?php $already =  $subsubcategories1['Subsubcategory']['name']; ?>
-                          
-					<?php endforeach; ?>
-		
-				<?php endif; ?>
+							<?php if ($thisparent == ($subcategory['Subcategory']['slug'])	) : ?>
+
+									<img src="/img/global/dash-4.png"><?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
+									<br />
 									
+							<?php endif; ?>  
+														  
+						<?php endforeach; ?>
+			
+					<?php endif; ?>
 				
 			<?php endforeach; ?>
 
@@ -96,7 +89,7 @@
 
 		</ul>
 
-		<h3 class="gb-heading dark">
+		<h3 class="gb-heading red">
 
 	<?php
 		if(!empty($subsubcategory)) :

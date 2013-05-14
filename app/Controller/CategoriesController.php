@@ -45,7 +45,12 @@ class CategoriesController extends AppController {
 		$category = $this->Category->find('first', array(
 			'recursive' => -1,
 			'fields' => array(
-				'Category.*',
+				'Category.id',
+				'Category.slug',
+				'Category.name',
+				'Category.quote',
+				'Category.summary',
+				'Category.image',
 			),
 			'conditions' => array(
 				'Category.slug' => $args[0]
@@ -108,6 +113,9 @@ class CategoriesController extends AppController {
 					'Subcategory.slug' => $args[1]
 				)
 			));
+
+
+
 			//debug($subcategory);
 			$this->set(compact('subcategory'));
 
@@ -138,6 +146,8 @@ class CategoriesController extends AppController {
 					'Subsubcategory.id'
 				)
 			));
+
+
 			//debug($subsubcategories);
 			$this->set(compact('subsubcategories'));
 		}
@@ -158,6 +168,7 @@ class CategoriesController extends AppController {
 					'Subsubcategory.slug' => $args[2]
 				)
 			));
+
 //			debug($subsubcategory);
 			$this->set(compact('subsubcategory'));
 			//if(!empty($subsubcategory)) {
