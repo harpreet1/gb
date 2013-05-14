@@ -179,24 +179,6 @@ class CategoriesController extends AppController {
 		}
 
 
-		// $products = $this->Category->Product->find('all', array(
-		// 	'recursive' => -1,
-		// 	'contain' => array('User'),
-		// 	'fields' => array(
-		// 		'Product.id',
-		// 		'Product.name',
-		// 		'Product.slug',
-		// 		'Product.image',
-		// 		'Product.price',
-		// 		'Product.brand_id',
-		// 		'Product.displaygroup',
-		// 		'User.id',
-		// 		'User.name',
-		// 		'User.slug',
-		// 	),
-		// 	'conditions' => $productconditions
-		// ));
-
 		$this->paginate = array(
 			'recursive' => -1,
 			'contain' => array('User'),
@@ -220,6 +202,14 @@ class CategoriesController extends AppController {
 		$products = $this->paginate('Product');
 
 		$this->set(compact('products'));
+		
+		
+//		$article = $this->Article->find('first', array(
+//			'conditions' => array(
+//				'Article.block_id' => 5
+//			)
+//		));
+//		$this->set(compact('article'));
 
 	}
 
@@ -233,7 +223,7 @@ class CategoriesController extends AppController {
 				'Category.*',
 			),
 			'order' => array(
-				'Category.name' => 'ASC'
+				'Category.modified' => 'DESC'
 			),
 			'limit' => 100,
 			'paramType' => 'querystring',

@@ -13,10 +13,13 @@
 	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 	
 	
-		<?php echo $category['Category']['summary'] ?>
-
-
+		<?php echo $this->Text->truncate($category['Category']['summary'], 300, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?>
+		<?php //echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+        
+        
 		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
+         
+
 	</div>
 
 

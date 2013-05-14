@@ -54,8 +54,7 @@ class Article extends AppModel {
                     'fields' => '',
                     'order' => '',
                     'counterCache' => true,
-            ),
-			
+            ),			
 	);
 	
 	
