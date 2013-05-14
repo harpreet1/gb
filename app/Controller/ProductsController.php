@@ -206,9 +206,12 @@ class ProductsController extends AppController {
 				),
 			));
 
+			$vendorshop = true;
+
 		} else {
 			$user = array();
 			$usercategories = null;
+			$vendorshop = false;
 		}
 		$this->set(compact('user', 'usercategories'));
 
@@ -220,17 +223,19 @@ class ProductsController extends AppController {
 				'Subsubcategory',
 				'Brand',
 				'User' => array(
-						'fields' => array('image','shipping_policy','mini_shipping_policy','name'),
+					'fields' => array('image', 'shipping_policy', 'mini_shipping_policy', 'name', 'slug'),
 				),
-
-			//'fields' => array(
-				//'Brand.name',
 			),
 			'conditions' => array(
 				'Product.id' => $id,
 				'Product.active' => 1,
 			)
 		));
+
+		if($vendorshop && ($subDomain != $product['User']['slug'])) {
+			$this->redirect(array('action' => 'index'), 301);
+		}
+
 		if (empty($product)) {
 			$this->redirect(array('action' => 'index'), 301);
 		}
@@ -243,18 +248,12 @@ class ProductsController extends AppController {
 			array('Product.id' => $product['Product']['id'])
 		);
 
-
 		if(!empty($product['Product']['related_products'])) {
 
 			$related_products_ids = $product['Product']['related_products'];
 
 			$related_products = $this->Product->find('all', array(
 				'recursive' => -1,
-			//	'contain' => array(
-			//		'Category',
-			//		'Subcategory',
-			//		'Subsubcategory'
-			//	),
 				'conditions' => array(
 					'Product.id' => $related_products_ids,
 					'Product.active' => 1,
@@ -290,7 +289,7 @@ class ProductsController extends AppController {
 		$this->set(compact('nuts'));
 
 		$this->set(compact('product'));
-		$title_for_layout = $product['Product']['name'] . ' :: GB';
+		$title_for_layout = $product['Product']['name'] . ' - Gourmet Basket';
 		$this->set(compact('title_for_layout'));
 
 	}
