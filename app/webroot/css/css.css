@@ -140,6 +140,11 @@ img.frame {
 .categories {
 	background: #649d78;
 }
+
+.breadcrumb.categories {
+	margin:0px;
+}
+
 .breadcrumb.categories li {
 	text-shadow: none;
 }
@@ -999,7 +1004,7 @@ div.span8>div.awning>img {
 	line-height: 20px;
 }
 .category-summary, .tradition-summary, #subcat-menu {
-	
+	position:relative;
 	width: 195px;
 	margin-top: 15px;
 	margin-bottom: 30px;
@@ -1018,6 +1023,16 @@ div.span8>div.awning>img {
 	 background-image:         linear-gradient(to bottom, #f7f1e5, #ffffff); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 	
 }
+
+.category-summary .collapse {
+	margin-top:10px;
+}
+
+.small-cat-logo {
+	float:right;
+}
+
+
 .tradition-images {
 	float: left;
 	margin-bottom: 20px;
@@ -2082,9 +2097,11 @@ h2.gb-heading hr {
 	margin-left:40px;
 }
 
-.gb-heading.red {
+.gb-heading.red.tight {
 	color:#C00;
 	margin-left:40px;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
 .section-heading {
@@ -2177,6 +2194,9 @@ hr.category {
 	margin-top:5px;
 }
 
+.gb-heading.category a {
+	color:#c00;
+}
 
 .span4.air img.img-polaroid {
 	width:277px;

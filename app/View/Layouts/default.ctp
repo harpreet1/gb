@@ -83,6 +83,19 @@
 			});
 		});
 
+	//Accordion on hover
+	
+		$(".pointer").hover(
+			function(){
+				var thisdiv = jQuery(this).attr("data-target")
+				$(thisdiv).collapse("show");
+			},
+			function(){
+				var thisdiv = jQuery(this).attr("data-target")
+				$(thisdiv).collapse("hide");
+			}
+		);
+
 	})(jQuery);
 
 </script>

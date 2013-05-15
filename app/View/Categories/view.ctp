@@ -10,27 +10,10 @@
 
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
 	
-	<div class="category-summary"><?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
-	
-	
-		<?php echo $this->Text->truncate($category['Category']['summary'], 300, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?>
-		<?php //echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
-        
-        
-		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
-         
-
-	</div>
-
-
-
-		<h2 class="gb-heading"><span class="section-subheading">Showing:</span></h2>
 		
 		
-		<p class="gb-heading"><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></p>
-
-
-
+			
+		<p class="gb-heading category"><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></p>
 
 		<?php if(!empty($subcategories)) : ?>
 			
@@ -61,7 +44,35 @@
 
 		<?php endif; ?>
 
-<hr />
+
+
+
+
+	<div class="category-summary">
+	
+		<div class="small-cat-logo">
+			<?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
+		</div>
+    
+
+
+		
+        <div><?php echo $this->Text->truncate($category['Category']['summary'], 600, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?></div>
+
+    
+	
+		
+		<?php //echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
+        
+ 
+ 
+ 
+        
+		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
+         
+
+	</div>
+
 
 
 
@@ -92,7 +103,7 @@
 
 		</ul>
 
-		<h3 class="gb-heading red">
+		<h3 class="gb-heading red  tight">
 
 	<?php
 		if(!empty($subsubcategory)) :
