@@ -397,6 +397,14 @@ ul.meganizr >li.cart > a {
 .row.product {
 	margin-left: 15px;
 }
+
+.more {
+	padding:10px;
+	margin-left:36px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
 .gb {
 	margin-left: 0px;
 }

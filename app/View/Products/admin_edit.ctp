@@ -71,7 +71,9 @@ $(document).ready(function(){
 	</div>
 
     <div class="span3 offset3">
-			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?><br />
+            <?php echo $this->Form->input('show', array('type' => 'checkbox', 'label' => 'Show')); ?><br />
+            
 		</div>
 
 	<div class="span3 offset6 ">

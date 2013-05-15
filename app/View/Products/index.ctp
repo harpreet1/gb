@@ -427,6 +427,12 @@
 				?>
 
 			</div>
+            
+            <?php $more = ($product['User']['more']); ?>
+            
+            <?php if($more == 1) : ?>
+			<div class="more btn-gb">More products to come!</div>
+            <?php endif; ?>
 
 			<div style="clear:both" id="vendor-unit"></div>
 

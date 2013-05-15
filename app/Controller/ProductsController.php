@@ -153,6 +153,7 @@ class ProductsController extends AppController {
 				'Product.price',
 				'Product.displaygroup',
 				'User.slug',
+				'User.more',
 				'Brand.name',
 			),
 			'limit' => 20,

@@ -373,18 +373,18 @@ function doFormatPhone(A){var B=document.getElementById(A);B.onblur=function(){f
    <?php endif; ?>
          
     
- <br />   
-    
-<br />  
-    
-    
-    
+	<br />   
+	<br />   
+	<br />   
     
 	<div class="row">
 		<div class="span12">
 	
 			<div class="span4">
+            <hr />
 				<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+                <?php echo $this->Form->input('show', array('type' => 'checkbox', 'label' => 'Show')); ?><br />
+                <?php echo $this->Form->input('more', array('type' => 'checkbox', 'label' => 'More products coming?')); ?>
 	
 				<br />
 				<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
