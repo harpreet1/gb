@@ -90,6 +90,7 @@ $(document).ready(function() {
 		<th class="actions">Actions</th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+        <th><?php echo $this->Paginator->sort('show'); ?></th>
 		<th><?php echo $this->Paginator->sort('level'); ?></th>
 		<th><?php echo $this->Paginator->sort('username'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -113,6 +114,7 @@ $(document).ready(function() {
 		</td>
 		<td><?php echo $user['User']['id']; ?></td>
 		<td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['active']; ?>.png" alt="" /></a></td>
+        <td><a href="/admin/users/switch/active/<?php echo $user['User']['id']; ?>" class="status"><img src="/img/icon_<?php echo $user['User']['show']; ?>.png" alt="" /></a></td>
 		<td><span class="level" data-value="<?php echo $user['User']['level']; ?>" data-pk="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['level']; ?></span></td>
 		<td><?php echo h($user['User']['username']); ?></td>
 		<td><?php echo h($user['User']['name']); ?></td>
