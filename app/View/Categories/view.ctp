@@ -57,7 +57,7 @@
 
 
 		
-        <div><?php echo $this->Text->truncate($category['Category']['summary'], 600, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?></div>
+        <div><?php echo $this->Text->truncate($category['Category']['summary'], 1200, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?></div>
 
     
 	
