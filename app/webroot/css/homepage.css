@@ -43,6 +43,9 @@ a {
 .span4.gb-box-front a {
 	text-decoration: none;
 }
+#welcome-bkngd {
+	position:absolute;
+}
 #welcome_content h2 {
 	font-family: Oregano, cursive;
 	color: #3f9179;
@@ -60,7 +63,6 @@ a {
 	border-radius: 12px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
 	-webkit-box-shadow: 0px 0px 8px 0px #ffffff; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
 	box-shadow: 0px 0px 8px 0px #ffffff; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
-	background-color: #444444;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f1e5)); /* Chrome, Safari 4+ */
 	background-image: -webkit-linear-gradient(top, #ffffff, #f7f1e5); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
 	background-image: -moz-linear-gradient(top, #ffffff, #f7f1e5); /* Firefox 3.6-15 */
@@ -113,7 +115,7 @@ a {
 }
 .welcome-link {
 	margin: auto;
-	width: 114px;
+	width: 71px;
 	padding-top: 5px;
 }
 #account {

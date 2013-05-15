@@ -4,7 +4,10 @@
 	<div id="welcome_content">
             <h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
             <hr />
-            <div style="text-align:center">
+            <div style="text-align:center;position:relative">
+            	<div id="welcome-bkngd">
+   					<img src="/img/homepage/markets.png" width="704" height="657">
+                 </div>
 				<?php echo $welcome['Content']['body']; ?>
             </div>
            
