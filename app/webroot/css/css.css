@@ -1869,7 +1869,9 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	
 	
 }
-
+.article-pic-container {
+	width:275px;
+}
 
 
 .article-pic-container {
@@ -1877,7 +1879,6 @@ div.tab-content article-tabs>div>h4.gb-heading{
 	margin-top:4px;
 	margin-left:20px;
 	margin-bottom:15px;
-
 	padding: 6px;
 	background-color: #FFF;
 	border: 1px solid #CCC;

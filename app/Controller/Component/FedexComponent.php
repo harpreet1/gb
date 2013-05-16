@@ -3,8 +3,9 @@ class FedexComponent extends Component {
 
 ////////////////////////////////////////////////////////////
 
-	//public $url = 'https://gateway.fedex.com/web-services/';
-	public $url = 'https://gatewaybeta.fedex.com/web-services/';
+	public $url = 'https://wsbeta.fedex.com/web-services';
+	//public $url = 'https://gatewaybeta.fedex.com/web-services/';
+	
 
 	public $defaults = array();
 
