@@ -15,12 +15,17 @@
 
 
 
+	<div class="js-marquee static">
+    <span><a href="/articles/blogosphere">+  FEATURED BLOG  +</a></span>
+    </div>
+	
 
 
     <div class="marquee">
-        <span><a href="">+  FEATURED VENDORS  +</a></span>
+        
+       <!-- <span><a href="">+  FEATURED VENDORS  +</a></span>
         <span>+  FEATURED ARTICLES  +</span>
-        <span>+  FEATURED RECIPES  +</span>           
+        <span>+  FEATURED RECIPES  +</span>           -->
     </div>
 
 	<div id="upper-content">

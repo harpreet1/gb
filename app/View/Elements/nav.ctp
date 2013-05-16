@@ -56,7 +56,7 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southeast">Southeast</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/us/southwest">Southwest</a></p>
                     <p></p>
-                     <span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/ustraditions">[ The US Map Tool ]</a></span>
+                    <?php /*?> <span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/ustraditions">[ The US Map Tool ]</a></span><?php */?>
 					</div>
 				</div>
             </li>
@@ -87,7 +87,7 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a></p>
                     <p></p>
-                    <span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions">[ The World Map Tool ]</a></span>
+                    <?php /*?><span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions">[ The World Map Tool ]</a></span><?php */?>
                 
                 <?php //echo $this->Html->link('Int\'l Markets', array('controller' => 'traditions', 'action' => 'index')); ?>
                      </div>

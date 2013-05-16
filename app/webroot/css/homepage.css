@@ -241,6 +241,14 @@ li.gb-account a {
 	font-family: Oregano, cursive;
 	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1);
 }
+
+.js-marquee a {
+	color: #fff;
+}
+
+.js-marquee a:hover {
+	color: #c00;
+}
 .marquee span {
 	padding-right: 400px;
 }
