@@ -136,7 +136,7 @@ class ShopsController extends AppController {
 							$result = $this->$shippingMethod->getRate($data);
 
 							if(!$result) {
-								$this->Session->setFlash('invalid address...');
+								$this->Session->setFlash('Unable to rate the shipment');
 								$this->redirect(array('action' => 'address'));
 							}
 
