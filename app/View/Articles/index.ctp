@@ -11,10 +11,10 @@
 				foreach($blocks as $blockskey)
 				{
 
-					echo '<div class="gb-heading" style="font-size:120%;">';
+					echo '<div class="gb-heading red list" style="font-size:120%;">';
 					echo $this->Html->link($blockskey['Block']['name'], '/articles/'.$blockskey['Block']['slug'], array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onmouseover' => 'overlay('.$blockskey['Block']['id'].')'));
 					?>
-	<div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?php echo $blockskey['Block']['id']?>"> <a href="#" class="close-x">[ x ]</a> <br>
+	<div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?php echo $blockskey['Block']['id']?>"><br>
 		<?php
 						foreach($blockskey['Article'] as $articlekey) {
 							if ($articlekey['active'] == 1) {
@@ -47,7 +47,7 @@
 
 		<p class="gb-heading air20">Articles in this Section:</p>
 
-		<?php if (($article['Block']['id']) == 1) { ?>
+		<?php if ($trigger == 2) { ?>
 
 
 	<ul class="nav nav-tabs" id="myTab">
@@ -69,7 +69,7 @@
 			?>
                 <div>
                 <?php
-                if (($blockskey['Block']['id']) == 1) :
+                if (($blockskey['Block']['id']) == 2) :
 					foreach($blockskey['Article'] as $articlekey) {
 						if (($articlekey['active'] == 1) && ($articlekey['group_id'] == 1)) {
 							echo '<p><span class="prefix">';
@@ -102,7 +102,7 @@
 			?>
                 <div>
                 <?php
-                if (($blockskey['Block']['id']) == 1) :
+                if (($blockskey['Block']['id']) == 2) :
 					foreach($blockskey['Article'] as $articlekey) {
 						if (($articlekey['active'] == 1) && ($articlekey['group_id'] == 2)) {
 							echo '<p><span class="prefix">';
@@ -193,14 +193,15 @@
 	<div class="span4">
 		<br />
 		<p class="gb-heading">Magazine Sections</p>
+        <hr />
 
 
 		<?php // NAVIGATION
-				echo "<br>";
+				//echo "<br>";
 				foreach($blocks as $blockskey)
 				{
 
-					echo '<div class="gb-heading" style="font-size:120%;">';
+					echo '<div class="gb-heading red list" style="font-size:120%;">';
 					echo $this->Html->link($blockskey['Block']['name'], '/articles/'.$blockskey['Block']['slug'], array('class' => 'basic-info-'.$blockskey['Block']['id'], 'onmouseover' => 'overlay('.$blockskey['Block']['id'].')'));
 					?>
 	<div class="art-list" style="position: absolute; display: none;" id="populate-overlay-<?php echo $blockskey['Block']['id']?>"> <a href="#" class="close-x">[ x ]</a> <br>

@@ -38,6 +38,10 @@ hr {
 	font-size:15px;
 }
 
+.red {
+	color:#c00;
+}
+
 /** Pic Frame **/
 
 img.frame {
@@ -2078,6 +2082,13 @@ hr.article-divide {
 	color: #3F9179;
 	font-size: 21px;
 	letter-spacing: 1px;
+}
+.gb-heading.red, .gb-heading.red a {
+	color: #c00;
+}
+
+.gb-heading.list {
+	margin-bottom:4px;
 }
 h2.gb-heading {
 	font-size: 28px;
