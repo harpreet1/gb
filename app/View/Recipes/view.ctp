@@ -46,11 +46,11 @@
 			
         <?php endif ; ?>
         
-         <?php if(!empty($recipe['Recipe']['tags'])) : ?>
+         <?php /*?><?php if(!empty($recipe['Recipe']['tags'])) : ?>
         	<p class="section-subheading recipes-heading">Tags</p>
          	<p><?php echo $recipe['Recipe']['tags']; ?></p>
         	<br />
-         <?php endif ; ?>  
+         <?php endif ; ?>  <?php */?>
             
          <?php if(!empty($recipe['Recipe']['attribution'])) : ?>
 			<p class="section-subheading recipes-heading">Acknowledgements</p>
