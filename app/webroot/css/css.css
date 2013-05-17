@@ -880,6 +880,7 @@ h3.cat-title {
 	font-size: 19px;
 	text-align: center;
 	line-height: 21px;
+	letter-spacing:1px;
 }
 h3.cat-list {
 	font-size: 14px;
@@ -892,7 +893,7 @@ h3.cat-list {
 	letter-spacing: 1px;
 	text-align: center;
 	color: #c00;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 .img-pantry {
 	width:127px;
@@ -915,7 +916,7 @@ h3.cat-list {
 	padding-top: 7px;
 }
 .row.pantry-row {
-	margin-left: 11px;
+	margin-left: 10px;
 	margin-bottom:15px;
 }
 
@@ -2147,6 +2148,11 @@ h2.gb-heading hr {
 	margin-left:40px;
 	margin-top:0px;
 	margin-bottom:0px;
+}
+
+.gb-heading.vendors {
+	color:#3a3a3a;
+	font-size:19px;
 }
 
 .section-heading {
