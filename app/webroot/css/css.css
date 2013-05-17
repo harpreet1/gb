@@ -887,10 +887,10 @@ h3.cat-list {
 }
 .well-stocked-pantry {
 	font-family: 'Oregano', cursive;
-	font-size: 21px;
+	font-size: 30px;
 	letter-spacing: 1px;
 	text-align: center;
-	color: #FFF;
+	color: #c00;
 	margin-bottom: 20px;
 }
 .img-pantry {
