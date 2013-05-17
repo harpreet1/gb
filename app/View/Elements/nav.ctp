@@ -109,7 +109,7 @@
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
-                    <p class="special"><a href="articles/blogosphere">THE BLOGOSPHERE</a></p>
+                    <p class="special"><a href="/articles/blogosphere">THE BLOGOSPHERE</a></p>
                     <hr />
                    <!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
                     <p class="special"><a href="">THE INFO SOURCE</a></p>

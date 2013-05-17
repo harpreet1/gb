@@ -2,13 +2,13 @@
 
 
 
-<div id="pantry-container">
-	<div id="left-door-inside"></div>
+<div id="pantry-container-2">
+	<!--<div id="left-door-inside"></div>
 	<div id="left-door-outside"></div>
 
 
 	<div id="right-door-inside"></div>
-	<div id="right-door-outside"></div>
+	<div id="right-door-outside"></div>-->
 
 	<div class="well-stocked-pantry">The Well Stocked Pantry</div>
 
@@ -19,15 +19,15 @@
 	foreach ($categories as $category):
 	$i++;
 	?>
-		<div class="span2 pantry">
+		<div class="span2 category-product ">
 			<?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'img-pantry', 'url' => array('controller' => 'categories', 'action' => 'view', $category['Category']['slug']))); ?><br />
 			<div class="cat-name"><?php echo $this->Html->link($category['Category']['name'], array('action' => 'view', $category['Category']['slug'])); ?></div>
 			<br />
 		</div>
 
-	<?php if (($i % 7) == 0) : ?>
+	<?php if (($i % 6) == 0) : ?>
 	</div>
-	<div class="row pantry-row">">
+	<div class="row pantry-row">
 	<?php endif; ?>
 
 	<?php endforeach; ?>
