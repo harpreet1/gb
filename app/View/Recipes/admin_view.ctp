@@ -29,11 +29,11 @@
             <td>Description</td>
             <td><?php echo $recipe['Recipe']['description']; ?></td>
         </tr>
-        <tr>
+<?php /*?>        <tr>
             <td>Tags</td>
             <td><?php echo $recipe['Recipe']['tags']; ?></td>
         </tr>
-        <tr>
+<?php */?>        <tr>
             <td>Ingredients</td>
             <td><?php echo $recipe['Recipe']['ingredients']; ?></td>
         </tr>
