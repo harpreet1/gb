@@ -896,7 +896,7 @@ h3.cat-list {
 }
 .img-pantry {
 	width:127px;
-	padding: 4px;
+	padding: 0px;
 	background-color: transparent;
 	border: none;
 	
@@ -912,6 +912,7 @@ h3.cat-list {
 }
 .span2.category-product .cat-name {
 	text-align: center;
+	padding-top: 7px;
 }
 .row.pantry-row {
 	margin-left: 11px;
@@ -923,9 +924,13 @@ h3.cat-list {
 	float: left;
 	margin-left: 16px;
 	width: 133px;
-	height: 173px;
+	height: 165px;
 	background-image: url(../img/global/category-product.png);
-	background-repeat: no-repeat;
+	/*border:#3a3a3a 1px solid;*/
+	-webkit-box-shadow: 0px 0px 9px #3a3a3a;
+	-moz-box-shadow: 0px 0px 9px #3a3a3a;
+	box-shadow: 0px 0px 9px #3a3a3a;
+
 }
 /** Category Summary **/
 .summary {
