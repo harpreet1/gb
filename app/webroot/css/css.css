@@ -867,6 +867,7 @@ body.categories .content a {
 }
 #pantry-container-2 {
 	background:#dcab5f url(../img/global/category-bkgnd.png)  repeat-y;
+	border:#3a3a3a 15px solid;
 	border-radius: 5px;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -913,13 +914,14 @@ h3.cat-list {
 	text-align: center;
 }
 .row.pantry-row {
-	margin-left: 14px;
+	margin-left: 11px;
 	margin-bottom:15px;
 }
 
 .category-product {
 	position: relative;
 	float: left;
+	margin-left: 16px;
 	width: 133px;
 	height: 173px;
 	background-image: url(../img/global/category-product.png);
