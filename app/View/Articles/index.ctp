@@ -365,6 +365,9 @@
 
 
 		<?php echo $article['Article']['body']; ?>
+        <div class="source-title section-subheading">Want to learn more? Go the SOURCE.</div>
+        <?php echo $article['Article']['source']; ?>
+        
 	</div>
 
 
