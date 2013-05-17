@@ -865,6 +865,14 @@ body.categories .content a {
 	right: -179px;
 	bottom: -61px;
 }
+#pantry-container-2 {
+	background:#dcab5f url(../img/global/category-bkgnd.png)  repeat-y;
+	border-radius: 5px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+
 h3.cat-title {
 	font-family: 'Oregano', cursive;
 	color: #3F9179;
@@ -883,29 +891,39 @@ h3.cat-list {
 	letter-spacing: 1px;
 	text-align: center;
 	color: #FFF;
+	margin-bottom: 20px;
 }
 .img-pantry {
+	width:127px;
 	padding: 4px;
 	background-color: transparent;
 	border: none;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	
 }
 .span2.pantry {
 	width: 100px;
 	height: 112px;
-	background-image: url(../img/global/pantry-item-bkgnd.png);
+	background: url(../img/global/pantry-item-bkgnd.png) no-repeat;
 }
-.span2.pantry a {
-	color: #fff;
+.span2.category-product  a {
+	color: #000;
 	font-size: 11px;
 }
-.span2.pantry .cat-name {
+.span2.category-product .cat-name {
 	text-align: center;
 }
 .row.pantry-row {
-	margin-left: 49px;
+	margin-left: 14px;
+	margin-bottom:15px;
+}
+
+.category-product {
+	position: relative;
+	float: left;
+	width: 133px;
+	height: 173px;
+	background-image: url(../img/global/category-product.png);
+	background-repeat: no-repeat;
 }
 /** Category Summary **/
 .summary {
