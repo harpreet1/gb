@@ -109,15 +109,22 @@
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="special"><a href="/articles">THE LATEST</a></p>
+                    <p class="special"><a href="articles/blogosphere">THE BLOGOSPHERE</a></p>
+                    <hr />
                    <!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
+                    <p class="special"><a href="">THE INFO SOURCE</a></p>
                     <ul>
                         
                         <?php foreach($menublocks as $menublock) : ?>
-                        <?php /*?><p><?php echo $this->Html->link($menublock['Block']['name'], '/articles/' . $menublock['Block']['slug']); ?></p><?php */?>
-                        <li><p>-<a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
-                        <?php echo  $menublock['Block']['name'] ; ?>
+                        	<?php $check = $menublock['Block']['id'] ?>
+                            
+								<?php if($check != 1 ): ?>
+                                <li><p>-<a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
+                                <?php echo  $menublock['Block']['name'] ; ?>
+                            
+                            <?php endif; ?>
                         
-                           </a></p></li>
+                           </a></li>
                     
                     <?php endforeach; ?>
                      </div>

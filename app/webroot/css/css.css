@@ -573,6 +573,14 @@ div.brand-search {
 	font-size: 11px;
 	color: #CCC;
 }
+
+img.brand {
+	width:100px;
+	float:right;
+	margin-left:5px;
+	margin-bottom:5px;
+	
+}
 .search-result a {
 	font-size: 11px;
 }
