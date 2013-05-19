@@ -365,8 +365,15 @@
 
 
 		<?php echo $article['Article']['body']; ?>
-        <div class="source-title section-subheading">Want to learn more? Go the SOURCE.</div>
-        <?php echo $article['Article']['source']; ?>
+        
+        <div class="section-subheading"><hr />Want to learn more? Go the <button type="button" class="btn btn-danger source" data-toggle="collapse" data-target="#demo-last"><span class="source-title ">Source</span></button>
+        </div>
+        
+         
+        <div id="demo-last" class="collapse">
+        	<div class="weblinks">Web Links:</div>
+        	<?php echo $article['Article']['source']; ?>
+    	</div>
         
 	</div>
 
@@ -377,7 +384,7 @@
 		?>
 
 
-
+	<?php //echo $pagination->paginateContent($content_for_layout); ?> 
 
 
 </div>
