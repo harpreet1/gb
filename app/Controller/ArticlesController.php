@@ -1,6 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
+	
+
+	//var $helpers = array("Html", "Pagination"); 
+
 
 ////////////////////////////////////////////////////////////
 

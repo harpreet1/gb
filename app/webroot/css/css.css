@@ -2177,6 +2177,20 @@ h2.gb-heading hr {
 	letter-spacing: 1px;
 }
 
+.source-title {
+	font-family: 'Oregano', cursive;
+	color: #fff;
+	font-size:19px;
+}
+.weblinks {
+	font-size: 12px;
+	font-weight:bold;
+	color: #3a3a3a;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
 .section-subheading.small {
 	font-size:17px;
 }
