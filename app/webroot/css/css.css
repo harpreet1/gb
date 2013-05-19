@@ -2419,6 +2419,7 @@ div.gb-heading>div#populate-overlay-1>p>a,
 	padding:40px;
 	background:#c00 url(../img/global/category-bkgnd.png);
 	color:#fff;
+	border:#3f9179 10px solid;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
