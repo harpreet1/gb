@@ -366,7 +366,7 @@
 
 		<?php echo $article['Article']['body']; ?>
         
-        <div class="section-subheading"><hr />Want to learn more? Go the <button type="button" class="btn btn-danger source" data-toggle="collapse" data-target="#demo-last"><span class="source-title ">Source</span></button>
+        <div class="section-subheading">Want to learn more? Go the <button type="button" class="btn btn-danger source" data-toggle="collapse" data-target="#demo-last"><span class="source-title ">Source</span></button>
         </div>
         
          

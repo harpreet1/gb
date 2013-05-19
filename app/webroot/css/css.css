@@ -2414,6 +2414,28 @@ div.gb-heading>div#populate-overlay-1>p>a,
 }
 
 
+/**Special Boxes **/
+.special {
+	padding:40px;
+	background:#c00 url(../img/global/category-bkgnd.png);
+	color:#fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+}
+
+.special .section-heading {
+	color:#fff;	
+	font-size:30px;
+}
+.special .section-subheading {
+	color:#fff;	
+	font-size:21px;
+	text-align:center;
+}
+
+
 /* Large desktop */
 @media (min-width: 1200px) {
 }
