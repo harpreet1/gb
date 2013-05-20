@@ -366,6 +366,9 @@
 
 		<?php echo $article['Article']['body']; ?>
         
+        
+        <?php if(!empty($article['Article']['source'])) : ?>
+        
         <div class="section-subheading">Want to learn more? Go the <button type="button" class="btn btn-danger source" data-toggle="collapse" data-target="#demo-last"><span class="source-title ">Source</span></button>
         </div>
         
@@ -374,6 +377,8 @@
         	<div class="weblinks">Web Links:</div>
         	<?php echo $article['Article']['source']; ?>
     	</div>
+        
+        <?php endif; ?>
         
 	</div>
 
