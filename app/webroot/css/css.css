@@ -2415,7 +2415,7 @@ div.gb-heading>div#populate-overlay-1>p>a,
 
 
 /**Special Boxes **/
-.special {
+.special.box {
 	padding:40px;
 	background:#c00 url(../img/global/category-bkgnd.png);
 	color:#fff;
