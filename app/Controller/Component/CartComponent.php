@@ -207,7 +207,7 @@ class CartComponent extends Component {
 				'Product.width',
 				'User.id',
 				'User.name',
-				'User.email',
+				'User.email_orders',
 				'User.phone',
 				'User.zip',
 				'User.state',

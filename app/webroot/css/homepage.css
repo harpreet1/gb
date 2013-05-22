@@ -556,3 +556,13 @@ ul.meganizr >li.cart > a {
 	background-color: #2F6F5C;
 	color: #fff;
 }
+
+/** Nav **/
+
+hr.thin.tight {
+	margin: 5px 0;
+	border: 0;
+	border-top: 1px solid #3f9179;
+	border-bottom: none;
+	
+}

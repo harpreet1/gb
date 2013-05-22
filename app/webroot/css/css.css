@@ -2436,6 +2436,15 @@ div.gb-heading>div#populate-overlay-1>p>a,
 	text-align:center;
 }
 
+/** Nav **/
+
+hr.thin.tight {
+	margin: 5px 0;
+	border: 0;
+	border-top: 1px solid #c00;
+	border-bottom: none;
+	
+}
 
 /* Large desktop */
 @media (min-width: 1200px) {

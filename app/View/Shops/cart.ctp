@@ -80,7 +80,7 @@ Shopping Cart is empty
 
 		<div class="row">
 			<div class="span2"><?php echo $user['name']; ?></div>
-			<div class="span2"style="width:180px;"><?php echo $user['email']; ?></div>
+			<div class="span2"style="width:180px;"><?php echo $user['email_orders']; ?></div>
 			<div class="span1"style="width:30px;"><?php echo $user['state']; ?></div>
 			<div class="span1"style="width:40px;"><?php echo $user['zip']; ?></div>
 			<div class="span1 qty"><?php echo $user['quantity']; ?></div>

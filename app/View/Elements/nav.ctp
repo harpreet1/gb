@@ -108,11 +108,11 @@
             <li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
-                    <p class="special"><a href="/articles">THE LATEST</a></p>
-                    <p class="special"><a href="/articles/blogosphere">THE BLOGOSPHERE</a></p>
-                    <hr />
+                    <p class="nav-special"><a href="/articles">The Latest</a></p>
+                    <p class="nav-special"><a href="/articles/blogosphere">The Blogosphere</a></p>
+                    <hr class="thin tight">
                    <!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
-                    <p class="special"><a href="">THE INFO SOURCE</a></p>
+                    <p class="special">THE INFO SOURCE:</p>
                     <ul>
                         
                         <?php foreach($menublocks as $menublock) : ?>

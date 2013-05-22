@@ -1,3 +1,10 @@
+<script>
+
+$(".collapse").collapse()
+
+</script>
+
+
 
 	<?php if(!isset($article['Article'])){ ?>
 	<!-- FOR EXCELLENT ADVENTURES BLOCKS LANDING PAGE -->
