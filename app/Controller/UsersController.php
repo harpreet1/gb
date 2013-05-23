@@ -198,10 +198,11 @@ class UsersController extends AppController {
 			'recursive' => -1,
 			'order' => array(
 				'User.active' => 'DESC',
+				'User.show' => 'DESC',
 				'User.username' => 'ASC',
 			),
 			'conditions' => $all['conditions'],
-			'limit' => 100,
+			'limit' => 20,
 		);
 		$users = $this->paginate('User');
 		$this->set(compact('users'));

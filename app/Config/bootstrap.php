@@ -143,9 +143,15 @@ Cache::config('default', array('engine' => 'File', 'mask' => 0777));
  *
  */
 
-CakePlugin::load('DebugKit');
+CakePlugin::loadAll();
 
-CakePlugin::load('Utils');
+// CakePlugin::load('DebugKit');
+
+// CakePlugin::load('Utils');
+
+// CakePlugin::load('HabtmCounterCache');
+
+// CakePlugin::load('Blog');
 
 //CakePlugin::load('Tags');
 
