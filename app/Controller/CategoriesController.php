@@ -193,6 +193,7 @@ class CategoriesController extends AppController {
 				'User.id',
 				'User.name',
 				'User.slug',
+				'User.more',
 			),
 			'conditions' => $productconditions,
 			'limit' => 20,

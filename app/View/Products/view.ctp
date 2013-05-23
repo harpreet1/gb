@@ -390,10 +390,15 @@
 						var load = '<img class="brand" src="/img/brands/image/ ';
 					</script>
 
+				<?php if(!empty($product['Brand']['image'])) : ?>
+                	<?php $load_image = $product['Brand']['image'] ;?>
+                <?php endif ;?>
+                
+					<?php if(!empty($product['Brand']['description'])) : ?>
 
-				<?php if(!empty($product['Brand']['description'])) : ?>
-
-					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-original-title="Some info about the brand:"  data-content="<img class='brand' src='/img/brands/image/<?php echo ($product['Brand']['image']);?>'><?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
+					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom"  data-content="<img class='brand' src='/img/brands/image/<?php echo ($product['Brand']['image']);?>'>
+					
+					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
 				<span><img class="hand" src="/img/global/hand.png"/></span>
 				<?php elseif(empty($product['Brand']['name'])) : ?>

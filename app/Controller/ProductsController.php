@@ -328,7 +328,7 @@ class ProductsController extends AppController {
 				'Subcategory.id',
 				'Subcategory.category_id',
 				'Subcategory.name',
-				'Subcategory.slug'
+				'Subcategory.slug',
 			),
 			'conditions' => array(
 				'Product.active' => 1,
@@ -439,7 +439,8 @@ class ProductsController extends AppController {
 				'Product.price',
 				'Product.displaygroup',
 				//'Brand.name',
-				'User.slug'
+				'User.slug',
+				'User.more',
 			),
 			'limit' => 40,
 			'conditions' => $productconditions,
@@ -621,7 +622,7 @@ class ProductsController extends AppController {
 					'Product.image',
 					'Product.price',
 					'Brand.name',
-					'User.slug'
+					'User.slug',
 				),
 				'conditions' => $conditions,
 				'limit' => 200,

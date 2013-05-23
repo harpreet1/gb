@@ -605,7 +605,7 @@ img.brand {
 .purchase-block {
 	width:120px;
 	float:right;
-	margin-left:15px;
+	margin-left:0px;
 	margin-bottom:15px;
 }
 
@@ -2043,7 +2043,7 @@ img.article-landing-pic {
 
 /** Vendor story title **/
 div.title {
-	font-size:10px;
+	font-size:11px;
 	clear:both;
 }
 div.attr {

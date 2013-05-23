@@ -36,6 +36,11 @@ class TraditionsController extends AppController {
 		$traditions = $this->Tradition->find('all', array(
 			'recursive' => -1,
 			'conditions' => array(),
+			'fields' => array(
+				'Tradition.id',
+				'Tradition.slug',
+				'Tradition.name',
+			),
 			'order' => array(
 				'Tradition.name' => 'ASC'
 			)
@@ -68,18 +73,12 @@ class TraditionsController extends AppController {
 			),
 			'fields' => array(
 				'Product.id',
-				'Product.category_id',
+				//'Product.category_id',
 				'Product.name',
 				'Product.slug',
-				'Product.description',
 				'Product.price',
 				'Product.displaygroup',
 				'Product.image',
-				//'Product.image_1',
-//				'Product.image_2',
-//				'Product.image_3',
-//				'Product.image_4',
-//				'Product.image_5',
 				'User.id',
 				'User.slug',
 				'User.name',
@@ -209,11 +208,6 @@ class TraditionsController extends AppController {
 				'Tradition.slug',
 				'Tradition.name',
 				'Tradition.image_1',
-				'Tradition.image_2',
-				'Tradition.image_3',
-				'Tradition.image_4',
-				'Tradition.image_5',
-				'Tradition.image_6',
 				'Tradition.awning_image',
 			),
 			'order' => array(
