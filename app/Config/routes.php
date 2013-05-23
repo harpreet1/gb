@@ -13,7 +13,7 @@
 	} else {
 		Router::connect('/', array('controller' => 'contents', 'action' => 'homepage'));
 	}
-	
+
 	Router::connect('/magazine', array('controller' => 'contents', 'action' => 'magazine'));
 
 	Router::connect('/product/:id-:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('id', 'slug'), 'id' => '[0-9]+', 'routeClass' => 'SubdomainRoute'));
@@ -84,11 +84,11 @@
 //	Router::connect('/login', array('controller' => 'members', 'action' => 'login'));
 //
 //	Router::connect('/logout', array('controller' => 'members', 'action' => 'logout'));
-//	
-	
+//
+
 
 	CakePlugin::routes();
 
 	require CAKE . 'Config' . DS . 'routes.php';
-	
-	include APP.'Plugin'.DS.'Blog'.DS.'Config'.DS.'routes.php';
+
+	include APP . 'Plugin' . DS . 'Blog' . DS . 'Config' . DS . 'routes.php';
