@@ -71,20 +71,24 @@
 
 	//Members - Sign Me Up
 
-	Router::connect('/register', array('controller' => 'members', 'action' => 'register'));
-
-	Router::connect('/activate', array('controller' => 'members', 'action' => 'activate'));
-
-	Router::connect('/activate/:activation_code', array('controller' => 'members', 'action' => 'activate'), array('pass' => 'activation_code'));
-
-	Router::connect('/forgotten_password', array('controller' => 'members', 'action' => 'forgotten_password'));
-
-	Router::connect('/forgotten_password/:password_reset', array('controller' => 'members', 'action' => 'forgotten_password'), array('pass' => 'password_reset_code'));
-
-	Router::connect('/login', array('controller' => 'members', 'action' => 'login'));
-
-	Router::connect('/logout', array('controller' => 'members', 'action' => 'logout'));
+	//Router::connect('/register', array('controller' => 'members', 'action' => 'register'));
+//
+//	Router::connect('/activate', array('controller' => 'members', 'action' => 'activate'));
+//
+//	Router::connect('/activate/:activation_code', array('controller' => 'members', 'action' => 'activate'), array('pass' => 'activation_code'));
+//
+//	Router::connect('/forgotten_password', array('controller' => 'members', 'action' => 'forgotten_password'));
+//
+//	Router::connect('/forgotten_password/:password_reset', array('controller' => 'members', 'action' => 'forgotten_password'), array('pass' => 'password_reset_code'));
+//
+//	Router::connect('/login', array('controller' => 'members', 'action' => 'login'));
+//
+//	Router::connect('/logout', array('controller' => 'members', 'action' => 'logout'));
+//	
+	
 
 	CakePlugin::routes();
 
 	require CAKE . 'Config' . DS . 'routes.php';
+	
+	include APP.'Plugin'.DS.'Blog'.DS.'Config'.DS.'routes.php';

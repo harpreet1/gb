@@ -147,6 +147,10 @@ CakePlugin::load('DebugKit');
 
 CakePlugin::load('Utils');
 
+CakePlugin::load('HabtmCounterCache');
+
+CakePlugin::load('Blog');
+
 //CakePlugin::load('Tags');
 
 /**
