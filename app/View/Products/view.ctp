@@ -37,13 +37,13 @@
 			<div class="span9">
 
 				<ul class="breadcrumb btn-gb">
-					<li><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
-					<li><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?></a><span class="divider">/</span></li>
-					<li><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug'] .'/'. $product['Subcategory']['slug']; ?>"><?php echo $product['Subcategory']['name']; ?></a><span class="divider">/</span></li>
+					<li class="read"><?php echo $this->Html->link($user['User']['name'], '/'); ?> <span class="divider">/</span></li>
+					<li class="read"><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug']; ?>"><?php echo $product['Category']['name']; ?></a><span class="divider">/</span></li>
+					<li class="read"><a href="http://<?php echo $user['User']['slug'] . '.' . Configure::read('Settings.DOMAIN').'/category/'. $product['Category']['slug'] .'/'. $product['Subcategory']['slug']; ?>"><?php echo $product['Subcategory']['name']; ?></a><span class="divider">/</span></li>
 					<?php if(!empty($subsubcategories)) : ?>
-					<li><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
+					<li class="read"><?php echo $this->Html->link($product['Subsubcategory']['name'], array('controller' => 'products', 'action' => 'subsubcategory', 'slug' => $product['Subsubcategory']['id'])); ?> <span class="divider">/</span></li>
 					<?php endif; ?>
-					<li class="active"><?php echo $product['Product']['name']; ?></li>
+					<li class="read active"><?php echo $product['Product']['name']; ?></li>
 				</ul>
 
 			</div>

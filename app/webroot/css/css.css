@@ -117,7 +117,7 @@ img.frame {
 }
 
 .cat-quote {
-	color: #3f9179;
+	color: #444;
 	font-size:12px;
 	font-style:italic;
 }
@@ -132,8 +132,14 @@ img.frame {
 .breadcrumb li  {
 	text-shadow:0 0 6px #FFF;
 }
+
+
 .breadcrumb li a {
 	color: #3a3a3a;
+}
+
+.breadcrumb li.read a {
+	color: #fff;
 }
 .breadcrumb li.active {
 	color: #000;
@@ -2034,6 +2040,21 @@ img.article-landing-pic {
 	color: #3f9179;
 }
 
+
+/** Vendor story title **/
+div.title {
+	font-size:10px;
+	clear:both;
+}
+div.attr {
+	font-size:9px;
+	font-style:italic;
+	line-height:11px;
+	float:right;
+	padding-right:7px;
+}
+
+
 /** Spacer **/
 .air10 {
 	margin-top:10px;
@@ -2257,7 +2278,7 @@ h3.gb-heading.uppercase.category {
 }
 
 hr.category {
-	margin-bottom:5px;
+	margin-bottom:10px;
 	margin-top:5px;
 }
 
