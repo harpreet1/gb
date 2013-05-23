@@ -295,7 +295,7 @@ ul.meganizr >li {
 	border: none;
 }
 ul.meganizr > li > a {
-	padding-left: 8px;
+	padding-left: 5px;
 }
 ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	color: #97c199;
@@ -1447,7 +1447,9 @@ html[xmlns] .slides {
 	color:#fff;
 }
 
-
+li.cart .btn {
+	padding: 1px 12px;
+}
 /** Attribute icons **/
 
 .attr-icon-set {

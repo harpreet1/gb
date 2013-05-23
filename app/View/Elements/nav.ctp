@@ -105,7 +105,7 @@
             
             <!-- For overlay Articles overlay -->
             
-            <li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
+            <li class="mzr-drop"> <a href="/magazine" >The Magazine & Blog<b class="caret"></b></a>
                 <div class="mzr-content drop-two-columns popover-content">
                 	<div class="wide">
                     <p class="nav-special"><a href="/articles">The Latest</a></p>
