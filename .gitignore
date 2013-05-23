@@ -4,7 +4,7 @@
 dwsync.xml
 app/Config/database.php
 app/Config/settings.php
-app/view/Elts/sqldump.ctp
+app/view/Elements/sqldump.ctp
 app/tmp/logs/error.log
 app/tmp/logs/debug.log
 app/tmp/logs/error*
