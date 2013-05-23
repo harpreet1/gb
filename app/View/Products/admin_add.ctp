@@ -10,7 +10,7 @@
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,||,cleanup,removeformat,code",
 		theme_advanced_resizing : true,
 	});
 </script>
@@ -26,10 +26,42 @@ $(document).ready(function(){
 
 </script>
 
+<script>
+	$(function() {
+
+		$('#monthpicker').monthpicker();
+		
+	});
+
+
+		//$(function() {
+	//		$( "#datepicker" ).datepicker();
+	//		$( "#datepicker" ).datepicker({ changeMonth: true,
+	//        	changeYear: true,
+	//        	showButtonPanel: true,
+	//        	dateFormat: 'MM yy' });
+	//			
+	//		// getter
+	////var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+	//		// setter
+	//		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+	//		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+	//		// getter
+	//		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+	//		// setter
+	//		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	//	});
+	//	
+		
+	
+  </script>
+
+
 
 <h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
+
 
 <div class="row">
 
@@ -38,7 +70,9 @@ $(document).ready(function(){
 	</div>
 
     <div class="span3 offset3">
-			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?><br />
+            <?php echo $this->Form->input('show', array('type' => 'checkbox', 'label' => 'Show')); ?><br />
+            
 		</div>
 
 	<div class="span3 offset6 ">
@@ -69,6 +103,20 @@ $(document).ready(function(){
 
 <div class="row">
 
+		<div class="span3">
+			<?php echo $this->Form->input('auxcategory_1', array('label' => 'Aux Category 1', 'options' => $auxcategories, 'empty' => '')); ?>
+		</div>
+		<div class="span3">
+			<?php echo $this->Form->input('auxcategory_2', array('empty' => 'Aux Category 2', 'options' => $auxcategories, 'empty' => '')); ?>
+		</div>
+		<div class="span3">
+			<?php echo $this->Form->input('auxcategory_3', array('empty' => 'Aux Category 3', 'options' => $auxcategories, 'empty' => '')); ?>
+		</div>
+
+</div>
+
+<div class="row">
+
 	<div class="span3">
 		<?php echo $this->Form->input('slug'); ?>
 	</div>
@@ -92,19 +140,8 @@ $(document).ready(function(){
 
 <div class="row">
 
-	<div class="span5">
-		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
-	</div>
-
-	<div class="span5">
-		<?php // echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
-	</div>
-
 	<div class="span2">
-		<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
-		<br />
-		<?php echo $this->Form->input('featured_', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
-		<?php echo $this->Form->input('gift', array('type' => 'checkbox', 'label' => 'Gift Product'));?>
+		<?php echo $this->Form->input('displaygroup', array('label' => 'Display Group Priority','empty' => '--')); ?>
 	</div>
 
 </div>
@@ -115,12 +152,34 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
+		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
+	</div>
+
+	<div class="span4">
+		<?php // echo $this->Form->input('brand_description', array('rows' => 10, 'cols' => 10)); ?>
+	</div>
+
+	<div class="span3">
+		<?php echo $this->Form->input('tags', array('class' => '4span')); ?>
+		<br />
+		<?php echo $this->Form->input('featured', array('type' => 'checkbox', 'label' => 'Featured Product'));?>
+		<?php echo $this->Form->input('gift', array('type' => 'checkbox', 'label' => 'Gift Product'));?>
+
+	</div>
+</div>
+<br />
+<br />
+
+<div class="row">
+
+	<div class="span5">
 		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
 		<div><?php echo $this->Form->input('generic_description', array('rows' => 20, 'class' => '4span')); ?></div>
 	</div>
 
-	<div class="span3">
+	<div class="span3 offset1">
     <h3>Traditions</h3>
+		<?php echo $this->Form->input('traditions', array('type' => 'select', 'multiple' => 'checkbox', 'options' => $traditions, 'selected' => $traditionsselected, 'label' => 'International Traditions')); ?>
 		<br />
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
@@ -138,7 +197,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
 		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
 		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
-		echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));
+		//echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));
 		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox','label' => 'Nut Free'));
 		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox','label' => 'Heart Smart'));
 		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox','label' => 'No Artificial Preservatives'));
@@ -147,7 +206,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_halal', array('type' => 'checkbox','label' => 'Halal'));
 		echo $this->Form->input('attr_fair_traded', array('type' => 'checkbox','label' => 'Fair Traded'));
 		echo $this->Form->input('attr_give_back', array('type' => 'checkbox','label' => 'Give Back'));
-		echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox','label' => 'Not Heat Sensitive'));
+		//echo $this->Form->input('attr_heat_sensitivity', array('type' => 'checkbox','label' => 'Not Heat Sensitive'));
 		echo $this->Form->input('attr_all_natural', array('type' => 'checkbox','label' => 'All Natural'));
 		echo $this->Form->input('attr_award_winning', array('type' => 'checkbox','label' => 'Award Winning'));
 	?>
@@ -169,26 +228,36 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span3">
+		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('price_list', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('price_list', array('class' => 'span1'));?>
+		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php //echo $this->Form->input('measurement');?>
 		<?php //echo $this->Form->input('weight_unit');?>
-		<?php echo $this->Form->input('weight', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('weight', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('shipping_weight', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('volume', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('volume', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('volume_unit', array('class' => 'span1'));?>
+		<?php //echo $this->Form->input('dimension_unit', array('class' => 'span1'));?>
 		<?php echo $this->Form->input('height', array('class' => 'span1'));?>
-		<?php echo $this->Form->input('length', array('class' => 'span1'));?>
-        <?php echo $this->Form->input('width', array('class' => 'span1'));?>
+        <?php echo $this->Form->input('width', array('class' => 'span1','label' => 'Width / Diameter'));?>
+        <?php echo $this->Form->input('length', array('class' => 'span1','label' => 'Depth / Diameter'));?>
 		<br />
 		<br />
-        <?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Seasonal Stock Item')); ?>
-        <?php echo $this->Form->input('seasonal_stock_date', array('id' => 'datepicker', 'label' => 'Projected date back in Stock','class' => 'mceNoEditor')); ?>
+		<h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
+		<?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
+        <?php echo $this->Form->input('seasonal_stock_range', array('type' => 'select', 'label' => 'ETA', 'empty' => 'Choose','options' => array(
+                '1' => 'Mid',
+                '2' => 'Early',
+                '3' => 'Late',
+            ))); ?>
+        
+		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'monthpicker', 'label' => false,'class' => 'mceNoEditor')); ?>
+        <?php echo $this->Form->input('seasonal_stock_note'); ?>
  		<br />
-		<br />       
+		<br />
 		<?php echo $this->Form->input('related_products'); ?>
 	</div>
 
@@ -202,11 +271,10 @@ $(document).ready(function(){
 	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_serv_size', array('class' => 'span1','label' => 'Serving Size')); ?>
 	</div>
-    	<div class="span2 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_serv_per_container', array('class' => 'span1','label' => 'Servings per Container')); ?>
 	</div>
 
-	
 </div>
 
 <div class="row">
@@ -220,13 +288,13 @@ $(document).ready(function(){
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_total_fat', array('class' => 'span1','label' => 'Total Fat')); ?>
 	</div>
-    	<div class="span2 nutrition">
+		<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_total_fat_p', array('class' => 'span1','label' => '% Total Fat')); ?>
 	</div>
 	<div class="span1 nutrition">
 		<?php echo $this->Form->input('nut_saturated_fat', array('class' => 'span1','label' => 'Sat Fat')); ?>
 	</div>
-    <div class="span2 nutrition">
+	<div class="span2 nutrition">
 		<?php echo $this->Form->input('nut_saturated_fat_p', array('class' => 'span1','label' => '% Sat Fat')); ?>
 	</div>
 	<div class="span1 nutrition">
@@ -258,7 +326,6 @@ $(document).ready(function(){
 
 </div>
 
-
 <div class="row">
 
 	<div class="span1 nutrition">
@@ -268,7 +335,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nut_protein', array('class' => 'span1','label' => 'Protein')); ?>
 	</div>
 
-    
+
 </div>
 
 <div class="row">
@@ -300,6 +367,9 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('iron_p', array('class' => 'span1','label' => '% Iron')); ?>
 	</div>
 </div>
+
+
+
 
 <br />
 <br />

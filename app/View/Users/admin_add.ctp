@@ -5,45 +5,44 @@
 	tinyMCE.init({
 		mode : "textareas",
 		theme : "advanced",
+		theme_advanced_styles:'',
 		editor_deselector : "mceNoEditor",
 		skin: "thebigreason",
 		plugins : "inlinepopups",
 		plugins : "paste",
 		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-		theme_advanced_resizing : true,
-	});
+		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
+		theme_advanced_resizing : true,	});
 </script>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-	
-	$( "#datepicker" ).datepicker({ changeYear: true });
-	// getter
-	var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
-	// setter
-	$( "#datepicker" ).datepicker( "option", "changeYear", true );
-	
-	
-	
-	$( "#datepicker" ).datepicker({ gotoCurrent: true });
-	// getter
-	var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
-	// setter
-	$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
 
-	
-  });
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({ changeYear: true });
+		// getter
+		var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "changeYear", true );
+		$( "#datepicker" ).datepicker({ gotoCurrent: true });
+		// getter
+		var gotoCurrent = $( ".selector" ).datepicker( "option", "gotoCurrent" );
+		// setter
+		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
+	});
   </script>
+
+	<script>  
+  	// Format phone number script
+function doFormatPhone(A){var B=document.getElementById(A);B.onblur=function(){formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(...)(...)(....)/g,"($1) $2-$3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(...)(...)(....)/g,"($1) $2-$3")+B}break;default:}return A}window.onload=function(){doFormatPhone("phone")};
+
+  </script>
+  
 
 <div id="wrapper">
 
-	<div class="title">VENDOR PROFILE</div>
-	
-	<h4>Add Vendor</h4>
-	
+	<div class="title">ADD VENDOR PROFILE</div>
+		
 	<?php echo $this->Form->create('User'); ?>
-	
 	
 	<div class="row">
 		<div class="span12">
@@ -80,8 +79,38 @@
 				<?php //echo $this->Form->input('vendor_type'); ?>
 								
 				<?php //echo $this->Form->input('mycategories'); ?>
+                
+                
+				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
+				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
+				
+				<hr />
+				<h3>CONTACT INFO</h3>
+				<?php echo $this->Form->input('contact_name'); ?>
+				<?php echo $this->Form->input('contact_title'); ?>
+				<?php echo $this->Form->input('contact_phone'); ?>
+				<?php echo $this->Form->input('contact_email'); ?>
+				
+				<hr />
+				<?php echo $this->Form->input('contact_alt_name', array('label' => 'Alternate Contact Name')); ?>
+				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
+				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
+				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
+	
+			
+                
+                
+                
+                
 	
 			</div>
+            
+            
+            
+            
+            
+            
+            
 			<div class="span5">
             
                
@@ -102,7 +131,7 @@
                 <h4>FLAT SHIPPING LEVELS</h4>
                 <?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
                
-                <?php echo $this->Form->input('ship_determinant', array('empty' => '--','label' => 'Shipping Determinant' , 'options' => array( 'containers' => 'Containers','dollars' => 'Dollars'))); ?>
+                <?php echo $this->Form->input('ship_determinant', array('empty' => '--','label' => 'Shipping Determinant' , 'options' => array('0' => 'Dollars', '1' => 'Tins/ Bags/ Containers',))); ?>
                
                 <div class="row">
                 	<div class="span1 horiz-label">Level 1:</div>
@@ -176,7 +205,6 @@
                   
 				</div>
 				
-				
 
 				<hr />
 				<h3>CUSTOMER SERVICE</h3>
@@ -190,6 +218,8 @@
 				<?php echo $this->Form->input('shop_description', array('rows' => 20, 'class' => '4span')); ?><br />
 				<?php echo $this->Form->input('shop_quote', array('class' => '4span')); ?>
 				<?php echo $this->Form->input('shop_signature'); ?>
+                <?php echo $this->Form->input('min_purchase', array('label' =>'Minimum Purchase','class' => 'span1')); ?>
+                <?php echo $this->Form->input('mini_shipping_policy', array('label' =>'Shipping Info','class' => 'span2')); ?>
 	
 			</div>
             
@@ -208,25 +238,8 @@
             
             
             
-			<div class="span3">
-				<?php echo $this->Form->input('business_ownership', array('empty' => '--','label' => 'Type of Business Ownership' , 'options' => array( 'family owned' => 'Family Owned','individual' => 'Individual', 'small corporation' => 'Small Corporation', 'large corporation' => 'Large Corporation', 'other' => 'Other'))); ?>
-				<?php echo $this->Form->input('business_established', array('class' => 'span1','label' => 'Year the business was established')); ?>
-				
-				<hr />
-				<h3>CONTACT INFO</h3>
-				<?php echo $this->Form->input('contact_name'); ?>
-				<?php echo $this->Form->input('contact_title'); ?>
-				<?php echo $this->Form->input('contact_phone'); ?>
-				<?php echo $this->Form->input('contact_email'); ?>
-				
-				<hr />
-				<?php echo $this->Form->input('contact_alt_name', array('label' => 'Alternate Contact Name')); ?>
-				<?php echo $this->Form->input('contact_alt_title', array('label' => 'Alternate Contact Title')); ?>
-				<?php echo $this->Form->input('contact_alt_phone', array('label' => 'Alternate Contact Phone')); ?>
-				<?php echo $this->Form->input('contact_alt_email', array('label' => 'Alternate Contact eMail')); ?>
-	
-			</div>
-			<div class="span3">
+			
+			<div class="span3 offset3">
 				<h3>FINANCIAL INFO</h3>
 				<?php echo $this->Form->input('fin_contact_name', array('label' => 'Financial Contact Name')); ?>
 				<?php echo $this->Form->input('fin_contact_title', array('label' => 'Financial Contact Title')); ?>
@@ -275,17 +288,106 @@
 			</div>-->
 		</div>
 	</div>
+    
+    
+<div class="row">
+
+
+	<?php if($this->Form->value('User.image_1') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_1/<?php echo $this->Form->value('User.image_1'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_1', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_1', array('class' => 'span4')); ?>
+           
+
+        </div>  
+	<?php endif; ?>
+                  
+        
+	<?php if($this->Form->value('User.image_2') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_2/<?php echo $this->Form->value('User.image_2'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_2', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_2', array('class' => 'span4')); ?>
+           
+         </div>       
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('User.image_3') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_3/<?php echo $this->Form->value('User.image_3'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_3', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_3', array('class' => 'span4')); ?>
+           
+
+          </div>               
+	<?php endif; ?>
+       
+
+	<?php if($this->Form->value('User.image_4') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_4/<?php echo $this->Form->value('User.image_4'); ?>" />
+             </div>   
+            <?php echo $this->Form->input('pic_title_4', array('class' => 'span4')); ?>
+            <?php echo $this->Form->input('attr_4', array('class' => 'span4')); ?>
+            
+          </div>         
+	<?php endif; ?>
+        
+        
+	<?php if($this->Form->value('User.image_5') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_5/<?php echo $this->Form->value('User.image_5'); ?>" />
+             </div>   
+                <?php echo $this->Form->input('pic_title_5', array('class' => 'span4')); ?>
+                <?php echo $this->Form->input('attr_5', array('class' => 'span4')); ?>
+              
+			</div>
+            
+         </div>    
+   <?php endif; ?>
+   
+   <?php if($this->Form->value('User.image_6') !== '') : ?>
+        <div class="span4">
+            <div style="height:300px">       
+                <img class="user-img" src="/img/users/image_6/<?php echo $this->Form->value('User.image_6'); ?>" />
+             </div>   
+                <?php echo $this->Form->input('pic_title_6', array('class' => 'span4')); ?>
+                <?php echo $this->Form->input('attr_6', array('class' => 'span4')); ?>
+              
+			</div>
+            
+         </div>    
+   <?php endif; ?>
+         
+    
+	<br />   
+	<br />   
+	<br />   
+    
+	<div class="row">
 		<div class="span12">
 	
 			<div class="span4">
+            <hr />
 				<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+                <?php echo $this->Form->input('show', array('type' => 'checkbox', 'label' => 'Show')); ?><br />
+                <?php echo $this->Form->input('more', array('type' => 'checkbox', 'label' => 'More products coming?')); ?>
 	
-				<br />
 				<br />
 				<?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
 				<?php echo $this->Form->end(); ?>
-	
-				
+				<br />
+			
 			</div>
 		</div>
 	</div>
