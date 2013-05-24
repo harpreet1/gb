@@ -20,7 +20,7 @@
 
 		<div class="tradition-summary">
         <span class="gb-heading"><?php echo h($tradition['Tradition']['name']); ?>: </span>
-			<?php echo $this->Text->truncate($tradition['Tradition']['summary'],140,	array('ellipsis' => '...','exact' => 'false')); ?>
+			<?php echo ($tradition['Tradition']['summary']); ?>
 
 		</div>
 
