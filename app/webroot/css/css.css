@@ -488,6 +488,14 @@ h2.product-name {
 	font-weight: 600;
 }
 
+span.description {
+	font-size: 11px;
+}
+
+span.description p {
+	line-height:10px;
+}
+
 .minimum {
 	font-style:italic;
 	font-size:11px;

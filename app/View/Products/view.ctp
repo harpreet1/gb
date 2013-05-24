@@ -411,7 +411,9 @@
 
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 
-				<p><?php echo $product['Product']['description']; ?></p>
+				<span class="description"><?php echo $product['Product']['description']; ?></span>
+                
+                <hr style="margin:10px 0;clear:both" />
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
 
