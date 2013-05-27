@@ -41,7 +41,7 @@ class CategoriesController extends AppController {
 
 		$args = array_unique(func_get_args());
 		//debug($args);
-
+		
 		$category = $this->Category->find('first', array(
 			'recursive' => -1,
 			'fields' => array(
@@ -190,6 +190,9 @@ class CategoriesController extends AppController {
 				'Product.price',
 				'Product.brand_id',
 				'Product.displaygroup',
+				'Product.auxcategory_1',
+				'Product.auxcategory_2',
+				'Product.auxcategory_3',
 				'User.id',
 				'User.name',
 				'User.slug',
