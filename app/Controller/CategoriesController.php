@@ -41,7 +41,7 @@ class CategoriesController extends AppController {
 
 		$args = array_unique(func_get_args());
 		//debug($args);
-		
+
 		$category = $this->Category->find('first', array(
 			'recursive' => -1,
 			'fields' => array(
@@ -87,23 +87,20 @@ class CategoriesController extends AppController {
 				'Subcategory.name' => 'ASC'
 			),
 		));
-//		debug($subcategories);
+		// debug($subcategories);
 		$this->set(compact('subcategories'));
-		
-		
 
 		$productconditions = array(
 			'User.active' => 1,
 			'Product.active' => 1,
-				'OR' => array(			
-					'Product.category_id' => $category['Category']['id'],
-					'Product.auxcategory_1' => $category['Category']['id'],
-					'Product.auxcategory_2' => $category['Category']['id'],
-					'Product.auxcategory_3' => $category['Category']['id'],
-			),			
+			'OR' => array(
+				'Product.category_id' => $category['Category']['id'],
+				'Product.auxcategory_1' => $category['Category']['id'],
+				'Product.auxcategory_2' => $category['Category']['id'],
+				'Product.auxcategory_3' => $category['Category']['id'],
+			),
 		);
-		
-		
+
 		//$auxcategories = $this->Category->Product->auxcategories();
 		//debug($auxcategories);
 
@@ -124,8 +121,6 @@ class CategoriesController extends AppController {
 					'Subcategory.slug' => $args[1]
 				)
 			));
-
-
 
 			//debug($subcategory);
 			$this->set(compact('subcategory'));
@@ -161,7 +156,6 @@ class CategoriesController extends AppController {
 				)
 			));
 
-
 			//debug($subsubcategories);
 			$this->set(compact('subsubcategories'));
 		}
@@ -183,7 +177,7 @@ class CategoriesController extends AppController {
 				)
 			));
 
-//			debug($subsubcategory);
+			// debug($subsubcategory);
 			$this->set(compact('subsubcategory'));
 			//if(!empty($subsubcategory)) {
 				$productconditions[] = array(
@@ -191,7 +185,6 @@ class CategoriesController extends AppController {
 				);
 			//}
 		}
-
 
 		$this->paginate = array(
 			'recursive' => -1,
@@ -220,14 +213,31 @@ class CategoriesController extends AppController {
 		$products = $this->paginate('Product');
 
 		$this->set(compact('products'));
-		
-		
-//		$article = $this->Article->find('first', array(
-//			'conditions' => array(
-//				'Article.block_id' => 5
-//			)
-//		));
-//		$this->set(compact('article'));
+
+		$auxcat1 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_1'));
+		$auxcat2 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_2'));
+		$auxcat3 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_3'));
+		$auxcategoriesIds = array_filter($auxcat1 + $auxcat2 + $auxcat3, 'strlen');
+
+		$auxcategories = $this->Category->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Category.id',
+				'Category.slug',
+				'Category.name',
+			),
+			'conditions' => array(
+				'Category.id' => $auxcategoriesIds
+			)
+		));
+		$this->set(compact('auxcategories'));
+
+		// $article = $this->Article->find('first', array(
+		// 	'conditions' => array(
+		// 		'Article.block_id' => 5
+		// 	)
+		// ));
+		// $this->set(compact('article'));
 
 	}
 
