@@ -219,6 +219,10 @@ class CategoriesController extends AppController {
 		$auxcat3 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_3'));
 		$auxcategoriesIds = array_filter($auxcat1 + $auxcat2 + $auxcat3, 'strlen');
 
+		if(($key = array_search($category['Category']['id'], $auxcategoriesIds)) !== false) {
+			unset($auxcategoriesIds[$key]);
+		}
+
 		$auxcategories = $this->Category->find('all', array(
 			'recursive' => -1,
 			'fields' => array(
