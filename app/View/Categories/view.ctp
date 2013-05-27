@@ -48,7 +48,7 @@
 	<!-- Loop through for auxcategory lookup -->
 
 	<?php foreach ($auxcategories as $auxcategory): ?>
-		<?php echo $this->Html->link($auxcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', 'slug' => $auxcategory['Category']['slug'])); ?><br />
+		<img src="/img/global/dash-4.png"><?php echo $this->Html->link($auxcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', 'slug' => $auxcategory['Category']['slug'])); ?><br />
 
 	<?php endforeach; ?>
 
