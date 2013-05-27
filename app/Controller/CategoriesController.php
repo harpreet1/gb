@@ -100,11 +100,12 @@ class CategoriesController extends AppController {
 					'Product.auxcategory_1' => $category['Category']['id'],
 					'Product.auxcategory_2' => $category['Category']['id'],
 					'Product.auxcategory_3' => $category['Category']['id'],
-				),
-			
-			
-			
+			),			
 		);
+		
+		
+		//$auxcategories = $this->Category->Product->auxcategories();
+		//debug($auxcategories);
 
 		if(isset($args[1])) {
 			$subcategory =  $this->Category->Product->find('first', array(

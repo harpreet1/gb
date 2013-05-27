@@ -174,59 +174,40 @@ class Product extends AppModel {
 	
 ///////////////////////////////////////////////////////////////////
 
-	public function auxcategories() {
-		
-		$auxcategories = array(
-			'31' => 'Accessories',
-			'1' => 'Appetizers',
-			'2' => 'Bakery',
-			'4' => 'Beverages',
-			'30' => 'Books',
-			'28' => 'Chocolates',
-			'26' => 'Coffee',
-			'5' => 'Condiments',
-			'18' => 'Confections',
-			'6' => 'Dairy',
-			'13' => 'Desserts',
-			'25' => 'Fish & Seafood',
-			'7' => 'Fruits',
-			'8' => 'Grains & Cereals',
-			'27' => 'Herbs and Spices',
-			'29' => 'Jams & Syrups',
-			'3' => 'Legumes & Beans',
-			'23' => 'Lifestyle Products',
-			'9' => 'Meats & Poultry',
-			'10' => 'Nuts & Seeds',
-			'11' => 'Oils & Vinegars',
-			'12' => 'Pasta & Noodles',
-			'16' => 'Rice',
-			'17' => 'Sauces & Marinades',
-			'21' => 'Snacks',
-			'22' => 'Soups & Prepared Foods',
-			'19' => 'Teas',
-			'20' => 'Vegetables & Potatoes',
-		);
-		
-		
-	//	$aux_2_categories = $auxcategories;
-	//	$aux_3_categories = $auxcategories;
-		
-		return $auxcategories;
-		
-		$aux_2_categories = $auxcategories;
-	//	$aux_3_categories = $auxcategories;
-		//return $auxonecategories;
-		//return $aux_2_categories;
-		//return $aux_3_categories;
-		
-		
-		
-	}
+//	public function auxcategories() {
+//		
+//		$auxcategories = array(
+//			'31' => 'Accessories',
+//			'1' => 'Appetizers',
+//			'2' => 'Bakery',
+//			'4' => 'Beverages',
+//			'30' => 'Books',
+//			'28' => 'Chocolates',
+//			'26' => 'Coffee',
+//			'5' => 'Condiments',
+//			'18' => 'Confections',
+//			'6' => 'Dairy',
+//			'13' => 'Desserts',
+//			'25' => 'Fish & Seafood',
+//			'7' => 'Fruits',
+//			'8' => 'Grains & Cereals',
+//			'27' => 'Herbs and Spices',
+//			'29' => 'Jams & Syrups',
+//			'3' => 'Legumes & Beans',
+//			'23' => 'Lifestyle Products',
+//			'9' => 'Meats & Poultry',
+//			'10' => 'Nuts & Seeds',
+//			'11' => 'Oils & Vinegars',
+//			'12' => 'Pasta & Noodles',
+//			'16' => 'Rice',
+//			'17' => 'Sauces & Marinades',
+//			'21' => 'Snacks',
+//			'22' => 'Soups & Prepared Foods',
+//			'19' => 'Teas',
+//			'20' => 'Vegetables & Potatoes',
+//		);
+//		
+//	}
 	
-	//$auxonecategories = $auxcategories;
-	
-	
-	
-
 
 }

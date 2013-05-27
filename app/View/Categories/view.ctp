@@ -6,13 +6,13 @@
 
 	</h3>
 	<hr class="category">
-	
+
 
 	<span class="cat-quote"><?php echo $category['Category']['quote'] ?></span>
-	
-		
-		
-			
+
+
+
+
 		<p class="gb-heading category"><?php echo $this->Html->link($category['Category']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'])); ?></p>
 
 		<?php if(!empty($subcategories)) : ?>
@@ -20,7 +20,7 @@
 			<?php foreach ($subcategories as $subcategories1): ?>
 
 					<img src="/img/global/dash-2.png"><?php echo $this->Html->link($subcategories1['Subcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategories1['Subcategory']['slug'])); ?>
-					
+
 					<br />
 
 					<?php if(!empty($subsubcategories)) : ?>
@@ -28,48 +28,78 @@
 						<?php foreach ($subsubcategories as $subsubcategories1): ?>
 
 							<?php $thisparent = ($subcategories1['Subcategory']['slug']) ;?>
-						 
+
 							<?php if ($thisparent == ($subcategory['Subcategory']['slug'])	) : ?>
 
 									<img src="/img/global/dash-4.png"><?php echo $this->Html->link($subsubcategories1['Subsubcategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['Category']['slug'], $subcategory['Subcategory']['slug'], $subsubcategories1['Subsubcategory']['slug'])); ?>
 									<br />
-									
+
 							<?php endif; ?>  
-														  
+
 						<?php endforeach; ?>
-			
+
 					<?php endif; ?>
-				
+
 			<?php endforeach; ?>
 
 		<?php endif; ?>
 
 
+	<?php //foreach ($auxcategories as $auxcategories1): ?>
+
+<div class="gb-heading red title">Related Categories:</div>
+	<!-- Loop through for auxcategory lookup -->
+	<?php $test = array(); ?>
+	
+	<?php
+		$i = 0;
+		foreach ($products as $product):
+		$i++;
+	?>
+		<?php if (!in_array(($product['Product']['auxcategory_1']), ($test)) && ($product['Product']['auxcategory_1']) !== NULL) : ?>
+			<?php $test[] = ($product['Product']['auxcategory_1']); ?>
+			<?php echo($product['Product']['auxcategory_1']); ?><br />
+		<?php endif; ?>
+		
+		<?php if (!in_array(($product['Product']['auxcategory_2']), ($test)) && ($product['Product']['auxcategory_2']) !== NULL) : ?>
+			<?php $test[] = ($product['Product']['auxcategory_2']); ?>
+			<?php echo($product['Product']['auxcategory_2']); ?><br />
+		<?php endif; ?>
+		
+		<?php if (!in_array(($product['Product']['auxcategory_3']), ($test)) && ($product['Product']['auxcategory_3']) !== NULL) : ?>
+			<?php $test[] = ($product['Product']['auxcategory_3']); ?>
+			<?php echo($product['Product']['auxcategory_3']); ?>
+		<?php endif; ?>
+		
+	<?php endforeach; ?>
 
 
+
+	
+
+		<?php //debug($test) ; //$auxcategories1['Product']['auxcategory_1'] ?>       
+
+	<?php //endforeach ; ?>
+
+	<?php //debug($auxcategories); ?>
 
 	<div class="category-summary">
 	
 		<div class="small-cat-logo">
 			<?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		</div>
-    
 
 
-		
-        <div><?php echo $this->Text->truncate($category['Category']['summary'], 1200, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?></div>
 
-    
-	
-		
+
+		<div><?php echo $this->Text->truncate($category['Category']['summary'], 1200, array('ellipsis' => ' ... &nbsp;', 'exact' => 'false')); ?></div>
+
+
 		<?php //echo $this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')); ?>
-        
- 
- 
- 
-        
+
+
 		 <a href="<?php $home = $this->Html->url('/', true) ?><?php echo($home); ?>articles/the-well-stocked-pantry/<?php echo $category['Category']['slug'] ?>">Read more of this story...</a>
-         
+		 
 
 	</div>
 
@@ -124,6 +154,7 @@
 		<div class="cat-product-block">
 
 			<div class="row">
+
 				<?php
 					$i = 0;
 					foreach ($products as $product):
@@ -150,6 +181,8 @@
 
 						<div class="brand">
 						<?php echo $this->Html->link($product['User']['name'], array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'index')); ?>
+						<?php //echo $product['Product']['auxcategory_1'] ; ?>
+						
 						</div>
 
 					</div>
@@ -161,6 +194,7 @@
 			</div>
 		</div>
 
+
 		<div class="cat-product-block">
 
 			<div class="row">
@@ -171,8 +205,10 @@
 			</div>
 		</div>
 
-
+	   
 	<div class="row">
+	
+	 <?php //debug ($test); ?>
 		<div class="span12">
 
 			<?php echo $this->element('pagination-counter'); ?>
@@ -191,7 +227,7 @@
 
 <div class="row">
 
-
+<?php /*?>
 <!-- Category Story -->
 <!--<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
 
@@ -233,5 +269,5 @@
 				<?php endif; ?>
 
 </div>-->
-
+<?php */?>
 </div>

@@ -2152,6 +2152,13 @@ hr.article-divide {
 	color: #c00;
 }
 
+.gb-heading.red.title {
+	font-size: 20px;
+	color: #c00;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 .gb-heading.list {
 	margin-bottom:4px;
 }

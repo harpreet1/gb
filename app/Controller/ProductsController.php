@@ -1217,14 +1217,6 @@ class ProductsController extends AppController {
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
-		$auxcategories = $this->Product->auxcategories();
-
-		//$aux_2_categories = $this->Product->aux_2_categories();
-
-		//$aux_2_categories = $this->Product->auxcategories();
-
-		//$aux_3_categories = $this->Product->auxcategories();
-
 		$displaygroups = $this->Product->displaygroups();
 
 		$brands = $this->Product->Brand->findList();
@@ -1233,7 +1225,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups', 'auxcategories'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups'));
 
 	}
 
