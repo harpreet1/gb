@@ -11,6 +11,7 @@
         
         <div id="subcat-menu">
             <div> <?php echo $ustradition['Ustradition']['summary']; ?> </div>
+			<a style="font-style:italic" href="/articles/excellent-food-advenures/<?php echo $ustradition['Ustradition']['slug']; ?>">Read more</a>
             
         </div>
         

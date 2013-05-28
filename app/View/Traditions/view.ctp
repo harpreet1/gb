@@ -3,6 +3,8 @@
 		<div style="margin-bottom:20px;margin-left:0px;">
 			<img style="width:235px" src="/img/traditions/image_logo/<?php echo ($tradition['Tradition']['logo_image']); ?>" />
 		</div>
+		
+		
 
 		<?php /*?><div style="height:38px;">
 			<ul class="navList gb-">
@@ -21,6 +23,7 @@
 		<div class="tradition-summary">
         <span class="gb-heading"><?php echo h($tradition['Tradition']['name']); ?>: </span>
 			<?php echo ($tradition['Tradition']['summary']); ?>
+			<a style="font-style:italic" href="/articles/excellent-food-advenures/<?php echo $tradition['Tradition']['slug']; ?>">Read more</a>
 
 		</div>
 

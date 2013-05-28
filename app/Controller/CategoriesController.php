@@ -144,9 +144,6 @@ class CategoriesController extends AppController {
 					'User.active' => 1,
 					'Product.active' => 1,
 					'Product.category_id' => $category['Category']['id'],
-					'Product.auxcategory_1' => $category['Category']['id'],
-					'Product.auxcategory_2'  => $category['Category']['id'],
-					'Product.auxcategory_3'  => $category['Category']['id'],
 					'Product.subcategory_id' => $subcategory['Subcategory']['id'],
 					'Product.subsubcategory_id >' => 0,
 					'Subsubcategory.name >' => ''
@@ -205,6 +202,10 @@ class CategoriesController extends AppController {
 				'User.slug',
 				'User.more',
 			),
+			'order' => array(
+				'Product.name' => 'ASC',
+				'Product.name' => 'ASC',
+			),
 			'conditions' => $productconditions,
 			'limit' => 20,
 			'paramType' => 'querystring',
@@ -234,6 +235,9 @@ class CategoriesController extends AppController {
 				'Category.id' => $auxcategoriesIds
 			)
 		));
+		
+		debug($auxcategories);
+		
 		$this->set(compact('auxcategories'));
 
 		// $article = $this->Article->find('first', array(
