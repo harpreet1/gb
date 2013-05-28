@@ -41,14 +41,13 @@
 
 		<?php endif; ?>
 
-
-	<?php //foreach ($auxcategories as $auxcategories1): ?>
-
-<div class="gb-heading red title">Related Categories:</div>
+<?php if(!empty($auxcategories)) : ?>
+	<div class="gb-heading red title">Related Categories:</div>
+<?php endif; ?>
 	<!-- Loop through for auxcategory lookup -->
 
 	<?php foreach ($auxcategories as $auxcategory): ?>
-		<img src="/img/global/dash-2.png"><?php echo $this->Html->link($auxcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', 'slug' => $auxcategory['Category']['slug'])); ?><br />
+		<?php echo $this->Html->link($auxcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', 'slug' => $auxcategory['Category']['slug'])); ?><br />
 
 	<?php endforeach; ?>
 

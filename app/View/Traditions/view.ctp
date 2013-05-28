@@ -4,7 +4,7 @@
 			<img style="width:235px" src="/img/traditions/image_logo/<?php echo ($tradition['Tradition']['logo_image']); ?>" />
 		</div>
 
-		<div style="height:38px;">
+		<?php /*?><div style="height:38px;">
 			<ul class="navList gb-">
 				<li><a href="#">About Each Region</a>
 					<!-- This is the sub nav -->
@@ -17,7 +17,7 @@
 				</li>
 			</ul>
 		</div>
-
+<?php */?>
 		<div class="tradition-summary">
         <span class="gb-heading"><?php echo h($tradition['Tradition']['name']); ?>: </span>
 			<?php echo ($tradition['Tradition']['summary']); ?>
