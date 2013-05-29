@@ -71,7 +71,7 @@
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern-europe">Eastern and Central Europe</a></p>
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/japan">Japan</a></p>
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/korea">Korea</a></p>
-					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean-europe">Mediterranean Europe</a></p>
+					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean">Mediterranean Europe</a></p>
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico">Mexico</a></p>
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle-east">Middle East</a></p>
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north-america">North America / Canada</a></p>
