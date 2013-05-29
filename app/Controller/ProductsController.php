@@ -224,7 +224,13 @@ class ProductsController extends AppController {
 				'Subsubcategory',
 				'Brand',
 				'User' => array(
-					'fields' => array('image', 'shipping_policy', 'mini_shipping_policy', 'name', 'slug'),
+					'fields' => array(
+						'User.image',
+						'User.shipping_policy',
+						'User.mini_shipping_policy',
+						'User.name',
+						'User.slug'
+					),
 				),
 			),
 			'conditions' => array(
@@ -232,6 +238,32 @@ class ProductsController extends AppController {
 				'Product.active' => 1,
 			)
 		));
+
+		// debug($product);
+
+		$auxcategoriesIds = array($product['Product']['auxcategory_1'], $product['Product']['auxcategory_2'], $product['Product']['auxcategory_3']);
+
+		debug($auxcategoriesIds);
+
+		$auxcategories = $this->Product->Category->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Category.id',
+				'Category.slug',
+				'Category.name',
+			),
+			'conditions' => array(
+				'Category.id' => $auxcategoriesIds
+			),
+			'order' => array(
+				'Category.name' => 'ASC'
+			)
+		));
+
+		debug($auxcategories);
+
+		$this->set(compact('auxcategories'));
+
 
 		if($vendorshop && ($subDomain != $product['User']['slug'])) {
 			$this->redirect(array('action' => 'index'), 301);

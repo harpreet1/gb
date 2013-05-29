@@ -122,7 +122,7 @@ class CategoriesController extends AppController {
 				)
 			));
 
-			//debug($subcategory);
+			// debug($subcategory);
 			$this->set(compact('subcategory'));
 
 			//if(!empty($subcategory)) {
@@ -185,7 +185,10 @@ class CategoriesController extends AppController {
 
 		$this->paginate = array(
 			'recursive' => -1,
-			'contain' => array('User'),
+			'contain' => array(
+				'User',
+				'Category',
+			),
 			'fields' => array(
 				'Product.id',
 				'Product.name',
@@ -194,6 +197,7 @@ class CategoriesController extends AppController {
 				'Product.price',
 				'Product.brand_id',
 				'Product.displaygroup',
+				'Product.category_id',
 				'Product.auxcategory_1',
 				'Product.auxcategory_2',
 				'Product.auxcategory_3',
@@ -202,11 +206,11 @@ class CategoriesController extends AppController {
 				'User.slug',
 				'User.more',
 			),
+			'conditions' => $productconditions,
 			'order' => array(
-				'Product.name' => 'ASC',
+				'Category.name' => 'ASC',
 				'Product.name' => 'ASC',
 			),
-			'conditions' => $productconditions,
 			'limit' => 20,
 			'paramType' => 'querystring',
 		);
@@ -215,13 +219,16 @@ class CategoriesController extends AppController {
 
 		$this->set(compact('products'));
 
+		$cat1 = array_unique(Hash::extract($products, '{n}.Product.category_id'));
 		$auxcat1 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_1'));
 		$auxcat2 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_2'));
 		$auxcat3 = array_unique(Hash::extract($products, '{n}.Product.auxcategory_3'));
-		$auxcategoriesIds = array_filter($auxcat1 + $auxcat2 + $auxcat3, 'strlen');
+		$auxcategoriesIds = array_filter($cat1 + $auxcat1 + $auxcat2 + $auxcat3, 'strlen');
 
-		if(($key = array_search($category['Category']['id'], $auxcategoriesIds)) !== false) {
-			unset($auxcategoriesIds[$key]);
+		foreach ($auxcategoriesIds as $key => $value) {
+			if($value == $category['Category']['id']) {
+				unset($auxcategoriesIds[$key]);
+			}
 		}
 
 		$auxcategories = $this->Category->find('all', array(
@@ -233,11 +240,14 @@ class CategoriesController extends AppController {
 			),
 			'conditions' => array(
 				'Category.id' => $auxcategoriesIds
+			),
+			'order' => array(
+				'Category.name' => 'ASC'
 			)
 		));
-		
+
 		debug($auxcategories);
-		
+
 		$this->set(compact('auxcategories'));
 
 		// $article = $this->Article->find('first', array(

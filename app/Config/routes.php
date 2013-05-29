@@ -21,7 +21,7 @@
 	Router::connect('/category/:slug', array('controller' => 'products', 'action' => 'category'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 	Router::connect('/category/*', array('controller' => 'products', 'action' => 'category'), array('routeClass' => 'SubdomainRoute'));
 
-	Router::connect('/foods/:slug', array('controller' => 'categories', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+	Router::connect('/foods/*', array('controller' => 'categories', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
 	//Router::connect('/subcategory/:slug', array('controller' => 'products', 'action' => 'subcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 

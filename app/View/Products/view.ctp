@@ -23,10 +23,22 @@
 
 						<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
 
-				<?php //endif; ?>
+					<?php //endif; ?>
 
 					<br />
-					<?php endif; ?>
+					<br />
+					<br />
+
+						<strong>Related Foods</strong>
+						<br />
+
+						<?php foreach ($auxcategories as $auxcategory): ?>
+							<?php echo $this->Html->link($auxcategory['Category']['name'], array('controller' => 'categories', 'action' => 'view', $auxcategory['Category']['slug'])); ?><br />
+
+						<?php endforeach; ?>
+
+
+				<?php endif; ?>
 
 		<?php endif; ?>
 	</div>
@@ -119,7 +131,7 @@
 					$serv = 'unloaded';
 					$recipes = 'unloaded';
 					$nutrition = 'unloaded';
-									
+
 
 					if(!empty($product['Product']['generic_description'])) :
 						$description = 'loaded';
@@ -147,10 +159,10 @@
 					endif;?>
 
 
-					<?php if(!empty($product['Product']['generic_description'])) : 
+					<?php if(!empty($product['Product']['generic_description'])) :
 							if ($ingredients == 'loaded') : ?>
 							<li><a href="#more" data-toggle="tab">More...</a></li>
-                        <?php else : ?> 
+                        <?php else : ?>
                         	<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
                         <?php endif;?>
 					<?php $description = 'loaded';
@@ -365,27 +377,27 @@
 			</div>
 
 			<div class="span5 product-description">
-            
+
 					<div class="purchase-block">
 
                         <div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
-                        
-                            
+
+
                                 <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
                                 <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
-                                
+
 							<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
 								Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
                             <?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-inverse', 'escape' => false));?>
                             <?php else: ?>
                             	<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
                         	<?php endif; ?>
-                            
+
 							<?php echo $this->Form->end(); ?>
-                   		</div> 
-                    
+                   		</div>
+
 					</div>
-                    
+
                     <script>
 						var load = '<img class="brand" src="/img/brands/image/ ';
 					</script>
@@ -393,11 +405,11 @@
 				<?php if(!empty($product['Brand']['image'])) : ?>
                 	<?php $load_image = $product['Brand']['image'] ;?>
                 <?php endif ;?>
-                
+
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
 					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom"  data-content="<img class='brand' src='/img/brands/image/<?php echo ($product['Brand']['image']);?>'>
-					
+
 					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
 				<span><img class="hand" src="/img/global/hand.png"/></span>
@@ -412,7 +424,7 @@
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 
 				<span class="description"><?php echo $product['Product']['description']; ?></span>
-                
+
                 <hr style="margin:10px 0;clear:both" />
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
@@ -420,7 +432,7 @@
 
 				<?php /*?><?php if(!empty($product['Product']['ingredients'])) : ?>
 					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
-               
+
 
 				<?php endif; ?>
 <?php */?>
@@ -443,20 +455,20 @@
                     <br />
 
 				<?php endif; ?>
-				
-                            
+
+
                        <?php if(!empty($user['User']['min_purchase'])) : ?>
-                    
+
                     <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
 				<?php endif; ?>
-                                
-				
+
+
                        <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
-                    
+
                     <div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
                     <br />
 				<?php endif; ?>
-                                
+
 
 				</div>
 			</div>
@@ -505,7 +517,7 @@
 			<?php endif; ?>
 
 			<br />
-			
+
 
 			<br />
 			<br />
@@ -528,10 +540,10 @@
 			<!--Facebook -->
 
 			<br />
-            
+
              <img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" style="float:right; padding:20px;"/>
             <hr />
-           
+
             <div class="disclaimer"> Disclaimer:  Every effort has been made to ensure the data presented on this page is accurate.  It is provided to you for reference only.  We assume no liability for inaccuracies due to typographical errors or packaging changes.  Please carefully read the actual package before consuming.  </div>
 			<br />
 
