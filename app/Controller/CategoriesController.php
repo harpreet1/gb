@@ -246,7 +246,7 @@ class CategoriesController extends AppController {
 			)
 		));
 
-		debug($auxcategories);
+		//debug($auxcategories);
 
 		$this->set(compact('auxcategories'));
 
