@@ -17,7 +17,7 @@ class UspsComponent extends Component {
 
 		$xml = $this->buildRequest($data);
 
-		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . 'API=RateV4&XML=' . urlencode($xml);
+		$url = ' https://secure.shippingapis.com/ShippingAPI.dll?' . 'API=RateV4&XML=' . urlencode($xml);
 
 		$response = @file_get_contents($url);
 
