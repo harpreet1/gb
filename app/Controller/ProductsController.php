@@ -243,7 +243,7 @@ class ProductsController extends AppController {
 
 		$auxcategoriesIds = array($product['Product']['auxcategory_1'], $product['Product']['auxcategory_2'], $product['Product']['auxcategory_3']);
 
-		debug($auxcategoriesIds);
+		//debug($auxcategoriesIds);
 
 		$auxcategories = $this->Product->Category->find('all', array(
 			'recursive' => -1,
@@ -260,7 +260,7 @@ class ProductsController extends AppController {
 			)
 		));
 
-		debug($auxcategories);
+		//debug($auxcategories);
 
 		$this->set(compact('auxcategories'));
 
