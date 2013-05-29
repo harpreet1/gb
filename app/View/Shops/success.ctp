@@ -22,9 +22,9 @@ h2 {
 <img src="/img/users/logos/GB-logo-final-100.png" width="125" height="100" />
 <br />
 
-<pre>
-	<?php print_r($shop); ?>
-</pre>
+
+	<?php //print_r($shop); ?>
+
 
 <br />
 <br />
