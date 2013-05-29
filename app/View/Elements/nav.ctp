@@ -71,21 +71,21 @@
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/british-isles">British Isles &amp; Ireland</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/china">China and Taiwan</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/central_america">Central America</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern_europe">Eastern and Central Europe</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/central-america">Central America</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/eastern-europe">Eastern and Central Europe</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/japan">Japan</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/korea">Korea</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean_europe">Mediterranean Europe</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mediterranean-europe">Mediterranean Europe</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/mexico">Mexico</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle_east">Middle East</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north_america">North America / Canada</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/middle-east">Middle East</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/north-america">North America / Canada</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/oceania">Oceania</a></p>
                     <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/scandinavia">Scandinavia</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/southeast_asia">Southeast Asia</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_america">South America</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south_asia">South Asia</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the_caribbean">The Caribbean</a></p>
-                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western_europe">Western Europe</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/southeast-asia">Southeast Asia</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south-america">South America</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/south-asia">South Asia</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/the-caribbean">The Caribbean</a></p>
+                    <p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/western-europe">Western Europe</a></p>
                     <p></p>
                     <?php /*?><span class="special"><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/traditions">[ The World Map Tool ]</a></span><?php */?>
                 

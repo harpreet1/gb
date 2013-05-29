@@ -22,9 +22,8 @@
         <?php endforeach; ?>
         </div>
     </div>
-    
-    
-    <div class="span8" style="width:690px;margin-left:0px;">
+
+<div class="span8" style="width:690px;margin-left:0px;">
     
         <div class="awning"> 
            
