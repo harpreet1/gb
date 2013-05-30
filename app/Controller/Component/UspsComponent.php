@@ -16,9 +16,9 @@ class UspsComponent extends Component {
 	public function getRate($data = null) {
 
 		$xml = $this->buildRequest($data);
-		
+
 		$url = 'http://production.shippingapis.com/ShippingAPI.dll?' . 'API=RateV4&XML=' . urlencode($xml);
-		//echo('here');
+
 		$response = @file_get_contents($url);
 
 		$response = str_replace('&amp;lt;sup&amp;gt;&amp;amp;reg;&amp;lt;/sup&amp;gt;', '', $response);
@@ -71,7 +71,7 @@ class UspsComponent extends Component {
 		$ounces = round(16 * ($weight - $pounds), 2);
 
 		$xml = '<RateV4Request USERID="' . Configure::read('Settings.USPS_USERID') . '">
-					<Package ID="1>
+					<Package ID="1">
 						<Service>ALL</Service>
 						<ZipOrigination>' . substr($this->defaults['UserZipCode'], 0, 5) . '</ZipOrigination>
 						<ZipDestination>' . substr($this->defaults['CustomerZipCode'], 0, 5) .'</ZipDestination>
