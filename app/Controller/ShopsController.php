@@ -417,7 +417,7 @@ class ShopsController extends AppController {
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-				->to('er777@reyesworld.com')
+				->to($vendor['email_orders'])
 				->subject('Gourmet Basket Shop Order - Vendor Copy')
 				->template('order-vendor')
 				->emailFormat('html')
