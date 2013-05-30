@@ -439,7 +439,7 @@
 			<div class="row">
 				<div class="span12 pagination-block">
 
-					<span class="pagination-counter"<?php echo $this->element('pagination-counter'); ?></span>
+					<!--<span class="pagination-counter"<?php echo $this->element('pagination-counter'); ?></span>-->
 					<?php echo $this->element('pagination'); ?>
 
 				</div>
