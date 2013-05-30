@@ -95,6 +95,9 @@
 				$(thisdiv).collapse("hide");
 			}
 		);
+		
+
+	
 
 	})(jQuery);
 
@@ -102,10 +105,22 @@
 
 </head>
 <body>
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="outer-wrapper">
-
+	
 	<div id="header">
+	
+	<div class="social-main">
+		<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms" data-action="recommend"></div>
+	</div>
 
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
 			<div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>

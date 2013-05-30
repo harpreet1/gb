@@ -408,7 +408,7 @@
 
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
-					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom"  data-content="<img class='brand' src='/img/brands/image/<?php echo ($product['Brand']['image']);?>'>
+					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo ($product['Brand']['image']);?>'>
 
 					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
@@ -428,14 +428,7 @@
                 <hr style="margin:10px 0;clear:both" />
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
-
-
-				<?php /*?><?php if(!empty($product['Product']['ingredients'])) : ?>
-					<span class="product-label">Ingredients: </span><?php echo $product['Product']['ingredients']; ?>
-
-
-				<?php endif; ?>
-<?php */?>
+	
                 <span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
                 <br />
 
@@ -444,7 +437,11 @@
 				<?php if(!empty($product['Product']['country'])) : ?>
 
 				Made in&nbsp;<?php echo $product['Product']['country']; ?>
-				<br /><br />
+				<br />
+				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
+					<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms" data-action="recommend"></div>
+				</div>
+				
 				<?php endif; ?>
 
 

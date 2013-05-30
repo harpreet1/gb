@@ -27,7 +27,7 @@ ul {
 }
 hr {
 	border-top: 1px solid #CCC;
-	border-bottom: 1px solid #FFF;
+	border-bottom: 1px solid #FFF
 	margin: 20px 0;
 }
 .center {
@@ -2481,6 +2481,17 @@ hr.thin.tight {
 	border: 0;
 	border-top: 1px solid #c00;
 	border-bottom: none;
+	
+}
+
+/** Social **/
+
+.social-main {
+	float:right;
+	margin-top:67px;
+}
+
+.social-aux {
 	
 }
 
