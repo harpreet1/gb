@@ -129,13 +129,13 @@ class ShopsController extends AppController {
 
 					if($user['flat_shipping'] != 1) {
 
-						$shipping_companies = array('Usps', 'ups', 'fedex');
+						$shipping_companies = array('usps', 'ups', 'fedex');
 						if (in_array($user['shipping_method'], $shipping_companies)) {
-	
+
 							$shippingMethod = ucfirst($user['shipping_method']);
-							echo($shippingMethod);
+
 							$result = $this->$shippingMethod->getRate($data);
-							
+
 							if(!$result) {
 								$this->Session->setFlash('Unable to rate the shipment');
 								$this->redirect(array('action' => 'address'));
