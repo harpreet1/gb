@@ -364,7 +364,7 @@ class ShopsController extends AppController {
 					'fields' => array(
 						'User.id',
 						'User.name',
-						'User.email',
+						'User.email_orders',
 					)
 				)),
 				'OrderItem' => array('User' => array(
