@@ -21,6 +21,124 @@ class ShopsController extends AppController {
 
 ////////////////////////////////////////////////////////////
 
+	public function testapi() {
+
+		$postdata1 = "<?xml version='1.0' encoding='UTF-8'?>
+			<checkout>
+				<shipto>
+					<name>Eddie Reyes</name>
+					<address>3308 Port Royale</address>
+					<city>Fort Lauderdale</city>
+					<state>FL</state>
+					<zip>33308</zip>
+					<country>US</country>
+				</shipto>
+				<shoppingcart>
+					<product>
+						<productid>9900</productid>
+						<quantity>10</quantity>
+					</product>
+					<product>
+						<productid>6061</productid>
+						<quantity>100</quantity>
+					</product>
+				</shoppingcart>
+			</checkout>";
+
+
+		$postdata2 = "<?xml version='1.0'?>
+			<checkout>
+				<success>1</success>
+				<error>
+					<errornumber></errornumber>
+					<errordetail></errordetail>
+				</error>
+				<order>
+					<orderid>1042</orderid>
+					<orderdate>5/31/2013 1:10:49 AM</orderdate>
+					<shippingcharge>6.99</shippingcharge>
+					<total>23.69</total>
+					<orderdetails>
+						<product>
+							<productid>9900</productid>
+							<quantity>2</quantity>
+							<price>3.25</price>
+						</product>
+						<product>
+							<productid>4690</productid>
+							<quantity>15</quantity>
+							<price>0.58</price>
+						</product>
+						<product>
+							<productid>6061</productid>
+							<quantity>1</quantity>
+							<price>1.5</price>
+						</product>
+					</orderdetails>
+					<shipto>
+						<name>John Doe</name>
+						<address>90210 West Hollywood st</address>
+						<city>Hollywood</city>
+						<state>CA</state>
+						<zip>90210</zip>
+						<country>US</country>
+					</shipto>
+				</order>
+			</checkout>";
+
+
+		App::uses('HttpSocket', 'Network/Http');
+		$httpSocket = new HttpSocket();
+		$res = $httpSocket->post(Configure::read('Settings.MAESTRO_API_URL'), $postdata2);
+
+		debug($res);
+
+		App::uses('Xml', 'Utility');
+		$response = Xml::toArray(Xml::build($res['body']));
+
+		debug($response);
+
+
+		debug($response['checkout']['order']['shippingcharge']);
+
+		die('maestro maestro maestro');
+
+		// ErrorNumber: 1000
+		// ErrorDetail: General Processing Error. Pls Contact Tech Suppport
+
+		// ErrorNumber: 1001
+		// ErrorDetail: Credit Card Declined
+
+		// ErrorNumber: 1002
+		// ErrorDetail: Shipping Address Invalid/Incomplete
+
+		// ErrorNumber: 1003
+		// ErrorDetail: Account on file not found
+
+		// ErrorNumber: 3001
+		// ErrorDetail: Invalid XML Format
+
+		// ErrorNumber: 3001
+		// ErrorDetail: Invalid Product ID XXXX
+
+		// ErrorNumber: 3002
+		// ErrorDetail: Product Disabled/No Longer Available.
+
+		// ErrorNumber: 3003
+		// ErrorDetail: Product Quantity Requested Exceeds Available Quantity
+
+		// ErrorNumber: 3004
+		// ErrorDetail: Invalid ProductID or Product is Disabled
+
+		// ErrorNumber: 4004
+		// ErrorDetail: Creating Sale Details failed
+
+
+
+	}
+
+////////////////////////////////////////////////////////////
+
 	public function clear() {
 		$clear = $this->Cart->clear();
 		$this->Session->setFlash('All item(s) removed from your shopping cart', 'flash_error');
@@ -380,8 +498,8 @@ class ShopsController extends AppController {
 			),
 		));
 
-		
-		
+
+
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
 
@@ -413,7 +531,7 @@ class ShopsController extends AppController {
 				if($items['user_id'] == $vendor['user_id']) {
 
 					$vendoritems[] = $items;
-					
+
 				}
 			}
 

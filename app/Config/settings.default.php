@@ -18,6 +18,7 @@ $config = array(
 		'AUTHORIZENET_API_TRANSACTION_KEY' => '',
 		'NMI_gatewayURL' => 'https://secure.networkmerchants.com/api/v2/three-step',
 		'NMI_APIKey' => '',
+		'MAESTRO_API_URL' => '',
 	)
 );
 
