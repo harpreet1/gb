@@ -371,7 +371,7 @@ class ShopsController extends AppController {
 					'fields' => array(
 						'User.id',
 						'User.name',
-						'User.email',
+						'User.email_orders',
 					)
 				)),
 			),
@@ -417,7 +417,7 @@ class ShopsController extends AppController {
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-				->to($vendor['email_orders'])
+				->to($order['User']['email_orders'])
 				->subject('Gourmet Basket Shop Order - Vendor Copy')
 				->template('order-vendor')
 				->emailFormat('html')
