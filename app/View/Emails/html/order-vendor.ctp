@@ -1,4 +1,4 @@
-<style>
+g<style>
 
 body, p, table {
 	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;	
@@ -12,7 +12,7 @@ h2 {
 </style>
 <body>
     <div style="margin-left:30px">
-        <h2>VENDOR COPY</h2>
+        <h2>VENDOR COPY FOR:&nbsp;<?php $vendor['email_orders']; ?></h2>
         
         Shop Order Id: <?php echo $order['Order']['id'];?>
         <br />

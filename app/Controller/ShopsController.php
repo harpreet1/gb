@@ -380,6 +380,8 @@ class ShopsController extends AppController {
 			),
 		));
 
+		
+		
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
 
@@ -411,14 +413,14 @@ class ShopsController extends AppController {
 				if($items['user_id'] == $vendor['user_id']) {
 
 					$vendoritems[] = $items;
-					$email_order = $vendor['email_orders'];
+					
 				}
 			}
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
 				->cc(Configure::read('Settings.ADMIN_EMAIL'))
-				->to($order['User']['email_orders'])
-				->subject('Gourmet Basket Shop Order - Vendor Copy')
+				->to($vendor['User']['email_orders'])
+				->subject('Gourmet Basket Shop Order: ' . $vendor['User']['name'])
 				->template('order-vendor')
 				->emailFormat('html')
 				->viewVars(array('order' => $order, 'vendor' => $vendor, 'vendoritems' => $vendoritems))
