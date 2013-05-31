@@ -111,8 +111,9 @@
 	<div id="header">
 	
 	<div class="social-main">
-		
-	</div>
+		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>
+		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30"></a>		
+		</div>
 
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
 			<div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>
