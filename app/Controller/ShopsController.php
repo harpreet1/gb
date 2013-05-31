@@ -9,7 +9,8 @@ class ShopsController extends AppController {
 		'Usps',
 		'Ups',
 		'Fedex',
-		'AuthorizeNet'
+		'AuthorizeNet',
+		'Maestro',
 	);
 
 ////////////////////////////////////////////////////////////
@@ -265,13 +266,19 @@ class ShopsController extends AppController {
 						}
 
 					} else {
-						$result = array(
-							0 => array(
-								'ServiceCode' => '1',
-								'ServiceName' => 'Flat',
-								'TotalCharges' => $user['shipping']
-							)
-						);
+
+						if ($user['id'] == 11) {
+							$result = $this->Maestro->getRate($data);
+						} else {
+							$result = array(
+								0 => array(
+									'ServiceCode' => '1',
+									'ServiceName' => 'Flat',
+									'TotalCharges' => $user['shipping']
+								)
+							);
+						}
+
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $user['shipping']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
