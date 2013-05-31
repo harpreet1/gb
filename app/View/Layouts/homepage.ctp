@@ -78,10 +78,8 @@
                 <!-- Include Nav element --> 
                 <?php echo $this->element('nav'); ?>
             </div>
-            
-        </div>
-        
-        <div id="account">
+			
+			<div id="account">
             <ul class="gb-horiz-account">
 				<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook-home.png" width="30" height="30" alt="facebook"></a></li>
 				<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter-home.png" width="30" height="30"></a></li>
@@ -89,6 +87,10 @@
                <!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
             </ul>
         </div>
+            
+        </div>
+        
+       
         
         <div id="gb-title"> <img src="img/global/gb-title.png" width="1200" height="160" alt="gourmet-basket" />
             <div class="issue gb-heading">May - June 2013</div>
