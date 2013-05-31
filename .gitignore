@@ -16,6 +16,7 @@ app/tmp/cache/cake_menuvendors
 app/tmp/cache/cake_menucategories
 app/tmp/cache/cake_menublocks
 
+/app/webroot/robots.txt
 /app/webroot/img/global/_notes/gb-title.png.mno
 _notes
 /app/webroot/img/global/_notes/basket.png.mno
