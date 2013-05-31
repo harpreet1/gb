@@ -202,6 +202,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox','label' => 'Nut Free'));
 		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox','label' => 'Heart Smart'));
 		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox','label' => 'No Artificial Preservatives'));
+		echo $this->Form->input('attr_non_gmo', array('type' => 'checkbox','label' => 'No GMO'));
 		echo $this->Form->input('attr_organic', array('type' => 'checkbox','label' => 'Organic'));
 		echo $this->Form->input('attr_kosher', array('type' => 'checkbox','label' => 'Kosher'));
 		echo $this->Form->input('attr_halal', array('type' => 'checkbox','label' => 'Halal'));
