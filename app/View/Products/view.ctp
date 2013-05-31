@@ -16,10 +16,11 @@
 
 				<?php //if(!empty($usercategories)) : ?>
 
-					<a class="gb-nav" href="/">All Our Products</a>
-
+					Go to: <a class="gb-nav" href="/">All Our Products</a>
+					<br />
+					<br />
 					<p class="gb-nav small">
-					<?php if(!empty($product['Category']['name'])) : ?><br />- -</p>
+					<?php if(!empty($product['Category']['name'])) : ?></p>
 
 						<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'products', 'action' => 'category', 'slug' => $product['Category']['slug'])); ?>
 
