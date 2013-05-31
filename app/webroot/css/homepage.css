@@ -121,12 +121,21 @@ a {
 #account {
 	position: absolute;
 	right: 275px;
-	top: 74px;
+	top: 66px;
 }
 ul.gb-horiz-account {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 70%;
+	list-style:none;
+	
 }
+
+li.social {
+	display:inline;
+	margin-left:3px;
+}
+
+
 li.gb-account {
 	display: inline;
 	list-style-image: none;

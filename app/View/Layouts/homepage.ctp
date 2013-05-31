@@ -83,7 +83,8 @@
         
         <div id="account">
             <ul class="gb-horiz-account">
-			<li class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms" data-action="recommend"></li>
+				<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook-home.png" width="30" height="30" alt="facebook"></a></li>
+				<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter-home.png" width="30" height="30"></a></li>
                 <!--<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>-->
                <!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
             </ul>
