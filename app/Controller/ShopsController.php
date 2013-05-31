@@ -411,7 +411,7 @@ class ShopsController extends AppController {
 				if($items['user_id'] == $vendor['user_id']) {
 
 					$vendoritems[] = $items;
-
+					$email_order = $vendor['email_orders'];
 				}
 			}
 
