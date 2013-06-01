@@ -165,6 +165,7 @@
 		
 		<!-- Vendor Story -->
 		<div id="story_content" style="display:none;color:#000;width:960px;background-color:#fff;padding:20px;">
+			<span class="b-close btn-gb"><span>X</span></span>
 
 			<div class="row">
 				<div class="span4 left-corner-air">
