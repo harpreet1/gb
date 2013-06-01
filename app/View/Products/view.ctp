@@ -152,7 +152,7 @@
 
 				?>
 
-				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') || ($nutrition == 'loaded')) : ?>nav-tabs"<?php endif; ?>"id="myTab">
+				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') ) : ?>nav-tabs"<?php endif; ?> id="myTab">
 
 					<?php if(!empty($product['Product']['ingredients'])) : ?>
 						<li class="active"><a href="#ingredients" data-toggle="tab">Ingredients</a></li>
@@ -164,7 +164,7 @@
 							if ($ingredients == 'loaded') : ?>
 							<li><a href="#more" data-toggle="tab">More...</a></li>
                         <?php else : ?>
-                        	<li class="active"><a href="#more" data-toggle="tab">More...</a></li>
+                        	<li><a href="#more" data-toggle="tab">More...</a></li>
                         <?php endif;?>
 					<?php $description = 'loaded';
 					endif;?>
@@ -174,7 +174,7 @@
 							if ($description == 'loaded') : ?>
 							<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
 						<?php else : ?>
-					<li class="active"><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
+					<li><a href="#serving" data-toggle="tab">Serving Ideas</a></li>
 						<?php endif;?>
 					<?php $serv = 'loaded';
 					endif;?>
@@ -184,7 +184,7 @@
 							if ($serv == 'loaded' || $description == 'loaded') : ?>
 					<li><a href="#recipes" data-toggle="tab">Recipes</a></li>
 							<?php else : ?>
-					<li class="active"><a href="#recipes" data-toggle="tab">Recipes</a></li>
+					<li><a href="#recipes" data-toggle="tab">Recipes</a></li>
 							<?php endif;?>
 					<?php $recipes = 'loaded';
 					endif;?>
@@ -216,9 +216,8 @@
 						</div>
 					<?php endif; ?>
 
-					<?php if (($description == 'unloaded') && ($serv == 'loaded')) :
-										$value = 'active';
-								endif; ?>
+					<?php $value = 'active';
+								?>
 
 
 
@@ -228,45 +227,45 @@
 						</div>
 					<?php endif; ?>
 
-					<?php if (($description == 'unloaded') && ($serv == 'loaded')) :
-										$value = 'active';
-								endif; ?>
+					<?php //if (($description == 'unloaded') && ($serv == 'loaded')) :
+										//$value = 'active';
+								//endif; ?>
 
 
 
 
 					<?php if(!empty($product['Product']['serving_suggestions'])) : ?>
-						<div class="tab-pane <?php echo $value; ?>" id="serving">
+						<div class="tab-pane <?php //echo $value; ?>" id="serving">
 					<?php echo ($product['Product']['serving_suggestions']) ; ?>
 						</div>
 					<?php endif; ?>
 
-					<?php if (($description == 'unloaded') && ($serv == 'unloaded') && ($recipes == 'loaded')) :
-										$value2 = 'active';
-								endif; ?>
+					<?php //if (($description == 'unloaded') && ($serv == 'unloaded') && ($recipes == 'loaded')) :
+										//$value2 = 'active';
+								//endif; ?>
 
 
 
 
 					<?php if(!empty($product['Product']['recipes'])) : ?>
-						<div class="tab-pane <?php echo $value2; ?>" id="recipes">
+						<div class="tab-pane <?php //echo $value2; ?>" id="recipes">
 					<?php echo $product['Product']['recipes']; ?>
 						</div>
 					<?php endif; ?>
 
-					<?php if (($description == 'unloaded') && ($serv == 'unloaded') && ($recipes == 'unloaded') &&  ($recipes == 'unloaded') && ($nutrition == 'loaded')) :
-									$value3 = 'active';
-								endif; ?>
+					<?php //if (($description == 'unloaded') && ($serv == 'unloaded') && ($recipes == 'unloaded') &&  ($recipes == 'unloaded') && ($nutrition == 'loaded')) :
+									//$value3 = 'active';
+								//endif; ?>
 
 
 
-					<?php if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== ''
+					<?php //if ( !empty($nuts) //&& $product['Product']['vitamin_a_p'] !== ''
 					//&& $product['Product']['vitamin_c_p'] !== ''
 					//&& $product['Product']['calcium_p'] !== ''
 					//&& $product['Product']['iron_p'] !== ''
-					) : ?>
+					//) : ?>
                     <?php //debug($nuts); ?>
-						<div class="tab-pane <?php echo $value3; ?>" id="nutrition">
+						<div class="tab-pane <?php //echo $value3; ?>" id="nutrition" style="display:none">
 							<table class="NutritionFacts">
 								<tr>
 									<td>
@@ -363,7 +362,7 @@
 								</tr>
 							</table>
 						</div>
-					<?php endif; ?>
+					<?php //endif; ?>
 
 				</div>
 

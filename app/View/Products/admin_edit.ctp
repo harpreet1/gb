@@ -175,7 +175,7 @@ $(document).ready(function(){
 
 	<div class="span5">
 		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
-		<div><?php echo $this->Form->input('generic_description', array('rows' => 20, 'class' => '4span')); ?></div>
+		<div><?php echo $this->Form->input('generic_description', array('rows' => 10, 'class' => '3span')); ?></div>
 	</div>
 
 	<div class="span3 offset1">
