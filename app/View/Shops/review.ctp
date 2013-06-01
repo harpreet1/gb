@@ -231,57 +231,23 @@
 	<form action="<?php echo $formURL;?>" method="POST">
 	<div id="ccbox"> Credit Card Type. </div>
 	<?php //echo $this->Form->input('billing-cc-number', array('class' => 'span2 ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
-	billing-cc-number <br />
+	Credit Card Number<br />
 	<input type="text" name="billing-cc-number" value="">
 
 	<div class="row">
-		<div class="span2"> billing-cc-exp <br />
+		<div class="span2"> Credit Card Expiration (Format: Month and Year: ex <strong>0115</strong> <br />
 			<input type ="text" name="billing-cc-exp" value="">
-			<?php
-
-							echo $this->Form->input('billing-cc-exp', array(
-							'label' => 'Expiration ',
-							'class' => 'span2',
-							 'options' => array(
-								'01' => '01 - January',
-								'02' => '02 - February',
-								'03' => '03 - March',
-								'04' => '04 - April',
-								'05' => '05 - May',
-								'06' => '06 - June',
-								'07' => '07 - July',
-								'08' => '08 - August',
-								'09' => '09 - September',
-								'10' => '10 - October',
-								'11' => '11 - November',
-								'12' => '12 - December'
-							 )
-						)); ?>
+		
 		</div>
 
 		<div class="span2">
-			<?php echo $this->Form->input('creditcard_year', array(
-							 'label' => 'Expiration Year',
-							 'class' => 'span2',
-							 'options' => array(
-								'13' => '2013',
-								'14' => '2014',
-								'15' => '2015',
-								'16' => '2016',
-								'17' => '2017',
-								'18' => '2018',
-								'19' => '2019',
-								'20' => '2020',
-								'21' => '2021',
-								'22' => '2022',
-							 )
-						)); ?>
+			
 		</div>
 	</div>
 
 	<?php //echo $this->Form->input('cvv', array('label' => 'Card Security Code', 'class' => 'span1', 'maxLength' => 4)); ?>
 
-	CVV <br />
+	CVV Code <br />
 
 	<input type="text" name="cvv">
 	<br />
