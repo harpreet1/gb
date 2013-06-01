@@ -73,6 +73,10 @@ class BrandsController extends AppController {
 			'recursive' => -1,
 			'contain' => array(
 			),
+			
+			'order' => array(
+				'Brand.modified' => 'DESC'
+			),
 			'conditions' => $all['conditions'],
 			'limit' => 50,
 		);
