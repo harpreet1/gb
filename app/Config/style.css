@@ -667,14 +667,9 @@ img.size-full {
 	}
 }
 
-
 /** Header logo **/
 .header_logo {
 	height:100px;
-}
-
-#header_content {
-	padding: 0 0;
 }
 
 #access {
