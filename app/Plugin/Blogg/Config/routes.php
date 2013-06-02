@@ -11,7 +11,7 @@
 Router::parseExtensions('rss');
 
 Router::connect(
-  '/blog/:year/:month/*',
+  '/blogg/:year/:month/*',
   array(
     'plugin' => 'blog',
     'controller' => 'blog_posts',
@@ -25,7 +25,7 @@ Router::connect(
 );
 
 Router::connect(
-  '/blog/category/:category/*',
+  '/blogg/category/:category/*',
   array(
     'plugin' => 'blog',
     'controller' => 'blog_posts',
@@ -38,7 +38,7 @@ Router::connect(
 );
 
 Router::connect(
-  '/blog/tag/:tag/*',
+  '/blogg/tag/:tag/*',
   array(
     'plugin' => 'blog',
     'controller' => 'blog_posts',
@@ -51,7 +51,7 @@ Router::connect(
 );
 
 Router::connect(
-  '/blog/:slug',
+  '/blogg/:slug',
   array(
     'plugin' => 'blog',
     'controller' => 'blog_posts',
@@ -62,7 +62,7 @@ Router::connect(
   )
 );
 
-Router::connect('/blog/*', array(
+Router::connect('/blogg/*', array(
   'plugin' => 'blog',
   'controller' => 'blog_posts',
   'action' => 'index',
