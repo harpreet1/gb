@@ -65,13 +65,15 @@ class RecipesController extends AppController {
 			'recursive' => -1,
 			'contain' => array(
 				'Recipescategory',
+				'User',
 			),
 			'fields' => array(
 				'Recipescategory.slug',
 				'Recipescategory.name'
 			),
 			'conditions' => array(
-				'Recipe.active' => 1
+				'Recipe.active' => 1,
+				'User.active' => 1,
 			),
 			'group' => array(
 				'Recipe.recipescategory_id',
@@ -82,7 +84,7 @@ class RecipesController extends AppController {
 				'Recipescategory.name'
 			)
 		));
-		$this->set(compact('recipescategories','traditions','ustraditions'));
+		$this->set(compact('recipescategories','users'));
 
 		$vendors = $this->Recipe->find('list', array(
 			'recursive' => 1,
@@ -92,6 +94,7 @@ class RecipesController extends AppController {
 			),
 			'conditions' => array(
 				'Recipe.active' => 1,
+				'User.active' => 1,
 				'User.slug >' => ''
 			),
 			'group' => array(
@@ -103,9 +106,11 @@ class RecipesController extends AppController {
 		));
 
 		$this->set(compact('vendors'));
+		
 
 		$conditions[] = array(
 			'Recipe.active' => 1,
+			
 		);
 
 		if(isset($this->params['named']['category']) ) {
@@ -121,6 +126,7 @@ class RecipesController extends AppController {
 			$recipescategory_selected = '';
 		}
 		$this->set(compact('recipescategory_selected'));
+		
 
 		if(isset($this->params['named']['vendor']) ) {
 
@@ -128,7 +134,10 @@ class RecipesController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			}
 
-			$conditions[] = array('User.slug' => $this->params['named']['vendor']);
+			$conditions[] = array(
+				'User.slug' => $this->params['named']['vendor'],
+				'User.active' => 1,
+				);
 
 			$vendor_selected = $this->params['named']['vendor'];
 		} else {
@@ -136,23 +145,19 @@ class RecipesController extends AppController {
 		}
 		$this->set(compact('vendor_selected'));
 
+
 		$this->paginate = array(
 			'recursive' => 0,
 			'fields' => array(
 				'Recipe.name',
 				'Recipe.slug',
 				'Recipe.image_1',
-				'Recipe.image_2',
-				'Recipe.image_3',
-				'Recipe.attr_1',
-				'Recipe.attr_2',
-				'Recipe.attr_3',
-				'Recipe.created',
 				'User.name',
 				'User.slug',
 				'Recipescategory.name',
 			),
 			'conditions' => array(
+				'User.active' => 1,
 				$conditions
 			),
 			'order' => array(

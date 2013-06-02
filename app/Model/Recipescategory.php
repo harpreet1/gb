@@ -36,6 +36,8 @@ class Recipescategory extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
+
+
 	);
 
 }
