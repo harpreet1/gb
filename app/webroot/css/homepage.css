@@ -522,6 +522,28 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	; /* Opera 11.10-12.00 */
 	background-image: linear-gradient(to bottom, #ffffff, #BFDAD2); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
+
+.b-close.btn-gb  {
+	background-color: #3f9179;
+	border-radius: 12px;
+	box-shadow: none;
+	font: bold 100% sans-serif;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 6px;
+	padding-right: 9px;
+	padding-bottom: 6px;
+	padding-left: 9px;
+}
+
+
 .meganizr > li > div.popover-content, .meganizr > li > ul {
 	border: #AAA6A6 2px solid;
 	-webkit-border-radius: 12px;
