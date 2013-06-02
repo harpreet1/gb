@@ -2,6 +2,7 @@
 
 
 	<div id="welcome_content">
+			 <span class="b-close btn-gb"><span>X</span></span>
             <h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
             <hr />
             <div style="text-align:center;position:relative">
