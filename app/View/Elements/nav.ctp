@@ -34,7 +34,7 @@
 			</li>
 
 			<li class="mzr-drop">
-				<a href="#">US Traditions<b class="caret"></b></a>
+				<a href="#">US Foods<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
@@ -61,7 +61,7 @@
 			<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
 			<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?>
 
-			<li class="mzr-drop"> <a href="#">Int'l Food Traditions<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="#">Int'l Foods<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
@@ -104,7 +104,7 @@
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
 					<p class="nav-special"><a href="/articles">The Latest</a></p>
-					<p class="nav-special"><a href="/articles/blogosphere">The Blogosphere</a></p>
+					
 					<hr class="thin tight">
 					<!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
 					<p class="special">THE INFO SOURCE:</p>
@@ -124,6 +124,9 @@
 					<?php endforeach; ?>
 					 </div>
 				</div>
+			</li>
+			
+			<li> <a href="/blog" >The Blog</a>
 			</li>
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
