@@ -190,8 +190,9 @@ img.size-full {
 
 /* Level 1-3 */
 #primary-menu li a {
-	color: #666666;
+	color: #fff;
 }
+	
 #primary-menu li a .sf-sub-indicator {
 	color: #999999; /* Because we're using fontawesome for the icons, we can change the color here. */
 }
