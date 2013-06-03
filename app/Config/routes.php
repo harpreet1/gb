@@ -88,7 +88,7 @@
 //	Router::connect('/logout', array('controller' => 'members', 'action' => 'logout'));
 //
 
-	include APP . 'Plugin' . DS . 'Blog' . DS . 'Config' . DS . 'routes.php';
+	include APP . 'Plugin' . DS . 'Blogg' . DS . 'Config' . DS . 'routes.php';
 
 	CakePlugin::routes();
 
