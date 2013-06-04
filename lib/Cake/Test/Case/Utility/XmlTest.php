@@ -15,8 +15,9 @@
  * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Utility
  * @since         CakePHP(tm) v 1.2.0.5432
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 App::uses('Xml', 'Utility');
 App::uses('CakeTestModel', 'TestSuite/Fixture');
 
@@ -187,10 +188,21 @@ class XmlTest extends CakeTestCase {
  *
  * @dataProvider invalidDataProvider
  * @expectedException XmlException
- * return void
+ * @return void
  */
 	public function testBuildInvalidData($value) {
 		Xml::build($value);
+	}
+
+/**
+ * Test that building SimpleXmlElement with invalid XML causes the right exception.
+ *
+ * @expectedException XmlException
+ * @return void
+ */
+	public function testBuildInvalidDataSimpleXml() {
+		$input = '<derp';
+		$xml = Xml::build($input, array('return' => 'simplexml'));
 	}
 
 /**
