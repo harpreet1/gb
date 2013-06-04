@@ -2,8 +2,10 @@
 App::uses('AppModel', 'Model');
 class Block extends AppModel {
 
-// Relationship of block has many articles
-    public $hasMany = array(
+////////////////////////////////////////////////////////////
+
+	// Relationship of block has many articles
+	public $hasMany = array(
 		'Article' => array(
 			'className' => 'Article',
 			'foreignKey' => 'block_id',
@@ -18,14 +20,18 @@ class Block extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-    
-// Find number of blocks 
-    public function findList() {
-        return $blocks = $this->find('list', array(
-                'order' => array(
-                        'Block.name' => 'ASC'
-                )
-        ));
-    }
+
+////////////////////////////////////////////////////////////
+
+	// Find number of blocks
+	public function findList() {
+		return $blocks = $this->find('list', array(
+				'order' => array(
+						'Block.name' => 'ASC'
+				)
+		));
+	}
+
+////////////////////////////////////////////////////////////
 
 }
