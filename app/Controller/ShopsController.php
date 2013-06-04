@@ -104,38 +104,6 @@ class ShopsController extends AppController {
 
 		die('maestro maestro maestro');
 
-		// ErrorNumber: 1000
-		// ErrorDetail: General Processing Error. Pls Contact Tech Suppport
-
-		// ErrorNumber: 1001
-		// ErrorDetail: Credit Card Declined
-
-		// ErrorNumber: 1002
-		// ErrorDetail: Shipping Address Invalid/Incomplete
-
-		// ErrorNumber: 1003
-		// ErrorDetail: Account on file not found
-
-		// ErrorNumber: 3001
-		// ErrorDetail: Invalid XML Format
-
-		// ErrorNumber: 3001
-		// ErrorDetail: Invalid Product ID XXXX
-
-		// ErrorNumber: 3002
-		// ErrorDetail: Product Disabled/No Longer Available.
-
-		// ErrorNumber: 3003
-		// ErrorDetail: Product Quantity Requested Exceeds Available Quantity
-
-		// ErrorNumber: 3004
-		// ErrorDetail: Invalid ProductID or Product is Disabled
-
-		// ErrorNumber: 4004
-		// ErrorDetail: Creating Sale Details failed
-
-
-
 	}
 
 ////////////////////////////////////////////////////////////
@@ -263,21 +231,32 @@ class ShopsController extends AppController {
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
 							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+
+						} elseif ($user['id'] == 11) {
+
+							$result = $this->Maestro->getRate($data, $shop);
+
+							if(!$result) {
+								$this->Session->setFlash('Unable to rate the shipment');
+								$this->redirect(array('action' => 'address'));
+							}
+
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+
 						}
 
 					} else {
 
-						if ($user['id'] == 11) {
-							$result = $this->Maestro->getRate($data);
-						} else {
-							$result = array(
-								0 => array(
-									'ServiceCode' => '1',
-									'ServiceName' => 'Flat',
-									'TotalCharges' => $user['shipping']
-								)
-							);
-						}
+
+						$result = array(
+							0 => array(
+								'ServiceCode' => '1',
+								'ServiceName' => 'Flat',
+								'TotalCharges' => $user['shipping']
+							)
+						);
 
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $user['shipping']);
@@ -505,8 +484,6 @@ class ShopsController extends AppController {
 			),
 		));
 
-
-
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
 
@@ -536,10 +513,18 @@ class ShopsController extends AppController {
 
 			foreach($order['OrderItem'] as $items) {
 				if($items['user_id'] == $vendor['user_id']) {
-
 					$vendoritems[] = $items;
-
 				}
+			}
+
+			if($vendor['User']['id'] == 11) {
+				$result = $this->Maestro->purchasePost($order, $vendor, $vendoritems);
+				// debug($result);
+				// debug($result['checkout']['order']['orderid']);
+				$extra['OrderUser']['id'] = $vendor['id'];
+				$extra['OrderUser']['extra'] = $result['checkout']['order']['orderid'];
+				ClassRegistry::init('OrderUser')->save($extra, false);
+
 			}
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))
@@ -550,6 +535,7 @@ class ShopsController extends AppController {
 				->emailFormat('html')
 				->viewVars(array('order' => $order, 'vendor' => $vendor, 'vendoritems' => $vendoritems))
 				->send();
+
 		}
 
 	}
