@@ -11,16 +11,16 @@ $(document).ready(function(){
 
 	// Product Display Slider
 
-	$('#carousel').flexslider({
-		animation: "slide",
-		controlNav: false,
-		animationLoop: false,
-		slideshow: false,
-		itemWidth: 50,
-		itemMargin: 5,
-
-		asNavFor: '#slider'
-	});
+//	$('#carousel').flexslider({
+//		animation: "slide",
+//		controlNav: false,
+//		animationLoop: false,
+//		slideshow: false,
+//		itemWidth: 50,
+//		itemMargin: 5,
+//
+//		asNavFor: '#slider'
+//	});
 
 	$('#slider').flexslider({
 		animation: "fade",
