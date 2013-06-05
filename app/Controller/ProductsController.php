@@ -987,6 +987,7 @@ class ProductsController extends AppController {
 				'User.active' => 'DESC',
 				'User.name' => 'ASC',
 				'Product.displaygroup' => 'DESC',
+				'Product.discontinued' => 'ASC'
 			),
 			'group' => array(
 				'Product.user_id',
