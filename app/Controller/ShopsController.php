@@ -124,6 +124,8 @@ class ShopsController extends AppController {
 		}
 		if(!empty($product)) {
 			$this->Session->setFlash($product['Product']['name'] . ' was added to your shopping cart.', 'flash_success');
+		} else {
+			$this->Session->setFlash('Unable to product to your shopping cart.', 'flash_error');
 		}
 		$this->redirect($this->referer());
 	}

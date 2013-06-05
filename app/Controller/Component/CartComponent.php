@@ -38,6 +38,18 @@ class CartComponent extends Component {
 
 		$this->getProduct($id);
 
+		if($this->product['Product']['user_id'] == 11) {
+
+			App::uses('HttpSocket', 'Network/Http');
+			$httpSocket = new HttpSocket();
+			$response = $httpSocket->get('https://www.maestrolico.com/api/checkstockstatus.asp?distributorid=' . Configure::read('Settings.MAESTRO_DISTRIBUTOR_ID') . '&productid=' . $this->product['Product']['vendor_sku']);
+			$res = explode('|', $response['body']);
+			if($res[1] < $quantity) {
+				return false;
+			}
+
+		}
+
 		$data['quantity'] = $quantity;
 		$data['user_id'] = $this->product['Product']['user_id'];
 		$data['product_id'] = $this->product['Product']['id'];
@@ -195,6 +207,7 @@ class CartComponent extends Component {
 			'contain' => array('User' => array('Tax')),
 			'fields' => array(
 				'Product.id',
+				'Product.vendor_sku',
 				'Product.user_id',
 				'Product.name',
 				'Product.slug',
