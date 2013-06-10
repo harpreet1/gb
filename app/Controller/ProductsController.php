@@ -117,6 +117,7 @@ class ProductsController extends AppController {
 				),
 				'conditions' => array(
 					'Product.active' => 1,
+					'Product.show' => 1,
 					'Product.user_id' => $user['User']['id']
 				),
 				'group' => array(
@@ -135,6 +136,7 @@ class ProductsController extends AppController {
 		if(!empty($user)) {
 			$conditions[]	= array(
 				'Product.active' => 1,
+				'Product.show' => 1,
 				'Product.user_id' => $user['User']['id']
 			);
 		}
@@ -237,6 +239,7 @@ class ProductsController extends AppController {
 			'conditions' => array(
 				'Product.id' => $id,
 				'Product.active' => 1,
+				'Product.show' => 1,
 			)
 		));
 
@@ -291,6 +294,7 @@ class ProductsController extends AppController {
 				'conditions' => array(
 					'Product.id' => $related_products_ids,
 					'Product.active' => 1,
+					'Product.show' => 1,
 				)
 			));
 
