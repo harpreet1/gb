@@ -183,6 +183,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('show'); ?></th>
 		<th><?php echo $this->Paginator->sort('discontinued'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -219,7 +220,10 @@ $(document).ready(function() {
 			<br />
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
+		
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
+		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['show']; ?>.png" alt="" /></a></td>
+
 		<td><?php echo ($product['Product']['discontinued']); ?></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
 		<td><?php echo ($product['Product']['name']); ?></td>

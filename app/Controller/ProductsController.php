@@ -197,6 +197,7 @@ class ProductsController extends AppController {
 				),
 				'conditions' => array(
 					'Product.active' => 1,
+					'Product.show' => 1,
 					'Product.user_id' => $user['User']['id']
 				),
 				'group' => array(
