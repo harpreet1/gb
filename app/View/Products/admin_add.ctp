@@ -104,13 +104,13 @@ $(document).ready(function(){
 <div class="row">
 
 		<div class="span3">
-			<?php echo $this->Form->input('auxcategory_1', array('label' => 'Aux Category 1', 'options' => $auxcategories, 'empty' => '')); ?>
+			<?php echo $this->Form->input('auxcategory_1', array('label' => 'Aux Category 1', 'options' => $categories, 'empty' => '')); ?>
 		</div>
 		<div class="span3">
-			<?php echo $this->Form->input('auxcategory_2', array('empty' => 'Aux Category 2', 'options' => $auxcategories, 'empty' => '')); ?>
+			<?php echo $this->Form->input('auxcategory_2', array('empty' => 'Aux Category 2', 'options' => $categories, 'empty' => '')); ?>
 		</div>
 		<div class="span3">
-			<?php echo $this->Form->input('auxcategory_3', array('empty' => 'Aux Category 3', 'options' => $auxcategories, 'empty' => '')); ?>
+			<?php echo $this->Form->input('auxcategory_3', array('empty' => 'Aux Category 3', 'options' => $categories, 'empty' => '')); ?>
 		</div>
 
 </div>
