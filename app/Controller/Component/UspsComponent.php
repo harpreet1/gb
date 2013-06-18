@@ -26,7 +26,7 @@ class UspsComponent extends Component {
 		App::uses('Xml', 'Utility');
 		$formattedResponse = Xml::toArray(Xml::build($response));
 
-		$serviceAllowed = array(3, 4);
+		$serviceAllowed = array(1, 4);
 
 		$results = array();
 		$i = 0;
