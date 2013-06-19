@@ -28,7 +28,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.3.min.js','jquery.easing.1.3.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','js.js','jquery.columnizer.min.js','jquery.bpopup-0.9.3.min.js','jquery.easing.1.3.js','jquery.cj-object-scaler.min.js')); ?>
 
 <?php //echo $this->Html->css('bootstrap.less?','stylesheet/less') ?>
 
@@ -96,6 +96,35 @@
 			}
 		);
 		
+		
+		
+		//Image scale
+	
+		$(function () {
+			//$(".product-pic img").each(function () {
+//				$(this).cjObjectScaler({
+//					method: "fit",
+//					fade: 1200
+//				});
+//			});
+			$(".product-pic img").each(function () {
+				$(this).cjObjectScaler({
+					destElem: $(this).parent().parent(),
+					method: "fit",
+					fade: 150
+				});
+			});
+			$("#smallObject").each(function () {
+				$(this).cjObjectScaler({
+					method: "fit",
+					fade: 550
+				}, function () {
+					$("#smallObject").html("Done loading object...<br /><br />(Example of the callback function.)");
+				});
+			});
+		});	
+				
+				
 
 	
 
@@ -112,7 +141,8 @@
 	
 	<div class="social-main">
 		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>
-		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30"></a>		
+		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30"></a>
+		<a href=""><img src="/img/global/pinterest.png" width="30" height="30"></a>	
 	</div>
 
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">

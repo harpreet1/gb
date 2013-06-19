@@ -170,6 +170,8 @@ class ShopsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function address() {
+		
+		$minimumShipping = '';
 
 		$shop = $this->Session->read('Shop');
 		if(!$shop['Order']['total']) {
@@ -217,35 +219,45 @@ class ShopsController extends AppController {
 					$this->Session->write('Shop.Users.' . $user['id'] . '.totalandtax', $totalandtax);
 
 					if($user['flat_shipping'] != 1) {
+						
+						if($user["min_shipping_check"] = 1) {
+							
+							
+							
+							$minimumShipping = ($user["min_shipping"]);
+							
+							}						
 
-						$shipping_companies = array('usps', 'ups', 'fedex');
-						if (in_array($user['shipping_method'], $shipping_companies)) {
-
-							$shippingMethod = ucfirst($user['shipping_method']);
-
-							$result = $this->$shippingMethod->getRate($data);
-
-							if(!$result) {
-								$this->Session->setFlash('Unable to rate the shipment');
-								$this->redirect(array('action' => 'address'));
-							}
-
-							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
-							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
-							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
-
-						} elseif ($user['id'] == 11) {
-
-							$result = $this->Maestro->getRate($data, $shop);
-
-							if(!$result) {
-								$this->Session->setFlash('Unable to rate the shipment');
-								$this->redirect(array('action' => 'address'));
-							}
-
-							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
-							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
-							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+							$shipping_companies = array('usps', 'ups', 'fedex');
+							if (in_array($user['shipping_method'], $shipping_companies)) {
+	
+								$shippingMethod = ucfirst($user['shipping_method']);
+	
+								$result = $this->$shippingMethod->getRate($data);
+	
+								if(!$result) {
+									$this->Session->setFlash('Unable to rate the shipment');
+									$this->redirect(array('action' => 'address'));
+								}
+	
+								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+								$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+	
+							} elseif ($user['id'] == 11) {
+	
+								$result = $this->Maestro->getRate($data, $shop);
+	
+								if(!$result) {
+									$this->Session->setFlash('Unable to rate the shipment');
+									$this->redirect(array('action' => 'address'));
+								}
+	
+								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+								$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+								
+							
 
 						}
 

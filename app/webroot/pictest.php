@@ -23,23 +23,25 @@
 Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
 }
 <?php endif;
-?>  ul#productGrid {
- display: block;
- width: 100%;
- height: auto;
- margin: 0;
- padding: 0;
- list-style: none;
+?> 
+
+ul#productGrid {
+	 display: block;
+	 width: 100%;
+	 height: auto;
+	 margin: 0;
+	 padding: 0;
+	 list-style: none;
 }
 ul#productGrid li {
 	display: block;
-	width: 190px;
-	height: 150px;
+	width: 110px;
+	height: 110px;
 	border: 1px solid #ccc;
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 ul#productGrid li a {
 	border: 0;
@@ -101,18 +103,17 @@ $(function () {
 		</div>
 	</div>
 	<div class="container content" style="margin:auto;width:300px;">
-		<div class="content-product" style=""> <a href="http://sfi.thegourmetbasket.net/product/11866-bechtle-egg-spaetzle-farmers-style-in-bag"><img src="/img/products/image/11866.jpg" alt="Farmers Style Egg Spaetzle" class="img-polaroid img180" /></a>
-			<div class="product-name"> <a href="/product/11866-bechtle-egg-spaetzle-farmers-style-in-bag"> Farmers Style Egg Spaetzle </a> </div>
-			<div class="price">$4.05</div>
-			<div class="brand">Bechtle</div>
-		</div>
 		
 		
-		<ul id="productGrid" class="clearfix">
-			<li class="product"><img src="/img/products/image/11866.jpg" alt="Farmers Style Egg Spaetzle" class="img-polaroid img180" /></li>
+		
+		<ul id="productGrid" >
+			<li class="product"><img src="/img/products/image/11866.jpg" alt="Farmers Style Egg Spaetzle" /></li>
 			<li class="product"><img src=" http://stopsellingvanillaicecream.com/wp-content/uploads/2013/03/Hat.png" alt="Hat" /></li>
+			
 			<li class="product"><img src=" http://blogs.glam.com/glamchic/files/2008/10/coat.jpg" alt="Coat" /></li>
 			<li class="productLink"><a href="demo1.cfm"><img src=" http://www.bunnyslippers.com/gfx/products/classic-bunny-slippers-2-lg.jpg" alt="Bunny Slippers" /></a></li>
+			<li class="productLink"><a href="http://kartika.gbnew.dev/product/176-thousand-layer-regular-vanilla-roll"><img src="/img/products/image/176.jpg" alt="Thousand-Layer Regular Vanilla Roll " /></a></li>
+			
 		</ul>
 		
 		

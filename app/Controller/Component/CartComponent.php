@@ -237,6 +237,8 @@ class CartComponent extends Component {
 				'User.flat_ship_level_4_high',
 				'User.flat_ship_level_4_price',
 				'User.flat_shipping',
+				'User.min_shipping',
+				'User.min_shipping_check',
 				'User.ship_determinant',
 				'User.shipping_method',
 			),

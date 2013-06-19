@@ -29,7 +29,7 @@ Shopping Cart is empty
 <?php foreach ($shop['OrderItem'] as $item): ?>
 	<div class="row">
 		<div class="span2"><?php echo $shop['Users'][$item['Product']['user_id']]['name']; ?><br /><?php echo $shop['Users'][$item['Product']['user_id']]['state']; ?> <?php $shop['Users'][$item['Product']['user_id']]['zip']; ?></div>
-		<div class="span1"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
+		<div class="span1 cart-pic"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
 		<div class="span3"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $item['Product']['id'], 'slug' => $item['Product']['slug'])); ?></strong></div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
 		<div class="span1"><?php echo $item['weight_total']; ?></div>
@@ -62,10 +62,9 @@ Shopping Cart is empty
 		<br />
 
 		<div class="row">
-			<div class="span2">Name</div>
-			<div class="span2" style="width:180px;">Email</div>
+			<div class="span3">Name</div>
 			<div class="span1" style="width:30px;">State</div>
-			<div class="span1" style="width:40px;">Zip</div>
+			<div class="span1" style="width:30px;">Zip</div>
 			<div class="span1 qty">Qty</div>
 			<div class="span1 weight">Weight</div>
 			<div class="span1">Price</div>
@@ -79,10 +78,9 @@ Shopping Cart is empty
 		<?php foreach ($shop['Users'] as $user): ?>
 
 		<div class="row">
-			<div class="span2"><?php echo $user['name']; ?></div>
-			<div class="span2"style="width:180px;"><?php echo $user['email_orders']; ?></div>
+			<div class="span3"><?php echo $user['name']; ?></div>
 			<div class="span1"style="width:30px;"><?php echo $user['state']; ?></div>
-			<div class="span1"style="width:40px;"><?php echo $user['zip']; ?></div>
+			<div class="span1"style="width:30px;"><?php echo $user['zip']; ?></div>
 			<div class="span1 qty"><?php echo $user['quantity']; ?></div>
 			<div class="span1 weight"><?php echo $user['weight']; ?></div>
 			<div class="span1">$<?php echo $user['subtotal']; ?></div>
@@ -102,9 +100,9 @@ Shopping Cart is empty
 		</div>
 
 		<div class="row">
-			<div class="span6"style="width:450px;">Totals: </div>
+			<div class="span5"style="width:320px;">Totals: </div>
 			<div class="span1 qty"><?php echo $shop['Order']['quantity']; ?></div>
-			<div class="span1"><?php echo $shop['Order']['weight']; ?></div>
+			<div class="span1 weight"><?php echo $shop['Order']['weight']; ?></div>
 			<div class="span1">$<?php echo $shop['Order']['subtotal']; ?></div>
 		</div>
 

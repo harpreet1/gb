@@ -384,21 +384,23 @@
 				<div class="span2">
 
 					<div class="content-product">
-
-						<div class="content-img">
 						
-							<div class="displaygroup"><?php echo $product['Product']['displaygroup']; ?></div>
+						<div class="displaygroup"><?php echo $product['Product']['displaygroup']; ?></div>
+							
+						<div class="product-pic">
 
-							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'])); ?>
 
 							<div class="product-name">
 								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
 								<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
 								</a>
+								
+						</div>
 
 							</div>
 
-						</div>
+						
 
 
 						<div class="price">$<?php echo $product['Product']['price']; ?></div>
