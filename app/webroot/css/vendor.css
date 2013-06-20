@@ -41,3 +41,8 @@ td.constrain img{
 td.art-constrain div {
 	max-height: 70px;
 }
+
+/** Order User Pic" **/
+.order-user-pic {
+	height:30px;
+}
