@@ -163,3 +163,8 @@ input::-webkit-inner-spin-button {
 	max-width:250px;
 	max-height: 230px;
 }
+
+/** Order User Pic" **/
+.order-user-pic {
+	height:30px;
+}

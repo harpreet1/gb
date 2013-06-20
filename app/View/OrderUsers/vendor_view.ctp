@@ -111,7 +111,7 @@
 	</thead>
 	<?php foreach($orderItems as $orderItem): ?>
 	<tr>
-		<td><?php echo $this->Html->image('products/image/' . $orderItem['Product']['image'], array('class' => 'px60')); ?></td>
+		<td><?php echo $this->Html->image('products/image/' . $orderItem['Product']['image'], array('class' => 'order-user-pic ')); ?></td>
 		<td><?php echo h($orderItem['OrderItem']['name']); ?></td>
 		<td>$<?php echo h($orderItem['OrderItem']['price']); ?></td>
 		<td><?php echo h($orderItem['OrderItem']['quantity']); ?></td>
