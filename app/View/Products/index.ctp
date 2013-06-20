@@ -400,8 +400,6 @@
 
 							</div>
 
-						
-
 
 						<div class="price">$<?php echo $product['Product']['price']; ?></div>
 
