@@ -46,3 +46,9 @@ td.art-constrain div {
 .order-user-pic {
 	height:30px;
 }
+
+
+/** Input styles **/
+input[type="text"]{
+font-size: 13px;
+}

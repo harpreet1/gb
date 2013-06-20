@@ -111,6 +111,12 @@ td.art-constrain div {
 /* remove label borders in IE6 because IE6 does not support transparency */
 * html .ui-multiselect-checkboxes label { border:none }
 
+
+/** Input styles **/
+input[type="text"]{
+font-size: 13px;
+}
+
 /** Text Area Styles **/
 
 .input-gb-large {
