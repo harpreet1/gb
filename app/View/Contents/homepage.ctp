@@ -17,7 +17,7 @@
 
 
 	<div class="js-marquee static">
-    <span><a href="/articles/blogosphere">+  FEATURED BLOG  +</a></span>
+    <span><a href="/blog">+  FEATURED BLOG  +</a></span>
     </div>
 	
 
