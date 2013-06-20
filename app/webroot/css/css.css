@@ -472,14 +472,14 @@ ul.meganizr >li.cart > a {
 
 .content-product .product-name {
 	position:absolute;
-	bottom:-47px;
-	left:5px;
+	top:127px;
+	left:-8px;
 	font-size: 11px;
 	font-weight: bold;
 	line-height: 13px;
 	display: block;
 	text-align: left;
-	width: 118px;
+	width: 128px;
 }
 
 .cart-pic img {
