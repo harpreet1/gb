@@ -56,12 +56,14 @@
 			<div class="span2">
 
 				<div class="content-product">
+				
+					<div class="displaygroup"><?php echo $product['Product']['displaygroup']; ?></div>
 
-					<div class="content-img">
+					<div class="product-pic">
                     
-                    <div class="displaygroup"><?php echo $product['Product']['displaygroup']; ?></div>
                     
-					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'], 'class' => 'img-polaroid img180')); ?>
+                    
+					<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'])); ?>
 
 						<div class="product-name">
 							<?php echo $this->Html->link($this->Text->truncate($product['Product']['name'], 40, array('ellipsis' => '...', 'exact' => 'false')), array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug'])); ?>
