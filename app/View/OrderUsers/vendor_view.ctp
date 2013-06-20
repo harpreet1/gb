@@ -124,12 +124,12 @@
 <br />
 
 
-<?php debug($orderUser); ?>
+<?php //debug($orderUser); ?>
 
 <br />
 <br />
 
-<?php debug($orderItems); ?>
+<?php //debug($orderItems); ?>
 
 <br />
 <br />
