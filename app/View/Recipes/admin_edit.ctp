@@ -1,15 +1,23 @@
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+<?php echo $this->Html->script('/ckeditor/ckeditor.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
-	tinyMCE.init({
-		mode : "textareas",
-		theme : "advanced",
-		skin: "thebigreason",
-		plugins : "inlinepopups",
-		plugins : "paste",
-		// Theme options
-		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
-		theme_advanced_resizing : true,	});
+//	tinyMCE.init({
+//		selector: "textarea",
+//		 plugins: [
+//        "advlist autolink lists link preview anchor",
+//        "visualblocks code fullscreen",
+//        "contextmenu paste spellchecker"
+//    	],
+//    	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
+//});
+
+
+CKEDITOR.replace( 'textarea', {
+    toolbar: 'Basic',
+    uiColor: '#9AB8F3',
+});
+
+
 </script>
 
 
