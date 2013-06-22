@@ -1,18 +1,11 @@
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+<?php echo $this->Html->script('/ckeditor/ckeditor.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
-	tinyMCE.init({
-		mode : "textareas",
-		theme : "advanced",
-		skin: "thebigreason",
-		plugins : "inlinepopups",
-		plugins : "paste",
-		// Theme options
-		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
-		theme_advanced_resizing : true,
-				
 
-	});
+CKEDITOR.replace( 'textarea', {
+    toolbar: 'Basic',
+    uiColor: '#9AB8F3',
+});
 </script>
 
 <h2>Admin Edit Article</h2>
@@ -32,8 +25,8 @@ echo $this->Form->input('block_id');
 ?>
 <?php echo $this->Form->input('group_id'); ?>
 <?php echo $this->Form->input('slug'); ?>
-<?php echo $this->Form->input('summary', array('rows' => 10, 'class' => 'input-xlarge')); ?>
-<?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-xxlarge')); ?>
+<?php echo $this->Form->input('summary', array('rows' => 10, 'class' => 'input-xlarge  ckeditor')); ?>
+<?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-xxlarge ckeditor')); ?>
 <?php echo $this->Form->input('source', array('rows' => 20, 'class' => 'input-large','label' => 'The Source')); ?>
 <br />
 <?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>

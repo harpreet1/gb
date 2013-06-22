@@ -1,14 +1,25 @@
 <?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
 
-<?php echo $this->Html->script('/tinymce/tinymce.min.js', array('inline' => false)); ?>
+<?php echo $this->Html->script('/ckeditor/ckeditor.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
-	tinyMCE.init({
-		selector: "textarea",
-		 theme: "modern",
-		  plugins: "spellchecker"
-  
-	});
+//	tinyMCE.init({
+//		selector: "textarea",
+//		 plugins: [
+//        "advlist autolink lists link preview anchor",
+//        "visualblocks code fullscreen",
+//        "contextmenu paste spellchecker"
+//    	],
+//    	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
+//});
+
+
+CKEDITOR.replace( 'textarea', {
+    toolbar: 'Basic',
+    uiColor: '#9AB8F3',
+});
+
+
 </script>
 
 <script type="text/javascript">
@@ -149,7 +160,7 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
+		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5 ckeditor')); ?>
 	</div>
 
 	<div class="span4">
@@ -170,8 +181,8 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
-		<div><?php echo $this->Form->input('generic_description', array('rows' => 10, 'class' => '3span')); ?></div>
+		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span ckeditor')); ?></div>
+		<div><?php echo $this->Form->input('generic_description', array('rows' => 10, 'class' => '3span ckeditor')); ?></div>
 	</div>
 
 	<div class="span3 offset1">
@@ -218,10 +229,10 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span')); ?>
-		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span')); ?>
-		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span')); ?>
-		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span')); ?></div>
+		<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span ckeditor')); ?>
+		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span ckeditor')); ?>
+		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span ckeditor')); ?>
+		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span  ckeditor')); ?></div>
 		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span')); ?>
 	</div>
 
