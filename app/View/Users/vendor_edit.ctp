@@ -91,6 +91,11 @@
                <br />
 				<?php echo $this->Form->input('shipping_policy', array('rows' => 10, 'class' => '4span', 'label' => 'Shipping/ Return/ Customer Satisfaction Policies')); ?>
                 <br />
+				 <br />
+				<?php echo $this->Form->input('min_shipping_check', array('type' => 'checkbox','label' =>'Check if there is a minimum shipping charge.')); ?>
+				<br />
+				 <?php echo $this->Form->input('min_shipping', array('class' => 'span1','label' =>'Minimum shipping charge')); ?>
+				<br />
                 <hr />
                 <h4>FLAT SHIPPING LEVELS</h4>
                 <?php echo $this->Form->input('flat_shipping', array('type' => 'checkbox','label' =>'Check if flat rate shipping will be offered.')); ?>
