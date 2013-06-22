@@ -1,17 +1,13 @@
 <?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
 
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js', array('inline' => false)); ?>
+<?php echo $this->Html->script('/tinymce/tinymce.min.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
 	tinyMCE.init({
-		mode : "textareas",
-		theme : "advanced",
-		skin: "thebigreason",
-		plugins : "inlinepopups",
-		plugins : "paste",
-		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,||,cleanup,removeformat,code",
-		theme_advanced_resizing : true,
+		selector: "textarea",
+		 theme: "modern",
+		  plugins: "spellchecker"
+  
 	});
 </script>
 
