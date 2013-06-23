@@ -1,4 +1,4 @@
-<?php echo $this->Html->script('/ckeditor/ckeditor.js', array('inline' => false)); ?>
+<?php echo $this->Html->script('/ckeditor/ckeditor.js'); ?>
 
 <script type="text/javascript">
 //	tinyMCE.init({
@@ -16,8 +16,6 @@ CKEDITOR.replace( 'textarea', {
     toolbar: 'Basic',
     uiColor: '#9AB8F3',
 });
-
-
 </script>
 
 
@@ -28,7 +26,7 @@ CKEDITOR.replace( 'textarea', {
 </div>
 
 <div class= "row">
-	<div class= "span4">
+	<div class= "span8">
 
 		<?php echo $this->Form->create('Recipe'); ?>
         <br />
@@ -47,10 +45,10 @@ CKEDITOR.replace( 'textarea', {
 		<?php echo $this->Form->input('name'); ?>
 		<?php echo $this->Form->input('slug'); ?>
 		<?php echo $this->Form->input('attribution',array('class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('ingredients', array('rows' => 30, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('preparation', array('rows' => 30, 'class' => 'input-gb-large')); ?>
-		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large')); ?>
+		<?php echo $this->Form->input('description', array('rows' => 60, 'class' => 'ckeditor')); ?>
+		<?php echo $this->Form->input('ingredients', array('rows' => 30, 'class' => 'input-gb-large ckeditor')); ?>
+		<?php echo $this->Form->input('preparation', array('rows' => 30, 'class' => 'input-gb-large ckeditor')); ?>
+		<?php echo $this->Form->input('comment', array('rows' => 20, 'class' => 'input-gb-large ckeditor')); ?>
 
 		<?php echo $this->Form->input('tradition_id', array('empty' => '--')); ?>
 		<?php echo $this->Form->input('ustradition_id', array('empty' => '--')); ?>

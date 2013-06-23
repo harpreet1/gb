@@ -25,9 +25,9 @@ echo $this->Form->input('block_id');
 ?>
 <?php echo $this->Form->input('group_id'); ?>
 <?php echo $this->Form->input('slug'); ?>
-<?php echo $this->Form->input('summary', array('rows' => 10, 'class' => 'input-xlarge  ckeditor')); ?>
-<?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'input-xxlarge ckeditor')); ?>
-<?php echo $this->Form->input('source', array('rows' => 20, 'class' => 'input-large','label' => 'The Source')); ?>
+<?php echo $this->Form->input('summary', array('rows' => 10, 'class' => 'input-xlarge ckeditor')); ?>
+<?php echo $this->Form->input('body', array('rows' => 20, 'class' => 'ckeditor')); ?>
+<?php echo $this->Form->input('source', array('rows' => 20, 'class' => 'ckeditor','label' => 'The Source')); ?>
 <br />
 <?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 
