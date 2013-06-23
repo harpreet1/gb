@@ -1,16 +1,22 @@
-<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+<?php echo $this->Html->script('/ckeditor/ckeditor.js'); ?>
 
 <script type="text/javascript">
-	tinyMCE.init({
-		mode : "textareas",
-		theme : "advanced",
-		skin: "thebigreason",
-		plugins : "inlinepopups",
-		plugins : "paste",
-		// Theme options
-		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-		theme_advanced_resizing : true,
-	});
+//	tinyMCE.init({
+//		mode : "textareas",
+//		theme : "advanced",
+//		skin: "thebigreason",
+//		plugins : "inlinepopups",
+//		plugins : "paste",
+//		// Theme options
+//		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+//		theme_advanced_resizing : true,
+//	});
+
+CKEDITOR.replace( 'textarea', {
+    toolbar: 'Basic',
+    uiColor: '#9AB8F3',
+});
+
 </script>
 
 <h2>Admin Edit Brand</h2>
@@ -20,9 +26,9 @@
 echo $this->Form->input('id');
 echo $this->Form->input('name');
 echo $this->Form->input('slug');
-echo $this->Form->input('description', array('rows' => 20, 'class' => 'input-xxlarge'));
-echo $this->Form->input('summary');
-echo $this->Form->input('article');
+echo $this->Form->input('description', array('rows' => 20, 'class' => 'ckeditor'));
+echo $this->Form->input('summary', array('class' => 'ckeditor'));
+echo $this->Form->input('article', array('class' => 'ckeditor'));
 ?>
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>
