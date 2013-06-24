@@ -402,24 +402,24 @@
 						var load = '<img class="brand" src="/img/brands/image/ ';
 					</script>
 
-				<?php $load_image = '<img src="/img/brands/image/ ' . $product['Brand']['image'] . '"' ;?>
-
 				<?php if(!empty($product['Brand']['image'])) : ?>
-                	
+                	<?php $load_image = $product['Brand']['image'] ;?>
+					
+					<?php else : $load_image = 'default-brand.jpg'; ?>
                 <?php endif ;?>
 
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
-					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<?php echo ($product['Brand']['description']);
-						echo $load_image;?>"><?php echo $product['Brand']['name'];?></a>
+					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
 
-					<span><img class="hand" src="/img/global/hand.png"/></span>
-				
-					<?php elseif(empty($product['Brand']['name'])) : ?>
-						<a class="btn btn-gb"><?php echo $user['User']['name']; ?></a>
-					
-					
-					<?php endif; ?>
+					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
+
+				<span><img class="hand" src="/img/global/hand.png"/></span>
+				<?php elseif(empty($product['Brand']['name'])) : ?>
+					<a class="btn btn-gb"><?php echo $user['User']['name']; ?></a>
+				<?php else : ?>
+					<a class="btn btn-gb"><?php echo $product['Brand']['name']; ?></a>
+				<?php endif; ?>
 
 
 
