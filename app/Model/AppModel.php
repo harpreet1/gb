@@ -160,7 +160,7 @@ class AppModel extends Model {
 		'Iran' => 'Iran',
 		'Iraq' => 'Iraq',
 		'Ireland' => 'Ireland',
-		'Ivory Caost' => 'Ivory Caost',
+		'Ivory Caast' => 'Ivory Coast',
 		'Israel' => 'Israel',
 		'Italy' => 'Italy',
 		'Jamaica' => 'Jamaica',
