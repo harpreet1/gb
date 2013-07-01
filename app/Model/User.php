@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 class User extends AppModel {
-	
+
 	 //var $actsAs = array('Acl.MemberLinker', 'Containable', 'Acl' => 'requester');
 
 ////////////////////////////////////////////////////////////
@@ -90,7 +90,7 @@ class User extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-	public function getBySubdomain($subDomain) {
+	public function getBySubdomain($subDomain, $useractive = 1) {
 
 		$user = $this->find('first', array(
 			'recursive' => -1,
@@ -130,7 +130,7 @@ class User extends AppModel {
 			),
 			'conditions' => array(
 				'User.level' => 'vendor',
-				'User.show' => 1,
+				'User.show' => $useractive,
 				'User.slug' => $subDomain,
 			)
 		));
