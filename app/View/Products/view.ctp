@@ -4,14 +4,14 @@
 
 	<div class="span3">
 		<?php if(!empty($user)) : ?>
-        <a href="/">
-        <div class="vendor-logo">
-                <a href="/">
-                <?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
-                </a>
+		<a href="/">
+		<div class="vendor-logo">
+				<a href="/">
+				<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid', 'width' =>'226px')); ?>
+				</a>
 
-                <div class="name"><?php echo $user['User']['name']; ?></div>
-                <div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
+				<div class="name"><?php echo $user['User']['name']; ?></div>
+				<div class="quote"><?php echo $user['User']['shop_quote']; ?></div>
 			</div>
 
 				<?php //if(!empty($usercategories)) : ?>
@@ -163,9 +163,9 @@
 					<?php if(!empty($product['Product']['generic_description'])) :
 							if ($ingredients == 'loaded') : ?>
 							<li><a href="#more" data-toggle="tab">More...</a></li>
-                        <?php else : ?>
-                        	<li><a href="#more" data-toggle="tab">More...</a></li>
-                        <?php endif;?>
+						<?php else : ?>
+							<li><a href="#more" data-toggle="tab">More...</a></li>
+						<?php endif;?>
 					<?php $description = 'loaded';
 					endif;?>
 
@@ -264,7 +264,7 @@
 					//&& $product['Product']['calcium_p'] !== ''
 					//&& $product['Product']['iron_p'] !== ''
 					//) : ?>
-                    <?php //debug($nuts); ?>
+					<?php //debug($nuts); ?>
 						<div class="tab-pane <?php //echo $value3; ?>" id="nutrition" style="display:none">
 							<table class="NutritionFacts">
 								<tr>
@@ -312,10 +312,10 @@
 													}
 													else {
 															echo $nvalue . 'g'; ?><div style="display:inline;float:right;">
-                                                    <?php } ?>
+													<?php } ?>
 
 
-                                                    <?php
+													<?php
 														//print_r ($nkey);
 														//echo 'yes';
 
@@ -350,7 +350,7 @@
 
 														?>
 
-                                                %</div></td>
+												%</div></td>
 												<!--<td class="nf_Cell nf_Right nf_Text">%</td>-->
 											</tr>
 											<?php endforeach;?>
@@ -380,33 +380,33 @@
 
 					<div class="purchase-block">
 
-                        <div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
+						<div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
 
 
-                                <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
-                                <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
+								<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
+								<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
 
 							<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>
 								Qty: <?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
-                            <?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-inverse', 'escape' => false));?>
-                            <?php else: ?>
-                            	<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
-                        	<?php endif; ?>
+							<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart', array('class' => 'btn btn-inverse', 'escape' => false));?>
+							<?php else: ?>
+								<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
+							<?php endif; ?>
 
 							<?php echo $this->Form->end(); ?>
-                   		</div>
+						</div>
 
 					</div>
 
-                    <script>
+					<script>
 						var load = '<img class="brand" src="/img/brands/image/ ';
 					</script>
 
 				<?php if(!empty($product['Brand']['image'])) : ?>
-                	<?php $load_image = $product['Brand']['image'] ;?>
-					
+					<?php $load_image = $product['Brand']['image'] ;?>
+
 					<?php else : $load_image = 'default-brand.jpg'; ?>
-                <?php endif ;?>
+				<?php endif ;?>
 
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
@@ -427,12 +427,12 @@
 
 				<span class="description"><?php echo $product['Product']['description']; ?></span>
 
-                <hr style="margin:10px 0;clear:both" />
+				<hr style="margin:10px 0;clear:both" />
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
-	
-                <span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
-                <br />
+
+				<span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
+				<br />
 
 
 
@@ -442,36 +442,36 @@
 				<br />
 				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
 					<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
-					
+
 					<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 <a href="https://twitter.com/gourmetbasket1" class="twitter-follow-button" data-show-count="false">Follow @gourmetbasket1</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
-				
+
 				<?php endif; ?>
 
 
 				<?php if(!empty($product['Product']['stock'])) : ?>
 
-                    Stock: <?php echo $product['Product']['stock']; ?>
-                    <br />
-                    <br />
+					Stock: <?php echo $product['Product']['stock']; ?>
+					<br />
+					<br />
 
 				<?php endif; ?>
 
 
-                       <?php if(!empty($user['User']['min_purchase'])) : ?>
+					   <?php if(!empty($user['User']['min_purchase'])) : ?>
 
-                    <div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
+					<div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
 				<?php endif; ?>
 
 
-                       <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
+					   <?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
 
-                    <div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
-                    <br />
+					<div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
+					<br />
 				<?php endif; ?>
 
 
@@ -527,13 +527,14 @@
 			<br />
 			<br />
 
-			
+
 			<br />
 
-             <img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" style="float:right; padding:20px;"/>
-            <hr />
+			<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" style="float:right; padding:20px;"/>
 
-            <div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors,, misinformation, or omission stated or implied or packaging changes. Please carefully read the actual package before consuming.  </div>
+			<hr />
+
+			<div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors,, misinformation, or omission stated or implied or packaging changes. Please carefully read the actual package before consuming.  </div>
 			<br />
 
 		</div>
