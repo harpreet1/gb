@@ -966,6 +966,7 @@ class ProductsController extends AppController {
 				'Product.*',
 				'User.id',
 				'User.name',
+				'User.slug',
 				'User.active',
 				'Category.id',
 				'Category.name',

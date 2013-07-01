@@ -211,7 +211,7 @@ $(document).ready(function() {
 
 			<br />
 
-			<a href="/product/<?php echo $product['Product']['id']; ?>-<?php echo $product['Product']['slug']; ?>?debug=1" class="btn btn-mini" target="_blank">Live</a>
+			<a href="http://<?php echo $product['User']['slug']; ?>.<?php echo Configure::read('Settings.DOMAIN'); ?>/product/<?php echo $product['Product']['id']; ?>-<?php echo $product['Product']['slug']; ?>?debug=1" class="btn btn-mini" target="_blank">Live</a>
 
 			<br />
 			<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
