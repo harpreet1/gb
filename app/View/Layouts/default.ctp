@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="description" content='A fresh way to learn about, shop for, prepare and enjoy foods of the world.'>
+<meta name="description" content='A fresh way to shop for, learn about, prepare and enjoy foods of the world.'>
 
 <title><?php echo $title_for_layout; ?></title>
 
