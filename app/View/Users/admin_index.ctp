@@ -109,6 +109,9 @@ $(document).ready(function() {
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td class="actions">
+
+			<a href="http://<?php echo $user['User']['slug']; ?>.<?php echo Configure::read('Settings.DOMAIN'); ?>/?debug=1" class="btn btn-mini" target="_blank">Live</a>
+
 			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
 			<?php echo $this->Html->link('Change Password', array('action' => 'password', $user['User']['id']), array('class' => 'btn btn-mini')); ?>
