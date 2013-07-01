@@ -219,6 +219,18 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('user', 'usercategories'));
 
+		$productconditions = array(
+			'Product.id' => $id,
+			'Product.active' => 1,
+			'Product.show' => 1,
+		);
+
+		if(isset($this->params->query['debug'])) {
+			$productconditions = array(
+				'Product.id' => $id,
+			);
+		}
+
 		$product = $this->Product->find('first', array(
 			'recursive' => -1,
 			'contain' => array(
@@ -236,14 +248,12 @@ class ProductsController extends AppController {
 					),
 				),
 			),
-			'conditions' => array(
-				'Product.id' => $id,
-				'Product.active' => 1,
-				'Product.show' => 1,
-			)
+			'conditions' => $productconditions
 		));
 
-		// debug($product);
+		if (empty($product)) {
+			$this->redirect(array('action' => 'index'), 301);
+		}
 
 		$auxcategoriesIds = array($product['Product']['auxcategory_1'], $product['Product']['auxcategory_2'], $product['Product']['auxcategory_3']);
 
@@ -270,10 +280,6 @@ class ProductsController extends AppController {
 
 
 		if($vendorshop && ($subDomain != $product['User']['slug'])) {
-			$this->redirect(array('action' => 'index'), 301);
-		}
-
-		if (empty($product)) {
 			$this->redirect(array('action' => 'index'), 301);
 		}
 

@@ -208,6 +208,11 @@ $(document).ready(function() {
 	<tr>
 		<td class="actions">
 			<?php echo h($product['Product']['id']); ?>
+
+			<br />
+
+			<a href="/product/<?php echo $product['Product']['id']; ?>-<?php echo $product['Product']['slug']; ?>?debug=1" class="btn btn-mini" target="_blank">Live</a>
+
 			<br />
 			<?php echo $this->Html->link('View', array('action' => 'view', $product['Product']['id']), array('class' => 'btn btn-mini')); ?>
 			<br />
@@ -220,7 +225,7 @@ $(document).ready(function() {
 			<br />
 			<img src="/img/icon_<?php echo $product['User']['active']; ?>.png" alt="" />
 		</td>
-		
+
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
 		<td><a href="/admin/products/switch/show/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['show']; ?>.png" alt="" /></a></td>
 
