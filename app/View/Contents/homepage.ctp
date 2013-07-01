@@ -17,7 +17,7 @@
 
 
 	<div class="js-marquee static">
-    <span><a href="/blog">+  FEATURED BLOG  +</a></span>
+    <a href="http://<?php echo Configure::read('Settings.DOMAIN'); ?>/blog">+  FEATURED BLOG  +</a>
     </div>
 	
 

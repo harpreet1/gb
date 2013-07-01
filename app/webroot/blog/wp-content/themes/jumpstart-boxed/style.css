@@ -207,7 +207,7 @@ img.size-full {
 }
 #primary-menu > li.current_page_item > a {
 	/* Style current active menu item on 1st level */
-	background: #ffffff;
+	/*background: #ffffff;*/
 }
 #primary-menu > li.current-menu-ancestor > a {
 	/* Style current parent menu item present on 1st level */
