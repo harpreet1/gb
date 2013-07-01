@@ -101,8 +101,6 @@ class ProductsController extends AppController {
 
 		$conditions = array('User.level' => 'vendor');
 
-
-
 		if(!isset($this->params->query['debug'])) {
 			$useractive = 1;
 		} else {
@@ -195,8 +193,14 @@ class ProductsController extends AppController {
 
 		$subDomain = $this->_getSubDomain();
 
+		if(!isset($this->params->query['debug'])) {
+			$useractive = 1;
+		} else {
+			$useractive = array(0,1);
+		}
+
 		if($subDomain != 'www') {
-			$user = $this->Product->User->getBySubdomain($subDomain);
+			$user = $this->Product->User->getBySubdomain($subDomain, $useractive);
 
 			$usercategories = $this->Product->find('all', array(
 				'contain' => array('Category'),
