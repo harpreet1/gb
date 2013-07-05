@@ -1,4 +1,4 @@
-<style>
+<style type="text/css">
 	.navList li a {
 		<?php //echo $user['User']['awning_css']; ?>
 	}
@@ -9,7 +9,7 @@
 
 <?php if(!empty($user)) : ?>
 
-<style>
+<style type="text/css">
 	.vendor-css {
 		<?php echo $user['User']['awning_css']; ?>
 	}
