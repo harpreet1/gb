@@ -16,7 +16,7 @@
 
 <!-- CSS -->
 
-<style>
+<style type="text/css">
 <?php if(isset($user['User']['awning_css'])) : ?>
 .btn-gb {
 	<?php echo $user['User']['awning_css']; ?>
