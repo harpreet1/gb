@@ -118,12 +118,13 @@
 								<?php echo  $menublock['Block']['name'] ; ?>
 						   				</a>
 								</li>
-					</ul>
 							<?php endif; ?>
 
 
 
 					<?php endforeach; ?>
+					</ul>
+
 					 </div>
 				</div>
 			</li>
