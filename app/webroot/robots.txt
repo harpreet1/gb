@@ -1,7 +1,2 @@
 User-agent: *
-
-Allow: /
-
-User-agent: msnbot
-
-Crawl-delay: 1
+Disallow:
