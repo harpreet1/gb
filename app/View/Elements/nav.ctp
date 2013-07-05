@@ -116,10 +116,11 @@
 								<?php if($check != 1 ): ?>
 								<li><p>-<a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
 								<?php echo  $menublock['Block']['name'] ; ?>
-
+						   				</a>
+								</li>
 							<?php endif; ?>
 
-						   </a></li>
+
 
 					<?php endforeach; ?>
 					 </div>
