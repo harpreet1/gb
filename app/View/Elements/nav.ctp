@@ -118,6 +118,7 @@
 								<?php echo  $menublock['Block']['name'] ; ?>
 						   				</a>
 								</li>
+					</ul>
 							<?php endif; ?>
 
 
