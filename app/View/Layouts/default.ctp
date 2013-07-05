@@ -140,8 +140,8 @@
 	
 	<div class="social-main">
 		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>
-		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30"></a>
-		<a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="30" height="30"></a>	
+		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30" alt="twitter"></a>
+		<a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="30" height="30"alt="pinterest"></a>
 	</div>
 
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
