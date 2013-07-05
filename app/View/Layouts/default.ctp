@@ -14,7 +14,7 @@
 
 <?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css','cakephp_tag_cloud.css')); ?>
 
-<!------ CSS ------>
+<!-- CSS -->
 
 <style>
 <?php if(isset($user['User']['awning_css'])) : ?>
