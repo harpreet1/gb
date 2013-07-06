@@ -1,5 +1,44 @@
 <?php echo $this->Html->script(array('jquery.flexslider-min.js', 'product_view.js'), array('inline' => false)); ?>
 
+<script>
+jQuery(function() {
+    var isVisible = false;
+
+    var hideAllPopovers = function() {
+       $('.popup-marker').each(function() {
+            $(this).popover('hide');
+        });  
+    };
+
+    $('.popup-marker').popover({
+        html: true,
+        trigger: 'manual'
+    }).on('click', function(e) {
+        // if any other popovers are visible, hide them
+        if(isVisible) {
+            hideAllPopovers();
+        }
+
+        $(this).popover('show');
+
+        // handle clicking on the popover itself
+        $('.popover').off('click').on('click', function(e) {
+            e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
+        });
+
+        isVisible = true;
+        e.stopPropagation();
+    });
+
+
+    $(document).on('click', function(e) {
+        hideAllPopovers();
+        isVisible = false;
+    });
+});
+
+</script>
+
 <div class="row">
 
 	<div class="span3">
@@ -410,7 +449,7 @@
 
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
-					<a href="#" class="btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
+					<a href="#" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
 
 					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
