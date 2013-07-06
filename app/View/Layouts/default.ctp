@@ -124,6 +124,8 @@
 					$("#smallObject").html("Done loading object...<br /><br />(Example of the callback function.)");
 				});
 			});
+			
+			$(".product-pic img").css('display','inline');
 		});	
 		
 
