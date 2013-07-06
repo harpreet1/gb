@@ -389,7 +389,7 @@
 							
 						<div class="product-pic">
 
-							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'])); ?>
+							<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' =>'show','url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'])); ?>
 
 							<div class="product-name">
 								<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
