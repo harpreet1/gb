@@ -36,6 +36,18 @@ class DetailsController extends AppController {
 		));
 		$this->set(compact('vendor'));
 		
+		
+		
+		
+		
+		$about = $this->Detail->find('first', array(
+			'conditions' => array(
+				'Detail.type' => 'about'
+			)
+		));
+		$this->set(compact('about'));
+
+		
 		$options = array('conditions' => array('Detail.' . $this->Detail->primaryKey => $id));
 		$this->set('detail', $this->Detail->find('first', $options));
 	}

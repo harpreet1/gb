@@ -11,7 +11,7 @@
 				<div class="span4">
 
 					<ul>
-						<li><a href="">ABOUT</a></li>
+						<li><a href="/details/view/1">ABOUT</a></li>
 						<li><a href="/pages/faq">FAQ</a></li>
 						<li><a href="">TERMS OF USE</a></li>
 						
@@ -22,7 +22,7 @@
 				<div class="span4">
 					<ul>
 						<li><a href="">SHIPPING</a></li>
-						<li><a href="">BECOME A VENDOR</a></li>
+						<li><a href="/details/view/2">BECOME A VENDOR</a></li>
 					</ul>
 				</div>
 

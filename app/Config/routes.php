@@ -21,23 +21,24 @@
 	Router::connect('/category/:slug', array('controller' => 'products', 'action' => 'category'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 	Router::connect('/category/*', array('controller' => 'products', 'action' => 'category'), array('routeClass' => 'SubdomainRoute'));
 
-	Router::connect('/foods/*', array('controller' => 'categories', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
-
 	//Router::connect('/subcategory/:slug', array('controller' => 'products', 'action' => 'subcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
 	//Router::connect('/subsubcategory/:slug', array('controller' => 'products', 'action' => 'subsubcategory'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 
+	Router::connect('/foods/*', array('controller' => 'categories', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+
+	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
+
+	Router::connect('/vendor', array('controller' => 'users', 'action' => 'dashboard', 'vendor' => true));
+	
 	Router::connect('/cat/*', array('controller' => 'products', 'action' => 'view'));
 
 	Router::connect('/us/:slug', array('controller' => 'ustraditions', 'action' => 'view'), array('pass' => array('slug')));
 
 	Router::connect('/international/:slug', array('controller' => 'traditions', 'action' => 'view'), array('pass' => array('slug')));
-
-	Router::connect('/mailchimp.rss', array('controller' => 'products', 'action' => 'mailchimp'));
-
-	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
-
-	Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+	
+	
+		Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 	// Article landing page routing
 	Router::connect('/articles/:block/*', array('controller' => 'articles', 'action' => 'index'), array('pass' => array('block','slug')));
 
@@ -65,11 +66,15 @@
 		)
 	);
 
+	
+
+	Router::connect('/mailchimp.rss', array('controller' => 'products', 'action' => 'mailchimp'));
+
+	Router::connect('/sitemap.xml', array('controller' => 'products', 'action' => 'sitemap'));
+
+
 	Router::connect('/info/:slug', array('controller' => 'pages', 'action' => 'view'), array('pass' => array('slug')));
 
-	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
-
-	Router::connect('/vendor', array('controller' => 'users', 'action' => 'dashboard', 'vendor' => true));
 
 	//Members - Sign Me Up
 
