@@ -70,8 +70,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link('View', array('action' => 'view', $brand['Brand']['id']), array('class' => 'btn btn-mini')); ?>
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $brand['Brand']['id']), array('class' => 'btn btn-mini')); ?>
-			<?php //echo $this->Form->postLink('Delete', array('action' => 'delete', $brand['Brand']['id']), null, __('Are you sure you want to delete # %s?', $brand['Brand']['id'])); ?>
-		</td>
+			<?php echo $this->Form->postLink('Delete', array('action' => 'delete', $brand['Brand']['id']), array('class' => 'btn btn-mini btn-danger') , __('Are you sure you want to delete # %s?', $brand['Brand']['id'])); ?>
 	</tr>
 	<?php endforeach; ?>
 </table>
