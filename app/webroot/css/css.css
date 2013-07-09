@@ -1477,6 +1477,11 @@ html[xmlns] .slides {
 li.cart .btn {
 	padding: 1px 12px;
 }
+
+li.cart a {
+	color:#fff;
+}
+
 /** Attribute icons **/
 
 .attr-icon-set {
