@@ -233,7 +233,7 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span ckeditor')); ?>
 		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span ckeditor')); ?>
 		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span  ckeditor')); ?></div>
-		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span')); ?>
+		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span ckeditor')); ?>
 	</div>
 
 	<div class="span3">
