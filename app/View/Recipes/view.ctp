@@ -90,7 +90,7 @@
 		<br />
 
 		<?php if(!empty($recipe['Recipe']['image_4'])) : ?>
-			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_4'] ?>" />
+			<img class="recipe-pic border" src="/img/recipes/image_4/<?php echo $recipe['Recipe']['image_4'] ?>" />
             <?php if(!empty($recipe['Recipe']['attr_4'])) : ?>
             <div class="photo-attr">
 				<span><?php echo $recipe['Recipe']['attr_4']?></span>
@@ -100,7 +100,7 @@
 		<br />
 
 		<?php if(!empty($recipe['Recipe']['image_5'])) : ?>
-			<img class="recipe-pic border" src="/img/recipes/image_2/<?php echo $recipe['Recipe']['image_5'] ?>" />
+			<img class="recipe-pic border" src="/img/recipes/image_5/<?php echo $recipe['Recipe']['image_5'] ?>" />
             <?php if(!empty($recipe['Recipe']['attr_5'])) : ?>
             <div class="photo-attr">
 				<span><?php echo $recipe['Recipe']['attr_5']?></span>
