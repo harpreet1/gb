@@ -1,3 +1,18 @@
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
+		
+		<script type="text/javascript">
+			tinyMCE.init({
+				mode : "textareas",
+				theme : "advanced",
+				skin: "thebigreason",
+				plugins : "inlinepopups",
+				plugins : "paste",
+				// Theme options
+				theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
+				theme_advanced_resizing : true,
+			});
+		</script>
+
 <div class="details index">
 	<h2><?php echo __('Details'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -17,7 +32,7 @@
 	<tr>
 		<td><?php echo h($detail['Detail']['id']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['name']); ?>&nbsp;</td>
-		<td><?php echo h($detail['Detail']['body']); ?>&nbsp;</td>
+		<td><?php echo ($detail['Detail']['body']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['image']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['link']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['type']); ?>&nbsp;</td>

@@ -12,7 +12,7 @@
 
 					<ul>
 						<li><a href="/details/view/1">ABOUT</a></li>
-						<li><a href="/pages/faq">FAQ</a></li>
+						<li><a href="/details/view/3">FAQ</a></li>
 						<li><a href="">TERMS OF USE</a></li>
 						
 					</ul>

@@ -1,17 +1,19 @@
 	<?php echo $this->Html->script('/tiny_mce/tiny_mce.js'); ?>
-		
-		<script type="text/javascript">
-			tinyMCE.init({
-				mode : "textareas",
-				theme : "advanced",
-				skin: "thebigreason",
-				plugins : "inlinepopups",
-				plugins : "paste",
-				// Theme options
-				theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,cleanup,removeformat,code",
-				theme_advanced_resizing : true,
-			});
-		</script>
+
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		skin: "thebigreason",
+		plugins : "inlinepopups",
+		plugins : "paste",
+		// Theme options
+		theme_advanced_buttons1 : "styleselect,bold,italic,underline,hr,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,|,removeformat,code",
+		theme_advanced_resizing : true,
+				
+
+	});
+</script>
 <div class="row gb">
 	<div class="span12">
 

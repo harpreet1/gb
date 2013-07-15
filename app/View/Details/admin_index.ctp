@@ -1,6 +1,7 @@
 <div class="details index">
 	<h2><?php echo __('Details'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	
+<table class="table table-striped table-bordered table-condensed table-hover">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -17,7 +18,7 @@
 	<tr>
 		<td><?php echo h($detail['Detail']['id']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['name']); ?>&nbsp;</td>
-		<td><?php echo h($detail['Detail']['body']); ?>&nbsp;</td>
+		<td><div class="limit"><?php echo ($detail['Detail']['body']); ?></div></td>
 		<td><?php echo h($detail['Detail']['image']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['link']); ?>&nbsp;</td>
 		<td><?php echo h($detail['Detail']['type']); ?>&nbsp;</td>
