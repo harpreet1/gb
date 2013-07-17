@@ -1,25 +1,18 @@
 <?php echo $this->Html->script(array('jquery.chained.js'), array('inline' => false)); ?>
 
-<?php echo $this->Html->script('/ckeditor/ckeditor.js', array('inline' => false)); ?>
+<?php echo $this->Html->script('/tiny_mce/tiny_mce.js', array('inline' => false)); ?>
 
 <script type="text/javascript">
-//	tinyMCE.init({
-//		selector: "textarea",
-//		 plugins: [
-//        "advlist autolink lists link preview anchor",
-//        "visualblocks code fullscreen",
-//        "contextmenu paste spellchecker"
-//    	],
-//    	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
-//});
-
-
-CKEDITOR.replace( 'textarea', {
-    toolbar: 'Basic',
-    uiColor: '#9AB8F3',
-});
-
-
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		skin: "thebigreason",
+		plugins : "inlinepopups",
+		plugins : "paste",
+		// Theme options
+		theme_advanced_buttons1 : "bold,italic,underline,|,link,unlink,|,bullist,numlist,|,pastetext,pasteword,selectall,||,cleanup,removeformat,code",
+		theme_advanced_resizing : true,
+	});
 </script>
 
 <script type="text/javascript">
@@ -65,9 +58,10 @@ $(document).ready(function(){
 
 
 
-<h2>Admin Edit Product</h2>
+<h2>Admin Add Product</h2>
 
 <?php echo $this->Form->create('Product'); ?>
+
 
 <div class="row">
 
@@ -158,7 +152,7 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5 ckeditor')); ?>
+		<?php echo $this->Form->input('description', array('rows' => 10, 'class' => 'field span5')); ?>
 	</div>
 
 	<div class="span4">
@@ -179,8 +173,8 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span ckeditor')); ?></div>
-		<div><?php echo $this->Form->input('generic_description', array('rows' => 10, 'class' => '3span ckeditor')); ?></div>
+		<div><?php echo $this->Form->input('long_description', array('rows' => 20, 'class' => '4span')); ?></div>
+		<div><?php echo $this->Form->input('generic_description', array('rows' => 20, 'class' => '4span')); ?></div>
 	</div>
 
 	<div class="span3 offset1">
@@ -207,7 +201,6 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_nut_free', array('type' => 'checkbox','label' => 'Nut Free'));
 		echo $this->Form->input('attr_heart_smart', array('type' => 'checkbox','label' => 'Heart Smart'));
 		echo $this->Form->input('attr_no_preservatives', array('type' => 'checkbox','label' => 'No Artificial Preservatives'));
-		echo $this->Form->input('attr_non_gmo', array('type' => 'checkbox','label' => 'No GMO'));
 		echo $this->Form->input('attr_organic', array('type' => 'checkbox','label' => 'Organic'));
 		echo $this->Form->input('attr_kosher', array('type' => 'checkbox','label' => 'Kosher'));
 		echo $this->Form->input('attr_halal', array('type' => 'checkbox','label' => 'Halal'));
@@ -227,11 +220,11 @@ $(document).ready(function(){
 <div class="row">
 
 	<div class="span5">
-		<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span ckeditor')); ?>
-		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span ckeditor')); ?>
-		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span ckeditor')); ?>
-		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span  ckeditor')); ?></div>
-		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span ckeditor')); ?>
+		<?php echo $this->Form->input('ingredients', array('rows' => 10, 'class' => '4span')); ?>
+		<?php echo $this->Form->input('nutrition', array('rows' => 10, 'class' => '4span')); ?>
+		<?php echo $this->Form->input('recipes', array('rows' => 10, 'class' => '4span')); ?>
+		<div><?php echo $this->Form->input('serving_suggestions', array('rows' => 10, 'class' => '4span')); ?></div>
+		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span')); ?>
 	</div>
 
 	<div class="span3">
@@ -392,3 +385,5 @@ $(document).ready(function(){
 
 </div>
 
+<br />
+<br />
