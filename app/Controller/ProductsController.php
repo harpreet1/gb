@@ -1100,8 +1100,8 @@ class ProductsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
-
-			if(!empty($this->request->data['Product']['traditions'])) {
+			
+	if(!empty($this->request->data['Product']['traditions'])) {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
 			}
@@ -1113,6 +1113,8 @@ class ProductsController extends AppController {
 			if(!isset($this->request->data['Product']['subsubcategory_id'])) {
 				$this->request->data['Product']['subsubcategory_id'] = '';
 			}
+
+			$this->request->data['Product']['weight'] = sprintf('%.1f', $this->request->data['Product']['shipping_weight'] / 16);
 
 			if ($this->Product->save($this->request->data)) {
 
@@ -1128,20 +1130,34 @@ class ProductsController extends AppController {
 				$this->Session->setFlash('The product has been saved');
 				$this->redirect(array('action' => 'index'));
 			} else {
+				$product = $this->Product->find('first', array(
+					'recursive' => 0,
+					'conditions' => array(
+						'Product.id' => $id
+					)
+				));
+				$this->set(compact('product'));
 				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
+		
+		
+			$this->set(compact('product'));
 		}
 
 		$users = $this->Product->User->find('list', array(
-			'recursive' => -1,
+			'fields' => array(
+				'User.id',
+				'User.name',
+			),
 			'conditions' => array(
-				'User.active' => 1,
 				'User.level' => 'vendor',
 			),
 			'order' => array(
+				'User.active' => 'DESC',
 				'User.name' => 'ASC'
-			)
+			),
 		));
+//		$users = Hash::combine($users, '{n}.User.id', array('%s - (%s)', '{n}.User.name', '{n}.User.active'));
 
 		$categories = $this->Product->Category->findList();
 
@@ -1160,7 +1176,11 @@ class ProductsController extends AppController {
 			)
 		));
 
+		$traditionsselected = array_map('intval', explode(',', $product['Product']['traditions']));
+
 		$ustraditions = $this->Product->Ustradition->findList();
+
+		$displaygroups = $this->Product->displaygroups();
 
 		$brands = $this->Product->Brand->findList();
 
@@ -1168,7 +1188,7 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'ustraditions', 'brands', 'countries', 'creations'));
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups'));
 
 	}
 
@@ -1181,6 +1201,7 @@ class ProductsController extends AppController {
 			throw new NotFoundException('Invalid product');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			
 			if(!empty($this->request->data['Product']['traditions'])) {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);

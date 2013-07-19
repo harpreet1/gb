@@ -68,19 +68,26 @@
 </div>
 
 <div id="lower">
-	<!--<div id="star-band"></div>
--->
-	<div id="myCarousel" class="carousel slide">
+	<!--<div id="star-band"></div>-->
+	
 
+	<div id="myCarousel" class="carousel slide">
+		<div class="featured-vendor">Featured Vendors</div>
+		
+		
 		<div class="carousel-inner">
 		<?php $active = 'active'; ?>
 		<?php foreach($contents as $content) : ?>
+		
+	
         
         <?php if (($content['Content']['active']) == 1) : ?>
 
 			<div class="item <?php echo $active; ?>">
-
+			
+				<a href="<?php echo ($content['Content']['link']); ?>">
 				<?php echo $this->Html->image('homepage/sliders/' . $content['Content']['image']); ?>
+				</a>
 
 				<div class="carousel-caption">
 					<h1><?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?></h1>

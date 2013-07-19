@@ -481,8 +481,7 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 	position: absolute;
 	right: 0px;
 	bottom: 72px;
- width;
-121px;
+ 	width:121px;
 	font-size: 18px;
 	color: #fff;
 	text-align: center;
@@ -493,6 +492,16 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 }
 .gb-heading.blocks {
 	font-size: 19px;
+}
+
+.featured-vendor {
+	font-family: 'Oregano', cursive;
+	font-size:22px;
+	color: #fff;
+	padding:10px;
+	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1);
+	position:absolute;
+	top:-39px;
 }
 .explain {
 	font-size: 20px;
@@ -568,6 +577,12 @@ ul.meganizr >li.cart > a {
 	padding-top: 0px;
 	line-height: 31px;
 }
+
+li.cart a {
+	color: #FFF;
+}
+
+
 .btn-global {
 	color: #FFF;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
