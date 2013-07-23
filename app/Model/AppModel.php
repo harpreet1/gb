@@ -217,7 +217,7 @@ class AppModel extends Model {
 		'Swaziland' => 'Swaziland',
 		'Sweden' => 'Sweden',
 		'Switzerland' => 'Switzerland',
-		'Syrian' => 'Syrian',
+		'Syria' => 'Syria',
 		'Taiwan' => 'Taiwan',
 		'Thailand' => 'Thailand',
 		'Trinidad And Tobago' => 'Trinidad And Tobago',
@@ -228,7 +228,7 @@ class AppModel extends Model {
 		'United Kingdom' => 'United Kingdom',
 		'Uruguay' => 'Uruguay',
 		'Venezuela' => 'Venezuela',
-		'Viet Nam' => 'Viet Nam',
+		'Vietnam' => 'Viet Nam',
 		);
 		if($id) {
 			if(isset($countries[$id])) {

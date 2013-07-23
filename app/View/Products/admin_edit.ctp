@@ -192,6 +192,7 @@ $(document).ready(function(){
 		<br />
 		<?php echo $this->Form->input('ustradition_id', array('label' => 'US Traditions','empty' => '--')); ?>
 		<?php echo $this->Form->input('country'); ?>
+		<?php echo $this->Form->input('country_manufacture', array('label' => 'Country of Manufacture','options' => $countries, 'empty' => '--')); ?>
 		<?php echo $this->Form->input('creation'); ?>
 	</div>
 
@@ -203,6 +204,7 @@ $(document).ready(function(){
 		echo $this->Form->input('attr_vegetarian', array('type' => 'checkbox','label' => 'Vegetarian'));
 		echo $this->Form->input('attr_low_fat', array('type' => 'checkbox','label' => 'Low Fat'));
 		echo $this->Form->input('attr_sugar_free', array('type' => 'checkbox','label' => 'Sugar Free'));
+		echo $this->Form->input('attr_no_sugar_added', array('type' => 'checkbox','label' => 'No Sugar Added'));
 		echo $this->Form->input('attr_no_msg', array('type' => 'checkbox','label' => 'No MSG'));
 		echo $this->Form->input('attr_lactose_free', array('type' => 'checkbox','label' => 'Lactose Free'));
 		//echo $this->Form->input('attr_low_carb', array('type' => 'checkbox','label' => 'Low Carb'));

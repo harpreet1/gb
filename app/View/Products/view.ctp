@@ -2,39 +2,22 @@
 
 <script>
 jQuery(function() {
-    var isVisible = false;
-
-    var hideAllPopovers = function() {
-       $('.popup-marker').each(function() {
-            $(this).popover('hide');
-        });  
-    };
-
-    $('.popup-marker').popover({
-        html: true,
-        trigger: 'manual'
-    }).on('click', function(e) {
-        // if any other popovers are visible, hide them
-        if(isVisible) {
-            hideAllPopovers();
-        }
-
-        $(this).popover('show');
-
-        // handle clicking on the popover itself
-        $('.popover').off('click').on('click', function(e) {
-            e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
-        });
-
-        isVisible = true;
-        e.stopPropagation();
-    });
-
-
-    $(document).on('click', function(e) {
-        hideAllPopovers();
-        isVisible = false;
-    });
+	
+	$('.popup-marker').popover({
+		html: true,
+		
+	});
+	
+	$('#pop-trigger').click(function (e) {
+		e.stopPropagation();
+	});
+	
+	$(document).click(function (e) {
+		if (($('.popup-marker').has(e.target).length == 0) || $(e.target).is('.close')) {
+			$('#pop-trigger').popover('hide');
+		}
+	});
+	
 });
 
 </script>
@@ -449,7 +432,7 @@ jQuery(function() {
 
 					<?php if(!empty($product['Brand']['description'])) : ?>
 
-					<a href="#" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
+					<a href="#" id="pop-trigger" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
 
 					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a>
 
@@ -472,12 +455,18 @@ jQuery(function() {
 
 				<span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
 				<br />
-
+				<br />
 
 
 				<?php if(!empty($product['Product']['country'])) : ?>
-
-				Made in&nbsp;<?php echo $product['Product']['country']; ?>
+				Made in:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>						
+				<?php endif; ?>
+				
+				<br />
+				<?php if(!empty($product['Product']['country_manufacture'])) : ?>
+				Comes from:&nbsp;<span class="gb-green"><?php echo $product['Product']['country_manufacture']; ?></span>							
+				<?php endif; ?>
+				
 				<br />
 				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
 					<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
@@ -489,7 +478,7 @@ jQuery(function() {
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 
-				<?php endif; ?>
+				
 
 
 				<?php if(!empty($product['Product']['stock'])) : ?>
@@ -573,7 +562,7 @@ jQuery(function() {
 
 			<hr />
 
-			<div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors,, misinformation, or omission stated or implied or packaging changes. Please carefully read the actual package before consuming.  </div>
+			<div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors, misinformation, or omission stated or implied or packaging changes. Warning: Please read the actual package before consuming its contents.</div>
 			<br />
 
 		</div>
