@@ -28,7 +28,7 @@
 
 				<div class="span4">
 					<ul>
-						<li><a href="mailto:support@thegourmetbasket.net">CONTACT</a></li>
+						<li><a href="/details/view/4">CONTACT</a></li>
 
 					</ul>
 				</div>
