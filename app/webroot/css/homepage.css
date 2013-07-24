@@ -15,11 +15,6 @@ h3 {
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 	width: 960px;
 }
-.span4 {
-	background-color: #FFF;
-	height: 390px;
-	margin-bottom: 30px;
-}
 #lower .row-fluid {
 	padding-left: 30px;
 }
@@ -611,4 +606,19 @@ hr.thin.tight {
 	border-top: 1px solid #3f9179;
 	border-bottom: none;
 	
+}
+
+/* Footer */
+
+#footer {
+
+	margin: auto;
+	padding: 20px;
+	color: #fff;
+	background-color:#3f9179;
+	
+}
+
+#footer a {
+	color:#fff;
 }
