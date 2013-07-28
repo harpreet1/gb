@@ -129,7 +129,7 @@
 				</div>
 			</li>
 			
-			<li> <a href="http://gourmetworldmarket.com/blog" >The Blog</a>
+			<li> <a href="/blog" >The Blog</a>
 			</li>
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
