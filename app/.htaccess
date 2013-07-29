@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
-	RewriteCond %{REQUEST_URI} !^/blog   
+	RewriteCond %{REQUEST_URI} !^/blog/ 
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
 </IfModule>
