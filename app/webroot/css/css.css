@@ -602,7 +602,7 @@ div.brand-search {
 }
 
 img.brand {
-	width:100px;
+	max-width:100px;
 	float:right;
 	margin-left:5px;
 	margin-bottom:5px;
