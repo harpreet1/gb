@@ -75,7 +75,7 @@
     <div class="container">
     
         <div id="header-homepage"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
-            <div class="basket"><img src="/img/global/basket.png" width="76" height="76" alt="gourmet basket"></div>
+            <div class="basket"><img src="/img/global/gwm-logo-100.png" width="80" height="80" alt="gourmet world market"></div>
             </a>
             <div id="nav-wrapper"> 
                 <!-- Include Nav element --> 
