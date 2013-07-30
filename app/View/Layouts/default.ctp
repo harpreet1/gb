@@ -147,7 +147,7 @@
 	</div>
 
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
-			<div class="basket"><img src="/img/global/gwm-logo-100.png" width="80" height="80" alt="gourmet basket"></div>
+			<div class="basket"><img src="/img/global/gwm-globe-home.png" width="80" height="80" alt="gourmet basket"></div>
 		 </a>
 
 		 <div id="search-box">
