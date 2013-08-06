@@ -1788,16 +1788,22 @@ hr.recipe-divider {
 .dropdown-air {
 	margin-bottom: 7px;
 }
-/*.recipe-button {
-	margin-bottom:5px;
-	padding:5px;
+.recipe-button {
+	margin-bottom:10px;
 }
 
 .recipe-button a {
-	color:#000;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-	
+	color:#1f4eb1;
+	/*text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);*/
+	font-size:90%;
+	font-weight:bold;
+	line-height:100%;		
 }
+
+.recipe-button a:hover  {
+	color:#c00;
+}
+
 */
 .content-recipe {
 	position: relative;

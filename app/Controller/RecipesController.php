@@ -216,7 +216,12 @@ class RecipesController extends AppController {
 			),
 			'conditions' => array(
 				'User.slug' => $subDomain
-			)
+			),
+			'order' => array(
+				'Recipe.name' => 'ASC',
+				'Recipescategory.name' => 'ASC',
+			),
+			
 		));
 		if(empty($recipelist)) {
 			$this->redirect(array('action' => 'all'));
