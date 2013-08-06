@@ -459,7 +459,7 @@ jQuery(function() {
 
 
 				<?php if(!empty($product['Product']['country'])) : ?>
-				Made in:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>						
+				Food tradition/ Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>						
 				<?php endif; ?>
 				
 				<br />
