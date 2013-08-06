@@ -1,4 +1,4 @@
-<h2 class="gb-heading">All Gourmet Basket Recipes</h2>
+<h2 class="gb-heading">All Gourmet World Recipes</h2>
 
 
 <script>
@@ -102,5 +102,7 @@ $(document).ready(function() {
 <?php echo $this->element('pagination-counter'); ?>
 
 <?php echo $this->element('pagination'); ?>
+
+SHOW ALL
 
 <br />

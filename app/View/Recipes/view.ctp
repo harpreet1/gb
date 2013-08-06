@@ -2,7 +2,7 @@
 	<div class="span3">
  <div class="vendor-logo">
     <a href="/">
-    	<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('class' => 'img-polaroid','width' =>'210px')); ?>
+    	<?php echo $this->Html->image('users/image/' . $user['User']['image'], array('width' =>'210px')); ?>
     </a>
 </div>
   

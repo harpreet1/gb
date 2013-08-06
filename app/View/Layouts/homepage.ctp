@@ -86,6 +86,7 @@
             <ul class="gb-horiz-account">
 				<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook-home.png" width="25" height="25" alt="facebook"></a></li>
 				<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter-home.png" width="25" height="25"></a></li>
+				<li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="30" height="30" alt="pinterest"></a></li>
                 <!--<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>-->
                <!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
             </ul>

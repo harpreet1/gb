@@ -75,5 +75,7 @@
 
 <?php echo $this->element('pagination'); ?>
 
+SHOW ALL
+
 <br />
 
