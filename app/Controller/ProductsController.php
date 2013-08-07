@@ -147,6 +147,29 @@ class ProductsController extends AppController {
 			);
 		}
 
+
+		$brands =  $this->Product->find('all', array(
+				'contain' => array('Brand'),
+				'fields' => array(
+					'Brand.name',
+				),
+				'conditions' => array(
+					'Product.active' => 1,
+					'Product.show' => 1,
+					'Product.user_id' => $user['User']['id']
+				),
+				'order' => array(
+					'Brand.name' => 'ASC'
+				),
+			));
+		
+		
+		$this->set(compact('user', 'brands'));
+
+
+
+		
+
 		$this->paginate = array(
 			'contain' => array(
 				'User',
@@ -167,16 +190,17 @@ class ProductsController extends AppController {
 			'limit' => 20,
 			'order' => array(
 				'Product.displaygroup' => 'ASC',
-				'Product.name' => 'ASC'
+				//'Product.name' => 'ASC',
+				'Brand.name' => 'ASC'
+				
 			),
 			'paramType' => 'querystring',
 			'conditions' => $conditions
 		);
+		
 		$products = $this->paginate('Product');
 
 		$displaygroups = $this->Product->displaygroups();
-
-		//$brands = $this->Product->brands();
 
 		$this->set(compact('products','brand','displaygroups'));
 

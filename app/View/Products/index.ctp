@@ -45,10 +45,6 @@
 			<a class="gb-nav" href="/">All Our Products</a>
 
 
-
-
-
-
 			<?php if(!empty($category)) : ?><br /><span class="gb-nav"><img src="/img/global/dash-2.png"></span>
 
 				<?php echo $this->Html->link($category['Category']['name'], array('controller' => 'products', 'action' => 'category', $category['Category']['slug'])); ?>
@@ -71,10 +67,6 @@
 				<?php $subsubcat_crumb = $subsubcategory['Subsubcategory']['name']?>
 			
 			<?php endif; ?>
-
-
-
-
 
 
 			<div style="clear:both">
@@ -135,6 +127,14 @@
 	
 				<?php endif; ?>
 
+				<?php /*?><?php
+					$count = 1;
+					foreach ($brands as $brand):
+						echo $product['Brands']['name'];
+						echo($count) . '<br />';
+						$count++;
+					endforeach; ?>
+<?php */?>
 			</div>
 			
 			

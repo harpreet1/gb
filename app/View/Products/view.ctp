@@ -60,7 +60,6 @@ jQuery(function() {
 
 						<?php endforeach; ?>
 
-
 				<?php endif; ?>
 
 		<?php endif; ?>

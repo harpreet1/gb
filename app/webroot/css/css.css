@@ -1325,7 +1325,7 @@ html[xmlns] .slides {
 }
 /* Direction Nav */
 .flex-direction-nav {
-*height: 0;
+	display:none;
 }
 .flex-direction-nav a {
 	width: 30px;
