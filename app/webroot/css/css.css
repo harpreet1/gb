@@ -525,9 +525,7 @@ div.product-name, div.product-name p, div.product-name a {
 }
 .pic-thumbnail {
 	height: 50px;
-	width: 50px;
 	padding: 2px;
-	display: block;
 	border: 1px solid #CCC;
 }
 #carousel.flexslider {
@@ -1319,6 +1317,10 @@ html[xmlns] .slides {
 }
 .flexslider .slides {
 	zoom: 1;
+}
+
+.flexslider .slides li img {
+
 }
 .carousel li {
 	margin-right: 5px
