@@ -147,28 +147,26 @@ class ProductsController extends AppController {
 			);
 		}
 
+		$brands = $this->Product->find('all', array(
+			'contain' => array('Brand'),
+			'fields' => array(
+				'Brand.name',
+			),
+			'conditions' => array(
+				'Product.active' => 1,
+				'Product.show' => 1,
+				'Product.user_id' => $user['User']['id']
+			),
+			'order' => array(
+				'Brand.name' => 'ASC'
+			),
+			'group' => array(
+				'Brand.id'
+			),
+		));
+		// print_r($brands);
+		$this->set(compact('brands'));
 
-		$brands =  $this->Product->find('all', array(
-				'contain' => array('Brand'),
-				'fields' => array(
-					'Brand.name',
-				),
-				'conditions' => array(
-					'Product.active' => 1,
-					'Product.show' => 1,
-					'Product.user_id' => $user['User']['id']
-				),
-				'order' => array(
-					'Brand.name' => 'ASC'
-				),
-			));
-		
-		
-		$this->set(compact('user', 'brands'));
-
-
-
-		
 
 		$this->paginate = array(
 			'contain' => array(
@@ -192,12 +190,12 @@ class ProductsController extends AppController {
 				'Product.displaygroup' => 'ASC',
 				//'Product.name' => 'ASC',
 				'Brand.name' => 'ASC'
-				
+
 			),
 			'paramType' => 'querystring',
 			'conditions' => $conditions
 		);
-		
+
 		$products = $this->paginate('Product');
 
 		$displaygroups = $this->Product->displaygroups();
@@ -316,14 +314,6 @@ class ProductsController extends AppController {
 			$this->redirect(array('action' => 'index'), 301);
 		}
 
-		$this->Product->updateAll(
-			array(
-				'Product.viewed' => 'Product.viewed + 1',
-				'Product.last_viewed' => 'NOW()',
-			),
-			array('Product.id' => $product['Product']['id'])
-		);
-
 		if(!empty($product['Product']['related_products'])) {
 
 			$related_products_ids = $product['Product']['related_products'];
@@ -360,10 +350,59 @@ class ProductsController extends AppController {
 				}
 			}
 		}
-
-		// debug($nuts);
-
 		$this->set(compact('nuts'));
+
+		if ($product['Product']['user_id'] == 11) {
+			$days_ago_1 = date('Y-m-d H:i:s', strtotime('-3 days'));
+			if($product['Product']['stock_updated'] < $days_ago_1) {
+				App::uses('HttpSocket', 'Network/Http');
+				$httpSocket = new HttpSocket();
+				$gbrequest = 'https://www.maestrolico.com/api/checkstockstatus.asp?distributorid=' . Configure::read('Settings.MAESTRO_DISTRIBUTOR_ID') . '&productid=' . $product['Product']['vendor_sku'];
+				// echo $gbrequest;
+				$response = $httpSocket->get($gbrequest);
+				$res = explode('|', $response['body']);
+				$this->Product->updateAll(
+					array(
+						'Product.stock' => $res[1],
+						'Product.stock_updated' => 'NOW()',
+					),
+					array('Product.id' => $product['Product']['id'])
+				);
+				$product['Product']['stock'] = $res[1];
+			}
+		}
+
+		// if $product['Product']['stock_updated'] > 1 day
+		// check stock from maestro
+		// update $product['Product']['stock_updated']
+		// update $product['Product']['stock']
+		// endif
+
+		// $product['Product']['last_viewed']
+
+		// $d = date('Y-m-d H:i:s');
+		// echo $d;
+		// $days_ago = date('Y-m-d H:i:s', strtotime('-2 days', strtotime($d)));
+		// echo $days_ago;
+
+		// App::uses('HttpSocket', 'Network/Http');
+		// $httpSocket = new HttpSocket();
+		// $response = $httpSocket->get('https://www.maestrolico.com/api/checkstockstatus.asp?distributorid=' . Configure::read('Settings.MAESTRO_DISTRIBUTOR_ID') . '&productid=' . $this->product['Product']['vendor_sku']);
+		// $res = explode('|', $response['body']);
+		// if($res[1] < $quantity) {
+
+		// cron
+		// $product['Product']['stock_updated'] > 2 weeks AND $product['Product']['stock'] == 0
+		// check stock from maestro
+		// disable from store if stock = 0 ???
+
+		$this->Product->updateAll(
+			array(
+				'Product.viewed' => 'Product.viewed + 1',
+				'Product.last_viewed' => 'NOW()',
+			),
+			array('Product.id' => $product['Product']['id'])
+		);
 
 		$this->set(compact('product'));
 		$title_for_layout = $product['Product']['name'] . ' - Gourmet Basket';
@@ -1124,7 +1163,7 @@ class ProductsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
-			
+
 	if(!empty($this->request->data['Product']['traditions'])) {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);
@@ -1163,8 +1202,8 @@ class ProductsController extends AppController {
 				$this->set(compact('product'));
 				$this->Session->setFlash('The product could not be saved. Please, try again.');
 			}
-		
-		
+
+
 			$this->set(compact('product'));
 		}
 
@@ -1225,7 +1264,7 @@ class ProductsController extends AppController {
 			throw new NotFoundException('Invalid product');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			
+
 			if(!empty($this->request->data['Product']['traditions'])) {
 				asort($this->request->data['Product']['traditions']);
 				$this->request->data['Product']['traditions'] = implode(',', $this->request->data['Product']['traditions']);

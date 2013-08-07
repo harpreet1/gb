@@ -2,22 +2,22 @@
 
 <script>
 jQuery(function() {
-	
+
 	$('.popup-marker').popover({
 		html: true,
-		
+
 	});
-	
+
 	$('#pop-trigger').click(function (e) {
 		e.stopPropagation();
 	});
-	
+
 	$(document).click(function (e) {
 		if (($('.popup-marker').has(e.target).length == 0) || $(e.target).is('.close')) {
 			$('#pop-trigger').popover('hide');
 		}
 	});
-	
+
 });
 
 </script>
@@ -452,24 +452,24 @@ jQuery(function() {
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
 
-				<?php if((!$product['Product']['user_id']) == '11') : ?>
+				<?php if($product['Product']['user_id'] != 11) : ?>
 
 				<span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
-				
+
 				<?php endif; ?>
 				<br />
 				<br />
 
 
 				<?php if(!empty($product['Product']['country'])) : ?>
-				Food tradition/ Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>						
+				Food tradition/ Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>
 				<?php endif; ?>
-				
+
 				<br />
 				<?php if(!empty($product['Product']['country_manufacture'])) : ?>
-				Comes from:&nbsp;<span class="gb-green"><?php echo $product['Product']['country_manufacture']; ?></span>							
+				Comes from:&nbsp;<span class="gb-green"><?php echo $product['Product']['country_manufacture']; ?></span>
 				<?php endif; ?>
-				
+
 				<br />
 				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
 					<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
@@ -481,7 +481,7 @@ jQuery(function() {
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 
-				
+
 
 
 				<?php if(!empty($product['Product']['stock'])) : ?>
