@@ -452,7 +452,11 @@ jQuery(function() {
 
 				<p><?php echo $product['Product']['long_description']; ?></p>
 
+				<?php if((!$product['Product']['user_id']) == '11') : ?>
+
 				<span class="product-label">Shipping Weight: </span><?php echo $product['Product']['shipping_weight']; ?> oz.</span>
+				
+				<?php endif; ?>
 				<br />
 				<br />
 
