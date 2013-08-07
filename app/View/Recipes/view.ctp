@@ -18,7 +18,7 @@
 			
 			foreach($recipelist as $recipekey)
 			{
-				echo '<div class="recipe-button ">';
+				echo '<div class="recipe-button ">-&nbsp;';
 				echo '<a class="" href="http://' . $recipekey['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/recipe/' . $recipekey['Recipe']['slug'] . '">';
 				echo $recipekey['Recipe']['name'];
 				echo '</a>';

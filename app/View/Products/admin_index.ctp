@@ -183,7 +183,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
-		<th><?php echo $this->Paginator->sort('show'); ?></th>
+		<th><?php echo $this->Paginator->sort('show', 'Come Back');?></th>
 		<th><?php echo $this->Paginator->sort('discontinued'); ?></th>
 		<th><?php echo $this->Paginator->sort('image'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
