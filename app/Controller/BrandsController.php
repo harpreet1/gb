@@ -5,8 +5,58 @@ class BrandsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function index() {
-		$this->Brand->recursive = 0;
-		$this->set('brands', $this->paginate());
+
+		$subDomain = $this->_getSubDomain();
+
+		if(!isset($this->params->query['debug'])) {
+			$useractive = 1;
+		} else {
+			$useractive = array(0,1);
+		}
+
+		if($subDomain != 'www') {
+			$user = $this->Brand->Product->User->getBySubdomain($subDomain, $useractive);
+			if(!$user) {
+				die('error');
+			}
+
+		} else{
+			$user = array();
+		}
+
+		// print_r($user);
+
+
+		if(!empty($user)) {
+			$conditions[] = array(
+				'Product.active' => 1,
+				'Product.show' => 1,
+				'Product.user_id' => $user['User']['id']
+			);
+		} else {
+			$conditions[] = array(
+				'Product.active' => 1,
+				'Product.show' => 1,
+			);
+		}
+
+		$brands = $this->Brand->Product->find('all', array(
+			'contain' => array('Brand'),
+			'fields' => array(
+				'Brand.name',
+				'Brand.slug',
+			),
+			'conditions' => $conditions,
+			'order' => array(
+				'Brand.name' => 'ASC'
+			),
+			'group' => array(
+				'Brand.id'
+			),
+		));
+		// print_r($brands);
+		$this->set(compact('brands'));
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -14,13 +64,94 @@ class BrandsController extends AppController {
 	public function view($id = null) {
 		$brand = $this->Brand->find('first', array(
 			'conditions' => array(
-				'Brand.id' => $id
+				'Brand.slug' => $id
 			)
 		));
 		if (empty($brand)) {
 			$this->redirect(array('action' => 'index'), 301);
 		}
+		// print_r($brand);
 		$this->set(compact('brand'));
+
+
+		$subDomain = $this->_getSubDomain();
+
+		if(!isset($this->params->query['debug'])) {
+			$useractive = 1;
+		} else {
+			$useractive = array(0,1);
+		}
+
+		if($subDomain != 'www') {
+			$user = $this->Brand->Product->User->getBySubdomain($subDomain, $useractive);
+			if(!$user) {
+				die('error');
+			}
+
+		} else{
+			$user = array();
+		}
+		$this->set(compact('user'));
+
+		if(!empty($user)) {
+			$conditions[] = array(
+				'Product.active' => 1,
+				'Product.show' => 1,
+				'Product.user_id' => $user['User']['id'],
+				'Product.brand_id' => $brand['Brand']['id'],
+			);
+		} else {
+			$conditions[] = array(
+				'Product.active' => 1,
+				'Product.show' => 1,
+				'Product.brand_id' => $brand['Brand']['id'],
+			);
+		}
+
+		// print_r($conditions);
+		// die;
+
+		$this->paginate = array(
+			'contain' => array(
+				'User',
+				'Brand'
+			),
+			'recursive' => -1,
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'Product.displaygroup',
+				'Product.brand_id',
+				'User.slug',
+				'User.more',
+				'Brand.name',
+			),
+			'limit' => 20,
+			'order' => array(
+				'Product.displaygroup' => 'ASC',
+				//'Product.name' => 'ASC',
+				'Brand.name' => 'ASC'
+			),
+			'paramType' => 'querystring',
+			'conditions' => $conditions
+		);
+		$products = $this->paginate($this->Brand->Product);
+		// print_r($products);
+		// die;
+		$this->set(compact('products'));
+
+
+		$brands = array();
+		$this->set(compact('brands'));
+
+		$usercategories = array();
+		$this->set(compact('usercategories'));
+
+		// $this->render('/Products/index');
+
 	}
 
 ////////////////////////////////////////////////////////////
@@ -61,7 +192,7 @@ class BrandsController extends AppController {
 			'filter' => '',
 			'conditions' => ''
 		);
-		
+
 
 		if($this->Session->check('Brand')) {
 			$all = $this->Session->read('Brand');
@@ -73,7 +204,7 @@ class BrandsController extends AppController {
 			'recursive' => -1,
 			'contain' => array(
 			),
-			
+
 			'order' => array(
 				'Brand.modified' => 'DESC'
 			),
