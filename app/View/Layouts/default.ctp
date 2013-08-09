@@ -86,7 +86,7 @@
 		});
 
 	//Accordion on hover
-	
+
 		$(".pointer").hover(
 			function(){
 				var thisdiv = jQuery(this).attr("data-target")
@@ -97,11 +97,11 @@
 				$(thisdiv).collapse("hide");
 			}
 		);
-		
-		
-		
+
+
+
 		//Image scale
-	
+
 		$(function () {
 			//$(".product-pic img").each(function () {
 //				$(this).cjObjectScaler({
@@ -124,10 +124,10 @@
 					$("#smallObject").html("Done loading object...<br /><br />(Example of the callback function.)");
 				});
 			});
-			
+
 			$(".product-pic img").css('display','inline');
-		});	
-		
+		});
+
 
 	})(jQuery);
 
@@ -137,9 +137,9 @@
 <body>
 
 <div id="outer-wrapper">
-	
+
 	<div id="header">
-	
+
 	<div class="social-main">
 		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>
 		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30" alt="twitter"></a>
