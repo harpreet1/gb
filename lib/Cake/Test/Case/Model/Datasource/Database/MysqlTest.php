@@ -62,6 +62,7 @@ class MysqlTest extends CakeTestCase {
  *
  */
 	public function setUp() {
+		parent::setUp();
 		$this->Dbo = ConnectionManager::getDataSource('test');
 		if (!($this->Dbo instanceof Mysql)) {
 			$this->markTestSkipped('The MySQL extension is not available.');
@@ -76,6 +77,7 @@ class MysqlTest extends CakeTestCase {
  *
  */
 	public function tearDown() {
+		parent::tearDown();
 		unset($this->model);
 		ClassRegistry::flush();
 		Configure::write('debug', $this->_debug);
@@ -984,7 +986,7 @@ class MysqlTest extends CakeTestCase {
 			'primary_flag_has_index' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 				'data' => array('type' => 'integer', 'null' => false),
-				'indexes' => array (
+				'indexes' => array(
 					'some_index' => array('column' => 'data', 'unique' => 1)
 				),
 			)
@@ -2508,7 +2510,7 @@ class MysqlTest extends CakeTestCase {
 /**
  * Test that array conditions with only one element work.
  *
- * @return
+ * @return void
  */
 	public function testArrayConditionsOneElement() {
 		$conditions = array('id' => array(1));

@@ -97,13 +97,12 @@ class CakeTime {
  *
  * @param string $name Variable name
  * @param mixes $value Variable value
+ * @return void
  */
 	public function __set($name, $value) {
 		switch ($name) {
 			case 'niceFormat':
 				self::${$name} = $value;
-				break;
-			default:
 				break;
 		}
 	}
@@ -468,7 +467,8 @@ class CakeTime {
  */
 	public static function isToday($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('Y-m-d', $timestamp) == date('Y-m-d', time());
+		$now = self::fromString('now', $timezone);
+		return date('Y-m-d', $timestamp) == date('Y-m-d', $now);
 	}
 
 /**
@@ -507,7 +507,8 @@ class CakeTime {
  */
 	public static function isThisWeek($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('W o', $timestamp) == date('W o', time());
+		$now = self::fromString('now', $timezone);
+		return date('W o', $timestamp) == date('W o', $now);
 	}
 
 /**
@@ -520,7 +521,8 @@ class CakeTime {
  */
 	public static function isThisMonth($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('m Y', $timestamp) == date('m Y', time());
+		$now = self::fromString('now', $timezone);
+		return date('m Y', $timestamp) == date('m Y', $now);
 	}
 
 /**
@@ -533,7 +535,8 @@ class CakeTime {
  */
 	public static function isThisYear($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('Y', $timestamp) == date('Y', time());
+		$now = self::fromString('now', $timezone);
+		return date('Y', $timestamp) == date('Y', $now);
 	}
 
 /**
@@ -547,7 +550,8 @@ class CakeTime {
  */
 	public static function wasYesterday($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('Y-m-d', $timestamp) == date('Y-m-d', strtotime('yesterday'));
+		$yesterday = self::fromString('yesterday', $timezone);
+		return date('Y-m-d', $timestamp) == date('Y-m-d', $yesterday);
 	}
 
 /**
@@ -560,7 +564,8 @@ class CakeTime {
  */
 	public static function isTomorrow($dateString, $timezone = null) {
 		$timestamp = self::fromString($dateString, $timezone);
-		return date('Y-m-d', $timestamp) == date('Y-m-d', strtotime('tomorrow'));
+		$tomorrow = self::fromString('tomorrow', $timezone);
+		return date('Y-m-d', $timestamp) == date('Y-m-d', $tomorrow);
 	}
 
 /**
@@ -687,7 +692,7 @@ class CakeTime {
 	}
 
 /**
- * Returns either a relative date or a formatted date depending
+ * Returns either a relative or a formatted absolute date depending
  * on the difference between the current time and given datetime.
  * $datetime should be in a *strtotime* - parsable format, like MySQL's datetime datatype.
  *
@@ -703,6 +708,8 @@ class CakeTime {
  *    - minute => The format if minutes > 0 (default "minute")
  *    - second => The format if seconds > 0 (default "second")
  * - `end` => The end of relative time telling
+ * - `relativeString` => The printf compatible string when outputting relative time
+ * - `absoluteString` => The printf compatible string when outputting absolute time
  * - `userOffset` => Users offset from GMT (in hours) *Deprecated* use timezone intead.
  * - `timezone` => The user timezone the timestamp should be formatted in.
  *
@@ -727,6 +734,8 @@ class CakeTime {
 		$timezone = null;
 		$format = self::$wordFormat;
 		$end = self::$wordEnd;
+		$relativeString = __d('cake', '%s ago');
+		$absoluteString = __d('cake', 'on %s');
 		$accuracy = self::$wordAccuracy;
 
 		if (is_array($options)) {
@@ -751,6 +760,14 @@ class CakeTime {
 			}
 			if (isset($options['end'])) {
 				$end = $options['end'];
+			}
+			if (isset($options['relativeString'])) {
+				$relativeString = $options['relativeString'];
+				unset($options['relativeString']);
+			}
+			if (isset($options['absoluteString'])) {
+				$absoluteString = $options['absoluteString'];
+				unset($options['absoluteString']);
 			}
 			unset($options['end'], $options['format']);
 		} else {
@@ -838,7 +855,7 @@ class CakeTime {
 		}
 
 		if ($diff > abs($now - self::fromString($end))) {
-			return __d('cake', 'on %s', date($format, $inSeconds));
+			return sprintf($absoluteString, date($format, $inSeconds));
 		}
 
 		$f = $accuracy['second'];
@@ -882,7 +899,7 @@ class CakeTime {
 		}
 
 		if (!$backwards) {
-			return __d('cake', '%s ago', $relativeDate);
+			return sprintf($relativeString, $relativeDate);
 		}
 
 		return $relativeDate;
@@ -906,8 +923,9 @@ class CakeTime {
 
 		$date = self::fromString($dateString, $timezone);
 		$interval = self::fromString('-' . $timeInterval);
+		$now = self::fromString('now', $timezone);
 
-		return $date >= $interval && $date <= time();
+		return $date >= $interval && $date <= $now;
 	}
 
 /**
@@ -928,8 +946,9 @@ class CakeTime {
 
 		$date = self::fromString($dateString, $timezone);
 		$interval = self::fromString('+' . $timeInterval);
+		$now = self::fromString('now', $timezone);
 
-		return $date <= $interval && $date >= time();
+		return $date <= $interval && $date >= $now;
 	}
 
 /**

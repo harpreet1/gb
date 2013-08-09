@@ -65,7 +65,7 @@ class ShellDispatcher {
  */
 	public static function run($argv) {
 		$dispatcher = new ShellDispatcher($argv);
-		$dispatcher->_stop($dispatcher->dispatch() === false ? 1 : 0);
+		return $dispatcher->_stop($dispatcher->dispatch() === false ? 1 : 0);
 	}
 
 /**
@@ -137,7 +137,9 @@ class ShellDispatcher {
 		$this->setErrorHandlers();
 
 		if (!defined('FULL_BASE_URL')) {
-			define('FULL_BASE_URL', 'http://localhost');
+			$url = Configure::read('App.fullBaseUrl');
+			define('FULL_BASE_URL', $url ? $url : 'http://localhost');
+			Configure::write('App.fullBaseUrl', FULL_BASE_URL);
 		}
 
 		return true;

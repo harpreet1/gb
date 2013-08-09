@@ -223,40 +223,67 @@ class FileEngine extends CacheEngine {
 		if (!$this->_init) {
 			return false;
 		}
-		$dir = dir($this->settings['path']);
+		$threshold = $now = false;
 		if ($check) {
 			$now = time();
 			$threshold = $now - $this->settings['duration'];
 		}
+
+		$this->_clearDirectory($this->settings['path'], $now, $threshold);
+
+		$directory = new RecursiveDirectoryIterator($this->settings['path']);
+		$contents = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::SELF_FIRST);
+		foreach ($contents as $path) {
+			if ($path->isFile()) {
+				continue;
+			}
+			$this->_clearDirectory($path->getRealPath() . DS, $now, $threshold);
+		}
+		return true;
+	}
+
+/**
+ * Used to clear a directory of matching files.
+ *
+ * @param string $path The path to search.
+ * @param integer $now The current timestamp
+ * @param integer $threshold Any file not modified after this value will be deleted.
+ * @return void
+ */
+	protected function _clearDirectory($path, $now, $threshold) {
 		$prefixLength = strlen($this->settings['prefix']);
+
+		if (!is_dir($path)) {
+			return;
+		}
+
+		$dir = dir($path);
 		while (($entry = $dir->read()) !== false) {
 			if (substr($entry, 0, $prefixLength) !== $this->settings['prefix']) {
 				continue;
 			}
-			if ($this->_setKey($entry) === false) {
+			$filePath = $path . $entry;
+			if (is_dir($filePath)) {
 				continue;
 			}
-			if ($check) {
-				$mtime = $this->_File->getMTime();
+			$file = new SplFileObject($path . $entry, 'r');
+
+			if ($threshold) {
+				$mtime = $file->getMTime();
 
 				if ($mtime > $threshold) {
 					continue;
 				}
-
-				$expires = (int)$this->_File->current();
+				$expires = (int)$file->current();
 
 				if ($expires > $now) {
 					continue;
 				}
 			}
-			$path = $this->_File->getRealPath();
-			$this->_File = null;
-			if (file_exists($path)) {
-				unlink($path);
+			if ($file->isFile()) {
+				unlink($file->getRealPath());
 			}
 		}
-		$dir->close();
-		return true;
 	}
 
 /**
@@ -299,7 +326,7 @@ class FileEngine extends CacheEngine {
 		$dir = $this->settings['path'] . $groups;
 
 		if (!is_dir($dir)) {
-			mkdir($dir, 0777, true);
+			mkdir($dir, 0775, true);
 		}
 		$path = new SplFileInfo($dir . $key);
 
@@ -332,6 +359,12 @@ class FileEngine extends CacheEngine {
  */
 	protected function _active() {
 		$dir = new SplFileInfo($this->settings['path']);
+		if (Configure::read('debug')) {
+			$path = $dir->getPathname();
+			if (!is_dir($path)) {
+				mkdir($path, 0775, true);
+			}
+		}
 		if ($this->_init && !($dir->isDir() && $dir->isWritable())) {
 			$this->_init = false;
 			trigger_error(__d('cake_dev', '%s is not writable', $this->settings['path']), E_USER_WARNING);
@@ -365,7 +398,8 @@ class FileEngine extends CacheEngine {
 		$contents = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::CHILD_FIRST);
 		foreach ($contents as $object) {
 			$containsGroup = strpos($object->getPathName(), DS . $group . DS) !== false;
-			if ($object->isFile() && $containsGroup) {
+			$hasPrefix = strpos($object->getBaseName(), $this->settings['prefix']) === 0;
+			if ($object->isFile() && $containsGroup && $hasPrefix) {
 				unlink($object->getPathName());
 			}
 		}

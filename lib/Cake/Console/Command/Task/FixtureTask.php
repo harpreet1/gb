@@ -90,6 +90,9 @@ class FixtureTask extends BakeTask {
 		))->addOption('theme', array(
 			'short' => 't',
 			'help' => __d('cake_console', 'Theme to use when baking code.')
+		))->addOption('force', array(
+			'short' => 'f',
+			'help' => __d('cake_console', 'Force overwriting existing files without prompting.')
 		))->addOption('records', array(
 			'help' => __d('cake_console', 'Used with --count and <name>/all commands to pull [n] records from the live tables, where [n] is either --count or the default of 10.'),
 			'short' => 'r',
@@ -235,7 +238,7 @@ class FixtureTask extends BakeTask {
 		$this->_Schema = new CakeSchema();
 		$data = $this->_Schema->read(array('models' => false, 'connection' => $this->connection));
 		if (!isset($data['tables'][$useTable])) {
-			$this->err('Could not find your selected table ' . $useTable);
+			$this->error('Could not find your selected table ' . $useTable);
 			return false;
 		}
 
@@ -325,7 +328,7 @@ class FixtureTask extends BakeTask {
 					case 'integer':
 					case 'float':
 						$insert = $i + 1;
-					break;
+						break;
 					case 'string':
 					case 'binary':
 						$isPrimaryUuid = (
@@ -340,22 +343,22 @@ class FixtureTask extends BakeTask {
 								$insert = substr($insert, 0, (int)$fieldInfo['length'] - 2);
 							}
 						}
-					break;
+						break;
 					case 'timestamp':
 						$insert = time();
-					break;
+						break;
 					case 'datetime':
 						$insert = date('Y-m-d H:i:s');
-					break;
+						break;
 					case 'date':
 						$insert = date('Y-m-d');
-					break;
+						break;
 					case 'time':
 						$insert = date('H:i:s');
-					break;
+						break;
 					case 'boolean':
 						$insert = 1;
-					break;
+						break;
 					case 'text':
 						$insert = "Lorem ipsum dolor sit amet, aliquet feugiat.";
 						$insert .= " Convallis morbi fringilla gravida,";
@@ -364,7 +367,7 @@ class FixtureTask extends BakeTask {
 						$insert .= " vestibulum massa neque ut et, id hendrerit sit,";
 						$insert .= " feugiat in taciti enim proin nibh, tempor dignissim, rhoncus";
 						$insert .= " duis vestibulum nunc mattis convallis.";
-					break;
+						break;
 				}
 				$record[$field] = $insert;
 			}

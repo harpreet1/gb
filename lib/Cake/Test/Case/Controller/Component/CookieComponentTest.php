@@ -72,6 +72,7 @@ class CookieComponentTest extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
+		parent::setUp();
 		$_COOKIE = array();
 		$this->Controller = new CookieComponentTestController(new CakeRequest(), new CakeResponse());
 		$this->Controller->constructClasses();
@@ -93,6 +94,7 @@ class CookieComponentTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
+		parent::tearDown();
 		$this->Cookie->destroy();
 	}
 
@@ -199,6 +201,31 @@ class CookieComponentTest extends CakeTestCase {
 		$result = $this->Cookie->read('Testing');
 
 		$this->assertEquals('value', $result);
+	}
+
+/**
+ * test write with distant future cookies
+ *
+ * @return void
+ */
+	public function testWriteFarFuture() {
+		$this->Cookie->write('Testing', 'value', false, '+90 years');
+		$future = new DateTime('now');
+		$future->modify('+90 years');
+
+		$expected = array(
+			'name' => $this->Cookie->name . '[Testing]',
+			'value' => 'value',
+			'path' => '/',
+			'domain' => '',
+			'secure' => false,
+			'httpOnly' => false);
+		$result = $this->Controller->response->cookie($this->Cookie->name . '[Testing]');
+
+		$this->assertEquals($future->format('U'), $result['expire'], '', 3);
+		unset($result['expire']);
+
+		$this->assertEquals($expected, $result);
 	}
 
 /**

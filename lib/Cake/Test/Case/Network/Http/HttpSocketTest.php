@@ -193,6 +193,7 @@ class HttpSocketTest extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
+		parent::setUp();
 		if (!class_exists('MockHttpSocket')) {
 			$this->getMock('TestHttpSocket', array('read', 'write', 'connect'), array(), 'MockHttpSocket');
 			$this->getMock('TestHttpSocket', array('read', 'write', 'connect', 'request'), array(), 'MockHttpSocketRequests');
@@ -208,6 +209,7 @@ class HttpSocketTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
+		parent::tearDown();
 		unset($this->Socket, $this->RequestSocket);
 	}
 
@@ -1147,6 +1149,30 @@ class HttpSocketTest extends CakeTestCase {
 		$this->RequestSocket->put('http://www.google.com/');
 		$this->RequestSocket->put('http://www.google.com/', array('Foo' => 'bar'));
 		$this->RequestSocket->put('http://www.google.com/', null, array('line' => 'Hey Server'));
+	}
+
+/**
+ * testPatch
+ *
+ * @return void
+ */
+	public function testPatch() {
+		$this->RequestSocket->reset();
+		$this->RequestSocket->expects($this->at(0))
+			->method('request')
+			->with(array('method' => 'PATCH', 'uri' => 'http://www.google.com/', 'body' => array()));
+
+		$this->RequestSocket->expects($this->at(1))
+			->method('request')
+			->with(array('method' => 'PATCH', 'uri' => 'http://www.google.com/', 'body' => array('Foo' => 'bar')));
+
+		$this->RequestSocket->expects($this->at(2))
+			->method('request')
+			->with(array('method' => 'PATCH', 'uri' => 'http://www.google.com/', 'body' => null, 'line' => 'Hey Server'));
+
+		$this->RequestSocket->patch('http://www.google.com/');
+		$this->RequestSocket->patch('http://www.google.com/', array('Foo' => 'bar'));
+		$this->RequestSocket->patch('http://www.google.com/', null, array('line' => 'Hey Server'));
 	}
 
 /**

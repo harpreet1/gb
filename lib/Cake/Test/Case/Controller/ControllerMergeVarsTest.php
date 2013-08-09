@@ -61,13 +61,6 @@ class MergeVarComponent extends Object {
 class MergeVariablesController extends MergeVarsAppController {
 
 /**
- * name
- *
- * @var string
- */
-	public $name = 'MergeVariables';
-
-/**
  * uses
  *
  * @var arrays
@@ -117,13 +110,6 @@ class MergeVarPluginAppController extends MergeVarsAppController {
  * @package       Cake.Test.Case.Controller
  */
 class MergePostsController extends MergeVarPluginAppController {
-
-/**
- * name
- *
- * @var string
- */
-	public $name = 'MergePosts';
 
 /**
  * uses
@@ -254,6 +240,8 @@ class ControllerMergeVarsTest extends CakeTestCase {
 /**
  * Ensure that $modelClass is correct even when Controller::$uses
  * has been iterated, eg: by a Component, or event handlers.
+ *
+ * @return void
  */
 	public function testMergeVarsModelClass() {
 		$Controller = new MergeVariablescontroller();

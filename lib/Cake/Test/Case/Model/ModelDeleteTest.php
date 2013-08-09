@@ -151,7 +151,7 @@ class ModelDeleteTest extends BaseModelTest {
  * @return void
  */
 	public function testDeleteDependentWithConditions() {
-		$this->loadFixtures('Cd','Book','OverallFavorite');
+		$this->loadFixtures('Cd', 'Book', 'OverallFavorite');
 
 		$Cd = new Cd();
 		$Book = new Book();
@@ -570,6 +570,7 @@ class ModelDeleteTest extends BaseModelTest {
 			'Tag' => array('with' => 'TestPlugin.ArticlesTag')
 		)), false);
 
+		$Article->ArticlesTag->order = null;
 		$this->assertTrue($Article->delete(1));
 	}
 

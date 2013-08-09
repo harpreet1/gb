@@ -289,9 +289,8 @@ class HtmlHelper extends AppHelper {
 
 		if (empty($options['block'])) {
 			return $out;
-		} else {
-			$this->_View->append($options['block'], $out);
 		}
+		$this->_View->append($options['block'], $out);
 	}
 
 /**
@@ -321,11 +320,12 @@ class HtmlHelper extends AppHelper {
  * ### Options
  *
  * - `escape` Set to false to disable escaping of title and attributes.
+ * - `escapeTitle` Set to false to disable escaping of title. (Takes precedence over value of `escape`)
  * - `confirm` JavaScript confirmation message.
  *
  * @param string $title The content to be wrapped by <a> tags.
  * @param string|array $url Cake-relative URL or array of URL parameters, or external URL (starts with http://)
- * @param array $options Array of HTML attributes.
+ * @param array $options Array of options and HTML attributes.
  * @param string $confirmMessage JavaScript confirmation message.
  * @return string An `<a />` element.
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/html.html#HtmlHelper::link
@@ -341,7 +341,10 @@ class HtmlHelper extends AppHelper {
 			$escapeTitle = false;
 		}
 
-		if (isset($options['escape'])) {
+		if (isset($options['escapeTitle'])) {
+			$escapeTitle = $options['escapeTitle'];
+			unset($options['escapeTitle']);
+		} elseif (isset($options['escape'])) {
 			$escapeTitle = $options['escape'];
 		}
 
@@ -441,13 +444,13 @@ class HtmlHelper extends AppHelper {
 		if (strpos($path, '//') !== false) {
 			$url = $path;
 		} else {
-			$url = $this->assetUrl($path, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
-			$options = array_diff_key($options, array('fullBase' => null));
+			$url = $this->assetUrl($path, $options + array('pathPrefix' => Configure::read('App.cssBaseUrl'), 'ext' => '.css'));
+			$options = array_diff_key($options, array('fullBase' => null, 'pathPrefix' => null));
 
 			if (Configure::read('Asset.filter.css')) {
-				$pos = strpos($url, CSS_URL);
+				$pos = strpos($url, Configure::read('App.cssBaseUrl'));
 				if ($pos !== false) {
-					$url = substr($url, 0, $pos) . 'ccss/' . substr($url, $pos + strlen(CSS_URL));
+					$url = substr($url, 0, $pos) . 'ccss/' . substr($url, $pos + strlen(Configure::read('App.cssBaseUrl')));
 				}
 			}
 		}
@@ -469,9 +472,8 @@ class HtmlHelper extends AppHelper {
 
 		if (empty($options['block'])) {
 			return $out;
-		} else {
-			$this->_View->append($options['block'], $out);
 		}
+		$this->_View->append($options['block'], $out);
 	}
 
 /**
@@ -543,11 +545,11 @@ class HtmlHelper extends AppHelper {
 		$this->_includedScripts[$url] = true;
 
 		if (strpos($url, '//') === false) {
-			$url = $this->assetUrl($url, $options + array('pathPrefix' => JS_URL, 'ext' => '.js'));
-			$options = array_diff_key($options, array('fullBase' => null));
+			$url = $this->assetUrl($url, $options + array('pathPrefix' => Configure::read('App.jsBaseUrl'), 'ext' => '.js'));
+			$options = array_diff_key($options, array('fullBase' => null, 'pathPrefix' => null));
 
 			if (Configure::read('Asset.filter.js')) {
-				$url = str_replace(JS_URL, 'cjs/', $url);
+				$url = str_replace(Configure::read('App.jsBaseUrl'), 'cjs/', $url);
 			}
 		}
 		$attributes = $this->_parseAttributes($options, array('block', 'once'), ' ');
@@ -692,9 +694,8 @@ class HtmlHelper extends AppHelper {
 				}
 			}
 			return implode($separator, $out);
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 /**
@@ -802,7 +803,7 @@ class HtmlHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/html.html#HtmlHelper::image
  */
 	public function image($path, $options = array()) {
-		$path = $this->assetUrl($path, $options + array('pathPrefix' => IMAGES_URL));
+		$path = $this->assetUrl($path, $options + array('pathPrefix' => Configure::read('App.imageBaseUrl')));
 		$options = array_diff_key($options, array('fullBase' => null, 'pathPrefix' => null));
 
 		if (!isset($options['alt'])) {
@@ -1105,7 +1106,7 @@ class HtmlHelper extends AppHelper {
 		}
 
 		if (isset($options['poster'])) {
-			$options['poster'] = $this->assetUrl($options['poster'], array('pathPrefix' => IMAGES_URL) + $options);
+			$options['poster'] = $this->assetUrl($options['poster'], array('pathPrefix' => Configure::read('App.imageBaseUrl')) + $options);
 		}
 		$text = $options['text'];
 

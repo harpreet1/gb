@@ -117,14 +117,17 @@ class Sqlserver extends DboSource {
 	public function connect() {
 		$config = $this->config;
 		$this->connected = false;
+
+		$flags = array(
+			PDO::ATTR_PERSISTENT => $config['persistent'],
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		);
+
+		if (!empty($config['encoding'])) {
+			$flags[PDO::SQLSRV_ATTR_ENCODING] = $config['encoding'];
+		}
+
 		try {
-			$flags = array(
-				PDO::ATTR_PERSISTENT => $config['persistent'],
-				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-			);
-			if (!empty($config['encoding'])) {
-				$flags[PDO::SQLSRV_ATTR_ENCODING] = $config['encoding'];
-			}
 			$this->_connection = new PDO(
 				"sqlsrv:server={$config['host']};Database={$config['database']}",
 				$config['login'],
@@ -172,17 +175,16 @@ class Sqlserver extends DboSource {
 		if (!$result) {
 			$result->closeCursor();
 			return array();
-		} else {
-			$tables = array();
-
-			while ($line = $result->fetch(PDO::FETCH_NUM)) {
-				$tables[] = $line[0];
-			}
-
-			$result->closeCursor();
-			parent::listSources($tables);
-			return $tables;
 		}
+		$tables = array();
+
+		while ($line = $result->fetch(PDO::FETCH_NUM)) {
+			$tables[] = $line[0];
+		}
+
+		$result->closeCursor();
+		parent::listSources($tables);
+		return $tables;
 	}
 
 /**
@@ -318,9 +320,8 @@ class Sqlserver extends DboSource {
 				$result[] = $prepend . $fields[$i];
 			}
 			return $result;
-		} else {
-			return $fields;
 		}
+		return $fields;
 	}
 
 /**
@@ -539,10 +540,8 @@ class Sqlserver extends DboSource {
 					";
 				} elseif (strpos($limit, 'FETCH') !== false) {
 					return "SELECT {$fields} FROM {$table} {$alias} {$joins} {$conditions} {$group} {$order} {$limit}";
-				} else {
-					return "SELECT {$limit} {$fields} FROM {$table} {$alias} {$joins} {$conditions} {$group} {$order}";
 				}
-			break;
+				return "SELECT {$limit} {$fields} FROM {$table} {$alias} {$joins} {$conditions} {$group} {$order}";
 			case "schema":
 				extract($data);
 

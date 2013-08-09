@@ -123,13 +123,6 @@ interface DispatcherTestInterfaceController {
 class MyPluginController extends MyPluginAppController {
 
 /**
- * name property
- *
- * @var string 'MyPlugin'
- */
-	public $name = 'MyPlugin';
-
-/**
  * uses property
  *
  * @var array
@@ -172,13 +165,6 @@ class MyPluginController extends MyPluginAppController {
  * @package       Cake.Test.Case.Routing
  */
 class SomePagesController extends AppController {
-
-/**
- * name property
- *
- * @var string 'SomePages'
- */
-	public $name = 'SomePages';
 
 /**
  * uses property
@@ -235,13 +221,6 @@ class SomePagesController extends AppController {
 class OtherPagesController extends MyPluginAppController {
 
 /**
- * name property
- *
- * @var string 'OtherPages'
- */
-	public $name = 'OtherPages';
-
-/**
  * uses property
  *
  * @var array
@@ -275,13 +254,6 @@ class OtherPagesController extends MyPluginAppController {
  * @package       Cake.Test.Case.Routing
  */
 class TestDispatchPagesController extends AppController {
-
-/**
- * name property
- *
- * @var string 'TestDispatchPages'
- */
-	public $name = 'TestDispatchPages';
 
 /**
  * uses property
@@ -326,13 +298,6 @@ class ArticlesTestAppController extends AppController {
 class ArticlesTestController extends ArticlesTestAppController {
 
 /**
- * name property
- *
- * @var string 'ArticlesTest'
- */
-	public $name = 'ArticlesTest';
-
-/**
  * uses property
  *
  * @var array
@@ -365,13 +330,6 @@ class ArticlesTestController extends ArticlesTestAppController {
  * @package       Cake.Test.Case.Routing
  */
 class SomePostsController extends AppController {
-
-/**
- * name property
- *
- * @var string 'SomePosts'
- */
-	public $name = 'SomePosts';
 
 /**
  * uses property
@@ -429,13 +387,6 @@ class SomePostsController extends AppController {
 class TestCachedPagesController extends Controller {
 
 /**
- * name property
- *
- * @var string 'TestCachedPages'
- */
-	public $name = 'TestCachedPages';
-
-/**
  * uses property
  *
  * @var array
@@ -470,7 +421,7 @@ class TestCachedPagesController extends Controller {
 /**
  * viewPath property
  *
- * @var string 'posts'
+ * @var string
  */
 	public $viewPath = 'Posts';
 
@@ -530,13 +481,6 @@ class TestCachedPagesController extends Controller {
 class TimesheetsController extends Controller {
 
 /**
- * name property
- *
- * @var string 'Timesheets'
- */
-	public $name = 'Timesheets';
-
-/**
  * uses property
  *
  * @var array
@@ -567,6 +511,7 @@ class DispatcherTest extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
+		parent::setUp();
 		$this->_get = $_GET;
 		$_GET = array();
 		$this->_post = $_POST;
@@ -594,6 +539,7 @@ class DispatcherTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
+		parent::tearDown();
 		$_GET = $this->_get;
 		$_POST = $this->_post;
 		$_FILES = $this->_files;
@@ -926,7 +872,7 @@ class DispatcherTest extends CakeTestCase {
 		$_POST = array();
 		$Dispatcher = new TestDispatcher();
 		Configure::write('Routing.prefixes', array('admin'));
-		Configure::write('App.baseUrl','/cake/repo/branches/1.2.x.x/index.php');
+		Configure::write('App.baseUrl', '/cake/repo/branches/1.2.x.x/index.php');
 		$url = new CakeRequest('admin/test_dispatch_pages/index/param:value/param2:value2');
 		$response = $this->getMock('CakeResponse');
 
