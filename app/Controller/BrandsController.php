@@ -26,7 +26,6 @@ class BrandsController extends AppController {
 
 		// print_r($user);
 
-
 		if(!empty($user)) {
 			$conditions[] = array(
 				'Product.active' => 1,
@@ -39,6 +38,39 @@ class BrandsController extends AppController {
 				'Product.show' => 1,
 			);
 		}
+
+		$this->paginate = array(
+			'contain' => array(
+				'User',
+				'Brand'
+			),
+			'recursive' => -1,
+			'fields' => array(
+				'Product.id',
+				'Product.name',
+				'Product.slug',
+				'Product.image',
+				'Product.price',
+				'Product.displaygroup',
+				'Product.brand_id',
+				'User.slug',
+				'User.name',
+				'User.more',
+				'Brand.name',
+			),
+			'limit' => 20,
+			'order' => array(
+				'Product.displaygroup' => 'ASC',
+				//'Product.name' => 'ASC',
+				'Brand.name' => 'ASC'
+			),
+			'paramType' => 'querystring',
+			'conditions' => $conditions
+		);
+		$products = $this->paginate($this->Brand->Product);
+		// print_r($products);
+		// die;
+		$this->set(compact('products'));
 
 		$brands = $this->Brand->Product->find('all', array(
 			'contain' => array('Brand'),
