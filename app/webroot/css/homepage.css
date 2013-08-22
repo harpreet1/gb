@@ -611,14 +611,30 @@ hr.thin.tight {
 /* Footer */
 
 #footer {
-
 	margin: auto;
 	padding: 20px;
 	color: #fff;
 	background-color:#3f9179;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	margin-top: 15px;
+
 	
 }
 
 #footer a {
 	color:#fff;
 }
+
+.footer-links a {
+	padding-right:75px;
+}
+
+.footer-links a.first-link {
+	padding-left:42px;
+}
+
+.footer-links a.last-link {
+	padding-right:0px;
+}
+

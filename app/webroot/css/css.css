@@ -404,7 +404,17 @@ ul.meganizr .brands .wide {
 	color:#fff;
 }
 
+.footer-links a {
+	padding-right:75px;
+}
 
+.footer-links a.first-link {
+	padding-left:42px;
+}
+
+.footer-links a.last-link {
+	padding-right:0px;
+}
 
 
 /** VENDOR PRODUCT DISPLAY **/

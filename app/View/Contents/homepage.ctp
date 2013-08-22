@@ -17,7 +17,7 @@
 
 
 	<div class="js-marquee static">
-    <a href="http://<?php echo Configure::read('Settings.DOMAIN'); ?>/blog">+  CURRENT BLOG  +</a>
+    <a href="http://blog.gourmetworldmarket.com">+ CURRENT BLOG  +</a>
     </div>
 	
 

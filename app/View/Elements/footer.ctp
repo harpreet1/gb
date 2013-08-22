@@ -8,34 +8,31 @@
 
 			<div class="row">
 
-				<div class="span4">
+				<div class="span12 footer-links">
+					
+						<a class="first-link" href="/details/view/1">ABOUT</a>
 
-					<ul>
-						<li><a href="/details/view/1">ABOUT</a></li>
-						<li><a href="/details/view/3">FAQ</a></li>
-						<!--<li><a href="/">TERMS OF USE</a></li>-->
-						
-					</ul>
+						<a href="/details/view/3">FAQ</a>
+				
+						<a href="/">TERMS OF USE</a>
+					
+						<a href="/details/view/5">PRIVACY POLICY</a>
+					
+						<a href="">BECOME A VENDOR</a>
 
+						<a class="last-link" href="/details/view/4">CONTACT US</a>
+
+				
 				</div>
 
-				<div class="span4">
-					<ul>
-						<!--<li><a href="">SHIPPING</a></li>-->
-						<li><a href="/details/view/2">BECOME A VENDOR</a></li>
-					</ul>
-				</div>
 
-				<div class="span4">
-					<ul>
-						<li><a href="/details/view/4">CONTACT</a></li>
 
-					</ul>
-				</div>
+
+
 
 			</div>
 
-			<span style="font-size:11px" >&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?></span>
+			<!--<span style="font-size:11px" >&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?></span>-->
 
 			<div class="row">
 
