@@ -8,7 +8,7 @@ class ProductStockShell extends Shell {
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
-		$yesterday = date("Y-m-d H:i:s", strtotime("-1 day"));
+		$yesterday = date('Y-m-d H:i:s', strtotime('-3 day'));
 
 		$products = $this->Product->find('all', array(
 			'recursive' => -1,
@@ -17,9 +17,15 @@ class ProductStockShell extends Shell {
 				'Product.active' => 1,
 				'Product.stock_updated <' => $yesterday
 			),
-			'order' => 'RAND()',
-			'limit' => 20
+			// 'order' => 'RAND()',
+			// 'limit' => 1000
 		));
+
+		$this->out(count($products));
+
+		$body = 'maestro stock shsll' . count($products);
+
+		mail(Configure::read('Settings.ADMIN_EMAIL'), 'maestro stock shsll', $body);
 
 		foreach($products as $product) {
 
