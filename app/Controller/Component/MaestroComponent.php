@@ -15,7 +15,9 @@ class MaestroComponent extends Component {
 
 		$xml = $this->buildRequest($data, $shop);
 
-		// debug($xml);
+		// print_r($xml);
+
+		// print_r(Configure::read('Settings.MAESTRO_API_URL'));
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
@@ -23,8 +25,9 @@ class MaestroComponent extends Component {
 
 		App::uses('Xml', 'Utility');
 		$response = Xml::toArray(Xml::build($res['body']));
-
-		// debug($response);
+		// echo('here');
+		// print_r($response);
+		// die();
 
 		// debug($response['checkout']['order']['shippingcharge']);
 
