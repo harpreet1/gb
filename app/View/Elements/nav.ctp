@@ -93,7 +93,8 @@
 			<li class="mzr-drop"> <a href="/recipes">Recipes<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
-						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">All Gourmet World Recipes</a></p>
+						<p><a href=" http://www.gourmetworldmarket.com/recipes/all">All Gourmet World Recipes</a></p>
+                       
 					</div>
 				</div>
 			</li>
