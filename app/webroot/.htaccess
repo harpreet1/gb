@@ -4,7 +4,8 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
-RewriteCond %{HTTP_HOST} ^thegourmetbasket\.net$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.thegourmetbasket\.net$
+
+RewriteCond %{HTTP_HOST} ^gourmetworldmarket\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.gourmetworldmarket\.com$
 RewriteRule ^/?$ "http\:\/\/gourmetworldmarket\.com\/" [R=301,L]
 
