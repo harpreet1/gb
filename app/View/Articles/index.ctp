@@ -159,6 +159,8 @@ $(".collapse").collapse()
 					if ($articlekey['active'] == 1) {
 						{
 							echo "<p>";
+							
+							echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
 
 							if (!empty($articlekey['prefix'])) {
 
@@ -167,7 +169,7 @@ $(".collapse").collapse()
 								echo "</span>";
 							}
 
-							echo $this->Html->link( $articlekey['name'], '/articles/'.$blockskey['Block']['slug']."/".$articlekey['slug'], array('class' => 'gb-heading article'));
+							
 							echo "</p>";
 						}
 					}
@@ -306,11 +308,12 @@ $(".collapse").collapse()
 <div class="span8 article">
 
 	<h2 class="gb-heading">
+	<?php echo $article['Article']['name']; ?> :
 	<?php if (!empty($article['Article']['prefix'])) {
-				echo $article['Article']['prefix']; ?> :
+				echo $article['Article']['prefix']; ?>
 	<?php } ?>
 
-	<?php echo $article['Article']['name']; ?></h2>
+	</h2>
 	<hr class="article-divide">
 
 	<div class="article-body" style="float:right;">
