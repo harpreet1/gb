@@ -111,6 +111,11 @@
 					</div>
 				</div>
 			</li>
+            
+            <li class="cart">
+				<button class="btn btn-global" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i>*GO TO CART</a></button>
+			</li>
+
 
 			<!-- For overlay Articles overlay -->
 
@@ -124,19 +129,19 @@
 					<!--<p class="special">THE INFO SOURCE:</p>
 					<ul>
 
-						<?php foreach($menublocks as $menublock) : ?>
-							<?php $check = $menublock['Block']['id'] ?>
+						<?php //foreach($menublocks as $menublock) : ?>
+							<?php //$check = $menublock['Block']['id'] ?>
 
-								<?php if($check != 1 ): ?>
-								<li><p>-<a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
-								<?php echo  $menublock['Block']['name'] ; ?>
+								<?php //if($check != 1 ): ?>
+								<li><p>-<a href="http://www.<?php //echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
+								<?php //echo  $menublock['Block']['name'] ; ?>
 						   				</a>
 								</li>
-							<?php endif; ?>
+							<?php //endif; ?>
 
 
 
-					<?php endforeach; ?>
+					<?php //endforeach; ?>
 					</ul>-->
 
 					 </div>
@@ -147,18 +152,14 @@
 			<!--<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
 			<li> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/blog/';?>" >The Blog</a>
 
-			</li>
+			</li>-->
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
 
 			<?php /*?> <li class='btn btn-gb'><?php echo $this->Html->link('CART', array( 'controller' => 'shops', 'action' => 'cart')); ?></li>
 			<?php */?>
 
-			 <li class="cart">
-				
-				 <button class="btn btn-global" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i>GO TO CART </a></button>
-				
-			 </li>-->
+			
 
 		</ul>
 </div>
