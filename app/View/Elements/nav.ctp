@@ -14,7 +14,6 @@
 
 		<ul class="meganizr mzr-slide mzr-responsive">
 
-<<<<<<< HEAD
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
 
@@ -30,12 +29,11 @@
 			</li>
 
 
-			<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">SHOP BY FOODS :<b class="caret"></b></a>
-=======
+			
 				<!-- BEGIN Menu Item THREE -->
 				
-				<li class="parent columns-3"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Foods<b class="caret"></b></a>
->>>>>>> efdebfbbeeab2617a5385797c77bbdf25c5ba556
+				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">SHOP BY FOODS :<b class="caret"></b></a>
+
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 						<p class="nav-special"><a href="/categories">Stop by our "Pantry"</a></p>
@@ -145,11 +143,10 @@
 				</div>
 			</li>
 			
-<<<<<<< HEAD
+
 			<!--<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
-=======
 			<li> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/blog/';?>" >The Blog</a>
->>>>>>> efdebfbbeeab2617a5385797c77bbdf25c5ba556
+
 			</li>
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
