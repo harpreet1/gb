@@ -4,12 +4,19 @@
 	<div class="navbar-inner">
 
 	<div class="nav-collapse">
+	
+	
+	
+	
+	    <nav id="main-nav">	
+	
+	
 
 		<ul class="meganizr mzr-slide mzr-responsive">
 
-			<!-- 4 Columns Mega Dropdown -->
-			<!-- Portfolio -->
-			<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Foods<b class="caret"></b></a>
+				<!-- BEGIN Menu Item THREE -->
+				
+				<li class="parent columns-3"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Foods<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 						<p class="nav-special"><a href="/categories">Stop by our "Pantry"</a></p>
@@ -93,8 +100,7 @@
 			<li class="mzr-drop"> <a href="/recipes">Recipes<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
-						<p><a href=" http://www.gourmetworldmarket.com/recipes/all">All Gourmet World Recipes</a></p>
-                       
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">All Gourmet World Recipes</a></p>
 					</div>
 				</div>
 			</li>
@@ -130,7 +136,7 @@
 				</div>
 			</li>
 			
-			<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
+			<li> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/blog/';?>" >The Blog</a>
 			</li>
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
