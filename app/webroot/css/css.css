@@ -186,8 +186,14 @@ img.frame {
 	height: 100px;
 	width: 100%;
 	padding-top: 107px;
+<<<<<<< HEAD
 	font-size: 16px;
+=======
+	font-size: 15px;
+>>>>>>> efdebfbbeeab2617a5385797c77bbdf25c5ba556
 }
+
+
 .nav-collapse {
 	margin-left: 88px;
 }
