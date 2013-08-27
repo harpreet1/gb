@@ -9,7 +9,20 @@
 
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
-			<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">Foods<b class="caret"></b></a>
+
+			<li class="mzr-drop"> <a href="#" >SHOP BY  STORES :<b class="caret"></b></a>
+				<div class="mzr-content drop-three-columns popover-content">
+					<div class="wide">
+					<?php foreach($menuvendors as $menuvendor) : ?>
+					<p><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></p>
+					<?php endforeach; ?>
+					<span class="special"><a href="/users/vendors">Full Vendor List</a></span>
+					</div>
+				</div>
+			</li>
+
+
+			<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">SHOP BY FOODS :<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 						<p class="nav-special"><a href="/categories">Stop by our "Pantry"</a></p>
@@ -22,19 +35,9 @@
 				</div>
 			</li>
 
-			<li class="mzr-drop"> <a href="#" >Shops<b class="caret"></b></a>
-				<div class="mzr-content drop-three-columns popover-content">
-					<div class="wide">
-					<?php foreach($menuvendors as $menuvendor) : ?>
-					<p><?php echo $this->Html->link($menuvendor['User']['name'], 'http://' . $menuvendor['User']['slug'] . '.' . Configure::read('Settings.DOMAIN') . '/'); ?></p>
-					<?php endforeach; ?>
-					<span class="special"><a href="/users/vendors">Full Vendor List</a></span>
-					</div>
-				</div>
-			</li>
 
 			<li class="mzr-drop">
-				<a href="#">US Foods<b class="caret"></b></a>
+				<a href="#">U.S. FOODS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
@@ -61,7 +64,7 @@
 			<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
 			<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?>
 
-			<li class="mzr-drop"> <a href="#">Int'l Foods<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="#">INT'L FOODS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
@@ -90,7 +93,7 @@
 				</div>
 			</li>
 
-			<li class="mzr-drop"> <a href="/recipes">Recipes<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="/recipes">RECIPES<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
 						<p><a href=" http://www.gourmetworldmarket.com/recipes/all">All Gourmet World Recipes</a></p>
@@ -101,14 +104,14 @@
 
 			<!-- For overlay Articles overlay -->
 
-			<li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
+			<!--<li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
 					<p class="nav-special"><a href="/articles">The Latest</a></p>
 					
 					<hr class="thin tight">
 					<!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
-					<p class="special">THE INFO SOURCE:</p>
+					<!--<p class="special">THE INFO SOURCE:</p>
 					<ul>
 
 						<?php foreach($menublocks as $menublock) : ?>
@@ -124,13 +127,13 @@
 
 
 					<?php endforeach; ?>
-					</ul>
+					</ul>-->
 
 					 </div>
 				</div>
 			</li>
 			
-			<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
+			<!--<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
 			</li>
 
 			<?php //echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
@@ -142,7 +145,7 @@
 				
 				 <button class="btn btn-global" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i>GO TO CART </a></button>
 				
-			 </li>
+			 </li>-->
 
 		</ul>
 </div>
