@@ -54,6 +54,39 @@ Shopping Cart is empty
 
 <hr>
 
+
+<div class="row">
+
+<?php if(!isset($shop['Order']['discount'])): ?>
+
+	<div class="span2">
+		<?php echo $this->Form->create('Coupon', array('url' => array('controller' => 'coupons', 'action' => 'add'))); ?>
+		<?php echo $this->Form->input('code', array('div' => false, 'class' => 'span2 input-mini', 'label' => false, 'size' => 10, 'maxlength' => 10)); ?>
+	</div>
+	<div class="span3">
+		<?php echo $this->Form->button('<i class="icon-tag icon"></i> Add Coupon Code', array('class' => 'btn btn-mini', 'escape' => false));?>
+		<?php echo $this->Form->end(); ?>
+	</div>
+
+<?php else: ?>
+
+	<div class="span3">
+		Coupon Code: <?php echo $shop['Coupon']['code'];?>
+	</div>
+
+	<div class="span3">
+		Discount Applied: $ <?php echo $shop['Order']['discount'];?>
+	</div>
+	<div class="span3">
+		<?php echo $this->Html->link('<i class="icon-tag icon-white"></i> Remove Coupon', array('controller' => 'coupons', 'action' => 'remove'), array('class' => 'btn btn-warning btn-mini', 'escape' => false)); ?>
+	</div>
+
+<?php endif; ?>
+
+</div>
+
+<hr>
+
 <div class="row">
 
 	<div class="span10">
