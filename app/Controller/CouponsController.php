@@ -28,11 +28,11 @@ class CouponsController extends AppController {
 				$discount = $shop['Order']['subtotal'] * ($coupon['Coupon']['discount_percentage'] / 100);
 				$this->Session->write('Shop.Order.discount', $discount);
 				$this->Session->write('Shop.Coupon', $coupon['Coupon']);
-				$this->Session->setFlash('The coupon code is applied.');
+				$this->Session->setFlash('Coupon code applied.');
 			} else {
 				$this->Session->delete('Shop.Order.discount');
 				$this->Session->delete('Shop.Coupon');
-				$this->Session->setFlash('The coupon code enterid is invalid.');
+				$this->Session->setFlash('The coupon code entered is invalid.');
 			}
 
 		}
@@ -45,7 +45,7 @@ class CouponsController extends AppController {
 	public function remove() {
 		$this->Session->delete('Shop.Order.discount');
 		$this->Session->delete('Shop.Coupon');
-		$this->Session->setFlash('The coupon code is removed.');
+		$this->Session->setFlash('Coupon code removed.');
 		return $this->redirect(array('controller' => 'shops', 'action' => 'cart'));
 	}
 
