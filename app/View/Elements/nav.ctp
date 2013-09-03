@@ -17,7 +17,7 @@
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
 
-			<li class="mzr-drop"> <a href="#" >SHOP BY  STORES :<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="#" >SHOP BY: STORES<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php foreach($menuvendors as $menuvendor) : ?>
@@ -32,7 +32,7 @@
 			
 				<!-- BEGIN Menu Item THREE -->
 				
-				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">SHOP BY FOODS :<b class="caret"></b></a>
+				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">PANTRY<b class="caret"></b></a>
 
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
@@ -116,38 +116,38 @@
 				<button class="btn btn-global" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i>*GO TO CART</a></button>
 			</li>
 
-
+			<div class="magazine">
 			<!-- For overlay Articles overlay -->
 
-			<!--<li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
-				<div class="mzr-content drop-two-columns popover-content">
-					<div class="wide">
-					<p class="nav-special"><a href="/articles">The Latest</a></p>
-					
-					<hr class="thin tight">
-					<!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
-					<!--<p class="special">THE INFO SOURCE:</p>
-					<ul>
-
-						<?php //foreach($menublocks as $menublock) : ?>
-							<?php //$check = $menublock['Block']['id'] ?>
-
-								<?php //if($check != 1 ): ?>
-								<li><p>-<a href="http://www.<?php //echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
-								<?php //echo  $menublock['Block']['name'] ; ?>
-						   				</a>
-								</li>
-							<?php //endif; ?>
-
-
-
-					<?php //endforeach; ?>
-					</ul>-->
-
-					 </div>
+      <!--         <li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
+                   <div class="mzr-content drop-two-columns popover-content">
+                       <div class="wide">
+                          <p class="nav-special"><a href="/articles">The Latest</a></p>
+                          
+                          <hr class="thin tight">
+                          <!-- <span class="special nolink">MAGAZINE SECTIONS:</span>-->
+                          <!--<p class="special">THE INFO SOURCE:</p>-->
+                          <!--<ul>
+      
+                              <?php //foreach($menublocks as $menublock) : ?>
+                                  <?php //$check = $menublock['Block']['id'] ?>
+      
+                                      <?php //if($check != 1 ): ?>
+										<li><p>-<a href="http://www.<?php //echo Configure::read('Settings.DOMAIN') . '/articles/' . $menublock['Block']['slug']; ?>">
+                                      <?php //echo  $menublock['Block']['name'] ; ?>
+                                              </a>
+										</li>
+										<?php //endif; ?>
+                          		<?php //endforeach; ?>
+                          
+                          
+                          </ul>-->
+                  </li>-->
+						</div>
 				</div>
-			</li>
-			
+             </div>
+               
+               
 
 			<!--<li> <a href="http://blog.gourmetworldmarket.com" >The Blog</a>
 			<li> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN') . '/blog/';?>" >The Blog</a>

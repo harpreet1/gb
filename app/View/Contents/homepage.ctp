@@ -17,7 +17,8 @@
 
 
 	<div class="js-marquee static">
-    <a href="http://blog.gourmetworldmarket.com">+ CURRENT BLOG  +</a>
+    <a href="http://blog.gourmetworldmarket.com">CURRENT BLOGS</a><br /><br />
+    <a href="/magazine">ARTICLES</a>
     </div>
 	
 
