@@ -2578,10 +2578,19 @@ hr.thin.tight {
 
 .magazine {
 	position:absolute;
+<<<<<<< HEAD
 	top:20px;
 	right:10px;
 	height:50px;
 	width:200px;
+=======
+	bottom:43px;
+	right:105px;
+	height:50px;
+	width:220px;
+	background-color:#900;
+	opacity:.8;
+>>>>>>> f8618e9e9739bee7032d2da5820c2b4267d32c8e
 }
 
 
