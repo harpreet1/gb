@@ -2576,6 +2576,16 @@ hr.thin.tight {
 	font-weight:bold;
 }
 
+.magazine {
+	position:absolute;
+	top:20px;
+	right:10px;
+	height:50px;
+	width:200px;
+}
+
+
+
 /* Large desktop */
 @media (min-width: 1200px) {
 }
