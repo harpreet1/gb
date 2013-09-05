@@ -14,6 +14,7 @@ h3 {
 }
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 	width: 960px;
+	position:relative;
 }
 #lower .row-fluid {
 	padding-left: 30px;
@@ -156,7 +157,7 @@ li.gb-account a {
 #upper {
 	height: 110px;
 	margin: 0px;
-	padding: 0px;
+	padding: 0px; 
 }
 #upper.magazine {
 	margin: 0px;
@@ -246,7 +247,6 @@ li.gb-account a {
 	font-size: 35px;
 	font-family: Oregano, cursive;
 	text-shadow: 4px 1px 5px rgba(130, 128, 134, 1);
-	height:300px;
 }
 
 .js-marquee a {
@@ -478,7 +478,7 @@ ul.meganizr > li > a:hover, .mzr-content .wide p a:hover {
 .issue {
 	position: absolute;
 	right: 0px;
-	bottom: 72px;
+	bottom: -125px;
  	width:121px;
 	font-size: 18px;
 	color: #fff;
@@ -644,3 +644,15 @@ hr.thin.tight {
 #main-nav {
 	font-size:15px;
 }
+
+
+/** magazine/blog link **/
+.magazine {
+	position:absolute;
+	top:51px;
+	right:0px;
+	height:25px;
+	width:200px;
+	
+}
+
