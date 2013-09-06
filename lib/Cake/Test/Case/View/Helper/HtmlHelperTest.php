@@ -215,7 +215,15 @@ class HtmlHelperTest extends CakeTestCase {
 
 		$result = $this->Html->link('Home', '/home', array('confirm' => 'Are you sure you want to do this?'));
 		$expected = array(
-			'a' => array('href' => '/home', 'onclick' => 'return confirm(&#039;Are you sure you want to do this?&#039;);'),
+			'a' => array('href' => '/home', 'onclick' => 'if (confirm(&quot;Are you sure you want to do this?&quot;)) { return true; } return false;'),
+			'Home',
+			'/a'
+		);
+		$this->assertTags($result, $expected);
+
+		$result = $this->Html->link('Home', '/home', array('escape' => false, 'confirm' => 'Confirm\'s "nightmares"'));
+		$expected = array(
+			'a' => array('href' => '/home', 'onclick' => 'if (confirm(&quot;Confirm&#039;s \&quot;nightmares\&quot;&quot;)) { return true; } return false;'),
 			'Home',
 			'/a'
 		);
@@ -851,7 +859,7 @@ class HtmlHelperTest extends CakeTestCase {
  * @return void
  */
 	public function testScriptTimestamping() {
-		$this->skipIf(!is_writable(JS), 'webroot/js is not Writable, timestamp testing has been skipped.');
+		$this->skipIf(!is_writable(WWW_ROOT . 'js'), 'webroot/js is not Writable, timestamp testing has been skipped.');
 
 		Configure::write('debug', 2);
 		Configure::write('Asset.timestamp', true);
@@ -1831,9 +1839,6 @@ class HtmlHelperTest extends CakeTestCase {
 
 		$result = $this->Html->tag('div', 'text');
 		$this->assertTags($result, '<div', 'text', '/div');
-
-		$result = $this->Html->tag('div', '<text>', 'class-name');
-		$this->assertTags($result, array('div' => array('class' => 'class-name'), 'preg:/<text>/', '/div'));
 
 		$result = $this->Html->tag('div', '<text>', array('class' => 'class-name', 'escape' => true));
 		$this->assertTags($result, array('div' => array('class' => 'class-name'), '&lt;text&gt;', '/div'));

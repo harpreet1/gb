@@ -46,7 +46,6 @@ class ShopsController extends AppController {
 				</shoppingcart>
 			</checkout>";
 
-
 		$postdata2 = "<?xml version='1.0'?>
 			<checkout>
 				<success>1</success>
@@ -86,7 +85,6 @@ class ShopsController extends AppController {
 					</shipto>
 				</order>
 			</checkout>";
-
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
@@ -170,7 +168,7 @@ class ShopsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function address() {
-		
+
 		$minimumShipping = '';
 
 		$shop = $this->Session->read('Shop');
@@ -219,50 +217,43 @@ class ShopsController extends AppController {
 					$this->Session->write('Shop.Users.' . $user['id'] . '.totalandtax', $totalandtax);
 
 					if($user['flat_shipping'] != 1) {
-						
-						if($user["min_shipping_check"] = 1) {
-							
-							
-							
-							$minimumShipping = ($user["min_shipping"]);
-							
-							}						
 
-							$shipping_companies = array('usps', 'ups', 'fedex');
-							if (in_array($user['shipping_method'], $shipping_companies)) {
-	
-								$shippingMethod = ucfirst($user['shipping_method']);
-	
-								$result = $this->$shippingMethod->getRate($data);
-	
-								if(!$result) {
-									$this->Session->setFlash('Unable to rate the shipment');
-									$this->redirect(array('action' => 'address'));
-								}
-	
-								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
-								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
-								$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
-	
-							} elseif ($user['id'] == 11) {
-	
-								$result = $this->Maestro->getRate($data, $shop);
-	
-								if(!$result) {
-									$this->Session->setFlash('Unable to rate the shipment');
-									$this->redirect(array('action' => 'address'));
-								}
-	
-								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
-								$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
-								$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
-								
-							
+						if($user["min_shipping_check"] = 1) {
+							$minimumShipping = ($user['min_shipping']);
+						}
+
+						$shipping_companies = array('usps', 'ups', 'fedex');
+						if (in_array($user['shipping_method'], $shipping_companies)) {
+
+							$shippingMethod = ucfirst($user['shipping_method']);
+
+							$result = $this->$shippingMethod->getRate($data);
+
+							if(!$result) {
+								$this->Session->setFlash('Unable to rate the shipment');
+								$this->redirect(array('action' => 'address'));
+							}
+
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+
+						} elseif ($user['id'] == 11) {
+
+							$result = $this->Maestro->getRate($data, $shop);
+
+							if(!$result) {
+								$this->Session->setFlash('Unable to rate the shipment');
+								$this->redirect(array('action' => 'address'));
+							}
+
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $result[0]['TotalCharges']);
+							$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
 
 						}
 
 					} else {
-
 
 						$result = array(
 							0 => array(
@@ -275,6 +266,7 @@ class ShopsController extends AppController {
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping_service', $result[0]['ServiceName']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.shipping', $user['shipping']);
 						$this->Session->write('Shop.Users.' . $user['id'] . '.Shippingfees', $result);
+
 					}
 
 					$i++;
@@ -535,10 +527,13 @@ class ShopsController extends AppController {
 				$result = $this->Maestro->purchasePost($order, $vendor, $vendoritems);
 				// debug($result);
 				// debug($result['checkout']['order']['orderid']);
+				$maestro_response = print_r($result, true);
+				mail('andras@kende.com', 'order success', $maestro_response);
+				mail('er@erdigitaldesign.com', 'order success', $maestro_response);
 				$extra['OrderUser']['id'] = $vendor['id'];
 				$extra['OrderUser']['extra'] = $result['checkout']['order']['orderid'];
+				$extra['OrderUser']['maestro_response'] = $maestro_response;
 				ClassRegistry::init('OrderUser')->save($extra, false);
-
 			}
 
 			$email->from(Configure::read('Settings.ADMIN_EMAIL'))

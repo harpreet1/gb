@@ -59,7 +59,7 @@ class CakeNumber {
 		),
 		'GBP' => array(
 			'wholeSymbol' => '£', 'wholePosition' => 'before', 'fractionSymbol' => 'p', 'fractionPosition' => 'after',
-			'zero' => 0, 'places' => 2, 'thousands' => ',', 'decimals' => '.', 'negative' => '()','escape' => true,
+			'zero' => 0, 'places' => 2, 'thousands' => ',', 'decimals' => '.', 'negative' => '()', 'escape' => true,
 			'fractionExponent' => 2
 		),
 		'JPY' => array(
@@ -76,7 +76,7 @@ class CakeNumber {
  */
 	protected static $_currencyDefaults = array(
 		'wholeSymbol' => '', 'wholePosition' => 'before', 'fractionSymbol' => '', 'fractionPosition' => 'after',
-		'zero' => '0', 'places' => 2, 'thousands' => ',', 'decimals' => '.','negative' => '()', 'escape' => true,
+		'zero' => '0', 'places' => 2, 'thousands' => ',', 'decimals' => '.', 'negative' => '()', 'escape' => true,
 		'fractionExponent' => 2
 	);
 
@@ -103,7 +103,7 @@ class CakeNumber {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/number.html#NumberHelper::precision
  */
 	public static function precision($value, $precision = 3) {
-		return sprintf("%01.{$precision}F", $value);
+		return sprintf("%01.{$precision}f", $value);
 	}
 
 /**
@@ -118,13 +118,13 @@ class CakeNumber {
 			case $size < 1024:
 				return __dn('cake', '%d Byte', '%d Bytes', $size, $size);
 			case round($size / 1024) < 1024:
-				return __d('cake', '%d KB', self::precision($size / 1024, 0));
+				return __d('cake', '%s KB', self::precision($size / 1024, 0));
 			case round($size / 1024 / 1024, 2) < 1024:
-				return __d('cake', '%.2f MB', self::precision($size / 1024 / 1024, 2));
+				return __d('cake', '%s MB', self::precision($size / 1024 / 1024, 2));
 			case round($size / 1024 / 1024 / 1024, 2) < 1024:
-				return __d('cake', '%.2f GB', self::precision($size / 1024 / 1024 / 1024, 2));
+				return __d('cake', '%s GB', self::precision($size / 1024 / 1024 / 1024, 2));
 			default:
-				return __d('cake', '%.2f TB', self::precision($size / 1024 / 1024 / 1024 / 1024, 2));
+				return __d('cake', '%s TB', self::precision($size / 1024 / 1024 / 1024 / 1024, 2));
 		}
 	}
 
@@ -135,6 +135,7 @@ class CakeNumber {
  * @param mixed $default Value to be returned when invalid size was used, for example 'Unknown type'
  * @return mixed Number of bytes as integer on success, `$default` on failure if not false
  * @throws CakeException On invalid Unit type.
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/number.html#NumberHelper::fromReadableSize
  */
 	public static function fromReadableSize($size, $default = false) {
 		if (ctype_digit($size)) {
@@ -246,6 +247,7 @@ class CakeNumber {
  * @param float $value A floating point number
  * @param array $options
  * @return string formatted delta
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/number.html#NumberHelper::formatDelta
  */
 	public static function formatDelta($value, $options = array()) {
 		$places = isset($options['places']) ? $options['places'] : 0;
@@ -348,7 +350,7 @@ class CakeNumber {
 		$symbolKey = 'whole';
 		$value = (float)$value;
 		if (!$value) {
-			if ($options['zero'] !== 0 ) {
+			if ($options['zero'] !== 0) {
 				return $options['zero'];
 			}
 		} elseif ($value < 1 && $value > -1) {
@@ -404,6 +406,7 @@ class CakeNumber {
  *
  * @param string $currency Default currency string used by currency() if $currency argument is not provided
  * @return string Currency
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/number.html#NumberHelper::defaultCurrency
  */
 	public static function defaultCurrency($currency = null) {
 		if ($currency) {
