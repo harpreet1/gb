@@ -117,6 +117,8 @@
 			</li>
 
 			<div class="magazine">
+            	<a href="/magazine">the magazine</a> / <a href="http://blog.gourmetworldmarket.com">the blog</a>
+            
 			<!-- For overlay Articles overlay -->
 
       <!--         <li class="mzr-drop"> <a href="/magazine" >The Magazine<b class="caret"></b></a>
@@ -142,7 +144,7 @@
                           
                           
                           </ul>-->
-                  </li>-->
+                  </li>
 						</div>
 				</div>
              </div>

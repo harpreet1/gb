@@ -59,7 +59,6 @@
 -->
 			<div class="front-page-pic-link"> <img src="/img/homepage/lil-star.png" width="36" height= "23" style="float:left" />
 				<div class="pic-link-title"><a href="">Sriracha Flying Rooster Chocolate Truffles - $9.85-$24.95</a></div>
-				<img src="/img/homepage/lil-star.png" width="36" height="23" style="float:left" />
 				<div class="shop-now submit_button" ><a href="">SHOP NOW</a></div>
 			</div>
 
