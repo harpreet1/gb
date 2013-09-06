@@ -464,8 +464,8 @@ class Model extends Object implements CakeEventListener {
  * - `limit`: The maximum number of associated rows you want returned.
  * - `offset`: The number of associated rows to skip over (given the current
  *   conditions and order) before fetching and associating.
- * - `finderQuery`, `deleteQuery`, `insertQuery`: A complete SQL query CakePHP
- *   can use to fetch, delete, or create new associated model records. This should
+ * - `finderQuery`, A complete SQL query CakePHP
+ *   can use to fetch associated model records. This should
  *   be used in situations that require very custom results.
  *
  * @var array
@@ -555,7 +555,7 @@ class Model extends Object implements CakeEventListener {
 		'belongsTo' => array('className', 'foreignKey', 'conditions', 'fields', 'order', 'counterCache'),
 		'hasOne' => array('className', 'foreignKey', 'conditions', 'fields', 'order', 'dependent'),
 		'hasMany' => array('className', 'foreignKey', 'conditions', 'fields', 'order', 'limit', 'offset', 'dependent', 'exclusive', 'finderQuery', 'counterQuery'),
-		'hasAndBelongsToMany' => array('className', 'joinTable', 'with', 'foreignKey', 'associationForeignKey', 'conditions', 'fields', 'order', 'limit', 'offset', 'unique', 'finderQuery', 'deleteQuery', 'insertQuery')
+		'hasAndBelongsToMany' => array('className', 'joinTable', 'with', 'foreignKey', 'associationForeignKey', 'conditions', 'fields', 'order', 'limit', 'offset', 'unique', 'finderQuery')
 	);
 
 /**
@@ -2715,7 +2715,7 @@ class Model extends Object implements CakeEventListener {
 		$this->id = $this->getID();
 
 		$query = $this->buildQuery($type, $query);
-		if (is_null($query)) {
+		if ($query === null) {
 			return null;
 		}
 
@@ -2727,7 +2727,7 @@ class Model extends Object implements CakeEventListener {
  *
  * Model::_readDataSource() is used by all find() calls to read from the data source and can be overloaded to allow
  * caching of datasource calls.
- * 
+ *
  * {{{
  * protected function _readDataSource($type, $query) {
  * 		$cacheName = md5(json_encode($query));
@@ -2741,7 +2741,7 @@ class Model extends Object implements CakeEventListener {
  * 		return $results;
  * }
  * }}}
- * 
+ *
  * @param string $type Type of find operation (all / first / count / neighbors / list / threaded)
  * @param array $query Option fields (conditions / fields / joins / limit / offset / order / page / group / callbacks)
  * @return array
@@ -2818,9 +2818,9 @@ class Model extends Object implements CakeEventListener {
 	protected function _findAll($state, $query, $results = array()) {
 		if ($state === 'before') {
 			return $query;
-		} elseif ($state === 'after') {
-			return $results;
 		}
+
+		return $results;
 	}
 
 /**
@@ -2836,12 +2836,12 @@ class Model extends Object implements CakeEventListener {
 		if ($state === 'before') {
 			$query['limit'] = 1;
 			return $query;
-		} elseif ($state === 'after') {
-			if (empty($results[0])) {
-				return array();
-			}
-			return $results[0];
 		}
+
+		if (empty($results[0])) {
+			return array();
+		}
+		return $results[0];
 	}
 
 /**
@@ -2877,17 +2877,17 @@ class Model extends Object implements CakeEventListener {
 				));
 			}
 			return $query;
-		} elseif ($state === 'after') {
-			foreach (array(0, $this->alias) as $key) {
-				if (isset($results[0][$key]['count'])) {
-					if ($query['group']) {
-						return count($results);
-					}
-					return intval($results[0][$key]['count']);
-				}
-			}
-			return false;
 		}
+
+		foreach (array(0, $this->alias) as $key) {
+			if (isset($results[0][$key]['count'])) {
+				if ($query['group']) {
+					return count($results);
+				}
+				return intval($results[0][$key]['count']);
+			}
+		}
+		return false;
 	}
 
 /**
@@ -2939,12 +2939,12 @@ class Model extends Object implements CakeEventListener {
 			}
 			list($query['list']['keyPath'], $query['list']['valuePath'], $query['list']['groupPath']) = $list;
 			return $query;
-		} elseif ($state === 'after') {
-			if (empty($results)) {
-				return array();
-			}
-			return Hash::combine($results, $query['list']['keyPath'], $query['list']['valuePath'], $query['list']['groupPath']);
 		}
+
+		if (empty($results)) {
+			return array();
+		}
+		return Hash::combine($results, $query['list']['keyPath'], $query['list']['valuePath'], $query['list']['groupPath']);
 	}
 
 /**
@@ -2974,34 +2974,34 @@ class Model extends Object implements CakeEventListener {
 			$query['field'] = $field;
 			$query['value'] = $value;
 			return $query;
-		} elseif ($state === 'after') {
-			extract($query);
-			unset($query['conditions'][$field . ' <']);
-			$return = array();
-			if (isset($results[0])) {
-				$prevVal = Hash::get($results[0], $field);
-				$query['conditions'][$field . ' >='] = $prevVal;
-				$query['conditions'][$field . ' !='] = $value;
-				$query['limit'] = 2;
-			} else {
-				$return['prev'] = null;
-				$query['conditions'][$field . ' >'] = $value;
-				$query['limit'] = 1;
-			}
-			$query['order'] = $field . ' ASC';
-			$neighbors = $this->find('all', $query);
-			if (!array_key_exists('prev', $return)) {
-				$return['prev'] = isset($neighbors[0]) ? $neighbors[0] : null;
-			}
-			if (count($neighbors) === 2) {
-				$return['next'] = $neighbors[1];
-			} elseif (count($neighbors) === 1 && !$return['prev']) {
-				$return['next'] = $neighbors[0];
-			} else {
-				$return['next'] = null;
-			}
-			return $return;
 		}
+
+		extract($query);
+		unset($query['conditions'][$field . ' <']);
+		$return = array();
+		if (isset($results[0])) {
+			$prevVal = Hash::get($results[0], $field);
+			$query['conditions'][$field . ' >='] = $prevVal;
+			$query['conditions'][$field . ' !='] = $value;
+			$query['limit'] = 2;
+		} else {
+			$return['prev'] = null;
+			$query['conditions'][$field . ' >'] = $value;
+			$query['limit'] = 1;
+		}
+		$query['order'] = $field . ' ASC';
+		$neighbors = $this->find('all', $query);
+		if (!array_key_exists('prev', $return)) {
+			$return['prev'] = isset($neighbors[0]) ? $neighbors[0] : null;
+		}
+		if (count($neighbors) === 2) {
+			$return['next'] = $neighbors[1];
+		} elseif (count($neighbors) === 1 && !$return['prev']) {
+			$return['next'] = $neighbors[0];
+		} else {
+			$return['next'] = null;
+		}
+		return $return;
 	}
 
 /**
@@ -3016,16 +3016,16 @@ class Model extends Object implements CakeEventListener {
 	protected function _findThreaded($state, $query, $results = array()) {
 		if ($state === 'before') {
 			return $query;
-		} elseif ($state === 'after') {
-			$parent = 'parent_id';
-			if (isset($query['parent'])) {
-				$parent = $query['parent'];
-			}
-			return Hash::nest($results, array(
-				'idPath' => '{n}.' . $this->alias . '.' . $this->primaryKey,
-				'parentPath' => '{n}.' . $this->alias . '.' . $parent
-			));
 		}
+
+		$parent = 'parent_id';
+		if (isset($query['parent'])) {
+			$parent = $query['parent'];
+		}
+		return Hash::nest($results, array(
+			'idPath' => '{n}.' . $this->alias . '.' . $this->primaryKey,
+			'parentPath' => '{n}.' . $this->alias . '.' . $parent
+		));
 	}
 
 /**
@@ -3460,9 +3460,10 @@ class Model extends Object implements CakeEventListener {
  * Called during validation operations, before validation. Please note that custom
  * validation rules can be defined in $validate.
  *
- * @param array $options Options passed from model::save(), see $options of model::save().
+ * @param array $options Options passed from Model::save().
  * @return boolean True if validate operation should continue, false to abort
  * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#beforevalidate
+ * @see Model::save()
  */
 	public function beforeValidate($options = array()) {
 		return true;

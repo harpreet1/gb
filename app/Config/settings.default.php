@@ -19,6 +19,7 @@ $config = array(
 		'NMI_gatewayURL' => 'https://secure.networkmerchants.com/api/v2/three-step',
 		'NMI_APIKey' => '',
 		'MAESTRO_API_URL' => '',
+		'MAESTRO_API_URL_CARTCHECK' => '',
 		'MAESTRO_DISTRIBUTOR_ID' => '',
 	)
 );

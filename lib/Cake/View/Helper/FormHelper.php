@@ -1520,8 +1520,9 @@ class FormHelper extends AppHelper {
 			);
 
 			if ($label) {
-				$optTitle = $this->Html->useTag('label', $tagName, '', $optTitle);
+				$optTitle = $this->label($tagName, $optTitle, is_array($label) ? $label : null);
 			}
+
 			if (is_array($between)) {
 				$optTitle .= array_shift($between);
 			}
@@ -1784,12 +1785,11 @@ class FormHelper extends AppHelper {
 		$url = '#';
 		$onClick = 'document.' . $formName . '.submit();';
 		if ($confirmMessage) {
-			$confirmMessage = str_replace(array("'", '"'), array("\'", '\"'), $confirmMessage);
-			$options['onclick'] = "if (confirm('{$confirmMessage}')) { {$onClick} }";
+			$options['onclick'] = $this->_confirm($confirmMessage, $onClick, '', $options);
 		} else {
-			$options['onclick'] = $onClick;
+			$options['onclick'] = $onClick . ' ';
 		}
-		$options['onclick'] .= ' event.returnValue = false; return false;';
+		$options['onclick'] .= 'event.returnValue = false; return false;';
 
 		$out .= $this->Html->link($title, $url, $options);
 		return $out;
@@ -2885,7 +2885,7 @@ class FormHelper extends AppHelper {
  * @return array inputDefaults
  */
 	public function inputDefaults($defaults = null, $merge = false) {
-		if (!is_null($defaults)) {
+		if ($defaults !== null) {
 			if ($merge) {
 				$this->_inputDefaults = array_merge($this->_inputDefaults, (array)$defaults);
 			} else {
