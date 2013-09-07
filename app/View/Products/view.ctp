@@ -472,12 +472,12 @@ jQuery(function() {
 
 				<br />
 				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
-					<div class="fb-like" data-href="http://thegourmetbasket.net" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
+					<div class="fb-like" data-href="http://gourmetworldmarket.com" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
 
 					<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<a href="https://twitter.com/GourmetWorldMkt " class="twitter-follow-button" data-show-count="false">Follow @gourmetbasket1</a>
+<a href="https://twitter.com/GourmetWorldMkt " class="twitter-follow-button" data-show-count="false">Follow @GourmetWorldMkt</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 
