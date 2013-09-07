@@ -151,8 +151,8 @@ class CartComponent extends Component {
 
 			$this->Session->write('Shop.Order', $order + $to);
 
-			$discount = $order['subtotal'] * ($shop['Coupon']['discount_percentage'] / 100);
-			$this->Session->write('Shop.Order.discount', $discount);
+			//$discount = $order['subtotal'] * ($shop['Coupon']['discount_percentage'] / 100);
+			//$this->Session->write('Shop.Order.discount', $discount);
 
 			$this->Session->write('Shop.Users', $users);
 

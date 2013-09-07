@@ -238,12 +238,20 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('attribution', array('rows' => 4, 'class' => '4span ckeditor')); ?>
 	</div>
 
-	<div class="span3">
+	<div class="span5">
 		<div class="emphasize">Commission: <?php echo h($product['User']['commission']); ?>%</div>
 		<?php echo $this->Form->input('price_wholesale', array('class' => 'span1'));?>
 		<?php //echo $this->Form->input('price_list', array('class' => 'span1'));?>
 		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
+        
+        <hr />
+        <!-- Include Product Mod element -->
+			<?php echo $this->element('product-mod'); ?><br /><br />
+        <hr />
+        
+        
+        
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php //echo $this->Form->input('measurement');?>
 		<?php //echo $this->Form->input('weight_unit');?>
@@ -257,7 +265,7 @@ $(document).ready(function(){
         <?php echo $this->Form->input('length', array('class' => 'span1','label' => 'Depth / Diameter'));?>
 		<br />
 		<br />
-		<h4>Current Stock : <?php echo h($product['Product']['stock']); ?></h4>
+		<h4>Current Stock : <?php echo ($product['Product']['stock']); ?></h4>
 		<?php echo $this->Form->input('seasonal_stock', array('type' => 'checkbox','label' => 'Temporarily Unavailable')); ?>
         <?php echo $this->Form->input('seasonal_stock_range', array('type' => 'select', 'label' => 'ETA', 'empty' => 'Choose','options' => array(
                 '1' => 'Mid',
@@ -266,7 +274,7 @@ $(document).ready(function(){
             ))); ?>
         
 		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'monthpicker', 'label' => false,'class' => 'mceNoEditor')); ?>
-        <?php echo $this->Form->input('seasonal_stock_note'); ?>
+        <?php echo $this->Form->input('seasonal_stock_note', array('rows' => 5, 'class' => '4span ckeditor')); ?>
  		<br />
 		<br />
 		<?php echo $this->Form->input('related_products'); ?>

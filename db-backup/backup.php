@@ -10,8 +10,8 @@ $dbhost = "localhost"; // usually localhost
 $dbuser = "gourmet_main"; //enter your database username here
 $dbpass = "gour7met!"; //enter your database password here
 $dbname = "gourmet_main"; // enter your database name here
-$sendto = "Send To <db@thegourmetbasket.net>";
-$sendfrom = "Send From <db@thegourmetbasket.net>";
+$sendto = "Send To <db@gourmetworldmarket.com>";
+$sendfrom = "Send From <db@gourmetworldmarket.com>";
 $sendsubject = "Daily Database Backup";
 $bodyofemail = "Here is the daily backup of my database.";
 // don't need to edit below this section

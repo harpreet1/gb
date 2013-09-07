@@ -25,9 +25,9 @@ class MaestroComponent extends Component {
 
 		App::uses('Xml', 'Utility');
 		$response = Xml::toArray(Xml::build($res['body']));
-		// echo('here');
-		// print_r($response);
-		// die();
+		 echo('here');
+		 print_r($response);
+		 die();
 
 		// debug($response['checkout']['order']['shippingcharge']);
 
