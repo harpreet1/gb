@@ -224,11 +224,11 @@ jQuery(function($) {
 			$clone = $('.single_modifier.template').clone();
 			// add classes, and text needed for this mod
 			$clone.find('.mod_menu > a.mod_add_remove')
-																																		.addClass('remove_mod')
-																																		.html('Remove mod <span class="icons"></span>');
+				.addClass('remove_mod')
+				.html('Remove mod <span class="icons"></span>');
 			
 			// Prompt user for new sku number.
-				var input_sku=prompt("Please enter a SKU number for this product modification. (NOTE: Any spaces and underscores will be removed.):","SKU#");
+				var input_sku=prompt("Please enter an SKU number for this product modification. (NOTE: Any spaces and underscores will be removed.):","SKU#");
 				if(input_sku == false) return false; // die if user clicks cancel.
 				 
 				var cleaned_input_sku = input_sku.replace(/(\s|_)/g, ""); // remove all spaces andunderscores, just like we said we would.
@@ -261,7 +261,7 @@ jQuery(function($) {
 				return false; // onclick = return false. Kill default action. Good habit.
 			});
 			
-			// Display the new elemtn onscreen.
+			// Display the new element onscreen.
 			$('.single_modifier').eq(0).slideDown();
 			return false;// onclick = return false. Kill default action. Good habit.
 		});
