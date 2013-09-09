@@ -413,6 +413,14 @@ jQuery(function() {
 							<?php else: ?>
 								<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
 							<?php endif; ?>
+                            
+                            <?php if(!empty($product_mods)):?>
+            					<strong>Product Options:</strong><br/>
+            				<?php print $product_mods;?>
+            				<?php endif;?>
+                            
+                            
+                            
 
 							<?php echo $this->Form->end(); ?>
 						</div>
@@ -573,3 +581,39 @@ jQuery(function() {
 
 </div>
 </div>
+
+<script type="text/javascript">
+
+	  // Format for money method.
+	  Number.prototype.formatMoney = function(c, d, t){
+	  var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+		 return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+	   };
+	   
+		  var deviation_model = <?php print (isset($deviation_json) ? $deviation_json : "''"); ?>;
+		  $('.mod_selector').change(function(){
+		  var price = <?php echo $products[0]['Product']['selling_price'];?>;
+		  $('#ProductPrice').val(price.formatMoney(2, '.', ','));
+			  $('.mod_selector').each(function(){
+				  $this = $(this);
+				  $sku = $this.val();
+				  $model = deviation_model[$sku];
+				  switch($model['direction']){
+				  case '+':
+					  price = (parseFloat(price) + parseFloat($model['retail_deviation']));
+					  console.log('add' + $model['retail_deviation']);
+				  break;
+				  case '-':
+					  price = (parseFloat(price) - parseFloat($model['retail_deviation']));
+					  
+					  console.log('subtract' + $model['retail_deviation']);
+				  break;
+				  }
+			  });
+			  
+			  $('.price').html('$');
+			  $('#ProductPrice').val(price.formatMoney(2, '.', ','));
+			  $('.price').append(price.formatMoney(2, '.', ','));
+			  console.log(parseInt(price.formatMoney(2, '.', ',')));
+    });
+</script>
