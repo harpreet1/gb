@@ -189,25 +189,13 @@
 			</div>
 			<?php endforeach; ?>
 
-
-
-
 			<?php //echo $this->Form->button('Change Shipping Method', array('class' => 'btn', 'ecape' => false)); ?>
 			<?php echo $this->Form->end(); ?>
 
 			<?php endif; ?>
 
-
-
 			</div>
 		</div>
-
-
-
-
-
-
-
 
 
 <?php if($ccform): ?>
@@ -215,8 +203,9 @@
 <div class="span3 offset9 CC">
 	<p style="text-align:right; padding-right:30px;">
 	<strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
+	<strong>Discount ($<?php echo $shop['Order']['discount']; ?>)</strong> <br />
+	<strong>Tax: <?php echo $shop['Order']['tax']; ?></strong> <br />
 	<strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
-	<strong>Shipping: <?php echo $shop['Order']['tax']; ?></strong> <br />
 	<strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
 	</p>
 </div>
@@ -237,11 +226,11 @@
 	<div class="row">
 		<div class="span2"> Credit Card Expiration (Format: Month and Year: ex <strong>0115</strong> <br />
 			<input type ="text" name="billing-cc-exp" value="">
-		
+
 		</div>
 
 		<div class="span2">
-			
+
 		</div>
 	</div>
 
@@ -254,14 +243,15 @@
 	<br />
 	<?php echo $this->Form->button('<i class="icon-thumbs-up icon-white"></i> Finalize Order', array('class' => 'btn btn-primary', 'ecape' => false)); ?> <?php echo $this->Form->end(); ?>
 
-	<div style="color:red">XXXXX</div>
+	<!-- <div style="color:red">XXXXX</div> -->
 
 	<?php else: ?>
 	<div class="span3 offset9 pre-cc">
 		<p style="text-align:right; padding-right:30px;">
 		<strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
-		<strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+		<strong>Discount ($<?php echo $shop['Order']['discount']; ?>)</strong> <br />
 		<strong>Tax: <?php echo $shop['Order']['tax']; ?></strong> <br />
+		<strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
 		<strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
 		</p>
 	</div>

@@ -140,19 +140,32 @@ class CartComponent extends Component {
 
 			}
 
+			if(isset($shop['Coupon']) && ($cartTotal >= $shop['Coupon']['threshold'])) {
+				if($shop['Coupon']['type'] == 'percentage') {
+					$discount = $cartTotal * ($shop['Coupon']['discount'] / 100);
+				} else {
+					$discount = $shop['Coupon']['discount'];
+				}
+				$discount = round($discount, 2);
+				$discount = sprintf('%.2f', $discount);
+			} else {
+				$discount = 0;
+				$this->Session->delete('Shop.Order.discount');
+				$this->Session->delete('Shop.Coupon');
+			}
+
 			$order['weight'] = $cartWeight;
 			$order['order_item_count'] = $order_item_count;
 			$order['quantity'] = $cartQuantity;
 			$order['subtotal'] = sprintf('%.2f', $cartTotal);
 			$order['shipping'] = 0;
-			$order['total'] = sprintf('%.2f', $cartTotal);
+			$order['total'] = sprintf('%.2f', $cartTotal - $discount);
 
 			$to = isset($shop['Order']) ? $shop['Order'] : array();
 
 			$this->Session->write('Shop.Order', $order + $to);
 
-			//$discount = $order['subtotal'] * ($shop['Coupon']['discount_percentage'] / 100);
-			//$this->Session->write('Shop.Order.discount', $discount);
+			$this->Session->write('Shop.Order.discount', $discount);
 
 			$this->Session->write('Shop.Users', $users);
 
@@ -162,6 +175,12 @@ class CartComponent extends Component {
 			$this->Session->delete('Shop');
 			return false;
 		}
+	}
+
+//////////////////////////////////////////////////
+
+	public function coupon() {
+		$shop = $this->Session->read('Shop');
 	}
 
 //////////////////////////////////////////////////
