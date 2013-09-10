@@ -57,7 +57,7 @@ Shopping Cart is empty
 
 <div class="row">
 
-<?php /*?><?php if(isset($shop['Order']['discount'])): ?>
+<?php if(!isset($shop['Coupon'])): ?>
 	<div class="span2">
 		<?php echo $this->Form->create('Coupon', array('url' => array('controller' => 'coupons', 'action' => 'add'))); ?>
 		<?php echo $this->Form->input('code', array('div' => false, 'class' => 'span2 input-mini', 'label' => false, 'size' => 10, 'maxlength' => 10)); ?>
@@ -80,7 +80,7 @@ Shopping Cart is empty
 		<?php echo $this->Html->link('<i class="icon-tag icon-white"></i> Remove Coupon', array('controller' => 'coupons', 'action' => 'remove'), array('class' => 'btn btn-warning btn-mini', 'escape' => false)); ?>
 	</div>
 
-<?php endif; ?><?php */?>
+<?php endif; ?>
 
 </div>
 
@@ -150,6 +150,11 @@ Shopping Cart is empty
 		Subtotal: <span class="normal">$<?php echo $shop['Order']['subtotal']; ?></span>
 		<br />
 		<br />
+		<?php if(isset($shop['Coupon'])) : ?>
+		Discount: <span class="normal">($<?php echo $shop['Order']['discount']; ?>)</span>
+		<br />
+		<br />
+		<?php endif; ?>
 		Sales Tax: <span class="normal">N/A</span>
 		<br />
 		<br />

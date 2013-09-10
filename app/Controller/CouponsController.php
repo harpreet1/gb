@@ -24,11 +24,26 @@ class CouponsController extends AppController {
 			));
 
 			if(!empty($coupon)) {
+
 				$shop = $this->Session->read('Shop');
-				$discount = $shop['Order']['subtotal'] * ($coupon['Coupon']['discount_percentage'] / 100);
-				$this->Session->write('Shop.Order.discount', $discount);
-				$this->Session->write('Shop.Coupon', $coupon['Coupon']);
-				$this->Session->setFlash('Coupon code applied.');
+
+				if($shop['Order']['subtotal'] >= $coupon['Coupon']['threshold']) {
+					if($coupon['Coupon']['type'] == 'percentage') {
+						$discount = $shop['Order']['subtotal'] * ($coupon['Coupon']['discount'] / 100);
+					} else {
+						$discount = $coupon['Coupon']['discount'];
+					}
+					$discount = round($discount, 2);
+					$discount = sprintf('%.2f', $discount);
+					$this->Session->write('Shop.Order.discount', $discount);
+					$total = sprintf('%.2f', $shop['Order']['subtotal'] - $discount);
+					$this->Session->write('Shop.Order.total', $total);
+					$this->Session->write('Shop.Coupon', $coupon['Coupon']);
+					$this->Session->setFlash('Coupon code applied.');
+				} else {
+					$this->Session->setFlash('The coupon code needs minimum order of: $' . $coupon['Coupon']['threshold']);
+				}
+
 			} else {
 				$this->Session->delete('Shop.Order.discount');
 				$this->Session->delete('Shop.Coupon');
