@@ -26,14 +26,14 @@
 			<?php echo h($coupon['Coupon']['threshold']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Discount Numeric'); ?></dt>
+		<dt><?php echo __('Discount Type'); ?></dt>
 		<dd>
-			<?php echo h($coupon['Coupon']['discount_numeric']); ?>
+			<?php echo h($coupon['Coupon']['type']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Discount Percentage'); ?></dt>
+		<dt><?php echo __('Discount Amount'); ?></dt>
 		<dd>
-			<?php echo h($coupon['Coupon']['discount_percentage']); ?>
+			<?php echo h($coupon['Coupon']['discount']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Date Start'); ?></dt>

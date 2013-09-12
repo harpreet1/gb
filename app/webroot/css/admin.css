@@ -28,8 +28,8 @@ body {
 }
 
 .img100 {
-	min-width: 100px !important;
 	max-width: 100px !important;
+	max-height:100px;
 }
 
 /***  Limit Height in Admin Index ***/
