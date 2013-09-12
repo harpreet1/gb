@@ -1,3 +1,13 @@
+<script>
+	$(function() {
+    	$( "#datepicker" ).datepicker();
+  });
+	
+ </script>
+
+
+
+
 <div class="coupons form">
 <?php echo $this->Form->create('Coupon'); ?>
 	<fieldset>
@@ -8,9 +18,9 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('code');
 		echo $this->Form->input('threshold');
-		echo $this->Form->input('discount_numeric');
-		echo $this->Form->input('discount_percentage');
-		echo $this->Form->input('date_start');
+		echo $this->Form->input('type');
+		echo $this->Form->input('discount');
+		echo $this->Form->input('date_start', array('id' => 'datepicker','class' => 'mceNoEditor'));		
 		echo $this->Form->input('date_finish');
 	?>
 	</fieldset>

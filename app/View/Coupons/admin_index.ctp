@@ -6,8 +6,8 @@
 		<th><?php echo $this->Paginator->sort('description'); ?></th>
 		<th><?php echo $this->Paginator->sort('code'); ?></th>
 		<th><?php echo $this->Paginator->sort('threshold'); ?></th>
-		<th><?php echo $this->Paginator->sort('discount_numeric'); ?></th>
-		<th><?php echo $this->Paginator->sort('discount_percentage'); ?></th>
+		<th><?php echo $this->Paginator->sort('type'); ?></th>
+		<th><?php echo $this->Paginator->sort('discount'); ?></th>
 		<th><?php echo $this->Paginator->sort('date_start'); ?></th>
 		<th><?php echo $this->Paginator->sort('date_finish'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -21,8 +21,8 @@
 		<td><?php echo h($coupon['Coupon']['description']); ?></td>
 		<td><?php echo h($coupon['Coupon']['code']); ?></td>
 		<td><?php echo h($coupon['Coupon']['threshold']); ?></td>
-		<td><?php echo h($coupon['Coupon']['discount_numeric']); ?></td>
-		<td><?php echo h($coupon['Coupon']['discount_percentage']); ?></td>
+		<td><?php echo h($coupon['Coupon']['type']); ?></td>
+		<td><?php echo h($coupon['Coupon']['discount']); ?></td>
 		<td><?php echo h($coupon['Coupon']['date_start']); ?></td>
 		<td><?php echo h($coupon['Coupon']['date_finish']); ?></td>
 		<td><?php echo h($coupon['Coupon']['created']); ?></td>

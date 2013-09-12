@@ -188,7 +188,11 @@ li.gb-account a {
 }
 .basket {
 	position: absolute;
+<<<<<<< HEAD
+	top: 11px;
+=======
 	top: 3px;
+>>>>>>> 21f83f785975d0bce619914a7a5bae23fec1c2a0
 	left: 0px;
 	z-index: 500;
 }
