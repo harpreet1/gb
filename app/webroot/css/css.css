@@ -178,10 +178,15 @@ img.frame {
 }
 .basket {
 	position: absolute;
-	top: 81px;
+	top: 117px;
 	left: 41px;
 	z-index: 500;
 }
+
+a.home{ 
+	color:#fff;
+}
+
 #nav-wrapper {
 	height: 100px;
 	width: 100%;

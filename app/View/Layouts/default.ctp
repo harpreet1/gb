@@ -146,8 +146,8 @@
 		<a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="30" height="30" alt="pinterest"></a>
 	</div>
 
-		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
-			<div class="basket"><img src="/img/global/gwm-globe-home.png" width="80" height="80" alt="gourmet basket"></div>
+		<a class="home" href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
+			<div class="basket">home<!--<img src="/img/global/gwm-oval-new.png" width="80" height="80" alt="gourmet basket">--></div>
 		 </a>
 
 		 <div id="search-box">

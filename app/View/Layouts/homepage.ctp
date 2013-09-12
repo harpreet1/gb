@@ -76,7 +76,7 @@
     
     
         <div id="header-homepage"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
-            <div class="basket"><img src="/img/global/gwm-new.png" width="100" alt="gourmet world market"></div>
+           <div class="basket"><img src="/img/global/gwm-oval.png" width="180"  alt="gourmet basket"></div>
             
             <div id="account">
             	<ul class="gb-horiz-account">
