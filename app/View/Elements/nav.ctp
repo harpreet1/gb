@@ -17,7 +17,7 @@
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
 
-			<li class="mzr-drop"> <a href="#" >SHOP BY: STORES<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="#" ><span style="color:#a53043;text-shadow:1px 1px #000">SHOP BY:</span>&nbsp;&nbsp;&nbsp;STORES<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php foreach($menuvendors as $menuvendor) : ?>
