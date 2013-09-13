@@ -119,7 +119,7 @@ h1.title-description {
 #account {
 	position: absolute;
 	right: 0px;
-	top: 66px;
+	top: 32px;
 }
 ul.gb-horiz-account {
 	font-family: Verdana, Geneva, sans-serif;
@@ -188,7 +188,7 @@ li.gb-account a {
 }
 .basket {
 	position: absolute;
-	top: 3px;
+	top: 39px;
 	left: 0px;
 	z-index: 500;
 }
@@ -383,8 +383,8 @@ div.pic-link-title {
 #nav-wrapper {
 	height: 100px;
 	width: 100%;
-	padding-top: 104px;
-	padding-left: 60px;
+	padding-top: 65px;
+	padding-left: 132px;
 }
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	background-color: transparent;
@@ -650,7 +650,7 @@ hr.thin.tight {
 .magazine {
 	position:absolute;
 	top:51px;
-	right:0px;
+	right:78px;
 	height:25px;
 	width:200px;
 	
