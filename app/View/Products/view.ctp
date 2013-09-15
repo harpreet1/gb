@@ -307,7 +307,7 @@ jQuery(function() {
 				<p><?php echo $product['Product']['attribution']; ?></p>
 				<?php endif ?>
 			 </div>
-	
+			 
 			 <div class="span5">
 
 				<div class="purchase-block">
