@@ -119,6 +119,12 @@ class Product extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
+	public $hasMany = array(
+		'Productmod'
+	);
+
+////////////////////////////////////////////////////////////
+
 //	public $hasAndBelongsToMany = array(
 //		'Tag' => array(
 //			'className' => 'Tag',
@@ -135,13 +141,13 @@ class Product extends AppModel {
 //			'deleteQuery' => '',
 //			'insertQuery' => ''
 //		),
-//		
+//
 //	);
 
 ///////////////////////////////////////////////////////////////////
 
 	public function displaygroups() {
-		
+
 		$displaygroups = array(
 			'1' => '1',
 			'2' => '2',
@@ -171,11 +177,11 @@ class Product extends AppModel {
 		);
 		return $displaygroups;
 	}
-	
+
 ///////////////////////////////////////////////////////////////////
 
 //	public function auxcategories() {
-//		
+//
 //		$auxcategories = array(
 //			'31' => 'Accessories',
 //			'1' => 'Appetizers',
@@ -206,8 +212,8 @@ class Product extends AppModel {
 //			'19' => 'Teas',
 //			'20' => 'Vegetables & Potatoes',
 //		);
-//		
+//
 //	}
-	
+
 
 }

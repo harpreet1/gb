@@ -37,7 +37,7 @@ $(document).ready(function(){
 	$(function() {
 
 		$('#monthpicker').monthpicker();
-		
+
 	});
 
 
@@ -47,7 +47,7 @@ $(document).ready(function(){
 	//        	changeYear: true,
 	//        	showButtonPanel: true,
 	//        	dateFormat: 'MM yy' });
-	//			
+	//
 	//		// getter
 	////var changeYear = $( ".selector" ).datepicker( "option", "changeYear" );
 	//		// setter
@@ -58,9 +58,9 @@ $(document).ready(function(){
 	//		// setter
 	//		$( "#datepicker" ).datepicker( "option", "gotoCurrent", true );
 	//	});
-	//	
-		
-	
+	//
+
+
   </script>
 
 
@@ -80,7 +80,7 @@ $(document).ready(function(){
     <div class="span3 offset3">
 			<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?><br />
             <?php echo $this->Form->input('show', array('type' => 'checkbox', 'label' => 'Show')); ?><br />
-            
+
 		</div>
 
 	<div class="span3 offset6 ">
@@ -244,14 +244,14 @@ $(document).ready(function(){
 		<?php //echo $this->Form->input('price_list', array('class' => 'span1'));?>
 		<div class="emphasize">Markup: <?php echo h($product['Product']['markup']); ?>%</div>
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
-        
+
         <hr />
         <!-- Include Product Mod element -->
 			<?php echo $this->element('product-mod'); ?><br /><br />
         <hr />
-        
-        
-        
+
+
+
 		<?php echo $this->Form->input('taxable', array('type' => 'checkbox'));?><br />
 		<?php //echo $this->Form->input('measurement');?>
 		<?php //echo $this->Form->input('weight_unit');?>
@@ -272,7 +272,7 @@ $(document).ready(function(){
                 '2' => 'Early',
                 '3' => 'Late',
             ))); ?>
-        
+
 		<?php echo $this->Form->input('seasonal_stock_date', array('id' => 'monthpicker', 'label' => false,'class' => 'mceNoEditor')); ?>
         <?php echo $this->Form->input('seasonal_stock_note', array('rows' => 5, 'class' => '4span ckeditor')); ?>
  		<br />
@@ -403,6 +403,48 @@ $(document).ready(function(){
 	</div>
 
 </div>
+
+<br />
+<br />
+
+<h4>Product Modification:</h4>
+
+<?php echo $this->Html->link('Add new Productmods', array('controller' => 'productmods', 'action' => 'add', $product['Product']['id']), array('class' => 'btn')); ?>
+
+<?php if(!empty($productmods)): ?>
+
+<table cellpadding="0" cellspacing="0">
+	<tr>
+		<th>id</th>
+		<th>product_id</th>
+		<th>sku</th>
+		<th>name</th>
+		<th>change</th>
+		<th>active</th>
+		<th>created</th>
+		<th>modified</th>
+		<th>action</th>
+	</tr>
+	<?php foreach ($productmods as $productmod): ?>
+	<tr>
+		<td><?php echo h($productmod['Productmod']['id']); ?></td>
+		<td><?php echo h($productmod['Productmod']['product_id']); ?></td>
+		<td><?php echo h($productmod['Productmod']['sku']); ?></td>
+		<td><?php echo h($productmod['Productmod']['name']); ?></td>
+		<td><?php echo h($productmod['Productmod']['change']); ?></td>
+		<td><?php echo h($productmod['Productmod']['active']); ?></td>
+		<td><?php echo h($productmod['Productmod']['created']); ?></td>
+		<td><?php echo h($productmod['Productmod']['modified']); ?></td>
+		<td class="actions">
+			<?php echo $this->Html->link('View', array('controller' => 'productmods', 'action' => 'view', $productmod['Productmod']['id'])); ?>
+			<?php echo $this->Html->link('Edit', array('controller' => 'productmods', 'action' => 'edit', $productmod['Productmod']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'productmods', 'action' => 'delete', $productmod['Productmod']['id']), null, __('Are you sure you want to delete # %s?', $productmod['Productmod']['id'])); ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+
+<?php endif; ?>
 
 <br />
 <br />
