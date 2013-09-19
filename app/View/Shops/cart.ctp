@@ -26,17 +26,23 @@ Shopping Cart is empty
 	<div class="span1">REMOVE</div>
 </div>
 
-<?php foreach ($shop['OrderItem'] as $item): ?>
+<?php foreach ($shop['OrderItem'] as $key => $item): ?>
 	<div class="row">
 		<div class="span2"><?php echo $shop['Users'][$item['Product']['user_id']]['name']; ?><br /><?php echo $shop['Users'][$item['Product']['user_id']]['state']; ?> <?php $shop['Users'][$item['Product']['user_id']]['zip']; ?></div>
 		<div class="span1 cart-pic"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
-		<div class="span3"><strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $item['Product']['id'], 'slug' => $item['Product']['slug'])); ?></strong></div>
+		<div class="span3">
+			<strong><?php echo $this->Html->link($item['Product']['name'], array('controller' => 'products', 'action' => 'view', 'id' => $item['Product']['id'], 'slug' => $item['Product']['slug'])); ?></strong>
+			<?php if(isset($item['Product']['productmod_name'])) : ?>
+			<br />
+			<?php echo $item['Product']['productmod_name']; ?>
+			<?php endif; ?>
+		</div>
 		<div class="span1"><?php echo $item['Product']['weight']; ?></div>
 		<div class="span1"><?php echo $item['weight_total']; ?></div>
 		<div class="span1">$<?php echo $item['Product']['price']; ?></div>
-		<div class="span1"><?php echo $this->Form->input('quantity-' . $item['Product']['id'], array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
+		<div class="span1"><?php echo $this->Form->input('quantity-' . $key, array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => $item['quantity'])); ?></div>
 		<div class="span1">$<?php echo $item['subtotal']; ?></div>
-		<div class="span1"><span class="remove" id="<?php echo $item['Product']['id']; ?>"></span></div>
+		<div class="span1"><span class="remove" id="<?php echo $key; ?>"></span></div>
 	</div>
 <?php endforeach; ?>
 

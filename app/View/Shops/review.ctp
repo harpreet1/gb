@@ -60,7 +60,13 @@
 
 			<div class="span1" style="width:40px"><?php echo $this->Html->image('products/image/' . $item['Product']['image'], array('class' => 'px60')); ?></div>
 
-			<div class="span3"><strong><?php echo $item['name']; ?></strong></div>
+			<div class="span3">
+				<strong><?php echo $item['name']; ?></strong>
+				<?php if(isset($item['productmod_name'])) : ?>
+					<br />
+					<?php echo $item['productmod_name']; ?>
+				<?php endif; ?>
+			</div>
 
 			<div class="span1"><?php echo $item['quantity']; ?></div>
 
