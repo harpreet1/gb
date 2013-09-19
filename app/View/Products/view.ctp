@@ -1,10 +1,9 @@
 <?php echo $this->Html->script(array('jquery.flexslider-min.js', 'product_view.js'), array('inline' => false)); ?>
 <script>
-jQuery(function() {
+$(document).ready(function() {
 
 	$('.popup-marker').popover({
 		html: true,
-
 	});
 
 	$('#pop-trigger').click(function (e) {
@@ -17,8 +16,11 @@ jQuery(function() {
 		}
 	});
 
-});
+	$('.modselector').change(function(){
+		$('#productprice').html($(this).find(':selected').data('price'));
+	});
 
+});
 </script>
 
 <div class="row">
@@ -47,7 +49,7 @@ jQuery(function() {
 	 <?php endif; ?>
 	 <?php endif; ?>
 	</div>
-	
+
 	<div class="span9 product-column">
 		  <div class="row">
 			 <div class="span9">
@@ -114,24 +116,24 @@ jQuery(function() {
 						$serv = 'unloaded';
 						$recipes = 'unloaded';
 						$nutrition = 'unloaded';
-	
-	
+
+
 						if(!empty($product['Product']['generic_description'])) :
 							$description = 'loaded';
 						endif;
-	
+
 						if(!empty($product['Product']['serving_suggestions'])) :
 							$serv = 'loaded';
 						endif;
-	
+
 						if(!empty($product['Product']['recipes'])) :
 							$recipes = 'loaded';
 						endif;
-	
+
 						if ($nuts) :
 							$nutrition = 'loaded';
 						endif;
-	
+
 					?>
 				<ul class="nav <?php if (($description == 'loaded') || ($serv == 'loaded') || ($recipes == 'loaded') ) : ?>nav-tabs"<?php endif; ?> id="myTab">
 				<?php if(!empty($product['Product']['ingredients'])) : ?>
@@ -233,23 +235,23 @@ jQuery(function() {
 										<?php
 														if (($nkey == 'vitamin_a'  || $nkey == 'vitamin_c' || $nkey == 'calcium' || $nkey == 'iron' )) {
 															echo ('');
-	
+
 															?>
 										<div style="display:inline;float:right;">
 										<?php
-	
+
 															if ($nkey == 'vitamin_a') {
 																echo $product['Product']['vitamin_a_p'];
 															}
-	
+
 															if ($nkey == 'vitamin_c') {
 																echo $product['Product']['vitamin_c_p'];
 															}
-	
+
 															if ($nkey == 'calcium') {
 																echo $product['Product']['calcium_p'];
 															}
-	
+
 															if ($nkey == 'iron') {
 																echo $product['Product']['iron_p'];
 															}
@@ -261,39 +263,39 @@ jQuery(function() {
 	 <?php
 															//print_r ($nkey);
 															//echo 'yes';
-	
+
 															if ($nkey == 'calories') {
 																echo $product['Product']['total_fat_p'];
 															}
-	
+
 															if ($nkey == 'saturated_fat') {
 																echo $product['Product']['saturated_fat_p'];
 															}
-	
+
 															if ($nkey == 'sodium') {
 																echo $product['Product']['sodium_p'];
 															}
-	
+
 															if ($nkey == 'carbs') {
 																echo $product['Product']['carbs_p'];
 															}
-	
+
 															if ($nkey == 'fiber') {
 																echo $product['Product']['fiber_p'];
 															}
-	
+
 															if ($nkey == 'sugar') {
 																echo $product['Product']['sugar_p'];
 															}
-	
+
 															if ($nkey == 'protein') {
 																echo $product['Product']['protein_p'];
 															}
-	
-	
+
+
 															?>
 										%</div></td>
-									 <!--<td class="nf_Cell nf_Right nf_Text">%</td>--> 
+									 <!--<td class="nf_Cell nf_Right nf_Text">%</td>-->
 								  </tr>
 								  <?php endforeach;?>
 							</table></td>
@@ -307,27 +309,27 @@ jQuery(function() {
 				<p><?php echo $product['Product']['attribution']; ?></p>
 				<?php endif ?>
 			 </div>
-			 
+
 			 <div class="span5">
 
 				<div class="purchase-block">
-					<div class="product-price">Price: $<?php echo $product['Product']['price']; ?>
+					<div class="product-price">Price: $<span id="productprice"><?php echo $product['Product']['price']; ?></span>
 						<?php echo $this->Form->create(NULL, array('url' => array('controller' => 'shops', 'action' => 'add'))); ?>
 						<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $product['Product']['id'])); ?>
-						
-						<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>Qty: 
+
+						<?php if($product['Product']['stock'] > 0 || $product['Product']['user_id'] != 11): ?>Qty:
 							<?php echo $this->Form->input('quantity', array('div' => false, 'class' => 'numeric span1', 'label' => false, 'size' => 2, 'maxlength' => 2, 'value' => 1)); ?>
 							<?php echo $this->Form->button('<i class="icon-shopping-cart icon-white"></i> Add to Cart',
 								array('class' => 'btn btn-inverse', 'escape' => false));?>
 						<?php else: ?>
 						<?php echo '<span class="btn btn-warning"><i class="icon-exclamation-sign icon-white"></i>Out of Stock</span>';?>
 						<?php endif; ?>
-						
+
 
 					</div>
 				</div>
-		
-				<div class="product-description"> 
+
+				<div class="product-description">
 				<script>
 							var load = '<img class="brand" src="/img/brands/image/ ';
 						</script>
@@ -338,14 +340,14 @@ jQuery(function() {
 					
 					<?php if(!empty($product['Brand']['description'])) : ?>
 				<a href="#" id="pop-trigger" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
-	
+
 						<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a> <span><img class="hand" src="/img/global/hand.png"/></span>
 					<?php elseif(empty($product['Brand']['name'])) : ?>
 						<a class="btn btn-gb"><?php echo $user['User']['name']; ?></a>
 					<?php else : ?>
 						<a class="btn btn-gb"><?php echo $product['Brand']['name']; ?></a>
 					<?php endif; ?>
-	
+
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 				<span class="description"><?php echo $product['Product']['description']; ?></span>
 				<hr style="margin:10px 0;clear:both" />
@@ -366,43 +368,43 @@ jQuery(function() {
 				<?php endif; ?>
 				<br />
 				<br />
-	
+
 				<?php if(!empty($product['Product']['country'])) : ?>
 					Food tradition/ Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>
 				<?php endif; ?>
 				<br />
-	
+
 				<?php if(!empty($product['Product']['country_manufacture'])) : ?>
 				Comes from:&nbsp;<span class="gb-green"><?php echo $product['Product']['country_manufacture']; ?></span>
 				<?php endif; ?>
 				<br />
-	
+
 				<div class="social-aux" style="margin-top:10px;margin-bottom:5px">
 					  <div class="fb-like" data-href="http://gourmetworldmarket.com" data-send="false" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
-					  <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> 
-					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> 
-					  <a href="https://twitter.com/GourmetWorldMkt" class="twitter-follow-button" data-show-count="false">Follow @GourmetWorldMkt</a> 
-					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> 
+					  <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					  <a href="https://twitter.com/GourmetWorldMkt" class="twitter-follow-button" data-show-count="false">Follow @GourmetWorldMkt</a>
+					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
-	
+
 				<?php if(!empty($product['Product']['stock'])) : ?>
 					Stock: <?php echo $product['Product']['stock']; ?> <br />
 				<br />
 				<?php endif; ?>
-	
+
 				<?php if(!empty($user['User']['min_purchase'])) : ?>
 				<div class="minimum">Minimum Order from <?php echo $user['User']['name']; ?>: $ <?php echo ($user['User']['min_purchase']); ?></div>
 				<?php endif; ?>
-	
+
 				<?php if(!empty($user['User']['mini_shipping_policy'])) : ?>
 				<div class="mini-shipping-policy box-gb "><?php echo ($user['User']['mini_shipping_policy']); ?></div>
 				<br />
 				<?php endif; ?>
-	
+
 				</div>
 			 </div>
 		  </div>
-	
+
 		  <div class="row">
 			 <div class="span9"> <br />
 				<div>
@@ -418,7 +420,7 @@ jQuery(function() {
 				<br />
 				<br />
 				<br />
-	
+
 				<?php if(!empty($related_products)) : ?>
 					<h2>PAIRINGS & RELATED PRODUCTS</h2>
 					<div id="carousel-image-and-text" class="touchcarousel grey-blue">
@@ -433,7 +435,7 @@ jQuery(function() {
 				<br />
 				<br />
 				<br />
-	
+
 				<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" style="float:right; padding:20px;"/>
 				<hr />
 				<div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors, misinformation, or omission stated or implied or packaging changes. Warning: Please read the actual package before consuming its contents.</div>
@@ -442,39 +444,3 @@ jQuery(function() {
 		  </div>
 	</div>
 	</div>
-
-<script type="text/javascript">
-
-	  // Format for money method.
-	  Number.prototype.formatMoney = function(c, d, t){
-	  var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
-		 return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-	};
-	
-		  var deviation_model = <?php print (isset($deviation_json) ? $deviation_json : "''"); ?>;
-		  $('.mod_selector').change(function(){
-		  var price = <?php echo $products[0]['Product']['selling_price'];?>;
-		  $('#ProductPrice').val(price.formatMoney(2, '.', ','));
-			  $('.mod_selector').each(function(){
-				  $this = $(this);
-				  $sku = $this.val();
-				  $model = deviation_model[$sku];
-				  switch($model['direction']){
-				  case '+':
-					  price = (parseFloat(price) + parseFloat($model['retail_deviation']));
-					  console.log('add' + $model['retail_deviation']);
-				  break;
-				  case '-':
-					  price = (parseFloat(price) - parseFloat($model['retail_deviation']));
-					  
-					  console.log('subtract' + $model['retail_deviation']);
-				  break;
-				  }
-			  });
-			  
-			  $('.price').html('$');
-			  $('#ProductPrice').val(price.formatMoney(2, '.', ','));
-			  $('.price').append(price.formatMoney(2, '.', ','));
-			  console.log(parseInt(price.formatMoney(2, '.', ',')));
-	});
-</script>

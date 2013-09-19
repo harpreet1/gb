@@ -7,23 +7,23 @@
 			<th><?php echo $this->Paginator->sort('sku'); ?></th>
 			<th><?php echo $this->Paginator->sort('active'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('change'); ?></th>
+			<th><?php echo $this->Paginator->sort('price'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($productmods as $productmod): ?>
 	<tr>
-		<td><?php echo h($productmod['Productmod']['id']); ?>&nbsp;</td>
+		<td><?php echo h($productmod['Productmod']['id']); ?></td>
 		<td>
 			<?php echo $this->Html->link($productmod['Product']['name'], array('controller' => 'products', 'action' => 'view', $productmod['Product']['id'])); ?>
 		</td>
-		<td><?php echo h($productmod['Productmod']['sku']); ?>&nbsp;</td>
-		<td><?php echo h($productmod['Productmod']['active']); ?>&nbsp;</td>
-		<td><?php echo h($productmod['Productmod']['name']); ?>&nbsp;</td>
-		<td><?php echo h($productmod['Productmod']['change']); ?>&nbsp;</td>
-		<td><?php echo h($productmod['Productmod']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($productmod['Productmod']['created']); ?>&nbsp;</td>
+		<td><?php echo h($productmod['Productmod']['sku']); ?></td>
+		<td><?php echo h($productmod['Productmod']['active']); ?></td>
+		<td><?php echo h($productmod['Productmod']['name']); ?></td>
+		<td><?php echo h($productmod['Productmod']['price']); ?></td>
+		<td><?php echo h($productmod['Productmod']['modified']); ?></td>
+		<td><?php echo h($productmod['Productmod']['created']); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $productmod['Productmod']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $productmod['Productmod']['id'])); ?>

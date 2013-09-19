@@ -21,7 +21,7 @@ class ProductmodsController extends AppController {
 		}
 		$options = array(
 			'recursive' => 0,
-			'conditions' => array('Productmod.' . $this->Productmod->primaryKey => $id)
+			'conditions' => array('Productmod.id' => $id)
 		);
 		$this->set('productmod', $this->Productmod->find('first', $options));
 	}
@@ -60,7 +60,7 @@ class ProductmodsController extends AppController {
 				$this->Session->setFlash('The productmod could not be saved. Please, try again.');
 			}
 		} else {
-			$options = array('conditions' => array('Productmod.' . $this->Productmod->primaryKey => $id));
+			$options = array('conditions' => array('Productmod.id' => $id));
 			$this->request->data = $this->Productmod->find('first', $options);
 		}
 		$products = $this->Productmod->Product->find('list');

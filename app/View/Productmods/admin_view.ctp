@@ -26,9 +26,9 @@
 			<?php echo h($productmod['Productmod']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Change'); ?></dt>
+		<dt><?php echo __('Price'); ?></dt>
 		<dd>
-			<?php echo h($productmod['Productmod']['change']); ?>
+			<?php echo h($productmod['Productmod']['price']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

@@ -10,8 +10,8 @@ $(document).ready(function() {
 		url:   '/admin/orderusers/editable',
 		title: 'shipping_actual',
 		placement: 'right',
-		
-		
+
+
 	});
 
 });
@@ -118,6 +118,7 @@ $(document).ready(function() {
 		<th>Id</th>
 		<th>Vendor</th>
 		<th>Name</th>
+		<th>mod name</th>
 		<th>Quantity</th>
 		<th>Price</th>
 		<th>Created</th>
@@ -129,6 +130,7 @@ $(document).ready(function() {
 			<td><?php echo $orderItem['id'];?></td>
 			<td><?php echo $orderItem['User']['name'];?></td>
 			<td><?php echo $orderItem['name'];?></td>
+			<td><?php echo $orderItem['productmod_name'];?></td>
 			<td><?php echo $orderItem['quantity'];?></td>
 			<td><?php echo $orderItem['price'];?></td>
 			<td><?php echo $orderItem['created'];?></td>

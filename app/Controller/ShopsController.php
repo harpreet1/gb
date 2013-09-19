@@ -119,9 +119,11 @@ class ShopsController extends AppController {
 			$id = $this->request->data['Product']['id'];
 			$quantity = $this->request->data['Product']['quantity'];
 
-			$mods = isset($this->request->data['mods']) ? $this->request->data['mods'] : null;
+			$productmod = null;
 
-			$product = $this->Cart->add($id, $quantity);
+			$productmodId = isset($this->request->data['mods']) ? $this->request->data['mods'] : null;
+
+			$product = $this->Cart->add($id, $quantity, $productmodId);
 		}
 		if(!empty($product)) {
 			$this->Session->setFlash($product['Product']['name'] . ' was added to your shopping cart.', 'flash_success');
@@ -154,7 +156,7 @@ class ShopsController extends AppController {
 		if ($this->request->is('post')) {
 			foreach($this->request->data['Shop'] as $key => $value) {
 				$p = explode('-', $key);
-				$this->Cart->add($p[1], $value);
+				$this->Cart->add($p[1], $value, $p[2]);
 			}
 			$this->Session->setFlash('Shopping Cart is updated.', 'flash_success');
 		}

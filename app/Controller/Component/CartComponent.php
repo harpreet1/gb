@@ -22,7 +22,18 @@ class CartComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public function add($id, $quantity = 1) {
+	public function add($id, $quantity = 1, $productmodId = null) {
+
+
+		if($productmodId) {
+			$productmod = ClassRegistry::init('Productmod')->find('first', array(
+				'recursive' => -1,
+				'conditions' => array(
+					'Productmod.id' => $productmodId,
+					'Productmod.product_id' => $id,
+				)
+			));
+		}
 
 		if(!is_numeric($quantity)) {
 			$quantity = 1;
@@ -50,6 +61,28 @@ class CartComponent extends Component {
 
 		}
 
+		if($this->Session->check('Shop.OrderItem.' . $id . '.Product.productmod_name')) {
+			$productmod['Productmod']['id'] = $this->Session->read('Shop.OrderItem.' . $id . '.Product.productmod_id');
+			$productmod['Productmod']['name'] = $this->Session->read('Shop.OrderItem.' . $id . '.Product.productmod_name');
+			$productmod['Productmod']['price'] = $this->Session->read('Shop.OrderItem.' . $id . '.Product.price');
+
+		}
+
+		if($productmod) {
+			$this->product['Product']['productmod_id'] = $productmod['Productmod']['id'];
+			$this->product['Product']['productmod_name'] = $productmod['Productmod']['name'];
+			$this->product['Product']['price'] = $productmod['Productmod']['price'];
+			$productmodId = $productmod['Productmod']['id'];
+			$data['productmod_id'] = $this->product['Product']['productmod_id'];
+			$data['productmod_name'] = $this->product['Product']['productmod_name'];
+		} else {
+			$this->product['Product']['productmod_id'] = '';
+			$this->product['Product']['productmod_name'] = '';
+			$productmodId = 0;
+			$data['productmod_id'] = '';
+			$data['productmod_name'] = '';
+		}
+
 		$data['quantity'] = $quantity;
 		$data['user_id'] = $this->product['Product']['user_id'];
 		$data['product_id'] = $this->product['Product']['id'];
@@ -60,7 +93,7 @@ class CartComponent extends Component {
 		$data['subtotal'] = sprintf('%01.2f', $this->product['Product']['price'] * $quantity);
 		$data['Product'] = $this->product['Product'];
 
-		$this->Session->write('Shop.OrderItem.' . $id, $data);
+		$this->Session->write('Shop.OrderItem.' . $id . '-' . $productmodId, $data);
 		$this->Session->write('Shop.Users.' . $this->product['Product']['user_id'], $this->product['User']);
 
 		$this->cart();
@@ -226,7 +259,11 @@ class CartComponent extends Component {
 	protected function getProduct($id) {
 		$product = ClassRegistry::init('Product')->find('first', array(
 			'recursive' => 1,
-			'contain' => array('User' => array('Tax')),
+			'contain' => array(
+				'User' => array(
+					'Tax'
+				)
+			),
 			'fields' => array(
 				'Product.id',
 				'Product.vendor_sku',
