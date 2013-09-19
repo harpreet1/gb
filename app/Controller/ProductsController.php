@@ -352,6 +352,11 @@ class ProductsController extends AppController {
 		}
 		$this->set(compact('nuts'));
 
+		$productmods = $this->Product->Productmod->getAllProductMods($id, $product['Product']['price']);
+		$this->set('productmodshtml', $productmods['productmodshtml']);
+		// $this->set('productmods', $productmods['productmods']);
+		// $this->set('deviation_json', $productmods['deviation_json']);
+
 		if ($product['Product']['user_id'] == 11) {
 			$days_ago_1 = date('Y-m-d H:i:s', strtotime('-3 days'));
 			if($product['Product']['stock_updated'] < $days_ago_1) {
@@ -1363,7 +1368,13 @@ class ProductsController extends AppController {
 
 		$creations = $this->Product->creations();
 
-		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups'));
+		$productmods = $this->Product->Productmod->find('all', array(
+			'conditions' => array(
+				'Productmod.product_id' => $product['Product']['id']
+			)
+		));
+
+		$this->set(compact('users', 'categories', 'subcategories', 'subsubcategories', 'traditions', 'traditionsselected', 'ustraditions', 'brands', 'countries', 'creations', 'displaygroups', 'productmods'));
 
 	}
 

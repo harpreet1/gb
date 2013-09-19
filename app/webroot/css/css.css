@@ -646,7 +646,7 @@ img.brand {
 }
 /** PRODUCT DESCRIPTION **/
 .product-description {
-	margin-left: 30px;
+	
 	width: 360px;
 }
 .product-description .hand {
@@ -2586,6 +2586,17 @@ hr.thin.tight {
 	right:58px;
 	height:25px;
 	width:200px;
+	
+}
+
+/** Mod SELECTOR **/
+
+#productmods {
+	
+}
+
+select.modselector {
+	
 	
 }
 

@@ -118,6 +118,9 @@ class ShopsController extends AppController {
 		if ($this->request->is('post')) {
 			$id = $this->request->data['Product']['id'];
 			$quantity = $this->request->data['Product']['quantity'];
+
+			$mods = isset($this->request->data['mods']) ? $this->request->data['mods'] : null;
+
 			$product = $this->Cart->add($id, $quantity);
 		}
 		if(!empty($product)) {
