@@ -7,7 +7,7 @@
 		echo $this->Form->input('sku');
 		echo $this->Form->input('active');
 		echo $this->Form->input('name');
-		echo $this->Form->input('change');
+		echo $this->Form->input('price');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

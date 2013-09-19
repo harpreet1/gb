@@ -31,10 +31,9 @@ class Productmod extends AppModel {
 		$product_mods = '';
 		if(!empty($productmods)) {
 			$productmodshtml = '<select class="modselector" name="mods">';
-			$productmodshtml .= '<option value="" data-change="'.$price.'">Select</option>';
+			$productmodshtml .= '<option value="" data-price="'.$price.'"></option>';
 			foreach ($productmods as $productmod) {
-				$change = $price + $productmod['Productmod']['change'];
-				$productmodshtml .= '<option value="' . $productmod['Productmod']['id'] . '" data-change="' . $change . '">' . $productmod['Productmod']['name'] . ' - ($'. $productmod['Productmod']['change'] . ')</option>';
+				$productmodshtml .= '<option value="' . $productmod['Productmod']['id'] . '" data-price="' . $productmod['Productmod']['price'] . '">' . $productmod['Productmod']['name'] . ' - ($'. $productmod['Productmod']['price'] . ')</option>';
 			}
 			$productmodshtml .= '</select></div>';
 
