@@ -337,6 +337,7 @@ $(document).ready(function() {
 					<?php $load_image = $product['Brand']['image'] ;?>
 					<?php else : $load_image = 'default-brand.jpg'; ?>
 					<?php endif ;?>
+					
 					<?php if(!empty($product['Brand']['description'])) : ?>
 				<a href="#" id="pop-trigger" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
 
