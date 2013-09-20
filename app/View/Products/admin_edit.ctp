@@ -246,9 +246,6 @@ $(document).ready(function(){
 		<?php echo $this->Form->input('price', array('class' => 'span1'));?>
 
         <hr />
-        <!-- Include Product Mod element -->
-			<?php echo $this->element('product-mod'); ?><br /><br />
-        <hr />
 
 
 
