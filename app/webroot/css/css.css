@@ -56,7 +56,7 @@ img.frame {
 	padding-top: 20px;
 }
 #header {
-	background-image: url(../img/global/GW-header-2013.png);
+	background: url(../img/global/GW-header-2013.png) no-repeat;
 	height: 147px;
 	width: 1003px;
 	margin: auto;
