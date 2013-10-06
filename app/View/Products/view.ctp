@@ -416,7 +416,6 @@ $(document).ready(function() {
 					</div>
 					<?php endforeach;?>
 				<?php endif; ?>
-				</div>
 				<br />
 				<br />
 				<br />
@@ -431,15 +430,14 @@ $(document).ready(function() {
 						</ul>
 					</div>
 				<?php endif; ?>
-				<br />
-				<br />
-				<br />
-				<br />
+				
 
 				<img src="http://www.positivessl.com/images-new/PossitiveSSL_tl_trans.gif" alt="SSL Cerficate" title="SSL Certificate" border="0" style="float:right; padding:20px;"/>
 				<hr />
 				<div class="disclaimer"> Disclaimer: Every effort has been made to ensure the data presented on this page is accurate. It is provided to you for reference only. We assume no liability for inaccuracies,  typographical errors, misinformation, or omission stated or implied or packaging changes. Warning: Please read the actual package before consuming its contents.</div>
 				<br />
+                </div>
+
 			 </div>
 		  </div>
 	</div>
