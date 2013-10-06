@@ -403,9 +403,8 @@ $(document).ready(function() {
 
 				</div>
 			 </div>
-		  </div>
 
-		  <div class="row">
+		  
 			 <div class="span9"> <br />
 				<div>
 				<?php if(!empty($attributes)) : ?>
