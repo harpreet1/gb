@@ -8,7 +8,12 @@
 		echo $this->Form->input('sku');
 		echo $this->Form->input('active');
 		echo $this->Form->input('name');
+		echo $this->Form->input('shipping_weight');
 		echo $this->Form->input('price');
+		echo $this->Form->input('price_wholesale');
+		echo $this->Form->input('height');
+		echo $this->Form->input('width');
+		echo $this->Form->input('length');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
