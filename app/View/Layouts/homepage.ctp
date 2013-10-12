@@ -104,7 +104,7 @@
        
         
         <div id="gb-title">
-            <div class="issue gb-heading">July - August 2013</div>
+            <!--<div class="issue gb-heading">July - August 2013</div>-->
             <h1 class="title-description center">A fresh way to shop for, learn about, prepare and enjoy foods of the world.</h1>
             <div class="welcome-link"><a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a></div>
         </div>

@@ -1,4 +1,6 @@
 
+<button class="btn btn-global cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i></a></button>
+
 <div class="navbar">
 
 	<div class="navbar-inner">
@@ -17,7 +19,7 @@
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
 
-			<li class="mzr-drop"> <a href="#" ><span style="color:#a53043;text-shadow:1px 1px #000">SHOP BY:</span>&nbsp;&nbsp;&nbsp;STORES<b class="caret"></b></a>
+			<li class="mzr-drop"> <a href="#" ><span style="color:#a53043;text-shadow:1px 1px #000"></span>VENDORS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php foreach($menuvendors as $menuvendor) : ?>
@@ -32,7 +34,7 @@
 			
 				<!-- BEGIN Menu Item THREE -->
 				
-				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">PANTRY<b class="caret"></b></a>
+				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">FOOD TYPES<b class="caret"></b></a>
 
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
@@ -112,10 +114,10 @@
 				</div>
 			</li>
             
-            <li class="cart">
-				<button class="btn btn-global" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i>GO TO CART</a></button>
+            <!--<li class="cart">
+				
 			</li>
-
+-->
 			<div class="magazine">
             	<a href="/magazine">the magazine</a> / <a href="http://blog.gourmetworldmarket.com">the blog</a>
             
