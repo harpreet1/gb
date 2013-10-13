@@ -656,3 +656,10 @@ hr.thin.tight {
 	
 }
 
+/* CART */
+
+.btn.cart {
+	position:absolute;
+	right:95px;
+	top:27px;
+}
