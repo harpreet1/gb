@@ -336,17 +336,17 @@ $(document).ready(function() {
 				<?php if(!empty($product['Brand']['image'])) : ?>
 					<?php $load_image = $product['Brand']['image'] ;?>
 					<?php else : $load_image = 'default-brand.jpg'; ?>
-					<?php endif ;?>
+				<?php endif ;?>
 					
-					<?php if(!empty($product['Brand']['description'])) : ?>
+				<?php if(!empty($product['Brand']['description'])) : ?>
 				<a href="#" id="pop-trigger" class="popup-marker btn btn-gb" rel="pop_brand" data-placement="bottom" data-html="true" data-content="<img class='brand' src='/img/brands/image/<?php echo $load_image;?>'>
 
-						<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a> <span><img class="hand" src="/img/global/hand.png"/></span>
-					<?php elseif(empty($product['Brand']['name'])) : ?>
+					<?php echo ($product['Brand']['description']);?>"><?php echo $product['Brand']['name'];?></a> <span><img class="hand" src="/img/global/hand.png"/></span>
+				<?php elseif(empty($product['Brand']['name'])) : ?>
 						<a class="btn btn-gb"><?php echo $user['User']['name']; ?></a>
-					<?php else : ?>
+				<?php else : ?>
 						<a class="btn btn-gb"><?php echo $product['Brand']['name']; ?></a>
-					<?php endif; ?>
+				<?php endif; ?>
 
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 				<span class="description"><?php echo $product['Product']['description']; ?></span>
@@ -355,7 +355,7 @@ $(document).ready(function() {
 
 				<?php if(!empty($productmodshtml)):?>
 					<div id="productmods">
-						<span style="font-weight:bold">Product Options:</span> <?php echo $productmodshtml;?>
+						<span style="font-weight:bold">Product Options:&nbsp;</span> <?php echo $productmodshtml;?>
 						<?php endif;?>
 					</div>
 
