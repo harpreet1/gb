@@ -370,7 +370,12 @@ $(document).ready(function() {
 				<br />
 
 				<?php if(!empty($product['Product']['country'])) : ?>
-					Food tradition/ Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>
+					Origin:&nbsp;<span class="gb-green"><?php echo $product['Product']['country']; ?></span>
+				<?php endif; ?>
+				<br />
+                
+                <?php if(!empty($product['Ustradition']['name'])) : ?>
+					Food tradition:&nbsp;<span class="gb-green"><?php echo $product['Ustradition']['name']; ?></span>
 				<?php endif; ?>
 				<br />
 

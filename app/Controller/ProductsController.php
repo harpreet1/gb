@@ -272,6 +272,7 @@ class ProductsController extends AppController {
 				'Subcategory',
 				'Subsubcategory',
 				'Brand',
+				'Ustradition',
 				'User' => array(
 					'fields' => array(
 						'User.image',
