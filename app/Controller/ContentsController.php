@@ -16,8 +16,10 @@ class ContentsController extends AppController {
 		$productIds = Set::classicExtract($features, '{n}.Feature.gwm_product');
 		//print_r($productIds);
 				
-		$products = ClassRegistry::init('User')->Product->find('all', array(
-			'recursive' => -1,
+		$products = ClassRegistry::init('Product')->find('all', array(
+			'contain' => array(
+				'User'
+			),
 			'fields' => array(
 				'Product.id',
 				'Product.user_id',
@@ -25,7 +27,7 @@ class ContentsController extends AppController {
 				'Product.slug', 
 				'Product.image',
 				'Product.price',
-				
+				'User.slug',
 			),
 			'conditions' => array(
 				'Product.id' => $productIds

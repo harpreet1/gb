@@ -53,8 +53,6 @@
 	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
 	  ga('send', 'pageview');
 
-
-
 	
 });
 </script>
@@ -202,12 +200,12 @@ novices to professionals and young to old, expand their tastes, techniques and p
 				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array(
 					'alt' => $product['Product']['name'],
 					'class' =>'show',
-					//'url' => array(
-//						'subdomain' => $product['User']['slug'],
-//						'controller' => 'products',
-//						'action' => 'view',
-//						'id' => $product['Product']['id'],
-//						'slug' => $product['Product']['slug']),
+					'url' => array(
+						'subdomain' => $product['User']['slug'],
+						'controller' => 'products',
+						'action' => 'view',
+						'id' => $product['Product']['id'],
+						'slug' => $product['Product']['slug']),
 					 ));
 				?>
 				<div class="feature-product-name">
@@ -222,13 +220,20 @@ novices to professionals and young to old, expand their tastes, techniques and p
 	
 	<?php
 	if (($i % 5) == 0) {
-		echo "</div>\n\n\t\t<div class=\"row product\">\n\n";
+		
+		echo "</div>\n\n\t\t<h2 class='feature-label'>REGIONAL FOODS</h2><div class=\"feature-rowt\">\n\n";
+		
+	
+		
+		
+		
+		
 	}
 	endforeach;
 	?>
 
 		</div>
-<h2 class="feature-label">REGIONAL FOODS</h2>
+
 		<div class="feature-row">
 			<div class="feature">1</div>
 			<div class="feature">2</div>
