@@ -53,6 +53,8 @@
 	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
 	  ga('send', 'pageview');
 
+
+
 	
 });
 </script>
@@ -171,13 +173,6 @@ novices to professionals and young to old, expand their tastes, techniques and p
 		
 		</div>	
 	
-
-
-
-
-
-	
-
 
 
 
