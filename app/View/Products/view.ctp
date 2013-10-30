@@ -350,9 +350,6 @@ $(document).ready(function() {
 
 				<h2 class="product-name"><?php echo $product['Product']['name']; ?></h2>
 				<span class="description"><?php echo $product['Product']['description']; ?></span>
-				<hr style="margin:10px 0;clear:both" />
-				<p><?php echo $product['Product']['long_description']; ?></p>
-
 				<?php if(!empty($productmodshtml)):?>
 					<div id="productmods">
 						<span style="font-weight:bold">Product Options:&nbsp;</span> <?php echo $productmodshtml;?>
@@ -361,6 +358,10 @@ $(document).ready(function() {
 
 				 <?php echo $this->Form->end(); ?>
 
+				<hr style="margin:10px 0;clear:both" />
+				<p><?php echo $product['Product']['long_description']; ?></p>
+
+				
 
 
 				<?php if($product['Product']['user_id'] != 11) : ?>
