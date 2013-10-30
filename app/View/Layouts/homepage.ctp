@@ -204,7 +204,7 @@ novices to professionals and young to old, expand their tastes, techniques and p
 					 ));
 				?>
 				<div class="feature-product-name">
-					<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+					<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
 					<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
 					</a>
 				</div>
