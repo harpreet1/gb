@@ -216,13 +216,23 @@ novices to professionals and young to old, expand their tastes, techniques and p
 	<?php
 	if (($i % 5) == 0) {
 		
-		echo "</div>\n\n\t\t<h2 class='feature-label'>REGIONAL FOODS</h2><div class=\"feature-rowt\">\n\n";
+		?>
 		
-	
+		</div>
+		
+		<h2 class='feature-label'>US FOODS</h2>
+		
+		<div class="feature-row">
+			<div class="feature">1</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
+		</div>
 		
 		
 		
-		
+	<?php	
 	}
 	endforeach;
 	?>
@@ -234,10 +244,10 @@ novices to professionals and young to old, expand their tastes, techniques and p
 			<div class="feature">2</div>
 			<div class="feature">3</div>
 			<div class="feature">4</div>
-			<div class="feature">5</div>
+			
 
 		</div>
-<h2 class="feature-label">INTERNATIONAL SELECTIONS</h2>
+<h2 class="feature-label">INTERNATIONAL FOODS</h2>
 		<div class="feature-row">
 			<div class="feature">1</div>
 			<div class="feature">2</div>
@@ -256,6 +266,11 @@ novices to professionals and young to old, expand their tastes, techniques and p
 
 			
 </div>	
+
+<?php
+	if (($i % 5) == 0) {
+		
+		?>
 
 </section>
 

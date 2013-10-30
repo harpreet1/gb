@@ -18,6 +18,7 @@
 							<a href="/details/view/5">PRIVACY POLICY</a>
 							<a href="">BECOME A VENDOR</a>
 							<a class="last-link" href="/details/view/4">CONTACT US</a>
+							<a class="last-link" href="/">SITES WE LIKE</a>
 					</div>
 	
 				</div>
