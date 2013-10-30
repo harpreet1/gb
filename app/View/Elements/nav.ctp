@@ -1,6 +1,3 @@
-
-<button class="btn btn-global cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i></a></button>
-
 <div class="navbar">
 
 	<div class="navbar-inner">
@@ -19,7 +16,7 @@
 			<!-- 4 Columns Mega Dropdown -->
 			<!-- Portfolio -->
 
-			<li class="mzr-drop"> <a href="#" ><span style="color:#a53043;text-shadow:1px 1px #000"></span>VENDORS<b class="caret"></b></a>
+			<li class="mzr-drop"> <a class="parent" href="#" ><span style="color:#a53043;text-shadow:1px 1px #000"></span>VENDORS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php foreach($menuvendors as $menuvendor) : ?>
@@ -34,7 +31,7 @@
 			
 				<!-- BEGIN Menu Item THREE -->
 				
-				<li class="mzr-drop"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">FOOD TYPES<b class="caret"></b></a>
+				<li class="mzr-drop"> <a class="parent" href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/categories">FOOD TYPES<b class="caret"></b></a>
 
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
@@ -50,7 +47,7 @@
 
 
 			<li class="mzr-drop">
-				<a href="#">U.S. FOODS<b class="caret"></b></a>
+				<a class="parent" href="#">U.S. FOODS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<?php //foreach($menu_ustraditions as $menu_ustradition) : ?>
@@ -77,7 +74,7 @@
 			<!--<a href="http://www.gourmetdev.com/ustraditions">US Traditions</a>-->
 			<?php //echo $this->Html->link('US Markets', array('controller' => 'ustraditions', 'action' => 'index')); ?>
 
-			<li class="mzr-drop"> <a href="#">INT'L FOODS<b class="caret"></b></a>
+			<li class="mzr-drop"> <a class="parent" href="#">INT'L FOODS<b class="caret"></b></a>
 				<div class="mzr-content drop-three-columns popover-content">
 					<div class="wide">
 					<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/international/africa">Africa </a></p>
@@ -105,8 +102,16 @@
 					 </div>
 				</div>
 			</li>
+			
+			<li class="mzr-drop"><a class="parent" href="/special-diets">SPECIAL DIETS<b class="caret"></b></a>
+				<div class="mzr-content drop-two-columns popover-content">
+					<div class="wide">
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">Special Diets</a></p>
+					</div>
+				</div>
+			</li>
 
-			<li class="mzr-drop"> <a href="/recipes">RECIPES<b class="caret"></b></a>
+			<li class="mzr-drop"><a class="parent" href="/recipes">RECIPES<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
 						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">All Gourmet World Recipes</a></p>
@@ -114,12 +119,20 @@
 				</div>
 			</li>
             
+			<li class="mzr-drop"><a class="parent" href="http://blog.gourmetworldmarket.com">ARTICLES/BLOG<b class="caret"></b></a>
+				<div class="mzr-content drop-two-columns popover-content">
+					<div class="wide">
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">Articles/Blog</a></p>
+					</div>
+				</div>
+			</li>
+
             <!--<li class="cart">
 				
 			</li>
 -->
 			<div class="magazine">
-            	<a href="/magazine">the magazine</a> / <a href="http://blog.gourmetworldmarket.com">the blog</a>
+            	<!--<a href="/magazine">the magazine</a> / <a href="http://blog.gourmetworldmarket.com">the blog</a>-->
             
 			<!-- For overlay Articles overlay -->
 

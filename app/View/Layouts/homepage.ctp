@@ -3,22 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="description" content='A fresh way to shop for, learn about, prepare and enjoy foods of the world.'>
-
 <title><?php echo $title_for_layout; ?></title>
 
 <!-- Meganizr Menu Styles -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rosario:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
 <!--[if lt IE 9]><link href="css/meganizr-ie.css" rel="stylesheet" type="text/css"><![endif]-->
 <!-- end Meganizr Menu Styles -->
 
-<?php echo $this->Html->css(array('bootstrap.min.css', 'jquery.vegas.css', 'homepage.css','meganizr.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css','homepage.css','meganizr.css')); ?>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js' ,'jquery.vegas.js', 'homepage.js','jquery.columnizer.min.js','jquery.bpopup-0.9.3.min.js')); ?>
+<?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','homepage.js','jquery.columnizer.min.js','jquery.bpopup-0.9.3.min.js')); ?>
 <!--'jquery.marquee.min.js' -->
 <?php //echo $this->App->js(); ?>
 <?php //echo $this->fetch('meta'); ?>
@@ -61,69 +61,164 @@
 </head>
 
 <body>
-<div id="fb-root"></div>
+<section id="page" role="main">
+	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-<div id="infinite-background">
-
-    <div class="container">
-    
-    
-        <div id="header-homepage"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
-           <div class="basket" style="width:180px"><img src="/img/global/gwm-oval.png" width="180"  alt="gourmet basket"></div>
-            
-            <div id="account">
-            	<ul class="gb-horiz-account">
-                   <li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook-home.png" width="25" height="25" alt="facebook"></a></li>
-                   <li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter-home.png" width="25" height="25"></a></li>
-                   <li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="25" height="25" alt="pinterest"></a></li>
-                   <!--<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>-->
-                   <!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
-            	</ul>
-			</div>
-
-            
-            
-            
-            </a>
-            <div id="nav-wrapper"> 
-                <!-- Include Nav element --> 
-                <?php echo $this->element('nav'); ?>
-            </div>
-			
-			
-            
-        </div>
-        
-       
-        
-        <div id="gb-title">
-            <!--<div class="issue gb-heading">July - August 2013</div>-->
-            <h1 class="title-description center">A fresh way to shop for, learn about, prepare and enjoy foods of the world.</h1>
-            <div class="welcome-link"><a href="#" id="welcome"><img src="/img/global/gourmet-basket-jump.png"/></a></div>
-        </div>
-      
-        
-    </div>
-</div>
-
-
-</div>
-<div class="container">
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+	<div id="infinite-background">
 	
+		<div class="container">
+		
+			<div id="header-top"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
+			
+				<div class="basket"><img src="/img/global/gwm-oval.png"  alt="gourmet basket"></div></a>
+				
+				<div id="account">
+					<span class="search">
+								<!-- Search Box -->
+								<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search'))); ?>
+								<?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
+								<?php //echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-gb', 'escape' => false)); ?>
+								<?php echo $this->Form->end(); ?>
+							
+					</span>
+					<ul class="gb-horiz-account">
+						
+						<li class="cart"><button class="btn btn-global cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i></a></button></li>
+						<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/fb.png" width="28" height="27" alt="facebook"></a></li>
+						<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="28" height="27"></a></li>
+						<li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="27" height="27" alt="pinterest"></a></li>
+						<!--<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>--> 
+						<!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
+					</ul>
+				</div>
+				
+			</div>
+				
+			<div id="header-nav">
+				<div id="nav-wrapper">
+					<!-- Include Nav element --> 
+					<?php echo $this->element('nav'); ?>
+				</div>
+			</div>
+			
+			<div id="gb-title"> 
+				<!--<div class="issue gb-heading">July - August 2013</div>-->
+				<h1 class="title-description center">A fresh way to shop for, learn about, prepare and enjoy foods of the world.</h1>
+				<p class=" center">Our slogan “Become a World Class Foodie” reflects our committment to help cooks of all kinds, from Moms to chefs, 
+novices to professionals and young to old, expand their tastes, techniques and pantries to enjoy the delicious bounties <a href="#" id="welcome">(more) ...</a></p>
+				
+			</div>
+			
+			<div id="welcome_content">
+				 <span class="b-close btn-gb"><span>X</span></span>
+				<h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
+				<hr />
+				<div style="text-align:center;position:relative">
+					<div id="welcome-bkngd">
+						<img src="/img/homepage/markets.png" width="704" height="657">
+					 </div>
+					<?php echo $welcome['Content']['body']; ?>
+            </div>
+           
+        </div>
+			
+			
+			
+		</div>
+	</div>
+	</div>
+	
+	<div class="container">
+	
+		<div id="upper">
+		
+			<div id="myCarousel" class="carousel slide">
+					
+					<div class="carousel-inner">
+					<?php $active = 'active'; ?>
+					<?php foreach($contents as $content) : ?>
+					
+					<?php if (($content['Content']['active']) == 1) : ?>
+			
+						<div class="item <?php echo $active; ?>">
+						
+							<a href="<?php echo ($content['Content']['link']); ?>">
+							<?php echo $this->Html->image('homepage/sliders/' . $content['Content']['image']); ?>
+							</a>
+			
+							<div class="carousel-caption">
+								<h1><?php echo $this->Html->link($content['Content']['name'], $content['Content']['link']); ?></h1>
+								<?php echo $content['Content']['body']; ?>
+								<br />
+			
+							</div>
+						</div>
+					<?php endif ; ?>    
+						
+					<?php $active = ''; ?>
+					<?php endforeach; ?>
+			
+					</div>
+			
+					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+				</div>
+		
+		</div>	
+	
+	
+	
+	
+	
+<h2 class="label">PANTRY FOODS</h2>
+		<div class="feature-row">
+			<div class="feature">1</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
+		</div>
+<h2>REGIONAL FOODS</h2>
+		<div class="feature-row">
+			<div class="feature">1</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
 
-	<?php echo $this->fetch('content'); ?>
+		</div>
+<h2>INTERNATIONAL SELECTIONS</h2>
+		<div class="feature-row">
+			<div class="feature">1</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
+		</div>
+<h2>FEATURED RECIPES</h2>
+		<div class="feature-row">
+			<div class="feature">1</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
+		</div>
 
-</div>
+			
+</div>	
 
-<?php echo $this->element('footer'); ?>
+</section>
+
+	<?php echo $this->element('footer'); ?> 
 <script>
+
 
 // Ticker
 
@@ -132,17 +227,17 @@
  * I am just passing all the default options
  * so you can just start the plugin using $('.marquee').marquee();
 */
-$('.marquee').marquee({
-	//speed in milliseconds of the marquee
-	speed: 8000,
-	//gap in pixels between the tickers
-	gap: 50,
-	//gap in pixels between the tickers
-	delayBeforeStart: 0,
-	//'left' or 'right'
-	direction: 'left'
-});
-
+	//$('.marquee').marquee({
+		//speed in milliseconds of the marquee
+	//	speed: 8000,
+		//gap in pixels between the tickers
+	//	gap: 50,
+		//gap in pixels between the tickers
+	//	delayBeforeStart: 0,
+		//'left' or 'right'
+	//	direction: 'left'
+	//});
+	
 
 //$("ul#ticker01").liScroll({travelocity: 0.10});
 
