@@ -6,6 +6,37 @@ class ContentsController extends AppController {
 ////////////////////////////////////////////////////////////
 
 	public function homepage() {
+	
+		$features = ClassRegistry::init('Feature')->find('all', array(
+			'fields' => array(
+				'gwm_product'
+			)
+		));
+			
+		$productIds = Set::classicExtract($features, '{n}.Feature.gwm_product');
+		//print_r($productIds);
+				
+		$products = ClassRegistry::init('User')->Product->find('all', array(
+			'recursive' => -1,
+			'fields' => array(
+				'Product.id',
+				'Product.user_id',
+				'Product.name', 
+				'Product.slug', 
+				'Product.image',
+				'Product.price',
+				
+			),
+			'conditions' => array(
+				'Product.id' => $productIds
+			)
+		));
+		$this->set(compact('products'));
+		print_r($products);
+		
+		
+		
+
 
 		$contents = $this->Content->find('all', array(
 			'conditions' => array(
@@ -27,7 +58,7 @@ class ContentsController extends AppController {
 
 		$this->layout = 'homepage';
 
-		$title_for_layout = 'Gourmet World - Market and Magazine';
+		$title_for_layout = 'Gourmet World Market and Magazine';
 		$this->set(compact('title_for_layout'));
 
 	}

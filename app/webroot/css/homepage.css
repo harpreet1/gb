@@ -224,12 +224,45 @@ li.gb-account a {
 	display:inline-block;
 	width:193px;
 	height:193px;
-	background:url(../img/global/feature-placeholder.jpg) no-repeat;
+	/*background:url(../img/global/feature-placeholder.jpg) no-repeat;*/
+	border:#999 thin solid;
+	position:relative;
 	
+}
+.feature img {
+	height:193px;
+	margin:auto;
+}
+
+.feature-label {
+	font-family:'franchiseregular';
+	font-size:1.8em;
+	color:#393b2e;
 }
 
 .feature-row {
-	margin-bottom:10px;
+	margin-bottom:25px;
+}
+
+.feature-product-name {
+	position:absolute;
+	bottom:5px;
+	background-color:#FFF;
+	opacity:.9;
+	width:100%;
+	height:24px;
+	text-align:center;
+	font-size:11px;
+}
+
+.feature-price {
+	position:absolute;
+	top:0px;
+	right:0px;
+	padding:5px;
+	font-size:11px;
+	font-weight:700;
+
 }
 
 .basket {
@@ -683,7 +716,7 @@ hr.thin.tight {
 }
 
 .footer-links a.first-link {
-	padding-left:42px;
+	padding-left:9.5%;
 }
 
 .footer-links a.last-link {
@@ -709,4 +742,9 @@ hr.thin.tight {
 
 .btn.cart {
 	
+}
+
+td {
+	font-family: 'Open Sans', verdana, arial, sans-serif;
+	font-size:12px;	
 }

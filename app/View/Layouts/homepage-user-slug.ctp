@@ -178,7 +178,34 @@ novices to professionals and young to old, expand their tastes, techniques and p
 
 
 
-	
+	<?php
+		$i = 0;
+		foreach ($products as $product):
+		$i++;
+		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
+	?>
+	<div class="span2">
+
+		<div class="content-product">
+			
+				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' =>'show','url' => array('subdomain' => $product['User']['slug'], 'controller' => 'products', 'action' => 'view', 'id' => $product['Product']['id'], 'slug' => $product['Product']['slug']), 'alt' => $product['Product']['name'])); ?>
+				<div class="product-name">
+					<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
+					<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+					</a>
+				</div>
+			</div>
+			<div class="price">$<?php echo $product['Product']['price']; ?></div>
+			
+		</div>
+	</div>
+	<?php
+	if (($i % 5) == 0) {
+		echo "</div>\n\n\t\t<div class=\"row product\">\n\n";
+	}
+	endforeach;
+	?>
+
 
 
 
@@ -189,44 +216,11 @@ novices to professionals and young to old, expand their tastes, techniques and p
 	
 <h2 class="feature-label">PANTRY FOODS</h2>
 		<div class="feature-row">
-			<?php
-		$i = 0;
-		foreach ($products as $product):
-		$i++;
-		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-	?>
-	
-
-		<div class="feature">
-			
-				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array(
-					'alt' => $product['Product']['name'],
-					'class' =>'show',
-					//'url' => array(
-//						'subdomain' => $product['User']['slug'],
-//						'controller' => 'products',
-//						'action' => 'view',
-//						'id' => $product['Product']['id'],
-//						'slug' => $product['Product']['slug']),
-					 ));
-				?>
-				<div class="feature-product-name">
-					<a href="/product/<?php echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">
-					<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
-					</a>
-				</div>
-			
-			<div class="feature-price">$<?php echo $product['Product']['price']; ?></div>
-		</div>	
-	
-	
-	<?php
-	if (($i % 5) == 0) {
-		echo "</div>\n\n\t\t<div class=\"row product\">\n\n";
-	}
-	endforeach;
-	?>
-
+			<div class="feature"><?php ?>						</div>
+			<div class="feature">2</div>
+			<div class="feature">3</div>
+			<div class="feature">4</div>
+			<div class="feature">5</div>
 		</div>
 <h2 class="feature-label">REGIONAL FOODS</h2>
 		<div class="feature-row">
