@@ -217,6 +217,7 @@ novices to professionals and young to old, expand their tastes, techniques and p
 	if (($i % 5) == 0) {
 		
 		?>
+	
 		
 		<?php	
 		
