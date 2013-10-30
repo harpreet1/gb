@@ -221,6 +221,7 @@ novices to professionals and young to old, expand their tastes, techniques and p
 		</div>
 		
 		<h2 class='feature-label'>US FOODS</h2>
+		<div class="feature">
 		
 		<div class="feature-row">
 			<div class="feature">1</div>
@@ -231,8 +232,8 @@ novices to professionals and young to old, expand their tastes, techniques and p
 		</div>
 		
 		
-		
 	<?php	
+		
 	}
 	endforeach;
 	?>
@@ -266,11 +267,6 @@ novices to professionals and young to old, expand their tastes, techniques and p
 
 			
 </div>	
-
-<?php
-	if (($i % 5) == 0) {
-		
-		?>
 
 </section>
 
