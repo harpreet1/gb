@@ -34,7 +34,7 @@ class ContentsController extends AppController {
 			)
 		));
 		$this->set(compact('products'));
-		print_r($products);
+		//print_r($products);
 		
 		
 		
