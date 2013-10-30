@@ -1,6 +1,5 @@
 body {
 	background-color:#FFFCF5;
-	
 }
 
 #wrapper {
@@ -32,6 +31,9 @@ body {
 	max-height:100px;
 }
 
+td {
+	font-family: 'Open Sans', verdana, arial, sans-serif;
+}
 /***  Limit Height in Admin Index ***/
 
 td div {

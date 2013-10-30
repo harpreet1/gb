@@ -42,34 +42,34 @@
             e.preventDefault();
             $('#welcome_content').bPopup();
     });
-}); 
+});	
 
-    // Google Analytics
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  
-    ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
-    ga('send', 'pageview');
+		// Google Analytics
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
+	  ga('send', 'pageview');
 
 
 
-  
+	
 });
 </script>
 </head>
 
 <body>
 <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 <div id="infinite-background">
 
     <div class="container">
@@ -79,14 +79,14 @@
            <div class="basket" style="width:180px"><img src="/img/global/gwm-oval.png" width="180"  alt="gourmet basket"></div>
             
             <div id="account">
-              <ul class="gb-horiz-account">
+            	<ul class="gb-horiz-account">
                    <li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook-home.png" width="25" height="25" alt="facebook"></a></li>
                    <li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter-home.png" width="25" height="25"></a></li>
                    <li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="25" height="25" alt="pinterest"></a></li>
                    <!--<li class="gb-account"><a href="/members/register">BECOME A MEMBER</a></li>-->
                    <!-- <li class="gb-account"><a href="/members/login">LOG IN</a></li>-->
-              </ul>
-      </div>
+            	</ul>
+			</div>
 
             
             
@@ -96,8 +96,8 @@
                 <!-- Include Nav element --> 
                 <?php echo $this->element('nav'); ?>
             </div>
-      
-      
+			
+			
             
         </div>
         
@@ -116,9 +116,9 @@
 
 </div>
 <div class="container">
-  
+	
 
-  <?php echo $this->fetch('content'); ?>
+	<?php echo $this->fetch('content'); ?>
 
 </div>
 
@@ -133,14 +133,14 @@
  * so you can just start the plugin using $('.marquee').marquee();
 */
 $('.marquee').marquee({
-  //speed in milliseconds of the marquee
-  speed: 8000,
-  //gap in pixels between the tickers
-  gap: 50,
-  //gap in pixels between the tickers
-  delayBeforeStart: 0,
-  //'left' or 'right'
-  direction: 'left'
+	//speed in milliseconds of the marquee
+	speed: 8000,
+	//gap in pixels between the tickers
+	gap: 50,
+	//gap in pixels between the tickers
+	delayBeforeStart: 0,
+	//'left' or 'right'
+	direction: 'left'
 });
 
 
