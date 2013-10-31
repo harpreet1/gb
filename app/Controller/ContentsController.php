@@ -9,17 +9,43 @@ class ContentsController extends AppController {
 	
 		$features = ClassRegistry::init('Feature')->find('all', array(
 			'fields' => array(
-				'gwm_product'
-			)
+				'gwm_product',
+				'user_id',
+				'type',
+				
+			),
+			
 		));
+		$this->set(compact('features'));
+		//debug($features);
+		
+		
+		
+		$pantry = ClassRegistry::init('Feature')->find('all', array(
+			'fields' => array(
+				'gwm_product',
+				'user_id',
+			),
+			'conditions' => array(
+				'Feature.type' => 1,
+			)
+	
+			
+		));
+		$this->set(compact('pantry'));
+		//debug($features);
+		
+		
 			
 		$productIds = Set::classicExtract($features, '{n}.Feature.gwm_product');
 		//print_r($productIds);
 				
 		$products = ClassRegistry::init('Product')->find('all', array(
 			'contain' => array(
-				'User'
+				'User',
+				
 			),
+			
 			'fields' => array(
 				'Product.id',
 				'Product.user_id',
@@ -36,9 +62,6 @@ class ContentsController extends AppController {
 		$this->set(compact('products'));
 		//print_r($products);
 		
-		
-		
-
 
 		$contents = $this->Content->find('all', array(
 			'conditions' => array(
@@ -47,6 +70,8 @@ class ContentsController extends AppController {
 			)
 		));
 		$this->set(compact('contents'));
+		
+		
 
 		$welcome = $this->Content->find('first', array(
 			'conditions' => array(
@@ -55,13 +80,19 @@ class ContentsController extends AppController {
 		));
 		$this->set(compact('welcome'));
 
+
+
 		$blocks = ClassRegistry::init('Block')->find('all');
 		$this->set(compact('blocks'));
 
-		$this->layout = 'homepage';
+
 
 		$title_for_layout = 'Gourmet World Market and Magazine';
 		$this->set(compact('title_for_layout'));
+		
+		
+		
+		$this->layout = 'homepage';
 
 	}
 

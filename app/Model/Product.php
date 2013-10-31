@@ -114,6 +114,7 @@ class Product extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		
 
 	);
 
