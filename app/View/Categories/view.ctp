@@ -59,8 +59,10 @@
 	<?php //debug($auxcategories); ?>
 
 	<div class="category-summary">
+    
+    	<div><?php echo $category['Category']['title'] ?></div>
 
-		<div class="small-cat-logo">
+		<div class="small-cat-logo"
 			<?php echo $this->Html->image('categories/image/' . $category['Category']['image'], array('class' => 'category-pic-small')); ?>
 		</div>
 

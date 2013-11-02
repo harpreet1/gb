@@ -12,7 +12,7 @@
 
 
 body {
-	background:url(../img/homepage/backgrounds/globe.jpg) center top;
+	background:url(../img/homepage/backgrounds/globe.jpg) center top no-repeat;
 	font-family: 'Rosario', verdana, arial, sans-serif;
 	font-size: 16px;
 	padding-top: 0px;
@@ -145,7 +145,7 @@ h1.title-description {
 	padding-top: 5px;
 }
 #account {
-	width:38%;
+	width:42%;
 	float:right;
 	margin-top:33px;
 }
@@ -161,8 +161,11 @@ li.social, li.search, li.cart {
 	margin-left:3px;
 }
 
-span.search {
+div.search {
+	display:inline;
 	float:left;
+	margin-top:-4px;
+	margin-right:5px;
 }
 
 li.gb-account {
@@ -247,7 +250,7 @@ li.gb-account a {
 
 .feature-product-name {
 	position:absolute;
-	bottom:5px;
+	bottom:0px;
 	background-color:#FFF;
 	opacity:.9;
 	width:100%;
@@ -694,6 +697,12 @@ li.cart a {
 .btn-global:hover {
 	background-color: #2F6F5C;
 	color: #fff;
+}
+
+button.cart {
+	border:none;
+	background:none;
+
 }
 
 /** Nav **/

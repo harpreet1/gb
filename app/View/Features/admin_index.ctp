@@ -47,9 +47,9 @@
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
+		<th><?php echo $this->Paginator->sort('type'); ?></th>
 		<th><?php echo $this->Paginator->sort('gwm_product'); ?></th>
-		<th><?php echo $this->Paginator->sort('writeup'); ?></th>
-		<th><?php echo $this->Paginator->sort('link'); ?></th>
+		<th><?php echo $this->Paginator->sort('recipe_link'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 		<th class="actions"><Actions</th>
@@ -58,9 +58,9 @@
 	<tr>
 		<td><?php echo h($feature['Feature']['id']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
+        <td><?php echo h($feature['Feature']['type']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['gwm_product']); ?>&nbsp;</td>
-		<td><div class="limit"><?php echo ($feature['Feature']['writeup']); ?></div></td>
-		<td><?php echo h($feature['Feature']['link']); ?>&nbsp;</td>
+		<td><?php echo h($feature['Feature']['recipe_link']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
 		<td class="actions">

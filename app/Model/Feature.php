@@ -23,10 +23,6 @@ class Feature extends AppModel {
 
 ////////////////////////////////////////////////////////////
 
-
-
-
-
 	// Find number of features
 	public function findList() {
 		return $features = $this->find('list', array(

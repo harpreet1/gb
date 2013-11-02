@@ -7,61 +7,168 @@ class ContentsController extends AppController {
 
 	public function homepage() {
 	
-		$features = ClassRegistry::init('Feature')->find('all', array(
+		$feature = ClassRegistry::init('Feature')->find('all', array(
 			'fields' => array(
-				'gwm_product',
-				'user_id',
-				'type',
-				
+				'Feature.gwm_product',
+				'Feature.user_id',
+				'Feature.type',
 			),
-			
 		));
-		$this->set(compact('features'));
+		
+		$this->set(compact('features'));		
 		//debug($features);
 		
-		
-		
-		$pantry = ClassRegistry::init('Feature')->find('all', array(
-			'fields' => array(
-				'gwm_product',
-				'user_id',
-			),
-			'conditions' => array(
-				'Feature.type' => 1,
-			)
+		$productIds = Set::classicExtract($feature, '{n}.Feature.gwm_product');
+			//print_r($productIds);
+				
+/////// PANTRY				
+				
+			$pantry = ClassRegistry::init('Feature')->find('all', array(
+				'fields' => array(
+					'Feature.type',
+					'Feature.gwm_product',
+					'Feature.user_id',
+				),
+				'conditions' => array(
+					'Feature.type' => 1,
+				)		
+			));
+			
+			$this->set(compact('pantry'));
+			//debug($pantry);
+						
+			$pantryProductIds = Set::classicExtract($pantry, '{n}.Feature.gwm_product');
+			//print_r($productIds);				
+				
+			$pantry_products = ClassRegistry::init('Product')->find('all', array(
+				'contain' => array(
+					'User',					
+				),				
+				'fields' => array(
+					'Product.id',
+					'Product.user_id',
+					'Product.name', 
+					'Product.slug', 
+					'Product.image',
+					'Product.price',
+					'User.slug',
+				),
+				'conditions' => array(
+					'Product.id' => $pantryProductIds
+				)
+			));
+			$this->set(compact('pantry_products'));
+			//debug($products);
+
+/////// US FOODS				
+				
+			$us = ClassRegistry::init('Feature')->find('all', array(
+				'fields' => array(
+					'Feature.type',
+					'Feature.gwm_product',
+					'Feature.user_id',
+				),
+				'conditions' => array(
+					'Feature.type' => 2,
+				)		
+			));
+			
+			$this->set(compact('us'));
+			//debug($us);
+						
+			$usProductIds = Set::classicExtract($us, '{n}.Feature.gwm_product');		
+				
+			$us_products = ClassRegistry::init('Product')->find('all', array(
+				'contain' => array(
+					'User',					
+				),				
+				'fields' => array(
+					'Product.id',
+					'Product.user_id',
+					'Product.name', 
+					'Product.slug', 
+					'Product.image',
+					'Product.price',
+					'User.slug',
+				),
+				'conditions' => array(
+					'Product.id' => $usProductIds
+				)
+			));
+			$this->set(compact('us_products'));
+
+
+/////// INTL FOODS							
+			$intl = ClassRegistry::init('Feature')->find('all', array(
+				'fields' => array(
+					'Feature.type',
+					'Feature.gwm_product',
+					'Feature.user_id',
+				),
+				'conditions' => array(
+					'Feature.type' => 3,
+				)		
+			));
+			$this->set(compact('intl'));
+						
+			$intlProductIds = Set::classicExtract($intl, '{n}.Feature.gwm_product');
+				
+			$intl_products = ClassRegistry::init('Product')->find('all', array(
+				'contain' => array(
+					'User',					
+				),				
+				'fields' => array(
+					'Product.id',
+					'Product.user_id',
+					'Product.name', 
+					'Product.slug', 
+					'Product.image',
+					'Product.price',
+					'User.slug',
+				),
+				'conditions' => array(
+					'Product.id' => $intlProductIds
+				)
+			));
+			$this->set(compact('intl_products'));
+			
+/////// RECIPES							
+			$recipe_feature = ClassRegistry::init('Feature')->find('all', array(
+				'fields' => array(
+					'Feature.type',
+					'Feature.recipe_link',
+					'Feature.recipe_id',
+					'Feature.user_id',
+				),
+				'conditions' => array(
+					'Feature.type' => 4,
+				)		
+			));
+			
+			$this->set(compact('recipe_feature'));
+			//debug($recipe);
+						
+			$recipeProductIds = Set::classicExtract($recipe_feature, '{n}.Recipe.id');
+			//print_r($productIds);				
+				
+			$recipe_products = ClassRegistry::init('Recipe')->find('all', array(				
+				'fields' => array(
+					'Recipe.id',
+					'Recipe.user_id',
+					'Recipe.name', 
+					'Recipe.slug', 
+					'Recipe.image_1',
+					
+				),
+				'conditions' => array(
+					'Recipe.id' => $recipeProductIds
+				)
+			));
+			$this->set(compact('recipe_products'));
+			debug($recipe_products);
+
+
 	
-			
-		));
-		$this->set(compact('pantry'));
-		//debug($features);
-		
-		
-			
-		$productIds = Set::classicExtract($features, '{n}.Feature.gwm_product');
-		//print_r($productIds);
-				
-		$products = ClassRegistry::init('Product')->find('all', array(
-			'contain' => array(
-				'User',
-				
-			),
-			
-			'fields' => array(
-				'Product.id',
-				'Product.user_id',
-				'Product.name', 
-				'Product.slug', 
-				'Product.image',
-				'Product.price',
-				'User.slug',
-			),
-			'conditions' => array(
-				'Product.id' => $productIds
-			)
-		));
-		$this->set(compact('products'));
-		//print_r($products);
-		
 
 		$contents = $this->Content->find('all', array(
 			'conditions' => array(
@@ -81,9 +188,13 @@ class ContentsController extends AppController {
 		$this->set(compact('welcome'));
 
 
+		$types = $this->Content->find('first', array(
+			
+		));
+		$this->set(compact('types'));
 
-		$blocks = ClassRegistry::init('Block')->find('all');
-		$this->set(compact('blocks'));
+		//$blocks = ClassRegistry::init('Block')->find('all');
+		//$this->set(compact('blocks'));
 
 
 

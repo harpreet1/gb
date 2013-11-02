@@ -19,10 +19,19 @@
 <?php
 echo $this->Form->input('id');
 echo $this->Form->input('name');
+
+echo $this->Form->select('type', array(		
+				'1' => 'Seasonal',
+				'2' => 'US',
+				'3' => 'International',
+				'4' => 'Recipes',			
+		));
+
+echo $this->Form->input('recipe_link',array('class' => 'span6'));
 echo $this->Form->input('slug');
 echo $this->Form->input('gwm_product', array('label' => 'GWM Product ID'));
-echo $this->Form->input('writeup', array('rows' => 20, 'class' => 'input-xxlarge'));
-echo $this->Form->input('link');
+//echo $this->Form->input('writeup', array('rows' => 20, 'class' => 'input-xxlarge'));
+
 ?>
 <br />
 <?php echo $this->Form->button('Submit', array('class' => 'btn')); ?>

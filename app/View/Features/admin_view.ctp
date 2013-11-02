@@ -13,21 +13,18 @@
 		<td>Slug</td>
 		<td><?php echo h($feature['Feature']['slug']); ?></td>
 	</tr>
-	<tr>
-		<td>Subtitle</td>
-		<td><?php echo h($feature['Feature']['subtitle']); ?></td>
+    <tr>
+		<td>Product ID</td>
+		<td><?php echo h($feature['Feature']['gwm_product']); ?></td>
 	</tr>
-	<tr>
-		<td>Description</td>
-		<td><?php echo h($feature['Feature']['description']); ?></td>
+    <tr>
+		<td>Type</td>
+		<td><?php echo h($feature['Feature']['type']); ?></td>
 	</tr>
-	<tr>
-		<td>Writeup</td>
-		<td><?php echo h($feature['Feature']['writeup']); ?></td>
-	</tr>
+
 	<tr>
 		<td>Link</td>
-		<td><?php echo h($feature['Feature']['link']); ?></td>
+		<td><?php echo h($feature['Feature']['recipe_link']); ?></td>
 	</tr>
 	<tr>
 		<td>Created</td>

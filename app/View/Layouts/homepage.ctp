@@ -80,17 +80,18 @@
 				<div class="basket"><img src="/img/global/gwm-oval.png"  alt="gourmet basket"></div></a>
 				
 				<div id="account">
-					<span class="search">
+					<div class="search">
 								<!-- Search Box -->
 								<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search'))); ?>
 								<?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
 								<?php //echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-gb', 'escape' => false)); ?>
 								<?php echo $this->Form->end(); ?>
 							
-					</span>
+					</div>
 					<ul class="gb-horiz-account">
 						
-						<li class="cart"><button class="btn btn-global cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i></a></button></li>
+						<li class="cart"><button class="cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"></i><img src="/img/global/cart.png" width="40" height="29" alt="cart"></a>
+					    </button></li>
 						<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/fb.png" width="28" height="27" alt="facebook"></a></li>
 						<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="28" height="27"></a></li>
 						<li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="27" height="27" alt="pinterest"></a></li>
@@ -174,91 +175,151 @@ novices to professionals and young to old, expand their tastes, techniques and p
 		
 		</div>	
 	
+	
+<h2 class="feature-label">SEASONAL AND GIFT FOODS</h2>
 
-
-
-	
-	
-	
-	
-<h2 class="feature-label">PANTRY FOODS</h2>
-		<div class="feature-row">
-			<?php
-		$i = 0;
-		foreach ($products as $product):
-		$i++;
-		//if (($i % 4) == 0) { echo "\n<div class=\"row\">\n\n";}
-	?>
-	
-
-		<div class="feature">
-			
-				<?php echo $this->Html->image('products/image/' . $product['Product']['image'], array(
-					'alt' => $product['Product']['name'],
-					'class' =>'show',
-					'url' => array(
-						'subdomain' => $product['User']['slug'],
-						'controller' => 'products',
-						'action' => 'view',
-						'id' => $product['Product']['id'],
-						'slug' => $product['Product']['slug']),
-					 ));
-				?>
-				<div class="feature-product-name">
-					<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
-					<?php echo $this->Text->truncate($product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
-					</a>
-				</div>
-			
-			<div class="feature-price">$<?php echo $product['Product']['price']; ?></div>
-		</div>	
-	
-	
-	<?php
-	if (($i % 5) == 0) {
-		
+	<div class="feature-row">
+		<?php $i=1;
+			foreach ($pantry_products as $pantry_product):
 		?>
+            	<!--- One product -->
+				<div class="feature">		
+					<?php echo $this->Html->image('products/image/' . $pantry_product['Product']['image'], array(
+						'alt' => $pantry_product['Product']['name'],
+						'class' =>'show',
+						'url' => array(
+							'subdomain' => $pantry_product['User']['slug'],
+							'controller' => 'products',
+							'action' => 'view',
+							'id' => $pantry_product['Product']['id'],
+							'slug' => $pantry_product['Product']['slug']),
+						 ));
+					?>
+					<div class="feature-product-name">
+						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
+						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						</a>
+					</div>
+				
+					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+                    
+      				<?php $i++; ?>                  
+				</div>
+                <!-- End product -->
+                
+					<?php if ($i > 5) break;
+						endforeach;
+					?>
+	</div>
+		
+<h2 class='feature-label'>US FOODS</h2>
+		
+	<div class="feature-row">
+		<?php $i=1;
+			foreach ($us_products as $us_product):
+		?>
+            	<!--- One product -->
+				<div class="feature">		
+					<?php echo $this->Html->image('products/image/' . $us_product['Product']['image'], array(
+						'alt' => $us_product['Product']['name'],
+						'class' =>'show',
+						'url' => array(
+							'subdomain' => $us_product['User']['slug'],
+							'controller' => 'products',
+							'action' => 'view',
+							'id' => $us_product['Product']['id'],
+							'slug' => $us_product['Product']['slug']),
+						 ));
+					?>
+					<div class="feature-product-name">
+						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
+						<?php echo $this->Text->truncate($us_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						</a>
+					</div>
+				
+					<div class="feature-price">$<?php echo $us_product['Product']['price']; ?></div>
+                    
+      				<?php $i++; ?>                  
+				</div>
+                <!-- End product -->
+                
+					<?php if ($i > 5) break;
+						endforeach;
+					?>
+	</div>
+		
 	
+<h2 class="feature-label">INTERNATIONAL FOODS</h2>
 		
-		<?php	
-		
-	}
-	endforeach;
-	?>
-		
-		</div>
-		
-<!--<h2 class='feature-label'>US FOODS</h2>
-		
-		<div class="feature-row">
-			<div class="feature">1</div>
-			<div class="feature">2</div>
-			<div class="feature">3</div>
-			<div class="feature">4</div>
-			<div class="feature">5</div>
-		</div>
-		
-	
-			
+	<div class="feature-row">
+		<?php $i=1;
+			foreach ($intl_products as $intl_product):
+		?>
+            	<!--- One product -->
+				<div class="feature">		
+					<?php echo $this->Html->image('products/image/' . $intl_product['Product']['image'], array(
+						'alt' => $intl_product['Product']['name'],
+						'class' =>'show',
+						'url' => array(
+							'subdomain' => $intl_product['User']['slug'],
+							'controller' => 'products',
+							'action' => 'view',
+							'id' => $intl_product['Product']['id'],
+							'slug' => $intl_product['Product']['slug']),
+						 ));
+					?>
+					<div class="feature-product-name">
+						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
+						<?php echo $this->Text->truncate($intl_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						</a>
+					</div>
+				
+					<div class="feature-price">$<?php echo $intl_product['Product']['price']; ?></div>
+                    
+      				<?php $i++; ?>                  
+				</div>
+                <!-- End product -->
+                
+					<?php if ($i > 5) break;
+						endforeach;
+					?>
+	</div>
 
 		
-<h2 class="feature-label">INTERNATIONAL FOODS</h2>
-		<div class="feature-row">
-			<div class="feature">c</div>
-			<div class="feature">2</div>
-			<div class="feature">3</div>
-			<div class="feature">4</div>
-			<div class="feature">5</div>
-		</div>
-<h2 class="feature-label">FEATURED RECIPES</h2>
-		<div class="feature-row">
-			<div class="feature">1</div>
-			<div class="feature">2</div>
-			<div class="feature">3</div>
-			<div class="feature">4</div>
-			<div class="feature">5</div>
-		</div>
--->
+<!--<h2 class="feature-label">FEATURED RECIPES</h2>
+-->	<div class="feature-row">
+		<?php $i=1;
+			foreach ($recipe_products as $recipe_product):
+		?>
+            	<!--- One product -->
+				<div class="feature">		
+					<?php echo $this->Html->image('products/image/' . $recipe_product['Recipe']['image_1'], array(
+						'alt' => $pantry_product['Product']['name'],
+						'class' =>'show',
+						'url' => array(
+							'subdomain' => $pantry_product['User']['slug'],
+							'controller' => 'products',
+							'action' => 'view',
+							'id' => $pantry_product['Product']['id'],
+							'slug' => $pantry_product['Product']['slug']),
+						 ));
+					?>
+					<div class="feature-product-name">
+						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
+						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						</a>
+					</div>
+				
+					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+                    
+      				<?php $i++; ?>                  
+				</div>
+                <!-- End product -->
+                
+					<?php if ($i > 5) break;
+						endforeach;
+					?>
+	</div>
 			
 </div>	
 
