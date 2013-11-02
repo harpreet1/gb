@@ -40,7 +40,7 @@ h3 {
 	padding-left: 30px;
 }
 a {
-	color: #3f9179;
+	color: #acc73a;
 }
 
 body #page {
@@ -130,7 +130,7 @@ body #page {
 	text-align: center;
 }
 h1.title-description {
-	
+	font-family: PT Sans Narrow, sans-serif;
 	margin: auto;
 	padding: 10px;
 	
