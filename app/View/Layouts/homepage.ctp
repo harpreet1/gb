@@ -142,6 +142,7 @@ novices to professionals and young to old, expand their tastes, techniques and p
 			<div id="myCarousel" class="carousel slide">
 					
 					<div class="carousel-inner">
+					<div class="carousel-title">TODAY'S FEATURED VENDORS</div>
 					<?php $active = 'active'; ?>
 					<?php foreach($contents as $content) : ?>
 					
