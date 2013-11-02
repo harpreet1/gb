@@ -220,23 +220,23 @@ novices to professionals and young to old, expand their tastes, techniques and p
             	<!--- One product -->
 				<div class="feature">		
 					<?php echo $this->Html->image('products/image/' . $us_product['Product']['image'], array(
-						'alt' => $pantry_product['Product']['name'],
+						'alt' => $us_product['Product']['name'],
 						'class' =>'show',
 						'url' => array(
-							'subdomain' => $pantry_product['User']['slug'],
+							'subdomain' => $us_product['User']['slug'],
 							'controller' => 'products',
 							'action' => 'view',
-							'id' => $pantry_product['Product']['id'],
-							'slug' => $pantry_product['Product']['slug']),
+							'id' => $us_product['Product']['id'],
+							'slug' => $us_product['Product']['slug']),
 						 ));
 					?>
 					<div class="feature-product-name">
 						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
-						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						<?php echo $this->Text->truncate($us_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
 						</a>
 					</div>
 				
-					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+					<div class="feature-price">$<?php echo $us_product['Product']['price']; ?></div>
                     
       				<?php $i++; ?>                  
 				</div>
@@ -257,23 +257,23 @@ novices to professionals and young to old, expand their tastes, techniques and p
             	<!--- One product -->
 				<div class="feature">		
 					<?php echo $this->Html->image('products/image/' . $intl_product['Product']['image'], array(
-						'alt' => $pantry_product['Product']['name'],
+						'alt' => $intl_product['Product']['name'],
 						'class' =>'show',
 						'url' => array(
-							'subdomain' => $pantry_product['User']['slug'],
+							'subdomain' => $intl_product['User']['slug'],
 							'controller' => 'products',
 							'action' => 'view',
-							'id' => $pantry_product['Product']['id'],
-							'slug' => $pantry_product['Product']['slug']),
+							'id' => $intl_product['Product']['id'],
+							'slug' => $intl_product['Product']['slug']),
 						 ));
 					?>
 					<div class="feature-product-name">
 						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">-->
-						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
+						<?php echo $this->Text->truncate($intl_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>
 						</a>
 					</div>
 				
-					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+					<div class="feature-price">$<?php echo $intl_product['Product']['price']; ?></div>
                     
       				<?php $i++; ?>                  
 				</div>
