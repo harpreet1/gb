@@ -133,10 +133,11 @@ class ContentsController extends AppController {
 			$this->set(compact('intl_products'));
 			
 /////// RECIPES							
-			$recipe = ClassRegistry::init('Feature')->find('all', array(
+			$recipe_feature = ClassRegistry::init('Feature')->find('all', array(
 				'fields' => array(
 					'Feature.type',
-					'Feature.gwm_product',
+					'Feature.recipe_link',
+					'Feature.recipe_id',
 					'Feature.user_id',
 				),
 				'conditions' => array(
@@ -144,31 +145,27 @@ class ContentsController extends AppController {
 				)		
 			));
 			
-			$this->set(compact('recipe'));
+			$this->set(compact('recipe_feature'));
 			//debug($recipe);
 						
-			$recipeProductIds = Set::classicExtract($recipe, '{n}.Feature.gwm_product');
+			$recipeProductIds = Set::classicExtract($recipe_feature, '{n}.Recipe.id');
 			//print_r($productIds);				
 				
-			$recipe_products = ClassRegistry::init('Product')->find('all', array(
-				'contain' => array(
-					'User',					
-				),				
+			$recipe_products = ClassRegistry::init('Recipe')->find('all', array(				
 				'fields' => array(
-					'Product.id',
-					'Product.user_id',
-					'Product.name', 
-					'Product.slug', 
-					'Product.image',
-					'Product.price',
-					'User.slug',
+					'Recipe.id',
+					'Recipe.user_id',
+					'Recipe.name', 
+					'Recipe.slug', 
+					'Recipe.image_1',
+					
 				),
 				'conditions' => array(
-					'Product.id' => $recipeProductIds
+					'Recipe.id' => $recipeProductIds
 				)
 			));
 			$this->set(compact('recipe_products'));
-			//debug($recipe_products);
+			debug($recipe_products);
 
 
 	
@@ -191,6 +188,10 @@ class ContentsController extends AppController {
 		$this->set(compact('welcome'));
 
 
+		$types = $this->Content->find('first', array(
+			
+		));
+		$this->set(compact('types'));
 
 		//$blocks = ClassRegistry::init('Block')->find('all');
 		//$this->set(compact('blocks'));

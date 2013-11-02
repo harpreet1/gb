@@ -80,17 +80,18 @@
 				<div class="basket"><img src="/img/global/gwm-oval.png"  alt="gourmet basket"></div></a>
 				
 				<div id="account">
-					<span class="search">
+					<div class="search">
 								<!-- Search Box -->
 								<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search'))); ?>
 								<?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
 								<?php //echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-gb', 'escape' => false)); ?>
 								<?php echo $this->Form->end(); ?>
 							
-					</span>
+					</div>
 					<ul class="gb-horiz-account">
 						
-						<li class="cart"><button class="btn btn-global cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"><i class="icon-shopping-cart icon-white"></i></a></button></li>
+						<li class="cart"><button class="cart" type="submit"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"></i><img src="/img/global/cart.png" width="40" height="29" alt="cart"></a>
+					    </button></li>
 						<li class="social"><a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/fb.png" width="28" height="27" alt="facebook"></a></li>
 						<li class="social"><a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="28" height="27"></a></li>
 						<li class="social"><a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="27" height="27" alt="pinterest"></a></li>
@@ -284,14 +285,14 @@ novices to professionals and young to old, expand their tastes, techniques and p
 	</div>
 
 		
-<h2 class="feature-label">FEATURED RECIPES</h2>
-	<div class="feature-row">
+<!--<h2 class="feature-label">FEATURED RECIPES</h2>
+-->	<div class="feature-row">
 		<?php $i=1;
 			foreach ($recipe_products as $recipe_product):
 		?>
             	<!--- One product -->
 				<div class="feature">		
-					<?php echo $this->Html->image('products/image/' . $recipe_product['Product']['image'], array(
+					<?php echo $this->Html->image('products/image/' . $recipe_product['Recipe']['image_1'], array(
 						'alt' => $pantry_product['Product']['name'],
 						'class' =>'show',
 						'url' => array(

@@ -145,7 +145,7 @@ h1.title-description {
 	padding-top: 5px;
 }
 #account {
-	width:38%;
+	width:42%;
 	float:right;
 	margin-top:33px;
 }
@@ -161,8 +161,11 @@ li.social, li.search, li.cart {
 	margin-left:3px;
 }
 
-span.search {
+div.search {
+	display:inline;
 	float:left;
+	margin-top:-4px;
+	margin-right:5px;
 }
 
 li.gb-account {
@@ -679,6 +682,12 @@ li.cart a {
 .btn-global:hover {
 	background-color: #2F6F5C;
 	color: #fff;
+}
+
+button.cart {
+	border:none;
+	background:none;
+
 }
 
 /** Nav **/
