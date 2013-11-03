@@ -43,6 +43,17 @@
 
 <br />
 
+<?php
+$types = array(		
+				'1' => 'Seasonal',
+				'2' => 'US',
+				'3' => 'International',
+				'4' => 'Recipes',	
+				
+				);		
+				
+				?>
+
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -58,7 +69,7 @@
 	<tr>
 		<td><?php echo h($feature['Feature']['id']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
-        <td><?php echo h($feature['Feature']['type']); ?>&nbsp;</td>
+        <td><?php echo $types[$feature['Feature']['type']]; ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['gwm_product']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['recipe_link']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>

@@ -15,10 +15,10 @@
 <!--[if lt IE 9]><link href="css/meganizr-ie.css" rel="stylesheet" type="text/css"><![endif]-->
 <!-- end Meganizr Menu Styles -->
 
-<?php echo $this->Html->css(array('bootstrap.min.css','bootstrap-responsive.min.css','homepage.css','meganizr.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css','bootstrap-responsive.min.css','homepage.css','yamm.css')); ?>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>-->
 <?php echo $this->Html->script(array('bootstrap.min.js','twitter-bootstrap-hover-dropdown.js','homepage.js','jquery.columnizer.min.js','jquery.bpopup-0.9.3.min.js')); ?>
 <!--'jquery.marquee.min.js' -->
 <?php //echo $this->App->js(); ?>
@@ -101,7 +101,7 @@
 			<div id="header-nav">
 				<div id="nav-wrapper"> 
 					<!-- Include Nav element --> 
-					<?php echo $this->element('nav'); ?> </div>
+					<?php echo $this->element('nav-work'); ?> </div>
 			</div>
 			<div id="gb-title"> 
 				<!--<div class="issue gb-heading">July - August 2013</div>-->
@@ -231,7 +231,7 @@
 					?>
 		</div>
 		
-<h2 class="feature-label">FEATURED RECIPES</h2>
+		<h2 class="feature-label">FEATURED RECIPES</h2>
 		<div class="feature-row">
 			<?php $i=1;
 			foreach ($featurerecipe_objects as $featurerecipe_object):
@@ -250,7 +250,8 @@
 		?>
 		</div>
 	</div>
-</section><?php echo $this->element('footer'); ?> 
+</section>
+<?php echo $this->element('footer'); ?> 
 <script>
 
 

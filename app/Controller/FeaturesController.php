@@ -143,6 +143,18 @@ class FeaturesController extends AppController {
 			throw new NotFoundException(__('Invalid feature'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			$product = ClassRegistry::init('Product')->find('first', array(
+				'contain' => array(
+					'User'
+				),
+				'conditions' => array(
+					'Product.id' => $this->request->data['Feature']['gwm_product']
+				)
+			));
+			$this->request->data['Feature']['gwm_full_url'] = 'http://' . $product['User']['slug'] . 'gbnew.dev/product/' . $product['Product']['id'] . '-' . $product['Product']['slug'];
+			
+			
 			if ($this->Feature->save($this->request->data)) {
 				$this->Session->setFlash('The feature has been saved');
 				$this->redirect(array('action' => 'index'));
