@@ -183,7 +183,8 @@ class ProductsController extends AppController {
 				'Product.displaygroup',
 				'User.slug',
 				'User.more',
-				'Brand.name',
+				'User.name',
+				'Brand.name'
 			),
 			'limit' => 20,
 			'order' => array(

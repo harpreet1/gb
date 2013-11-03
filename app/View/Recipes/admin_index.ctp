@@ -74,6 +74,7 @@ $(document).ready(function() {
 	<tr>
     	<th class="actions">Actions</th>
     	<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('featured'); ?></th>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('recipescategory_id'); ?></th>
@@ -95,6 +96,7 @@ $(document).ready(function() {
 			<?php echo $this->Html->link('Edit', array('action' => 'edit', $recipe['Recipe']['id']), array('class' => 'btn btn-mini')); ?>
 		</td>
         <td><a href="/admin/recipes/switch/active/<?php echo $recipe['Recipe']['id']; ?>" class="status"><img src="/img/icon_<?php echo $recipe['Recipe']['active']; ?>.png" alt="" /></a></td>
+		 <td><a href="/admin/recipes/switch/active/<?php echo $recipe['Recipe']['id']; ?>" class="status"><img src="/img/icon_<?php echo $recipe['Recipe']['featured']; ?>.png" alt="" /></a></td>
 		<td><?php echo h($recipe['Recipe']['id']); ?></td>
 		<td><?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?></td>
 		<td><span class="recipes_category"<?php echo $this->Html->link($recipe['Recipescategory']['name'], array('controller' => 'recipescategories', 'action' => 'view', $recipe['Recipescategory']['id'])); ?></td>

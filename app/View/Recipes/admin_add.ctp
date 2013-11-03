@@ -121,6 +121,7 @@
         
         
 		<br />
+		<?php echo $this->Form->input('featured', array('type' => 'checkbox', 'label' => 'Featured')); ?>
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
 		<br />
 		

@@ -38,7 +38,7 @@
 	Router::connect('/international/:slug', array('controller' => 'traditions', 'action' => 'view'), array('pass' => array('slug')));
 	
 	
-		Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
+	Router::connect('/recipe/:slug', array('controller' => 'recipes', 'action' => 'view'), array('pass' => array('slug'), 'routeClass' => 'SubdomainRoute'));
 	// Article landing page routing
 	Router::connect('/articles/:block/*', array('controller' => 'articles', 'action' => 'index'), array('pass' => array('block','slug')));
 
