@@ -114,3 +114,23 @@ Stack trace:
 #4 /home/gourmet/public_html/lib/Cake/Cache/Cache.php(151): Cache::_buildEngine('_cake_model_')
 #5 /home/gourmet/public_html/app/Config/core.php(281): Cache::config('_cake_model_', Array)
 #6 /home/gourmet/pu in /home/gourmet/public_html/lib/Cake/Cache/Engine/FileEngine.php on line 280
+[30-Oct-2013 15:32:32 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:32:32 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:32:34 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:32:35 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:58:14 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:58:15 America/Los_Angeles] PHP Fatal error:  Call to a member function scriptBlock() on a non-object in /home/gourmet/public_html/app/View/Helper/AppHelper.php on line 49
+[30-Oct-2013 15:58:21 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 15:58:21 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:44 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:44 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:46 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:47 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:55 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:55 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:59 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:00:59 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:03:20 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:03:20 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:03:24 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
+[30-Oct-2013 16:03:24 America/Los_Angeles] PHP Parse error:  syntax error, unexpected $end in /home/gourmet/public_html/app/View/Layouts/homepage.ctp on line 305
