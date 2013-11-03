@@ -135,6 +135,7 @@ CKEDITOR.replace( 'textarea', {
         
 		<br />
 		<?php echo $this->Form->input('active', array('type' => 'checkbox', 'label' => 'Active')); ?>
+		<?php echo $this->Form->input('featured', array('type' => 'checkbox', 'label' => 'Featured')); ?>
 		<br />
 		
 		<?php echo $this->Form->end(); ?>

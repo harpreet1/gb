@@ -115,7 +115,6 @@ class Recipe extends AppModel {
 			'counterCache' => true,
 			'counterScope' => array(),
 		),
-
 	);
 	
 	

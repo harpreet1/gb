@@ -233,7 +233,23 @@ li.gb-account a {
 	margin-bottom:25px;
 	
 }
+
+.feature-recipe {
+	display:inline-block;
+	width:243px;
+	height:193px;
+	border:#999 thin solid;
+	position:relative;
+	margin-bottom:25px;
+	
+}
+
 .feature img {
+	height:193px;
+	margin:auto;
+}
+
+.feature-recipe img {
 	height:193px;
 	margin:auto;
 }
