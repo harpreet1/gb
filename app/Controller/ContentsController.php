@@ -21,9 +21,9 @@ class ContentsController extends AppController {
 		$productIds = Set::classicExtract($feature, '{n}.Feature.gwm_product');
 			//print_r($productIds);
 				
-/////// PANTRY				
+/////// SEASONAL			
 				
-			$pantry = ClassRegistry::init('Feature')->find('all', array(
+			$gift = ClassRegistry::init('Feature')->find('all', array(
 				'fields' => array(
 					'Feature.type',
 					'Feature.gwm_product',
@@ -34,19 +34,18 @@ class ContentsController extends AppController {
 				)		
 			));
 			
-			$this->set(compact('pantry'));
-			//debug($pantry);
+			$this->set(compact('gift'));
+			//debug($gift);
 						
-			$pantryProductIds = Set::classicExtract($pantry, '{n}.Feature.gwm_product');
+			$giftProductIds = Set::classicExtract($gift, '{n}.Feature.gwm_product');
 			//print_r($productIds);				
 				
-			$pantry_products = ClassRegistry::init('Product')->find('all', array(
+			$gift_products = ClassRegistry::init('Product')->find('all', array(
 				'contain' => array(
 					'User',					
 				),				
 				'fields' => array(
 					'Product.id',
-					'Product.user_id',
 					'Product.name', 
 					'Product.slug', 
 					'Product.image',
@@ -54,10 +53,10 @@ class ContentsController extends AppController {
 					'User.slug',
 				),
 				'conditions' => array(
-					'Product.id' => $pantryProductIds
+					'Product.id' => $giftProductIds
 				)
 			));
-			$this->set(compact('pantry_products'));
+			$this->set(compact('gift_products'));
 			//debug($products);
 
 /////// US FOODS				

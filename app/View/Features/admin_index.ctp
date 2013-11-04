@@ -72,7 +72,7 @@ $types = array(
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
         <td><?php echo $types[$feature['Feature']['type']]; ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['gwm_product']); ?>&nbsp;</td>
-		<td><?php echo h($feature['Feature']['gwm_full_url']); ?>&nbsp;</td>
+		<td><a href="<?php echo h($feature['Feature']['gwm_full_url']); ?>"><?php echo h($feature['Feature']['gwm_full_url']); ?></a></td>
 		<td><?php echo h($feature['Feature']['recipe_link']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
