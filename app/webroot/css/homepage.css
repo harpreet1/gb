@@ -120,7 +120,7 @@ body #page.container {
 #gb-title {
 	position: relative;
 	margin-top: 10px;
-	width: 960px;
+	width: 850px;
 	margin: auto;
 }
 #gb-title.magazine {
@@ -148,7 +148,7 @@ h1.title-description {
 	padding-top: 5px;
 }
 #account {
-	width:42%;
+	width:38%;
 	float:right;
 	margin-top:33px;
 }
@@ -169,6 +169,11 @@ div.search {
 	float:left;
 	margin-top:-4px;
 	margin-right:5px;
+}
+
+input[type="text"]#ProductSearch {
+	border-radius:10px;
+	background-color:#dcded7;
 }
 
 li.gb-account {

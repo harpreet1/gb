@@ -82,7 +82,7 @@
 					<div id="account">
 						<div class="search"> 
 							<!-- Search Box --> 
-							<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search'))); ?> <?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
+							<?php echo $this->Form->create('Product', array('type'=>'image','src' => '/img/global/magnifying-glass.png','type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search',))); ?> <?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
 							<?php //echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-gb', 'escape' => false)); ?>
 							<?php echo $this->Form->end(); ?> </div>
 						<ul class="gb-horiz-account">
@@ -151,24 +151,24 @@
 			<h2 class="feature-label">SEASONAL AND GIFT IDEAS</h2>
 			<div class="feature-row">
 				<?php $i=1;
-				foreach ($pantry_products as $pantry_product):
+				foreach ($gift_products as $gift_product):
 			?>
 				<!--- One product -->
-				<div class="feature"> <?php echo $this->Html->image('products/image/' . $pantry_product['Product']['image'], array(
-							'alt' => $pantry_product['Product']['name'],
+				<div class="feature"> <?php echo $this->Html->image('products/image/' . $gift_product['Product']['image'], array(
+							'alt' => $gift_product['Product']['name'],
 							'class' =>'show',
 							'url' => array(
-								'subdomain' => $pantry_product['User']['slug'],
+								'subdomain' => $gift_product['User']['slug'],
 								'controller' => 'products',
 								'action' => 'view',
-								'id' => $pantry_product['Product']['id'],
-								'slug' => $pantry_product['Product']['slug']),
+								'id' => $gift_product['Product']['id'],
+								'slug' => $gift_product['Product']['slug']),
 							 ));
 						?>
 					<div class="feature-product-name"> 
 						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">--> 
-						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
-					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+						<?php echo $this->Text->truncate($gift_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
+					<div class="feature-price">$<?php echo $gift_product['Product']['price']; ?></div>
 					<?php $i++; ?>
 				</div>
 				<!-- End product -->
@@ -245,11 +245,11 @@
 			?>
 				<!--- One product -->
 				<div class="feature-recipe">
-					<a href="http://<?php echo $featurerecipe_object['User']['slug'] ; ?>.gourmetworldmarket.com/recipe/<?php echo $featurerecipe_object['Recipe']['slug'] ; ?>">
+					<a href="http://<?php echo $featurerecipe_object['User']['slug'] . Configure::read('Settings.DOMAIN').'/recipe/'?><?php echo $featurerecipe_object['Recipe']['slug'] ?>">
 						<?php echo $this->Html->image('recipes/image_1/' . $featurerecipe_object['Recipe']['image_1']); ?></a>
 					<div class="feature-product-name"> 
 						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">--> 
-						<?php echo $this->Text->truncate($featurerecipe_object['Recipe']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
+						<?php echo $this->Text->truncate($featurerecipe_object['Recipe']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?>  </div>
 					<?php $i++; ?>
 				</div>
 				<?php if ($i > 5) break;
