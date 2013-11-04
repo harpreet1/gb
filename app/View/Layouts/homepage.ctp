@@ -148,27 +148,29 @@
 					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
 			</div>
 			
+			<div class="container feature-block">
+			
 			<h2 class="feature-label">SEASONAL AND GIFT IDEAS</h2>
 			<div class="feature-row">
 				<?php $i=1;
-				foreach ($pantry_products as $pantry_product):
+				foreach ($gift_products as $gift_product):
 			?>
 				<!--- One product -->
-				<div class="feature"> <?php echo $this->Html->image('products/image/' . $pantry_product['Product']['image'], array(
-							'alt' => $pantry_product['Product']['name'],
+				<div class="feature"> <?php echo $this->Html->image('products/image/' . $gift_product['Product']['image'], array(
+							'alt' => $gift_product['Product']['name'],
 							'class' =>'show',
 							'url' => array(
-								'subdomain' => $pantry_product['User']['slug'],
+								'subdomain' => $gift_product['User']['slug'],
 								'controller' => 'products',
 								'action' => 'view',
-								'id' => $pantry_product['Product']['id'],
-								'slug' => $pantry_product['Product']['slug']),
+								'id' => $gift_product['Product']['id'],
+								'slug' => $gift_product['Product']['slug']),
 							 ));
 						?>
 					<div class="feature-product-name"> 
 						<!--<a href="/product/<?php //echo ($product['Product']['id'].'-'.$product['Product']['slug']);?>">--> 
-						<?php echo $this->Text->truncate($pantry_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
-					<div class="feature-price">$<?php echo $pantry_product['Product']['price']; ?></div>
+						<?php echo $this->Text->truncate($gift_product['Product']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
+					<div class="feature-price">$<?php echo $gift_product['Product']['price']; ?></div>
 					<?php $i++; ?>
 				</div>
 				<!-- End product -->
@@ -255,6 +257,8 @@
 				<?php if ($i > 5) break;
 					endforeach;
 			?>
+			</div>
+
 			</div>
 		</div>
 

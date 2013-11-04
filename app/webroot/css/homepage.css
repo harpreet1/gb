@@ -244,8 +244,8 @@ li.gb-account a {
 
 .feature {
 	display:inline-block;
-	width:193px;
-	height:193px;
+	width:16.5%;
+	height:12em;
 	/*background:url(../img/global/feature-placeholder.jpg) no-repeat;*/
 	border:#999 thin solid;
 	position:relative;
@@ -265,7 +265,7 @@ li.gb-account a {
 }
 
 .feature img {
-	max-height:185px;
+	max-height:100%;
 	max-width:100%;
 	margin:auto;
 }
@@ -292,6 +292,7 @@ li.gb-account a {
 	background:url(../img/global/page-bkgnd-tile.png) repeat;
 	width:97%;
 	height:24px;
+	line-height:15px;
 	text-align:center;
 	font-size:11px;
 	padding-top:4px;
@@ -303,12 +304,76 @@ li.gb-account a {
 	right: -4px;
 	width: 50px;
 	height: 50px;
-	padding-left: 12px;
+	padding-left: 14px;
 	padding-top: 5px;
 	font-size: 11px;
 	font-weight: 700;
 	background: url(../img/global/price-triangle.png) no-repeat;
 }
+
+/** RESPONSIVE **/
+
+@media (max-width: 1199px) {
+	.feature {
+		width:17.8%;
+	}
+	
+	.feature-product-name {
+		height: 34px;
+	}
+	
+	.container.feature-block {
+		padding-left:2.5%;
+	}
+}
+
+@media (max-width: 979px) {
+	
+	.feature {
+		width:17%;
+	}
+	
+	.container.feature-block {
+		padding-left:3.5%;
+	}
+
+
+	.feature-wrapper {
+		max-width:850px;
+	}
+
+	.feature {
+		width:17%;
+		height:10em;
+	}
+	
+	.feature-product-name {
+		width: 97%;
+		height: 52px;
+	}
+	
+	.carousel-title {
+		font-size:92%!important;
+	}
+
+
+
+}
+
+
+@media (max-width: 480px) {
+	.feature-product-name {
+		width: 97%;
+		height: 47px;
+	}
+	
+	.carousel-title {
+		font-size:45%;
+	}
+
+
+}
+
 
 .basket {
 	position: absolute;
@@ -479,7 +544,7 @@ div.pic-link-title {
 */
 	padding: 5px 5px;
 	text-decoration: none;
-	width: 100px;
+	width: 30%;
 }
 
 .carousel-title {
@@ -503,7 +568,7 @@ div.pic-link-title {
 	width: 300px;
 }
 .carousel-caption h1 {
-	font-size: 36px;
+	font-size: 175%;
 	font-family: 'Oregano', cursive;
 }
 .carousel-caption h1 a {
