@@ -32,10 +32,11 @@ h3 {
 	font-size: 17px;
 	line-height: 22px;
 }
-.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+/*.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 	width: 1000px;
 	position:relative;
 }
+*/
 #lower .row-fluid {
 	padding-left: 30px;
 }
@@ -43,16 +44,18 @@ a {
 	color: #acc73a;
 }
 
-body #page {
-	max-width: 1170px;
+body #page.container {
 	margin:auto;
 	-webkit-box-shadow: 0 0 10px #000;
 	box-shadow: 0 0 10px #000;
 	position: relative;
 	background:url(../img/global/page-bkgnd-tile.png) repeat;
+	
 }
 
-
+.wrapper {
+	
+}
 
 .row-fluid .span4 img {
 	margin-bottom: 10px;
@@ -205,23 +208,34 @@ li.gb-account a {
 	margin-bottom: 20px;
 }
 .carousel-inner {
+	max-width:1024px;
+	margin:auto;
 }
 .carousel-inner .item {
 	margin-left: 0px;
 	margin-top: 0px;/*left: 9.2%; /*position:relative;*/
 	/*width: 100%;*/ }
+	
+.carousel-inner .item  img {
+	width:105%;	
+}
+	
 .carousel-control {
 	top: 50%;
 	line-height: 35px;
 }
 .carousel-control.left {
-	left: -55px;
+	left: -60px;
 }
 .carousel-control.right {
-	right: -55px;
+	right: -60px;
 }
 
 /** FEATURE **/
+
+.feature-wrapper {
+	max-width:1024px;
+}
 
 .feature {
 	display:inline-block;
@@ -230,27 +244,30 @@ li.gb-account a {
 	/*background:url(../img/global/feature-placeholder.jpg) no-repeat;*/
 	border:#999 thin solid;
 	position:relative;
-	
-	
+	padding:3px;
 }
 
 .feature-recipe {
 	display:inline-block;
+	float:left;
+	margin-right:5px;
 	width:243px;
 	height:193px;
 	border:#999 thin solid;
 	position:relative;
+	padding:3px;
 	margin-bottom:25px;
-	
 }
 
 .feature img {
-	height:193px;
+	max-height:185px;
+	max-width:100%;
 	margin:auto;
 }
 
 .feature-recipe img {
-	height:193px;
+	max-height:190px;
+	max-width:100%;
 	margin:auto;
 }
 
@@ -267,38 +284,37 @@ li.gb-account a {
 .feature-product-name {
 	position:absolute;
 	bottom:0px;
-	background-color:#FFF;
-	opacity:.9;
-	width:100%;
+	background:url(../img/global/page-bkgnd-tile.png) repeat;
+	width:97%;
 	height:24px;
 	text-align:center;
 	font-size:11px;
+	padding-top:4px;
 }
 
 .feature-price {
-	position:absolute;
+	position: absolute;
 	top: 0px;
-	right: -6px;
+	right: -4px;
 	width: 50px;
 	height: 50px;
 	padding-left: 12px;
 	padding-top: 5px;
-	font-size:11px;
-	font-weight:700;
-	background:url(../img/global/price-triangle.png) no-repeat;
-
+	font-size: 11px;
+	font-weight: 700;
+	background: url(../img/global/price-triangle.png) no-repeat;
 }
 
 .basket {
 	position: absolute;
 	top: 51px;
-	left: -72px;
+	left: 30px;
 	z-index: 500;
 }
-#infinite-background {
+#header-background {
 	background-image: url(../img/global/infinite-header.png);
 	background-repeat: repeat-x;
-	height:140px;
+
 }
 #header-top {
 	height:88px;
@@ -496,7 +512,7 @@ div.pic-link-title {
 }
 
 #nav-wrapper {
-	height: 100px;
+	height: 49px;
 	width: 100%;
 	padding-left: 103px;
 }
@@ -524,6 +540,7 @@ div.pic-link-title {
 }
 .navbar {
 	margin-bottom: 0px;
+	margin-left:11%;
 }
 .navbar .nav {
 	width: 1000px;
@@ -757,7 +774,7 @@ hr.thin.tight {
 }
 
 .footer-links a.first-link {
-	padding-left:1.5%;
+	padding-left:7%;
 }
 
 .footer-links a.last-link {

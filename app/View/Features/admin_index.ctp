@@ -43,12 +43,24 @@
 
 <br />
 
+<?php
+$types = array(		
+				'1' => 'Seasonal',
+				'2' => 'US',
+				'3' => 'International',
+				'4' => 'Recipes',	
+				
+				);		
+				
+				?>
+
 <table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('type'); ?></th>
 		<th><?php echo $this->Paginator->sort('gwm_product'); ?></th>
+		<th><?php echo $this->Paginator->sort('gwm_full_url'); ?></th>
 		<th><?php echo $this->Paginator->sort('recipe_link'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -58,8 +70,9 @@
 	<tr>
 		<td><?php echo h($feature['Feature']['id']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
-        <td><?php echo h($feature['Feature']['type']); ?>&nbsp;</td>
+        <td><?php echo $types[$feature['Feature']['type']]; ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['gwm_product']); ?>&nbsp;</td>
+		<td><?php echo h($feature['Feature']['gwm_full_url']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['recipe_link']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
