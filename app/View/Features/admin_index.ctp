@@ -60,6 +60,7 @@ $types = array(
 		<th><?php echo $this->Paginator->sort('name'); ?></th>
 		<th><?php echo $this->Paginator->sort('type'); ?></th>
 		<th><?php echo $this->Paginator->sort('gwm_product'); ?></th>
+		<th><?php echo $this->Paginator->sort('gwm_full_url'); ?></th>
 		<th><?php echo $this->Paginator->sort('recipe_link'); ?></th>
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -71,6 +72,7 @@ $types = array(
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
         <td><?php echo $types[$feature['Feature']['type']]; ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['gwm_product']); ?>&nbsp;</td>
+		<td><?php echo h($feature['Feature']['gwm_full_url']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['recipe_link']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
