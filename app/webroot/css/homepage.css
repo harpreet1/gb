@@ -362,6 +362,11 @@ li.gb-account a {
 
 
 @media (max-width: 480px) {
+	
+	.feature {
+		width: 20.7%;
+		
+	}	
 	.feature-product-name {
 		width: 97%;
 		height: 84px;
