@@ -286,7 +286,7 @@ li.gb-account a {
 	margin-bottom:25px;
 }
 
-.feature-product-name {
+.feature-product-name,  .feature-recipe-name {
 	position:absolute;
 	bottom:0px;
 	background:url(../img/global/page-bkgnd-tile.png) repeat;
@@ -310,6 +310,11 @@ li.gb-account a {
 	font-weight: 700;
 	background: url(../img/global/price-triangle.png) no-repeat;
 }
+
+.feature-recipe-name {
+	height:24px;
+}
+
 
 /** RESPONSIVE **/
 
@@ -372,6 +377,10 @@ li.gb-account a {
 		height: 84px;
 	}
 	
+	.feature-recipe-name {
+		width: 97%;
+		height: 26px;
+	}
 	.carousel-title {
 		font-size:45%;
 	}
