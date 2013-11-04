@@ -152,7 +152,7 @@ class FeaturesController extends AppController {
 					'Product.id' => $this->request->data['Feature']['gwm_product']
 				)
 			));
-			$this->request->data['Feature']['gwm_full_url'] = 'http://' . $product['User']['slug'] . 'gbnew.dev/product/' . $product['Product']['id'] . '-' . $product['Product']['slug'];
+			$this->request->data['Feature']['gwm_full_url'] = 'http://' . $product['User']['slug'] . Configure::read('Settings.DOMAIN'). '/product/' . $product['Product']['id'] . '-' . $product['Product']['slug'];
 			
 			
 			if ($this->Feature->save($this->request->data)) {
