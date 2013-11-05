@@ -25,40 +25,6 @@
 <?php //echo $this->fetch('meta'); ?>
 <?php //echo $this->fetch('css'); ?>
 <?php //echo $this->fetch('script'); ?>
-<script>
-    // Drop Down Hover!
-    $(document).ready(function() {
-      $('.js-activated').dropdownHover(true);
-      
-      //Columnizer
-        $(function(){
-        $('.wide').columnize({width:250});
-        //$('.thin').columnize({width:200});
-    });
-    
-     // Welcome
-     $(function() {
-     
-        $('#welcome').on('click', function(e) {
-            e.preventDefault();
-            $('#welcome_content').bPopup();
-    });
-});	
-
-		// Google Analytics
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
-	  ga('send', 'pageview');
-
-
-
-	
-});
-</script>
 </head>
 
 <body>
@@ -254,7 +220,7 @@
 						<?php echo $this->Text->truncate($featurerecipe_object['Recipe']['name'], 36, array('ellipsis' => '...', 'exact' => 'false')); ?> </a> </div>
 					<?php $i++; ?>
 				</div>
-				<?php if ($i > 5) break;
+				<?php if ($i > 4) break;
 					endforeach;
 			?>
 			</div>
@@ -292,5 +258,42 @@
 //$("ul#ticker01").liScroll({travelocity: 0.10});
 
 </script>
+
+<script type='text/javascript' src='//easy.myfonts.net/v1/js?sid=136578(font-family=Marydale+Regular)&sid=136579(font-family=Marydale+Bold)&key=TBaQWX9ZsK'></script>
+<script>
+    // Drop Down Hover!
+    $(document).ready(function() {
+      $('.js-activated').dropdownHover(true);
+      
+      //Columnizer
+        $(function(){
+        $('.wide').columnize({width:250});
+        //$('.thin').columnize({width:200});
+    });
+    
+     // Welcome
+     $(function() {
+     
+        $('#welcome').on('click', function(e) {
+            e.preventDefault();
+            $('#welcome_content').bPopup();
+    });
+});	
+
+		// Google Analytics
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
+	  ga('send', 'pageview');
+
+
+
+	
+});
+</script>
+
 </body>
 </html>
