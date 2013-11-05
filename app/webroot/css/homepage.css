@@ -613,8 +613,8 @@ div.pic-link-title {
 /* Navigation **/
 
 #main-nav  li a.parent {
-	font-family: 'franchiseregular';
-	font-size:25px;
+	font-family: 'PT Sans Narrow';
+	font-size:19px;
 }
 
 #nav-wrapper {
@@ -873,14 +873,14 @@ hr.thin.tight {
 	padding-bottom:30px;	
 }
 .footer-links a {
-	font-family:'franchiseregular';
-	font-size:2em;
+	font-family:'PT Sans Narrow';
+	font-size:1.4em;
 	padding-right:30px;
 	
 }
 
 .footer-links a.first-link {
-	padding-left:8.5%;
+	padding-left:9.6%;
 }
 
 .footer-links a.last-link {
