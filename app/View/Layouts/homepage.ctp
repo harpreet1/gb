@@ -80,7 +80,7 @@
 				</div>
 				
 				<div id="welcome_content"> <span class="b-close btn-gb"><span>X</span></span>
-					<h2 style="text-align:center">Welcome to Gourmet Basket &ndash; the First-Ever World Marketplace and Cultural Cuisine Magazine in One..</h2>
+					<h2 style="text-align:center;font-size:25px">The Marketplace to Explore and Experience Global Cuisines and Cultures</h2>
 					<hr />
 					<div style="text-align:center;position:relative">
 						<div id="welcome-bkngd"> <img src="/img/homepage/markets.png" width="704" height="657">
