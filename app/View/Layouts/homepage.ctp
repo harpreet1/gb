@@ -71,12 +71,14 @@
 			</div>
 			
 			<div id="welcome_content"> <span class="b-close btn-gb"><span>X</span></span>
-				<h2 style="text-align:center">The Marketplace to Explore and Experience Global Cuisines and Cultures</h2>
-				<hr />
-				<div style="text-align:center;position:relative">
-					<div id="welcome-bkngd"> <img src="/img/homepage/markets.png" width="704" height="657">
-				</div>
-					<?php echo $welcome['Content']['body']; ?>
+				
+					<h2 style="text-align:center;font-size:25px">The Marketplace to Explore and Experience Global Cuisines and Cultures</h2>
+					<hr />
+					<div style="text-align:center;position:relative">
+						<div id="welcome-bkngd"> <img src="/img/homepage/markets.png" width="704" height="657">
+					</div>
+						<?php echo $welcome['Content']['body']; ?>
+					</div>
 				</div>
 			</div>
 		
