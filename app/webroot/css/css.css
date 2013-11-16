@@ -1067,8 +1067,8 @@ h3.cat-list {
 	-webkit-transform: rotateX(45deg); /* Safari and Chrome */
 }
 div.span8>div.awning>img {
-	width: 690px;
-	height: 111px;
+	width: 100%;
+	
 }
 /** CATEGORY NAV MENU **/
 
