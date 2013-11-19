@@ -9,7 +9,7 @@
 <link href='http://fonts.googleapis.com/css?family=Rosario:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oregano:400,400italic' rel='stylesheet' type='text/css'>
 <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>-->
-<?php echo $this->Html->css(array('bootstrap.min.css','css.css','meganizr.css','cakephp_tag_cloud.css')); ?>
+<?php echo $this->Html->css(array('bootstrap.min.css','css.css','mega-menu.css','mega-menu-responsive.css','cakephp_tag_cloud.css')); ?>
 
 <!-- CSS -->
 
@@ -33,9 +33,6 @@ Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
 <?php echo $this->App->js(); ?><?php echo $this->fetch('meta'); ?><?php echo $this->fetch('css'); ?><?php echo $this->fetch('script'); ?>
 <script type="text/javascript" src="/t/track.php?id=gourmet"></script>
 
-<script type='text/javascript' src='//easy.myfonts.net/v1/js?sid=136578(font-family=Marydale+Regular)&sid=136579(font-family=Marydale+Bold)&key=TBaQWX9ZsK'></script>
-
-
 </head>
 <body class="sun">
 	<div id="page" role="main">
@@ -50,9 +47,7 @@ Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
 				}(document, 'script', 'facebook-jssdk'));
 				</script>-->
 		<div id="header-background">
-		
-			
-			
+			<div class="container">
 				<div id="header-top"> <a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
 					<div class="basket"><img src="/img/global/gwm-oval.png"  alt="gourmet basket"></div>
 					</a>
@@ -61,8 +56,7 @@ Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
 							<!-- Search Box --> 
 							<?php echo $this->Form->create('Product', array('type' => 'GET', 'class' => 'navbar-form', 'url' => array('controller' => 'products', 'action' => 'search'))); ?> <?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'autocomplete' => 'on')); ?>
 							<?php //echo $this->Form->button('<i class="icon-search icon-white"></i> Search', array('div' => false, 'class' => 'btn btn-gb', 'escape' => false)); ?>
-							<?php echo $this->Form->end(); ?>
-						</div>
+							<?php echo $this->Form->end(); ?> </div>
 						<ul class="gb-horiz-account">
 							<li class="cart">
 								<button class="cart" type="submit">
@@ -77,27 +71,22 @@ Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
 						</ul>
 					</div>
 				</div>
-			
-
+				
 			<div id="header-nav">
 				<div id="nav-wrapper"> 
 					<!-- Include Nav element --> 
-					<?php echo $this->element('nav'); ?>
-				</div>
+					<?php echo $this->element('nav-new'); ?> </div>
 			</div>
-		
 			
 			<div class="container wrapper">
 				<div id="dialog-info">
 				<?php echo $this->Session->flash(); ?>
 				</div>
 				<!-- CONTENT -->
-				<?php echo $this->fetch('content'); ?>
+				<?php echo $this->fetch('content'); ?> </div>
 			</div>
 			
-			</div>
-			
-		
+		</div>
 		
 		</div>
 			<?php echo $this->element('footer'); ?>
