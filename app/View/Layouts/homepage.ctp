@@ -289,6 +289,11 @@
 	  ga('create', 'UA-40855494-1', 'gourmetworldmarket.com');
 	  ga('send', 'pageview');
 
+// Heat map - Crazy Egg 
+		setTimeout(function(){var a=document.createElement("script");
+		var b=document.getElementsByTagName("script")[0];
+		a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0019/3794.js?"+Math.floor(new Date().getTime()/3600000);
+		a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 
 
 	

@@ -20,6 +20,8 @@ $(document).ready(function() {
 
 <?php //debug($order); ?>
 
+<div id="printcontent">
+
 <h2>Order</h2>
 
 <table class="table-striped table-bordered table-condensed table-hover">
@@ -28,17 +30,18 @@ $(document).ready(function() {
 		<td><?php echo h($order['Order']['id']); ?></td>
 	</tr>
 	<tr>
-		<td>First Name</td>
-		<td><?php echo h($order['Order']['first_name']); ?></td>
-	</tr>
-	<tr>
-		<td>Last Name</td>
-		<td><?php echo h($order['Order']['last_name']); ?></td>
+		<td>Customer Name</td>
+		<td><?php echo h($order['Order']['first_name']); ?>&nbsp;<?php echo h($order['Order']['last_name']); ?></td>
 	</tr>
 	<tr>
 		<td>Email</td>
 		<td><?php echo h($order['Order']['email']); ?></td>
 	</tr>
+		<tr>
+		<td>Phone</td>
+		<td><?php echo h($order['Order']['phone']); ?></td>
+	</tr>
+
 	<tr>
 		<td>Subtotal</td>
 		<td><?php echo h($order['Order']['subtotal']); ?></td>
@@ -66,12 +69,14 @@ $(document).ready(function() {
 </table>
 
 
-<h3>Related Vendors</h3>
+<h3>Order Vendors</h3>
 
 <?php if (!empty($order['OrderUser'])):?>
 	<table class="table-striped table-bordered table-condensed table-hover">
 	<tr>
 		<th>Vendor</th>
+		<th>Vendor Phone</th>
+		<th>Vendor Email</th>
 		<th>Shipping Method</th>
 		<th>Shipping Service</th>
 		<th>Weight</th>
@@ -79,8 +84,8 @@ $(document).ready(function() {
 		<th style="color:#008000">Shipping</th>
         <th style="color:blue">Shipping Actual</th>
 		<th style="color:red">Shipping Variance</th>
-		<th>total</th>
-		<th>status</th>
+		<th>Vendor Total</th>
+		<th>Status</th>
 		<th>Created</th>
 		<th>Modified</th>
 		<th class="actions"></th>
@@ -88,6 +93,8 @@ $(document).ready(function() {
 	<?php foreach ($order['OrderUser'] as $orderUser): ?>
 		<tr>
 			<td><?php echo $orderUser['User']['name'];?></td>
+			<td><?php echo $orderUser['User']['phone'];?></td>
+			<td><?php echo $orderUser['User']['email'];?></td>
 			<td><?php echo $orderUser['shipping_method'];?></td>
 			<td><?php echo $orderUser['shipping_service'];?></td>
 			<td><?php echo $orderUser['weight'];?></td>
@@ -172,6 +179,7 @@ $(document).ready(function() {
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
+</div>
 
 <br />
 <br />
