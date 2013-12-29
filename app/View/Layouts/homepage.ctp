@@ -259,7 +259,7 @@
 
 </script>
 
-<script type='text/javascript' src='//easy.myfonts.net/v1/js?sid=136578(font-family=Marydale+Regular)&sid=136579(font-family=Marydale+Bold)&key=TBaQWX9ZsK'></script>
+
 <script>
     // Drop Down Hover!
     $(document).ready(function() {

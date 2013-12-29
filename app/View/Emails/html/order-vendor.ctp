@@ -1,4 +1,4 @@
-g<style>
+<style>
 
 body, p, table {
 	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;	

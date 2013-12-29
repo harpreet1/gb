@@ -25,45 +25,34 @@ $(document).ready(function() {
 <h2>Order</h2>
 
 <table class="table-striped table-bordered table-condensed table-hover">
+
 	<tr>
-		<td>Id</td>
-		<td><?php echo h($order['Order']['id']); ?></td>
-	</tr>
-	<tr>
-		<td>Customer Name</td>
-		<td><?php echo h($order['Order']['first_name']); ?>&nbsp;<?php echo h($order['Order']['last_name']); ?></td>
-	</tr>
-	<tr>
-		<td>Email</td>
-		<td><?php echo h($order['Order']['email']); ?></td>
-	</tr>
-		<tr>
-		<td>Phone</td>
-		<td><?php echo h($order['Order']['phone']); ?></td>
+		<th>Id</th>
+		<th>Customer Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Shipping Address</th>
+		<th>Shipping City & State</th>
+		<th>Subtotal</th>
+		<th>Tax</th>
+		<th>Shipping</th>
+		<th>Total</th>
+		<th>Created</th>
+		<th>Modified</th>
 	</tr>
 
 	<tr>
-		<td>Subtotal</td>
+		<td><?php echo h($order['Order']['id']); ?></td>
+		<td><?php echo h($order['Order']['first_name']); ?>&nbsp;<?php echo h($order['Order']['last_name']); ?></td>
+		<td><?php echo h($order['Order']['email']); ?></td>
+		<td><?php echo h($order['Order']['phone']); ?></td>
+		<td><?php echo h($order['Order']['shipping_address']); ?></td>
+		<td><?php echo h($order['Order']['shipping_city']); ?>,&nbsp;<?php echo h($order['Order']['shipping_zip']); ?>&nbsp;&nbsp;<?php echo h($order['Order']['shipping_state']); ?></td>
 		<td><?php echo h($order['Order']['subtotal']); ?></td>
-	</tr>
-	<tr>
-		<td>Tax</td>
 		<td><?php echo h($order['Order']['tax']); ?></td>
-	</tr>
-	<tr>
-		<td>Shipping</td>
 		<td><?php echo h($order['Order']['shipping']); ?></td>
-	</tr>
-	<tr>
-		<td>Total</td>
 		<td><?php echo h($order['Order']['total']); ?></td>
-	</tr>
-	<tr>
-		<td>Created</td>
 		<td><?php echo h($order['Order']['created']); ?></td>
-	</tr>
-	<tr>
-		<td>Modified</td>
 		<td><?php echo h($order['Order']['modified']); ?></td>
 	</tr>
 </table>
