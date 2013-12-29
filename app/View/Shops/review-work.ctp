@@ -31,9 +31,17 @@
 		<span class="bold">Shipping Address</span><br /><?php echo $shop['Order']['shipping_address'];?><br />
 		<?php if(!empty($order['Order']['shipping_address2'])) : ?>Shipping Address 2: <?php echo $shop['Order']['shipping_address2'];?><br />
 		<?php endif; ?>
+        
+        <?php if (($shop['Order']['residential']) == 0) {
+					$destination = 'Residential';
+		}
+			  else $destination = 'Business';
+		 ?>
+        
 		<?php echo $shop['Order']['shipping_city'];?>,&nbsp;
 		<?php echo $shop['Order']['shipping_state'];?>&nbsp;&nbsp;
-		<?php echo $shop['Order']['shipping_zip'];?>
+		<?php echo $shop['Order']['shipping_zip'];?>&nbsp;&nbsp;(&nbsp;
+        <?php echo $destination;?>&nbsp;&nbsp;)
 
 	</div>
 
@@ -111,6 +119,12 @@
 	<div class="span1 bold">Fee</div>
 
 	</div>
+    
+		<?php $ups_residential = 2.80 ?>
+		<?php $fedex_residential = 2.75 ?>
+		<?php //echo ($ups_residential); ?>
+
+    
 	<div class="row">
 
 	<?php foreach ($shop['Users'] as $key => $value): ?>
@@ -122,7 +136,8 @@
 		<div class="span1"><?php echo $shop['Users'][$key]['quantity']; ?></div>
 		<div class="span1"> <?php echo $shop['Users'][$key]['weight']; ?> LBS</div>
 		<div class="span3"><?php echo $shop['Users'][$key]['shipping_service']; ?></div>
-		<div class="span13"><?php echo $shop['Users'][$key]['shipping']; ?></div>
+        <?php $shipping_residential = $shop['Users'][$key]['shipping'] + (Configure::read('Settings.UPS_RESIDENTIAL_FEE')); ?>
+		<div class="span13"><?php //echo $shop['Users'][$key]['shipping']; ?><?php echo $shipping_residential; ?></div>
 		<div class="row">
 
 			<?php //foreach ($value['Shippingfees'] as $ship): ?>
@@ -164,7 +179,8 @@
 				});
 
 			</script>
-
+            
+           
 			<br />
 			<?php echo $this->Form->create('Ship'); ?>
 
@@ -178,7 +194,12 @@
 				<?php $optionship = array(); ?>
 
 				<?php foreach ($value['Shippingfees'] as $ship): ?>
-					<?php $optionship[] = $ship['ServiceName'] . '<strong>&nbsp;(' .  $ship['TotalCharges'] . '&nbsp;)</strong>' ;?>
+					<?php //echo ($TotalChargesResidential); ?>
+                
+                	<?php $TotalChargesResidential = ($ship['TotalCharges']) + (Configure::read('Settings.UPS_RESIDENTIAL_FEE')) ; ?>
+					<?php $optionship[] = $ship['ServiceName'] . '<strong>&nbsp;(' .  $TotalChargesResidential . '&nbsp;)</strong>' ;?>
+					
+					<?php //$optionship[] = $ship['ServiceName'] . '<strong>&nbsp;(' .  $ship['TotalCharges'] . '&nbsp;)</strong>' ;?>
 					<?php endforeach; ?>
 					<?php echo $this->Form->input('rating_' . $shop['Users'][$key]['id'], array('type' => 'radio', 'legend' => false, 'options' => $optionship, 'value' => $shop['Users'][$key]['shipping_selected']));?>
 					<br />
@@ -186,7 +207,7 @@
 				<?php else: ?>
 					<strong><?php echo $shop['Users'][$key]['name']; ?></strong><br />
 					<?php foreach ($value['Shippingfees'] as $ship): ?>
-						<?php echo $ship['ServiceName']; ?>: $<?php echo $ship['TotalCharges']; ?><br />
+						<?php echo $ship['ServiceName']; ?>: $<?php echo $ship['TotalCharges'] . + (Configure::read('Settings.UPS_RESIDENTIAL_FEE')); ?><br />
 					<?php endforeach; ?>
 
 				<?php endif; ?>
@@ -206,12 +227,17 @@
 
 <?php if($ccform): ?>
 
+
+	<?php $ups_residential = 2.80 ?>
+	<?php $fedex_residential = 2.75 ?>
+
 <div class="span3 offset9 CC">
 	<p style="text-align:right; padding-right:30px;">
 	<strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
 	<strong>Discount ($<?php echo $shop['Order']['discount']; ?>)</strong> <br />
 	<strong>Tax: <?php echo $shop['Order']['tax']; ?></strong> <br />
-	<strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+    <?php $order_total_shipping = ($shop['Order']['shipping'] + (Configure::read('Settings.UPS_RESIDENTIAL_FEE'))); ?>
+	<strong>Shipping: <?php //echo $shop['Order']['shipping']; ?><?php echo $order_total_shipping ; ?></strong> <br />
 	<strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
 	</p>
 </div>
@@ -257,7 +283,8 @@
 		<strong>Subtotal: $<?php echo $shop['Order']['subtotal']; ?></strong> <br />
 		<strong>Discount ($<?php echo $shop['Order']['discount']; ?>)</strong> <br />
 		<strong>Tax: <?php echo $shop['Order']['tax']; ?></strong> <br />
-		<strong>Shipping: <?php echo $shop['Order']['shipping']; ?></strong> <br />
+        <?php $order_total_shipping = ($shop['Order']['shipping'] + (Configure::read('Settings.UPS_RESIDENTIAL_FEE'))); ?>
+		<strong>Shipping: <?php //echo $shop['Order']['shipping']; ?><?php echo $order_total_shipping ; ?></strong> <br />
 		<strong>Order Total: <?php echo $shop['Order']['total']; ?></strong> <br />
 		</p>
 	</div>
