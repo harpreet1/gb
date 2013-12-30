@@ -281,7 +281,8 @@ class ShopsController extends AppController {
 
 				$shippingtotal = 0;
 				foreach($shop['Users'] as $user) {
-					$shippingtotal += $user['Shippingfees'][0]['TotalCharges'];
+					if 
+					$shippingtotal += $user['Shippingfees'][0]['TotalCharges'] + (Configure::read('Settings.UPS_RESIDENTIAL_FEE'));
 				}
 				$shippingtotal = sprintf('%.2f', $shippingtotal);
 
