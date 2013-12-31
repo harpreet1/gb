@@ -23,7 +23,7 @@
 }
 .bkgnd-gb {
 	<?php echo $user['User']['awning_css']; ?>
-	opacity: 0.2;  Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+
+	opacity: 0.2;  /**Android 2.1+, Chrome 4+, Firefox 2+, IE 9+, iOS 3.2+, Opera 9+, Safari 3.1+ **/
 }
 <?php endif; ?>
 </style>
@@ -141,7 +141,7 @@
 	<div id="header">
 
 	<div class="social-main">
-		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart"></i><img src="/img/global/cart.png" width="40" height="29" alt="cart">
+		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart">
 			<button class="cart" type="submit"></button>
 		</a>
 		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>

@@ -229,7 +229,9 @@ class ShopsController extends AppController {
 
 						$shipping_companies = array('usps', 'ups', 'fedex');
 						if (in_array($user['shipping_method'], $shipping_companies)) {
-
+							
+							print_r($user['shipping_method']);
+							
 							$shippingMethod = ucfirst($user['shipping_method']);
 
 							$result = $this->$shippingMethod->getRate($data);

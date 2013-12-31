@@ -66,6 +66,11 @@ hr {
 	color:#c00;
 }
 
+img {
+	border: 0px !important;
+	outline: 0 !important;
+}
+
 /** Pic Frame **/
 
 img.frame {
@@ -2593,6 +2598,9 @@ hr.thin.tight {
 .social-main {
 	float:right;
 	margin-top:67px;
+	position: relative;
+	z-index: 1000;
+
 }
 
 .social-aux {
@@ -2651,11 +2659,24 @@ select.modselector {
 	position:absolute;
 	right:11px;
 	top:112px;
+	
 }
 
-button.cart a img {
+button.cart {
+	background:url(../img/global/cart.png) no-repeat;
+	background-color:transparent;
+	width:40px;
+	height:29px;
+	cursor:pointer;
 	border:none;
-	width:34px;
+}
+
+button:focus {
+	outline:none;
+}
+
+.social-main a {
+	padding-left:2px;
 }
 
 
