@@ -442,7 +442,7 @@ ul.meganizr .brands .wide {
 }
 
 .footer-links a {
-	padding-right:75px;
+	padding-right:52px;
 }
 
 .footer-links a.first-link {
@@ -2505,6 +2505,10 @@ div.gb-heading>div#populate-overlay-1>p>a,
 
 #shopping-cart .bold {
 	font-weight:bold;
+}
+
+#shopping-cart img {
+	max-height:35px;
 }
 
 .span3.gb-ship {
