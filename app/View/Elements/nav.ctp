@@ -128,7 +128,7 @@
 			<li class="mzr-drop"><a class="parent" href="http://blog.gourmetworldmarket.com">ARTICLES/BLOG<b class="caret"></b></a>
 				<div class="mzr-content drop-two-columns popover-content">
 					<div class="wide">
-						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/recipes">Articles/Blog</a></p>
+						<p><a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/articles">Articles/Blog</a></p>
 					</div>
 				</div>
 			</li>
