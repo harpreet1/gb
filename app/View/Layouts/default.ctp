@@ -144,9 +144,9 @@
 		<a href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>/shops/cart">
 			<button class="cart" type="submit"></button>
 		</a>
-		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/facebook.png" width="29" height="30" alt="facebook"></a>
-		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/twitter.png" width="30" height="30" alt="twitter"></a>
-		<a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pinterest.png" width="30" height="30" alt="pinterest"></a>
+		<a href="https://www.facebook.com/pages/Gourmet-Basket/603379453015040"><img src="/img/global/fb.png" width="29" height="30" alt="facebook"></a>
+		<a href="https://twitter.com/search/users?q=gourmetbasket1"><img src="/img/global/tw.png" width="30" height="30" alt="twitter"></a>
+		<a href="http://pinterest.com/gourmetbasket1/"><img src="/img/global/pin.png" width="30" height="30" alt="pinterest"></a>
 	</div>
 
 		<a class="home" href="http://www.<?php echo Configure::read('Settings.DOMAIN'); ?>">
