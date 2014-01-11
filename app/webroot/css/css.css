@@ -86,7 +86,7 @@ img.frame {
 }
 #header {
 	background: url(../img/global/GW-header-2013.png) no-repeat;
-	height: 147px;
+	height: 162px;
 	width: 1003px;
 	margin: auto;
 	position: relative;
@@ -207,7 +207,7 @@ img.frame {
 }
 .basket {
 	position: absolute;
-	top: 117px;
+	top: 126px;
 	left: 41px;
 	z-index: 500;
 }
@@ -252,6 +252,7 @@ a.home{
 }
 .navbar {
 	margin-bottom: 0px;
+	height:55px;
 	background-color: #3a3a3a;
 }
 .navbar .nav {
