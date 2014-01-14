@@ -508,5 +508,7 @@ Logo <br />
 	<?php endif; ?>
 </div>
 
+</div>
+
 
 
