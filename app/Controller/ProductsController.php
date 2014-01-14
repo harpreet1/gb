@@ -1107,7 +1107,13 @@ class ProductsController extends AppController {
 
 		$ustraditions = $this->Product->Ustradition->findList();
 
-		$brands = $this->Product->Brand->findList();
+		//$brands = $this->Product->Brand->findList();
+		
+		$brands = $this->Product->Brand->find('list', array(
+			'order' => array(
+				'Brand.name' => 'ASC'
+			)
+		));
 
 		$countries = $this->Product->countries();
 

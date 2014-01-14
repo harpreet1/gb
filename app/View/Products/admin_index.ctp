@@ -183,6 +183,7 @@ $(document).ready(function() {
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 		<th><?php echo $this->Paginator->sort('active'); ?></th>
+		<th><?php echo $this->Paginator->sort('new'); ?></th>
 		<th><?php echo $this->Paginator->sort('show', 'Come Back');?></th>
 		<th><?php echo $this->Paginator->sort('discontinued'); ?></th>
 		<th><?php echo $this->Paginator->sort('not_showing', 'Showing on Maestro'); ?></th>
@@ -230,10 +231,10 @@ $(document).ready(function() {
 		</td>
 
 		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['active']; ?>.png" alt="" /></a></td>
-		<td><a href="/admin/products/switch/show/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['show']; ?>.png" alt="" /></a></td>
-
+		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['new']; ?>.png" alt="" /></a></td>
+		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['show']; ?>.png" alt="" /></a></td>
 		<td><?php echo ($product['Product']['discontinued']); ?></td>
-		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['not_showing']; ?>.png" alt="" /></a></td>
+		<td><a href="/admin/products/switch/active/<?php echo $product['Product']['id']; ?>" class="status"><img src="/img/icon_<?php echo $product['Product']['discontinued']; ?>.png" alt="" /></a></td>
 		<td><?php echo $this->Html->image('products/image/' . $product['Product']['image'], array('class' => 'img100')); ?></td>
 		<td><?php echo ($product['Product']['name']); ?></td>
 		<td><?php echo ($product['Product']['slug']); ?></td>
