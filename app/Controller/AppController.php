@@ -271,6 +271,35 @@ class AppController extends Controller {
 
 	}
 
+
+////////////////////////////////////////////////////////////
+
+	public function vendor_deleteimage() {
+
+		// debug($this->request->data);
+		// die;
+		$model = $this->modelClass;
+
+		$id = $this->request->data[$model]['id'];
+		$field = $this->request->data[$model]['field'];
+		$path = $this->request->data[$model]['path'];
+		$file = $this->request->data[$model]['file'];
+		// debug($id);
+		// debug($field);
+		// debug($path);
+		// debug($file);
+
+		$this->$model->id = $id;
+		$this->$model->saveField($field, '');
+
+		$im = IMAGES . $path . $file;
+		@unlink($im);
+
+		$this->redirect($this->referer());
+
+	}
+
+
 ////////////////////////////////////////////////////////////
 
 	public function admin_importcsv() {
@@ -294,5 +323,8 @@ class AppController extends Controller {
 	}
 
 ////////////////////////////////////////////////////////////
+
+
+
 
 }

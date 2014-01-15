@@ -429,7 +429,7 @@ Logo <br />
 
 
 
-
+<h2>PINTEREST IMAGES</h2>
 
 
 
@@ -507,8 +507,4 @@ Logo <br />
     )); ?>
 	<?php endif; ?>
 </div>
-
-</div>
-
-
-
+<div style="clear:both"></div>

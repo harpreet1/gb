@@ -248,3 +248,128 @@
 <br />
 <br />
 
+
+<br />
+<h3>Actions</h3>
+<br />
+<br />
+
+
+<br />
+<br />
+<span class="label label-warning"> &nbsp; Image : no watermark, square image size </span> <br />
+<br />
+<?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'profile', 'vendor' => true)));?> <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?> <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
+
+<table class="table-striped table-bordered table-condensed">
+	<tbody>
+		<tr>
+			<td>Upload Image</td>
+			<td><?php echo $this->Form->file('image'); ?></td>
+		</tr>
+		<tr>
+			<td>Image Type</td>
+			<td><?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
+				'image_7' => 'Pin image 1',
+				'image_8' => 'image 8',
+				'image_9' => 'image 9',
+				'image_10' => 'image 10',
+				'image_11' => 'image 11',
+			))); ?></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><?php echo $this->Form->button('Submit', array('class' => 'btn'));?></td>
+		</tr>
+	</tbody>
+</table>
+
+<?php echo $this->Form->end(); ?> <br />
+<br />
+
+
+
+
+
+
+
+
+<h2>PINTEREST IMAGES</h2>
+
+
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_7'])) : ?>
+	Image 7 <br />
+	<?php echo $this->Html->image('users/image_7/'. $user['User']['image_7'] . '?date=' . time(), array('class' => 'gb')); ?>
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_7',
+        'path' => 'users/image_7/',
+        'file' => $user['User']['image_7'],
+    )); ?>
+	<?php endif; ?>
+</div>
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_8'])) : ?>
+	Image 8 <br />
+	<?php echo $this->Html->image('users/image_8/'. $user['User']['image_8'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_8',
+        'path' => 'users/image_8/',
+        'file' => $user['User']['image_8'],
+    )); ?>
+	<?php endif; ?>
+</div>
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_9'])) : ?>
+	Image 9 <br />
+	<?php echo $this->Html->image('users/image_9/'. $user['User']['image_9'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_9',
+        'path' => 'users/image_9/',
+        'file' => $user['User']['image_9'],
+    )); ?>
+	<?php endif; ?>
+</div>
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_10'])) : ?>
+	Image 10<br />
+	<?php echo $this->Html->image('users/image_10/'. $user['User']['image_10'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_10',
+        'path' => 'users/image_10/',
+        'file' => $user['User']['image_10'],
+    )); ?>
+	<?php endif; ?>
+</div>
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_11'])) : ?>
+	Image 11<br />
+	<?php echo $this->Html->image('users/image_11/'. $user['User']['image_11'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_11',
+        'path' => 'users/image_11/',
+        'file' => $user['User']['image_11'],
+    )); ?>
+	<?php endif; ?>
+</div>
+<div style="clear:both"></div>
