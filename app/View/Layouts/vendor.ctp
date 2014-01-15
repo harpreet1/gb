@@ -30,7 +30,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 
-			<a class="brand" href="/vendor/">GB VENDOR</a>
+			<a class="brand" href="/vendor/">Gourmet World Market Vendor</a>
 
 			<div class="nav-collapse">
 				<ul class="nav">

@@ -1,5 +1,5 @@
-<h2>Profile</h2>
-
+<h2>Vendor Profile</h2>
+<div style="height:300px;overflow:scroll">
 <table class="table-striped table-bordered table-condensed table-hover">
 <tr>
 <td>Id</td>
@@ -245,36 +245,35 @@
 </tr>
 </table>
 
+</div>
+
 <br />
 <br />
 
 
 <br />
-<h3>Actions</h3>
-<br />
-<br />
+<h3>Pinterest Image Uploads and Catalog</h3>
 
-
-<br />
-<br />
-<span class="label label-warning"> &nbsp; Image : no watermark, square image size </span> <br />
 <br />
 <?php echo $this->Form->create('User', array('type' => 'file', 'url' => array('controller' => 'users', 'action' => 'profile', 'vendor' => true)));?> <?php echo $this->Form->hidden('id', array('value' => $user['User']['id'])); ?> <?php echo $this->Form->hidden('slug', array('value' => $user['User']['slug'])); ?>
 
 <table class="table-striped table-bordered table-condensed">
 	<tbody>
 		<tr>
-			<td>Upload Image</td>
+			<td>Upload your Image</td>
 			<td><?php echo $this->Form->file('image'); ?></td>
 		</tr>
 		<tr>
-			<td>Image Type</td>
+			<td>Image Type - Select up to 5 by<br />
+			 1) Choosing the file on your computer<br />
+			2) Choose the drop-down<br />
+			3) Clicking Submit</td>
 			<td><?php echo $this->Form->input('image_type', array('type' => 'select', 'label' => false, 'options' => array(
-				'image_7' => 'Pin image 1',
-				'image_8' => 'image 8',
-				'image_9' => 'image 9',
-				'image_10' => 'image 10',
-				'image_11' => 'image 11',
+				'image_7' => 'Pinterest image 1',
+				'image_8' => 'Pinterest image 2',
+				'image_9' => 'Pinterest image 3',
+				'image_10' => 'Pinterest image 4',
+				'image_11' => 'Pinterest image 5',
 			))); ?></td>
 		</tr>
 		<tr>
@@ -300,7 +299,7 @@
 
 <div class="adminUserImages">
 	<?php if(!empty($user['User']['image_7'])) : ?>
-	Image 7 <br />
+	Aux Image 1 <br />
 	<?php echo $this->Html->image('users/image_7/'. $user['User']['image_7'] . '?date=' . time(), array('class' => 'gb')); ?>
 	<br />
 	<?php echo $this->element('deleteimage', array(
@@ -315,7 +314,7 @@
 
 <div class="adminUserImages">
 	<?php if(!empty($user['User']['image_8'])) : ?>
-	Image 8 <br />
+	Aux Image 2 <br />
 	<?php echo $this->Html->image('users/image_8/'. $user['User']['image_8'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
 	<br />
 	<?php echo $this->element('deleteimage', array(
@@ -330,7 +329,7 @@
 
 <div class="adminUserImages">
 	<?php if(!empty($user['User']['image_9'])) : ?>
-	Image 9 <br />
+	Aux Image 3 <br />
 	<?php echo $this->Html->image('users/image_9/'. $user['User']['image_9'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
 	<br />
 	<?php echo $this->element('deleteimage', array(
@@ -345,7 +344,7 @@
 
 <div class="adminUserImages">
 	<?php if(!empty($user['User']['image_10'])) : ?>
-	Image 10<br />
+	Aux Image 4<br />
 	<?php echo $this->Html->image('users/image_10/'. $user['User']['image_10'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
 	<br />
 	<?php echo $this->element('deleteimage', array(
@@ -360,7 +359,7 @@
 
 <div class="adminUserImages">
 	<?php if(!empty($user['User']['image_11'])) : ?>
-	Image 11<br />
+	Aux Image 5<br />
 	<?php echo $this->Html->image('users/image_11/'. $user['User']['image_11'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
 	<br />
 	<?php echo $this->element('deleteimage', array(

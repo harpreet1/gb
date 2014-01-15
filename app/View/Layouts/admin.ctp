@@ -21,7 +21,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 
-			<a class="brand" href="/admin/">GB ADMIN</a>
+			<a class="brand" href="/admin/">GWM ADMIN</a>
 
 			<div class="nav-collapse">
 				<ul class="nav">
