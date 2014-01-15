@@ -274,6 +274,7 @@
 				'image_9' => 'Pinterest image 3',
 				'image_10' => 'Pinterest image 4',
 				'image_11' => 'Pinterest image 5',
+				'image_12' => 'Pinterest image 6',
 			))); ?></td>
 		</tr>
 		<tr>
@@ -371,4 +372,20 @@
     )); ?>
 	<?php endif; ?>
 </div>
+
+<div class="adminUserImages">
+	<?php if(!empty($user['User']['image_12'])) : ?>
+	Aux Image 5<br />
+	<?php echo $this->Html->image('users/image_12/'. $user['User']['image_12'] . '?date=' . time(), array('class' => 'gb')); ?> <br />
+	<br />
+	<?php echo $this->element('deleteimage', array(
+        'model' => 'User',
+        'id' => $user['User']['id'],
+        'field' => 'image_11',
+        'path' => 'users/image_12/',
+        'file' => $user['User']['image_12'],
+    )); ?>
+	<?php endif; ?>
+</div>
+
 <div style="clear:both"></div>
